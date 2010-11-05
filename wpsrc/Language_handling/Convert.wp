@@ -1,0 +1,80 @@
+== Description ==
+This part helps adapting your code and language files to the new standard in Joomla! 1.6. It scans your PHP code and language INI files for keys and values that needs to be changed.
+
+As this means automatic changes to your code we make an aditional step which gives you a preview of everything that will be changed.
+
+The rules as they are defined at the time of writing seem to be:
+
+* '''Keys'''
+** '''Can not contain the characters''': {{mark|<tt><nowiki>? { } | & ~ ! [ ( ) ^ "</nowiki></tt>}}
+** '''Can not consist of the words''': {{mark|<tt>null, yes, no, true, false, on, off, none</tt>}}
+** '''Should not contain''' {{mark|spaces}} - this is somewhat ''optional'' - Joomla!s "language debugger" reports spaces as errors, but PHPs ini parser doesn't care about them.
+
+* '''Values'''
+** '''Should always be quoted''' - Actually this is only required if the value contains any no alphanumeric character (like a space). So it's a good practice to always quote the values.
+** '''Double quotes must be converted''' by the special ''JQuote'' {{mark|"__QQ__"}} which is a '''double quote''' followed by '''two underscores''' followed by '''two uppercase letters q''' followed by '''two underscores''' and a '''double quote''' - too simple ?
+** According to the [http://php.net/manual/en/function.parse-ini-file.php PHP manual] the characters {{mark|<tt><nowiki>? { } | & ~ ! [ ( ) ^ "</nowiki></tt>}} have a '''special meaning''' in values - unfortunately they don't specify ''how special'' they are.. (maybe they are special like in "I love you 'cause you're so special").
+
+EasyCreator provides an easy way to change the offending keys '''simultaneously''' in your PHP code and all corresponding language files. Creating backup files of course.
+
+=== Example change in PHP code ===
+[[Bild:ECR_languages_convert_ex1.png]]
+
+Changes to the PHP file. Original file on the left, fixed on the right side.
+
+=== Example change in INI file ===
+[[Bild:ECR_languages_convert_ex1a.png]]
+
+Changes to the INI language file. Original file on the left, fixed on the right side.
+
+== Step 1 Preview ==
+
+Only a single PHP file will be processed in a step. If you do not select a file, only the values of the language files will be changed.
+
+The upper part cotains your PHP code. On the left side the original version and on the right the fixed one.
+
+Below are the language INI files from your installed languages of a given scope. Original left, fixed right. Changing lines have a <span style="background-color: #ffc;">yellow background</span>, changing keys are displayed <span style="color: red">red</span>. 
+
+[[Bild:ECR_languages_convert_1.png|thumb|800px|center]]
+{{clear}}
+
+== Step 2 Apply changes ==
+
+Whether you selected a file or not you will se a button <span style="border: 1px solid gray;">'''Convert code and language file'''</span> or just <span style="border: 1px solid gray;">'''Convert language file'''</span>. Hit it. The chages will be applied and you can go on to the next file.
+
+'''NOTE''' Backup files will be written for both PHP and INI files. They are named after the original file with the postfix .r'''X'''.
+
+e.g. the first backup file for {{file|file.php|php}} will be {{file|file.php.r1|php}} and the second one will be {{file|file.php.r2|php}} and so on.
+
+Don't fear - EasyCreator cares for your code <tt>=;)</tt>
+
+{{tip}} Note that the converted language files for Joomla! 1.6 will also do their job in Joomla! 1.5 !
+
+== Next steps ==
+
+If you are watching the Joomla! SVN trunk you will notice that inside the core extensions all JText strings are in capital letters prefixed by a string identifying the extension they belong to.
+
+As I do not fully agree with this practice I will leave this as an option so - not implemented yet.
+
+COM_EASYCREATOR_MESSAGE_HAPPY_CODING_SMILE="'''Happy coding <tt>=;)</tt>'''"
+
+==Example==
+The following are "real" values still ''not representative'' - they come from EasyCreator <tt>=;)</tt>
+
+Required changes to PHP files:
+<pre>
+482 lines in en-GB INI
+1070 JTexts in PHP files
+
+Changes in JTexts caused by:
+* 6 bad keys
+* 29 bad chars
+? 582 white space
+n 993 all caps
+n 1070 com_prefix
+
+* required / ? question / n not required
+</pre>
+
+----
+<tt>@version $Id: Convert.wp 1175 2010-04-28 22:44:59Z elkuku $</tt>

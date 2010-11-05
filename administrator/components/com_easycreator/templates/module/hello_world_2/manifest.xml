@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="module" scope="site" version="0.0.12">
+  <name>Hello World 2</name>
+  <description>A MVC frontend module.</description>
+  <version>1.1</version>
+  <jVersion>1.5</jVersion>
+  <phpVersion>4</phpVersion>
+  <author>docs.joomla.org</author>
+  <authorUrl>http://docs.joomla.org/How_to_create_a_module</authorUrl>
+</easyproject>

@@ -1,0 +1,54 @@
+/**
+ * @version SVN: $Id$
+ * @package    LanguageChecker
+ * @subpackage CSS
+ * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author     Nikolai Plath {@link http://easy-joomla.org}
+ * @author     Created on 12-Sep-2010
+ * @license    GNU/GPL
+ */
+ @CHARSET "UTF-8";
+
+.icon-48-locale {
+	background-image: url(../images/icon-48-locale.png);
+}
+
+.jlpMain table {
+	width: 100%;
+}
+
+.jlpMain table tr:hover {
+	background-color: #ffc;
+}
+
+.jlpMain table th {
+	background-color: #fff;
+	border-bottom: 1px solid gray;
+}
+
+.jlpMain table td {
+	border-bottom: 1px solid gray;
+	border-left: 1px solid gray;
+	padding-left: 0.4em;
+}
+
+.jlpMain tt {
+	font-size: 10px;
+}
+
+div.easyAppFooter {
+	text-align: center;
+	padding: 0.2em;
+	background-color: #ddd;
+	border-top: 2px solid gray;
+	border-bottom: 2px solid gray;
+}
+
+div.easyAppFooter div.a {
+	font-size: 1.3em;
+}
+ 
+ div.easyAppFooter em {
+	font-size: 10px;
+	color: silver;
+}

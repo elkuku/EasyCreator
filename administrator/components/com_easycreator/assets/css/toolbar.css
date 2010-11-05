@@ -1,0 +1,70 @@
+/**
+ * @version SVN: $Id$
+ * @package     EasyCreator
+ * @subpackage  CSS
+ * @author      EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author      Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author      Created on 28-Sep-2009
+ */
+div.ecr_easy_toolbar {
+   float: right;
+   text-align: right;
+   padding: 0;
+}
+
+div.ecr_easy_toolbar ul {
+   margin: 0;
+   padding: 0;
+}
+
+div.ecr_easy_toolbar li {
+   padding: 1px 1px 3px 4px;
+   text-align: center;
+   color: #666;
+   height: 48px;
+   list-style: none;
+   float: left;
+}
+
+div.ecr_easy_toolbar li.active {
+   border-bottom: 2px solid #ffcc00;
+   border-top: 2px solid #ffcc00;
+}
+
+div.ecr_easy_toolbar li.spacer {
+   width: 10px;
+}
+
+div.ecr_easy_toolbar li.divider {
+   border-right: 1px solid #eee;
+   width: 5px;
+}
+
+div.ecr_easy_toolbar span {
+   float: none;
+   width: 32px;
+   height: 32px;
+   margin: 0 auto;
+   display: block;
+}
+
+div.ecr_easy_toolbar a {
+   display: block;
+   float: left;
+   white-space: nowrap;
+   border: 1px solid #fbfbfb;
+   padding: 1px 5px;
+   cursor: pointer;
+   color: #000;
+}
+
+div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar  a:focus {
+   border-left: 1px solid #eee;
+   border-top: 1px solid #eee;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+   text-decoration: none;
+   background-color: #eee;
+   color: #003300;
+   outline: none;
+}

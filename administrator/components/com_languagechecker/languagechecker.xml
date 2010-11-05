@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6">
+  <name>LanguageChecker</name>
+  <creationDate>25-Sep-2010</creationDate>
+  <author>Nikolai Plath</author>
+  <authorEmail>info@easy-joomla.org</authorEmail>
+  <authorUrl>http://easy-joomla.org</authorUrl>
+  <copyright>(C) By Easy-Joomla.org</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>1.0</version>
+  <description>Checks extensions code and language files</description>
+  <scriptfile/>
+  <install>
+    <sql/>
+  </install>
+  <uninstall>
+    <sql/>
+  </uninstall>
+  <update>
+    <sql/>
+  </update>
+  <files folder="site">
+    <filename>languagechecker.php</filename>
+  </files>
+  <administration>
+    <menu img="components/com_languagechecker/assets/images/com_languagechecker.ico">languagechecker</menu>
+    <files folder="admin">
+      <folder>assets</folder>
+      <folder>helpers</folder>
+      <folder>language</folder>
+      <folder>views</folder>
+      <filename>CHANGELOG.php</filename>
+      <filename>config.xml</filename>
+      <filename>controller.php</filename>
+      <filename>languagechecker.php</filename>
+    </files>
+  </administration>
+  <params/>
+</extension>

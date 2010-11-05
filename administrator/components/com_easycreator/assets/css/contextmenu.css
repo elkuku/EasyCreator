@@ -1,0 +1,46 @@
+/**
+ * @version SVN: $Id$
+ * @package		EasyCreator
+ * @subpackage	CSS
+ * @author		EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author		Created on 20-Mar-2009
+ */
+ul.SimpleContextMenu {
+   display: none;
+   position: absolute;
+   margin: 0px;
+   padding: 0px;
+   font-family: verdana;
+   font-size: 11px;
+   list-style-type: none;
+   border-top: 1px solid #000000;
+   border-left: 1px solid #000000;
+   border-right: 1px solid #000000;
+}
+
+ul.SimpleContextMenu li {
+   border-bottom: 1px solid #000000;
+}
+
+ul.SimpleContextMenu li.title {
+   background-color: #ffffff;
+   font-size: 1.1em;
+   font-weight: bold;
+   text-align: center;
+}
+
+ul.SimpleContextMenu li a {
+   display: block;
+   width: 130px;
+   padding: 5px 10px 3px 10px;
+   text-decoration: none;
+   color: #003300; /*ff0000;*/
+   background: #eeeeee;
+}
+
+ul.SimpleContextMenu li a:hover {
+   text-decoration: none;
+   color: #000000;
+   background: #ccff99;
+}

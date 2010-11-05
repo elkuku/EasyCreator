@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="component" version="0.0.12">
+  <name>Package Base</name>
+  <description>A component 'Pagination' provided with a special install script for packages.</description>
+  <version>1.2</version>
+  <jVersion>1.5</jVersion>
+  <phpVersion>4</phpVersion>
+  <dbTables>Demo table</dbTables>
+  <author>jXtended</author>
+  <authorUrl>http://jxtended.com/</authorUrl>
+  <menu img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_.ico">_ECR_COM_NAME_</menu>
+</easyproject>

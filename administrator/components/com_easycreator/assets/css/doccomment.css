@@ -1,0 +1,43 @@
+/**
+ * @version SVN: $Id$
+ * @package		EasyCreator
+ * @subpackage	CSS
+ * @author		EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author		Created on 20-Dec-2007
+ */
+ 
+/* ToolTips */
+.doccomment-tip {
+   color: #000;
+   width: 600px;
+   z-index: 13000;
+}
+
+.doccomment-title {
+   font-weight: bold;
+   font-size: 11px;
+   margin: 0;
+   color: #3E4F14;
+   padding: 8px 8px 4px;
+   background: #C3DF7D;
+   border-bottom: 1px solid #B5CF74;
+}
+
+.doccomment-text {
+   font-size: 12px;
+   padding: 4px 8px 8px;
+   background: #CCE5FF;
+}
+
+.doccomment_doccomment {
+   border: 1px solid grey;
+   background-color: red;
+   padding: 3px;
+}
+
+.doccomment_sourcecode {
+   border: 1px solid grey;
+   background-color: #FFFFB2;
+   padding: 2px;
+}

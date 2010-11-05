@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fields name="options">
+		<field id="id" name="id" type="hidden" />
+
+		<field id="greeting" name="greeting" type="text" size="40"
+			class="inputbox validate-greeting" validate="greeting" required="true"
+			default="" label="Greeting" description="Greeting_Desc" />
+
+		<field id="catid" name="catid" type="category" extension="_ECR_COM_COM_NAME_"
+			allow_none="true" class="inputbox" default="" label="Category"
+			description="Category_Desc" required="true">
+			<option value="0">JOption_No_Category</option>
+		</field>
+	</fields>
+
+	<fields name="params">
+		<field name="show_category" type="list" label="Show category"
+			description="Show_Category_Desc" default="">
+			<option value="">Use Global</option>
+			<option value="0">Hide</option>
+			<option value="1">Show</option>
+		</field>
+	</fields>
+</form>

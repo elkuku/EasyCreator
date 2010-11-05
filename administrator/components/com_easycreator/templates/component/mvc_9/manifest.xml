@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="component" version="0.0.12">
+  <name>Categories</name>
+  <description>A component using Joomla! categories</description>
+  <version>1.2</version>
+  <jVersion>1.5</jVersion>
+  <phpVersion>4</phpVersion>
+  <dbTables>Custom table</dbTables>
+  <author></author>
+  <authorUrl></authorUrl>
+  <menu img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_.ico">_ECR_COM_NAME_</menu>
+  <submenu>
+    <menu img="article" link="option=_ECR_COM_COM_NAME_">_ECR_COM_NAME_</menu>
+    <menu img="category" link="option=com_categories&amp;section=_ECR_COM_COM_NAME_">Categories</menu>
+  </submenu>
+</easyproject>

@@ -1,0 +1,23 @@
+#@@@FORMAT: nafuini
+#@@@MODE: mixed
+# @version $Id: fr-FR.com_easycreator.ini 1173 2010-04-25 19:45:54Z elkuku $
+# Frontend language for EasyCreator
+# @author: crony - feel free to add more info ;)
+# Note : All ini files need to be saved as UTF-8 - No BOM
+
+SANDBOX
+Sandbox
+
+REGISTERED_PROJECTS
+Projets enregistrés
+
+PARAMETERS
+Paramèes
+
+#messages
+
+SORRY,_YOUR_BROWSER_CANNOT_DISPLAY_FRAMES
+Désolé votre navigateur ne peut pas afficher les frames!
+
+PLEASE_SELECT_A_PROJECT
+Veuillez sélectionner un projet

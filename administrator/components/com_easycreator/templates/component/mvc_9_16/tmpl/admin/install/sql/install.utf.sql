@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS `#___ECR_COM_TBL_NAME_` (
+#admin.sql.insert._ECR_COM_TBL_NAME_.field#
+  , PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

@@ -1,0 +1,124 @@
+[[Bild:EasyCreator-demoscreen.png|right|thumb|600px|EasyCreator 0.0.12]]
+==Description==
+'''Short:'''
+EasyCreator is a developer tool.
+It tries to speed up the developing process of custom components, modules, plugins and templates.
+You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'.
+
+'''Long:'''
+EasyCreator tries to assist from the start to the release of your custom extension.
+You can start up by creating a 'frame' (read: 'hello world' applications - slightly enhanced) for your extension based on predefined templates for components, modules, plugins and templates. This frame will be installed automatically into your running Joomla! installation. Ready to use.
+You can also import your already existing and installed extension. Now it's up to you to fill that frame with your custom code (we assume you already know about that ;)
+
+EasyCreator also tries to assist you in the creation of multilingual extensions.
+This is done by comparing the existing language file to each other and then examine the PHP and XML code for appearences of 'JText::***'.
+The results are then compared and give you a pretty overwiew of untranslated strings, missing and obsolete translations.
+EasyCreator also assists you in the creation and modification of your language files.
+We have also created an interface for managing translations which we think should speed up the process of getting your extension multilingual and should be easy to use for translators which generally are more comfort with a form than to edit some source code.
+
+There is also an interface for creating config XML files for your component which is really handy to use. You will get a form with all available parameters for a given type.
+
+We are actually doing some tests with PHP 5's reflection class. You can inspect your classes with it's methods and the Joomla! core class it extends. If you know Eclipse PDT you know what i mean. You will see all methods, parameters and doc comments like in phpDocumentor.
+
+When you are ready to release a test (or final) version of your component, EasyCreator will do the arduous work of copying files and folders, creating the xml install file and packing the whole thing in a ZIP package with version number and creation date included.
+So you can create an installable package instantly whenever you want.
+
+There is some Help with a few screenshots included.
+Do yourself a favor and snoop around a bit (Don't miss the 'Quicky' ;).
+
+If you are new to Joomla! development you will find lots of information about creating extensions for this great CMS.
+
+If you are an experienced Joomla! developer you will get a helper aplication which can speed up some necesary tasks during the development of your component.
+
+Creation of packages containing multiple Joomla! extensions. - BIG thanks to Andrew Eddie for his cool install script.
+
+Have lots of fun,
+Easy-Joomla.org Team
+
+==Requirements==
+* '''Joomla!''' should be up and running without any problem ;)
+** Joomla! {{JVer|1.0}} - NOT supported
+** Joomla! {{JVer|1.5}} - Fully supported
+** Joomla! {{JVer|1.6}} - WIP - Some modification have been made to run the script with Joomla! 1.6 - which is still alpha..
+* '''PHP''' >= 5.2.4
+
+==First Things first==
+Before you start your first project: [[/Customize your personal data]]
+
+==Starting up your Project==
+
+'''see also:''' [[/Reusable code]] - Extension templates included in EasyCreator
+
+==Configuring your Project==
+
+==File explorer==
+
+==Language Handling==
+[[/Language handling]]
+
+==Parameter Handling==
+
+==EasyERD - modelling Tables==
+[[/EasyERD]]
+* [[/EasyERD/AlphaTEST|Alpha TEST]]
+
+==EasyCodeEye - Cares for your code==
+EasyCodeEye provides an interface to several PEAR packages:
+* [http://pear.php.net/package/PHP_CodeSniffer PHP_CodeSniffer] checks your code according to several coding standards. You can create your own =;)
+* [http://github.com/sebastianbergmann/phpcpd phpcpd] finds duplicated code.
+* [http://www.phpunit.de/ PhpUnit] for executing unit tests and creating skeletons.
+* [http://www.phpdoc.org/ PhpDocumentor] documents your code.
+'''See:''' [[/EasyCodeEye]]
+
+==Finishing - Packing your Project==
+* [[/Component install scripts]]
+
+==Concepts==
+===Creating a Package===
+[[/Creating a package]]
+
+===Reusable Code===
+[[/Reusable code]] - Extension templates included in EasyCreator
+
+==EasyCreator CHANGELOG==
+
+[[/CHANGELOG]]
+
+==EasyCreator resources==
+* [http://extensions.joomla.org/extensions/miscellaneous/development/5908 Extensions.Joomla.org] - the official release announcement on Joomla! Extension Directory.
+* [http://projects.easy-joomla.org/projects/easycreator/easycreator.html Project page] on Easy-Joomla.org.
+* [http://forum.easy-joomla.org/index.php?board=16.0 Support forum] on Easy-Joomla.org (german and english, some spanish,... We'll try our best).
+* [http://joomlacode.org/gf/project/easyjoomla/ Joomlacode.org] SVN and file release repository.
+* [https://www.ohloh.net/p/EasyCreator Some stats on Ohloh] - I like that "I use it" button <tt>=;)</tt>
+* [http://projects.easy-joomla.org/incubator-newsfeeds/EasyCreator.feed?type=rss Incubator Newsfeed] contains the latest development snapshot. '''Beta testers''' - please subscribe.
+
+==Known Bugs==
+* '''MS Internet Explorer''' &reg; (all versions ?) has been reported not to work very well... as usual - '''[http://joomlacode.org/gf/project/easyjoomla/tracker/?action=TrackerItemEdit&tracker_item_id=17891 Please report specific bugs]'''
+** '''Workaround''' - Our recommendation --- remember it is "just" for your own personal development and generally better browsing experience and... please use [http://www.mozilla-europe.org/firefox/ Firefox].
+* '''MS Windows''' &reg; (all versions) has been reported not to work very well... as usual ;)
+** '''Workaround''' - Please [http://joomlacode.org/gf/project/easyjoomla/tracker/?action=TrackerItemBrowse&tracker_id=8236 report any bugs] asap and we will try to fix them for the next release.
+*** Well, '''another workaround''' would be to use the same operating system we do - which, of course, is highly recommended - [http://www.opensuse.org OpenSUSE], but any other [http://distrowatch.com/ *nix style flavoured OS] will be fine.
+
+==Things I'd like to change==
+EasyCreator started as a simple shell script - not thinking of PHP yet. The only purpose was ''creating'' extension packages from the Joomla! directory structure. It was controlled by simple ini files.
+
+* <del>Change EasyCreator project description files from INI to XML format.</del>
+** <del>Maybe information could stay in standard xml manifest file - would not harm, i think..</del> Done in ECR 0.0.12
+* <del>EasyCreator uses a startup file for installation and packing extensions. it pypasses the joomla installer. Obviously we should change this behavior.</del>
+** <del>Create a propper install.xml and use the J! installer.</del> Done in ECR 0.0.12
+* Create logic to list and edit db table data and the corresponding code in table classes, models, views etc. as suggested on [http://forum.joomla.org/viewtopic.php?p=1791717#p1791717 forum.joomla.org/...]
+** Working on that - it will be called [[/EasyERD|EasyERD]] <tt>=;)</tt>
+* Create update packages as suggested on [http://forum.easy-joomla.org/index.php/topic,735.0.html forum.easy-joomla.org/...]
+* Write a class for every project type - as there will be even more in J! 1.6.
+* Run unit tests, code sniffers etc. on building / packing a project.
+* What to do about the upcoming change in J! 1.6's language files ??
+** There will be some UGLY_LOOKING_INI_STYLE_LANGUAGE_STRINGS_JUST_FOR_A_SHORT_WORD - like "Hello" ..
+
+* The world... no more hungry kids.
+
+So long...
+
+[[Kategorie:3pd|EasyCreator]]
+
+----
+<tt>@version $Id: index.wp 1172 2010-04-25 15:18:26Z elkuku $</tt>

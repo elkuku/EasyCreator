@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="_ECR_COM_NAME_ STANDARD CATEGORY LAYOUT">
+		<message>
+			<![CDATA[_ECR_COM_NAME_ STANDARD CATEGORY LAYOUT DESC]]>
+		</message>
+	</layout>
+	<state>
+		<name>_ECR_COM_NAME_ STANDARD CATEGORY LAYOUT</name>
+		<description>_ECR_COM_NAME_ STANDARD CATEGORY LAYOUT DESC</description>
+		<url>
+			<param name="id" type="category" section="_ECR_COM_COM_NAME_" default="0" label="Category" description="PARAMCATSELECT" />
+		</url>
+		<params>
+			<param name="show_feed_link" type="radio" default="1" label="Show a feed link" description="PARAMSHOWFEEDLINK">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+		</params>
+	</state>
+</metadata>

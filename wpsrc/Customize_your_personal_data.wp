@@ -1,0 +1,84 @@
+{{tip}} There are some files you should edit before creating your first project.
+==Personal Data==
+These are your personal data (aka credits) that will be placed in file headers and xml install files.
+
+<div style="background-color: #E5FF99;">
+===EasyCreator 0.0.12 and above===
+Go to EasyCreator's Configuration and adjust your settings.
+</div>
+
+<div style="background-color: #FFFFCC;">
+===EasyCreator 0.0.11 and below===
+Edit the ini style file and adjust your settings.
+
+====INI file====
+* {{folder|administrator}}
+** {{folder|components}}
+*** {{folder|com_easycreator}}
+**** {{folder|templates}}
+***** {{folder|std}}
+****** {{file|credits.ini|txt}}
+
+====Example====
+<source lang="php">
+# @version $Id: Customize_your_personal_data.wp 1394 2010-10-27 20:47:39Z elkuku $
+# Standard credits
+
+EBC_AUTHOR=Nikolai Plath
+AUTHOREMAIL=info@easy-joomla.org
+AUTHORURL=http://www.easy-joomla.org
+LICENSE=http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+COPYRIGHT=Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
+</source>
+
+
+</div>
+
+==Standard file header==
+This is the standard header that will be placed on top of each file generated with EasyCreator. As you may suppose, the stuff written in all caps are placeholders that will be replaced with the appropriate values you entered as your project name and with data from your personal data (see below).
+
+You can modify this file to suite your needs.
+
+====File location====
+* {{folder|administrator}}
+** {{folder|components}}
+*** {{folder|com_easycreator}}
+**** {{folder|templates}}
+***** {{folder|std}}
+****** {{file|header.php|php}}
+
+===Example===
+<source lang="php">
+/**
+ * @version $Id
+ * @package    _EBC_COM_NAME_
+ * @subpackage _ECR_SUBPACKAGE_
+ * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author     EBC_AUTHOR {@link AUTHORURL}
+ * @author     Created on _EBC_ACT_DATE_
+ */
+
+//-- No direct access
+defined('_JEXEC') || die('=;)');
+</source>
+
+===Standard header usage in extension templates===
+So all you have to do to include the header information into your template files is writing
+<source lang="ini">
+##*HEADER*##
+</source>
+
+====Example====
+{{file|yourfile.php|php}}
+<source lang="php">
+<?php
+##*HEADER*##
+
+//-- Your code here...
+//-- ...
+</source>
+
+[[Kategorie:3pd|EasyCreator]]
+
+----
+<tt>@version $Id: Customize_your_personal_data.wp 1394 2010-10-27 20:47:39Z elkuku $</tt>

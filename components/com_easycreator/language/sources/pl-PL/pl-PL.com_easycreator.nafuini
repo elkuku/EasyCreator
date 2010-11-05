@@ -1,0 +1,23 @@
+#@@@FORMAT: nafuini
+#@@@MODE: mixed
+# @version $Id: pl-PL.com_easycreator.ini 1173 2010-04-25 19:45:54Z elkuku $
+# Frontend language for EasyCreator
+# @author: keran - feel free to add more info ;)
+# Note : All ini files need to be saved as UTF-8 - No BOM
+
+SANDBOX
+Sandbox
+
+REGISTERED_PROJECTS
+Zarejestrowane projekty
+
+PARAMETERS
+Parametry
+
+#messages
+
+SORRY,_YOUR_BROWSER_CANNOT_DISPLAY_FRAMES
+Przykro nam, Twoja przeglądarka nie wyświetla ramek!
+
+PLEASE_SELECT_A_PROJECT
+Proszę wybrać projekt

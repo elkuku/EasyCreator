@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD component 1.0//EN"
+"http://joomla.org/xml/dtd/1.5/component-install.dtd">
+<install type="component" version="1.5">
+  <name>EasyCreator</name>
+  <creationDate>22-Apr-2010</creationDate>
+  <author>Nikolai Plath</author>
+  <authorEmail>easy@easy-joomla.org</authorEmail>
+  <authorUrl>http://easy-joomla.org</authorUrl>
+  <copyright>Copyright (C) Easy-Joomla.org. All rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>0.0.14_SVN</version>
+  <description>EasyCreator helps creating Extensions for Joomla</description>
+  <installfile>install/install.easycreator.php</installfile>
+  <uninstallfile />
+  <install>
+    <sql />
+  </install>
+  <uninstall>
+    <sql />
+  </uninstall>
+  <files folder="site">
+    <folder>assets</folder>
+    <folder>helpers</folder>
+    <folder>language</folder>
+    <folder>views</folder>
+    <filename>controller.php</filename>
+    <filename>easycreator.php</filename>
+  </files>
+  <languages folder="site/language">
+    <language tag="de-DE">de-DE.com_easycreator.ini</language>
+    <language tag="en-GB">en-GB.com_easycreator.ini</language>
+    <language tag="fr-FR">fr-FR.com_easycreator.ini</language>
+    <language tag="pl-PL">pl-PL.com_easycreator.ini</language>
+    <language tag="zh-CN">zh-CN.com_easycreator.ini</language>
+  </languages>
+  <administration>
+    <menu img="components/com_easycreator/assets/images/easy-joomla-favicon.ico" link="option=com_easycreator">EasyCreator</menu>
+    <files folder="admin">
+      <folder>assets</folder>
+      <folder>builds</folder>
+      <folder>controllers</folder>
+      <folder>exports</folder>
+      <folder>helpers</folder>
+      <folder>install</folder>
+      <folder>language</folder>
+      <folder>logs</folder>
+      <folder>results</folder>
+      <folder>scripts</folder>
+      <folder>templates</folder>
+      <folder>tests</folder>
+      <folder>views</folder>
+      <filename>CHANGELOG.php</filename>
+      <filename>config.xml</filename>
+      <filename>controller.php</filename>
+      <filename>defines.php</filename>
+      <filename>easycreator.php</filename>
+      <filename>easycreator.xml</filename>
+      <filename>functions.php</filename>
+    </files>
+    <languages folder="admin/language">
+      <language tag="de-DE">de-DE.com_easycreator.ini</language>
+      <language tag="en-GB">en-GB.com_easycreator.ini</language>
+      <language tag="fr-FR">fr-FR.com_easycreator.ini</language>
+      <language tag="pl-PL">pl-PL.com_easycreator.ini</language>
+      <language tag="zh-CN">zh-CN.com_easycreator.ini</language>
+    </languages>
+  </administration>
+  <params>
+    <param name="cred_license" type="text" label="License" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" />
+    <param name="archive_tgz" type="checkbox" label="tar.gz" default="on_" />
+    <param name="custom_name_1" type="text" label="Custom name default" default="_*VERSION*_*SVNREV*_*DATETIMEYmd_Hi*" />
+    <param name="custom_name_2" type="text" label="Custom name" default="_*VERSION*_*DATETIMEYmd_Hi*" />
+    <param name="custom_name_3" type="text" label="Custom name" default="_*VERSION*" />
+    <param name="logging" type="radio" label="Logger" default="1" />
+    <param name="profile" type="radio" label="Profiler" default="1" />
+    <param name="files" type="radio" label="Log file contents" default="1" />
+    <param name="ecr_help" type="list" label="Help Type" default="all" />
+    <param name="editarea_type" type="list" label="Editor type" default="edit_area_full.js" />
+    <param name="editarea_font_size" type="text" label="Editor font size" default="8" />
+    <param name="warn_livesite" type="radio" label="Livesite warning" default="1" />
+    <param name="use_google_trans_api" type="radio" label="Use Google translation API" default="1" />
+    <param name="langfiles_chk_bom" type="radio" label="Check for BOM" default="1" />
+    <param name="ecr_debug_type" type="list" label="Debugger Type" default="easy" />
+  </params>
+</install>

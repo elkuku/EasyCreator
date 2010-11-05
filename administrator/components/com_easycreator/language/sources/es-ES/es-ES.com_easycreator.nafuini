@@ -1,0 +1,1460 @@
+#@@@FORMAT: nafuini
+#@@@MODE: mixed
+# @version $Id: es-ES.com_easycreator.nafuini 1351 2010-10-13 21:12:43Z elkuku $
+# com_easycreator admin language file
+# Note : All ini files need to be saved with lots of FUN =;)
+
+Components
+Componentes
+
+MODULES
+Módulos
+
+PLUGINS
+Plugins
+
+TEMPLATES
+Plantillas
+
+ZIP
+ZIP
+
+Backend
+Backend
+
+Frontend
+Frontend
+
+The project %s has been removed
+El proyecto %s ha sido eliminado
+
+The Project %s could not be removed
+El proyecto %s no se pudo eliminar
+
+Used in File
+Se utiliza en el archivo
+
+Language files analysis
+Analysys de los archivos de idioma
+
+ACTIONS
+Acciones
+
+CONFIGURE
+Configurar
+
+DELETE %S PROJECT FILE
+Eliminar el archivo de proyecto %s
+
+DESTINATION
+Destino
+
+EMPTY
+VACÍO
+
+Invalid path
+Ruta no válida
+
+No path set
+No se ha especificado la ruta
+
+No projects found
+No hay proyectos encontrado
+
+NONE_FOUND
+Ninguno encontrado
+
+NOT USED
+NO SE UTILIZA
+
+OPTIONAL
+Opcional
+
+PATH
+Ruta
+
+PLEASE GOTO
+Por favor vaya a
+
+PLEASE SELECT A PROJECT
+Por favor, seleccione un proyecto
+
+PROFILE
+Perfil
+
+PROJECT
+Proyecto
+
+REGISTERED PROJECTS
+Proyectos registrados
+
+REQUIRED
+Necesario
+
+SELECT
+Seleccionar
+
+SIZE
+Tamaño
+
+TYPES
+Tipos
+
+UNREGISTERED PROJECTS
+Proyectos no registrados
+
+VERBOSE
+Verboso
+
+VERSIONS
+Versiones
+
+ZIP FILES
+Archivos Zip
+
+PLEASE SELECT A VERSION
+Por favor, seleccione una versión
+
+LANGUAGES
+Idiomas
+
+CREATE YOUR FIRST PROJECT
+Crea su primer proyecto
+
+YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY
+Su componente %s se ha creado con éxito!
+
+YOU MUST PROVIDE A NAME
+Usted debe proporcionar un nombre
+
+YOU MUST PROVIDE A VERSION
+Usted debe proporcionar una versión
+
+EXTENSION TYPE
+Extensión tipo
+
+FOLD
+Plegar
+
+CUT
+Cortar
+
+KEY
+Clave
+
+VALUE
+Valor
+
+SCOPE
+Alcance
+
+TRANSLATED
+Traducido
+
+TRANSLATION COULD NOT BE SAVED
+La traducción no se podrían guardar
+
+TRANSLATION SAVED
+Traducción guardado
+
+TRANSLATE
+Traducir
+
+CREATE LANGUAGE FILE
+Crear archivo de idioma
+
+TREAT THE FIRST
+Tratar a los primeros
+
+LINES AS COMMENT
+líneas como comentario
+
+DO NOT SHOW
+No mostrar
+
+LOAD CORE LANGUAGE
+Cargar archivos principales del lenguaje
+
+Also load the core language file to check for translations (displayed in orange)
+También carga el lenguaje core para comprobar la traducción (que se muestra en naranja)
+
+NOT TRANSLATED
+No traducido
+
+PHP XML FILE ANALYSIS
+PHP XML análisis de archivos
+
+PLEASE CHOOSE A LANGUAGE
+Seleccione un idioma
+
+DEFAULT LANGUAGE
+Lenguaje por defecto
+
+DEFAULT FILE ORDER
+Orden del archivo por defecto
+
+TRANSLATIONS
+Traducciones
+
+TRANSLATED LANGUAGE
+Lenguaje Traducido
+
+TRANSLATION ORDER
+Orden de traducción
+
+TRANSLATED IN CORE
+Traducido en el núcleo
+
+CORRECTED LANGUAGE
+Idioma Corregido
+
+DRAG AND DROP ELEMENTS TO REARRANGE. ADD NEW COMMENTS.
+Arrastrar y soltar elementos para reorganizar. Añadir nuevos comentarios.
+
+ADD COMMENT
+Agregar un comentario
+
+ERROR INSERT A DESCRIPTION FOR THE ELEMENT
+Error! Por favor, introduzca un texto de comentario
+
+THE FILE HAS BEEN CREATED
+El archivo ha sido creado
+
+UNABLE TO CREATE LANGUAGE FILE
+No se puede crear archivo de idioma
+
+UNABLE TO COPY FILE
+No se puede copiar archivo
+
+UNABLE TO WRITE FILE
+No se puede escribir archivo
+
+FILE %S NOT FOUND
+El archivo %s no encontrado
+
+THE FILE %S COULD NOT BE WRITTEN TO PATH %S
+El archivo %s no ha podido escribir en la ruta %s
+
+THE FILE %S HAS BEEN SAVED
+El archivo %s se ha guardado
+
+THE FILE %S COULD NOT BE SAVED AT PATH: %S
+El archivo %s no pudo ser guardado en la ruta %s
+
+THE FILE %S COULD NOT BE FOUND IN PATH %S
+El archivo %s no se ha encontrado en la ruta %s
+
+THE FILE %S COULD NOT BE DELETED AT PATH: %S
+El archivo %s no puede ser borrado en la ruta %s
+
+THE FILE %S HAS BEEN DELETED
+El archivo %s ha sido eliminado
+
+THE FILE DOES NOT EXIST
+El archivo no existe
+
+THE FILE MUST EXIST FOR SAVE
+El archivo debe existir para guardar
+
+ATTENTION
+Atención
+
+THE PROJECT %S WILL BE DELETED
+El proyecto %s será eliminado.
+
+DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE
+Elimine el proyecto %s incluyendo el archivo y base de datos
+
+No files found
+No se encontraron archivos
+
+INVALID FILE
+Archivo no válido
+
+No logfiles found
+No se encontraron archivos de registro
+
+THE LOGFILES HAVE BEEN DELETED
+Los archivos de registro se han eliminado
+
+THE LOGFILES COULD NOT BE DELETED
+Los archivos de registro no se pueden borrar
+
+CLEAR LOG
+Borrar registro
+
+AUTHOR NAME
+Nombre del autor
+
+CHOOSE A COMPONENT TYPE FROM A PREDEFINED TEMPLATE
+Elija un tipo de componente de una plantilla predefinida
+
+TOTAL
+Total
+
+REMOVE PROJECT
+Borrar el proyecto
+
+BUILDING
+Crear
+
+CREATE
+Crear
+
+BUILD OPTIONS
+Generar opciones
+
+CHOOSE
+Elegir
+
+THE FILE HAS BEEN SAVED
+El archivo se ha guardado
+
+No parameters defined
+No hay parámetros definidos
+
+PARAMGROUP
+Grupo
+
+ADD PARAMETER
+Añadir parámetro
+
+NEW PARAMETER
+Nuevo parámetro
+
+CHILDREN
+Hijos
+
+VERSION NO. %S
+Versión no. %s
+
+ACTUAL FILE
+archivo actual
+
+No versions found
+No hay versiones encontradas
+
+CREATE %S
+Crear %s
+
+SHOW JOOMLA CORE PROJECTS
+Mostrar Joomla! proyectos
+
+COMPONENT ZIPER
+Componente ZIPer
+
+NAME FOR YOUR BABY
+Nombre para su bebé
+
+CREDITS
+Créditos
+
+AUTHOR E-MAIL
+Autor e-mail
+
+YOUR COMPONENT SO FAR
+Su componente hasta ahora
+
+PLEASE CHOOSE A NAME FOLLOWING THE STANDARD NAMING CONVENTIONS. USE UPPER AND LOWER CASE
+Por favor, elija un nombre según las convenciones de nomenclatura estándar. Usa mayúsculas y minúsculas
+
+YOURE DONE
+¡Ya está!
+
+JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT
+Basta con hacer clic en &quot;Create it&quot; para finalizar el componente.
+
+CREATE IT
+Crealo
+
+PLEASE SELECT A XML FILE
+Por favor, seleccione un archivo XML
+
+UNABLE TO LOAD THE PROJECT %S
+No se puede cargar el proyecto %s
+
+No download available
+Sin descargas disponibles
+
+SAVE VERSIONED
+Guardar versionados
+
+No languages defined
+No lenguajes definidos
+
+DOWNLOAD
+Descargar
+
+EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'.
+EasyCreator es una herramienta de desarrollo. <br />Trata acelerar el proceso de desarrollo de componentes personalizados, módulos, plugins y plantillas. <br />Se puede crear un 'marco' para su extensión y un paquete instalable con sólo unos pocos 'clics'.
+
+Please use this extension only in local development environments.
+Por favor, utilice esta extensión sólo en entornos de desarrollo local.
+
+Little care has been taken about security.
+Poco cuidado se ha tenido sobre la seguridad.
+
+See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>
+Ver: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org / Configuración de la estación de trabajo de Joomla! para desarrollo</a>
+
+YOUR ZIPFILE HAS BEEN CREATED SUCESSFULLY
+Su paquete se ha creado con éxito
+
+YOUR ZIPFILE HAS NOT BEEN CREATED
+Su archivo zip no ha sido creada
+
+ADD ELEMENT
+Añadir elemento
+
+Infos on parameters (external)
+Info sobre los parámetros (externo)
+
+ADD GROUP
+Añadir grupo
+
+NEW GROUP
+Grupo nuevo
+
+SOURCE CODE
+Código fuente
+
+No classes found
+No se encuentran clases
+
+THE XML FILE HAS BEEN SAVED
+El archivo XML se ha guardado
+
+COULD NOT SAVE XML FILE
+No se pudo guardar el archivo xml
+
+OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG.
+O si es curioso puede mirar el registro.
+
+CONTINUE EDITING
+Seguir editando
+
+EDITOR TYPE
+Editor Tipo
+
+Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)
+¿Qué tipo de EditArea debemos cargar (ver documentos en el sitio del desarrollador http://www.cdolivet.net/editarea/editarea/docs/include.html sitio)
+
+DEBUGGER
+Depurador
+
+Shall we use the Debug mode ?
+Vamos a utilizar el modo de depuración ?
+
+ACTION
+Acción
+
+ZIPFILE
+Archivo, tipo ZIP
+
+PLEASE SELECT A TEMPLATE
+Por favor, seleccione una plantilla
+
+LINES
+Líneas
+
+METHODS
+Métodos
+
+PROPERTIES
+Propiedades
+
+ADMIN
+Administración
+
+LINK
+Enlace
+
+INFO
+Info
+
+COMPONENT SCOPE
+Componente ámbito de aplicación
+
+MENU
+Menú
+
+ADD SUBMENU
+Añadir submenú
+
+SUBMENU
+Submenú
+
+STANDARD FILES
+Archivos estandard
+
+UNABLE TO CREATE FOLDER
+No se puede crear la carpeta
+
+SANDBOX
+Arenero
+
+LOGFILES
+Logfiles
+
+More...
+Más...
+
+THE FILE COULD NOT BE SAVE
+El archivo no se pudo guardar
+
+YOUR %S HAS NOT BEEN ADDED
+Su %s no se ha agregado
+
+YOUR %S HAS BEEN ADDED
+Su %s ha sido añadido
+
+DEBUGGER TYPE
+Tipo de depurador
+
+Which debugger to use
+¿Qué depurador para utilizar
+
+THE BOM HAS BEEN REMOVED
+El BOM se ha eliminado
+
+UNABLE TO REMOVE THE BOM
+No se puede eliminar el BOM
+
+JDUMP NOT FOUND
+JDump no se encuentra
+
+DEBUGTOOLS NOT FOUND
+Debugtools no se encuentra
+
+No debugger set
+No depurador especificado
+
+THE PROJECT TYPE %S IS NOT DEFINED YET
+El tipo de proyecto %s no está definido aún
+
+VIEW SOURCE
+Ver código fuente
+
+USER DEFINED
+Definido por el usuario
+
+EXTERNAL INFOS
+Infos externos
+
+GOOGLE TRANSLATE
+Traductor Google
+
+PACKING FORMAT OPTIONS
+Opciones de formato de compresión
+
+PACKAGE FORMATS
+Formatos de compresión
+
+LIVESITE WARNING
+LiveSite alerta
+
+SOME
+Algunos
+
+HELP TYPE
+Tipo de ayuda
+
+FILES AND DIRS TO COPY
+Archivos y directorios para copiar
+
+Shows all the files belonging to your project
+Muestra todos los archivos pertenecientes a su proyecto
+
+Shows options for building your project like credits, files and folders to copy, languages and admin menu.
+Muestra las opciones para la construcción de su proyecto como los créditos, los archivos y carpetas para copiar, idiomas y menú de administración.
+
+Modify your project parameters stored in XML files.
+Modificar los parámetros del proyecto almacenados en archivos XML.
+
+DESC PROJECT INFO
+Muestra información acerca de su proyecto (experimental)
+
+This will your delete your project.
+Esto elimina su proyecto.
+
+Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.
+Elija el tipo de ayuda que necesita (desde principiantes a expertos)
+
+Manage translations in ini files and inspect your php / xml files for JText strings to translate.
+Administrar traducciones en archivos ini e inspeccione su php / xml para cadenas JText de traducir.
+
+Change the order of your default language file and add comments to create a structure.
+Cambiar el orden de su idioma por defecto de archivos y agregar comentarios a crear una estructura.
+
+Change the order of your translated language files according to your default file.
+Cambiar el orden de su lengua traducida archivos de acuerdo a su archivo por defecto.
+
+Compare saved versions of your language files.
+Comparar versiones que ha guardado los archivos de su lengua.
+
+CLICK TO TRANSLATE
+Haga clic para traducir
+
+LOADING GOOGLE TRANSLATION API
+Cargando api traducción de Google
+
+EXTENSION TEMPLATES
+Plantillas de extensiones
+
+UNABLE TO UPDATE THE PROJECT %S
+No se puede actualizar el proyecto %s
+
+UNABLE TO LOAD THE XML FILE %S
+No se puede cargar el archivo xml %s
+
+ADD MODULE
+Añadir módulo
+
+ADD PLUGIN
+Añadir plugin
+
+TREAT THE FIRST %S LINES AS COMMENT
+Tratar a los primeros %s líneas como comentario
+
+No scope given
+No ámbito determinado
+
+UNABLE TO DELETE FILE
+No se puede eliminar el archivo
+
+FILES AND MENUS
+Archivos y menús
+
+PLEASE REVIEW YOUR INPUT
+Por favor, revise sus entradas
+
+NEW PROJECT
+Nuevo proyecto
+
+FOUND A BOM IN LANGUAGEFILE
+Encontrado un BOM en el archivo de idioma
+
+CLASS NOT FOUND
+Clase no encontrada
+
+LOADING
+Cargando
+
+MENU ANALYSIS
+Menú análisis
+
+SELECT AN ELEMENT
+Seleccione un elemento
+
+FUNCTION NOT FOUND
+Función que no se encuentra
+
+UNABLE TO LOAD PART
+No se puede cargar parte
+
+LOG FILE CONTENTS
+Contenido del archivo de registro
+
+ACTIVATE LOGGING
+Activar el registro
+
+USE GOOGLE TRANSLATION API
+Utilizar la API de traducción de Google
+
+Should we use the Google Translation API for helping in translations ?
+¿Debemos utilizar la API de Google Translation para ayudar en las traducciones?
+
+LOGGER
+Logger
+
+SHOULD WE WRITE SOME LOGFILES
+¿Hay que escribir algunos archivos de registro
+
+PROFILER
+Profiler
+
+PROFILE TIME AND MEMORY
+Perfilar el tiempo y la memoria
+
+LOG THE CONTENTS / THE CODE OF THE FILES BEEN WRITTEN TO DISK
+Entra el contenido (el código) de los archivos se escriben en el disco
+
+TRANSLATION COULD NOT BE DELETED
+La traducción no puede ser eliminado
+
+LOGGING
+Logging
+
+KEY NOT FOUND
+Clave no se encuentra
+
+FILE CONTENTS
+Contenido del archivo
+
+QUERY
+Query
+
+No project selected
+Ningún proyecto seleccionado
+
+UNABLE TO TRANSLATE WITHOUT DEFAULT TRANSLATION
+No se puede traducir sin traducción por defecto
+
+PLEASE TRANSLATE %S FIRST
+Por favor, traducir %s primero
+
+LOG FILE
+Archivo de registro
+
+No zip files found
+No se encontraron archivos zip
+
+ARCHIVE IS EMPTY
+Archivo está vacío
+
+FOLDER
+Carpeta
+
+RENAME
+Cambiar el nombre
+
+FILE TREE
+Árbol de archivos
+
+LEFT CLICK FILES TO EDIT.
+Haga clic con la izquierda en archivos para editar.
+
+RIGHT CLICK FILES AND FOLDERS FOR OPTIONS.
+Haga clic con la derecha en los archivos y carpetas para las opciones.
+
+NEW FOLDER
+Nueva carpeta
+
+RENAME FOLDER
+Cambiar nombre de carpeta
+
+DELETE FOLDER
+Eliminar carpeta
+
+THE FOLDER ALREADY EXISTS
+La carpeta ya existe
+
+THE FILE ALREADY EXISTS
+El archivo ya existe
+
+UNABLE TO CREATE FILE
+No se puede crear archivo
+
+NEW FILE
+Nuevo archivo
+
+FOLDER DOES NOT EXIST
+Carpeta no existe
+
+UNABLE TO DELETE FOLDER
+No se puede eliminar carpeta
+
+FILE DOES NOT EXIST
+El archivo no existe
+
+DELETE FILE
+Eliminar archivo
+
+RENAME FILE
+Cambiar el nombre de archivo
+
+CUSTOMIZE
+Personalizar
+
+CUSTOM NAME FORMAT
+Personalizar el formato de nombre
+
+Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*
+Uso: <br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*
+
+REGISTER PROJECT
+Registrar proyecto
+
+A SIMPLE COMPONENT
+Un componente simple
+
+A COMPONENT USING A MODEL
+Un componente con un modelo
+
+A COMPONENT USING THE TABLE CLASS
+Un componente utilizando la clase de tabla
+
+A COMPONENT WITH ADMIN INTERFACE
+Un componente con interfaz de administración
+
+A COMPONENT WITH PAGINATION
+Un componente con paginación
+
+A COMPONENT WITH WYSIWYG EDITOR
+Un componente con editor WYSIWYG
+
+MODIFIED
+Modificado
+
+FILE NAME
+Nombre de archivo
+
+REMOVE EASYCREATOR AUTOCODE
+Retire AutoCode EasyCreator
+
+CREATE INDEX.HTML FILES
+Crear archivos index.html
+
+EXTENSION TEMPLATES PARTS
+Piezas de plantillas de extensiónes
+
+UPLOAD AND INSTALL PACKAGE
+Cargar e instalar el paquete
+
+INSTALL TEMPLATES
+Instalar plantillas
+
+EXPORTS
+Exportaciones
+
+YOUR CREDITS
+Sus créditos
+
+BY PACKAGE
+Por paquete
+
+BY NAME
+Por nombre
+
+SO MANY EMPTY PAGES ON_THE WIKI ?
+Tatas páginas en blanco en el wiki?
+
+CONFIGURATION SETTINGS
+Ajustes de configuración
+
+PLEASE SET YOUR PERSONAL INFORMATION IN %S
+Por favor escriba su información personal en %s
+
+SUPPORT EASYCREATOR BY ADDING IT TO YOUR STACK AT OHLOH
+Apoya EasyCreator añadiendolo a su pila en Ohloh
+
+YOUR PROJECT HAS BEEN CREATED
+Su proyecto ha sido creado
+
+YOUR PROJECT HAS BEEN REGISTERED
+Su proyecto ha sido registrado
+
+CONFIGURATION HAS BEEN SAVED
+Configuración se ha guardado
+
+THE SETTINGS HAVE BEEN UPDATED
+Los ajustes se han actualizado
+
+FAILED TO UPDATE THE SETTINGS
+No se pudo actualizar la configuración
+
+THE TESTS DIRECTORY HAS BEEN CREATED
+El directorio de pruebas se ha creado
+
+THE CLASS FILE FOR YOUR JOOMLA VERSION %S HAS NOT BEEN BUILD YET.
+El archivo de clase para su versión de Joomla! %s no se ha creado todavía.
+
+CUSTOM OPTIONS
+Personalizar opciones
+
+User defined table fields
+Campos de tabla definidos por el usuario
+
+ADD ROW
+Añadir fila
+
+MORE OPTIONS
+Más opciones
+
+CREATE CHANGELOG.PHP
+Crear CHANGELOG.php
+
+No module projects found
+No hay proyectos módulo encontrado
+
+No plugin projects found
+No hay proyectos plugin encontrado
+
+EXPORT TEMPLATES
+Exportar plantillas
+
+SELECT THE TEMPLATES TO EXPORT
+Seleccione las plantillas para exportar
+
+SELECT A TEMPLATE PACKAGE TO IMPORT
+Seleccione un paquete de plantillas para importar
+
+INCLUDE EASYCREATOR PROJECT FILE
+Incluya proyecto EasyCreator archivo
+
+ERRORS
+Errores
+
+LATEST VERSION
+La última versión
+
+DOCUMENTATION
+Documentación (Inglés)
+
+FORUM
+Foro
+
+BUGTRACKER
+Rastreador de errores
+
+FEATURE REQUESTS
+Pedido de funciones
+
+VERSION CHECK
+Verificar su versión
+
+INCUBATOR
+Incubadora
+
+SVN
+SVN
+
+YOU MUST PROVIDE A LIST POSTFIX
+Usted debe proveer un list postfijo
+
+Configuration
+Configuración
+
+CREATE MD5 CHECKSUM FILE
+Crear archivo de control MD5
+
+EASYCREATOR OPTIONS
+EasyCreator opciones
+
+PHP VERSION
+PHP versión
+
+SETUP
+Disposición
+
+THIS EXTENSION IS NOT COMPATIBLE WITH MS INTERNET EXPLORER R
+Esta extensión no es compatible con MS Internet Explorer (R)
+
+STATISTICS
+Estadísticas
+
+COPY BOOTSTRAP.PHP TO JOOMLA ROOT
+Copia Bootstrap.php a Joomla! raíz
+
+BOOTSTRAP FILE NOT FOUND
+No se encuentra el archivo bootstrap
+
+CREATE TEST DIRECTORY
+Crear directorio de prueba
+
+No tests defined yet
+No existen pruebas aún
+
+UNIT TESTS FOR %S NOT AVAILABLE YET
+Las pruebas unitarias para %s aún no están disponibles
+
+CODE
+Código
+
+COMMENTS
+Comentarios
+
+BLANKS
+Espacios en blanco
+
+CHECKING MD5 SUMS...
+Comprobación de sumas MD5 ...
+
+THERE HAVE BEEN ERRORS
+Ha habido errores!
+
+MD5 CHECK FAILED ON_FILE: %S
+MD5 check fallado en el archivo: %s
+
+FILE NOT FOUND: %S
+Archivo no encontrado: %s
+
+EASYCREATOR HELPS CREATING EXTENSIONS FOR JOOMLA
+EasyCreator ayuda a la creación de extensiones para Joomla!
+
+THIS SCRIPT REQUIRES AT LEAST PHP VERSION %S
+Este script requiere al menos la versión %s de php
+
+INSTALL MANIFEST NOT FOUND
+Instalación no encontró manifiesto
+
+CREATE CLASS LIST FILE
+Crear el archivo lista de clases
+
+CODE LINES
+Código líneas
+
+CODE ANALYSIS %S
+Análisis de código para %s
+
+COMMENT TO CODE RATIO
+Relación de Comentario a código
+
+LABEL
+Etiqueta
+
+COMMENT
+Comentario
+
+PREDEFINED FIELDS
+campos predefinidos
+
+ATTRIBUTES
+Atributos
+
+LENGTH/SET
+Longitud / conjunto
+
+EXTRA
+Extra
+
+FIRST THINGS FIRST
+Lo primero es lo primero
+
+CHECK YOUR ENVIRONMENT
+Comprobar las variables de su entorno
+
+CONSOLE
+Consola
+
+OUTPUT
+Salida
+
+GENERATE DOCUMENTATION
+Generar la documentación
+
+Shows some statistics about your project.
+Muestra algunas estadísticas acerca de su proyecto.
+
+Setup your language files
+Configure sus archivos de idioma
+
+EXPORT
+Exportación
+
+PACKAGE CREATION
+Paquete creación
+
+VARIOUS
+Varios
+
+LOCAL API COPY
+Local API copia
+
+Your copy of the Joomla! API - get it from http://api.joomla.org
+Su copy de la Joomla! API - Obtengala de http://api.joomla.org
+
+CHECK FOR UTF8
+Compruebe UTF8
+
+CHECK FOR BOM
+Compruebe BOM
+
+CUSTOM NAME DEFAULT
+nombre personalizado (por defecto)
+
+CUSTOM NAME
+Nombre personalizado
+
+CONVERT CODE AND LANGUAGE FILE
+Convertir el código y el archivo de idioma
+
+ORIGINAL
+Original
+
+FIXED FOR %S
+Fijado para %s
+
+CONVERT LANGUAGE FILE
+Convertir archivo de idioma
+
+LANGUAGE FILE: %S
+Archivo de idioma: %s
+
+PERSONAL
+Personal
+
+AUTHOR
+Autor
+
+AUTHOR URL
+Autor URL
+
+LICENSE
+Licencia
+
+COPYRIGHT
+Derechos de autor
+
+TAR.GZ
+Tar.gz
+
+Off
+Apagado
+
+No
+No
+
+Yes
+Sí
+
+All
+Todos
+
+On
+Encendido
+
+None
+Ninguno
+
+FILE NOT FOUND
+Archivo no encontrado
+
+CLASS %S NOT FOUND
+Clase %s no encontrado
+
+THE FILE %S IS EMPTY
+El archivo %s está vacío
+
+FILE LOADED
+Archivo cargado
+
+EMPTY FILE NAME
+nombre del archivo vacío
+
+EMPTY VALUE
+valor vacío
+
+DELETE
+Borrar
+
+VERSION
+Versión
+
+RECOMMENDED
+Recomendado
+
+AN ERROR HAPPENED WHILE CREATING YOUR PROJECT
+Un error ocurrió mientras la creación de su proyecto
+
+FILE HAS BEEN DELETED
+El archivo ha sido borrado
+
+UNABLE TO DELETED THE FILE
+No se eliminó el archivo
+
+THIS IS NOT AN EASYCREATOR EXTENSION TEMPLATE
+Esto no es una extensión easycreator plantilla
+
+THE TEMPLATE %S IS ALREADY INSTALLED
+La plantilla %s ya está instalado
+
+SAVE
+Guardar
+
+UNABLE TO COPY FILE %S
+No se puede copiar el archivo %s
+
+CODEEYE
+CodeEyes
+
+HELP
+Ayuda
+
+PLEASE SET A COMPRESSION TYPE
+Por favor, establece un tipo de compresión
+
+YOU CAN SET A DEFAULT COMPRESSION TYPE IN CONFIGURATION
+Puede establecer un tipo de compresión por defecto en la configuración
+
+SELECT A FILE
+Seleccione un archivo
+
+YOUR EXTENSION SO FAR
+Su extensión hasta el momento
+
+NAME
+Nombre
+
+DESCRIPTION
+Descripción
+
+TEMPLATE
+Plantilla
+
+TYPE
+Tipo
+
+COPYRIGHT C
+Copyright (C)
+
+LIST POSTFIX
+Postfijo de listas
+
+BACK
+Atrás
+
+NEXT
+Adelante
+
+SITE
+Sitio
+
+FILE
+Archivo
+
+EDIT
+Editar
+
+NEW
+Nuevo
+
+UNDEFINED FORMAT: %S
+Indefinido formato: %s
+
+PATH IS NOT A FOLDER
+La ruta no es una carpeta
+
+THE FILE %S COULD NOT BE FOUND
+El archivo %s no se pudo encontrar
+
+BOM
+BOM
+
+ERROR
+Error
+
+FILES
+Archivos
+
+ECR__NULL
+nulo
+
+DEFAULT
+Defecto
+
+TABLE
+Tabla
+
+FIELD
+Campo
+
+DETAILS
+Detalles
+
+OPTIONS
+Opciones
+
+No language files found in selected scope
+Ningún archivo de idioma encontrado en el alcance
+
+DATE
+Fecha
+
+SHOW
+Mostrar
+
+CONVERT
+Convertir
+
+LANGUAGE
+Idioma
+
+REGISTER
+Registro
+
+TEXT
+Texto
+
+IMAGE
+Imagen
+
+AUTOR-URL
+Autor-URL
+
+INSTALLING
+Instalación
+
+DATADESIGNER
+DataDesigner
+
+COMPRESSION
+Compresión
+
+UPDATE
+Actualización
+
+METHOD
+Método
+
+THIS WILL PERFORM AN UPGRADE ON_INSTALLING YOUR EXTENSION
+Se realizará una actualización sobre la instalación de su extensión
+
+UPGRADE
+Upgrade
+
+ADD EXTENSIONS
+Añadir extensiones
+
+COMPONENT
+Componente
+
+PLUGIN
+Plugin
+
+EXTENSION
+Extensión
+
+UNINSTALL
+Desinstalar
+
+REMOVED
+Eliminado
+
+GROUP
+Grupo
+
+INSTALLED
+Instalado
+
+STATUS
+Estado
+
+INSTALL
+Instalar
+
+MODULE
+Módulo
+
+PACKAGE FILE
+El archivo de paquetes
+
+Exports EasyCreator Extension Templates
+Las exportaciones de Extensión EasyCreator Plantillas
+
+Installs EasyCreator Extension Templates
+Instala Extensión EasyCreator Plantillas
+
+Manage EasyCreator Extension Templates
+Extensión de Gestión de Plantillas EasyCreator
+
+ARCHIVE
+Archivo
+
+PARAMETERS
+Parámetros
+
+PACKAGE INSTALLER ?
+Paquete de instalación?
+
+CREATE INSTALL FILE
+Crear archivo de instalación
+
+CREATE UNINSTALL FILE
+Crear archivo de desinstalación
+
+PLEASE SELECT THE ERRORS YOU WISH TO CORRECT
+Por favor, seleccione los errores que desea corregir
+
+COPY
+Copiar
+
+No local API copy specified. you may do this in configuration.
+No API copia local especificado. usted puede hacer esto en la configuración
+
+CONFIGURATION
+Configuración
+
+GENERATE STATISTICS
+Generar estadísticas
+
+PUBLISHED
+Publicado
+
+ORDERING
+Ordenar
+
+TITLE
+Título
+
+CLIENT
+Cliente
+
+THE FILE HAS BEEN DELETED
+El archivo ha sido eliminado
+
+TEMPLATES HAVE BEEN EXPORTED.
+Plantillas han sido exportadas.
+
+PACKAGE
+Paquete
+
+TRANSLATING
+Traduciendo ...
+
+PLEASE SELECT A PACKAGE TO UPLOAD
+Por favor, seleccione un paquete para cargar
+
+PLEASE ADD AT LEAST ONE FIELD
+Por favor, añada al menos un campo
+
+THIS IS NOT A NUMBER
+Esto no es un número
+
+CLICK FOR MORE OPTIONS
+Haga clic para más opciones
+
+EASYCREATOR INFORMATION
+Easycreator información
+
+CLICK TO VIEW FILES
+Haz clic aquí para ver los archivos
+
+INSTALL AND UNINSTALL PHP
+Instalar y desinstalar php
+
+EXISTING LIBRARIES: %S_SELECT
+bibliotecas existentes: %s
+
+JOOMLA 1.6 EXTENSION TEMPLATES CAN NOT BE BUILD ON_JOOMLA 1.5
+Plantillas de extensiones de Joomla! 1.6 no se pueden crear en Joomla! 1.5
+
+ECR_TRANSLATE_ACC_S
+Traducir [s]
+
+ECR_TRANSLATE
+Traducir
+
+Not checked
+No se ha comprobado
+
+Found
+Encontrado
+
+ECR_NOT_FOUND
+No se ha encontrado
+
+Not checked for UTF-8
+No se ha comprobado para UTF-8
+
+UTF-8
+UTF-8
+
+File is not UTF-8 encoded
+El archivo no es codificación UTF-8
+
+Not checked for BOM
+No se ha comprobdo para BOM
+
+No BOM
+Ningún BOM

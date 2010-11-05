@@ -1,0 +1,46 @@
+/**
+ * @version SVN: $Id$
+ * @package     EasyCreator
+ * @subpackage  CSS
+ * @author      EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author      Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author      Created on 28-Sep-2009
+ */
+label.creditsLabel {
+	width: 13em;
+	float: left;
+	margin-right: 0.5em;
+	display: block;
+	font-weight: bold;
+}
+
+.ecr_floatbox ul {
+	padding: 0;
+	list-style: none;
+}
+
+.ecr_floatbox li {
+	margin-bottom: 0.3em;
+}
+
+x {
+	margin: 0;
+}
+
+ul.sortable {
+	min-height: 18px;
+	border: 1px solid gray;
+}
+
+ul.sortable li {
+	height: 18px;
+}
+
+ul.sortable li:hover {
+	background-color: #ddd;
+	cursor: move;
+}
+
+ul#package-to {
+	background-color: #f2ffff;
+}

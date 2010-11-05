@@ -1,0 +1,36 @@
+/**
+ * @version $Id$
+ * @package    EasyCreator
+ * @subpackage Javascript
+ * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Created on 03-Mar-2008
+ * @license    GNU/GPL, see JROOT/LICENSE.php
+ */
+
+window.addEvent('domready', function()
+{
+    var doccommentTip = new Tips($$('.doccommentTip'),
+    {
+        className : 'doccomment', // this is the prefix for the CSS class
+        initialize : function()
+        {
+
+            this.fx = new Fx.Style(this.toolTip, 'opacity',
+            {
+                duration : 500,
+                wait : false
+            }).set(0);
+        },
+        onShow : function(toolTip)
+        {
+
+            this.fx.start(1);
+        },
+        onHide : function(toolTip)
+        {
+
+            this.fx.start(0);
+        }
+    });
+});

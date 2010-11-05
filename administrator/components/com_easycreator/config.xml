@@ -1,0 +1,96 @@
+<config>
+	<params addpath="/administrator/components/com_easycreator/helpers/parameter/elements" group="Personal">
+        <param name="@spacer" type="easyspacer" default="Personal information" />
+        <param name="cred_author" type="text" size="30" label="Author" />
+        <param name="cred_author_email" type="text" size="30" label="Author e-mail" />
+        <param name="cred_author_url" type="text" size="30" label="Author URL" />
+        <param name="cred_license" type="text" size="30" label="License" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL"/>
+        <param name="cred_copyright" type="text" size="30" label="Copyright" />
+	</params>
+	
+    <params group="Package creation">
+		<param name="@spacer" type="easyspacer" default="Package formats" label="" description="Package formats" />
+        <param name="archive_zip" type="checkbox" label="zip" description="ZIP format" />
+        <param name="archive_tgz" type="checkbox" label="tar.gz" description="Ziped Tarball" default="on_"/>
+		<!-- 
+        <param name="archive_bz" type="checkbox" label="bz2" description="BZ2 format" />
+		 -->
+
+        <param name="@spacer" type="easyspacer" default="Custom file name" />
+		<param name="custom_name_1" type="text" size="40" label="Custom name default" default="_*VERSION*_*SVNREV*_*DATETIMEYmd_Hi*" />
+		<param name="custom_name_2" type="text" size="40" label="Custom name" default="_*VERSION*_*DATETIMEYmd_Hi*" />
+		<param name="custom_name_3" type="text" size="40" label="Custom name" default="_*VERSION*" />
+    </params>
+
+    <params group="Logging">
+        <param name="logging" type="radio" default="1" label="Logger" description="Should we write some logfiles">
+            <option value="0">Off</option>
+            <option value="1">On</option>
+        </param>
+        <param name="profile" type="radio" default="1" label="Profiler" description="Profile time and memory">
+            <option value="0">Off</option>
+            <option value="1">On</option>
+        </param>
+        <param name="files" type="radio" default="1" label="Log file contents" description="Log the contents / the code of the files been written to disk">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+    </params>
+
+    <params group="Various">
+        <param name="ecr_help" type="list" default="all" label="Help Type" description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
+            <option value="all">All</option>
+            <option value="some">Some</option>
+            <option value="none">None</option>
+        </param>
+		<param name="editarea_type" type="list" default="edit_area_full.js" label="Editor type" description="Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)">
+			<option value="edit_area_full.js">edit_area_full.js</option>
+			<option value="edit_area_compressor.php">edit_area_compressor.php</option>
+			<option value="edit_area_compressor.php?plugins">edit_area_compressor.php?plugins</option>
+			<option value="edit_area_full.gz">edit_area_full.gz</option>
+			<option value="edit_area_loader.js">edit_area_loader.js</option>
+		</param>
+		<param name="editarea_font_size" type="text" size="3" label="Editor font size" description="The default font size for the code editor in pixel" default="8" />
+		<param name="local_api_copy" type="text" size="40" label="Local API copy" description="Your copy of the Joomla! API - get it from http://api.joomla.org" />
+        <param name="warn_livesite" type="radio" default="1" label="Livesite warning" description="If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+		<param name="save_versions" type="radio" default="1" label="Save versions" description="When modifying your files, always save a backup version. These will be named *.rx">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+        <param name="@spacer" type="easyspacer" default="Language" />
+		<param name="use_google_trans_api" type="radio" default="1" label="Use Google translation API" description="Should we use the Google Translation API for helping in translations ?">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+        <param name="langfiles_chk_utf8" type="radio" default="0" label="Check for UTF8" description="Should languages files be checked for UTF-8">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+        <param name="langfiles_chk_bom" type="radio" default="1" label="Check for BOM" description="Should languages files be checked for a BOM">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+	</params>
+
+    <params group="Debug">
+		<param name="ecr_debug" type="radio" default="0" label="Debugger" description="Shall we use the Debug mode ?">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</param>
+		<param name="ecr_debug_type" type="list" default="krumo" label="Debugger Type" description="Which debugger to use">
+			<option value="easy">EasyDebug</option>
+			<option value="jdump">JDump</option>
+			<option value="debugtools">DebugTools</option>
+			<option value="krumo">Krumo</option>
+		</param>
+		<param name="ecr_debug_lang" type="radio" default="0" label="Debug language" description="Shall we debug our special language files ?">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</param>
+	</params>
+
+</config>
+	

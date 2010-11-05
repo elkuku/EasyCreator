@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="component" version="0.0.12">
+	<name>Experimental !</name>
+	<description>A component using Joomla! categories - WIP !</description>
+	<version>0</version>
+	<jVersion>1.6</jVersion>
+	<phpVersion>5</phpVersion>
+	<dbTables>Custom table</dbTables>
+	<author>docs.joomla.org</author>
+	<authorUrl>http://docs.joomla.org/Developing_a_Model-View-Controller_%28MVC%29_Component_for_Joomla!1.6</authorUrl>
+	<menu
+		img="../media/_ECR_COM_COM_NAME_/images/_ECR_COM_COM_NAME_-16x16.ico">_ECR_COM_NAME_</menu>
+	<submenu>
+		<menu img="article"
+			link="option=_ECR_COM_COM_NAME_&amp;view=_ECR_COM_TBL_NAME__ECR_LOW_LIST_POSTFIX_">_ECR_COM_NAME_</menu>
+		<menu img="category"
+			link="option=com_categories&amp;extension=_ECR_COM_COM_NAME_">Categories</menu>
+	</submenu>
+</easyproject>

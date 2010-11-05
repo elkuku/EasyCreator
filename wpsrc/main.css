@@ -1,0 +1,294 @@
+
+/* 
+ * common.css
+ * This file contains CSS settings common to Wikistandard, Nostalgia and CologneBlue
+ */
+#footer { clear: both }
+/* images */
+div.floatright { float: right; margin: 0 0 1em 1em; }
+div.floatright p { font-style: italic; }
+div.floatleft { float: left; margin: 0.3em 0.5em 0.5em 0; }
+div.floatleft p { font-style: italic; }
+
+
+/* Print-specific things to hide */
+.urlexpansion, .printfooter {
+        display: none;
+}
+
+/* table standards */
+table.rimage {
+        float:right;
+        margin-left:1em;
+        margin-bottom:1em;
+        text-align:center;
+        font-size:smaller;
+}
+
+/* thumbnails */
+div.thumb {
+    margin: 10px;
+    text-align: center;
+    width: auto;
+}
+div.thumb div {
+    border: 1px solid #8888aa;
+    background-color: #f7f8ff;
+    padding: 2px;
+    font-size: 94%;
+    text-align: center;
+    overflow: hidden;
+}
+div.thumb div * { 
+    border: none;
+    background: none;
+}
+div.thumb img {
+    border:1px solid #8888AA;
+    margin-bottom:3px;
+    background:#FFFFFF;
+}
+div.thumbcaption,
+div.thumbcaption * {
+    border: none !important;
+    background: none !important;
+}
+div.thumbcaption {
+    padding: 0.2em 0 0.2em 0 !important;
+    text-align: left !important;
+}
+div.tright {
+    float: right;
+    margin-left:0.5em;
+}
+div.tleft {
+    float: left;
+    margin-right:0.5em;
+}
+
+/* Page history styling */
+/* the auto-generated edit comments */
+.autocomment { color: #4b4b4b; }
+#pagehistory span.user { 
+    margin-left: 1.4em;
+    margin-right: 0.4em;
+}
+#pagehistory span.minor { font-weight: bold; }
+#pagehistory li { border: 1px solid White; }
+#pagehistory li.selected { 
+    background-color:#f9f9f9;
+    border:1px dashed #aaaaaa;
+}
+
+table.diff { background:white; }
+td.diff-otitle { background:#cccccc; }
+td.diff-ntitle { background:#cccccc; }
+td.diff-addedline { 
+    background:#ccffcc;
+    font-size: 94%;
+}
+td.diff-deletedline { 
+    background:#ffffaa;
+    font-size: 94%;
+}
+td.diff-context {
+    background:#eeeeee;
+    font-size: 94%;
+}
+span.diffchange { color: red; }
+
+img { border: none; }
+img.tex { vertical-align: middle; }
+span.texhtml { font-family: serif; }
+
+
+#toc {
+        border: 1px solid #8888aa;
+        background-color: #f7f8ff;
+        padding: 5px;
+        font-size: 95%;
+}
+#toc .tocindent { margin-left: 2em; }
+#toc .tocline { margin-bottom: 0px; }
+#toc p { margin: 0 }
+#toc .toctoggle { font-size: 95%; }
+#toc .editsection { 
+    margin-top: 0.7em; 
+    font-size: 94%;
+}
+
+.error {
+	color: red;
+	font-size: larger;
+}
+
+/* preference page with js-genrated toc */
+#preftoc { 
+    float: left;
+    margin: 1em 1em 1em 1em;
+    width: 13em;
+}
+#preftoc li { border: 1px solid White; }
+#preftoc li.selected { 
+    background-color:#f9f9f9;
+    border:1px dashed #aaaaaa;
+}
+#preftoc a,
+#preftoc a:active {
+    display: block;
+    color: #005189;
+}
+#prefcontrol { 
+    clear: left;
+    float: left;
+    margin-top: 1em;
+}
+div.prefsectiontip { 
+    font-size: 94%;
+    margin-top: 1em;
+}
+fieldset.prefsection { margin-top: 1em }
+fieldset.operaprefsection { margin-left: 15em }
+
+/* emulate center */
+.center {
+    width: 100%;
+    text-align: center;
+}
+*.center * {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* small for tables and similar */
+.small, .small * { font-size: 94%; }
+table.small { font-size: 100% }
+
+div.townBox {
+    position:relative;
+    float:right;
+    background:White;
+    margin-left:1em;
+    border: 1px solid Grey;
+    padding:0.3em;
+    width: 200px;
+    overflow: hidden;
+    clear: right;
+}
+div.townBox dl {
+    padding: 0;
+    margin: 0 0 0.3em 0; 
+    font-size: 96%;
+}
+div.townBox dl dt {
+    background: none;
+    margin: 0.4em 0 0 0;
+}
+div.townBox dl dd {
+    margin: 0.1em 0 0 1.1em;
+    background-color: #f3f3f3;
+}
+/* use this instead of #toc for page content */
+.toccolours { 
+    border:1px solid #aaaaaa;
+    background-color:#f9f9f9;
+    padding:5px;
+    font-size: 95%;
+}
+#siteNotice {
+    border:1px solid #aaaaaa;
+}
+/* end of common.css */
+
+body { margin: 0px; padding: 0px; color: black; }
+#specialform { display: inline; }
+#content { top: 0; margin: 0; padding: 0; }
+#topbar { padding: 0px; }
+#powersearch {
+  background: #DDEEFF; border-style: solid; border-width: 1; padding: 2;
+}
+#quickbar {
+ width: 140px; top: 18ex; padding: 2px; visibility: visible; z-index: 99;
+}
+#article, #article td, #article th, #article p {
+ font-family: Verdana, Arial, sans-serif;
+ font-size: 10pt; color: black;
+}
+#article p {
+ padding-top: 0; padding-bottom: 0;
+ margin-top: 1ex; margin-bottom: 0;
+}
+p, pre, td, th, li, dd, dt { line-height: 12pt; }
+textarea { overflow: auto; }
+
+#footer { padding: 4px; }
+#footer form { display: inline; }
+#sitetitle {
+ font-family: Times, serif;
+ color: white;
+ font-weight: normal; font-size: 32pt;
+ line-height: 32pt;
+}
+td.top {
+ background-color: #6688AA; color: white;
+ margin-top: 4px; margin-bottom: 4px;
+ padding-top: 0; padding-bottom: 0;
+ text-transform: uppercase;
+ font-family: Verdana, Arial, sans-serif; font-size: 8pt;
+}
+td.top a {
+ font-family: Verdana, Arial, sans-serif;
+ background-color: #6688AA; color: white;
+ text-decoration: none; font-size: 10pt;
+}
+td.bottom {
+ font-family: Verdana, Arial, sans-serif;
+ font-size: 10pt;
+ padding: 0;
+}
+#pagestats {
+ font-family: Verdana, Arial, sans-serif;
+ color: black;
+ font-size: 9pt;
+}
+#sitesub {
+ font-family: Verdana, Arial, sans-serif;
+ font-size: 9pt; font-weight: bold;
+ color: black;
+ padding-top: 0;
+}
+#quickbar {
+ font-family: Verdana, Arial, sans-serif;
+ font-size: 8pt; font-weight: bold; line-height: 9.5pt;
+ text-decoration: none;
+ color: black;
+ padding: 0; margin-top: 0;
+}
+#quickbar a { color: #446688; }
+
+#quickbar h6 {
+ font-family: Verdana, Arial, sans-serif;
+ font-size: 10pt; font-weight: bold; line-height: 12pt;
+ text-decoration: none;
+ color: #666666;
+ padding: 0; margin-bottom: 2px; margin-top: 6px;
+}
+#quickbar form { padding: 0; margin-top: 0; }
+
+h1 { font-family: Arial, Helvetica, sans-serif;
+ color: #666666;
+ font-family: Verdana, Arial, sans-serif;
+ font-size: 18pt; font-weight: bold; line-height: 21pt;
+}
+h1.pagetitle { padding-bottom: 0; margin-bottom: 0; }
+#article p.subtitle {
+ color: #666666; font-size: 11pt; font-weight: bold;
+ padding-top: 0; margin-top: 0; padding-bottom: 1ex;
+}
+a { color: #223366; }
+a.external { color: #336644; }
+a:visited { color: #8D0749; }
+a.printable { text-decoration: underline; }
+a.stub { color:#772233; text-decoration:none; }
+h2, h3, h4, h5, h6 { margin-bottom: 0; }
+small { font-size: 75%; }
+

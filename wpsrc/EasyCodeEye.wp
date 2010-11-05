@@ -1,0 +1,123 @@
+==Description==
+EasyCodeEye provides an interface to several [http://pear.php.net/ PEAR] packages that will '''have an eye on your code'''...
+
+==Check your PATHs==
+PEAR itself and its packages have to be '''both''' in your PHP include_path and in your system PATH.
+
+Please check the documentation of your OS to achive this..
+
+{{@todo|more info ?}}
+
+===See also===
+
+====PHP include_path====
+* [http://www.php.net/manual/en/ini.core.php#ini.include-path PHP ini - include_path]
+
+====System include path====
+* [http://www.java.com/en/download/help/path.xml java.com] (just change 'java' to 'php' ;) )
+** Or ask Google for [http://www.google.com/search?q=set+system+path+windows Windows], [http://www.google.com/search?q=set+system+path+linux Linux] or [http://www.google.com/search?q=set+system+path+mac Mac]
+
+{{hinweis}} After changing your PATH variables don't forget to '''restart your server''' !
+
+==PEAR==
+PEAR  is a framework and distribution system for reusable PHP components.
+
+===Windows installation===
+The standard xampp installation for windows seems to come without PEAR. So you have to manually install PEAR:
+
+Go to the ugly windows command line (execute -> cmd) - a 'black' window opens <tt>=;)</tt>
+
+We assume your xampp installation on drive C in the standard folder {{folder|xampp}}.
+
+Move to {{folder|C:\xampp\php}} by
+ cd xampp\php
+execute
+ go-pear
+choose to install a 'local' copy
+
+For all the other stuff that will come up can accept the default values. Pay a little attention to the paths mentioned, and how to modify your php.ini and your PATH.
+
+PEAR should now be installed.
+
+Time to install the [[#Packages|Packages]]
+
+Done ?
+
+NOTE : I am NOT a windoows user so - please verify the information and, pleaseplease, correct any errors - thx <tt>=;)</tt>
+
+===Linux installation ===
+* Install PEAR (if not already installed)
+Refer to the documentation of your distribution if you have any problems.
+
+Do you need any additional information ? really ? ...[[#See also|See also]]
+
+Time to install the Packages
+
+===Mac installation===
+{{@todo}}
+
+===See also===
+*[http://pear.php.net/manual/en/installation.php Installing PEAR]
+*[http://pear.php.net/manual/en/guide.users.commandline.installing.php Installing PEAR packages]
+
+==CodeSniffer==
+EasyCreator provides an interface to [http://pear.php.net/package/PHP_CodeSniffer PEAR::CodeSniffer]. This enables you to verify the formatting of your code against some predefined standards like PEAR or Zend. You can also define your own coding standards for your project.
+
+===Installation===
+ pear install PHP_CodeSniffer
+
+===See also===
+* [http://pear.php.net/package/PHP_CodeSniffer PHP_CodeSniffer]
+* [http://pear.php.net/package/PHP_CodeSniffer/docs Documentation]
+* [http://pear.php.net/package/PHP_CodeSniffer/download Download]
+
+==Copy/Paste Detector==
+Finds duplicated code.
+
+===Installation===
+Add the channel and Install
+ pear channel-discover pear.phpunit.de
+ pear install phpunit/phpcpd
+
+===See also===
+* [http://github.com/sebastianbergmann/phpcpd phpcpd web site]
+
+==phpDocumentor==
+Documents your code.
+
+===Installation===
+ pear install PhpDocumentor
+
+===See also===
+* [http://www.phpdoc.org/ phpDocumentor web site]
+
+==PHPUnit==
+For executing unit tests and creating skeletons.
+
+===Installation===
+Add the channel and Install
+ pear channel-discover pear.phpunit.de
+ pear install phpunit/PHPUnit
+
+===See also===
+* [http://www.phpunit.de/ PHPUnit web site]
+
+==Others==
+
+[[Bild:ECR_EasyCodeEye_Stats.png|right|thumb|150px|EasyCodeEye Charts]]
+===Statistics===
+This is ment to gather some statistics about your project, like number of files, code lines and sizes.
+
+They are represented by pie charts (for now) using the javascript chart library from [http://www.highcharts.com/ highcharts]
+
+<div style="clear: both;"></div>
+
+===Project reflection===
+Draws a picture of your extension.
+
+Still under development..
+
+[[Kategorie:3pd|EasyCreator]]
+
+----
+<tt>@version $Id: EasyCodeEye.wp 1172 2010-04-25 15:18:26Z elkuku $</tt>

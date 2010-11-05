@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="package" scope="" version="0.0.13">
+  <name>Standard package</name>
+  <description>A package containing various extension types</description>
+  <version>1.0</version>
+  <jVersion>1.6</jVersion>
+  <phpVersion>5</phpVersion>
+  <author></author>
+  <authorUrl></authorUrl>
+</easyproject>

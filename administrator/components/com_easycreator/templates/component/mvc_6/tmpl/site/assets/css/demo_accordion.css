@@ -1,0 +1,85 @@
+/**
+CSS styles for MooTools Accordion
+The styles are taken from backend template khepri - just changed the colors =;)
+*/
+
+/* pane-sliders  */
+.pane-sliders .title {
+	margin: 0;
+	padding: 2px;
+	color: #666;
+	cursor: pointer;
+}
+
+.pane-sliders .panel {
+	border: 1px solid #B2B299;
+	margin-bottom: 3px;
+}
+
+.pane-sliders .panel h3 {
+	background: #CCE5FF;
+	color: #3300B2;
+}
+
+.pane-sliders .content {
+	background: #FFFFCC;
+	padding-left: 5px;
+}
+
+.jpane-toggler span {
+	background: transparent url(../images/2rightarrow.png) 5px 50% no-repeat; padding-left:
+	25px;
+}
+.jpane-toggler-down span {
+	background: transparent url(../images/2downarrow1.png) 5px 50% no-repeat;
+	padding-left: 30px;
+}
+
+.jpane-toggler-down {
+	border-bottom: 1px solid #ccc;
+}
+
+/* tabs */
+
+dl.tabs {
+	float: left;
+	margin: 10px 0 -1px 0;
+	z-index: 50;
+}
+
+dl.tabs dt {
+	float: left;
+	padding: 4px 10px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	margin-left: 3px;
+	background: #f0f0f0;
+	color: #666;
+}
+
+dl.tabs dt.open {
+	background: #F9F9F9;
+	border-bottom: 1px solid #F9F9F9;
+	z-index: 100;
+	color: #000;
+}
+
+div.current {
+	clear: both;
+	border: 1px solid #ccc;
+	padding: 10px 10px;
+}
+
+div.current dd {
+	padding: 0;
+	margin: 0;
+}
+
+/*
+ * Here comes a litle addon.
+ * I like hooover effects =;)
+ */
+.pane-sliders .panel h3:hover {
+	background-color: #B2FFFF;
+}

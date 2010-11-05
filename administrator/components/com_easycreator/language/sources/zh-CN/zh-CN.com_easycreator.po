@@ -1,0 +1,3685 @@
+# @version SVN: $Id: zh-CN.com_easycreator.po 1351 2010-10-13 21:12:43Z elkuku $
+msgid ""
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/helpers/html.php:724
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:113
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:22
+#, fuzzy
+msgid "Author"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/helpers/html.php:725
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:81
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:27
+msgid "Author e-mail"
+msgstr "作者 e-mail"
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/helpers/html.php:726
+#, fuzzy
+msgid "Author URL"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/helpers/html.php:727
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:95
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:37
+#, fuzzy
+msgid "License"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:102
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:42
+#, fuzzy
+msgid "Copyright"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Package formats"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/config.xml:label
+msgid "zip"
+msgstr "ZIP"
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "ZIP format"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "tar.gz"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Ziped Tarball"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Custom name default"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Custom name"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Logger"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Should we write some logfiles"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:127
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:127
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:123
+#, fuzzy
+msgid "Off"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:125
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:125
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:121
+#, fuzzy
+msgid "On"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Profiler"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Profile time and memory"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/helpers/html.php:446
+#, fuzzy
+msgid "Log file contents"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Log the contents / the code of the files been written to disk"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "No"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "Yes"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Help Type"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "All"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "Some"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "None"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Editor type"
+msgstr "编辑器类型"
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "我们应该载入哪一种文本输入框类型？ (请参看开发者网站的文档 http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "edit_area_full.js"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "edit_area_compressor.php"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "edit_area_compressor.php?plugins"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "edit_area_full.gz"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "edit_area_loader.js"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Editor font size"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "The default font size for the code editor in pixel"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#, fuzzy
+msgid "Local API copy"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Livesite warning"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Save versions"
+msgstr "保存版本"
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "When modifying your files, always save a backup version. These will be named *.rx"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Use Google translation API"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Should we use the Google Translation API for helping in translations ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#, fuzzy
+msgid "Check for UTF8"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "LANG CHECK UTF8 DESC"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Check for BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "LANG CHECK BOM DESC"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Debugger"
+msgstr "除错器"
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Shall we use the Debug mode ?"
+msgstr "我们要使用除错模式吗 ?"
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+#, fuzzy
+msgid "Debugger Type"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+#, fuzzy
+msgid "Which debugger to use"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "EasyDebug"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "JDump"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "DebugTools"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+#, fuzzy
+msgid "Krumo"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:172
+#, fuzzy
+msgid "The class file for your Joomla version %s has not been build yet."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:190
+#: administrator/components/com_easycreator/controllers/ajax.php:475
+#: administrator/components/com_easycreator/controllers/ajax.php:505
+#: administrator/components/com_easycreator/controllers/ajax.php:834
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:163
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:341
+#: administrator/components/com_easycreator/helpers/file.php:62
+#: administrator/components/com_easycreator/helpers/html.php:340
+#: administrator/components/com_easycreator/helpers/language.php:280
+#: administrator/components/com_easycreator/helpers/language.php:289
+#: administrator/components/com_easycreator/helpers/language.php:899
+#: administrator/components/com_easycreator/helpers/projecthelper.php:573
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:471
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:315
+#, fuzzy
+msgid "File not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:203
+#, fuzzy
+msgid "Class %s NOT FOUND"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:353
+#: administrator/components/com_easycreator/controllers/stuffer.php:95
+#, fuzzy
+msgid "Unable to load part"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:360
+#, fuzzy
+msgid "Function not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:383
+#: administrator/components/com_easycreator/controllers/ajax.php:431
+#: administrator/components/com_easycreator/helpers/language.php:1317
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:139
+#, fuzzy
+msgid "No scope given"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:385
+#, fuzzy
+msgid "Empty translation"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:392
+#: administrator/components/com_easycreator/controllers/ajax.php:435
+#, fuzzy
+msgid "No languages found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:480
+#, fuzzy
+msgid "File loaded"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:512
+#, fuzzy
+msgid "The file %s is empty"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/ajax.php:549
+msgid "Invalid file"
+msgstr "无效文件"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/ajax.php:574
+#: administrator/components/com_easycreator/controllers/templates.php:56
+#: administrator/components/com_easycreator/helpers/language.php:402
+msgid "The file has been saved"
+msgstr "文件已被保存"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:607
+#: administrator/components/com_easycreator/controllers/ajax.php:792
+#, fuzzy
+msgid "Wrong base folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:615
+#, fuzzy
+msgid "The folder already exists"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/ajax.php:621
+msgid "Unable to create folder"
+msgstr "无法创建文件夹"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:632
+#: administrator/components/com_easycreator/helpers/html.php:1077
+#: administrator/components/com_easycreator/helpers/html.php:1099
+#, fuzzy
+msgid "New folder"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/ajax.php:632
+#: administrator/components/com_easycreator/controllers/ajax.php:682
+msgid "Create"
+msgstr "创建"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:656
+#, fuzzy
+msgid "This is a folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:662
+#, fuzzy
+msgid "The file already exists"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:671
+#, fuzzy
+msgid "Unable to create file"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:682
+#: administrator/components/com_easycreator/helpers/html.php:1078
+#: administrator/components/com_easycreator/helpers/html.php:1100
+#, fuzzy
+msgid "New file"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/ajax.php:699
+#: administrator/components/com_easycreator/controllers/ajax.php:745
+msgid "Empty"
+msgstr "空"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:707
+#, fuzzy
+msgid "Folder does not exist"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:713
+#, fuzzy
+msgid "Unable to delete folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:724
+#, fuzzy
+msgid "Delete folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:724
+#: administrator/components/com_easycreator/controllers/ajax.php:770
+#: administrator/components/com_easycreator/helpers/html.php:1080
+#: administrator/components/com_easycreator/helpers/html.php:1102
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:131
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:27
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:33
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:34
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:35
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:99
+#: administrator/components/com_easycreator/views/ziper/view.html.php:163
+#, fuzzy
+msgid "Delete"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:753
+#, fuzzy
+msgid "File does not exist"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:759
+#: administrator/components/com_easycreator/helpers/project.php:844
+#, fuzzy
+msgid "Unable to delete file"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:770
+#, fuzzy
+msgid "Delete file"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:812
+#, fuzzy
+msgid "Rename folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:812
+#: administrator/components/com_easycreator/controllers/ajax.php:853
+#: administrator/components/com_easycreator/helpers/html.php:1079
+#: administrator/components/com_easycreator/helpers/html.php:1101
+#, fuzzy
+msgid "Rename"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:853
+#, fuzzy
+msgid "Rename file"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:1111
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:308
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:44
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:241
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:255
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:271
+#, fuzzy
+msgid "Select..."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:51
+#, fuzzy
+msgid "The file bootstrap.php has been copied to your Joomla root"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:55
+#, fuzzy
+msgid "Can not copy file %s', 'bootstrap.php"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:91
+#, fuzzy
+msgid "No project selected"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:98
+#, fuzzy
+msgid "Invalid project"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:105
+#, fuzzy
+msgid "Unable to create tests directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:110
+#, fuzzy
+msgid "The tests directory has been created"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:169
+#, fuzzy
+msgid "Only PHP files are allowed"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:185
+#: administrator/components/com_easycreator/helpers/reflection.php:259
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:499
+msgid "No classes found"
+msgstr "没有找到类"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:315
+#, fuzzy
+msgid "Folder not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:413
+msgid "No path set"
+msgstr "没有设定路径"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:497
+#, fuzzy
+msgid "Something went wrong..."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:505
+#, fuzzy
+msgid "Documentation has been created"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:506
+#, fuzzy
+msgid "View Documentation"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:507
+#, fuzzy
+msgid "View Errors"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:528
+#: administrator/components/com_easycreator/helpers/pearhelpers/consolehelper.php:132
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:41
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:44
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:37
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:56
+#, fuzzy
+msgid "Not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:532
+#, fuzzy
+msgid "No_PEAR packages found - Please check your Paths"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:533
+#, fuzzy
+msgid "For more information see: %s', '<a href="'.ECR_DOCU_LINK.'/EasyCodeEye#Check_your_PATHs">EasyCreator Doku: Check your path</a>"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:540
+#, fuzzy
+msgid "See also: %s', '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:545
+#: administrator/components/com_easycreator/helpers/html.php:73
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:86
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:22
+#, fuzzy
+msgid "Package"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:546
+#: administrator/components/com_easycreator/helpers/html.php:719
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:45
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:116
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:52
+#, fuzzy
+msgid "Version"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:547
+#, fuzzy
+msgid "Recommended"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:548
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:99
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:100
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:18
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:317
+msgid "Info"
+msgstr "信息"
+
+#: administrator/components/com_easycreator/controllers/config.php:64
+#, fuzzy
+msgid "Unsupported Joomla version"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/config.php:76
+#, fuzzy
+msgid "Configuration has been saved"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/languages.php:145
+msgid "The file has been created"
+msgstr "文件已被创建"
+
+#: administrator/components/com_easycreator/controllers/languages.php:173
+#, fuzzy
+msgid "The BOM has been removed"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/languages.php:177
+#, fuzzy
+msgid "Unable to remove the BOM"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/logfiles.php:56
+msgid "The logfiles have been deleted"
+msgstr "日志文件已被删除"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/logfiles.php:61
+msgid "The logfiles could not be deleted"
+msgstr "日志文件无法删除"
+
+#: administrator/components/com_easycreator/controllers/starter.php:63
+#, fuzzy
+msgid "An error happened while creating your project"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/starter.php:89
+#, fuzzy
+msgid "Your project has been created"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/starter.php:121
+#, fuzzy
+msgid "Your project has been registered"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:103
+#, fuzzy
+msgid "Unable to prepare part"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:130
+#, fuzzy
+msgid "Unable to insert part"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:135
+#, fuzzy
+msgid "Part added"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:150
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:209
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:153
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:200
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:203
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:202
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:153
+#, fuzzy
+msgid "No_table given"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:154
+#, fuzzy
+msgid "Invalid Table"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:158
+#: administrator/components/com_easycreator/helpers/project.php:862
+#, fuzzy
+msgid "Invalid options"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:216
+#, fuzzy
+msgid "Unable to load Autocode"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:219
+#, fuzzy
+msgid "Insert method not found in Autocode %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:222
+#, fuzzy
+msgid "Unable to prepare project [project, group, part] [%s, %s, %s]"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:247
+#, fuzzy
+msgid "Unable to update AutoCode"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:249
+#, fuzzy
+msgid "AutoCode updated"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/stuffer.php:277
+msgid "invalid file"
+msgstr "无效文件"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:284
+#, fuzzy
+msgid "File has been deleted"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:293
+#, fuzzy
+msgid "Unable to deleted the file"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:371
+#, fuzzy
+msgid "The type %s is not supported yet.. remember - this is a beta"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:372
+#, fuzzy
+msgid "But you can copy + paste the code below to your params section.."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:380
+#, fuzzy
+msgid "Could not create XML"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/stuffer.php:474
+msgid "The XML file has been saved"
+msgstr "XML 文件已被保存"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/controllers/stuffer.php:478
+msgid "Could not save XML file"
+msgstr "无法保存 XML 文件"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:507
+#, fuzzy
+msgid "The Settings have been updated"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:559
+#, fuzzy
+msgid "The Project %s has been removed"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:563
+msgid "The Project %s could not be removed"
+msgstr "%s 无法删除"
+
+#: administrator/components/com_easycreator/controllers/templates.php:80
+#, fuzzy
+msgid "Template has been deleted."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/templates.php:103
+#, fuzzy
+msgid "No templates selected"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/templates.php:107
+#, fuzzy
+msgid "Templates have been exported."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/templates.php:132
+#: administrator/components/com_easycreator/controllers/templates.php:142
+#, fuzzy
+msgid "Templates have been installed."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/templates.php:146
+#, fuzzy
+msgid "Unable to install templates."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ziper.php:76
+#, fuzzy
+msgid "The file has been deleted"
+msgstr ""
+
+#: administrator/components/com_easycreator/easycreator.xml:description
+#, fuzzy
+msgid "EasyCreator helps creating Extensions for Joomla"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/autocode.php:104
+#, fuzzy
+msgid "AutoCode %s not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/autocode.php:121
+#, fuzzy
+msgid "Match mismatch on_%s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:361
+#, fuzzy
+msgid "Can not write the file at %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:522
+#, fuzzy
+msgid "Can not copy package manifest"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:536
+#, fuzzy
+msgid "Path does not have a valid package"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:550
+#, fuzzy
+msgid "An error happened while installing your %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:593
+#, fuzzy
+msgid "Required class %s not found', 'EasyTemplateOptions"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:608
+#, fuzzy
+msgid "Required method %s not found', 'displayOptions"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:614
+#, fuzzy
+msgid "Custom options"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:624
+#, fuzzy
+msgid "Required method %s not found', 'processOptions"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:634
+#, fuzzy
+msgid "Required method %s not found', 'getRequireds"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:643
+#, fuzzy
+msgid "Action %s not defined"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:684
+#: administrator/components/com_easycreator/helpers/builder.php:685
+#, fuzzy
+msgid "The project type %s is not defined yet"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/builder.php:696
+#, fuzzy
+msgid "No_manifest file found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/debug.php:62
+#, fuzzy
+msgid "JDump not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/debug.php:144
+#, fuzzy
+msgid "DebugTools not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/debug.php:166
+#, fuzzy
+msgid "No debugger set"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easycreator.php:48
+#: administrator/components/com_easycreator/helpers/jslanguage.php:48
+#, fuzzy
+msgid "Controller %s not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easycreator.php:126
+#: administrator/components/com_easycreator/helpers/jslanguage.php:126
+#, fuzzy
+msgid "ecr_Unsupported_Joomla_version_%s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:129
+#, fuzzy
+msgid "ecr_Unable_to_copy_the_file_%s_to_%s"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:131
+msgid "Unable to copy file"
+msgstr "无法复制文件"
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:153
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:155
+#, fuzzy
+msgid "Unable to write file %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:167
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:170
+#, fuzzy
+msgid "Error creating archive"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:188
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:190
+#, fuzzy
+msgid "Unable to find install package"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:196
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:198
+#, fuzzy
+msgid "This is not an EasyCreator Extension Template"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:214
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:216
+#, fuzzy
+msgid "The template %s is already installed"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:232
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:234
+#, fuzzy
+msgid "Can not create folder %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:248
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:250
+#, fuzzy
+msgid "Can not copy file %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:274
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:276
+#, fuzzy
+msgid "No_file selected"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:283
+#: administrator/components/com_easycreator/helpers/easytemplatehelper.php:285
+#, fuzzy
+msgid "Invalid package"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/file.php:33
+#, fuzzy
+msgid "Empty values in save"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/file.php:36
+#, fuzzy
+msgid "Empty content"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/file.php:44
+msgid "The file must exist for save"
+msgstr "文件必须存在才能保存"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/file.php:47
+msgid "The file %s could NOT be saved at PATH: %s"
+msgstr "文件 %s 无法保存到 %s 这个路径"
+
+#: administrator/components/com_easycreator/helpers/file.php:87
+#, fuzzy
+msgid "Unable to copy file %s"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/file.php:109
+msgid "The file does not exist"
+msgstr "文件不存在"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/file.php:112
+msgid "The file %s could not be deleted at path: %s"
+msgstr "文件 %s 无法在 %s 这个路径删除"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:53
+#: administrator/components/com_easycreator/helpers/html.php:851
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:39
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:39
+msgid "Project"
+msgstr "工程"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:61
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:81
+#: administrator/components/com_easycreator/views/languages/view.html.php:53
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:20
+msgid "Languages"
+msgstr "语言"
+
+#: administrator/components/com_easycreator/helpers/html.php:67
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:81
+#, fuzzy
+msgid "CodeEye"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:81
+#: administrator/components/com_easycreator/views/config/tmpl/default.php:32
+msgid "Configuration"
+msgstr "配置"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:86
+#: administrator/components/com_easycreator/helpers/projecthelper.php:425
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:335
+#: administrator/components/com_easycreator/views/templates/view.html.php:129
+msgid "Templates"
+msgstr "模板"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:91
+#: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:31
+msgid "Logfiles"
+msgstr "日志文件"
+
+#: administrator/components/com_easycreator/helpers/html.php:96
+#: administrator/components/com_easycreator/views/help/tmpl/default.php:20
+#, fuzzy
+msgid "Help"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:101
+msgid "Sandbox"
+msgstr "沙盒"
+
+#: administrator/components/com_easycreator/helpers/html.php:184
+#: administrator/components/com_easycreator/helpers/html.php:185
+msgid "More..."
+msgstr "更多"
+
+#: administrator/components/com_easycreator/helpers/html.php:184
+#, fuzzy
+msgid "Click for more options"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:261
+msgid "Save versioned"
+msgstr "保存已经标记版本号"
+
+#: administrator/components/com_easycreator/helpers/html.php:277
+#, fuzzy
+msgid "Continue editing"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:292
+msgid "Invalid path"
+msgstr "无效路径"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:338
+#: administrator/components/com_easycreator/helpers/language.php:903
+msgid "Create language file"
+msgstr "创建语言文件"
+
+#: administrator/components/com_easycreator/helpers/html.php:348
+#, fuzzy
+msgid "Found a BOM in languagefile"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:354
+#, fuzzy
+msgid "Create class list file"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:447
+msgid "Profile"
+msgstr "方案"
+
+#: administrator/components/com_easycreator/helpers/html.php:460
+#, fuzzy
+msgid "Activate logging"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:510
+#, fuzzy
+msgid "Please set a compression type"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:511
+#, fuzzy
+msgid "You can set a default compression type in configuration"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:614
+#: administrator/components/com_easycreator/helpers/html.php:630
+#, fuzzy
+msgid "Select a file"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:625
+#: administrator/components/com_easycreator/helpers/html.php:934
+#: administrator/components/com_easycreator/helpers/html.php:947
+#: administrator/components/com_easycreator/views/config/tmpl/default.php:23
+#: administrator/components/com_easycreator/views/config/tmpl/default.php:24
+#: administrator/components/com_easycreator/views/languages/view.html.php:550
+#: administrator/components/com_easycreator/views/languages/view.html.php:559
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:77
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:142
+#, fuzzy
+msgid "Save"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:703
+#, fuzzy
+msgid "Your extension so far"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:706
+#: administrator/components/com_easycreator/helpers/table.php:371
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:109
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:327
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:29
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:20
+#, fuzzy
+msgid "Type"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:707
+#: administrator/components/com_easycreator/helpers/projecthelper.php:425
+#, fuzzy
+msgid "Template"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:708
+#, fuzzy
+msgid "JVersion"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:718
+#: administrator/components/com_easycreator/helpers/html.php:906
+#: administrator/components/com_easycreator/helpers/table.php:369
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:38
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:27
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:30
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:35
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:53
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:30
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:27
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:46
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:281
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:313
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:416
+#, fuzzy
+msgid "Name"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:720
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:54
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:80
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:56
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:58
+#, fuzzy
+msgid "Description"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:728
+#, fuzzy
+msgid "Copyright C"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:731
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:62
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_autocode.php:18
+#, fuzzy
+msgid "List postfix"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:788
+#: administrator/components/com_easycreator/helpers/html.php:788
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:67
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:68
+#, fuzzy
+msgid "Back"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:793
+#: administrator/components/com_easycreator/helpers/html.php:793
+#, fuzzy
+msgid "Next"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:855
+#, fuzzy
+msgid "New Project"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:859
+#, fuzzy
+msgid "Register Project"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:885
+#: administrator/components/com_easycreator/helpers/html.php:891
+#: administrator/components/com_easycreator/views/languages/view.html.php:457
+msgid "Scope"
+msgstr "作用域"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:893
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:80
+#: administrator/components/com_easycreator/views/languages/view.html.php:169
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:396
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:270
+msgid "Select"
+msgstr "选择"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/html.php:894
+#: administrator/components/com_easycreator/helpers/table.php:41
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:52
+msgid "Admin"
+msgstr "后台"
+
+#: administrator/components/com_easycreator/helpers/html.php:895
+#: administrator/components/com_easycreator/helpers/table.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:52
+#, fuzzy
+msgid "Site"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:1085
+#: administrator/components/com_easycreator/views/languages/view.html.php:167
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:63
+#: administrator/components/com_easycreator/views/ziper/view.html.php:128
+#, fuzzy
+msgid "File"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:1107
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:26
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:29
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:26
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:45
+#, fuzzy
+msgid "Folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:1253
+#, fuzzy
+msgid "Edit"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:1257
+#, fuzzy
+msgid "New"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html.php:1275
+#, fuzzy
+msgid "Undefined format: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/jmethodlister.php:411
+#, fuzzy
+msgid "Path is not a folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:93
+#, fuzzy
+msgid "Backtrace"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:139
+#, fuzzy
+msgid "The file %s could not be found"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/language.php:258
+#: administrator/components/com_easycreator/helpers/language.php:272
+msgid "Version No. %s"
+msgstr "版本号 %s"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/language.php:259
+#: administrator/components/com_easycreator/helpers/language.php:271
+msgid "Actual file"
+msgstr "真实文件"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/language.php:398
+#: administrator/components/com_easycreator/helpers/project.php:295
+#: administrator/components/com_easycreator/helpers/project.php:933
+msgid "Unable to write file"
+msgstr "无法写入文件"
+
+#: administrator/components/com_easycreator/helpers/language.php:416
+#, fuzzy
+msgid "ecr_Unable_to_parse_file_%s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:460
+#, fuzzy
+msgid "ecr_Unable_to_save_backup_version_for_file_%s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:463
+#, fuzzy
+msgid "ecr_Unable_to_write_file_%s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:506
+#, fuzzy
+msgid "Key not found: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:514
+#, fuzzy
+msgid "Can not save version"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:520
+#, fuzzy
+msgid "Unable_to_write_file_%s"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/language.php:617
+msgid "File %s not found"
+msgstr "文件 %s 未找到"
+
+#: administrator/components/com_easycreator/helpers/language.php:669
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:31
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:97
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:30
+msgid "KEY"
+msgstr "Key"
+
+#: administrator/components/com_easycreator/helpers/language.php:678
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:43
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:98
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:42
+msgid "Used in File"
+msgstr "在文件中使用的"
+
+#: administrator/components/com_easycreator/helpers/language.php:698
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:60
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:59
+msgid "Language files analysis"
+msgstr "语言文件分析"
+
+#: administrator/components/com_easycreator/helpers/language.php:700
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:70
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:69
+#, fuzzy
+msgid "Treat the first %s lines as comment"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/language.php:715
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:76
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:75
+msgid "Fold"
+msgstr "Fold"
+
+#: administrator/components/com_easycreator/helpers/language.php:802
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:167
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:185
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:205
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:166
+#, fuzzy
+msgid "Click to translate"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:841
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:210
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:209
+msgid "PATH"
+msgstr "路径"
+
+#: administrator/components/com_easycreator/helpers/language.php:850
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:219
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:218
+msgid "NOT USED"
+msgstr "未使用"
+
+#: administrator/components/com_easycreator/helpers/language.php:1075
+#: administrator/components/com_easycreator/helpers/language.php:1077
+#, fuzzy
+msgid "FOO"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:1318
+#, fuzzy
+msgid "No language given"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:1329
+#, fuzzy
+msgid "The file %s already exists"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/language.php:1331
+#, fuzzy
+msgid "ecr Unable to write the file %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languageconverter.php:44
+#, fuzzy
+msgid "ecr_Invalid_options_for_lanuage_converter"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:103
+#: administrator/components/com_easycreator/helpers/languagehelper.php:109
+#, fuzzy
+msgid "Not checked"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:123
+#, fuzzy
+msgid "Found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:127
+#, fuzzy
+msgid "ecr_Not_found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:138
+#, fuzzy
+msgid "Not checked for UTF-8"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:142
+#, fuzzy
+msgid "UTF-8"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:147
+#, fuzzy
+msgid "File is not UTF-8 encoded"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:155
+#, fuzzy
+msgid "Not checked for BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:164
+#, fuzzy
+msgid "No BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/logger.php:124
+#, fuzzy
+msgid "File Contents"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/logger.php:156
+#: administrator/components/com_easycreator/helpers/logger.php:168
+#, fuzzy
+msgid "Error"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/logger.php:159
+#, fuzzy
+msgid "Query"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/logger.php:201
+msgid "The file %s could not be written to path %s"
+msgstr "文件 %s 无法被写入 %s 这个路径"
+
+#: administrator/components/com_easycreator/helpers/manifest.php:821
+#: administrator/components/com_easycreator/helpers/manifest.php:928
+#, fuzzy
+msgid "Unable to load the xml file %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/parameter/parameter.php:43
+#, fuzzy
+msgid "JLIB_HTML_NO_PARAMETERS_FOR_THIS_ITEM"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:207
+#, fuzzy
+msgid "Can not update EasyCreator manifest"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:214
+#, fuzzy
+msgid "Can not update Joomla manifest"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:221
+#, fuzzy
+msgid "Can not update Admin menu"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:250
+#, fuzzy
+msgid "Can not load xml file %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:570
+#, fuzzy
+msgid "Project manifest not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:580
+#, fuzzy
+msgid "Invalid project manifest"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:807
+#, fuzzy
+msgid "Invalid Project"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:827
+#, fuzzy
+msgid "JInstaller: Unable to remove project"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project.php:910
+#, fuzzy
+msgid "Autocode key %s not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:63
+#, fuzzy
+msgid "ecr_Empty_project_name"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:91
+#, fuzzy
+msgid "ecr_Project_%s_not_found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:226
+#, fuzzy
+msgid "Projecthelper->findConfigXML Extension type %s not supported yet"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:270
+#, fuzzy
+msgid "File not found %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:280
+#, fuzzy
+msgid "Invalid manifest file %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:421
+msgid "Components"
+msgstr "组件"
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:421
+#, fuzzy
+msgid "Component"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/projecthelper.php:422
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:31
+msgid "Modules"
+msgstr "模块"
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:422
+#, fuzzy
+msgid "Module"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/projecthelper.php:423
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:53
+msgid "Plugins"
+msgstr "插件"
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:423
+#, fuzzy
+msgid "Plugin"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:583
+#, fuzzy
+msgid "Class not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projecthelper.php:808
+#, fuzzy
+msgid "Could not load XML file"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:382
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:429
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:498
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:30
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:119
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:21
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:121
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:105
+#, fuzzy
+msgid "Files"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:383
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:430
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:499
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:129
+#, fuzzy
+msgid "Code lines"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:384
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:431
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:500
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:31
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:124
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:22
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:46
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:65
+#: administrator/components/com_easycreator/views/ziper/view.html.php:130
+msgid "Size"
+msgstr "大小"
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:406
+#, fuzzy
+msgid "Code analysis %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:473
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:542
+#, fuzzy
+msgid "code"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:474
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:543
+#, fuzzy
+msgid "blanks"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:475
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:544
+#, fuzzy
+msgid "comments"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:480
+#: administrator/components/com_easycreator/helpers/projectmatrix.php:549
+#, fuzzy
+msgid "Comment to Code ratio"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:366
+#, fuzzy
+msgid "Add row"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:370
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:156
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:85
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:91
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:155
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:150
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:91
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:155
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:87
+#, fuzzy
+msgid "Label"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:372
+#, fuzzy
+msgid "Length/Set"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:373
+#, fuzzy
+msgid "Attributes"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:374
+#, fuzzy
+msgid "ecr__Null"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:375
+#, fuzzy
+msgid "Default"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:376
+#, fuzzy
+msgid "Extra"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:377
+#, fuzzy
+msgid "Comment"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/table.php:383
+#, fuzzy
+msgid "Predefined fields"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/ziper.php:856
+#: administrator/components/com_easycreator/install/install.easycreator.php:166
+#, fuzzy
+msgid "File not found: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/ziper.php:903
+#: administrator/components/com_easycreator/helpers/ziper.php:914
+#, fuzzy
+msgid "Failed to copy file %s to %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/ziper.php:1018
+#, fuzzy
+msgid "The extension "bz2" couldn\'t be found."
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/ziper.php:1019
+#, fuzzy
+msgid "Please make sure your version of PHP was built with bz2 support."
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/helpers/ziper.php:1101
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:93
+#: administrator/components/com_easycreator/views/ziper/view.html.php:159
+msgid "Download"
+msgstr "下载"
+
+#: administrator/components/com_easycreator/helpers/ziper.php:1110
+msgid "No download available"
+msgstr "没有可用下载"
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:30
+#, fuzzy
+msgid "This script requires at least PHP version %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:37
+#, fuzzy
+msgid "Install manifest not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:76
+#, fuzzy
+msgid "ECR_INSTALL_DESC"
+msgstr ""
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:83
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:48
+msgid "Please use this extension only in local development environments."
+msgstr "Please use this extension only in local development environments."
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:84
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:49
+msgid "See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>"
+msgstr "See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>"
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:101
+#, fuzzy
+msgid "Checking MD5 sums..."
+msgstr ""
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:107
+#, fuzzy
+msgid "There have been errors"
+msgstr ""
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:161
+#, fuzzy
+msgid "MD5 check failed on_file: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:79
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:98
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:139
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:64
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:64
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:73
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:92
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:133
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:64
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:64
+#: administrator/components/com_easycreator/templates/parts/controllers/data/part.php:75
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:53
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:67
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:86
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:124
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:96
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:256
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:80
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:121
+#, fuzzy
+msgid "Table"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:81
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:75
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:55
+#: administrator/components/com_easycreator/views/languages/view.html.php:618
+msgid "Choose"
+msgstr "选择"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:155
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:84
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:90
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:154
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:149
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:90
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:154
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:86
+#, fuzzy
+msgid "Field"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:86
+#, fuzzy
+msgid "Input type"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:92
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:92
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:88
+#, fuzzy
+msgid "Display"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:93
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:93
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:89
+#, fuzzy
+msgid "Width"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/library/custom/manifest.xml:description
+#, fuzzy
+msgid "A library"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:60
+#, fuzzy
+msgid "Existing libraries: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:62
+#: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:28
+#, fuzzy
+msgid "Folder name"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:92
+#: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:56
+#, fuzzy
+msgid "No folder given"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:99
+#, fuzzy
+msgid "%s is a reserved name"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/module/backend_simple/manifest.xml:description
+#, fuzzy
+msgid "A plain backend module."
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/module/frontend_simple/manifest.xml:description
+#, fuzzy
+msgid "A plain frontend module."
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/module/hello_world_2/manifest.xml:description
+#, fuzzy
+msgid "A MVC frontend module."
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/package/std/manifest.xml:description
+#, fuzzy
+msgid "A package containing various extension types"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/controllers/data/part.php:31
+#, fuzzy
+msgid "Provides methods to modify data with a specific model"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/controllers/simple/part.php:29
+#, fuzzy
+msgid "A simple, empty, controller"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/models/form/part.php:29
+#: administrator/components/com_easycreator/templates/parts/models/list/part.php:29
+#: administrator/components/com_easycreator/templates/parts/models/simple/part.php:29
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:65
+#, fuzzy
+msgid "A simple, empty, model"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:30
+#, fuzzy
+msgid "This will create a new table with admin interface"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:43
+#, fuzzy
+msgid "Include Fields"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:46
+#, fuzzy
+msgid "Id"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:50
+#, fuzzy
+msgid "Title"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:58
+#, fuzzy
+msgid "Published"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:62
+#, fuzzy
+msgid "Ordering"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/tmpl/options/ecr_mat_description_view1.php:2
+#, fuzzy
+msgid "description"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/tmpl/options/ecr_mat_ordering_view1.php:2
+#, fuzzy
+msgid "Order by"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/tmpl/options/ecr_mat_published_view1.php:2
+#, fuzzy
+msgid "published"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:32
+#, fuzzy
+msgid "This will map an existing table and create an admin interface and menu link"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:69
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:116
+#, fuzzy
+msgid "Menu link"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:71
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:118
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:103
+#, fuzzy
+msgid "Create a menu link"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:101
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:320
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:294
+#, fuzzy
+msgid "No table fields found"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:107
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:326
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:298
+#, fuzzy
+msgid "Include"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:108
+#, fuzzy
+msgid "Editable"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:182
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:157
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:155
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:138
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:209
+#, fuzzy
+msgid "No table given"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:304
+#, fuzzy
+msgid "Unable to create menu link"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:45
+#, fuzzy
+msgid "This will map an existing table to a table class"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:69
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:98
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:82
+#, fuzzy
+msgid "Choose..."
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/various/changelog/part.php:32
+#, fuzzy
+msgid "A standard, empty, Changelog"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/various/changelog/part.php:48
+#, fuzzy
+msgid "This project already has a changelog"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/various/package_installer/part.php:32
+#, fuzzy
+msgid "Install and Uninstall routine for packages"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/various/package_installer/part.php:52
+#, fuzzy
+msgid "This project already has an install file - consider removing it"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:46
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:28
+#, fuzzy
+msgid "##ECR_KEY##"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:276
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:146
+#, fuzzy
+msgid "View not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:49
+#, fuzzy
+msgid "Lists Data from a specific table."
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:101
+#, fuzzy
+msgid "Menu link:"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/views/simple/part.php:29
+#, fuzzy
+msgid "A simple, empty, view"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/plugin/content_simple/manifest.xml:description
+#, fuzzy
+msgid "A content plugin for replacing a tag"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/plugin/custom_folder/manifest.xml:description
+#, fuzzy
+msgid "A plugin inside a custom folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/plugin/example_auth/manifest.xml:description
+#, fuzzy
+msgid "The authentication example taken from the Joomla! core"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/plugin/example_content/manifest.xml:description
+#, fuzzy
+msgid "The content example taken from the Joomla! core"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/plugin/example_system/manifest.xml:description
+#, fuzzy
+msgid "Empty system plugin"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/plugin/example_user/manifest.xml:description
+#, fuzzy
+msgid "The user example taken from the Joomla! core"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/template/blueprint/manifest.xml:description
+#, fuzzy
+msgid "This is a simple blueprint template."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:22
+#, fuzzy
+msgid "First Things First"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:24
+#, fuzzy
+msgid "Check your environment"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:29
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:60
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:120
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:92
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:83
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:83
+#, fuzzy
+msgid "Console"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:59
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:119
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:91
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:82
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:82
+#, fuzzy
+msgid "Output"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:40
+#, fuzzy
+msgid "Sniff folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:87
+#, fuzzy
+msgid "Perform only"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:65
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:62
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:62
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:53
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:39
+#, fuzzy
+msgid "Options"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:83
+#, fuzzy
+msgid "Generate documentation"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:41
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:41
+#, fuzzy
+msgid "Click a file to create a skeleton class."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:49
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:49
+#, fuzzy
+msgid "Tests"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:51
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:51
+#, fuzzy
+msgid "Click a to execute a UnitTest."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:65
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:65
+#, fuzzy
+msgid "Show results"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:68
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:68
+#, fuzzy
+msgid "Show console output"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:82
+#, fuzzy
+msgid "Please click to"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:83
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:96
+#, fuzzy
+msgid "Reflect the %s project"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:84
+#, fuzzy
+msgid "Or click on_an individual file on_the left side"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:240
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:301
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:684
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:32
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:23
+msgid "Lines"
+msgstr "行数"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:241
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:302
+#, fuzzy
+msgid "View Source"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:245
+#, fuzzy
+msgid "Source"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:519
+msgid "Properties"
+msgstr "属性"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:579
+msgid "Methods"
+msgstr "Methods"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:687
+msgid "Source code"
+msgstr "源代码"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:33
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:24
+#, fuzzy
+msgid "Code"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:34
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:25
+#, fuzzy
+msgid "Comments"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:35
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:26
+#, fuzzy
+msgid "Blanks"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:89
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:80
+#, fuzzy
+msgid "Images"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:107
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:98
+msgid "TOTAL"
+msgstr "合计"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:80
+#, fuzzy
+msgid "Color scheme"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:104
+#, fuzzy
+msgid "Generate statistics"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:113
+#, fuzzy
+msgid "Extension %s Code statistics"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:50
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:16
+msgid "No files found"
+msgstr "没有找到文件"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:156
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:192
+#, fuzzy
+msgid "Copy bootstrap.php to Joomla root"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:157
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:193
+#, fuzzy
+msgid "Bootstrap file not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:166
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:202
+#, fuzzy
+msgid "Create Test directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:167
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:203
+#, fuzzy
+msgid "No tests defined yet"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:230
+#, fuzzy
+msgid "CodeSniffer"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:231
+#, fuzzy
+msgid "Use CodeSniffer to assure coding standards."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:235
+#, fuzzy
+msgid "Duplicated Code"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:236
+#, fuzzy
+msgid "Searches your code for duplicates."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:240
+#, fuzzy
+msgid "PHPUnit Tests"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:241
+#, fuzzy
+msgid "Generates and executes PHPUnit Tests."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:245
+#, fuzzy
+msgid "Selenium Tests"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:246
+#, fuzzy
+msgid "Generates and executes Selenium Tests."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:250
+#, fuzzy
+msgid "PHPDocumentor"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:251
+#, fuzzy
+msgid "Create automatic documentation for your project with PHPDocumentor."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:255
+#, fuzzy
+msgid "W3C Validation"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:256
+#, fuzzy
+msgid "DESC W3C VALIDATION"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:260
+#, fuzzy
+msgid "Statistics"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:261
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:266
+#, fuzzy
+msgid "Shows some statistics about your project."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:265
+#, fuzzy
+msgid "Statistics2"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:270
+#, fuzzy
+msgid "Reflection"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:271
+#, fuzzy
+msgid "Displays information about your project (experimental)."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/config/view.html.php:42
+#, fuzzy
+msgid "Unsupported Joomla version in EasyCreatorViewConfig->display"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:23
+#, fuzzy
+msgid "Configuration settings"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:24
+#, fuzzy
+msgid "Please set your personal information in %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:31
+#, fuzzy
+msgid "EasyCreator Information"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:23
+#, fuzzy
+msgid "Documentation"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:28
+#, fuzzy
+msgid "Forum"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:33
+#, fuzzy
+msgid "Bugtracker"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:38
+#, fuzzy
+msgid "Feature requests"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:44
+#, fuzzy
+msgid "Version check"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:49
+#, fuzzy
+msgid "Latest version"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:54
+#, fuzzy
+msgid "Incubator"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:59
+#, fuzzy
+msgid "SVN"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:67
+#, fuzzy
+msgid "Support EasyCreator by adding it to your stack at Ohloh"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:50
+msgid "Registered Projects"
+msgstr "已注册工程"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:73
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:57
+msgid "Configure"
+msgstr "设置"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:95
+#, fuzzy
+msgid "No_projects found"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:105
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:72
+msgid "NONE_FOUND"
+msgstr "没有找到"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:107
+msgid "Create your first project"
+msgstr "创建您的第一个工程"
+
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:38
+#, fuzzy
+msgid "This extension is not compatible with MS internet explorer R"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:50
+#, fuzzy
+msgid "You may suppress this message in the configuration settings if you\'re shure"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:69
+#, fuzzy
+msgid "No local API copy specified. you may do this in configuration."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:98
+#, fuzzy
+msgid "By Package"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:136
+#, fuzzy
+msgid "By Name"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:177
+#, fuzzy
+msgid "So many empty pages on_the wiki ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:197
+#, fuzzy
+msgid "Joomla! constants"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:33
+#, fuzzy
+msgid "Show all PHP code"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:34
+#, fuzzy
+msgid "Convert quotes"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:38
+#, fuzzy
+msgid "Convert forbidden keys"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:39
+#, fuzzy
+msgid "Remove bad charcters"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:40
+#, fuzzy
+msgid "Convert white space"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:41
+#, fuzzy
+msgid "Add prefix"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:42
+#, fuzzy
+msgid "Convert to all caps"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:44
+#, fuzzy
+msgid "Convert to language file keys to the case of your code"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:61
+#, fuzzy
+msgid "Convert code and language file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:66
+#, fuzzy
+msgid "Convert language file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:79
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:155
+#, fuzzy
+msgid "Original"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:80
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:158
+#, fuzzy
+msgid "Fixed for %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:150
+#, fuzzy
+msgid "Language file: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:225
+#, fuzzy
+msgid "No language files found in selected scope"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:18
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:17
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:17
+msgid "No languages defined"
+msgstr "没有定义语言"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:246
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:245
+msgid "EMPTY"
+msgstr "空"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:252
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:251
+msgid "Translate"
+msgstr "翻译"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/orderdefault.php:87
+msgid "Add Comment"
+msgstr "添加注释"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:17
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:20
+msgid "Please choose a language"
+msgstr "请选择语言"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:28
+msgid "Default language"
+msgstr "默认语言"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:31
+msgid "Translated language"
+msgstr "已有译文的语言"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:34
+msgid "Corrected language"
+msgstr "纠正的语言"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:48
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:95
+msgid "Key"
+msgstr "Key"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:49
+msgid "Value"
+msgstr "值"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:45
+msgid "PHP XML file analysis"
+msgstr "PHP XML 文件分析"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:53
+#, fuzzy
+msgid "PHP_XML_JS_file_analysis"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:65
+#, fuzzy
+msgid "Menu analysis"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:77
+#, fuzzy
+msgid "Filter"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:101
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:103
+msgid "Translated"
+msgstr "已被翻译"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:105
+msgid "Not translated"
+msgstr "未被翻译"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:109
+msgid "Translated in core"
+msgstr "核心中已翻译"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:181
+msgid "NOT TRANSLATED"
+msgstr "未被翻译"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:40
+#, fuzzy
+msgid "Unable to translate without default translation"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:41
+#, fuzzy
+msgid "Please translate %s first', 'en-GB"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:82
+#, fuzzy
+msgid "Loading Google Translation API"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:122
+#, fuzzy
+msgid "ecr_Translate_acc_s"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:124
+#, fuzzy
+msgid "ecr_Translate"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:144
+#, fuzzy
+msgid "Copy"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:152
+#, fuzzy
+msgid "Google translate"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:16
+#: administrator/components/com_easycreator/views/languages/view.html.php:412
+msgid "Versions"
+msgstr "版本"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:27
+msgid "No versions found"
+msgstr "没有找到版本"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:47
+#, fuzzy
+msgid "Date"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:48
+msgid "Actions"
+msgstr "操作"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:59
+#, fuzzy
+msgid "Show"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:195
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:29
+#, fuzzy
+msgid "Errors"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:196
+#, fuzzy
+msgid "Please select the errors you wish to correct"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:387
+#, fuzzy
+msgid "Setup"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:388
+#, fuzzy
+msgid "Setup your language files"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:392
+#, fuzzy
+msgid "Files and menus"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:393
+#, fuzzy
+msgid "Searches inside the source files and menus for translatable strings"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:397
+msgid "Translations"
+msgstr "译文"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:398
+#, fuzzy
+msgid "Manage translations in ini files and inspect your php / xml files for JText strings to translate."
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:402
+msgid "Default file order"
+msgstr "默认文件次序"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:403
+#, fuzzy
+msgid "Change the order of your default language file and add comments to create a structure."
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:407
+msgid "Translation order"
+msgstr "译文次序"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:408
+#, fuzzy
+msgid "Change the order of your translated language files according to your default file."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:413
+#, fuzzy
+msgid "Compare saved versions of your language files."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:417
+#, fuzzy
+msgid "Convert"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:418
+#, fuzzy
+msgid "Convert your language files and your code simultaneously."
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:475
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:23
+msgid "Menu"
+msgstr "菜单"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:488
+msgid "Do NOT show"
+msgstr "不要显示"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:521
+#: administrator/components/com_easycreator/views/languages/view.html.php:522
+msgid "Load core language"
+msgstr "载入核心语言文件"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:522
+msgid "Also load the core language file to check for translations (displayed in orange)"
+msgstr "同时载入核心语言文件(以橙色显示)来检查是否存在译文"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:536
+msgid "Cut"
+msgstr "剪切"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/languages/view.html.php:560
+msgid "Drag and drop elements to rearrange. Add new comments."
+msgstr "拖曳元素来重新排列。添加新注释。"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:616
+#, fuzzy
+msgid "Language"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:16
+msgid "No logfiles found"
+msgstr "没有找到日志文件"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:40
+msgid "Clear log"
+msgstr "清除日志"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:31
+msgid "Show Joomla core projects"
+msgstr "显示 joomla! 核心工程"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:33
+msgid "Unregistered Projects"
+msgstr "未注册的工程"
+
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:88
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:337
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:408
+#, fuzzy
+msgid "Register"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:55
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:22
+msgid "Extension type"
+msgstr "扩展类型"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:58
+msgid "Choose a component type from a predefined template"
+msgstr "从预定义的模板中选择一个组件类型"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:66
+#, fuzzy
+msgid "ecr_Filter"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:88
+#, fuzzy
+msgid "Joomla 1.6 extension templates can not be build on_Joomla 1.5"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:99
+#, fuzzy
+msgid "Click to view files"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:118
+#, fuzzy
+msgid "PHP version"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:133
+#, fuzzy
+msgid "External infos"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:26
+msgid "Name for your baby"
+msgstr "您的产品的名称"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:30
+msgid "Please choose a name following the standard naming conventions. Use UPPER and lower case"
+msgstr "请根据标准命名规则选择一个名称，注意正确使用大小写。"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:40
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:48
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:64
+msgid "Required"
+msgstr "必须"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:70
+#, fuzzy
+msgid "Your Credits"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:74
+msgid "Author name"
+msgstr "作者名称"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:88
+#, fuzzy
+msgid "Author url"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:76
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:81
+msgid "Build options"
+msgstr "Build 选项"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:84
+#, fuzzy
+msgid "More options"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:91
+#, fuzzy
+msgid "Create CHANGELOG.php"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:100
+msgid "Youre done"
+msgstr "您搞定了!"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:101
+msgid "Just click on_create it below to finish your component"
+msgstr "只需点击上面的“创建它”来完成您的组件."
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:115
+msgid "Create it"
+msgstr "创建它"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:20
+msgid "Attention"
+msgstr "注意"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:22
+msgid "The project %s will be deleted"
+msgstr "工程 %s 将被删除."
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:29
+msgid "Delete %s project file"
+msgstr "删除 %s 工程文件"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:37
+msgid "Delete the whole %s project including file and database"
+msgstr "删除整个 %s 工程，包括文件和数据库"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:42
+msgid "Add element"
+msgstr "添加元素"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:43
+#, fuzzy
+msgid "File tree"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:43
+#, fuzzy
+msgid "Left click files to edit."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:43
+#, fuzzy
+msgid "Right click files and folders for options."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:181
+#, fuzzy
+msgid "Loading..."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:226
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:110
+#, fuzzy
+msgid "Select an element"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:22
+#, fuzzy
+msgid "Install and Uninstall PHP"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:46
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:51
+#, fuzzy
+msgid "Create install file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:49
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:56
+#, fuzzy
+msgid "Create uninstall file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:24
+#, fuzzy
+msgid "Install and Uninstall SQL"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:59
+#, fuzzy
+msgid "Install SQL analysis"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:19
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:19
+#, fuzzy
+msgid "Update"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:22
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:20
+#, fuzzy
+msgid "Method"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:28
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:22
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:45
+#, fuzzy
+msgid "This will perform an upgrade on_installing your extension"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:29
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:23
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:44
+#, fuzzy
+msgid "Upgrade"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:31
+msgid "New group"
+msgstr "新群组"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:41
+msgid "Add group"
+msgstr "添加群组"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:49
+msgid "New parameter"
+msgstr "新参数"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:57
+msgid "paramGroup"
+msgstr "群组"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:68
+msgid "Add parameter"
+msgstr "添加参数"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:90
+msgid "Please select a XML file"
+msgstr "请选择一个 XML 文件"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:96
+msgid "No parameters defined"
+msgstr "没有定义参数"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:216
+msgid "Infos on parameters (external)"
+msgstr "参数解释信息 (外部)"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:18
+msgid "Credits"
+msgstr "开发人员"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:32
+#, fuzzy
+msgid "Autor-URL"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:36
+#, fuzzy
+msgid "Extension name"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:44
+msgid "Component scope"
+msgstr "组件作用域"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:64
+#, fuzzy
+msgid "ECR Template"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:19
+#, fuzzy
+msgid "Install and Uninstall"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:22
+#, fuzzy
+msgid "PHP"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:41
+#, fuzzy
+msgid "SQL"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:25
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:26
+#, fuzzy
+msgid "Extension prefix"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:25
+#, fuzzy
+msgid "A custom prefix for your extension."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:33
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:34
+#, fuzzy
+msgid "Separate JavaScript"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:33
+#, fuzzy
+msgid "Separate JavaScript from PHP translations"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:44
+#, fuzzy
+msgid "Language file format"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:68
+#, fuzzy
+msgid "* Note that those language file formats\\n needs a special language handler called "JALHOO" - What ?\\nPlease refer to <a href="wiki.joomla-nafu.de">Wiki.Joomla-Nafu.de</a> for more information."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:29
+#, fuzzy
+msgid "Text"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:31
+msgid "Link"
+msgstr "链接"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:37
+#, fuzzy
+msgid "Image"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:49
+msgid "Submenu"
+msgstr "子菜单"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:64
+msgid "Add Submenu"
+msgstr "添加子菜单"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:20
+#, fuzzy
+msgid "Add extensions"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:34
+#, fuzzy
+msgid "No module projects found"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:45
+#, fuzzy
+msgid "Add Module"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:56
+#, fuzzy
+msgid "No plugin projects found"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:67
+#, fuzzy
+msgid "Add Plugin"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:92
+#, fuzzy
+msgid "Package installer ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:94
+#, fuzzy
+msgid "Packages require a special install script which should be named <strong>%s</strong>', 'install.package.php"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:96
+#, fuzzy
+msgid "EasyCreator can do this if you go to Files -> Add element -> Various -> Package installer"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:20
+#, fuzzy
+msgid "Package elements"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:28
+#, fuzzy
+msgid "Joomla version"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:46
+#, fuzzy
+msgid "Compression"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:59
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:51
+#, fuzzy
+msgid "Create index.html files"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:65
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:58
+#, fuzzy
+msgid "Create MD5 checksum file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:69
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:63
+#, fuzzy
+msgid "EasyCreator Options"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:75
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:69
+#, fuzzy
+msgid "Include EasyCreator Project file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:81
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:76
+#, fuzzy
+msgid "Remove EasyCreator AutoCode"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:204
+#, fuzzy
+msgid "Relations"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:233
+#, fuzzy
+msgid "Add relation"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:238
+#, fuzzy
+msgid "New relation"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:248
+#, fuzzy
+msgid "Foreign table"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:279
+#, fuzzy
+msgid "Aliases"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:308
+#, fuzzy
+msgid "No tables to design"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:314
+#, fuzzy
+msgid "Is registered"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:315
+#, fuzzy
+msgid "In DB"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:316
+#, fuzzy
+msgid "Has install"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:394
+#, fuzzy
+msgid "Register Table"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:410
+#, fuzzy
+msgid "New Table"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:420
+#, fuzzy
+msgid "Fields"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:424
+#, fuzzy
+msgid "Add Field"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:433
+#, fuzzy
+msgid "CREATE Table"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:100
+msgid "Building"
+msgstr "Building"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:101
+#, fuzzy
+msgid "Shows options for building your project like credits, files and folders to copy, languages and admin menu."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:106
+#, fuzzy
+msgid "Shows all the files belonging to your project"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:110
+#, fuzzy
+msgid "Installing"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:111
+#, fuzzy
+msgid "Create and modify install and uninstall files for your project."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:115
+#, fuzzy
+msgid "Parameters"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:116
+#, fuzzy
+msgid "Modify your project parameters stored in XML files."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:120
+#, fuzzy
+msgid "DataDesigner"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:121
+#, fuzzy
+msgid "Automated source code and db creation for your project."
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:125
+msgid "Remove Project"
+msgstr "删除工程"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:126
+#, fuzzy
+msgid "This will your delete your project."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:22
+#, fuzzy
+msgid "Export templates"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:23
+#, fuzzy
+msgid "Select the templates to export"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:35
+#: administrator/components/com_easycreator/views/templates/view.html.php:139
+#, fuzzy
+msgid "Export"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:44
+#, fuzzy
+msgid "Exports"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:51
+#: administrator/components/com_easycreator/views/ziper/view.html.php:97
+#, fuzzy
+msgid "Archive is empty"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:64
+#: administrator/components/com_easycreator/views/ziper/view.html.php:129
+#, fuzzy
+msgid "Modified"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:66
+#: administrator/components/com_easycreator/views/ziper/view.html.php:131
+msgid "Action"
+msgstr "操作"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:20
+#, fuzzy
+msgid "Install templates"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:21
+#, fuzzy
+msgid "Select a template package to import"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:26
+#, fuzzy
+msgid "Package File"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:29
+#, fuzzy
+msgid "Upload and install package"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:48
+#: administrator/components/com_easycreator/views/templates/view.html.php:37
+#, fuzzy
+msgid "Extension templates"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:85
+#, fuzzy
+msgid "Extension templates parts"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:126
+msgid "Standard files"
+msgstr "标准文件"
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:130
+#, fuzzy
+msgid "Manage EasyCreator Extension Templates"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:134
+#, fuzzy
+msgid "Install"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:135
+#, fuzzy
+msgid "Installs EasyCreator Extension Templates"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:140
+#, fuzzy
+msgid "Exports EasyCreator Extension Templates"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:33
+msgid "Create %s"
+msgstr "创建 %s"
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:19
+#, fuzzy
+msgid "Packing format options"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:23
+#, fuzzy
+msgid "Joomla! version"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:18
+#, fuzzy
+msgid "File name"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:23
+#, fuzzy
+msgid "Custom name format"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
+#, fuzzy
+msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:45
+#, fuzzy
+msgid "Customize"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:23
+msgid "Your ZIPfile has been created sucessfully"
+msgstr "您的压缩包创建成功"
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:28
+msgid "Your ZIPfile has NOT been created"
+msgstr "您的 zip 没有创建"
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:46
+#, fuzzy
+msgid "Log File"
+msgstr ""
+
+# Key is upper cased :(
+#: administrator/components/com_easycreator/views/ziper/view.html.php:44
+msgid "Component ZIPer"
+msgstr "组件压缩打包器 ZIPer"
+
+#: administrator/components/com_easycreator/views/ziper/view.html.php:91
+#, fuzzy
+msgid "Archive"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/view.html.php:118
+#, fuzzy
+msgid "No ZIP files found"
+msgstr ""
+

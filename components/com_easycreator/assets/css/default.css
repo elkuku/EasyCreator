@@ -1,0 +1,27 @@
+/**
+ * @version SVN: $Id$
+ * @package		EasyCreator
+ * @subpackage	Frontend-Assets
+ * @author		EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author		Nikolai Plath {@link http://www.nik-it.de}
+ * @author		Created on 24-Sep-08
+ */
+
+.ecr_button{
+	text-align: center;
+	padding: 3px;
+	border: 1px solid #D9D9D9;
+	cursor: pointer;
+}
+
+.ecr_button:hover{
+	background-color: #FFFFCC;
+}
+
+.ecr_button_selected{
+	text-align: right;
+	padding: 3px;
+	padding-right: 10px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFF99;
+}

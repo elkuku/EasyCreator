@@ -1,0 +1,36 @@
+/**
+ * @version SVN: $Id$
+ * @package     EasyCreator
+ * @subpackage  CSS
+ * @author      EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author      Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author      Created on 28-Sep-2009
+ */
+pre#ecr_codeeye_console {
+   background-color: black;
+   color: white;
+   padding: 0.5em;
+}
+
+#dspl_sniff_folder {
+   border: 1px solid gray;
+   padding: 0.2em;
+   background-color: #cce5ff;
+}
+
+#dspl_sniff_file {
+   border: 1px solid gray;
+   padding: 0.2em;
+   background-color: #ffc;
+}
+
+div.colorBox {
+   width: 30px;
+   height: 30px;
+   float: right;
+}
+
+ul.colorChooser {
+   list-style: none;
+   padding-left: 0;
+}

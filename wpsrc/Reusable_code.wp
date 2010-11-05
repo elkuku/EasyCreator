@@ -1,0 +1,391 @@
+==Extension Templates==
+These are complete extensions. The extensions are stored as in an ZIP package (e.g. Components are stored in {{folder|admin}} and {{folder|site}} directories).
+
+There are some predefined constants, and some that will be defined upon creation of your extension. {{@todo|list of predefined constants}}
+
+You can easily create your own extension templates from your favourite "Hello World" application. Just replace the name with a predefined constant.
+
+===Location===
+* {{folder|EasyCreator}}
+** {{folder|templates}}
+*** {{folder|GROUPNAME}}
+**** {{folder|TEMPLATENAME}}
+***** {{folder|tmpl}}
+****** FILES and FOLDERS...
+***** {{file|description.ini|txt}}
+***** {{file|starter.ini|txt}}
+
+===Included extensions===
+
+====Components====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+!Link
+|-
+|{{folder|mvc_1}}
+|Controller / View
+|The most simple component
+|[http://docs.joomla.org/Tutorial:Developing_a_Model-View-Controller_Component_-_Part_1 docs.joomla.org]
+|-
+|{{folder|mvc_2}}
+|Model
+|A component using a model.
+|[http://docs.joomla.org/Tutorial:Developing_a_Model-View-Controller_Component_-_Part_2_-_Adding_a_Model docs.joomla.org]
+|-
+|{{folder|mvc_3}}
+|Table
+|A component using a table class.
+|[http://docs.joomla.org/Tutorial:Developing_a_Model-View-Controller_Component_-_Part_3_-_Using_the_Database docs.joomla.org]
+|-
+|{{folder|mvc_4}}
+|Admin
+|A component with admin interface.
+|[http://docs.joomla.org/Tutorial:Developing_a_Model-View-Controller_Component_-_Part_4_-_Creating_an_Administrator_Interface docs.joomla.org]
+|-
+|{{folder|mvc_5}}
+|Pagination
+|A component with pagination.
+|[http://docs.joomla.org/Using_JPagination_in_your_component docs joomla.org]
+|-
+|{{folder|mvc_6}}
+|MooTools
+|The component "Pagination" with some MooTools demonstration including Accordion, Ajax, Lightbox, Sortables and Tooltips.
+|[http://community.joomla.org/magazine/article/531-developer-dynamic-loading-of-lists-using-ajax-in-a-mvc-component-mathieu-chauvinc.html community.joomla.org]
+|-
+|{{folder|mvc_7}}
+|Editor
+|A component with WYSIWYG editor
+|[http://docs.joomla.org/How_to_use_the_editor_in_a_component docs.joomla.org]
+|-
+|{{folder|mvc_8}}
+|Package Base
+|The component "Pagination" provided with a special install script for packages.
+|
+|-
+|{{folder|mvc_9}}
+|Categories
+|A component using Joomla! categories
+|
+|}
+
+====Modules====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+!Link
+|-
+|{{folder|backend_simple}}
+|Backend Plain
+|A simple backend module
+|
+|-
+|{{folder|frontend_simple}}
+|Frontend Plain
+|A simple fontend module
+|
+|-
+|{{folder|hello_world_2}}
+|Hello World 2
+|A MVC frontend module
+|[http://docs.joomla.org/How_to_create_a_module docs.joomla.org]
+|}
+
+====Plugins====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+!Link
+|-
+|{{folder|content_simple}}
+|Content 1
+|A content plugin for replacing some tags.
+|
+|-
+|{{folder|custom_folder}}
+|Custom Folder
+|A plugin inside a custom folder.
+|
+|-
+|{{folder|example_auth}}
+|Example Authentication
+|The authentication example taken from Joomla! core.
+|
+|-
+|{{folder|example_content}}
+|Example Content
+|The content example taken from Joomla! core.
+|
+|-
+|{{folder|example_system}}
+|Example System
+|Empty system plugin.
+|[http://docs.joomla.org/Reference:System_Events_for_Plugin_System docs.joomla.org]
+|-
+|{{folder|example_user}}
+|Example User
+|The user example taken from Joomla! core.
+|
+|}
+
+====Templates====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+!Link
+|-
+|{{folder|beez_copy}}
+|Copy of Beez
+|A copy of the Beez template, taken from it's original place.
+|
+|-
+|{{folder|rhuk_milkyway_copy}}
+|Copy of Rhuk MilkyWay
+|A copy of the Rhuk MilkyWay template, taken from it's original place.
+|
+|}
+
+===Layout===
+
+====description.ini====
+A simple ini style text file containing name, description and credits.
+<pre>
+# @version $Id: Reusable_code.wp 1172 2010-04-25 15:18:26Z elkuku $
+# Description
+# <SOME TEXT>
+
+NAME=<COMPONENT NAME>
+DESCRIPTION=<COMPONENT DESCRIPTION>
+AUTHOR=<AUTHOR>
+DESCRIPTIONLINK=http://<LINK>
+</pre>
+
+====starter.ini====
+A simple ini style text file containing information on how to "start up" the project.
+<pre>
+# @version $Id: Reusable_code.wp 1172 2010-04-25 15:18:26Z elkuku $
+# startup structure
+# <COMPONENT NAME>
+
+#--The type and scope (frontend/backend)
+#
+COMTYPE=<component, module, plugin...>
+#
+
+#
+#--Files section
+#
+FILE=<DESTINATION> <SOURCE>
+
+#
+#--XML configuration file
+#
+INSTALLXML=<PATH>
+
+#
+# --Queries section
+#
+QUERY=<SQL QUERY TO BE EXECUTED>
+
+#
+#--Building section
+#
+BUILD=<SOURCE FOLDER> <DESTINATION FOLDER IN PACKAGE>
+</pre>
+
+==Templates Parts==
+Also called [http://en.wikipedia.org/wiki/Boilerplate_%28text%29#Boilerplate_code boiler plates]. These are pieces of code, you can insert in your project.
+
+The file {{file|part.php}} contains a class with two functions that will be called on displaying insert options and for processing them.
+
+===Location===
+* {{folder|EasyCreator}}
+** {{folder|templates}}
+*** {{folder|parts}}
+**** {{folder|GROUPNAME}}
+***** {{folder|PARTNAME}}
+****** {{folder|tmpl}}
+******* FILES...
+****** {{file|part.php|php}}
+
+===Included parts===
+
+====Models====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+|-
+|{{folder|form}}
+|Data Form
+|Part of admin interface for managing data records.
+|-
+|{{folder|list}}
+|Data List
+|Part of admin interface for managing data records.
+|-
+|{{folder|simple}}
+|Simple
+|A simple, empty model
+|}
+
+====Views====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+|-
+|{{folder|form}}
+|Data Form
+|Part of admin interface for managing data records.
+|-
+|{{folder|list}}
+|Data List
+|Part of admin interface for managing data records.
+|-
+|{{folder|simple}}
+|Simple
+|A simple, empty view
+|}
+====Controllers====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+|-
+|{{folder|data}}
+|Data Form
+|Provides methods to modify data with a specific model.
+|-
+|{{folder|simple}}
+|Simple
+|A simple, empty controller
+|}
+
+====Tables====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+|-
+|{{folder|admin_create}}
+|Create and Admin
+|Creates a new table with admin interface.
+|-
+|{{folder|admin_map}}
+|Map and Admin
+|Maps an existing table, creates an admin interface and a menu link.
+|-
+|{{folder|simple}}
+|Data
+|Maps an existing table to a table class.
+|}
+
+====Various====
+{| class=wikitable
+|-
+!Folder
+!Name
+!Description
+|-
+|{{folder|changelog}}
+|Changelog
+|A standard, empty changelog.
+|-
+|{{folder|package_installer}}
+|Package Installer
+|Install and Uninstall routine for packages.
+|}
+
+===Layout===
+{{file|part.php|php}}
+
+This file contains the functions that will be called on adding the part. Every custom stuff goes in here.
+
+* <tt>class '''part<GROUPNAME><PARTNAME>'''</tt> ('''e.g.''' <tt>partControllersSimple</tt>)
+** <tt>function '''info()'''</tt> Is called on building the list of templates. Provides basic information.
+** <tt>function '''getOptions()'''</tt> Displays custom options for the template.
+** <tt>function '''insert()'''</tt> performs the insert task containing any custom options.
+
+<source lang="php">
+class part<GROUPNAME><PARTNAME>
+{
+    /**
+     * Info about the thing
+     *
+     * @return object ecrTemplateInfo
+     */
+    public function info()
+    {
+        $info = new ecrTemplateInfo();
+
+        $info->title = JText::_('My Title');
+        $info->description = JText::_('My description');
+
+        return $info;
+    }//function
+
+    /**
+     * Here you define custom options that will be displayed inside the input form
+     * @return void
+     */
+    public function getOptions()
+    {
+        /* This will display a scope selector (Admin/Site) */
+        ecrHTML::drawSelectScope();
+        
+        /* Draws an input box for a name field */
+        ecrHTML::drawSelectName();
+            
+        /* Displays options for logging */
+        ecrHTML::drawLoggingOptions();
+       
+/*
+* Add your custom options
+* ...
+*/
+        /* Array with required fields */
+        $requireds = array('element_name', 'element_scope', 'table_name');
+
+        /* Draws the submit button */
+        ecrHTML::drawSubmitParts($requireds);
+
+    }//function
+
+    /**
+     * This function will be called on inserting your template
+     */
+    function insert($easyProject, $options, $logger)
+    {
+        /* Define stuff that will be inserted in your template */
+        $myVar = 'Hello World';
+
+        /* Add substitutes
+         * Define keys that will be substitutes in the code
+         */
+        $easyProject->addSubstitute('MY_SUBSTITUTE', $myVar);
+        
+        /* Insert the part to your project and return the results */
+        return $easyProject->insertPart($options, $logger);
+
+    }//function
+
+}//class
+</source>
+
+[[Kategorie:3pd|EasyCreator]]
+
+----
+<tt>@version $Id: Reusable_code.wp 1172 2010-04-25 15:18:26Z elkuku $</tt>

@@ -1,0 +1,1061 @@
+<?php
+/**
+ * @version SVN: $Id$
+ * @package    EasyCreator
+ * @subpackage Helpers
+ *
+ * @author Ian McLennan
+ * @former package    IansTools - by Ian McLennan
+ * @former subpackage ManifestMaker
+ * @license    GNU/GPL, see JROOT/LICENSE.php
+ */
+
+//-- No direct access
+defined('_JEXEC') || die('=;)');
+
+/**
+ * Manifest builder.
+ *
+ * FULL Credits to Ian McLennan =;)
+ *
+ * @package EasyCreator
+ * @former-package IansTools
+ */
+class JoomlaManifest extends JObject
+{
+    private $manifest = null;
+
+    private $project = null;
+
+    /**
+     * Constructor.
+     *
+     * @access  public
+     */
+    public function __construct()
+    {
+    }//function
+
+    /**
+     * Method to create the manifest file.
+     *
+     * @param EasyProject $project The project.
+     *
+     * @return boolean true on success
+     */
+    public function create(EasyProject $project)
+    {
+        if( ! $project->type)
+        {
+            $this->setError('JoomlaManifest::create - Invalid project given');
+
+            return false;
+        }
+
+        $this->project = $project;
+
+        switch($this->project->JCompat)
+        {
+            case '1.6':
+                $rootTag = 'extension';
+                break;
+
+            case '1.5':
+            default:
+                $rootTag = 'install';
+                break;
+        }//switch
+
+        $this->manifest = new EasyXMLElement('<?xml version="1.0" encoding="utf-8" ?><'.$rootTag.' />');
+
+        if( ! $this->manifest instanceof EasyXMLElement)
+        {
+            $this->setError('Could not create XML builder');
+
+            return false;
+        }
+
+        $steps = array(
+        'setUp'
+        , 'processCredits'
+        , 'processInstall'
+        , 'processSite'
+        , 'processAdmin'
+        , 'processMedia'
+        , 'processPackageModules'
+        , 'processPackagePlugins'
+        , 'processPackageElements'
+        , 'processParameters'
+        );
+
+        foreach($steps as $step)
+        {
+            if( ! $this->$step())
+            {
+                $this->setError($step.' failed');
+
+                return false;
+            }
+        }//foreach
+
+        if($this->project->isNew)
+        {
+            //--New project
+            $path = JPath::clean($this->project->basepath.DS.$this->project->getJoomlaManifestName());
+        }
+        else
+        {
+            //--Building project
+            $path = JPath::clean($this->project->basepath.DS
+            .JFile::getName(EasyProjectHelper::findManifest($this->project)));
+        }
+
+        if( ! JFile::write($path, $this->formatXML()))
+        {
+            $this->setError('Could not save XML file!');
+
+            return false;
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Setup the manifest building process.
+     *
+     * @return boolean
+     */
+    private function setUp()
+    {
+        $buildVars = JRequest::getVar('buildvars', array());
+
+        $this->manifest->addAttribute('type', $this->project->type);
+        $this->manifest->addAttribute('version', $this->project->JCompat);
+
+        //-- Default 'method'
+        $method = $this->project->method;
+
+        //-- Method value from request overrides default 'method'
+        if(array_key_exists('method', $buildVars))
+        {
+            $method = $buildVars['method'];
+        }
+
+        if($method)
+        {
+            $this->manifest->addAttribute('method', $method);
+        }
+
+        switch($this->project->type)
+        {
+            case 'component':
+                break;
+            case 'module':
+            case 'template':
+                if($this->project->scope == 'admin')
+                {
+                    $this->manifest->addAttribute('client', 'administrator');
+                }
+                break;
+            case 'plugin':
+                $this->manifest->addAttribute('group', $this->project->scope);
+                break;
+            case 'library' :
+                $this->manifest->addChild('libraryname', $this->project->scope);
+                break;
+
+            case 'package':
+                $this->manifest->addChild('packagename', $this->project->name);
+                break;
+            default :
+                $this->setError('JoomlaManifest::setUp unknown project type: '.$this->project->type);
+
+                return false;
+
+                break;
+        }//switch
+
+        return true;
+    }//function
+
+    /**
+     * Process credit vars.
+     *
+     * @return boolean
+     */
+    private function processCredits()
+    {
+        $creditElements = array(
+        'name'
+        , 'creationDate'
+        , 'author'
+        , 'authorEmail'
+        , 'authorUrl'
+        , 'copyright'
+        , 'license'
+        , 'version'
+        , 'description'
+        );
+
+        foreach($creditElements as $credit)
+        {
+            $value =(isset($this->project->$credit)) ? $this->project->$credit : '';
+            $this->manifest->addChild($credit, $value);
+        }//foreach
+
+        //-- Special treatment for plugin names
+        if($this->project->type == 'plugin'
+        && $this->project->isNew)
+        {
+            $this->manifest->name = ucfirst($this->project->scope).' - '.$this->project->name;
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Process install section.
+     *
+     * @return boolean
+     */
+    private function processInstall()
+    {
+        if($this->project->type != 'component')
+        {
+            //-- Only components have install files
+            //-- @todo change for 1.6 ?
+            return true;
+        }
+
+        $installFiles = EasyProjectHelper::findInstallFiles($this->project);
+
+        //-- PHP install scripts
+
+        switch($this->project->JCompat)
+        {
+            case '1.5':
+                $this->manifest->addChild('installfile');
+                $this->manifest->addChild('uninstallfile');
+                break;
+
+            case '1.6':
+                $this->manifest->addChild('scriptfile');
+                break;
+
+            default:
+                break;
+        }//switch
+
+        //-- SQL install scripts
+        $install = $this->manifest->addChild('install');
+        $installSql = $install->addChild('sql');
+        $uninstall = $this->manifest->addChild('uninstall');
+        $uninstallSql = $uninstall->addChild('sql');
+
+        if($this->project->JCompat == '1.6')
+        {
+            //-- J! 1.6 update stuff
+            $update = $this->manifest->addChild('update');
+            $updateSql = $update->addChild('sql');
+        }
+
+        //-- PHP
+        if(count($installFiles['php']))
+        {
+            if(count($installFiles['php']) > 2)
+            {
+                $this->setError('Too many PHP install/uninstall files ('.count($installFiles['php']).')');
+
+                return false;
+            }
+
+            foreach($installFiles['php'] as $file)
+            {
+                $dir =($file->folder) ? $file->folder.'/' : '';
+                $dir = str_replace('\\', '/', $dir);
+
+                if(strpos($file->name, 'install') === 0)
+                {
+                    //-- Install
+                    $this->manifest->installfile = $dir.$file->name;
+                }
+
+                else if(strpos($file->name, 'uninstall') === 0)
+                {
+                    //-- Uninstall
+                    $this->manifest->uninstallfile = $dir.$file->name;
+                }
+
+                else if(strpos($file->name, 'script') === 0)
+                {
+                    //-- J 1.6 script file
+                    $this->manifest->scriptfile = $dir.$file->name;
+                }
+
+                else
+                {
+                    $this->setError('Unsupported php file: '.$file->name);
+
+                    return false;
+                }
+            }//foreach
+        }
+
+        //-- SQL
+        if(count($installFiles['sql']))
+        {
+            foreach($installFiles['sql'] as $file)
+            {
+                $dir =($file->folder) ? $file->folder.'/' : '';
+                $dir = str_replace('\\', '/', $dir);
+
+                if(strpos($file->name, 'install') === 0)
+                {
+                    //--Install
+                    $sFile = $installSql->addChild('file', $dir.$file->name);
+                }
+
+                else if(strpos($file->name, 'uninstall') === 0)
+                {
+                    //--Uninstall
+                    $sFile = $uninstallSql->addChild('file', $dir.$file->name);
+                }
+
+                else if(strpos($file->name, 'update') === 0)
+                {
+                    //-- Update
+                    $sFile = $updateSql->addChild('file', $dir.$file->name);
+                }
+
+                else
+                {
+                    $this->setError('Unsupported sql file: '.$file->name);
+
+                    return false;
+                }
+
+                if(strpos($file->name, 'nonutf')
+                || strpos($file->name, 'compat'))
+                {
+                    $sFile->addAttribute('driver', 'mysql');
+                }
+                else
+                {
+                    $sFile->addAttribute('driver', 'mysql');
+                    $sFile->addAttribute('charset', 'utf8');
+                }
+            }//foreach
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Process media section.
+     *
+     * @return boolean
+     */
+    private function processMedia()
+    {
+        $baseFolders = JFolder::folders($this->project->basepath);
+
+        if( ! in_array('media', $baseFolders))
+        return true;
+
+        $folders = JFolder::folders($this->project->basepath.DS.'media', '', true, true);
+        $files = JFolder::files($this->project->basepath.DS.'media');
+
+        if(count($folders) || count($files))
+        {
+            $mediaElement = $this->manifest->addChild('media');
+            $mediaElement->addAttribute('destination', $this->project->comName);
+            $mediaElement->addAttribute('folder', 'media');
+
+            $substrlen = strlen($this->project->basepath.DS.'media'.DS);
+
+            foreach($folders as $folder)
+            {
+                $t = str_replace(DS, '/', substr($folder, $substrlen));
+                $mediaElement->addChild('folder', $t);
+            }//foreach
+
+            foreach($files as $file)
+            {
+                $mediaElement->addChild('filename', $file);
+            }//foreach
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Process site section.
+     *
+     * @return boolean
+     */
+    private function processSite()
+    {
+        $folders = JFolder::folders($this->project->basepath);
+        $languageFiles = array();
+
+        if(in_array('site', $folders))
+        {
+            if(count(JFolder::files($this->project->basepath.DS.'site', '.', true, false)))
+            {
+                $siteFolders = JFolder::folders($this->project->basepath.DS.'site');
+                $siteFiles = JFolder::files($this->project->basepath.DS.'site');
+
+                if(JFolder::exists($this->project->basepath.DS.'site'.DS.'language'))
+                {
+                    $languageFiles = JFolder::files($this->project->basepath.DS.'site'.DS.'language', '', true, true);
+                }
+
+                $siteFileElement = $this->manifest->addChild('files');
+                $siteFileElement->addAttribute('folder', 'site');
+
+                foreach($siteFolders as $siteFolder)
+                {
+                    $siteFileElement->addChild('folder', $siteFolder);
+                }//foreach
+
+                foreach($siteFiles as $siteFile)
+                {
+                    $siteElement = $siteFileElement->addChild('filename', $siteFile);
+
+                    if($this->project->type == 'plugin'
+                    || $this->project->type == 'module')
+                    {
+                        $s = JFile::stripExt($siteFile);
+
+                        if($s == $this->project->comName)
+                        {
+                            $siteElement->addAttribute($this->project->type, $s);
+                        }
+                    }
+                }//foreach
+            }
+        }
+
+        if(count($languageFiles)
+        && $this->project->JCompat == '1.5')
+        {
+            $languagesElement = $this->manifest->addChild('languages');
+            $languagesElement->addAttribute('folder', 'site/language');
+            $substrlen = strlen($this->project->basepath.DS.'site'.DS.'language'.DS);
+
+            foreach($languageFiles as $languageFile)
+            {
+                $t = str_replace(DS, '/', substr($languageFile, $substrlen));
+                $languageElement = $languagesElement->addChild('language', $t);
+                $languageElement->addAttribute('tag', substr(basename($languageFile), 0, 5));
+            }//foreach
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Process admin section.
+     *
+     * @return boolean
+     */
+    private function processAdmin()
+    {
+        $basepath = $this->project->basepath;
+        $folders = JFolder::folders($basepath);
+        $mediaFiles = array();
+
+        if( ! in_array('admin', $folders))
+        {
+            return true;
+        }
+
+        if($this->project->type == 'component')
+        {
+            $administration = $this->manifest->addChild('administration');
+
+            //-- Build the menu
+            $def_menu =(isset($this->project->menu)) ? $this->project->menu : '';
+
+            if($def_menu)
+            {
+                $menu = $administration->addChild('menu', $def_menu['text']);
+                $menu->addAttribute('img', $def_menu['img']);
+
+                if(isset($def_menu['link'])
+                && $this->project->JCompat == '1.5')
+                {
+                    //-- Admin menu link only for J 1.5
+                    $menu->addAttribute('link', $def_menu['link']);
+                }
+            }
+            else
+            {
+                $menu = $administration->addChild('menu', $this->project->name);
+            }
+
+            if(isset($this->project->submenu) && count($this->project->submenu))
+            {
+                $submenu = $administration->addChild('submenu');
+
+                foreach($this->project->submenu as $item)
+                {
+                    $menu = $submenu->addChild('menu', $item['text']);
+                    $menu->addAttribute('img', $item['img']);
+
+                    switch($this->project->JCompat)
+                    {
+                        case '1.5' :
+                            $menu->addAttribute('link', $item['link']);
+                            break;
+                        case '1.6' :
+                            //-- For J 1.6 strip 'index.php?' from the link
+                            $menu->addAttribute('link', str_replace('index.php?', '', $item['link']));
+                            break;
+                    }//switch
+                }//foreach
+            }
+        }
+
+        $adminFolders = JFolder::folders($basepath.DS.'admin');
+        $adminFiles = JFolder::files($basepath.DS.'admin');
+
+        $languageFiles = array();
+
+        if(JFolder::exists($basepath.DS.'admin'.DS.'language'))
+        {
+            $languageFiles = JFolder::files($basepath.DS.'admin'.DS.'language', '', true, true);
+        }
+
+        if(JFolder::exists($basepath.DS.'admin'.DS.'media'))
+        {
+            $mediaFiles = JFolder::files($basepath.DS.'admin'.DS.'media', '', true, true);
+        }
+
+        if($this->project->type == 'component')
+        {
+            $adminFileElement = $administration->addChild('files');
+        }
+        else
+        {
+            $adminFileElement = $this->manifest->addChild('files');
+        }
+
+        $adminFileElement->addAttribute('folder', 'admin');
+
+        foreach($adminFolders as $adminFolder)
+        {
+            $adminFileElement->addChild('folder', $adminFolder);
+        }//foreach
+
+        foreach($adminFiles as $adminFile)
+        {
+            $adminElement = $adminFileElement->addChild('filename', $adminFile);
+
+            if($this->project->type == 'module')
+            {
+                $s = JFile::stripExt($adminFile);
+
+                if($s == $this->project->comName)
+                {
+                    $adminElement->addAttribute('module', $s);
+                }
+            }
+        }//foreach
+
+        if(count($languageFiles)
+        && $this->project->JCompat == '1.5')
+        {
+            //-- We only need language file entries for J 1.5
+            if($this->project->type == 'component')
+            {
+                $languagesElement = $administration->addChild('languages');
+            }
+            else
+            {
+                $languagesElement = $this->manifest->addChild('languages');
+            }
+
+            $languagesElement->addAttribute('folder', 'admin/language');
+            $substrlen = strlen($basepath.DS.'admin'.DS.'language'.DS);
+
+            foreach($languageFiles as $languageFile)
+            {
+                $t = str_replace(DS, '/', substr($languageFile, $substrlen));
+                $languageElement = $languagesElement->addChild('language', $t);
+                $languageElement->addAttribute('tag', substr(basename($languageFile), 0, 5));
+            }//foreach
+        }
+
+        if(count($mediaFiles))
+        {
+            $mediaElement = $administration->addChild('media');
+            $mediaElement->addAttribute('folder', 'admin/media');
+            $substrlen = strlen($basepath.DS.'admin'.DS.'media'.DS);
+
+            foreach($mediaFiles as $mediaFile)
+            {
+                $t = str_replace(DS, '/', substr($mediaFile, $substrlen));
+                $medElement = $mediaElement->addChild('filename', $t);
+            }//foreach
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Process package elements for J! 1.6 packages.
+     *
+     * @return boolean true on success
+     */
+    private function processPackageElements()
+    {
+        if($this->project->type != 'package')
+        return true;
+
+        $filesElement = $this->manifest->addChild('files');
+
+        foreach($this->project->elements as $element => $path)
+        {
+            //--Get the project
+            try
+            {
+                $project = EasyProjectHelper::getProject($element);
+            }
+            catch(Exception $e)
+            {
+                $this->setError(sprintf($e->getMessage()));
+
+                return false;
+            }//try
+
+            $fileElement = $filesElement->addChild('file', $path);
+            $fileElement->addAttribute('type', $project->type);
+            $fileElement->addAttribute('id', $element);
+        }//foreach
+
+        return true;
+    }//function
+
+    /**
+     * Process parameters section.
+     *
+     * @return boolean
+     */
+    private function processParameters()
+    {
+        if($this->project->isNew)
+        {
+            //-- No parameters for new projects
+            return true;
+        }
+
+        //-- Search if there is a config.xml
+        $fileName = EasyProjectHelper::findConfigXML($this->project->type, $this->project->comName);
+
+        if($fileName)
+        {
+            $cfgXml = EasyProjectHelper::getXML($fileName);
+
+            if( ! $cfgXml
+            || ! $cfgXml->params)
+            {
+                return true;
+            }
+
+            $paramsElement = $this->manifest->addChild('params');
+
+            foreach($cfgXml->params as $cfgParams)
+            {
+                foreach($cfgParams->param as $cfgParam)
+                {
+                    if($cfgParam->attributes()->type == 'spacer'
+                    || $cfgParam->attributes()->type == 'easyspacer')
+                    {
+                        continue;
+                    }
+
+                    if($cfgParam->attributes()->default
+                    && $cfgParam->attributes()->default != '0')
+                    {
+                        $p = $paramsElement->addChild('param');
+                        $p->addAttribute('name', $cfgParam->attributes()->name);
+                        $p->addAttribute('type', $cfgParam->attributes()->type);
+                        $p->addAttribute('label', $cfgParam->attributes()->label);
+                        $p->addAttribute('default', $cfgParam->attributes()->default);
+                    }
+                }//foreach
+            }//foreach
+        }
+        else if(JFile::exists(JPath::clean(JPATH_ROOT.DS.EasyProjectHelper::findManifest($this->project))))
+        {
+            $refXml = EasyProjectHelper::getXML(JPath::clean(JPATH_ROOT.DS.EasyProjectHelper::findManifest($this->project)));
+
+            $params = $this->manifest->addChild('params');
+            $this->appendXML($params, $refXml->params);
+
+            $config = $this->manifest->addChild('config');
+            $this->appendXML($config, $refXml->config);
+
+            return true;
+
+            //            //-- Try the install manifest.xml
+            //            $params = new JParameter('', JPath::clean(JPATH_ROOT.DS
+//            .EasyProjectHelper::findManifest($this->project)));
+            //
+            //            if( ! $params->getNumParams()) return true;
+            //
+            //            /**
+            //             * @todo CHANGE for 1.6 - URGENT !!!! =;)
+            //             */
+            //
+            //            if( ! $params->_xml)
+            //            {
+            //                return true;
+            //            }
+            //
+            //            foreach($params->_xml as $groupName => $group)
+            //            {
+            //                $paramsElement = $this->manifest->addChild('params');
+            //
+            //                if($groupName != '_default')
+            //                {
+            //                    $paramsElement->addAttribute('group', $groupName);
+            //                }
+            //
+            //                foreach($group->_children as $param)
+            //                {
+            //                    if( ! $param instanceof JSimpleXMLElement)
+            //                    {
+            //                        continue;
+            //                    }
+            //                    $paramElement = $paramsElement->addChild('param');
+            //
+            //                    foreach($param->_attributes as $k => $v)
+            //                    {
+            //                        $paramElement->addAttribute($k, $v);
+            //                    }//foreach
+            //
+            //                    foreach($param->_children as $child)
+            //                    {
+            //                        if($child instanceof JSimpleXMLElement)
+            //                        {
+            //                            $optionElement = $paramElement->addChild('option', $child->_data);
+            //                            $optionElement->addAttribute('value', $child->_attributes['value']);
+            //                        }
+            //                    }//foreach
+            //                }//foreach
+            //            }//foreach
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Add one simplexml to another.
+     *
+     * @param object &$to Object to add to
+     * @param object &$from Object to add from
+     *
+     * @author Boris Korobkov
+     * @link http://www.ajaxforum.ru/
+     *
+     * @return void
+     */
+    private function appendXML(&$to, &$from)
+    {
+        foreach($from->children() as $child)
+        {
+            $temp = $to->addChild($child->getName(), (string)$child);
+
+            foreach($child->attributes() as $key => $value)
+            {
+                $temp->addAttribute($key, $value);
+            }//foreach
+
+            $this->appendXML($temp, $child);
+        }//foreach
+    }//function
+
+    /**
+     * Process modules in a package.
+     *
+     * @deprecated removed for J! 1.6
+     *
+     * @return boolean
+     */
+    private function processPackageModules()
+    {
+        if( ! count($this->project->modules))
+        {
+            return true;
+        }
+
+        $modulesElement = $this->manifest->addChild('modules');
+
+        foreach($this->project->modules as $module)
+        {
+            $s = str_replace('mod_', 'mod_'.$module->scope.'_', $module->name);
+
+            //--Get the project
+            try
+            {
+                $project = EasyProjectHelper::getProject($s);
+            }
+            catch(Exception $e)
+            {
+                $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
+
+                ecrHTML::displayMessage($m, 'error');
+
+                return false;
+            }//try
+
+            $modElement = $modulesElement->addChild('module');
+            $modElement->addAttribute('module', $module->name);
+            $modElement->addAttribute('title', $module->title);
+
+            if($module->scope)
+            {
+                $s =($module->scope == 'admin') ? 'administrator' : $module->scope;
+                $modElement->addAttribute('client', $s);
+            }
+
+            $modElement->addAttribute('position', $module->position);
+
+            if($module->ordering)
+            {
+                $modElement->addAttribute('ordering', $module->ordering);
+            }
+
+            $filesElement = $modElement->addChild('files');
+            $filesElement->addAttribute('folder', $module->name);
+
+            foreach($project->copies as $copy)
+            {
+                if(JFolder::exists($copy))
+                {
+                    $folders = JFolder::folders($copy);
+                    $files = JFolder::files($copy);
+
+                    foreach($folders as $folder)
+                    {
+                        $filesElement->addChild('folder', $folder);
+                    }//foreach
+
+                    foreach($files as $file)
+                    {
+                        $filesElement->addChild('file', $file);
+                    }//foreach
+                }
+                else if(JFile::exists($copy))
+                {
+                    $filesElement->addChild('file', JFile::getName($copy));
+                }
+                else
+                {
+                    //@todo error
+                    $this->_addLog('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
+                }
+            }//foreach
+
+            if(count($project->langs))
+            {
+                $langsElement = $modElement->addChild('languages');
+                $langsElement->addAttribute('folder', $module->name.'/language');
+
+                foreach($project->langs as $tag => $scopes)
+                {
+                    $fileElement = $langsElement->addChild('language', $tag.'.'.$project->getLanguageFileName());
+                    $fileElement->addAttribute('tag', $tag);
+                }//foreach
+            }
+
+            $paramsElement = $modElement->addChild('params');
+
+            $f = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
+
+            if( ! $xml = EasyProjectHelper::getXML($f))
+            {
+                JError::raiseWarning(100, sprintf(jgettext('Unable to load the xml file %s'), $f));
+                unset($xml);
+
+                return false;
+            }
+
+            if(isset($xml->params->param))
+            {
+                foreach($xml->params->param as $param)
+                {
+                    $paramElement = $paramsElement->addChild('param');
+
+                    foreach($param->attributes() as $name => $value)
+                    {
+                        $paramElement->addAttribute($name, (string)$value);
+                    }//foreach
+
+                    if(isset($param->option))
+                    {
+                        foreach($param->option as $option)
+                        {
+                            $optionElement = $paramElement->addChild('option', (string)$option);
+
+                            foreach($option->attributes() as $name => $value)
+                            {
+                                $optionElement->addAttribute($name, (string)$value);
+                            }//foreach
+                        }//foreach
+                    }
+                }//foreach
+            }
+        }//foreach
+
+        return true;
+    }//function
+
+    /**
+     * Process plugins in a package.
+     *
+     * @deprecated removed for J! 1.6
+     *
+     * @return boolean
+     */
+    private function processPackagePlugins()
+    {
+        if( ! count($this->project->plugins))
+        {
+            return true;
+        }
+
+        $pluginsElement = $this->manifest->addChild('plugins');
+
+        foreach($this->project->plugins as $item)
+        {
+            //--Get the project
+            try
+            {
+                $project = EasyProjectHelper::getProject('plg_'.$item->scope.'_'.$item->name);
+            }
+            catch(Exception $e)
+            {
+                $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
+
+                ecrHTML::displayMessage($m, 'error');
+
+                return false;
+            }//try
+
+            $f = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
+
+            $plgElement = $pluginsElement->addChild('plugin');
+            $plgElement->addAttribute('plugin', $item->name);
+            $plgElement->addAttribute('group', $item->scope);
+            $plgElement->addAttribute('title', $item->title);
+
+            if($item->ordering)
+            {
+                $plgElement->addAttribute('order', $item->ordering);
+            }
+
+            $plgFilesElement = $plgElement->addChild('files');
+            $plgFilesElement->addAttribute('folder', 'plg_'.$item->scope.'_'.$item->name);
+
+            foreach($project->copies as $copy)
+            {
+                if(JFolder::exists($copy))
+                {
+                    $tName = str_replace('plugins'.DS.$item->scope.DS, '', $copy);
+                    $plgFolderElement = $plgFilesElement->addChild('folder', $tName);
+                }
+                else if(JFile::exists($copy))
+                {
+                    $plgFileElement = $plgFilesElement->addChild('file', JFile::getName($copy));
+                }
+                else
+                {
+                    //@todo error
+                    $this->_addLog('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
+                }
+            }//foreach
+
+            if(count($project->langs))
+            {
+                $plgLangsElement = $plgElement->addChild('languages');
+                $plgLangsElement->addAttribute('folder', 'plg_'.$item->scope.'_'.$item->name.'/language');
+
+                foreach($project->langs as $tag => $scopes)
+                {
+                    $plgFileElement = $plgLangsElement->addChild('language', $tag.'.'.$project->getLanguageFileName());
+                    $plgFileElement->addAttribute('tag', $tag);
+                }//foreach
+            }
+
+            if( ! $xml = EasyProjectHelper::getXML($f))
+            {
+                JError::raiseWarning(100, sprintf(jgettext('Unable to load the xml file %s'), $f));
+                unset ($xml);
+
+                return false;
+            }
+
+            $paramsElement = $plgElement->addChild('params');
+
+            if(isset($xml->params->param))
+            {
+                foreach($xml->params->param as $param)
+                {
+                    $paramElement = $paramsElement->addChild('param');
+
+                    foreach($param->attributes() as $name => $value)
+                    {
+                        $paramElement->addAttribute($name, (string)$value);
+                    }//foreach
+
+                    if(isset($param->option))
+                    {
+                        foreach($param->option as $option)
+                        {
+                            $optionElement = $paramElement->addChild('option', (string)$option);
+
+                            foreach($option->attributes() as $Name => $Value)
+                            {
+                                $optionElement->addAttribute($Name, (string)$Value);
+                            }//foreach
+                        }//foreach
+                    }
+                }//foreach
+            }
+        }//foreach
+
+        return true;
+    }//function
+
+    /**
+     * Formats SimpleXML.
+     *
+     * @return string XML
+     */
+    public function formatXML()
+    {
+        if($dtd = $this->project->getDTD(JVERSION))
+        {
+            $doctype = DOMImplementation::createDocumentType($dtd['type'], $dtd['public'], $dtd['uri']);
+            $document = DOMImplementation::createDocument('', '', $doctype);
+        }
+        else
+        {
+            $this->setError('no DTD found for '.JVERSION.' - '.$this->project->type);
+            $document = DOMImplementation::createDocument();
+        }
+
+        $domnode = dom_import_simplexml($this->manifest);
+
+        $domnode = $document->importNode($domnode, true);
+        $domnode = $document->appendChild($domnode);
+
+        $document->encoding = 'utf-8';
+        $document->formatOutput = true;
+
+        return $document->saveXML();
+    }//function
+}//class

@@ -1,0 +1,17 @@
+/**
+CSS styles for MooTools Sortables
+*/
+
+ol.myList {
+	border: 1px solid black;
+	background-color: #f9f9f9;
+	list-style-type: none;
+}
+
+ol.myList li {
+	cursor: pointer;
+}
+
+ol.myList li:hover {
+	background-color: #FFFFCC;
+}
