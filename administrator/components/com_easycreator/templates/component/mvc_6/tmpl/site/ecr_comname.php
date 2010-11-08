@@ -11,7 +11,7 @@ if($controller = JRequest::getCmd('controller'))
 {
     $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
 
-    if( file_exists($path))
+    if(file_exists($path))
     {
         require_once $path;
     }

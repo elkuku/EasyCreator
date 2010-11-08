@@ -6,7 +6,6 @@
  * @version SVN: $Id$
  * @package    JALHOO
  * @subpackage Parser formats
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath {@link http://easy-joomla.org}
  * @author     Created on 19-Sep-2010
  * @license    GNU/GPL

@@ -106,12 +106,13 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
 
         //--If module already installed do not create a new instance
         $db =& JFactory::getDBO();
-        $query = 'SELECT `id` FROM `#__modules` WHERE module = '.$db->Quote( $mname);
+        $query = 'SELECT `id` FROM `#__modules` WHERE module = '.$db->Quote($mname);
         $db->setQuery($query);
         if( ! $db->Query())
         {
             //--Install failed, roll back changes
             $this->parent->abort(JText::_('Module').' '.JText::_('Install').': '.$db->stderr(true));
+
             return false;
         }
 

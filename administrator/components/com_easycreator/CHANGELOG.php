@@ -7,10 +7,9 @@
  * <b>Please</b> be patient =;)
  *
  * @version SVN: $Id$
- * $HeadURL: http://joomlacode.org/svn/easyjoomla/easy_creator/trunk/administrator/components/com_easycreator/CHANGELOG.php $
+ * $HeadURL$
  * @package    EasyCreator
  * @subpackage Documentation
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath {@link http://www.nik-it.de NiK-IT.de}
  * @author     Created on 03-Mar-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php

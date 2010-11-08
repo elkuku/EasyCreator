@@ -88,15 +88,15 @@ EasyCodeEye provides an interface to several PEAR packages:
 * [http://extensions.joomla.org/extensions/miscellaneous/development/5908 Extensions.Joomla.org] - the official release announcement on Joomla! Extension Directory.
 * [http://projects.easy-joomla.org/projects/easycreator/easycreator.html Project page] on Easy-Joomla.org.
 * [http://forum.easy-joomla.org/index.php?board=16.0 Support forum] on Easy-Joomla.org (german and english, some spanish,... We'll try our best).
-* [http://joomlacode.org/gf/project/easyjoomla/ Joomlacode.org] SVN and file release repository.
+* [http://joomlacode.org/gf/project/elkuku/ Joomlacode.org] SVN and file release repository.
 * [https://www.ohloh.net/p/EasyCreator Some stats on Ohloh] - I like that "I use it" button <tt>=;)</tt>
 * [http://projects.easy-joomla.org/incubator-newsfeeds/EasyCreator.feed?type=rss Incubator Newsfeed] contains the latest development snapshot. '''Beta testers''' - please subscribe.
 
 ==Known Bugs==
-* '''MS Internet Explorer''' &reg; (all versions ?) has been reported not to work very well... as usual - '''[http://joomlacode.org/gf/project/easyjoomla/tracker/?action=TrackerItemEdit&tracker_item_id=17891 Please report specific bugs]'''
+* '''MS Internet Explorer''' &reg; (all versions ?) has been reported not to work very well... as usual
 ** '''Workaround''' - Our recommendation --- remember it is "just" for your own personal development and generally better browsing experience and... please use [http://www.mozilla-europe.org/firefox/ Firefox].
 * '''MS Windows''' &reg; (all versions) has been reported not to work very well... as usual ;)
-** '''Workaround''' - Please [http://joomlacode.org/gf/project/easyjoomla/tracker/?action=TrackerItemBrowse&tracker_id=8236 report any bugs] asap and we will try to fix them for the next release.
+** '''Workaround''' - Please report any bugs ASAP and we will try to fix them for the next release.
 *** Well, '''another workaround''' would be to use the same operating system we do - which, of course, is highly recommended - [http://www.opensuse.org OpenSUSE], but any other [http://distrowatch.com/ *nix style flavoured OS] will be fine.
 
 ==Things I'd like to change==

@@ -3,7 +3,6 @@
  * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Helpers
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
  * @author     Created on 03-May-2009
  * @license    GNU/GPL, see JROOT/LICENSE.php

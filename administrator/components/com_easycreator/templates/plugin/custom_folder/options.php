@@ -3,7 +3,6 @@
  * @version $Id$
  * @package		EasyCreator
  * @subpackage	Templates
- * @author		EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
  * @author		Created on 09-May-2009
  */

@@ -53,7 +53,6 @@ You can modify this file to suite your needs.
  * @version $Id
  * @package    _EBC_COM_NAME_
  * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     EBC_AUTHOR {@link AUTHORURL}
  * @author     Created on _EBC_ACT_DATE_
  */

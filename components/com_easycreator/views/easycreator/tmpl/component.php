@@ -3,7 +3,6 @@
  * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Frontent
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
  * @author     Created on 24-Sep-2008
  */

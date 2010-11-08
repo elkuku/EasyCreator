@@ -29,7 +29,7 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_s extends JModel
         .'.filter_order', 'filter_order',	'ordering', 'cmd');
 
         $this->search = $application->getUserStateFromRequest("$option.search", 'search', '', 'string');
-        $this->search = JString::strtolower( $this->search);
+        $this->search = JString::strtolower($this->search);
 
         $limit		= $application->getUserStateFromRequest('global.list.limit'
         , 'limit', $application->getCfg('list_limit'), 'int');

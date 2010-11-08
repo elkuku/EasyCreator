@@ -3,7 +3,6 @@
  * @version SVN: $Id$
  * @package    LanguageChecker
  * @subpackage Views
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath {@link http://easy-joomla.org}
  * @author     Created on 12-Sep-10
  * @license    GNU/GPL

@@ -4,7 +4,6 @@
  * @package    EasyCreator
  * @subpackage	Parts
  * @author hidabe -- pls add your credits =;)
- * @author		EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
  * @author		Created on 20-Apr-2009
  */

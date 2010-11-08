@@ -3,7 +3,6 @@
  * @version SVN: $Id$
  * @package    LanguageChecker
  * @subpackage Helpers
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath {@link http://easy-joomla.org}
  * @author     Created on 12-Sep-2010
  * @license    GNU/GPL
@@ -161,7 +160,7 @@ class LanguageCheckerHelper
 
     public function getHead()
     {
-        return $this->head;;
+        return $this->head;
     }
 
     public function getStrings()

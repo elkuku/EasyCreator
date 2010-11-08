@@ -3,7 +3,6 @@
  * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage ProjectTypes
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath {@link http://www.nik-it.de}
  * @author     Created on 29-Mar-2010
  */

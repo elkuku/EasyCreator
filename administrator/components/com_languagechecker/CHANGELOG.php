@@ -9,7 +9,6 @@
  * @version    $Id$
  * @package    LanguageChecker
  * @subpackage Documentation
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
  * @author     Nikolai Plath {@link http://easy-joomla.org}
  * @author     Created on 12-Sep-2010
  */
