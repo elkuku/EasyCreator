@@ -1,11 +1,11 @@
 # @version SVN: $Id: de-DE.com_easycreator.po 1409 2010-11-04 17:29:01Z elkuku $
-# Nikolai Plath <test@joomla.org>, 2010.
+# Nikolai Plath <info@nik-it.de>, 2010.
 msgid ""
 msgstr ""
-"Last-Translator: Nikolai Plath <test@joomla.org>\n"
+"Last-Translator: Nikolai Plath <info@nik-it.de>\n"
 "PO-Revision-Date: 2010-10-28 20:29-0500\n"
 "Project-Id-Version: \n"
-"Language-Team: ecr_langtest <xxx@joomla.org>\n"
+"Language-Team: ecr_langtest <info@nik-it.de>\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
