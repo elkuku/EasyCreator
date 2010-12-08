@@ -130,6 +130,8 @@ class LanguageCheckerViewLanguageChecker extends JView
 
             $this->checker = $checker;
 
+            $this->outFileInfo = $checker->fileInfos[$this->scope];
+
             $this->comPath = $this->paths[$this->scope].DS.'components'.DS.$this->component;
 
             $fs = JFolder::folders($this->comPath, '.', 1, true);

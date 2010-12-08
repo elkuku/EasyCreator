@@ -1,0 +1,691 @@
+#@@@FORMAT: nafuini
+#@@@MODE: mixed
+# version $Id: fr-FR.com_easycreator.ini 1272 2010-08-23 02:39:44Z elkuku $
+# Backend language for EasyCreator
+# @author: crony - feel free to add more info ;)
+# Note : All ini files need to be saved with lots of FUN =;)
+
+ZIP
+ZIP
+
+Backend
+Backend
+
+Frontend
+Frontend
+
+The project %s has been removed
+Le projet %s a été supprimé
+
+The Project %s could not be removed
+Le projet %s n'a pas pu être supprimé
+
+#language
+
+Used in File
+Utilisé dans le fichier
+
+Language files analysis
+Analyse du fichier langue
+
+#common
+
+Components
+Composants
+
+MODULES
+Modules
+
+PLUGINS
+Plugins
+
+TEMPLATES
+Templates
+
+ACTIONS
+Actions
+
+CONFIGURE
+Configurer
+
+DELETE %S PROJECT FILE
+Supprimer les fichiers du Projet %s
+
+DESTINATION
+Destination
+
+EMPTY
+VIDE
+
+Invalid path
+Chemin invalide
+
+No path set
+Chemin non spécifié
+
+No projects found
+Pas de projets trouvé
+
+NONE_FOUND
+AUCUN TROUVE
+
+NOT USED
+NON UTILISE
+
+OPTIONAL
+Optionnel
+
+PATH
+Chemin
+
+PLEASE GOTO
+Veuillez aller à
+
+PLEASE SELECT A PROJECT
+Veuillez selectionner un projet
+
+PROFILE
+Profil
+
+PROJECT
+Projet
+
+REGISTERED PROJECTS
+Projets enregistrés
+
+REQUIRED
+Obligatoire
+
+SELECT
+Selectionner
+
+SHOW FILE CONTENTS
+Afficher le contenu des fichiers
+
+SIZE
+Tailles
+
+TYPES
+Types
+
+c
+Projets non enregistrés
+
+VERBOSE
+Verbeux
+
+#zipdir
+
+VERSIONS
+Versions
+
+ZIP FILES
+Fichiers zip
+
+PLEASE SELECT A VERSION
+Veuillez sélectionner une version
+
+LANGUAGES
+Langues
+
+#starter
+
+CREATE YOUR FIRST PROJECT
+Créez votre premier projet
+
+YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY
+Votre composant %s a été créé avec succés !
+
+#wizard
+
+YOU MUST PROVIDE A NAME
+Vous devez fournir un nom
+
+YOU MUST PROVIDE A VERSION
+Vous devez fournir une version
+
+#wizard step 1
+
+EXTENSION TYPE
+Type d'extension
+
+#languages
+
+FOLD
+Pli
+
+CUT
+Couper
+
+KEY
+Clé
+
+VALUE
+Valeur
+
+SCOPE
+Portée
+
+TRANSLATED
+Traduit
+
+TRANSLATION COULD NOT BE SAVED
+La traduction n'a pas pu être sauvegardée
+
+TRANSLATION SAVED
+Traduction sauvegardée
+
+TRANSLATE
+Traduire
+
+TRANSLATOR
+Traducteur
+
+FRONTEND SANDBOX
+Frontend sandbox
+
+CREATE LANGUAGE FILE
+Créer un fichier langue
+
+TREAT THE FIRST
+Traiter le premier
+
+LINES AS COMMENT
+lignes de commentaire
+
+ANALYSIS INI
+Analyser ini
+
+ANALYSIS PHP XML
+AnalyserPHP XML
+
+DO NOT SHOW
+Ne pas afficher
+
+LOAD CORE LANGUAGE
+Charger les fichiers langues du core
+
+Also load the core language file to check for translations (displayed in orange)
+Charger également les fichiers core pour vérifier les traductions (affiché en orange)
+
+NOT TRANSLATED
+NON TRADUIT
+
+PHP XML FILE ANALYSIS
+Analyse des fichiers PHP XML
+
+PLEASE CHOOSE A LANGUAGE
+Veuillez choisi une langue
+
+DEFAULT LANGUAGE
+Language par défaut
+
+DEFAULT FILE ORDER
+Ordre des fichiers par défaut
+
+TRANSLATIONS
+Traductions
+
+TRANSLATED LANGUAGE
+Language traduit
+
+TRANSLATION ORDER
+Ordre de traduction
+
+TRANSLATED IN CORE
+Traduit dans le core
+
+CORRECTED LANGUAGE
+Language corrigé
+
+DRAG AND DROP ELEMENTS TO REARRANGE. ADD NEW COMMENTS.
+Glisser déposer les éléments à arranger. Ajouter de nouveaux commentaires.
+
+ADD COMMENT
+Ajouter commentaire
+
+ERROR INSERT A DESCRIPTION FOR THE ELEMENT
+Erreur! Veuillez insérer un commentaire de texte
+
+#messages
+
+THE FILE HAS BEEN CREATED
+Le fichier a été créé
+
+UNABLE TO CREATE LANGUAGE FILE
+Impossible de créer le fichier de langue
+
+UNABLE TO CREATE TABLE
+Impossible de créer la table
+
+UNABLE TO COPY FILE
+Impossible de copier le fichier
+
+UNABLE TO WRITE FILE
+Impossible d'écrire sur le fichier
+
+FILE %S NOT FOUND
+Fichier %s non trouvé
+
+THE FILE %S COULD NOT BE WRITTEN TO PATH %S
+Le fichier %s n'a pas pu être écris dans le chemin %s
+
+THE FILE %S HAS BEEN SAVED
+Le fichier %s a été sauvegardé
+
+THE FILE %S COULD NOT BE SAVED AT PATH: %S
+Le fichier %s n'a pas pu être sauvegardé par le chemin %s
+
+THE FILE %S COULD NOT BE FOUND IN PATH %S
+Le fichier %s n'a pas pu être sauvegardé dans le chemin %s
+
+THE FILE %S COULD NOT BE DELETED AT PATH: %S
+Le fichier %s n'a PAS pu être supprimé par le chemin %s
+
+THE FILE %S HAS BEEN DELETED
+Le fichier %s a été supprimé
+
+THE FILE DOES NOT EXIST
+Le fichier n'existe pas
+
+THE FILE MUST EXIST FOR SAVE
+Le fichier doit exister pour être sauvegardé
+
+ATTENTION
+Attention
+
+THE PROJECT %S WILL BE DELETED
+Le projet %s va être supprimé.
+
+DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE
+Supprimer entièrement le projet %s incluant fichiers et base de données
+
+THE WERE ERRORS
+Il y eu des erreurs !
+
+PLEASE CHOOSE A FILE
+Veuillez choisir un fichier
+
+BAD EXTENSION
+Mauvaise extension
+
+No files found
+Aucun fichiers trouvé
+
+UNDEFINED TYPE
+Type indéfini
+
+INVALID FILE
+Fichier invalide
+
+PLEASE SELECT A FILE
+Veuillez sélectionner un fichier
+
+PLEASE PROVIDE A NAME
+Veuillez fournir un nom
+
+#logging
+
+No logfiles found
+Pas de fichiers logs trouvés
+
+THE LOGFILES HAVE BEEN DELETED
+Le fichier log a été supprimé
+
+THE LOGFILES COULD NOT BE DELETED
+Le fichier log n'a pas pu être supprimé
+
+CLEAR LOG
+Clear log
+
+LONG DESCRIPTION
+Description longue
+
+READMORE
+Lire plus
+
+AUTHOR NAME
+Nom de l'auteur
+
+CHOOSE A COMPONENT TYPE FROM A PREDEFINED TEMPLATE
+Choisir un type de composant d'un gabarit de style prédéfini
+
+#project info
+
+PROJECT INFO
+Info de projet
+
+PROJECT FILES LINE COUNT
+Project files line count
+
+NO. FILES
+No. fichiers
+
+NO. LINES
+No. lignes
+
+TOTAL
+Total
+
+SALARY
+Salary
+
+RECALC
+Recalc
+
+REMOVE PROJECT
+Supprimer projet
+
+BUILDING
+Construire
+
+#ziper
+
+CREATE
+Creér
+
+BUILD OPTIONS
+Construire options
+
+FILES AND DIRS TO COPY
+Fichiers et répertoires à copier
+
+NO ZIPFILES FOUND
+Pas de fichiers zip trouvé
+
+#stuffer
+
+CHOOSE
+Choisir
+
+THE FILE HAS BEEN SAVED
+Le fichier a été sauvegardé
+
+STD FILES
+Fichiers standards
+
+#parameter
+
+No parameters defined
+Pas de paramêtres définis
+
+PARAMGROUP
+Groupe
+
+ADD PARAMETER
+Ajouter paramêtre
+
+NEW PARAMETER
+Nouveau paramêtre
+
+CHILDREN
+Enfant
+
+#versioning
+
+VERSION NO. %S
+Version no. %s
+
+ACTUAL FILE
+Fichier actuel
+
+No versions found
+Pas de versions trouvé
+
+ADD LANGUAGE
+Ajouter langue
+
+CREATE %S
+Créer %s
+
+ADD COPY
+Ajouter une copie
+
+FILES TO COPY
+Fichiers a copier
+
+SHOW JOOMLA CORE PROJECTS
+Montrer les projets du core Joomla!
+
+COMPONENT ZIPER
+Composant ZIPer
+
+NAME FOR YOUR BABY
+Nom de votre bébé
+
+CREDITS
+Credits
+
+STANDARD CREDIT FILE
+Fichier standard credit
+
+AUTHOR E-MAIL
+E-mail de l'auteur
+
+PLEASE CHOOSE A NAME FOLLOWING THE STANDARD NAMING CONVENTIONS. USE UPPER AND LOWER CASE
+Veuillez choisir un nom suivant les standards de conventions de nommages. Utilisez les majuscules et les minuscules
+
+YOUR COMPONENT SO FAR
+Your component so far
+
+COMMA SEPARATED LIST OF LANGUAGES
+liste des langues séparés par des virgules
+
+YOURE DONE
+C'est fait !
+
+JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT
+Just click on &quot; Create it &quot; below to finish your component.
+
+OR MAYBE YOU WOULD LIKE TO GO
+Ou peut être voudriez vous faire
+
+CREATE IT
+Créer le
+
+PLEASE SELECT A XML FILE
+Veuillez choisir un fichier XML
+
+UNABLE TO LOAD THE PROJECT %S
+Impossible de charger le projet %s
+
+No download available
+Le téléchargement est indisponible
+
+ALWAYS SAVE A VERSION
+Toujours sauvegarder une version
+
+SAVE VERSIONED
+Save versioned
+
+SAVE VERSION DESC
+Devons nous faire une sauvegarde de version ?
+
+DO NOT SAVE VERSIONS
+Ne pas sauvegarder les versions
+
+SAVE VERSIONS
+Sauvegarder les versions
+
+DO YOU HAVE THE LATEST VERSION ?
+Avez vous la dernière version ?
+
+CHECK YOUR VERSION
+Vérifier votre niveau de version
+
+CONTACT EASY-JOOMLA.ORG NOW TO CHECK IF YOUR VERSION IS UP TO DATE.
+Contacter easy-joomla.org *MAINTENANT* pour vérifier si votre version est à jour.
+
+No languages defined
+Pas de langues définies
+
+DOWNLOAD
+Télécharger
+
+YOUR COMPONENT %S HAS BEEN REGISTERED SUCCESFULLY
+Votre composant %s a bien été enregistré avec succès
+
+YOU CAN NOW
+Vous pouvez maintenant
+
+BUILD
+Construire
+
+EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'.
+EasyCreator est un outil de développement.<br />Il essaie d'accélérer le processus de développement de composants, modules, plugins et de templates.<br />VOus pouvez créer un environnement pour votre extension et un package zip installable en quelques clics.
+
+YOU HAVE %S REGISTERED PROJECTS
+Vous avez %s projets enregistrés
+
+YOUR ZIPFILE HAS BEEN CREATED SUCESSFULLY
+Votre package a été créé avec succès
+
+THE FILE HAS ALSO BEEN ARCHIVED FOR LATER ACCESS.
+Le fichier a également été archivé pour un accès ultérieur.
+
+YOUR ZIPFILE HAS NOT BEEN CREATED
+Votre fichier zip n'a PAS été créé
+
+ADD ELEMENT
+Ajouter élément
+
+Infos on parameters (external)
+Infos sur les paramétres (externe)
+
+ADD GROUP
+Ajouter groupe
+
+NEW GROUP
+Nouveau groupe
+
+SOURCE CODE
+Code source
+
+No classes found
+Pas de classes trouvé
+
+THE XML FILE HAS BEEN SAVED
+Le fichier xml a été sauvegardé
+
+COULD NOT SAVE XML FILE
+Le fichier xml n'a pas pu être sauvegardé
+
+OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG.
+Ou si vous tes curieux, jetez un oeil au fichier log.
+
+EDITOR TYPE
+Type d'editeur
+
+Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)
+Quel type d'EditArea devons nous charger (merci de lire la doc sur le site des développeurs http://www.cdolivet.net/editarea/editarea/docs/include.html)
+
+DEBUGGER
+Debugger
+
+Shall we use the Debug mode ?
+Devons nous utiliser le Debug mode ?
+
+ACTION
+Action
+
+ZIPFILE
+ZIPfile
+
+PLEASE SELECT A TEMPLATE
+Veuillez choisir un template
+
+CHOOSE A TEMPLATE
+Choisir un template
+
+COM_NAME
+Com_name
+
+LINES
+Lignes
+
+METHODS
+Methodes
+
+PROPERTIES
+Propriétés
+
+LANGUAGE DIRECTORIES
+Dossiers de langue
+
+ADMIN
+Admin
+
+LINK
+Lien
+
+INFO
+Info
+
+COMPONENT TYPE
+Type de Composant
+
+COMPONENT SCOPE
+Component scope
+
+INSTALL XML FILE
+Installer fichier XML
+
+MENU
+Menu
+
+ADD SUBMENU
+Ajouter sous menu
+
+SUBMENU
+Sous menu
+
+FILES AND FOLDERS
+Fichiers et dossiers
+
+STANDARD FILES
+Fichiers standard
+
+THE DEFAULT LANGUAGE IS
+La langue par défaut est
+
+PLEASE SELECT A TYPE
+Veuillez choisir un type
+
+PLEASE SELECT A SCOPE
+Please select a scope
+
+UNABLE TO CREATE FOLDER
+Impossible de créer le répertoire
+
+UNABLE TO SAVE THE FILE %S
+Impossible de sauvegarder le fichier %s
+
+SANDBOX
+Sandbox
+
+LOGFILES
+Fichiers Logs
+
+More...
+Plus...
+
+THE FILE COULD NOT BE SAVE
+Le fichier n'a pas pu être sauvegardé
+
+YOUR %S HAS NOT BEEN ADDED
+Votre %s n'a pas été ajouté
+
+YOUR %S HAS BEEN ADDED
+Votre %s a été ajouté
+
+Please use this extension only in local development environments.
+Please use this extension only in local development environments.
+
+Little care has been taken about security.
+Little care has been taken about security.
+
+See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>
+See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>
+
+Configuration
+Configuration

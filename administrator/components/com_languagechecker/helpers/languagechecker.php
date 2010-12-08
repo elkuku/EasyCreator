@@ -424,6 +424,8 @@ class LanguageCheckerHelper
 
         $paths = array();
 
+        $basePath = JALHoOExtensionHelper::getScopePath($scope);
+
         switch($scope)
         {
             case 'site':
@@ -446,7 +448,7 @@ class LanguageCheckerHelper
 
         if($component)
         {
-            $paths[] = $p.DS.'components'.DS.$component;
+            #$paths[] = $p.DS.'components'.DS.$component;
         }
 
         $fileName = '';
@@ -456,6 +458,12 @@ class LanguageCheckerHelper
         $fileName .=($this->subScope) ? '.'.$this->subScope : '';
         $fileName .= '.'.$this->langFormatIn;
 
+        $tplName = '';
+        $tplName .= $component;
+        $tplName .=($scope == 'admin' || $scope == 'site') ? '' : '.'.$scope;
+        $tplName .=($this->subScope) ? '.'.$this->subScope : '';
+        $tplName .= '.pot';
+
         if(true)//! JLoader::import('helpers.parsers.'.$this->langFormatIn, JPATH_COMPONENT))
         {
 //            #  JError::raiseWarning(0, 'Unknown parser: '.$this->langFormatIn);
@@ -463,6 +471,7 @@ class LanguageCheckerHelper
             try
             {
                 $parser = JALHOO::getParser('language', $this->langFormatIn);
+                $langFilePath = JALHoOExtensionHelper::getExtensionLanguagePath($this->component);
 //                echo $parser;
             }
             catch(Exception $e)
@@ -489,14 +498,28 @@ class LanguageCheckerHelper
 
         foreach($paths as $p)
         {
+            $templateStrings = array();
+
             if($this->langFormatIn == 'ini')
             {
                 $path = $p.DS.'language'.DS.$lang.DS.$fileName;
             }
             else//
             {
-                $path = $p.DS.'language'.DS.'sources'.DS.$lang.DS.$fileName;
+                $templatePath = $basePath.DS.$langFilePath.DS.'templates'.DS.$tplName;
+
+                if( ! JFile::exists($templatePath))
+                throw new Exception('Template not found in path: '.$templatePath);
+
+                $potParser = JALHOO::getParser('language', 'pot');
+
+
+                $templateInfo = $potParser->parse($templatePath);
+
+//                $path = $p.DS.'language'.DS.'sources'.DS.$lang.DS.$fileName;
+                $path = $basePath.DS.$langFilePath.DS.$lang.DS.$fileName;
             }
+
 
             if( ! JFile::exists($path))
             {
@@ -514,6 +537,10 @@ class LanguageCheckerHelper
 //            #          $translations = $parser->parse($path);
 
             $fileInfo = $parser->parse($path);
+
+//            if($scope )
+
+  #          $outputInfo = clone $fileInfo;
 
 //            #     $this->translationsPlural = $fileInfo->stringsPlural;
 
@@ -543,13 +570,35 @@ class LanguageCheckerHelper
 
                 if(is_object($value))
                 {
+                    $found = false;
+
+                    foreach ($templateInfo->strings as $tKey => $tValue)
+                    {
+                        if(strtoupper($tKey) == $key)
+                        {
+                            $found = true;
+                            $fileInfo->strings[$tKey] = $fileInfo->strings[$key];
+                            $fileInfo->strings[$tKey]->info .= '### fuzzy';
+                            $fileInfo->strings[$tKey]->isCore =($component) ? false : true;
+                    $fileInfo->strings[$tKey]->lines = array();
+
+                    $t = $fileInfo->strings[$tKey];
+                            unset($fileInfo->strings[$key]);
+                            break;
+                        }
+                    }//foreach
+
+                    if( ! $found)
+                    {
                     $t->string = $value->string;//$this->stripQuotes($value);
+                    $t->info = $value->info;
 
                     $t->isCore =($component) ? false : true;
                     $t->lines = array();
 //                    #                    $t->lines[] = $lineNo + 1;
 
                     $t->isUsed = false;
+                    }
                 }
                 else//
                 {
@@ -569,6 +618,7 @@ class LanguageCheckerHelper
                 $this->head = $fileInfo->head;
             }
 
+            $this->fileInfos[$scope] = $fileInfo;
             return;
         }//foreach
 

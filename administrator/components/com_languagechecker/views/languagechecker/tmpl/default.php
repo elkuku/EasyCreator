@@ -104,7 +104,7 @@ margin-left: 0.5em;
 <?php if($this->langFormatOut && $this->comPath) : ?>
 <textarea style="font-size: 12px; height: 300px; width: 100%; overflow: auto;
 background-color: #fff; border: 2px dashed gray; padding: 0.5em;">
-<?php echo $this->parser->generate($this->checker, $this->buildOpts); ?>
+<?php echo $this->parser->generate($this->outFileInfo, $this->buildOpts); ?>
 </textarea>
 <?php endif; ?>
 

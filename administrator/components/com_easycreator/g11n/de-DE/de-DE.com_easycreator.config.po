@@ -1,0 +1,176 @@
+##
+
+msgid "Package formats"
+msgstr "Paketformate"
+
+msgid "Personal"
+msgstr "Personal"
+
+msgid "Package creation"
+msgstr "Paketerstellung"
+
+msgid "Logging"
+msgstr "Logger"
+
+msgid "Various"
+msgstr "Verschiedenes"
+
+msgid "Personal information"
+msgstr "Persönliche Informationen"
+
+msgid "Package formats"
+msgstr "Paket-Formate"
+
+msgid "Custom file name"
+msgstr "Benutzerdefinierter Dateiname"
+
+msgid "zip"
+msgstr "ZIP"
+
+msgid "tar.gz"
+msgstr "Tar.gz"
+
+msgid "Custom name default"
+msgstr "Benutzerdefinierter Name (Standard)"
+
+msgid "Custom name"
+msgstr "Benutzerdefinierter Name"
+
+msgid "Logger"
+msgstr "Protokoll"
+
+msgid "Profiler"
+msgstr "Profiler"
+
+msgid "Help Type"
+msgstr "Hilfe Typ"
+
+msgid "Editor type"
+msgstr "Editor Typ"
+
+msgid "Editor font size"
+msgstr "Grösse des Editorfonts"
+
+msgid "Local API copy"
+msgstr "Lokale Kopie der API"
+
+msgid "Livesite warning"
+msgstr "Livesite Warnung"
+
+msgid "Save versions"
+msgstr "Backupversionen speichern"
+
+msgid "Use Google translation API"
+msgstr "Google Übersetzungs API"
+
+msgid "Check for UTF8"
+msgstr "Auf UTF-8 überprüfen"
+
+msgid "Check for BOM"
+msgstr "Auf BOM überprüfen"
+
+msgid "Debugger"
+msgstr "Debugger"
+
+msgid "Debugger Type"
+msgstr "Debugger-Typ"
+
+msgid "Debug language"
+msgstr "Sprache debuggen"
+
+msgid "ZIP format"
+msgstr "ZIP Format"
+
+msgid "Ziped Tarball"
+msgstr "Ziped Tarball"
+
+msgid "Should we write some logfiles"
+msgstr "Sollten wir Log-Dateien schreiben ?"
+
+msgid "Profile time and memory"
+msgstr "Profilierung von Zeit und Speicher"
+
+msgid "Log the contents / the code of the files been written to disk"
+msgstr "Protokollieren der Inhalte (Code) der Dateien die auf die Festplatte geschrieben wurden"
+
+msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
+msgstr "Wählen Sie die Art von Unterstützung die Sie benötigen (vom Anfänger bis zum Experten)"
+
+msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "Welchen EditArea Typ sollen wir laden (bitte lesen sie die Doku auf der Seite des Entwicklers http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+
+msgid "The default font size for the code editor in pixel"
+msgstr "Die Standardgrösse des Editorfonts in Pixeln"
+
+msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
+msgstr "Ihre Kopie der Joomla! API - Sie bekommen sie auf http://api.joomla.org"
+
+msgid "If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety"
+msgstr "Falls eine andere IP als 127.0.0.1 erkannt wird, wird zu Ihrer Sicherheit eine Warnung ausgegeben."
+
+msgid "When modifying your files, always save a backup version. These will be named *.rx"
+msgstr "Wenn eine geänderte Version Ihrer Datei gespeichert wird immer eine Backupversion erstellen. Diese werden nach dem Muster *.rx benannt."
+
+msgid "Should we use the Google Translation API for helping in translations ?"
+msgstr "Sollten wir die Google Translation API zur Unterstützung bei Übersetzungen benutzen ?"
+
+msgid "Should languages files be checked for UTF-8"
+msgstr "Sollen die Sprachdateien auf UTF-8 Kodierung überprüft werden ?"
+
+msgid "Should languages files be checked for a BOM"
+msgstr "Sollen die Sprachdateien auf einen BOM überprüft werden ?"
+
+msgid "Shall we use the Debug mode ?"
+msgstr "Sollen wir den Debugmodus benutzen?"
+
+msgid "Which debugger to use"
+msgstr "Welcher Debugger soll benutzt werden"
+
+msgid "Shall we debug our special language files ?"
+msgstr "Sollen wir unsere speziellen Sprachdateien debuggen ?"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Some"
+msgstr "Ein wenig"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "edit_area_full.js"
+msgstr "edit_area_full.js"
+
+msgid "edit_area_compressor.php"
+msgstr "edit_area_compressor.php"
+
+msgid "edit_area_compressor.php?plugins"
+msgstr "edit_area_compressor.php?plugins"
+
+msgid "edit_area_full.gz"
+msgstr "edit_area_full.gz"
+
+msgid "edit_area_loader.js"
+msgstr "edit_area_loader.js"
+
+msgid "EasyDebug"
+msgstr "EasyDebug"
+
+msgid "JDump"
+msgstr "JDump"
+
+msgid "DebugTools"
+msgstr "DebugTools"
+
+msgid "Krumo"
+msgstr "Krumo"
+
+msgid "EasyCreator helps creating Extensions for Joomla"
+msgstr "EasyCreator hilft beim Erstellen von Erweiterungen für Joomla!"
+

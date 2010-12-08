@@ -33,7 +33,11 @@ class EasyCreatorControllerConfig extends JController
      */
     public function display($cachable = false, $urlparams = false)
     {
+        JALHOO::setDebug(true);
+        JALHOO::loadLanguage('com_easycreator.config');
+
         JRequest::setVar('view', 'config');
+
         parent::display($cachable, $urlparams);
     }//function
 
