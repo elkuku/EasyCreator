@@ -1,0 +1,301 @@
+# @version SVN: $Id$
+# Language fr-FR translations for PACKAGE package.
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# root <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: wp-polyglots@lists.automattic.com\n"
+"POT-Creation-Date: 2010-12-08 03:00 -500\n"
+"PO-Revision-Date: 2010-12-08 03:06-0500\n"
+"Last-Translator: root <EMAIL@ADDRESS>\n"
+"Language-Team: Language fr-FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: JALHOO\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: administrator/components/com_easycreator/config.xml:group
+msgid "Personal"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:group
+msgid "Package creation"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:group
+msgid "Logging"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:group
+msgid "Various"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:group
+msgid "Debug"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:param-default
+msgid "Personal information"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:param-default
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Package formats"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:param-default
+msgid "Custom file name"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:param-default
+msgid "Language"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Author"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Author e-mail"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Author URL"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "License"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Copyright"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "zip"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "tar.gz"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Custom name default"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Custom name"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Logger"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Profiler"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Log file contents"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Help Type"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Editor type"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Editor font size"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Local API copy"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Livesite warning"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Save versions"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Use Google translation API"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Check for UTF8"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Check for BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Debugger"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/easycreator.xml:label
+msgid "Debugger Type"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:label
+msgid "Debug language"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "ZIP format"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Ziped Tarball"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Should we write some logfiles"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Profile time and memory"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Log the contents / the code of the files been written to disk"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "The default font size for the code editor in pixel"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "When modifying your files, always save a backup version. These will be named *.rx"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Should we use the Google Translation API for helping in translations ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Should languages files be checked for UTF-8"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Should languages files be checked for a BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Shall we use the Debug mode ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Which debugger to use"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:description
+msgid "Shall we debug our special language files ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "Off"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "On"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "No"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "Yes"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "All"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "Some"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "None"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "edit_area_full.js"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "edit_area_compressor.php"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "edit_area_compressor.php?plugins"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "edit_area_full.gz"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "edit_area_loader.js"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "EasyDebug"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "JDump"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "DebugTools"
+msgstr ""
+
+#: administrator/components/com_easycreator/config.xml:opt
+msgid "Krumo"
+msgstr ""
+
+#: administrator/components/com_easycreator/easycreator.xml:description
+msgid "EasyCreator helps creating Extensions for Joomla"
+msgstr ""
