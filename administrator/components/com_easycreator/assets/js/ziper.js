@@ -10,27 +10,26 @@
 function deleteZipFile(path, file) {
 	url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
 	url += '&controller=ziper&task=delete';
-
-	post = '';
-	post += 'file_path=' + path;
-	post += '&file_name=' + file;
+	url += '&file_path=' + path;
+	url += '&file_name=' + file;
 
 	var box = $('ajaxMessage');
 	var debug = $('ajaxDebug');
 
-	switch (ECR_JVERSION) {
-	case '1.5':
-		var fx = box.effects( {
-			duration : 1000,
-			transition : Fx.Transitions.Quart.easeOut
-		});
-		break;
-	case '1.6':
-		var fx = new Fx.Morph(box, {});
-		break;
-	default:
-		alert(jgettext('Undefined Joomla! version: %s', ECR_JVERSION));
-		break;
+	switch (ECR_JVERSION) 
+	{
+		case '1.5':
+			var fx = box.effects( {
+				duration : 1000,
+				transition : Fx.Transitions.Quart.easeOut
+			});
+			break;
+		case '1.6':
+			var fx = new Fx.Morph(box, {});
+			break;
+		default:
+			alert(jgettext('Undefined Joomla! version: %s', ECR_JVERSION));
+			break;
 	}// switch
 
 	new Ajax(url, {
@@ -47,6 +46,8 @@ function deleteZipFile(path, file) {
 			if (resp.status) {
 				box.style.color = 'red';
 				debug = resp.debug;
+				
+				return;
 			} else {
 				$('row' + file).setStyle('display', 'none');
 			}
@@ -62,5 +63,5 @@ function deleteZipFile(path, file) {
 				});
 			});
 		}
-	}).request(post);
+	}).request();
 }//function

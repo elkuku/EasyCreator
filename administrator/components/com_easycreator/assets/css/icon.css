@@ -102,6 +102,14 @@
 	background-image: url(../images/ico/icon-16-bug.png);
 }
 
+.img.outdated {
+	background-image: url(../images/ico/cancel.png);
+}
+
+.img.actual {
+	background-image: url(../images/ico/apply.png);
+}
+
 .icon-16-cancel {
 	background-image: url(../images/ico/cancel.png);
 }

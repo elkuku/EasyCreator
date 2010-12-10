@@ -274,3 +274,56 @@ function emptyCheckTheField(theForm, theFieldName)
     return isEmpty;
 } // end of the 'emptyCheckTheField()' function
 
+function checkVersion()
+{
+	url = ecrAJAXLink+'&controller=ajax';
+    url += '&task=checkVersion';
+    
+    var x = 'http://inkubator.der-beta-server.de/inkubator/released';
+    var urlBase = 'http://helios.nik/jejo_web/versions';
+    
+    url = urlBase + '/easycreator.html';
+    url += '?myVersion=0.0.15';
+    url += '&format=raw';
+    
+    new Ajax(url,
+    {
+        'onRequest' : function()
+        {
+        },
+        'onComplete' : function(response)
+        {
+            var resp = Json.evaluate(response);
+            
+            if('undefined' == resp.status) {
+            	//-- Error
+                $('ecr_versionCheck').innerHTML = '?';
+                
+                return;
+            }
+            
+            var cssClass = '';
+            var msg = '';
+            var alt = '';
+            
+            switch (resp.status)
+            {
+            	case -1 :
+            		cssClass = 'img outdated';
+            		msg = phpjs.sprintf(jgettext('Latest version: %s'), resp.version);
+            	break;
+            	
+            	case 0 :
+            		cssClass = 'img actual';
+            		alt = jgettext('Your version is up-to-date')
+            	break;
+            	
+            	default :
+            		msg = '?';
+            	break;
+            }//switch
+
+            $('ecr_versionCheck').innerHTML = '<span class="'+cssClass+'" title="'+alt+'" alt="'+alt+'">'+msg+'</span>';
+        }
+    }).request();
+}//function

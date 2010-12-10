@@ -1150,4 +1150,14 @@ body {
 
         echo json_encode($response);
     }//function
+
+    public function checkVersion()
+    {
+        $response = array();
+
+        $response['text'] = 'fubisdubi';
+
+        echo json_encode($response);
+#        echo 'FU';
+    }//function
 }//class

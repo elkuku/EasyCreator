@@ -15,12 +15,12 @@ $link = new stdClass();
 
 $link->versionCheck = 'http://projects.easy-joomla.org/index.php?option=com_versions'
     .'&amp;tmpl=component&amp;catid=1&amp;myVersion='.ECR_VERSION;
-$link->forum = 'http://forum.easy-joomla.org/index.php?board=16.0';
-$link->bugTracker = 'http://joomlacode.org/gf/project/easyjoomla/tracker/?action=TrackerItemBrowse&amp;tracker_id=8236';
-$link->features = 'http://joomlacode.org/gf/project/easyjoomla/tracker/?action=TrackerItemBrowse&amp;tracker_id=9611';
+$link->forum = 'http://joomlacode.org/gf/project/elkuku/forum/?action=ForumBrowse&forum_id=15109';
+$link->bugTracker = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284';
+$link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10283';
 $link->latestVersion = 'http://projects.easy-joomla.org/component/versions/?catid=1&amp;task=feed&amp;tmpl=component';
-$link->incubatorFeed = 'http://projects.easy-joomla.org/incubator-newsfeeds/EasyCreator.feed';
-$link->svn = 'http://anonymous@joomlacode.org/svn/easyjoomla/easy_creator/trunk/';
+$link->incubatorFeed = 'http://inkubator.der-beta-server.de/downloads/EasyCreator?format=feed&type=rss';
+$link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';
 
 $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
 $ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-shadow.png';

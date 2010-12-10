@@ -649,3 +649,11 @@ div.ecr_noproject {
 *[accesskey]:after {
 	content: ' [' attr(accesskey) ']'
 }
+
+div#ecr_versionCheck {
+	position: absolute;
+	left: 3em;
+	border: 1px solid gray;
+	padding: 0.5em;
+	background-color: #fff;
+}

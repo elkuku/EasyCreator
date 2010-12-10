@@ -1,0 +1,417 @@
+# @version SVN: $Id$
+# Language zh-CN translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# root <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-07 23:45-0500\n"
+"PO-Revision-Date: 2010-12-08 10:29-0500\n"
+"Last-Translator: root <EMAIL@ADDRESS>\n"
+"Language-Team: Language zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:39
+msgid "Please review your input"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:180
+#: administrator/components/com_easycreator/assets/js/menu.js:57
+msgid "Delete"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:218
+#: administrator/components/com_easycreator/assets/js/menu.js:101
+msgid "Select..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/autocode.js:86
+#: administrator/components/com_easycreator/assets/js/dbtables.js:269
+#: administrator/components/com_easycreator/assets/js/easycreator.js:131
+#: administrator/components/com_easycreator/assets/js/easycreator.js:143
+#: administrator/components/com_easycreator/assets/js/easycreator.js:190
+#: administrator/components/com_easycreator/assets/js/log.js:39
+#: administrator/components/com_easycreator/assets/js/parts.js:14
+#: administrator/components/com_easycreator/assets/js/util.js:55
+#: administrator/components/com_easycreator/assets/js/wizard.js:43
+msgid "Loading..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/codeeye.js:427
+msgid "CodeEye is checking your environment..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/dbtables.js:61
+msgid "This is not a number"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/dbtables.js:80
+msgid "Please add at least one field"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:25
+msgid "New project..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:33
+msgid "Register project..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:42
+#, python-format
+msgid "Loading %s ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/editor.js:43
+#: administrator/components/com_easycreator/assets/js/translator.js:123
+msgid "Saving..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:20
+msgid "Please enter a description for the element"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:36
+#, fuzzy
+msgid "The element has been added"
+msgstr "%s 这个工程已被删除"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:40
+msgid "Text"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:44
+msgid "Link"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:47
+msgid "Ordering"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:51
+msgid "Image"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:125
+msgid "User defined"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/parameter.js:80
+#: administrator/components/com_easycreator/assets/js/wizard2.js:39
+msgid "You must provide a name"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/templates.js:34
+msgid "Please select a package to upload"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:30
+#: administrator/components/com_easycreator/assets/js/ziper.js:38
+msgid "Deleting..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:50
+msgid "Empty"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:63
+msgid "Undefined Joomla! version"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:93
+msgid "Translating..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/wizard2.js:27
+msgid "You must provide a version number"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/wizard2.js:51
+msgid "You must provide a list postfix"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/ziper.js:32
+#, python-format
+msgid "Undefined Joomla! version: %s"
+msgstr ""
+
+#~ msgid "ZIP"
+#~ msgstr "ZIP"
+
+#~ msgid "Backend"
+#~ msgstr "后台"
+
+#~ msgid "Frontend"
+#~ msgstr "前台"
+
+#~ msgid "DESTINATION"
+#~ msgstr "描述"
+
+#~ msgid "NONE_FOUND"
+#~ msgstr "没有找到"
+
+#~ msgid "OPTIONAL"
+#~ msgstr "可选"
+
+#~ msgid "PLEASE GOTO"
+#~ msgstr "请前往："
+
+#~ msgid "PLEASE SELECT A PROJECT"
+#~ msgstr "请选择工程"
+
+#~ msgid "SHOW FILE CONTENTS"
+#~ msgstr "显示文件内容"
+
+#~ msgid "TYPES"
+#~ msgstr "类型"
+
+#~ msgid "VERBOSE"
+#~ msgstr "详情"
+
+#~ msgid "ZIP FILES"
+#~ msgstr "Zip 文件"
+
+#~ msgid "PLEASE SELECT A VERSION"
+#~ msgstr "请选择一个版本"
+
+#~ msgid "YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY"
+#~ msgstr "您的组件 %s 已经创建成功 !"
+
+#~ msgid "YOU MUST PROVIDE A NAME"
+#~ msgstr "您必须填写名称"
+
+#~ msgid "YOU MUST PROVIDE A VERSION"
+#~ msgstr "您必须填写版本"
+
+#~ msgid "TRANSLATION COULD NOT BE SAVED"
+#~ msgstr "译文无法保存"
+
+#~ msgid "TRANSLATION SAVED"
+#~ msgstr "译文已经保存"
+
+#~ msgid "TRANSLATOR"
+#~ msgstr "翻译者"
+
+#~ msgid "FRONTEND SANDBOX"
+#~ msgstr "前台沙盒"
+
+#~ msgid "TREAT THE FIRST"
+#~ msgstr "首先处理"
+
+#~ msgid "LINES AS COMMENT"
+#~ msgstr "注释行"
+
+#~ msgid "ANALYSIS INI"
+#~ msgstr "分析 ini"
+
+#~ msgid "ANALYSIS PHP XML"
+#~ msgstr "分析 PHP XML"
+
+#~ msgid "ERROR INSERT A DESCRIPTION FOR THE ELEMENT"
+#~ msgstr "出错! 请输入注释文字。"
+
+#~ msgid "UNABLE TO CREATE LANGUAGE FILE"
+#~ msgstr "无法创建语言文件"
+
+#~ msgid "UNABLE TO CREATE TABLE"
+#~ msgstr "无法创建数据表"
+
+#~ msgid "UNABLE TO COPY FILE"
+#~ msgstr "无法复制文件"
+
+#~ msgid "THE FILE %S HAS BEEN SAVED"
+#~ msgstr "文件 %s 已被保存"
+
+#~ msgid "THE FILE %S COULD NOT BE FOUND IN PATH %S"
+#~ msgstr "文件 %s 在 %s 这个路径找不到"
+
+#~ msgid "THE FILE %S HAS BEEN DELETED"
+#~ msgstr "文件 %s 已被删除"
+
+#~ msgid "DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE"
+#~ msgstr "删除整个 %s 工程，包括文件和数据库"
+
+#~ msgid "THE WERE ERRORS"
+#~ msgstr "出错了 !"
+
+#~ msgid "PLEASE CHOOSE A FILE"
+#~ msgstr "请选择一个文件"
+
+#~ msgid "BAD EXTENSION"
+#~ msgstr "错误的扩展名"
+
+#~ msgid "UNDEFINED TYPE"
+#~ msgstr "未定义的类型"
+
+#~ msgid "PLEASE SELECT A FILE"
+#~ msgstr "请选择一个文件"
+
+#~ msgid "PLEASE PROVIDE A NAME"
+#~ msgstr "请提供名称"
+
+#~ msgid "LONG DESCRIPTION"
+#~ msgstr "详细描述"
+
+#~ msgid "READMORE"
+#~ msgstr "阅读更多"
+
+#~ msgid "PROJECT INFO"
+#~ msgstr "工程信息"
+
+#~ msgid "PROJECT FILES LINE COUNT"
+#~ msgstr "工程文件行数"
+
+#~ msgid "NO. FILES"
+#~ msgstr "文件数量"
+
+#~ msgid "NO. LINES"
+#~ msgstr "行数"
+
+#~ msgid "SALARY"
+#~ msgstr "薪水"
+
+#~ msgid "RECALC"
+#~ msgstr "重新计算"
+
+#~ msgid "FILES AND DIRS TO COPY"
+#~ msgstr "要复制的文件及目录"
+
+#~ msgid "NO ZIPFILES FOUND"
+#~ msgstr "没有找到 zip 压缩文件"
+
+#~ msgid "STD FILES"
+#~ msgstr "标准文件"
+
+#~ msgid "CHILDREN"
+#~ msgstr "子项"
+
+#~ msgid "ADD LANGUAGE"
+#~ msgstr "添加语言"
+
+#~ msgid "ADD COPY"
+#~ msgstr "添加副本"
+
+#~ msgid "FILES TO COPY"
+#~ msgstr "要复制的文件"
+
+#~ msgid "STANDARD CREDIT FILE"
+#~ msgstr "标准版权文件"
+
+#~ msgid "YOUR COMPONENT SO FAR"
+#~ msgstr "您的组件到目前为止"
+
+#~ msgid "COMMA SEPARATED LIST OF LANGUAGES"
+#~ msgstr "多个语言请用英文逗号分隔"
+
+#~ msgid "JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT"
+#~ msgstr "只需点击上面的“创建它”来完成您的组件."
+
+#~ msgid "OR MAYBE YOU WOULD LIKE TO GO"
+#~ msgstr "或许您想去"
+
+#~ msgid "UNABLE TO LOAD THE PROJECT %S"
+#~ msgstr "无法载入工程 %s"
+
+#~ msgid "ALWAYS SAVE A VERSION"
+#~ msgstr "总是保存版本"
+
+#~ msgid "SAVE VERSION DESC"
+#~ msgstr "我们是否应该保存一个备份版本 ?"
+
+#~ msgid "DO NOT SAVE VERSIONS"
+#~ msgstr "不要保存版本"
+
+#~ msgid "SAVE VERSIONS"
+#~ msgstr "保存版本"
+
+#~ msgid "DO YOU HAVE THE LATEST VERSION ?"
+#~ msgstr "您拥有的是最新版本吗 ?"
+
+#~ msgid "CHECK YOUR VERSION"
+#~ msgstr "检查您的版本"
+
+#~ msgid "CONTACT EASY-JOOMLA.ORG NOW TO CHECK IF YOUR VERSION IS UP TO DATE."
+#~ msgstr "立即联系 easy-joomla.org 来检查您的版本是不是最新的"
+
+#~ msgid "YOUR COMPONENT %S HAS BEEN REGISTERED SUCCESFULLY"
+#~ msgstr "您的组件 %s 已被成功注册"
+
+#~ msgid "YOU CAN NOW"
+#~ msgstr "您现在可以"
+
+#~ msgid "BUILD"
+#~ msgstr "Build"
+
+#~ msgid "EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'."
+#~ msgstr "EasyCreator 是一个开发人员工具。<br />它可以帮助加快自定义组件、模块、插件及模板的开发过程。<br />您只需点击几下鼠标，就可以通过这个组件为您的扩展创建一个“框架”（frame），以及可安装的 zip 压缩包。<br />"
+
+#~ msgid "YOU HAVE %S REGISTERED PROJECTS"
+#~ msgstr "您共有 %s 个工程注册了"
+
+#~ msgid "THE FILE HAS ALSO BEEN ARCHIVED FOR LATER ACCESS."
+#~ msgstr "文件同时已被存档以便日后使用."
+
+#~ msgid "OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG."
+#~ msgstr "或者，如果您感到困惑，请看一下日志文件。"
+
+#~ msgid "EDITOR TYPE"
+#~ msgstr "编辑器类型"
+
+#~ msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+#~ msgstr "我们应该载入哪一种文本输入框类型？ (请参看开发者网站的文档 http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+
+#~ msgid "DEBUGGER"
+#~ msgstr "除错器"
+
+#~ msgid "Shall we use the Debug mode ?"
+#~ msgstr "我们要使用除错模式吗 ?"
+
+#~ msgid "ZIPFILE"
+#~ msgstr "ZIP 文件"
+
+#~ msgid "PLEASE SELECT A TEMPLATE"
+#~ msgstr "请选择一个模板"
+
+#~ msgid "CHOOSE A TEMPLATE"
+#~ msgstr "选择模板"
+
+#~ msgid "COM_NAME"
+#~ msgstr "Com_name"
+
+#~ msgid "LANGUAGE DIRECTORIES"
+#~ msgstr "语言目录"
+
+#~ msgid "COMPONENT TYPE"
+#~ msgstr "组件类型"
+
+#~ msgid "INSTALL XML FILE"
+#~ msgstr "XML 安装文件"
+
+#~ msgid "FILES AND FOLDERS"
+#~ msgstr "文件及文件夹"
+
+#~ msgid "THE DEFAULT LANGUAGE IS"
+#~ msgstr "默认语言是"
+
+#~ msgid "PLEASE SELECT A TYPE"
+#~ msgstr "请选择类型"
+
+#~ msgid "PLEASE SELECT A SCOPE"
+#~ msgstr "请选择一个作用域"
+
+#~ msgid "UNABLE TO SAVE THE FILE %S"
+#~ msgstr "无法保存文件 %s"
+
+#~ msgid "THE FILE COULD NOT BE SAVE"
+#~ msgstr "文件无法保存"
+
+#~ msgid "YOUR %S HAS NOT BEEN ADDED"
+#~ msgstr "您的 %s 还未添加"
+
+#~ msgid "YOUR %S HAS BEEN ADDED"
+#~ msgstr "您的 %s 已被添加"

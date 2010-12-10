@@ -118,8 +118,8 @@ class EasyCreatorViewZiper extends JView
     {
         echo '<h1>'.jgettext('Archive').'</h1>';
 
-        $this->zip_dir_path = ECRPATH_BUILDS.DS.$this->ecr_project;
-
+        $this->zip_dir_path = ECRPATH_BUILDS.DS.$this->project->comName;
+#var_dump($this->project);
         if( ! JFolder::exists($this->zip_dir_path))
         {
             ecrHTML::displayMessage(jgettext('Archive is empty'));
@@ -130,7 +130,7 @@ class EasyCreatorViewZiper extends JView
         }
 
         $folders = JFolder::folders($this->zip_dir_path);
-        $base_href = JURI::Root().'administrator/components/com_easycreator/builds/'.$this->ecr_project;
+        $base_href = JURI::Root().'administrator/components/com_easycreator/builds/'.$this->project->comName;
 
         rsort($folders);
 

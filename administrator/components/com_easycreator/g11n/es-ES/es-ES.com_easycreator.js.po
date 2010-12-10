@@ -1,0 +1,386 @@
+# @version SVN: $Id$
+# Language es-ES translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# root <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-07 23:45-0500\n"
+"PO-Revision-Date: 2010-12-08 10:39-0500\n"
+"Last-Translator: root <EMAIL@ADDRESS>\n"
+"Language-Team: Language es-ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:39
+msgid "Please review your input"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:180
+#: administrator/components/com_easycreator/assets/js/menu.js:57
+msgid "Delete"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:218
+#: administrator/components/com_easycreator/assets/js/menu.js:101
+msgid "Select..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/autocode.js:86
+#: administrator/components/com_easycreator/assets/js/dbtables.js:269
+#: administrator/components/com_easycreator/assets/js/easycreator.js:131
+#: administrator/components/com_easycreator/assets/js/easycreator.js:143
+#: administrator/components/com_easycreator/assets/js/easycreator.js:190
+#: administrator/components/com_easycreator/assets/js/log.js:39
+#: administrator/components/com_easycreator/assets/js/parts.js:14
+#: administrator/components/com_easycreator/assets/js/util.js:55
+#: administrator/components/com_easycreator/assets/js/wizard.js:43
+msgid "Loading..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/codeeye.js:427
+msgid "CodeEye is checking your environment..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/dbtables.js:61
+msgid "This is not a number"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/dbtables.js:80
+msgid "Please add at least one field"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:25
+msgid "New project..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:33
+msgid "Register project..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:42
+#, python-format
+msgid "Loading %s ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/editor.js:43
+#: administrator/components/com_easycreator/assets/js/translator.js:123
+msgid "Saving..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:20
+msgid "Please enter a description for the element"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:36
+msgid "The element has been added"
+msgstr "El elemento ha sido añadido"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:40
+msgid "Text"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:44
+msgid "Link"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:47
+msgid "Ordering"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:51
+msgid "Image"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/menu.js:125
+msgid "User defined"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/parameter.js:80
+#: administrator/components/com_easycreator/assets/js/wizard2.js:39
+msgid "You must provide a name"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/templates.js:34
+msgid "Please select a package to upload"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:30
+#: administrator/components/com_easycreator/assets/js/ziper.js:38
+msgid "Deleting..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:50
+msgid "Empty"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:63
+msgid "Undefined Joomla! version"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/translator.js:93
+msgid "Translating..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/wizard2.js:27
+msgid "You must provide a version number"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/wizard2.js:51
+msgid "You must provide a list postfix"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/ziper.js:32
+#, python-format
+msgid "Undefined Joomla! version: %s"
+msgstr ""
+
+#~ msgid "Backend"
+#~ msgstr "Backend"
+
+#~ msgid "Frontend"
+#~ msgstr "Frontend"
+
+#~ msgid "DESTINATION"
+#~ msgstr "Destino"
+
+#~ msgid "NONE_FOUND"
+#~ msgstr "Ninguno encontrado"
+
+#~ msgid "OPTIONAL"
+#~ msgstr "Opcional"
+
+#~ msgid "PLEASE GOTO"
+#~ msgstr "Por favor vaya a"
+
+#~ msgid "PLEASE SELECT A PROJECT"
+#~ msgstr "Por favor, seleccione un proyecto"
+
+#~ msgid "TYPES"
+#~ msgstr "Tipos"
+
+#~ msgid "VERBOSE"
+#~ msgstr "Verboso"
+
+#~ msgid "ZIP FILES"
+#~ msgstr "Archivos Zip"
+
+#~ msgid "PLEASE SELECT A VERSION"
+#~ msgstr "Por favor, seleccione una versión"
+
+#~ msgid "YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY"
+#~ msgstr "Su componente %s se ha creado con éxito!"
+
+#~ msgid "YOU MUST PROVIDE A NAME"
+#~ msgstr "Usted debe proporcionar un nombre"
+
+#~ msgid "YOU MUST PROVIDE A VERSION"
+#~ msgstr "Usted debe proporcionar una versión"
+
+#~ msgid "TRANSLATION COULD NOT BE SAVED"
+#~ msgstr "La traducción no se podrían guardar"
+
+#~ msgid "TRANSLATION SAVED"
+#~ msgstr "Traducción guardado"
+
+#~ msgid "TREAT THE FIRST"
+#~ msgstr "Tratar a los primeros"
+
+#~ msgid "LINES AS COMMENT"
+#~ msgstr "líneas como comentario"
+
+#~ msgid "ERROR INSERT A DESCRIPTION FOR THE ELEMENT"
+#~ msgstr "Error! Por favor, introduzca un texto de comentario"
+
+#~ msgid "UNABLE TO CREATE LANGUAGE FILE"
+#~ msgstr "No se puede crear archivo de idioma"
+
+#~ msgid "UNABLE TO COPY FILE"
+#~ msgstr "No se puede copiar archivo"
+
+#~ msgid "THE FILE %S HAS BEEN SAVED"
+#~ msgstr "El archivo %s se ha guardado"
+
+#~ msgid "THE FILE %S COULD NOT BE FOUND IN PATH %S"
+#~ msgstr "El archivo %s no se ha encontrado en la ruta %s"
+
+#~ msgid "THE FILE %S HAS BEEN DELETED"
+#~ msgstr "El archivo %s ha sido eliminado"
+
+#~ msgid "DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE"
+#~ msgstr "Elimine el proyecto %s incluyendo el archivo y base de datos"
+
+#~ msgid "CHILDREN"
+#~ msgstr "Hijos"
+
+#~ msgid "YOUR COMPONENT SO FAR"
+#~ msgstr "Su componente hasta ahora"
+
+#~ msgid "JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT"
+#~ msgstr "Basta con hacer clic en &quot;Create it&quot; para finalizar el componente."
+
+#~ msgid "UNABLE TO LOAD THE PROJECT %S"
+#~ msgstr "No se puede cargar el proyecto %s"
+
+#~ msgid "EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'."
+#~ msgstr "EasyCreator es una herramienta de desarrollo. <br />Trata acelerar el proceso de desarrollo de componentes personalizados, módulos, plugins y plantillas. <br />Se puede crear un 'marco' para su extensión y un paquete instalable con sólo unos pocos 'clics'."
+
+#~ msgid "Little care has been taken about security."
+#~ msgstr "Poco cuidado se ha tenido sobre la seguridad."
+
+#~ msgid "OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG."
+#~ msgstr "O si es curioso puede mirar el registro."
+
+#~ msgid "ZIPFILE"
+#~ msgstr "Archivo, tipo ZIP"
+
+#~ msgid "PLEASE SELECT A TEMPLATE"
+#~ msgstr "Por favor, seleccione una plantilla"
+
+#~ msgid "THE FILE COULD NOT BE SAVE"
+#~ msgstr "El archivo no se pudo guardar"
+
+#~ msgid "YOUR %S HAS NOT BEEN ADDED"
+#~ msgstr "Su %s no se ha agregado"
+
+#~ msgid "YOUR %S HAS BEEN ADDED"
+#~ msgstr "Su %s ha sido añadido"
+
+#~ msgid "FILES AND DIRS TO COPY"
+#~ msgstr "Archivos y directorios para copiar"
+
+#~ msgid "DESC PROJECT INFO"
+#~ msgstr "Muestra información acerca de su proyecto (experimental)"
+
+#~ msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
+#~ msgstr "Elija el tipo de ayuda que necesita (desde principiantes a expertos)"
+
+#~ msgid "UNABLE TO UPDATE THE PROJECT %S"
+#~ msgstr "No se puede actualizar el proyecto %s"
+
+#~ msgid "PLEASE REVIEW YOUR INPUT"
+#~ msgstr "Por favor, revise sus entradas"
+
+#~ msgid "LOADING"
+#~ msgstr "Cargando"
+
+#~ msgid "TRANSLATION COULD NOT BE DELETED"
+#~ msgstr "La traducción no puede ser eliminado"
+
+#~ msgid "LOGGING"
+#~ msgstr "Logging"
+
+#~ msgid "KEY NOT FOUND"
+#~ msgstr "Clave no se encuentra"
+
+#~ msgid "No zip files found"
+#~ msgstr "No se encontraron archivos zip"
+
+#~ msgid "A SIMPLE COMPONENT"
+#~ msgstr "Un componente simple"
+
+#~ msgid "A COMPONENT USING A MODEL"
+#~ msgstr "Un componente con un modelo"
+
+#~ msgid "A COMPONENT USING THE TABLE CLASS"
+#~ msgstr "Un componente utilizando la clase de tabla"
+
+#~ msgid "A COMPONENT WITH ADMIN INTERFACE"
+#~ msgstr "Un componente con interfaz de administración"
+
+#~ msgid "A COMPONENT WITH PAGINATION"
+#~ msgstr "Un componente con paginación"
+
+#~ msgid "A COMPONENT WITH WYSIWYG EDITOR"
+#~ msgstr "Un componente con editor WYSIWYG"
+
+#~ msgid "SO MANY EMPTY PAGES ON_THE WIKI ?"
+#~ msgstr "Tatas páginas en blanco en el wiki?"
+
+#~ msgid "FAILED TO UPDATE THE SETTINGS"
+#~ msgstr "No se pudo actualizar la configuración"
+
+#~ msgid "YOU MUST PROVIDE A LIST POSTFIX"
+#~ msgstr "Usted debe proveer un list postfijo"
+
+#~ msgid "MD5 CHECK FAILED ON_FILE: %S"
+#~ msgstr "MD5 check fallado en el archivo: %s"
+
+#~ msgid "EASYCREATOR HELPS CREATING EXTENSIONS FOR JOOMLA"
+#~ msgstr "EasyCreator ayuda a la creación de extensiones para Joomla!"
+
+#~ msgid "THIS SCRIPT REQUIRES AT LEAST PHP VERSION %S"
+#~ msgstr "Este script requiere al menos la versión %s de php"
+
+#~ msgid "EMPTY FILE NAME"
+#~ msgstr "nombre del archivo vacío"
+
+#~ msgid "EMPTY VALUE"
+#~ msgstr "valor vacío"
+
+#~ msgid "COPYRIGHT C"
+#~ msgstr "Copyright (C)"
+
+#~ msgid "BOM"
+#~ msgstr "BOM"
+
+#~ msgid "ECR__NULL"
+#~ msgstr "nulo"
+
+#~ msgid "DETAILS"
+#~ msgstr "Detalles"
+
+#~ msgid "THIS WILL PERFORM AN UPGRADE ON_INSTALLING YOUR EXTENSION"
+#~ msgstr "Se realizará una actualización sobre la instalación de su extensión"
+
+#~ msgid "EXTENSION"
+#~ msgstr "Extensión"
+
+#~ msgid "UNINSTALL"
+#~ msgstr "Desinstalar"
+
+#~ msgid "REMOVED"
+#~ msgstr "Eliminado"
+
+#~ msgid "GROUP"
+#~ msgstr "Grupo"
+
+#~ msgid "INSTALLED"
+#~ msgstr "Instalado"
+
+#~ msgid "STATUS"
+#~ msgstr "Estado"
+
+#~ msgid "CLIENT"
+#~ msgstr "Cliente"
+
+#~ msgid "TRANSLATING"
+#~ msgstr "Traduciendo ..."
+
+#~ msgid "PLEASE SELECT A PACKAGE TO UPLOAD"
+#~ msgstr "Por favor, seleccione un paquete para cargar"
+
+#~ msgid "PLEASE ADD AT LEAST ONE FIELD"
+#~ msgstr "Por favor, añada al menos un campo"
+
+#~ msgid "THIS IS NOT A NUMBER"
+#~ msgstr "Esto no es un número"
+
+#~ msgid "EXISTING LIBRARIES: %S_SELECT"
+#~ msgstr "bibliotecas existentes: %s"
+
+#~ msgid "JOOMLA 1.6 EXTENSION TEMPLATES CAN NOT BE BUILD ON_JOOMLA 1.5"
+#~ msgstr "Plantillas de extensiones de Joomla! 1.6 no se pueden crear en Joomla! 1.5"
+
+#~ msgid "ECR_TRANSLATE_ACC_S"
+#~ msgstr "Traducir [s]"
+
+#~ msgid "ECR_TRANSLATE"
+#~ msgstr "Traducir"
+
+#~ msgid "ECR_NOT_FOUND"
+#~ msgstr "No se ha encontrado"

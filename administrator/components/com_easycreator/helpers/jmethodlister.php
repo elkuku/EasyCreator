@@ -11,6 +11,7 @@
  * This file must be placed in joomla root directory.
  *
  * THIS FILE WILL BE CALLED DIRECTLY !!
+ *
  * @package    EasyCreator
  * @subpackage Helpers
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}

@@ -133,7 +133,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage('Unsupported JVersion in EasyProjectComponent::getId()');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return array();
                 break;
@@ -206,7 +206,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage('Unsupported JVersion in EasyProjectComponent::getJoomlaManifestName()');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return array();
                 break;
@@ -295,7 +295,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage('Unsupported JVersion in EasyProjectComponent::getId()');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -350,7 +350,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(100, 'EasyProjectComponent::getCoreProjects Unknown scope');
+                JError::raiseWarning(100, __METHOD__.' - Unknown scope');
                 break;
         }//switch
 
@@ -486,7 +486,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(100, 'Invalid project id in project::readmenu');
+                JError::raiseWarning(100, __METHOD__.' - Invalid project id');
 
                 return false;
                 break;
@@ -624,7 +624,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage('Unknown JVersion in Easyroject::setDbMenuItem', 'error');
+                ecrHTML::displayMessage('Unknown JVersion', 'error');
 
                 return false;
                 break;

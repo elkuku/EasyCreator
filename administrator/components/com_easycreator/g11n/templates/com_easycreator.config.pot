@@ -1,26 +1,30 @@
-# @version SVN: $Id: de-DE.com_easycreator.po 1409 2010-11-04 17:29:01Z elkuku $
-# Nikolai Plath <info@nik-it.de>, 2010.
+# @version SVN: $Id$
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: wp-polyglots@lists.automattic.com\n"
 "POT-Creation-Date: 2010-12-08 03:00 -500\n"
-"PO-Revision-Date: 2010-10-28 20:29-0500\n"
-"Last-Translator: Nikolai Plath <info@nik-it.de>\n"
-"Language-Team: ecr_langtest <info@nik-it.de>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: JALHOO\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: administrator/components/com_easycreator/config.xml:group
 msgid "Personal"
-msgstr "Personal"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:group
 msgid "Package creation"
-msgstr "Creación de Paquetes"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:group
 msgid "Logging"
@@ -28,7 +32,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:group
 msgid "Various"
-msgstr "Varios"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:group
 msgid "Debug"
@@ -41,7 +45,7 @@ msgstr ""
 #: administrator/components/com_easycreator/config.xml:param-default
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Package formats"
-msgstr "Formatos de compresión"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:param-default
 msgid "Custom file name"
@@ -79,27 +83,27 @@ msgstr ""
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "tar.gz"
-msgstr "tar.gz"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Custom name default"
-msgstr "nombre personalizado (por defecto)"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Custom name"
-msgstr "Nombre personalizado"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Logger"
-msgstr "Logger"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Profiler"
-msgstr "Profiler"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
@@ -109,12 +113,12 @@ msgstr ""
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Help Type"
-msgstr "Tipo de ayuda"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Editor type"
-msgstr "Editor Tipo"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
@@ -123,12 +127,12 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 msgid "Local API copy"
-msgstr "Local API copia"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Livesite warning"
-msgstr "LiveSite alerta"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 msgid "Save versions"
@@ -137,25 +141,25 @@ msgstr ""
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Use Google translation API"
-msgstr "Utilizar la API de traducción de Google"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 msgid "Check for UTF8"
-msgstr "Compruebe UTF8"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Check for BOM"
-msgstr "Compruebe BOM"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 msgid "Debugger"
-msgstr "Depurador"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 #: administrator/components/com_easycreator/easycreator.xml:label
 msgid "Debugger Type"
-msgstr "Tipo de depurador"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:label
 msgid "Debug language"
@@ -171,15 +175,15 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Should we write some logfiles"
-msgstr "¿Hay que escribir algunos archivos de registro"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Profile time and memory"
-msgstr "Perfilar el tiempo y la memoria"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Log the contents / the code of the files been written to disk"
-msgstr "Entra el contenido (el código) de los archivos se escriben en el disco"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
@@ -187,7 +191,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-msgstr "¿Qué tipo de EditArea debemos cargar (ver documentos en el sitio del desarrollador http://www.cdolivet.net/editarea/editarea/docs/include.html sitio)"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "The default font size for the code editor in pixel"
@@ -195,7 +199,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
-msgstr "Su copy de la Joomla! API - Obtengala de http://api.joomla.org"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety"
@@ -207,7 +211,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Should we use the Google Translation API for helping in translations ?"
-msgstr "¿Debemos utilizar la API de Google Translation para ayudar en las traducciones?"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Should languages files be checked for UTF-8"
@@ -219,11 +223,11 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Shall we use the Debug mode ?"
-msgstr "Vamos a utilizar el modo de depuración ?"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Which debugger to use"
-msgstr "¿Qué depurador para utilizar"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:description
 msgid "Shall we debug our special language files ?"
@@ -239,23 +243,23 @@ msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:opt
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:opt
 msgid "Yes"
-msgstr "Sí"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:opt
 msgid "All"
-msgstr "Todos"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:opt
 msgid "Some"
-msgstr "Algunos"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:opt
 msgid "None"
-msgstr "Ninguno"
+msgstr ""
 
 #: administrator/components/com_easycreator/config.xml:opt
 msgid "edit_area_full.js"

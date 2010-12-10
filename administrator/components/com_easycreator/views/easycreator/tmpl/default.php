@@ -11,7 +11,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-if( ! JComponentHelper::getParams('com_easycreator')->get('cred_author')):
+if( ! JComponentHelper::getParams('com_easycreator')->get('cred_author')) :
     //-- Parameters have not been set
     $link = '<a href="index.php?option=com_easycreator&controller=config">'.jgettext('Configuration settings').'</a>';
     JError::raiseNotice(100, sprintf(jgettext('Please set your personal information in %s'), $link));
@@ -29,7 +29,20 @@ endif;
     <?php echo ecrHTML::boxEnd(); ?>
 </div>
 
+<?php
+if(JComponentHelper::getParams('com_easycreator')->get('versionCheck')
+&& ! JFactory::getSession()->get('ecr_versionCheck')) :
+    echo '<div id="ecr_versionCheck">';
+    JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() { checkVersion(); });");
+    echo '</div>';
+    JFactory::getSession()->set('ecr_versionCheck', 'checked');
+else:
+    echo jgettext('Version check is disabled');
+endif;
+?>
+
 <h1 style="text-align: center;">What do you want to Create today ¿<br /><tt>=;)</tt></h1>
+
 <div class="ecr_floatbox" style="width: 48.5%">
 <?php echo ecrHTML::boxStart(); ?>
     <?php echo $this->loadTemplate('projectlist'); ?>

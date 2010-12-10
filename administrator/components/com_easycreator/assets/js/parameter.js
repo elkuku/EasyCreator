@@ -45,7 +45,7 @@ paramTypes['usergroup']		= ['class', 'multiple', 'size'];
 /*
  * So geht's ;)
  * 
- * for (var name in paramTypes) { //--alert("My " + name + "’s name is " +
+ * for (var name in paramTypes) { //--alert("My " + name + "'s name is " +
  * paramTypes[name]); paramTypes[name].each(function(item) { alert(item); }); }
  * 
  */

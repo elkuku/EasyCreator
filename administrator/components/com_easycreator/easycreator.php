@@ -96,6 +96,13 @@ ecrLoadHelper('html');
 ecrLoadHelper('projecthelper');
 ecrLoadHelper('languagehelper');
 
+/**
+ * EasyCreator Version
+ */
+//-- Get the component XML manifest data
+define('ECR_VERSION', EasyProjectHelper::parseXMLInstallFile(
+JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
+
 //-- Add CSS
 ecrStylesheet('default');
 ecrStylesheet('toolbar');
@@ -105,11 +112,11 @@ ecrStylesheet('icon');
 ecrScript('global_vars');
 ecrScript('easycreator');
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
+JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
 
 //-- Setup tooltips - used almost everywhere..
 JHTML::_('behavior.tooltip');
 JHTML::_('behavior.tooltip', '.hasEasyTip', array('className' => 'easy'));
-
 
 if(version_compare(JVERSION, '1.6', '>'))
 {
@@ -130,13 +137,6 @@ else
     ecrLoadHelper('databasequery');
     ecrScript('compat_joomla');
 }
-
-/**
- * EasyCreator Version
- */
-//-- Get the component XML manifest data
-define('ECR_VERSION', EasyProjectHelper::parseXMLInstallFile(
-JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
 
 $controller = EasyCreatorHelper::getController();
 
@@ -165,7 +165,6 @@ else
 
     JDEBUG ? $profiler->mark('com_easycreator finished') : null;
 }
-
 
 //-- Re-set error_reporting
 error_reporting(E_ALL);

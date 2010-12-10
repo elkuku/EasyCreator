@@ -83,6 +83,7 @@ class EasyCreatorControllerZIPer extends JController
         {
             $this->response['debug'] =(ECR_DEBUG) ? $this->response['debug'] = nl2br($e) : '';
             $this->response['message'] = $e->getMessage();
+            $this->response['status'] = 1;
         }//try
 
         $buffer = ob_get_clean();

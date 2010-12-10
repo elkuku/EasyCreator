@@ -322,7 +322,7 @@ var EditArea_autocompletion= {
 								tmp["keywords"][prefix]['datas'][j]= {
 									is_typing: datas["KEYWORDS"][prefix][j][0],
 									// if replace with is empty, replace with the is_typing value
-									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('�', datas["KEYWORDS"][prefix][j][0] ) : '',
+									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('x', datas["KEYWORDS"][prefix][j][0] ) : '',
 									comment: datas["KEYWORDS"][prefix][j][2] ? datas["KEYWORDS"][prefix][j][2] : '' 
 								};
 								
