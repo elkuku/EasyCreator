@@ -32,9 +32,23 @@ class EasyProjectHelper
         , 'mod' => 'module'
         , 'plg' => 'plugin'
         , 'tpl' => 'template'
-        , 'lib' => 'library'
-        , 'pkg' => 'package'
         );
+
+        switch (ECR_JVERSION)
+        {
+            case '1.5' :
+                break;
+
+            case '1.6':
+                $projectTypes += array(
+                'lib' => 'library'
+                , 'pkg' => 'package');
+                break;
+
+            default:
+                ;
+                break;
+        }
 
         return $projectTypes;
     }//function
@@ -412,14 +426,15 @@ class EasyProjectHelper
         );
 
         //-- Degfined for plural translations
-        $foo = array(
-        jngettext('%d Component', '%d Components', 0)
-        , jngettext('%d Module', '%d Modules', 0)
-        , jngettext('%d Plugin', '%d Plugins', 0)
-        , jngettext('%d Library', '%d Libraries', 0)
-        , jngettext('%d Package', '%d Packages', 0)
-        , jngettext('%d Template', '%d Templates', 0)
-        );
+        if(0)
+        {
+            jngettext('%d Component', '%d Components', 0);
+            jngettext('%d Module', '%d Modules', 0);
+            jngettext('%d Plugin', '%d Plugins', 0);
+            jngettext('%d Library', '%d Libraries', 0);
+            jngettext('%d Package', '%d Packages', 0);
+            jngettext('%d Template', '%d Templates', 0);
+        }
 
         //-- Get a list of J! installer adapters
         $adapters = JFolder::files(JPATH_LIBRARIES.DS.'joomla'.DS.'installer'.DS.'adapters', '.php$');
@@ -483,10 +498,11 @@ class EasyProjectHelper
             case 'module':
             case 'plugin':
             case 'template':
+            case 'library':
                 break;
 
             default:
-                echo 'UNKNOWN TYPE: '.$type.'<br />';
+                JError::raiseWarning(0, 'UNKNOWN TYPE: '.$type);
 
                 return array();
                 break;

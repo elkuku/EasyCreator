@@ -280,10 +280,10 @@ function checkVersion()
     url += '&task=checkVersion';
     
     var x = 'http://inkubator.der-beta-server.de/inkubator/released';
-    var urlBase = 'http://helios.nik/jejo_web/versions';
+    var urlBase = 'http://helios.nik/jejo_web/releases';
     
     url = urlBase + '/easycreator.html';
-    url += '?myVersion=0.0.15';
+    url += '?myVersion='+ECR_VERSION;
     url += '&format=raw';
     
     new Ajax(url,
@@ -291,13 +291,20 @@ function checkVersion()
         'onRequest' : function()
         {
         },
+        'onFailure' : function()
+        {
+        	$('ecr_versionCheck').innerHTML = '<b style="color: red;">'
+        		+jgettext('Server error')+'</b>';
+            
+            return;
+        },
         'onComplete' : function(response)
         {
             var resp = Json.evaluate(response);
             
             if('undefined' == resp.status) {
             	//-- Error
-                $('ecr_versionCheck').innerHTML = '?';
+            	msg = '? bad coder error..';
                 
                 return;
             }
@@ -310,7 +317,7 @@ function checkVersion()
             {
             	case -1 :
             		cssClass = 'img outdated';
-            		msg = phpjs.sprintf(jgettext('Latest version: %s'), resp.version);
+            		msg = phpjs.sprintf(jgettext('The Latest EasyCreator version is: %s'), resp.version);
             	break;
             	
             	case 0 :
@@ -319,7 +326,7 @@ function checkVersion()
             	break;
             	
             	default :
-            		msg = '?';
+            		msg = jgettext('Unknown version - maybe SVN ?');
             	break;
             }//switch
 

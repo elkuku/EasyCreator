@@ -30,12 +30,15 @@ endif;
 </div>
 
 <?php
-if(JComponentHelper::getParams('com_easycreator')->get('versionCheck')
-&& ! JFactory::getSession()->get('ecr_versionCheck')) :
-    echo '<div id="ecr_versionCheck">';
-    JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() { checkVersion(); });");
-    echo '</div>';
-    JFactory::getSession()->set('ecr_versionCheck', 'checked');
+if(JComponentHelper::getParams('com_easycreator')->get('versionCheck')) :
+    if(JFactory::getSession()->get('ecr_versionCheck')) :
+        //-- Do smthng ?
+    else :
+        echo '<div id="ecr_versionCheck">';
+        JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() { checkVersion(); });");
+        echo '</div>';
+        JFactory::getSession()->set('ecr_versionCheck', 'checked');
+    endif;
 else:
     echo jgettext('Version check is disabled');
 endif;

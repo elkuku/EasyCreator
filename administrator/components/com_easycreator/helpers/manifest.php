@@ -161,7 +161,7 @@ class JoomlaManifest extends JObject
                 $this->manifest->addAttribute('group', $this->project->scope);
                 break;
             case 'library' :
-                $this->manifest->addChild('libraryname', $this->project->scope);
+                $this->manifest->addChild('libraryname', $this->project->comName);
                 break;
 
             case 'package':
@@ -1037,6 +1037,10 @@ class JoomlaManifest extends JObject
      */
     public function formatXML()
     {
+//        $errRep = ini_get('error_reporting');
+//
+//        ini_set('error_reporting', 0);
+
         if($dtd = $this->project->getDTD(JVERSION))
         {
             $doctype = DOMImplementation::createDocumentType($dtd['type'], $dtd['public'], $dtd['uri']);
@@ -1055,6 +1059,8 @@ class JoomlaManifest extends JObject
 
         $document->encoding = 'utf-8';
         $document->formatOutput = true;
+
+//        ini_set('error_reporting', $errRep);
 
         return $document->saveXML();
     }//function

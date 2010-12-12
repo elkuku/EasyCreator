@@ -445,7 +445,7 @@ class EasyProjectComponent extends EasyProject
 
                 $query->from('#__menu AS m');
                 $query->select('m.*');
-                $query->where('m.title = '.$db->quote($this->comName));
+                $query->where('m.title = '.$db->quote($this->name));
                 $query->where('m.parent_id = 1');
 
                 $db->setQuery($query);
@@ -455,7 +455,7 @@ class EasyProjectComponent extends EasyProject
                 if( ! $dbRow)
                 return;
 
-                $this->menu['text'] = $dbRow->alias;//...
+                $this->menu['text'] = $dbRow->title;//...
                 $this->menu['link'] = $dbRow->link;
                 $this->menu['img'] = $dbRow->img;
                 $this->menu['menuid'] = $dbRow->id;
@@ -475,7 +475,7 @@ class EasyProjectComponent extends EasyProject
                 foreach($submenus as $submenu)
                 {
                     //-- Submenu entries
-                    $this->submenu[$i]['text'] = $submenu->alias;
+                    $this->submenu[$i]['text'] = $submenu->title;
                     $this->submenu[$i]['link'] = $submenu->link;
                     $this->submenu[$i]['img'] = $submenu->img;
                     $this->submenu[$i]['ordering'] = $submenu->ordering;

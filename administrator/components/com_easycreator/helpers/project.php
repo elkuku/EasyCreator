@@ -87,7 +87,7 @@ abstract class EasyProject extends JObject
 
     private $basePath = '';
 
-    /** Special : JALHOO Languiage handling */
+    /** Special : g11n Languiage handling */
     public $langFormat = 'ini';
 
     /**

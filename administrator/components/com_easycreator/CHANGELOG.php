@@ -45,6 +45,10 @@ Legend:
  ! -> Note
 ______________________________________________
 
+11-Dec-2010 Nikolai Plath
+ # Fiexed various errors when registering and building libraries
+ # Fixed incorrect extension name in admin menu when registering components in J! SVN > 18779
+
 25-Oct-2010 Nikolai Plath
  ^ Upgrade HighCharts to version 2.0.5
 

@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-jimport('jalhoo.language');
+jimport('g11n.language');
 jimport('joomla.filesystem.file');
 
 $debug = false;
@@ -18,12 +18,12 @@ $debug = false;
 try
 {
     //TEMP@@debug
-//    JALHOO::cleanStorage();//@@DEBUG
+//    g11n::cleanStorage();//@@DEBUG
 
-    JALHOO::setDebug($debug);
+    g11n::setDebug($debug);
 
     //-- Get our special language file
-    JALHOO::loadLanguage('', '', 'nafuini');
+    g11n::loadLanguage('', '', 'nafuini');
 }
 catch(Exception $e)
 {
@@ -63,9 +63,9 @@ $controller->execute(JRequest::getVar('task'));
 
 easyHTML::end();
 
-($debug) ? JALHOO::debugPrintTranslateds(true) : null;
-($debug) ? JALHOO::debugPrintTranslateds() : null;
-($debug) ? var_dump(JALHOO::getStrings()) : null;
+($debug) ? g11n::debugPrintTranslateds(true) : null;
+($debug) ? g11n::debugPrintTranslateds() : null;
+($debug) ? var_dump(g11n::getStrings()) : null;
 
 //-- Redirect if set by the controller
 $controller->redirect();

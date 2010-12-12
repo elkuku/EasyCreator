@@ -11,6 +11,8 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
+JHtml::_('behavior.modal');
+
 $link = new stdClass();
 
 $link->versionCheck = 'http://projects.easy-joomla.org/index.php?option=com_versions'
@@ -55,7 +57,7 @@ $ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-s
     </li>
 
     <li class="img icon-16-rename">
-        <a href="<?php echo $link->versionCheck; ?>" class="external">
+        <a href="<?php echo $link->versionCheck; ?>" class="modal external">
             <?php echo jgettext('Version check'); ?>
         </a>
     </li>

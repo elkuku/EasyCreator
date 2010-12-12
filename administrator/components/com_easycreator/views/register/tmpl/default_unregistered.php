@@ -9,11 +9,18 @@
  */
 
         //@todo project types
-        $projectTypes = array(
+        $projectTypes = EasyProjectHelper::getProjectTypes();
+
+        $projectScopes = array(
         'component' => ''
         , 'module' => 'admin,site'
         , 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
         , 'template' => 'admin,site');
+
+        if('1.6' == ECR_JVERSION)
+        {
+            $projectScopes['library'] = '';
+        }
 
         $task = JRequest::getCmd('task');
         $showCore =(JRequest::getCmd('show_core') == 'show_core') ? true : false;
@@ -22,8 +29,7 @@
 
 <table class="adminlist" rules="groups">
 	<tr>
-		<th class="projectListHeader unregistered" colspan="<?php echo count($projectTypes); ?>"
-			style="">
+		<th class="projectListHeader unregistered" colspan="<?php echo count($projectScopes); ?>">
 		<div style="float: right;"><input type="checkbox" name="show_core"
 			id="show_core" value="show_core" <?php echo $checked; ?>
 			onchange="submitbutton('<?php echo $task; ?>');" /> <label
@@ -33,7 +39,7 @@
 	</tr>
 	<tr valign="top">
 	<?php
-    foreach($projectTypes as $projectType => $projectScope)
+    foreach($projectScopes as $type => $projectScope)
     {
         $scopes = explode(',', $projectScope);
         ?>
@@ -42,7 +48,7 @@
 			<tr>
 				<th nowrap="nowrap" colspan="2"
 					style="background-color: #F2F2F2; color: blue;"><span
-					class="img icon-12-<?php echo $projectType; ?>"> </span><?php echo jgettext(ucfirst($projectType).'s'); ?>
+					class="img icon-12-<?php echo $type; ?>"> </span><?php echo $projectTypes[$type]; ?>
 				</th>
 			</tr>
 			<?php
@@ -53,9 +59,9 @@
 
             foreach($scopes as $scope)
             {
-                $unregisteredProjects = EasyProjectHelper::getUnregisteredProjects($projectType, $scope, $showCore);
+                $unregisteredProjects = EasyProjectHelper::getUnregisteredProjects($type, $scope, $showCore);
 
-                if($projectType != 'component')
+                if($type != 'component')
                 {
                     ?>
 			<tr>
@@ -89,8 +95,8 @@
 					title="<?php
                     echo jgettext('Register').'&lt;span class=\'img icon-16-install\''
                     .' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;::'
-                    .jgettext(ucfirst($projectType)).' - '.$project; ?>"
-					onclick="registerProject(<?php echo "'$projectType', '$project', '$scope'"; ?>);"></div>
+                    .jgettext(ucfirst($type)).' - '.$project; ?>"
+					onclick="registerProject(<?php echo "'$type', '$project', '$scope'"; ?>);"></div>
 				</td>
 			</tr>
 			<?php

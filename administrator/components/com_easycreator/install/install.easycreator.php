@@ -34,12 +34,12 @@ function com_install()
 
     try
     {
-        if( ! jimport('jalhoo.language'))
+        if( ! jimport('g11n.language'))
         {
-            echo 'Something wrong with our language system :(';
+            echo 'The g11n language library is required to run this extension.';
+            JError::raiseWarning(0, 'The g11n language library is required to run this extension.');
 
-            //--anyway...
-            return true;
+            return false;
         }
 
         if( ! $xml = simplexml_load_file(ECR_XML_LOCATION))
@@ -50,11 +50,13 @@ function com_install()
         }
 
         //-- Get our special language file
-        JALHOO::loadLanguage();
+        g11n::loadLanguage();
     }
     catch(Exception $e)
     {
         JError::raiseWarning(0, $e->getMessage());
+
+        return false;
     }//try
 
     define('ECR_VERSION', $xml->version);

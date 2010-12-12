@@ -1552,7 +1552,7 @@ case 'etc':
 
         if($project->langFormat != 'ini')
         {
-            //-- Special JALHOO Language
+            //-- Special g11n Language
             $addPath = $lang.'/'.$lang.'.'.$project->getLanguageFileName($scope);
         }
         else

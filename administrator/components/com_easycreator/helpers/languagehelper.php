@@ -63,7 +63,7 @@ class EasyLanguageHelper
                 {
                     if($project->langFormat != 'ini')
                     {
-                        //-- Special JALHOO Language
+                        //-- Special g11n Language
                         $addPath = $tag.'/'.$tag.'.'.$project->getLanguageFileName($scope);
                     }
                     else

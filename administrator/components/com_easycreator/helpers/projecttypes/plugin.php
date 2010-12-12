@@ -312,7 +312,7 @@ class EasyProjectPlugin extends EasyProject
                         $projects = array('example', 'gmail', 'joomla', 'ldap', 'openid');
                         break;
                     case 'content':
-                        $projects = array('emailcloak', 'example', 'geshi', 'loadmodule', 'pagebreak'
+                        $projects = array('emailcloak', 'example', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
                         , 'pagenavigation', 'vote');
                         break;
                     case 'editors':
@@ -328,7 +328,8 @@ class EasyProjectPlugin extends EasyProject
                         $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
                         break;
                     case 'system':
-                        $projects = array('cache', 'debug', 'languagefilter', 'log', 'redirect', 'remember', 'sef');
+                        $projects = array('cache', 'debug', 'languagefilter'
+                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
                         break;
                     case 'user':
                         $projects = array('example', 'contactcreator', 'joomla', 'profile');

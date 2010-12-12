@@ -107,7 +107,7 @@ foreach($paths as $p)
 {
     if($this->project->langFormat != 'ini')
     {
-        //-- Special JALHOO Language
+        //-- Special gg11n Language
         $addPath = $tag.'/'.$tag.'.'.$this->project->getLanguageFileName($this->scope);
     }
     else

@@ -31,7 +31,6 @@ defined('_JEXEC') || die('=;)');
 //-- Dev mode - internal use =;)
 define('ECR_DEV_MODE', 1);//@@DEBUG
 
-jimport('jalhoo.language');
 jimport('joomla.error.profiler');
 
 $profiler = JProfiler::getInstance('Application');
@@ -50,6 +49,7 @@ if(ECR_DEV_MODE)
     if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug'))
     {
         ecrLoadHelper('debug');
+
         //-- Set debugging ON
         define('ECR_DEBUG', 1);
     }
@@ -58,7 +58,7 @@ if(ECR_DEV_MODE)
         define('ECR_DEBUG', 0);
     }
 
-    if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug_lang'))
+    if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug_lang', 0))
     {
         //-- Set debugging ON
         define('ECR_DEBUG_LANG', 1);
@@ -72,22 +72,26 @@ if(ECR_DEV_MODE)
 //-- Load the special Language
 try
 {
+    if( ! jimport('g11n.language'))
+    throw new Exception('The g11n language library is required to run this extension.');
+
     //TEMP@@debug
     if(ECR_DEBUG_LANG)
     {
-        JALHOO::cleanStorage();//@@DEBUG
-//        echo 'Storage has been cleared..<br />';
+        g11n::cleanStorage();//@@DEBUG
     }
 
     //TEMP@@debug
-    JALHOO::setDebug(ECR_DEBUG_LANG);
+    g11n::setDebug(ECR_DEBUG_LANG);
 
     //-- Get our special language file
-    JALHOO::loadLanguage('', '', 'po');
+    g11n::loadLanguage();
 }
 catch(Exception $e)
 {
     JError::raiseWarning(0, $e->getMessage());
+
+    return;
 }//try
 
 //-- Load helpers
@@ -155,9 +159,9 @@ else
 
     if(ECR_DEBUG_LANG)
     {
-        JALHOO::debugPrintTranslateds(true);
-        JALHOO::debugPrintTranslateds();
-        //    var_dump(JALHOO::getStrings());
+        g11n::debugPrintTranslateds(true);
+        g11n::debugPrintTranslateds();
+        //    var_dump(g11n::getStrings());
     }
 
     //-- Display the footer

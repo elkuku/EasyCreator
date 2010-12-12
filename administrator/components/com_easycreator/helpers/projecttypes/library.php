@@ -31,6 +31,8 @@ class EasyProjectLibrary extends EasyProject
      */
     public $prefix = 'lib_';
 
+    public $JCompat = '1.6';
+
     /**
      * Find all files and folders belonging to the project.
      *
@@ -41,9 +43,9 @@ class EasyProjectLibrary extends EasyProject
         if($this->copies)
         return $this->copies;
 
-        if(JFolder::exists(JPATH_LIBRARIES.DS.$this->scope))
+        if(JFolder::exists(JPATH_LIBRARIES.DS.$this->comName))
         {
-            $this->copies[] = JPATH_LIBRARIES.DS.$this->scope;
+            $this->copies[] = JPATH_LIBRARIES.DS.$this->comName;
         }
 
         return $this->copies;
@@ -56,7 +58,7 @@ class EasyProjectLibrary extends EasyProject
      */
     public function getLanguageScopes()
     {
-        JError::raiseWarning(0, 'EasyProjectModule::getLanguageScopes unfinished');
+        JError::raiseWarning(0, __METHOD__.' unfinished');
         $scopes = array();
         $scopes[] =($this->scope) == 'admin' ? 'admin' : 'site';
 
@@ -96,17 +98,11 @@ class EasyProjectLibrary extends EasyProject
 
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $dtd = array(
-                'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD module 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/module-install.dtd');
-                break;
-
             case '1.6':
                 break;
 
             default:
+                JError::raiseWarning(0, __METHOD__.' Unknown J version');
                 break;
         }//switch
 
@@ -182,26 +178,9 @@ class EasyProjectLibrary extends EasyProject
      *
      * @return array
      */
-    public function getAllProjects($scope)
+    public function getAllProjects()
     {
-        JError::getAllProjects(0, 'EasyProjectModule::getAllProjects unfinished');
-
-        switch($scope)
-        {
-            case 'admin':
-                return JFolder::folders(JPATH_ADMINISTRATOR.DS.'modules');
-                break;
-
-            case 'site':
-                return JFolder::folders(JPATH_SITE.DS.'modules');
-                break;
-
-            default:
-                JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown scope');
-
-                return array();
-                break;
-        }//switch
+        return JFolder::folders(JPATH_LIBRARIES);
     }//function
 
     /**
@@ -211,64 +190,19 @@ class EasyProjectLibrary extends EasyProject
      *
      * @return array
      */
-    public function getCoreProjects($scope)
+    public function getCoreProjects()
     {
-        JError::getCoreProjects(0, 'EasyProjectModule::getId unfinished');
-
-        switch($scope)
+        switch(ECR_JVERSION)
         {
-            case 'admin':
-                switch(ECR_JVERSION)
-                {
-                    case '1.5':
-                        return array('mod_custom', 'mod_feed', 'mod_footer', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_stats', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread');
-                        break;
-
-                    case '1.6':
-                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread');
-                        break;
-
-                    default:
-                        JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');
-                        break;
-                }//switch
-
-            case 'site':
-                switch(ECR_JVERSION)
-                {
-                    case '1.5':
-                        return array('mod_archive', 'mod_banners', 'mod_breadcrumbs', 'mod_custom'
-                        , 'mod_feed', 'mod_footer', 'mod_latestnews', 'mod_login', 'mod_mainmenu'
-                        , 'mod_mostread', 'mod_newsflash', 'mod_poll', 'mod_random_image'
-                        , 'mod_related_items', 'mod_search', 'mod_sections', 'mod_stats'
-                        , 'mod_syndicate', 'mod_whosonline', 'mod_wrapper');
-                        break;
-
-                    case '1.6':
-                        return array('mod_articles_archive', 'mod_articles_categories'
-                        , 'mod_articles_category', 'mod_articles_latest', 'mod_articles_news'
-                        , 'mod_articles_popular', 'mod_banners', 'mod_breadcrumbs', 'mod_custom'
-                        , 'mod_feed', 'mod_footer', 'mod_languages', 'mod_login', 'mod_menu'
-                        , 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline'
-                        , 'mod_wrapper');
-                        break;
-                    default:
-                        JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');
-                        break;
-                }//switch
-
+            case '1.6':
+                return array('joomla', 'phpmailer', 'simplepie', 'phputf8');
                 break;
 
             default:
-                JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown scope');
-
-                return array();
+                JError::raiseWarning(0, __METHOD__.' Unknown J version');
                 break;
         }//switch
+
+        return array();
     }//function
 }//class

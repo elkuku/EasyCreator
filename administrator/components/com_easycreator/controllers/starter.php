@@ -93,6 +93,7 @@ class EasyCreatorControllerStarter extends JController
     public function register_project()
     {
         ecrLoadHelper('builder');
+
         $EasyBuilder = new EasyBuilder();
 
         $type = JRequest::getCmd('ecr_project_type');
@@ -103,6 +104,7 @@ class EasyCreatorControllerStarter extends JController
         {
             //-- Error
             JError::raiseWarning(100, 'Can not register project');
+
             $EasyBuilder->printErrors();
 
             ecrHTML::easyFormEnd();

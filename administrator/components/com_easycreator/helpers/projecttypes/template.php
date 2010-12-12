@@ -250,7 +250,7 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('beez', 'ja_purity', 'rhuk_milkyway', 'system');
                         break;
                     case '1.6':
-                        $projects = array('atomic', 'beez_20', 'rhuk_milkyway', 'system');
+                        $projects = array('atomic', 'beez_20', 'beez5', 'rhuk_milkyway', 'system');
                         break;
                     default:
                         JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');

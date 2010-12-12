@@ -415,13 +415,12 @@ countries.</em> <span class="img icon-16-joomla"></span> </small></div>
      */
     public static function easyFormStart()
     {
-        ?>
-<!-- EasyCreator START -->
+        echo '<!-- EasyCreator START -->'.NL;
 
-<div id="ecr_box">
+        echo '<div id="ecr_box">'.NL;
 
-<form action="index.php" method="post" name="adminForm" id="adminForm">
-        <?php
+        echo '<form action="index.php?option=com_easycreator" method="post" '
+        .'name="adminForm" id="adminForm">'.NL;
     }//function
 
     /**
@@ -429,20 +428,18 @@ countries.</em> <span class="img icon-16-joomla"></span> </small></div>
      */
     public static function easyFormEnd($closeDiv = true)
     {
-        ?> <input type="hidden"
-	name="<?php echo JUtility::getToken(); ?>" value="1" /> <input
-	type="hidden" name="option" value="com_easycreator" /> <input
-	type="hidden" name="task" value="" /> <input type="hidden"
-	name="controller" value="<?php echo JRequest::getCmd('controller'); ?>" />
-<input type="hidden" name="view"
-	value="<?php echo JRequest::getCmd('view'); ?>" /> <input type="hidden"
-	name="file_name" id="file_name"
-	value="<?php echo JRequest::getVar('file_name'); ?>" /> <input
-	type="hidden" name="file_path" id="file_path"
-	value="<?php echo JRequest::getVar('file_path'); ?>" /></form>
-        <?php echo($closeDiv) ? '</div>' : ''; ?>
-<div style="clear: both"></div>
-        <?php
+        echo '<input type="hidden" name="task" value="" />'.NL;
+        echo '<input type="hidden" name="controller" '
+        .'value="'.JRequest::getCmd('controller').'" />'.NL;
+        echo '<input type="hidden" name="view" 	'
+        .'value="'.JRequest::getCmd('view').'" />'.NL;
+        echo '<input type="hidden" name="file_name" id="file_name" '
+        .'value="'.JRequest::getVar('file_name').'" />'.NL;
+        echo '<input type="hidden" name="file_path" id="file_path" '
+	    . 'value="'.JRequest::getVar('file_path').'" />'.NL;
+	    echo '</form>'.NL;
+        echo($closeDiv) ? '</div>'.NL : '';
+        echo '<div style="clear: both"></div>'.NL;
     }//function
 
     /**

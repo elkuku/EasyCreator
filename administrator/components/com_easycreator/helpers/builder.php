@@ -725,7 +725,7 @@ class EasyBuilder extends JObject
 
         $data = EasyProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$xmlPath);
 
-        $project->name = $data['name'];
+        $project->name = $data->name;
 
         $this->logger->log('Registering: '.$project->type.' - '.$project->name.'<br />'
         .'aka "'.$project->comName.'"<br />scope: '.$project->scope);
