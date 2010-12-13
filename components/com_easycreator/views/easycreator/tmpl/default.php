@@ -18,7 +18,7 @@ defined('_JEXEC') || die('=;)');
     </td>
     <td align="center">
         <strong style="color: red;">
-            <?php echo jgettext('Please _select a project'); ?>
+            <?php echo jgettext('Please select a project'); ?>
         </strong>
     </td>
   </tr>

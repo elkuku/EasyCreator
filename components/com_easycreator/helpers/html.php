@@ -59,12 +59,12 @@ class easyHTML
 
         if( ! isset($projects['component']))
         {
-            JError::raiseWarning(100, jgettext('No_projects_found'));
+            JError::raiseWarning(100, jgettext('No projects found'));
 
             return;
         }
 
-        echo jgettext('Registered_projects');
+        echo jgettext('Registered projects');
         ?>
 <ol style="list-style-type: none; text-align: left;">
 <?php
