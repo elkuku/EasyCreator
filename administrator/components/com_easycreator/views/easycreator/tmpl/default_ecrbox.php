@@ -15,13 +15,14 @@ JHtml::_('behavior.modal');
 
 $link = new stdClass();
 
-$link->versionCheck = 'http://projects.easy-joomla.org/index.php?option=com_versions'
-    .'&amp;tmpl=component&amp;catid=1&amp;myVersion='.ECR_VERSION;
+//$link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.html?tmpl=component'
+//.'&myVersion='.ECR_VERSION;
+$link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.html?myVersion='.ECR_VERSION;
 $link->forum = 'http://joomlacode.org/gf/project/elkuku/forum/?action=ForumBrowse&forum_id=15109';
 $link->bugTracker = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284';
 $link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10283';
-$link->latestVersion = 'http://projects.easy-joomla.org/component/versions/?catid=1&amp;task=feed&amp;tmpl=component';
-$link->incubatorFeed = 'http://inkubator.der-beta-server.de/downloads/EasyCreator?format=feed&type=rss';
+$link->latestVersion = 'http://inkubator.der-beta-server.de/releases/easycreator.feed';
+$link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed';
 $link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';
 
 $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
@@ -57,7 +58,8 @@ $ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-s
     </li>
 
     <li class="img icon-16-rename">
-        <a href="<?php echo $link->versionCheck; ?>" class="modal external">
+    <!-- <a href="<?php echo $link->versionCheck; ?>" class="modal external"> -->
+        <a href="<?php echo $link->versionCheck; ?>" target="_blank" class="external">
             <?php echo jgettext('Version check'); ?>
         </a>
     </li>

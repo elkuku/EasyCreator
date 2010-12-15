@@ -86,11 +86,10 @@ EasyCodeEye provides an interface to several PEAR packages:
 
 ==EasyCreator resources==
 * [http://extensions.joomla.org/extensions/miscellaneous/development/5908 Extensions.Joomla.org] - the official release announcement on Joomla! Extension Directory.
-* [http://projects.easy-joomla.org/projects/easycreator/easycreator.html Project page] on Easy-Joomla.org.
 * [http://forum.easy-joomla.org/index.php?board=16.0 Support forum] on Easy-Joomla.org (german and english, some spanish,... We'll try our best).
 * [http://joomlacode.org/gf/project/elkuku/ Joomlacode.org] SVN and file release repository.
 * [https://www.ohloh.net/p/EasyCreator Some stats on Ohloh] - I like that "I use it" button <tt>=;)</tt>
-* [http://projects.easy-joomla.org/incubator-newsfeeds/EasyCreator.feed?type=rss Incubator Newsfeed] contains the latest development snapshot. '''Beta testers''' - please subscribe.
+* [http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed Incubator Newsfeed] contains the latest development snapshot. '''Beta testers''' - please subscribe.
 
 ==Known Bugs==
 * '''MS Internet Explorer''' &reg; (all versions ?) has been reported not to work very well... as usual

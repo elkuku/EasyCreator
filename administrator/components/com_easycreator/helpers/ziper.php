@@ -71,20 +71,20 @@ class EasyZIPer extends JObject
 
         $steps = array(
           'setTempDir'
-        , 'copyCopies'
-        , 'copyLanguage'
-        , 'copyMedia'
-        , 'copyPackageModules'
-        , 'copyPackagePlugins'
-        , 'copyPackageElements' // 1.6
-        , 'processInstall'
-        , 'cleanProject'
-        , 'deleteManifest'
-        , 'createMD5'
-        , 'createManifest'
-        , 'createArchive'
-        , 'removeBuildDir'
-        );
+          , 'copyCopies'
+          , 'copyLanguage'
+          , 'copyMedia'
+          , 'copyPackageModules'
+          , 'copyPackagePlugins'
+          , 'copyPackageElements' // 1.6
+          , 'processInstall'
+          , 'cleanProject'
+          , 'deleteManifest'
+          , 'createMD5'
+          , 'createManifest'
+          , 'createArchive'
+          , 'removeBuildDir'
+          );
 
           foreach($steps as $step)
           {
@@ -164,6 +164,7 @@ class EasyZIPer extends JObject
                 if( ! Jfile::exists($folder.DS.'index.html'))
                 {
                     JFile::copy($stdHtmlPath, $folder.DS.'index.html');
+
                     $cntIndex ++;
                 }
             }//foreach
@@ -192,9 +193,19 @@ class EasyZIPer extends JObject
             }
             else
             {
-                $this->logger->log('neither admin or site dir found', 'Failed to copy EasyCreator project xml');
+                $s = JFile::getName($src);
 
-                return false;
+                if(substr($s, 0, 3) == 'pkg')
+                {
+                    //--- EasyCreator project file for packages goes to packageroot..
+                    $dst = $this->temp_dir.DS.'easycreator.xml';
+                }
+                else//
+                {
+                    $this->logger->log('neither admin or site dir found', 'Failed to copy EasyCreator project xml');
+
+                    return false;
+                }
             }
 
             if(JFile::copy($src, $dst))

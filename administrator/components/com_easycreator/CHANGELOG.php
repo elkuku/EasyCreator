@@ -84,7 +84,7 @@ ______________________________________________
 
 06-Jun-2010 Nikolai Plath
  # Fixed can not register plugins with the same name but different groups - Thanks kenmcd
- + Added DTDs for project xml and startup xml at http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/
+ + Added DTDs for project xml and startup xml at http://xml.der-beta-server.de/dtd/easycreator/0.0.14/
 
 --------------- 0.0.13 BETA -- [04-Jun-2010] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=13122

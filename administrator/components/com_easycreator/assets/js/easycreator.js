@@ -274,27 +274,48 @@ function emptyCheckTheField(theForm, theFieldName)
     return isEmpty;
 } // end of the 'emptyCheckTheField()' function
 
+
 function checkVersion()
 {
-	url = ecrAJAXLink+'&controller=ajax';
-    url += '&task=checkVersion';
-    
-    var x = 'http://inkubator.der-beta-server.de/inkubator/released';
-    var urlBase = 'http://helios.nik/jejo_web/releases';
+	var req = new Request.HTML({
+	method: 'post',
+	url: 'http://joomla.org',
+	data: { 'do' : '1' },
+	onRequest: function() 
+	{ 
+		$('ecr_versionCheck').innerHTML = jgettext('Checking...');
+	},
+	onComplete: function(response) { 
+		$('ecr_versionCheck').innerHTML = response; 
+		}
+}).send();
+
+}
+
+function xcheckVersion()
+{
+    var urlBase = 'http://inkubator.der-beta-server.de/releases';
+    //var urlBase = 'http://helios.nik/jejo_web/releases';
     
     url = urlBase + '/easycreator.html';
     url += '?myVersion='+ECR_VERSION;
-    url += '&format=raw';
     
+    url = 'http://joomla.org';
+//    url += '&format=raw';
+//    alert(url);
     new Ajax(url,
     {
         'onRequest' : function()
         {
+        	$('ecr_versionCheck').innerHTML = jgettext('Checking...');
         },
-        'onFailure' : function()
+        'onFailure' : function(rr)
         {
+//        	console.log(rr);
+//        	var resp = Json.evaluate(rr);
+//        	console.log(resp);
         	$('ecr_versionCheck').innerHTML = '<b style="color: red;">'
-        		+jgettext('Server error')+'</b>';
+        		+jgettext('Server error')+'</b>'+url;
             
             return;
         },

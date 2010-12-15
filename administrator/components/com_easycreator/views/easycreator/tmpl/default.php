@@ -16,6 +16,8 @@ if( ! JComponentHelper::getParams('com_easycreator')->get('cred_author')) :
     $link = '<a href="index.php?option=com_easycreator&controller=config">'.jgettext('Configuration settings').'</a>';
     JError::raiseNotice(100, sprintf(jgettext('Please set your personal information in %s'), $link));
 endif;
+//<a class="modal" href="http://joomla.org">@TEST</a>
+//<div onclick="checkVersion();">Check</div>
 ?>
 
 <div style="background-color: #fff; width: 222px; position: absolute; right: 3em;">
@@ -30,10 +32,11 @@ endif;
 </div>
 
 <?php
+/*
 if(JComponentHelper::getParams('com_easycreator')->get('versionCheck')) :
     if(JFactory::getSession()->get('ecr_versionCheck')) :
         //-- Do smthng ?
-    else :
+    //else :
         echo '<div id="ecr_versionCheck">';
         JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() { checkVersion(); });");
         echo '</div>';
@@ -42,6 +45,7 @@ if(JComponentHelper::getParams('com_easycreator')->get('versionCheck')) :
 else:
     echo jgettext('Version check is disabled');
 endif;
+*/
 ?>
 
 <h1 style="text-align: center;">What do you want to Create today ¿<br /><tt>=;)</tt></h1>

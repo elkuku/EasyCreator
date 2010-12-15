@@ -578,7 +578,7 @@ abstract class EasyProject extends JObject
         $root = '';
         $root .= '<?xml version="1.0" encoding="UTF-8"?>'.NL;
         $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project 1.0//EN"'.NL;
-        $root .= '"http://projects.easy-joomla.org/xml/dtd/easycreator/0.0.14/project.dtd">';
+        $root .= '"http://xml.der-beta-server.de/dtd/easycreator/0.0.14/project.dtd">';
 
         $output = $root.$xml->asFormattedXML();
 

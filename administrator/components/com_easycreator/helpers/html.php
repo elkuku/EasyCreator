@@ -363,9 +363,9 @@ $stdJS .= "$('file_name').value='';";
 <div class="ecrFooter">EasyCreator <?php echo $version; ?> runs best on
 <a href="http://www.mozilla-europe.org/firefox/" class="external">Firefox</a>
 and <a href="http://opensuse.org" class="external">openSUSE</a> <br />
-Made and partially Copyright &copy; 2008 - 2010 by <span
-	class="img icon-16-easy-joomla"><a href="http://easy-joomla.org"
-	class="external">Easy-Joomla.org</a></span> <br />
+Made and partially Copyright &copy; 2008 - 2010 by <a
+href="http://joomlacode.org/gf/project/elkuku"
+	class="external">El KuKu</a><br />
 <small> <em style="color: silver;"> <span class="img icon-16-joomla"></span>
 Easy-Joomla! is not affiliated with or endorsed by the <a
 	href="http://joomla.org" class="external">Joomla! Project</a>. It is
@@ -373,9 +373,9 @@ not supported or warranted by the <a href="http://joomla.org"
 	class="external">Joomla! Project</a> or <a
 	href="http://opensourcematters.org/" class="external">Open Source
 Matters</a>. <span class="img icon-16-joomla"></span> <br />
-<span class="img icon-16-joomla"></span> The <a
+<span class="img icon-16-joomla"></span> <a
 	href="http://www.joomla.org/about-joomla/the-project/conditional-use-logos.html"
-	class="external">Joomla! logo</a> is used under a limited license
+	class="external">The Joomla! logo</a> is used under a limited license
 granted by <a href="http://opensourcematters.org/" class="external">Open
 Source Matters</a> the trademark holder in the United States and other
 countries.</em> <span class="img icon-16-joomla"></span> </small></div>
