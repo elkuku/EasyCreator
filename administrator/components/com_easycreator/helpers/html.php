@@ -847,7 +847,7 @@ EOF;
         else if($ecr_project)
         {
             try
-            {
+           {
                 $project = EasyProjectHelper::getProject();
 
                 $class = 'img3 icon-12-'.$project->type;
@@ -879,10 +879,15 @@ EOF;
 
                 foreach($projects[$comType] as $project)
                 {
+                    $displayName = $project->name;
+
+                    if($project->scope)
+                    $displayName .= ' ('.$project->scope.')';
+
                     $selected =($project->fileName == $ecr_project) ? ' selected="selected"' : '';
                     $class = ' class="img12 icon-12-'.$comType.'"';
                     echo NL.'<option'.$class.' value="'.$project->fileName.'" label="'.$project->name.'"'.$selected.'>'
-                    .$project->name.'</option>';
+                    .$displayName.'</option>';
                 }//foreach
 
                 echo NL.'</optgroup>';

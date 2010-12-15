@@ -35,8 +35,13 @@ echo ecrHTML::floatBoxStart();
             {
                 if($project->fileName != $element) continue;
 
+                $displayName = $project->name;
+
+                if($project->scope)
+                $displayName .= ' ('.$project->scope.')';
+
                 echo NL.'<li class="img12 icon-12-'.$comType.'"'
-                    .' id="'.$project->fileName.'">'.$project->name.'</li>';
+                    .' id="'.$project->fileName.'">'.$displayName.'</li>';
             }//foreach
         }//foreach
     }//foreach
@@ -59,10 +64,16 @@ echo ecrHTML::floatBoxStart();
 
             foreach($projects[$comType] as $project)
             {
-                if(in_array($project->fileName, $this->project->elements)) continue;
+                if(in_array($project->fileName, $this->project->elements))
+                continue;
 
-                echo NL.'<li class="img12 icon-12-'.$comType.'"';
-                echo ' id="'.$project->fileName.'">'.$project->name.'</li>';
+                $displayName = $project->name;
+
+                if($project->scope)
+                $displayName .= ' ('.$project->scope.')';
+
+                echo NL.'<li class="img12 icon-12-'.$comType.'"'
+                    .' id="'.$project->fileName.'">'.$displayName.'</li>';
             }//foreach
         }
     }//foreach
