@@ -19,6 +19,11 @@
 	background-color: #efefef;
 }
 
+div.boxHeader {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
 div#element-box {
 	background: #efefef ! important;
 }

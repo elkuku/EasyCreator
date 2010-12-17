@@ -50,17 +50,13 @@ endif;
 
 <h1 style="text-align: center;">What do you want to Create today ¿<br /><tt>=;)</tt></h1>
 
-<div class="ecr_floatbox" style="width: 48.5%">
-<?php echo ecrHTML::boxStart(); ?>
-    <?php echo $this->loadTemplate('projectlist'); ?>
-<?php echo ecrHTML::boxEnd(); ?>
-</div>
-<div class="ecr_floatbox" style="width: 49%">
+<div class="projectListHeader registered"><?php echo jgettext('Registered Projects'); ?></div>
 
-<?php echo ecrHTML::boxStart(); ?>
+<?php echo $this->loadTemplate('projectlist'); ?>
+
+<?php #echo ecrHTML::boxStart(); ?>
     <?php $this->addTemplatePath(JPATH_COMPONENT.DS.'views'.DS.'register'.DS.'tmpl'); ?>
     <?php echo $this->loadTemplate('unregistered'); ?>
-<?php echo ecrHTML::boxEnd(); ?>
-</div>
+<?php #echo ecrHTML::boxEnd(); ?>
 
 <div style="clear: both;"></div>
