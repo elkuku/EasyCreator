@@ -26,6 +26,13 @@ defined('_JEXEC') || die('=;)');
 function CHANGELOG()
 {
 /*
+<description>
+EasyCreator is a developer tool.
+It tries to speed up the developing process of custom components, modules, plugin and templates.
+You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'.
+
+<b>From version 0.0.14 onwards the g11n language library is required !</b>
+</description>
 _______________________________________________
 _______________________________________________
 
