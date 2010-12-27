@@ -47,7 +47,7 @@ function EditAreaLoader(){
 		,allow_toggle: true		// true or false
 		,language: "en"
 		,syntax: ""
-		,syntax_selection_allow: "basic,brainfuck,c,coldfusion,cpp,css,html,java,js,pas,perl,php,python,ruby,robotstxt,sql,tsql,vb,xml,ini"
+		,syntax_selection_allow: "basic,brainfuck,c,coldfusion,cpp,css,html,java,js,pas,perl,php,python,ruby,robotstxt,sql,tsql,vb,xml,ini,po"
 		,display: "onload" 		// onload or later
 		,max_undo: 30
 		,browsers: "known"	// all or known

@@ -26,13 +26,12 @@ $link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreato
 $link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';
 
 $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
-$ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-shadow.png';
+//$ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-shadow.png';
 ?>
 
 <a href="index.php?option=com_easycreator&amp;controller=help" style="float: right; padding-right: 0.3em;">
 	<span class="img icon-16-forum">Credits</span>
 </a>
-
 <ul style="list-style: none; margin: 0; padding: 0;">
     <li class="img icon-16-sig">
         <a href="<?php echo ECR_DOCU_LINK; ?>" class="external">
@@ -79,7 +78,6 @@ $ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-s
         </a>
     </li>
     <li>
-    <div style="float: right">
         <!-- Ohloh button -->
         <a href="http://www.ohloh.net/stack_entries/new?project_id=EasyCreator&amp;ref=WidgetProjectUsersLogo"
          style="border-bottom:none; text-decoration:none; display:block; background:url(<?php
@@ -90,11 +88,11 @@ $ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-s
          onmouseover="this.style.background = 'url(<?php
          echo JURI::root(true).$ohlohImg; ?>) 0 -23px no-repeat'"
           ></a>
-    </div>
     </li>
 </ul>
 
-<?php echo JHTML::image($ecrLogo, 'EasyCreator Logo'); ?>
+<div style="clear: both;"></div>
+<?php #echo JHTML::image($ecrLogo, 'EasyCreator Logo'); ?>
 
 <div class="ecrFooter">
 EasyCreator <span style="color: blue;"><?php echo ECR_VERSION; ?></span>

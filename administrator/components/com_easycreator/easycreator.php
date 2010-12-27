@@ -19,7 +19,7 @@
  VALUES
  ('EasyCreator', 'option=com_easycreator', 0, 0, 'option=com_easycreator'
  , 'EasyCreator', 'com_easycreator', 0
- , 'components/com_easycreator/assets/images/easy-joomla-favicon.ico', 0, '', 1);
+ , 'components/com_easycreator/assets/images/ico/icon-16-easycreator.png', 0, '', 1);
 
  ** J! 1.6
  Use the new 'Discover' feature from the Joomla! installer - works great =;)
@@ -126,8 +126,8 @@ if(version_compare(JVERSION, '1.6', '>'))
 {
     //-- Joomla! 1.6+ compat
 
-    error_reporting(E_ALL);
-    ###error_reporting(E_STRICT);//...when ¿
+    #error_reporting(E_ALL);
+    error_reporting(E_STRICT);//...when ¿
 
     //-- Mootools compat for 1.2
     ecrScript('compat_mootools');

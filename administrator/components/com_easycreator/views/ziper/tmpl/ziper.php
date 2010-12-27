@@ -15,15 +15,14 @@ $params = JComponentHelper::getParams('com_easycreator');
 
 ecrScript('util');
 
+ecrHTML::floatBoxStart();
+echo $this->loadTemplate('format');
+ecrHTML::floatBoxEnd();
+
+ecrHTML::floatBoxStart();
+echo $this->loadTemplate('options');
+ecrHTML::floatBoxEnd();
 ?>
-
-<?php ecrHTML::floatBoxStart(); ?>
-<?php echo $this->loadTemplate('format'); ?>
-<?php ecrHTML::floatBoxEnd(); ?>
-
-<?php ecrHTML::floatBoxStart(); ?>
-<?php echo $this->loadTemplate('options'); ?>
-<?php ecrHTML::floatBoxEnd(); ?>
 
 <?php ecrHTML::floatBoxStart(); ?>
     <div class="ecr_button" onclick="$('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"

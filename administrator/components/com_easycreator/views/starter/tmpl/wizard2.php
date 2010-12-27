@@ -56,7 +56,7 @@ ecrScript('wizard2');
 
 		<?php if($this->project->type == 'component') : ?>
 		<p>
-		<strong class="img icon-16-easy-joomla">AutoCode</strong>
+		<strong class="img icon-16-easycreator">AutoCode</strong>
 		<br />
 		<?php echo jgettext('List postfix'); ?>
 		<input type="text" name="list_postfix" id="list_postfix" size="5" value="<?php echo $this->project->listPostfix; ?>"/>

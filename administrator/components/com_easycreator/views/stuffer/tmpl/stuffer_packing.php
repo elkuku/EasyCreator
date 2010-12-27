@@ -65,7 +65,7 @@ $buildOpts = $this->project->buildOpts;
 <br />
 <br />
 
-<strong class="img icon-16-easy-joomla"><?php echo jgettext('EasyCreator Options'); ?></strong>
+<strong class="img icon-16-easycreator"><?php echo jgettext('EasyCreator Options'); ?></strong>
 <br />
 
 <input type="checkbox" name="buildopts[]" id="lbl_include_ecr_projectfile"

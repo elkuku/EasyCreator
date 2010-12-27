@@ -299,10 +299,6 @@
    list-style-image: url(../images/php_file_tree/zip.png);
 }
 
-.php-file-tree li.ext-ebc {
-   list-style-image: url(../images/easy-joomla-favicon.ico);
-}
-
 .php-file-tree li.ext-joo {
    list-style-image: url(../images/j_favicon.ico);
 }

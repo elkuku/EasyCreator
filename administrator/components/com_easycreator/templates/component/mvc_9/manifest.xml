@@ -10,7 +10,7 @@
   <dbTables>Custom table</dbTables>
   <author></author>
   <authorUrl></authorUrl>
-  <menu img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_.ico">_ECR_COM_NAME_</menu>
+  <menu img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_.png">_ECR_COM_NAME_</menu>
   <submenu>
     <menu img="article" link="option=_ECR_COM_COM_NAME_">_ECR_COM_NAME_</menu>
     <menu img="category" link="option=com_categories&amp;section=_ECR_COM_COM_NAME_">Categories</menu>

@@ -112,9 +112,6 @@ function submitbutton(command)
 
             <h1>
                 <?php echo jgettext('Create it'); ?>
-                ...
-                <img src="<?php echo JURI::root()
-                .'/administrator/components/com_easycreator/assets/images/easy-joomla-favicon.ico'; ?>" alt="favicon"/>
             </h1>
         </div>
     <?php echo ecrHTML::boxEnd(); ?>

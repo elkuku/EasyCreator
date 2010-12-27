@@ -60,7 +60,7 @@ class EasyCreatorViewStuffer extends JView
         && $tmpl != 'component')
         {
             //--Draw h1 header
-            ecrHTML::header(jgettext('Configure'), $this->project);
+            ecrHTML::header(jgettext('Configure'), $this->project, 'ecr_config');
 
             //--Draw the submenu if task is not for a raw view
             echo $this->displayBar($task);

@@ -4,7 +4,10 @@
  * @subpackage  CSS
  * @author      Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
  * @author      Created on 03-Okt-2009
- */ /* Toolbar */
+ */
+.icon-128-easycreator {
+	background-image: url(../images/ico/icon-128-easycreator.png);
+}
 .icon-32-chart {
 	background-image: url(../images/ico/icon-32-chart.png);
 }
@@ -59,7 +62,7 @@
 }
 
 .icon-24-locale {
-   background-image: url(../images/ico/icon-24-locale.png);
+	background-image: url(../images/ico/icon-24-locale.png);
 }
 
 .icon-24-logging {
@@ -150,12 +153,21 @@
 	background-image: url(../images/ico/icon-16-directory.png);
 }
 
-.icon-16-easy-joomla {
-	background-image: url(../images/easy-joomla-favicon.ico);
+.icon-16-easycreator {
+	background-image: url(../images/ico/icon-16-easycreator.png);
+}
+
+.icon-16-firefox {
+	background-image: url(../images/ico/icon-16-firefox.png);
 }
 
 .icon-16-ecr_language {
 	background-image: url(../images/ico/icon-16-language.png);
+}
+
+.icon-16-opensuse {
+	background-image: url(../images/ico/opensuse_6.gif);
+	padding-left: 87px !important;
 }
 
 .icon-16-eye {
@@ -322,6 +334,25 @@
 	background-position: 4px 3px ! important;
 	padding-left: 45px;
 	padding-bottom: 5px;
+}
+
+.img32c {
+	background-repeat: no-repeat;
+	background-position: 4px 3px ! important;
+	padding: 6px 15px 7px 25px;
+	/*
+	padding-left: 25px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 25px;
+	*/
+}
+
+.img128 {
+	background-repeat: no-repeat;
+	background-position: 4px 3px ! important;
+	padding-left: 135px;
+	padding-bottom: 130px;
 }
 
 .ajax_loading {

@@ -11,7 +11,7 @@
 	<author>docs.joomla.org</author>
 	<authorUrl>http://docs.joomla.org/Developing_a_Model-View-Controller_%28MVC%29_Component_for_Joomla!1.6</authorUrl>
 	<menu
-		img="../media/_ECR_COM_COM_NAME_/images/_ECR_COM_COM_NAME_-16x16.ico">_ECR_COM_NAME_</menu>
+		img="../media/_ECR_COM_COM_NAME_/images/_ECR_COM_COM_NAME_-16x16.png">_ECR_COM_NAME_</menu>
 	<submenu>
 		<menu img="article"
 			link="option=_ECR_COM_COM_NAME_&amp;view=_ECR_COM_TBL_NAME__ECR_LOW_LIST_POSTFIX_">_ECR_COM_NAME_</menu>

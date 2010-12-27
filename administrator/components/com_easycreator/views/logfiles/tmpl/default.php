@@ -27,7 +27,7 @@ ecrScript('php_file_tree');
 ecrScript('log');
 ?>
 
-<h1 style="display: inline;"><?php echo jgettext('Logfiles'); ?></h1>
+<h1 style="display: inline;"><span class="img32c icon-32-menus"></span><?php echo jgettext('Logfiles'); ?></h1>
 
 <span class="img icon-16-server" style="background-color: #ffc;">
     <?php echo ECRPATH_LOGS; ?>

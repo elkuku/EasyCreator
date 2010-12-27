@@ -81,7 +81,7 @@ class EasyCreatorViewCodeEye extends JView
         }
 
         //--Draw h1 header
-        ecrHTML::header(jgettext('CodeEye'), $this->project);
+        ecrHTML::header(jgettext('CodeEye'), $this->project, 'xeyes');
 
         //--Draw the submenu
         echo $this->displayBar();

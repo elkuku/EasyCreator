@@ -35,7 +35,7 @@
     <language tag="zh-CN">zh-CN.com_easycreator.ini</language>
   </languages>
   <administration>
-    <menu img="components/com_easycreator/assets/images/easy-joomla-favicon.ico" link="option=com_easycreator">EasyCreator</menu>
+    <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png" link="option=com_easycreator">EasyCreator</menu>
     <files folder="admin">
       <folder>assets</folder>
       <folder>builds</folder>

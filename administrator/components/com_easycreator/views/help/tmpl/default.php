@@ -31,6 +31,9 @@ defined('_JEXEC') || die('=;)');
 <h1>Credits</h1>
 <ul>
     <li>
+        <strong>The icon</strong> belongs to the very funny constructor game <a href="http://games.kde.org/game.php?game=ktuberling" class="external"><span class="img icon-16-easycreator">KTuberling</span></a>. I would call EasyCreator also a "potato editor" <tt>=;)</tt>
+    </li>
+    <li>
         <strong>EditArea</strong> The great code editor by Christophe Dolivet. <a href="http://www.cdolivet.com/index.php?page=editArea" class="external">www.cdolivet.net/editarea</a>
     </li>
     <li>
@@ -43,7 +46,7 @@ defined('_JEXEC') || die('=;)');
         <strong>Package creation</strong> is done with <a href="http://pear.php.net" class="external">PEAR</a> packages <a href="http://pear.php.net/package/Archive_Tar" class="external">Archive_Tar</a> and <a href="http://pear.php.net/package/Archive_Zip" class="external">Archive_Zip</a>.
     </li>
     <li>
-        <strong>Package install routine</strong> by Andrew Eddie - New Life in IT Pty Ltd <a href="http://jxtended.com/" class="external">jxtended.com</a>
+        <strong>Package install routine</strong> for J! 1.5 by Andrew Eddie - New Life in IT Pty Ltd <a href="http://jxtended.com/" class="external">jxtended.com</a>
     </li>
     <li>
         <strong>Diff engine</strong> comes from <a href="http://www.dokuwiki.org" class="external">Dokuwiki</a> - see &copy; + License in helpers/DifferenceEngine.php

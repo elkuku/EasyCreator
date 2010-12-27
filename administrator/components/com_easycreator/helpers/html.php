@@ -136,9 +136,9 @@ final class ecrHTML
 </ul>
 </div>
         <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debugging</div>' : ''; ?>
-<div style="float: left; margin-top: -10px;"><img
-	src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/easylogo_t.png"
-	alt="Easy-Joomla Logo" /></div>
+<div style="float: left; margin-top: -7px;"><img
+	src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
+	alt="EasyCreator Logo" /></div>
 <div style="float: left; padding-left: 0.5em;"><span
 	style="font-size: 1.4em; font-weight: bold;">EasyCreator</span> <br />
         <?php self::drawProjectSelector(); ?> <br />
@@ -360,25 +360,26 @@ $stdJS .= "$('file_name').value='';";
         $version .=(strpos($version,'SVN')) ? ' <span style="color:red;">Rev. # '
         .ecrHTML::getVersionFromCHANGELOG('com_easycreator').'</span>' : '';
         ?>
-<div class="ecrFooter">EasyCreator <?php echo $version; ?> runs best on
-<a href="http://www.mozilla-europe.org/firefox/" class="external">Firefox</a>
-and <a href="http://opensuse.org" class="external">openSUSE</a> <br />
+<div class="ecrFooter"><span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
+<a href="http://www.mozilla-europe.org/firefox/" class="external"><span class="img icon-16-firefox">Firefox</span></a>
+and <a href="http://opensuse.org" class="external"><span class="img icon-16-opensuse"></span></a> <br />
 Made and partially Copyright &copy; 2008 - 2010 by <a
 href="http://joomlacode.org/gf/project/elkuku"
 	class="external">El KuKu</a><br />
-<small> <em style="color: silver;"> <span class="img icon-16-joomla"></span>
-Easy-Joomla! is not affiliated with or endorsed by the <a
+<small> <em style="color: silver;"><span class="img icon-16-joomla"></span>
+EasyCreator is not affiliated with or endorsed by the <a
 	href="http://joomla.org" class="external">Joomla! Project</a>. It is
 not supported or warranted by the <a href="http://joomla.org"
 	class="external">Joomla! Project</a> or <a
 	href="http://opensourcematters.org/" class="external">Open Source
-Matters</a>. <span class="img icon-16-joomla"></span> <br />
-<span class="img icon-16-joomla"></span> <a
+Matters</a>.<br />
+ <a
 	href="http://www.joomla.org/about-joomla/the-project/conditional-use-logos.html"
 	class="external">The Joomla! logo</a> is used under a limited license
 granted by <a href="http://opensourcematters.org/" class="external">Open
 Source Matters</a> the trademark holder in the United States and other
-countries.</em> <span class="img icon-16-joomla"></span> </small></div>
+countries.</em></small>
+</div>
         <?php
 
         if(defined('ECR_DEBUG') && ECR_DEBUG )
@@ -396,12 +397,15 @@ countries.</em> <span class="img icon-16-joomla"></span> </small></div>
      * @param string $title
      * @param object $project EasyProject
      */
-    public static function header($title, EasyProject $project)
+    public static function header($title, EasyProject $project, $class = '')
     {
         $pName = $project->name;
         $pType = ucfirst($project->type);
 
+        $icon =($class) ? '<span class="img32c icon-32-'.$class.'"></span>' : '';
+
         $html = '';
+        $html .= $icon;
         $html .= $title;
         $html .=($pType) ? '&nbsp;<span style="color: black">'.jgettext($pType).'</span>' : '';
         $html .=($pName) ? '&nbsp;<span style="color: green">'.$pName.'</span>' : '';
@@ -546,9 +550,13 @@ countries.</em> <span class="img icon-16-joomla"></span> </small></div>
         $document = JFactory::getDocument();
         $document->addScript(JURI::root(true).$cfg['path'].'/'.$cfg['type']);
 
-        $translates = array('txt');
+        $translates = array('txt' => 'brainfuck'
+        , 'pot' => 'po');
 
-        $syntax =(in_array($cfg['syntax'], $translates)) ? $cfg['syntax'] : 'brainfuck';
+        if(array_key_exists($cfg['syntax'], $translates))
+        $syntax = $translates[$cfg['syntax']];
+
+//        $syntax =(in_array($cfg['syntax'], $translates)) ? $cfg['syntax'] : 'brainfuck';
 
         $debug =(ECR_DEBUG) ? ',debug: true'.NL : '';
 

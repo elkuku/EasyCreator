@@ -656,6 +656,9 @@ msgstr "CodeEyes"
 msgid "Configuration"
 msgstr "Konfiguration"
 
+msgid "%s Configuration"
+msgstr "%s Konfiguration"
+
 #: administrator/components/com_easycreator/helpers/html.php:89
 #: administrator/components/com_easycreator/helpers/projecthelper.php:411
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:358

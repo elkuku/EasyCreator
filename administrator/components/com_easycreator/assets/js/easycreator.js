@@ -89,7 +89,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
     url = 'index.php?option=com_easycreator&format=raw&tmpl=component&controller=ajax';
     url += '&file_path=' + file_path + '&file_name=' + file_name;
 
-    legal_exts = ['php', 'xml', 'ini', 'css', 'js', 'html', 'txt', 'sql', 'brainfuck'];
+    legal_exts = ['php', 'xml', 'ini', 'css', 'js', 'html', 'txt', 'sql', 'brainfuck', 'po', 'pot'];
     legal_pics = ['jpg', 'png', 'gif', 'ico'];
     ext = file_name.substr(file_name.lastIndexOf('.') + 1);
 

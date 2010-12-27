@@ -62,7 +62,7 @@ value="upgrade" />
 <?php endif; ?>
 <br />
 
-<span class="img icon-16-easy-joomla" style="font-weight: bold;">
+<span class="img icon-16-easycreator" style="font-weight: bold;">
     <?php echo jgettext('EasyCreator Options'); ?>
 </span>
 <br />

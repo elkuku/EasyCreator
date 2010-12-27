@@ -27,8 +27,7 @@ $blacks = array('_default', 'Personal');
 </div>
 
 <div align="center">
-    <strong style="font-size: 1.5em;">EasyCreator</strong>
-    <h1><?php echo jgettext('Configuration'); ?></h1>
+    <h1><span class="img32c icon-32-ecr_config"></span><?php echo sprintf(jgettext('%s Configuration'), 'EasyCreator'); ?></h1>
 </div>
 
 <div style="clear: both;"></div>

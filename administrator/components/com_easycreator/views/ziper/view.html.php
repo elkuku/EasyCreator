@@ -50,7 +50,7 @@ class EasyCreatorViewZiper extends JView
         }//try
 
         //-- Draw h1 header
-        ecrHTML::header(jgettext('Component ZIPer'), $this->project);
+        ecrHTML::header(jgettext('Component ZIPer'), $this->project, 'ecr_archive');
 
         $this->zip_dir_path = ECRPATH_BUILDS.DS.$this->ecr_project;
 

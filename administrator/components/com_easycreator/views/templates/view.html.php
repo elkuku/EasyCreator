@@ -36,7 +36,8 @@ class EasyCreatorViewTemplates extends JView
 
         $task = JRequest::getCmd('task');
 
-        echo '<h1>'.jgettext('Extension templates').'</h1>';
+        ecrHTML::header(jgettext('Extension templates'), null, 'wizard');
+
         echo $this->displayBar($task);
 
         if(in_array($task, get_class_methods($this)))

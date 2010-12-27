@@ -22,7 +22,7 @@ endif;
 
 <div style="background-color: #fff; width: 222px; position: absolute; right: 3em;">
     <?php echo ecrHTML::boxStart(); ?>
-        <div class="ecr_button img icon-16-easy-joomla" onclick="ecrInfoBox.toggle();">
+        <div class="ecr_button img icon-16-easycreator" onclick="ecrInfoBox.toggle();">
         	<?php echo jgettext('EasyCreator Information'); ?>
         </div>
         <div id="ecrInfoBox" style="background-color: #ccc;">
@@ -47,8 +47,10 @@ else:
 endif;
 */
 ?>
-
-<h1 style="text-align: center;">What do you want to Create today ¿<br /><tt>=;)</tt></h1>
+<div style="text-align: center">
+<span class="img128 icon-128-easycreator"></span>
+<h1 style="margin-top: 120px;">What do you want to Create today ?</h1>
+</div>
 
 <div class="projectListHeader registered"><?php echo jgettext('Registered Projects'); ?></div>
 
