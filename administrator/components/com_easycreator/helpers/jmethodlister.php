@@ -3,7 +3,7 @@
  * @version $Id$
  *
  * @description scans the directory /libraries/joomla/* and lists all
- * the foud classes and their methods whith path and line numbers.
+ * the found classes and their methods whith path and line numbers.
  *
  * It then scans the directories under /libraries/joomla/ and writes
  * the output to a text file called jmethodlist_JVERSION_.txt

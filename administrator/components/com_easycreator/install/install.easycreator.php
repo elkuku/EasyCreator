@@ -70,7 +70,7 @@ function com_install()
 <div>
 
 <div style="float: right"><img
-	src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/easycreator-shadow.png"
+	src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
 	alt="EasyCreator Logo" title="EasyCreator Logo" /></div>
 
 <h1>EasyCreator</h1>
@@ -88,8 +88,8 @@ function com_install()
     <?php echo jgettext('Please use this extension only in local development environments.'); ?>
 </h3>
 <p>
-    <?php echo jgettext("See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>"
-    ."docs.joomla.org/Setting up your workstation for Joomla! development</a>"); ?>
+    <?php echo sprintf(jgettext('See: <a %s>docs.joomla.org/Setting up your workstation for Joomla! development</a>')
+    , 'href="http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development"'); ?>
 </p>
 
     <?php

@@ -12,10 +12,10 @@
  */
 function create_class_list()
 {
-    xref = location.href;
-    xref = xref.replace('index.php', '');
-    xref += 'components/com_easycreator/helpers/jmethodlister.php';
+    var xref = location.href.substring(0, location.href.indexOf('index.php'));
     
+    xref += 'components/com_easycreator/helpers/jmethodlister.php';
+
     new Ajax(xref,
     {
         'onComplete' : function(response)

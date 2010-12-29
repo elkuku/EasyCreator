@@ -8,7 +8,10 @@
     'admin' => JPATH_ADMINISTRATOR.DS.'components'.DS.'_ECR_COM_COM_NAME_'
     , 'site' => JPATH_SITE.DS.'components'.DS.'_ECR_COM_COM_NAME_');
 
-    $md5Path = $paths['admin'].DS.'MD5SUMS';
+//    $md5Path = $paths['admin'].DS.'MD5SUMS';
+
+    //--@TODO temp solution to hide the md5 file from J! 1.6
+    $md5Path = $paths['admin'].DS.'install'.DS.'MD5SUMS';
 
     if(JFile::exists($md5Path))
     {

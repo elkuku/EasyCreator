@@ -216,7 +216,7 @@ $stdJS .= "$('file_name').value='';";
 	 */
     if(version_compare(JVERSION, '1.6', '>='))
     {
-        echo '<strong style="color: red; padding: 2em;">ALPHA TESTING on Joomla! 1.6!</strong>';
+        //echo '<strong style="color: red; padding: 2em;">ALPHA TESTING on Joomla! 1.6!</strong>';
     }
 
     ?> <?php

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 
 JHtml::_('behavior.modal');
 
-$link = new stdClass();
+$link = new stdClass;
 
 //$link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.html?tmpl=component'
 //.'&myVersion='.ECR_VERSION;
@@ -24,6 +24,7 @@ $link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=Track
 $link->latestVersion = 'http://inkubator.der-beta-server.de/releases/easycreator.feed';
 $link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed';
 $link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';
+$link->translations = 'http://g11n.der-beta-server.de/translations/elkuku/easycreator';
 
 $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
 //$ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-shadow.png';
@@ -75,6 +76,11 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
     <li class="img icon-16-article">
         <a href="<?php echo $link->svn; ?>" class="external">
             <?php echo jgettext('SVN'); ?>
+        </a>
+    </li>
+    <li class="img icon-16-locale">
+        <a href="<?php echo $link->translations; ?>" class="external">
+            <?php echo jgettext('Help translating'); ?>
         </a>
     </li>
     <li>

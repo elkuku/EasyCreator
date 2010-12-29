@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+01-Jan-2011 Nikolai Plath
+ ! EasyCreator now uses the g11n language library
+
 11-Dec-2010 Nikolai Plath
  # Fiexed various errors when registering and building libraries
  # Fixed incorrect extension name in admin menu when registering components in J! SVN > 18779

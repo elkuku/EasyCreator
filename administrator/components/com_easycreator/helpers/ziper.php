@@ -1032,7 +1032,12 @@ class EasyZIPer extends JObject
             $md5Str .= md5_file($file).' '.str_replace($this->temp_dir.DS, '', $file).NL;
         }//foreach
 
+        //$subDir =(JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
+
         $subDir =(JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
+
+        //--@todo temp solution to put the md5 file in a sub folder for J! 1.6 not finding it...
+        $subDir .= DS.'install';
 
         if( ! JFile::write($this->temp_dir.DS.$subDir.DS.'MD5SUMS', $md5Str))
         {

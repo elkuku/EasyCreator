@@ -512,6 +512,9 @@ class JoomlaManifest extends JObject
                             //-- For J 1.6 strip 'index.php?' from the link
                             $menu->addAttribute('link', str_replace('index.php?', '', $item['link']));
                             break;
+                        default :
+
+                            break;
                     }//switch
                 }//foreach
             }
@@ -701,7 +704,7 @@ class JoomlaManifest extends JObject
 
             //            //-- Try the install manifest.xml
             //            $params = new JParameter('', JPath::clean(JPATH_ROOT.DS
-//            .EasyProjectHelper::findManifest($this->project)));
+            //            .EasyProjectHelper::findManifest($this->project)));
             //
             //            if( ! $params->getNumParams()) return true;
             //
@@ -746,9 +749,9 @@ class JoomlaManifest extends JObject
             //                    }//foreach
             //                }//foreach
             //            }//foreach
-        }
+}
 
-        return true;
+return true;
     }//function
 
     /**
@@ -1037,9 +1040,9 @@ class JoomlaManifest extends JObject
      */
     public function formatXML()
     {
-//        $errRep = ini_get('error_reporting');
-//
-//        ini_set('error_reporting', 0);
+        //        $errRep = ini_get('error_reporting');
+        //
+        //        ini_set('error_reporting', 0);
 
         if($dtd = $this->project->getDTD(JVERSION))
         {
@@ -1060,7 +1063,7 @@ class JoomlaManifest extends JObject
         $document->encoding = 'utf-8';
         $document->formatOutput = true;
 
-//        ini_set('error_reporting', $errRep);
+        //        ini_set('error_reporting', $errRep);
 
         return $document->saveXML();
     }//function
