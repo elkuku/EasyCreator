@@ -667,6 +667,7 @@ EOF;
         // TODO change to getVersionFromFile
 
         $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.'CHANGELOG.php';
+
         if( ! file_exists($file))
         {
             return false;
