@@ -21,7 +21,7 @@ dir="<?php echo $this->direction; ?>" >
                         if ($this->params->get('title')) :
                             echo $this->params->get('title');
                         else :
-                            echo $mainframe->getCfg('sitename'); //Seitenname ausgeben
+                            echo JFactory::getApplication()->getCfg('sitename'); //Seitenname ausgeben
                         endif;
                     ?>
                 </h1>

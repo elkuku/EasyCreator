@@ -80,7 +80,7 @@ class EasyAutoCode
      *
      * @return void
      */
-    public function getCode($type, EasyTableField $field)
+    public function getCode($type, EasyTable $table)
     {
     }//function
 
