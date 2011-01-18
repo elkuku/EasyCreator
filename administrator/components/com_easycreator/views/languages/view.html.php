@@ -58,7 +58,7 @@ class EasyCreatorViewLanguages extends JView
             }
 
             //--Draw h1 header
-            ecrHTML::header(jgettext('Languages'), $this->project);
+            ecrHTML::header(jgettext('Languages'), $this->project, 'ecr_languages');
 
             if( ! count($this->project->langs))
             {

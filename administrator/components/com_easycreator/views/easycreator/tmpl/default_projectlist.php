@@ -22,7 +22,9 @@ $toolImg = new stdClass();
 $toolImg->package = sprintf($toolImgBase, 'module');
 $toolImg->config = sprintf($toolImgBase, 'config');
 $toolImg->language = sprintf($toolImgBase, 'language');
-
+?>
+<div class="projectListHeader registered"><?php echo jgettext('Registered Projects'); ?></div>
+<?php
 foreach($projectTypes as $comType => $titel) :
     if( ! isset($projects[$comType])
     || ! count($projects[$comType]))
@@ -50,7 +52,7 @@ foreach($projectTypes as $comType => $titel) :
     ?>
 	<div class="projectListRow ecr_button hasEasyTip"
 	title="<?php echo jgettext('Configure').$toolImg->config.'::'.$project->name; ?>"
-	style="height: 28px; min-width: 200px; text-align: left;"
+	style="height: 20px; min-width: 200px; text-align: left; margin-top: 0.3em; margin-bottom: 0.3em;"
 	onclick="configureProject('<?php echo $project->fileName; ?>');">
 		<div style="float: left;">
 			<a class="ecr_button img icon-16-language hasEasyTip"
@@ -82,4 +84,5 @@ endforeach;
 		<?php echo jgettext('Create your first project'); ?>
 	</div>
 	<div style="padding: 2em;"></div>
-<?php endif;
+<?php endif; ?>
+<div style="clear: both;"></div>

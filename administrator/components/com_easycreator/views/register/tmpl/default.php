@@ -8,4 +8,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+
+//-- No direct access
+defined('_JEXEC') || die('=;)');
+
 echo $this->loadTemplate('unregistered');
