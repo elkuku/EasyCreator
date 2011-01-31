@@ -554,8 +554,8 @@ countries.</em></small>
         $translates = array('txt' => 'brainfuck'
         , 'pot' => 'po');
 
-        if(array_key_exists($cfg['syntax'], $translates))
-        $syntax = $translates[$cfg['syntax']];
+//        if(array_key_exists($cfg['syntax'], $translates))
+        $syntax =(array_key_exists($cfg['syntax'], $translates)) ? $translates[$cfg['syntax']] : $cfg['syntax'];
 
 //        $syntax =(in_array($cfg['syntax'], $translates)) ? $cfg['syntax'] : 'brainfuck';
 

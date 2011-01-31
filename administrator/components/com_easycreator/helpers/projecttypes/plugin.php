@@ -201,6 +201,8 @@ class EasyProjectPlugin extends EasyProject
                 $query->select('p.id');
                 $query->where('p.folder = '.$db->quote($this->scope));
                 $query->where('p.element = '.$db->quote($this->comName));
+                break;
+
             case '1.6':
                 $query = $db->getQuery(true);
 
