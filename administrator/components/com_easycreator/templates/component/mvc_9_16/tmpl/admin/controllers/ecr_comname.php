@@ -1,7 +1,8 @@
 <?php
 ##*HEADER*##
 
-jimport('joomla.application.component.controller');
+//-- Import the Class JControllerForm
+jimport('joomla.application.component.controllerform');
 
 /**
  * _ECR_COM_NAME_ Controller.
@@ -9,85 +10,15 @@ jimport('joomla.application.component.controller');
  * @package    _ECR_COM_NAME_
  * @subpackage Controllers
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller
+class _ECR_COM_NAME_Controller_ECR_COM_NAME_ extends JControllerForm
 {
     /**
-     * Constructor (registers additional tasks to methods).
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        //-- Register Extra tasks
-        $this->registerTask('add', 'edit');
-    }//function
-
-    /**
-     * Display the edit form.
+     * !!!
+     * If our controller does not follow the standard pluralisation
+     * we have to provide the name here
      *
-     * @return void
+     * @var string
      */
-    public function edit()
-    {
-        JRequest::setVar('view', '_ECR_COM_NAME_');
-        JRequest::setVar('layout', 'form');
-        JRequest::setVar('hidemainmenu', 1);
+    protected $view_list = '_ECR_COM_NAME__ECR_LIST_POSTFIX';
 
-        parent::display();
-    }//function
-
-    /**
-     * Save a record (and redirect to main page).
-     *
-     * @return void
-     */
-    public function save()
-    {
-        $model = $this->getModel('_ECR_COM_NAME_');
-        $link = 'index.php?option=_ECR_COM_COM_NAME_';
-
-        if($model->store())
-        {
-            $msg = JText::_('Record saved');
-            $this->setRedirect($link, $msg);
-        }
-        else
-        {
-            $msg = $model->getError();
-            $this->setRedirect($link, $msg, 'error');
-        }
-    }//function
-
-    /**
-     * Remove record(s).
-     *
-     * @return void
-     */
-    public function remove()
-    {
-        $model = $this->getModel('_ECR_COM_NAME_');
-        $link = 'index.php?option=_ECR_COM_COM_NAME_';
-
-        if($model->delete())
-        {
-            $msg = JText::_('Records deleted');
-            $this->setRedirect($link, $msg);
-        }
-        else
-        {
-            $msg = JText::sprintf('One or more records could not be deleted: %s', $model->getError());
-            $this->setRedirect($link, $msg, 'error');
-        }
-    }//function
-
-    /**
-     * Cancel editing a record.
-     *
-     * @return void
-     */
-    public function cancel()
-    {
-        $msg = JText::_('Operation Cancelled');
-        $this->setRedirect('index.php?option=_ECR_COM_COM_NAME_', $msg, 'notice');
-    }//function
 }//class

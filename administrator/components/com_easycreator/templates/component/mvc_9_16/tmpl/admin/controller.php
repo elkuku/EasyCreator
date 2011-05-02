@@ -9,19 +9,20 @@ jimport('joomla.application.component.controller');
  * @package    _ECR_COM_NAME_
  * @subpackage Controllers
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller extends JController
+class _ECR_COM_NAME_Controller extends JController
 {
     /**
      * Method to display the view.
      *
      * @return void
      */
-    public function display()
+    public function display($cachable = false, $urlparams = false)
     {
-        require_once JPATH_COMPONENT.'/helpers/_ECR_COM_TBL_NAME_.php';
+        //-- Setting the default view
+        JRequest::setVar('view', JRequest::getCmd('view', '_ECR_COM_NAME__ECR_LOWER_LIST_POSTFIX_'));
 
-        parent::display();
+        parent::display($cachable, $urlparams);
 
-        _ECR_COM_NAME_Helper::addSubmenu(JRequest::getWord('view', '_ECR_COM_TBL_NAME__ECR_LOW_LIST_POSTFIX_'));
+        _ECR_COM_NAME_Helper::addSubmenu(JRequest::getWord('view', '_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_'));
     }//function
 }//class

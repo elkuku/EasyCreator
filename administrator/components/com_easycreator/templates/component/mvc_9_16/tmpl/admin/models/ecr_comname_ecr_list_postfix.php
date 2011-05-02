@@ -9,10 +9,10 @@ jimport('joomla.application.component.model');
  * @package    _ECR_COM_NAME_
  * @subpackage Models
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JModel
+class _ECR_COM_NAME_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JModel
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ data array
+     * _ECR_COM_NAME_ data array
      *
      * @var array
      */

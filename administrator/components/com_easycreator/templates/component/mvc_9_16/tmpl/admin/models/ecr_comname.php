@@ -9,7 +9,7 @@ jimport('joomla.application.component.model');
  * @package    _ECR_COM_NAME_
  * @subpackage Models
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
+class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModel
 {
     /**
      * Constructor that retrieves the ID from the request.

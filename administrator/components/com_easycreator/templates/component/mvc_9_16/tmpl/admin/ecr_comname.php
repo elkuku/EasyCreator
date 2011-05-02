@@ -1,33 +1,17 @@
 <?php
 ##*HEADER*##
 
-/**
- *  Require the base controller.
- */
-require_once JPATH_COMPONENT.DS.'controller.php';
+// Die Joomla! Controllerbibliothek importieren
+jimport('joomla.application.component.controller');
 
-//-- Require specific controller if requested
-if($controller = JRequest::getCmd('controller'))
-{
-    $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
+// Die Helperdatei registrieren
+JLoader::register('_ECR_COM_NAME_Helper', JPATH_COMPONENT.'/helpers/_ECR_COM_TBL_NAME_.php');
 
-    if(file_exists($path))
-    {
-        require_once $path;
-    }
-    else
-    {
-        $controller = '';
-    }
-}
+// Eine Instanz des Controllers mit dem Präfix 'HalloWelt' beziehen
+$controller = JController::getInstance('_ECR_COM_NAME_');
 
-//-- Create the controller
-$classname = '_ECR_COM_NAME__ECR_LIST_POSTFIX_Controller'.$controller;
-
-$controller = new $classname();
-
-//-- Perform the Request task
+// Den 'task' der im Request übergeben wurde ausführen
 $controller->execute(JRequest::getCmd('task'));
 
-//-- Redirect if set by the controller
+// Einen Redirect durchführen wenn er im Controller gesetzt ist
 $controller->redirect();

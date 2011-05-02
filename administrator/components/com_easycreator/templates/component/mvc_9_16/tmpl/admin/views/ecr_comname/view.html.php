@@ -9,7 +9,7 @@ jimport('joomla.application.component.view');
  * @package    _ECR_COM_NAME_
  * @subpackage Views
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME_ extends JView
+class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
 {
     /**
      * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
@@ -20,32 +20,83 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME_ extends JView
      */
     public function display($tpl = null)
     {
-        $option = JRequest::getCmd('option');
+        // Die Daten werden bezogen
+        $this->item = $this->get('Item');
 
-        //-- Get the _ECR_COM_NAME_
-        $_ECR_COM_NAME_	=& $this->get('Data');
-        $isNew = ($_ECR_COM_NAME_->id < 1);
+        // Das Formular
+        $this->form = $this->get('Form');
 
-        $text = $isNew ? JText::_('New') : JText::_('Edit');
-        JToolBarHelper::title('_ECR_COM_NAME_: <small><small>[ '.$text.' ]</small></small>');
-        JToolBarHelper::save();
+        // JavaScript
+        $this->script = $this->get('Script');
 
-        if($isNew)
+        // Auf Fehler prüfen
+        $errors = $this->get('Errors');
+
+        if (count($errors))
         {
-            JToolBarHelper::cancel();
-        }
-        else
-        {
-            //-- For existing items the button is renamed `close`
-            JToolBarHelper::cancel('cancel', JText::_('Close'));
+            JError::raiseError(500, implode('<br />', $errors));
+
+            return false;
         }
 
-        $lists = array();
-        $lists['catid'] = JHTML::_('list.category', 'catid', $option, intval($_ECR_COM_NAME_->catid));
+        // Die Toolbar hinzufügen
+        $this->addToolBar();
 
-        $this->assignRef('_ECR_COM_NAME_', $_ECR_COM_NAME_);
-        $this->assignRef('lists', $lists);
-
+        // Das Template wird aufgerufen
         parent::display($tpl);
+
+        // Set the document
+        $this->setDocument();
     }//function
+
+    /**
+     * Setting the toolbar
+     */
+    protected function addToolBar()
+    {
+        JRequest::setVar('hidemainmenu', true);
+
+        $isNew = ($this->item->id == 0);
+
+        JToolBarHelper::title($isNew
+        ? JText::_('COM_HALLOWELT_MANAGER_HALLOWELT_NEW')
+        : JText::_('COM_HALLOWELT_MANAGER_HALLOWELT_EDIT')
+        , 'hallowelt');
+
+        JToolBarHelper::save('hallowelt.save');
+
+        JToolBarHelper::cancel('hallowelt.cancel'
+        , $isNew
+        ? 'JTOOLBAR_CANCEL'
+        : 'JTOOLBAR_CLOSE');
+
+        // CSS Klasse für das 48x48 Icon der Toolbar
+        JFactory::getDocument()->addStyleDeclaration(
+		'.icon-48-hallowelt {background-image: url(../media/com_hallowelt/images/tux-48x48.png);}'
+		);
+
+    }
+
+    /**
+     * Method to set up the document properties
+     *
+     * @return void
+     */
+    protected function setDocument()
+    {
+        $isNew = ($this->item->id < 1);
+
+        $document = JFactory::getDocument();
+
+        $document->setTitle($isNew
+        ? JText::_('COM_HALLOWELT_HALLOWELT_CREATING')
+        : JText::_('COM_HALLOWELT_HALLOWELT_EDITING'));
+
+        $document->addScript(JURI::root(true).$this->script);
+
+        $document->addScript(JURI::root(true)
+        .'/administrator/components/com_hallowelt/views/hallowelt/submitbutton.js');
+
+        JText::script('COM_HALLOWELT_HALLOWELT_ERROR_UNACCEPTABLE');
+    }
 }//class
