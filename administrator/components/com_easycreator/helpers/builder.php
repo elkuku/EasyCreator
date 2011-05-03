@@ -237,8 +237,13 @@ class EasyBuilder extends JObject
         $this->project->listPostfix = JRequest::getVar('list_postfix');
 
         $this->addSubstitute('_ECR_COM_NAME_', $this->project->name);
+        $this->addSubstitute('_ECR_LOWER_COM_NAME_', strtolower($this->project->name));
+        $this->addSubstitute('_ECR_UPPER_COM_NAME_', strtoupper($this->project->name));
+
         $this->addSubstitute('_ECR_COM_COM_NAME_', $this->project->comName);
+        $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_', strtoupper($this->project->comName));
         $this->addSubstitute('_ECR_COM_TBL_NAME_', strtolower($this->project->name));
+
         $this->addSubstitute('_ECR_ACT_DATE_', date("d-M-Y"));
 
         $this->addSubstitute('VERSION', $this->project->version);
@@ -253,7 +258,8 @@ class EasyBuilder extends JObject
         {
             //-- AutoCode
             $this->addSubstitute('_ECR_LIST_POSTFIX_', $this->project->listPostfix);
-            $this->addSubstitute('_ECR_LOW_LIST_POSTFIX_', strtolower($this->project->listPostfix));
+            $this->addSubstitute('_ECR_LOWER_LIST_POSTFIX_', strtolower($this->project->listPostfix));
+            $this->addSubstitute('_ECR_UPPER_LIST_POSTFIX_', strtoupper($this->project->listPostfix));
 
             //-- Menu
             $buildMenuElement = $this->_buildManifest->menu;

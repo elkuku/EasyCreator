@@ -162,7 +162,6 @@ class EasyProjectHelper
              */
             $xmlFiles = array($path.DS.$project->comName.'.xml');
         }
-
         else if(ECR_JVERSION == '1.6'
         && $project->type == 'library')
         {
@@ -171,16 +170,14 @@ class EasyProjectHelper
              */
             $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
         }
-
         else if(ECR_JVERSION == '1.6'
         && $project->type == 'package')
         {
             /*
-             * Very Special treatment for libraries in 1.6
+             * Very Special treatment for packages in 1.6
              */
             $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
         }
-
         else
         {
             $xmlFiles = JFolder::files($path, '.xml$', false, true);

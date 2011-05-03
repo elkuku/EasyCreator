@@ -115,6 +115,7 @@ ecrStylesheet('icon');
 //-- Add javascript
 ecrScript('global_vars');
 ecrScript('easycreator');
+
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
 
@@ -126,8 +127,8 @@ if(version_compare(JVERSION, '1.6', '>'))
 {
     //-- Joomla! 1.6+ compat
 
-    #error_reporting(E_ALL);
-    error_reporting(E_STRICT);//...when ¿
+    error_reporting(E_ALL);
+    #error_reporting(E_STRICT);//...when ¿
 
     //-- Mootools compat for 1.2
     ecrScript('compat_mootools');

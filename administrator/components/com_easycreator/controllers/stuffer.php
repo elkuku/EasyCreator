@@ -224,11 +224,11 @@ class EasyCreatorControllerStuffer extends JController
             if( ! method_exists($AutoCode, 'insert'))
             throw new Exception(sprintf(jgettext('Insert method not found in Autocode %s'), $key));
 
+            $project = EasyProjectHelper::getProject();
+
             if( ! $project->prepareAddPart($ecr_project))
             throw new Exception(sprintf(jgettext('Unable to prepare project [project, group, part] [%s, %s, %s]')
             , $ecr_project, $group, $part));
-
-            $project = EasyProjectHelper::getProject();
 
             //--Setup logging
             ecrLoadHelper('logger');
