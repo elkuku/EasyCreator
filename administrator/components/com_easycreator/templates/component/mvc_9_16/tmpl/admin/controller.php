@@ -23,6 +23,6 @@ class _ECR_COM_NAME_Controller extends JController
 
         parent::display($cachable, $urlparams);
 
-        _ECR_COM_NAME_Helper::addSubmenu(JRequest::getWord('view', '_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_'));
+        _ECR_COM_NAME_Helper::addSubmenu('_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_');
     }//function
 }//class

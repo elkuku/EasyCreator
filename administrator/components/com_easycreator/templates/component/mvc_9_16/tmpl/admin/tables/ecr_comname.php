@@ -7,7 +7,7 @@
  * @package    _ECR_COM_NAME_
  * @subpackage Components
  */
-class Table_ECR_COM_NAME_ extends JTable
+class _ECR_COM_NAME_Table_ECR_COM_NAME_ extends JTable
 {
     /**
      * Constructor.

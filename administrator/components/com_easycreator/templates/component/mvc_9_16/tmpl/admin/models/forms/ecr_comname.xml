@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="hidden" />
+ 
+        <field name="huhu" type="text"
+            label="COM_HALLOWELT_HALLOWELT_FIELD_GREETING_LABEL"
+            description="COM_HALLOWELT_HALLOWELT_FIELD_GREETING_DESC"
+            size="40" class="inputbox" default="" />
+        <field name="buhu" type="text"
+            label="COM_HALLOWELT_HALLOWELT_FIELD_GREETING_LABEL"
+            description="COM_HALLOWELT_HALLOWELT_FIELD_GREETING_DESC"
+            size="40" class="inputbox" default="" />
+    </fieldset>
+</form>

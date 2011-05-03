@@ -157,7 +157,7 @@ class EasyTemplateOptions
         $codes[] = $c;
 
         $c = EasyProjectHelper::getAutoCode('admin.models.model.'.$tableName);
-        $c->elements = array('buildquery');
+        $c->elements = array('buildquery16');
         $codes[] = $c;
 
         $c = EasyProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);

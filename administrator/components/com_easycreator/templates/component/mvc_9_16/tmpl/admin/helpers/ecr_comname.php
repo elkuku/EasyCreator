@@ -33,13 +33,11 @@ abstract class _ECR_COM_NAME_Helper
             $document = JFactory::getDocument();
 
             $document->addStyleDeclaration(
-        	'.icon-48-_ECR_LOWER_COM_NAME-categories '
-        	.'{background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png) !important;}'); //dirty ;(
+        	'.icon-48-_ECR_LOWER_COM_NAME_-categories '
+        	.'{background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png) !important;}'); //-- dirty ;(
 
         	//-- Fixed J! 1.6 ""constant""
-        	$J_OneSix_CategoryLanguageKey = strtoupper('_ECR_COM_NAME_'.'_ADMINISTRATION_CATEGORIES');//@todo: do better =;)
-
-        	$document->setTitle(JText::_($J_OneSix_CategoryLanguageKey));
+        	$document->setTitle(JText::_('_ECR_UPPER_COM_COM_NAME__ADMINISTRATION_CATEGORIES'));//-- @todo: do better =;)
         }
     }//function
 }//class

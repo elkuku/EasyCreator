@@ -1,7 +1,7 @@
 <?php
 ##*HEADER*##
 
-jimport('joomla.application.component.model');
+jimport('joomla.application.component.modeladmin');
 
 /**
  * _ECR_COM_NAME_ Model.
@@ -9,119 +9,60 @@ jimport('joomla.application.component.model');
  * @package    _ECR_COM_NAME_
  * @subpackage Models
  */
-class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModel
+class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
 {
     /**
-     * Constructor that retrieves the ID from the request.
+     * Returns a reference to the a Table object, always creating it.
+     *
+     * @param type    The table type to instantiate
+     * @param string  A prefix for the table class name. Optional.
+     * @param array   Configuration array for model. Optional.
+     *
+     * @return JTable A database object
      */
-    public function __construct()
+    public function getTable($type = '_ECR_COM_NAME_', $prefix = '_ECR_COM_NAME_Table', $config = array())
     {
-        parent::__construct();
-
-        $array = JRequest::getVar('cid', 0, '', 'array');
-        $this->setId((int)$array[0]);
+        return JTable::getInstance($type, $prefix, $config);
     }//function
 
     /**
-     * Method to set the _ECR_COM_NAME_ identifier.
+     * Method to get the record form.
      *
-     * @param integer $id The _ECR_COM_NAME_ identifier
+     * @param array $data Data for the form.
+     * @param boolean $loadData True if the form is to load its own data (default case), false if not.
      *
-     * @return  void
+     * @return mixed A JForm object on success, false on failure
      */
-    public function setId($id)
+    public function getForm($data = array(), $loadData = true)
     {
-        // Set id and wipe data
-        $this->_id = $id;
-        $this->_data = null;
-    }//function
+        // Get the form.
+        $form = $this->loadForm('_ECR_LOWER_COM_COM_NAME_._ECR_LOWER_COM_NAME_', '_ECR_LOWER_COM_NAME_'
+        , array('control' => 'jform', 'load_data' => $loadData));
 
-    /**
-     * Method to get a record.
-     *
-     * @return object with data
-     */
-    public function &getData()
-    {
-        //-- Load the data
-        if(empty($this->_data))
+        if (empty($form))
         {
-            $query = 'SELECT * FROM #___ECR_COM_TBL_NAME_'
-            . ' WHERE id = '.(int)$this->_id;
-            $this->_db->setQuery($query);
-            $this->_data = $this->_db->loadObject();
-        }
-
-        if( ! $this->_data)
-        {
-            $this->_data = $this->getTable();
-        }
-
-        return $this->_data;
-    }//function
-
-    /**
-     * Method to store a record.
-     *
-     * @return  boolean True on success
-     */
-    public function store()
-    {
-        $row =& $this->getTable();
-
-        $data = JRequest::get('post');
-
-        //-- Bind the form fields to the hello table
-        if( ! $row->bind($data))
-        {
-            $this->setError($this->_db->getError());
-
             return false;
         }
 
-        //-- Make sure the record is valid
-        if( ! $row->check())
-        {
-            $this->setError($this->_db->getError());
-
-            return false;
-        }
-
-        //-- Store the table to the database
-        if( ! $row->store())
-        {
-            $this->setError($row->getError());
-
-            return false;
-        }
-
-        return true;
+        return $form;
     }//function
 
     /**
-     * Method to delete record(s).
+     * Method to get the data that should be injected in the form.
      *
-     * @return  boolean True on success
+     * @return mixed The data for the form.
      */
-    public function delete()
+    protected function loadFormData()
     {
-        $cids = JRequest::getVar('cid', array(0), 'post', 'array');
+        // Check the session for previously entered form data.
+        $data = JFactory::getApplication()
+        ->getUserState('_ECR_LOWER_COM_COM_NAME_.edit._ECR_LOWER_COM_NAME_.data');
 
-        $row =& $this->getTable();
-
-        if(count($cids))
+        if (empty($data))
         {
-            foreach($cids as $cid)
-            {
-                if( ! $row->delete($cid))
-                {
-                    $this->setError($row->getError());
-
-                    return false;
-                }
-            }//foreach
+            $data = $this->getItem();
         }
 
-        return true;
+        return $data;
     }//function
 }//class
