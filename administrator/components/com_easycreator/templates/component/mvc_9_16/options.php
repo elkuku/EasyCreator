@@ -108,6 +108,8 @@ class EasyTemplateOptions
 
         $tableName = strtolower($easyBuilder->project->name);
 
+        $comName = strtolower($easyBuilder->project->prefix.$easyBuilder->project->name);
+
         $easyBuilder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
 
         //-- Add the core categories table
@@ -125,6 +127,17 @@ class EasyTemplateOptions
             if($fields[$i]['name'] == 'catid')
             {
                 $fields[$i]['inputType'] = 'category';
+                $fields[$i]['extension'] = $comName;
+            }
+
+            if($fields[$i]['name'] == 'id')
+            {
+                $fields[$i]['inputType'] = 'hidden';
+            }
+
+            if($fields[$i]['name'] == 'checked_out')
+            {
+                $fields[$i]['display'] = false;
             }
 
             $field = new EasyTableField($fields[$i]);
@@ -158,6 +171,10 @@ class EasyTemplateOptions
 
         $c = EasyProjectHelper::getAutoCode('admin.models.model.'.$tableName);
         $c->elements = array('buildquery16');
+        $codes[] = $c;
+
+        $c = EasyProjectHelper::getAutoCode('admin.forms.edit.'.$tableName);
+        $c->elements = array('field');
         $codes[] = $c;
 
         $c = EasyProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);

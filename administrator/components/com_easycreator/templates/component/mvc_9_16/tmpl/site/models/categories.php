@@ -84,9 +84,9 @@ class _ECR_COM_NAME_ModelCategories extends JModel
         .' FROM #__categories AS cc'
         .' LEFT JOIN #___ECR_COM_TBL_NAME_ AS a ON a.catid = cc.id'
 //        .' WHERE a.published = 1'
-        .' WHERE section = \'_ECR_COM_COM_NAME_\''
+        .' WHERE extension = \'_ECR_COM_COM_NAME_\''
         .' AND cc.published = 1'
-        .' AND cc.access <= '.(int)$aid
+//        .' AND cc.access <= '.(int)$aid
         .' GROUP BY cc.id'
         .' ORDER BY cc.ordering';
 

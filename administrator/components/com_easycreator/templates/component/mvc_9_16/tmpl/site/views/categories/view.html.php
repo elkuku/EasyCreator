@@ -22,17 +22,14 @@ class _ECR_COM_NAME_ViewCategories extends JView
      */
     public function display($tpl = null)
     {
-        $document =& JFactory::getDocument();
-
-        $categories	=& $this->get('data');
-        $total =& $this->get('total');
-        $state =& $this->get('state');
+        $categories	= $this->get('data');
+        $total = $this->get('total');
+        $state = $this->get('state');
 
         //-- Get the page/component configuration
         $params = JComponentHelper::getParams('_ECR_COM_COM_NAME_');
 
-        $menus = &JSite::getMenu();
-        $menu = $menus->getActive();
+        $menu = JSite::getMenu()->getActive();
 
         //-- Because the application sets a default page title, we need to get it
         //-- right from the menu item itself
@@ -50,7 +47,7 @@ class _ECR_COM_NAME_ViewCategories extends JView
             $params->set('page_title', JText::_('_ECR_COM_NAME_'));
         }
 
-        $document->setTitle($params->get('page_title'));
+        JFactory::getDocument()->setTitle($params->get('page_title'));
 
         //-- Set some defaults if not set for params
         $params->def('comp_description', JText::_('_ECR_COM_NAME__DESC'));

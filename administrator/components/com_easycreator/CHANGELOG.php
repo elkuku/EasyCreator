@@ -52,6 +52,10 @@ Legend:
  ! -> Note
 ______________________________________________
 
+03-May-2011 Nikolai Plath
+ + Added AutoCodes for 1.6 select queries and xml forms
+ # Fixed some uninstaller issues
+
 01-Jan-2011 Nikolai Plath
  ! EasyCreator now uses the g11n language library
 

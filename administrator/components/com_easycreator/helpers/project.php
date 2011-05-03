@@ -859,8 +859,7 @@ abstract class EasyProject extends JObject
 
         if($complete)
         {
-            //-- Just remove the EasyCreator part - finish here
-            return true;
+            //-- Uninstall the extension
 
             $clientId =($this->scope == 'admin') ? 1 : 0;
 
@@ -870,7 +869,7 @@ abstract class EasyProject extends JObject
             $installer = JInstaller::getInstance();
 
             //-- Uninstall the extension
-            if( ! $installer->uninstall($this->type, $this->dbid, $clientId))
+            if( ! $installer->uninstall($this->type, $this->dbId, $clientId))
             {
                 echo ecrHTML::displayMessage(jgettext('JInstaller: Unable to remove project'), 'error');
 

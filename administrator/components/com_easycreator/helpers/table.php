@@ -675,6 +675,8 @@ class EasyTableField
 
     public $inputType;
 
+    public $extension = '';
+
     /**
      * Constructor.
      *

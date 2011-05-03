@@ -12,7 +12,7 @@ jimport('joomla.application.component.view');
 class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * _ECR_COM_NAME_ view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -20,9 +20,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
      */
     public function display($tpl = null)
     {
-        $data = $this->get('Data');
-
-        $this->assignRef('data', $data);
+        $this->data = $this->get('Data');
 
         parent::display($tpl);
     }//function

@@ -72,7 +72,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
 
         // CSS Klasse für das 48x48 Icon der Toolbar
         JFactory::getDocument()->addStyleDeclaration(
-		'.icon-48-_ECR_LOWER_COM_NAME_ {background-image: url(../media/_ECR_LOWER_COM_COM_NAME_/images/_ECR_LOWER_COM_NAME_-48.png);}'
+		'.icon-48-_ECR_LOWER_COM_NAME_ {background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png);}'
 		);
     }//function
 

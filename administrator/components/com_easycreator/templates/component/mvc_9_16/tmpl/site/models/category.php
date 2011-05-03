@@ -165,9 +165,6 @@ class _ECR_COM_NAME_ModelCategory extends JModel
         //-- Load the Category data
         if($this->loadCategory())
         {
-            //-- Initialize some variables
-            $user = &JFactory::getUser();
-
             //-- Make sure we have a category
             if( ! $this->_category)
             {
@@ -185,11 +182,11 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             }
 
             //-- Check whether category access level allows access
-            if($this->_category->access > $user->get('aid', 0))
+            if($this->_category->access > JFactory::getUser()->get('aid', 0))
             {
-                JError::raiseError(403, JText::_('ALERTNOTAUTH'));
+//                JError::raiseError(403, JText::_('ALERTNOTAUTH'));
 
-                return false;
+//                return false;
             }
         }
 
@@ -211,7 +208,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
                 .' c.id as slug '
                 .' FROM #__categories AS c'
                 .' WHERE c.id = '.(int)$this->_id
-                .' AND c.section = "_ECR_COM_COM_NAME_"';
+                .' AND c.extension = "_ECR_COM_COM_NAME_"';
 
             $this->_db->setQuery($query, 0, 1);
             $this->_category = $this->_db->loadObject();
