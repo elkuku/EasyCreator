@@ -52,9 +52,9 @@ class PartTablesAdmin_map
         $ajaxLink .= '&group=tables&part=admin_map';
         $ajaxLink .= '&part_task=show_tablefields';
 
-        $ajax = "new Ajax('".$ajaxLink
-        ."'+'&table_name='+this.value, { update:'addPartTableFields', onComplete: function() '
-        .'{ div_new_element.show(); } }).request();";
+        $ajax = "new Request({ url: '".$ajaxLink
+        ."'+'&table_name='+this.value, update:'addPartTableFields', onComplete: function() '
+        .'{ div_new_element.show(); } }).send();";
 
         echo '<strong id="table_name_label">'.jgettext('Table').' :</strong>';
         echo '<select name="table_name" id="table_name" onchange="'.$ajax.'">';
@@ -89,7 +89,7 @@ class PartTablesAdmin_map
     /**
      * Shows the fields of a given table.
      *
-     * Ajax called
+     * AJAX called
      *
      * @return void
      */

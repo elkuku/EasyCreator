@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-function addNnewElement(fields)
+function addNewElement(fields)
 {
     aFields = fields.split(',');
     valid = true;
@@ -64,19 +64,18 @@ function removeElement(divNum, divName)
 
 function getTableFields(tableName)
 {
-
-    $('addPartTableFields').innerHTML = 'Loading...';
+    $('addPartTableFields').innerHTML = jgettext('Loading...');
 
     link = 'index.php?option=com_easycreator&controller=ajax&task=show_tablefields&tmpl=component';
-    new Ajax(link + '&table_name=' + tableName,
-    {
+
+    new Request({
+    	url: link + '&table_name=' + tableName,
         update : 'addPartTableFields',
         onComplete : function()
         {
-
             div_new_element.show();
         }
-    }).request();
+    }).send();
 }//function
 
 function explode(delimiter, string, limit)

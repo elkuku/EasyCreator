@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+10-May-2011 Nikolai Plath
+ - Removed MooTools compat for Ajax
+
 03-May-2011 Nikolai Plath
  + Added AutoCodes for 1.6 select queries and xml forms
  # Fixed some uninstaller issues

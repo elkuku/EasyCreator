@@ -5,7 +5,7 @@
 jimport('joomla.application.component.modellist');
 
 /**
- * _ECR_COM_NAME__ECR_LIST_POSTFIX_ Model
+ * _ECR_COM_NAME__ECR_LIST_POSTFIX_ Model.
  *
  * @package _ECR_COM_NAME_
  * @subpackage Models

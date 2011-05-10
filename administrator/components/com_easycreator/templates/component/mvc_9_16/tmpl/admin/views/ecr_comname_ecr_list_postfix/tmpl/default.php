@@ -5,15 +5,11 @@ JHtml::_('behavior.tooltip');
 
 ?>
 <form action="index.php" method="post" name="adminForm">
-	<table class="adminlist">
+    <table class="adminlist">
         <thead><?php echo $this->loadTemplate('head');?></thead>
         <tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
         <tbody><?php echo $this->loadTemplate('body');?></tbody>
-	<thead>
-	</thead>
-	 <tfoot>
-  </tfoot>
-	</table>
+    </table>
 
     <div>
         <input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />

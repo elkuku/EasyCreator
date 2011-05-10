@@ -36,9 +36,10 @@ function getExtensionTemplateInfo(extType, folder, e)
     url += '&extType=' + extType;
     url += '&folder=' + folder;
     
-    new Ajax(url,
-    {
-        'onAjaxRequest' : function()
+    new Request({
+    	url: url,
+
+    	'onRequest' : function()
         {
             $('ecr_title_pic').innerHTML = jgettext('Loading...');
         }
@@ -61,6 +62,6 @@ function getExtensionTemplateInfo(extType, folder, e)
             
             $('btn_' + htmlId).className = 'ecr_button img icon-16-add';
         }
-    }).request();
+    }).send();
     
 }//function

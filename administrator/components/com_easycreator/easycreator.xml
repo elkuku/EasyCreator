@@ -27,13 +27,6 @@
     <filename>controller.php</filename>
     <filename>easycreator.php</filename>
   </files>
-  <languages folder="site/language">
-    <language tag="de-DE">de-DE.com_easycreator.ini</language>
-    <language tag="en-GB">en-GB.com_easycreator.ini</language>
-    <language tag="fr-FR">fr-FR.com_easycreator.ini</language>
-    <language tag="pl-PL">pl-PL.com_easycreator.ini</language>
-    <language tag="zh-CN">zh-CN.com_easycreator.ini</language>
-  </languages>
   <administration>
     <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png" link="option=com_easycreator">EasyCreator</menu>
     <files folder="admin">
@@ -58,13 +51,6 @@
       <filename>easycreator.xml</filename>
       <filename>functions.php</filename>
     </files>
-    <languages folder="admin/language">
-      <language tag="de-DE">de-DE.com_easycreator.ini</language>
-      <language tag="en-GB">en-GB.com_easycreator.ini</language>
-      <language tag="fr-FR">fr-FR.com_easycreator.ini</language>
-      <language tag="pl-PL">pl-PL.com_easycreator.ini</language>
-      <language tag="zh-CN">zh-CN.com_easycreator.ini</language>
-    </languages>
   </administration>
   <params>
     <param name="cred_license" type="text" label="License" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" />

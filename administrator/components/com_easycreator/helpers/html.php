@@ -398,10 +398,10 @@ countries.</em></small>
      * @param string $title
      * @param object $project EasyProject
      */
-    public static function header($title, EasyProject $project, $class = '')
+    public static function header($title, EasyProject $project = null, $class = '')
     {
-        $pName = $project->name;
-        $pType = ucfirst($project->type);
+        $pName =($project) ? $project->name : '';
+        $pType =($project) ? ucfirst($project->type) : '';
 
         $icon =($class) ? '<span class="img32c icon-32-'.$class.'"></span>' : '';
 

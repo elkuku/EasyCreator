@@ -18,7 +18,8 @@
 //    
 //    if(FBPresent) console.log('adding table'+name);
 //
-//    A = new Ajax(url + '&task=registerTable',
+//    A = new Request({
+//url: url + '&task=registerTable',
 //    {
 //       'onRequest': function()
 //           {
@@ -36,7 +37,7 @@
 //               $(id).innerHTML = request;
 //           }
 //       }
-//    }).request();
+//    }).send();
 //}//function
 
 function checkTableEditForm(theForm)
@@ -262,13 +263,15 @@ function getTableFieldSelector(tableName, fieldName)
     url += '&table=' + tableName;
     url += '&field_name=' + fieldName;
 
-    new Ajax(url,
-    {
-        'onRequest' : function()
+    new Request({
+    	url: url,
+
+    	'onRequest' : function()
         {
             $(fieldName+'_container').innerHTML = jgettext('Loading...');
             $(fieldName+'_container').className = 'ajax_loading16';
         },
+
         'onComplete' : function(response)
         {
             var resp = Json.evaluate(response);
@@ -279,5 +282,5 @@ function getTableFieldSelector(tableName, fieldName)
             $(fieldName+'_container').innerHTML = resp.text;
             $(fieldName+'_container').className = '';
         }
-    }).request();
+    }).send();
 }//function

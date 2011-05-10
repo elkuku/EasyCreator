@@ -29,9 +29,8 @@ var ecrTranslator = new Class({
 	{
 		$('translation').value = jgettext('Deleting...');
 
-		new Ajax(link + '&task=delete_translation',
-		{
-			method:'post',
+		new Request({
+			url: link + '&task=delete_translation',
 
 			onComplete: function(response)
 			{
@@ -64,7 +63,7 @@ var ecrTranslator = new Class({
 					break;
 				}//switch
 			}
-		}).request();
+		}).send();
 	},//function
 	
 	/**
@@ -111,18 +110,17 @@ var ecrTranslator = new Class({
 
 	translate : function(link, fieldId, lang, retType, adIds)
 	{
-		new Ajax(link + '&task=translate',
-		{
-			method : 'post',
-			
-			data : 'translation=' + encodeURIComponent($('translation').value),
-
+		new Request({
+			url: link + '&task=translate' + '&translation=' + encodeURIComponent($('translation').value),
+		//	method : 'post',
+//			data : 'translation=' + encodeURIComponent($('translation').value),
 		
 			onRequest : function() {
 				title = $('ajResult');
 				title.innerHTML = jgettext('Saving...');
 				title.addClass('ajax_loading16-red');
 			},
+
 			onComplete : function(response)
 			{
 				var resp = Json.evaluate(response);
@@ -182,7 +180,7 @@ var ecrTranslator = new Class({
 					break;
 				}//switch
 			}//onComplete
-		}).request();
+		}).send();
 	}//function
 
 });

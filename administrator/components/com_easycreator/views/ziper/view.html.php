@@ -119,7 +119,7 @@ class EasyCreatorViewZiper extends JView
         echo '<h1>'.jgettext('Archive').'</h1>';
 
         $this->zip_dir_path = ECRPATH_BUILDS.DS.$this->project->comName;
-#var_dump($this->project);
+
         if( ! JFolder::exists($this->zip_dir_path))
         {
             ecrHTML::displayMessage(jgettext('Archive is empty'));

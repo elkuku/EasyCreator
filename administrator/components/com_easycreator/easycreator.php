@@ -30,7 +30,7 @@ defined('_JEXEC') || die('=;)');
 
 //-- Dev mode - internal use =;)
 define('ECR_DEV_MODE', 1);//@@DEBUG
-
+xdebug_break();
 jimport('joomla.error.profiler');
 
 $profiler = JProfiler::getInstance('Application');
@@ -128,17 +128,25 @@ if(version_compare(JVERSION, '1.6', '>'))
     //-- Joomla! 1.6+ compat
 
     error_reporting(E_ALL);
-    #error_reporting(E_STRICT);//...when ¿
+    //error_reporting(E_STRICT);//...when ¿
 
-    //-- Mootools compat for 1.2
+    //-- Mootools compat for 1.2, 1.3
     ecrScript('compat_mootools');
 }
 else
 {
-    //-- J! 1.6 stuff not present in J! 1.5
+    /*
+     * Joomla! 1.5 legacy stuff
+     */
 
     error_reporting(E_ALL);
 
+    $MTVersion = JFactory::getApplication()->get('MooToolsVersion');
+
+    if( ! $MTVersion)
+    JError::raiseWarning(0, jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'));
+
+    //-- J! 1.6 stuff not present in J! 1.5
     ecrLoadHelper('databasequery');
     ecrScript('compat_joomla');
 }

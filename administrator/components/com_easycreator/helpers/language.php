@@ -709,7 +709,7 @@ class EasyELanguage
      *
      * @return array
      */
-    protected function parseFile($path)
+    public function parseFile($path)
     {
         if( ! JFile::exists($path))
         throw new Exception(sprintf(jgettext('File %s not found'), $path));
@@ -1120,7 +1120,8 @@ case 'etc':
                         break;
 
                     case '1.6' :
-                        if($this->project->buildOpts['lng_separate_javascript'])
+                        if(isset($this->project->buildOpts['lng_separate_javascript'])
+                        && $this->project->buildOpts['lng_separate_javascript'])
                         {
                             $filter =($type == 'js') ? '\.js$' : '\.php$|\.xml$';
                         }

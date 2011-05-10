@@ -382,7 +382,7 @@ class EasyCreatorControllerAjax extends JController
             if( ! $scope = JRequest::getCmd('scope'))
             throw new Exception(jgettext('No scope given'));
 
-            if( ! $translation = JRequest::getVar('translation', '', 'post', 'string', JREQUEST_ALLOWRAW))
+            if( ! $translation = JRequest::getVar('translation', '', 'get', 'string', JREQUEST_ALLOWRAW))
             throw new Exception(jgettext('Empty translation'));
 
             //-- Strip line breaks
@@ -642,7 +642,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('New folder'), 'add', jgettext('Create'));
-        $this->actProcess('new_folder', $ecr_project, 'folder', 'new', true, true);
+        $this->processForm('new_folder', $ecr_project, 'folder', 'new', true, true);
     }//function
 
     /**
@@ -696,7 +696,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('New file'), 'add', jgettext('Create'));
-        $this->actProcess('new_file', $ecr_project, 'file', 'new', true, true);
+        $this->processForm('new_file', $ecr_project, 'file', 'new', true, true);
     }//function
 
     /**
@@ -742,7 +742,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('Delete folder'), 'delete', jgettext('Delete'), false);
-        $this->actProcess('delete_folder', $ecr_project, 'folder', 'delete');
+        $this->processForm('delete_folder', $ecr_project, 'folder', 'delete');
     }//function
 
     /**
@@ -792,7 +792,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('Delete file'), 'delete', jgettext('Delete'), false);
-        $this->actProcess('delete_file', $ecr_project, 'file', 'delete', true);
+        $this->processForm('delete_file', $ecr_project, 'file', 'delete', true);
     }//function
 
     /**
@@ -837,7 +837,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('Rename folder'), 'rename', jgettext('Rename'), true);
-        $this->actProcess('rename_folder', $ecr_project, 'folder', 'rename', true);
+        $this->processForm('rename_folder', $ecr_project, 'folder', 'rename', true);
     }//function
 
     /**
@@ -881,7 +881,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('Rename file'), 'rename', jgettext('Rename'), true);
-        $this->actProcess('rename_file', $ecr_project, 'file', 'rename', true);
+        $this->processForm('rename_file', $ecr_project, 'file', 'rename', true);
     }//function
 
     /**
@@ -930,7 +930,7 @@ body {
      *
      * @return void
      */
-    public function actProcess($task, $ecr_project, $type, $action, $hasName = false, $isNew = false)
+    public function processForm($task, $ecr_project, $type, $action, $hasName = false, $isNew = false)
     {
         $baseLink = 'index.php?option=com_easycreator';
 
@@ -970,6 +970,7 @@ body {
 
 				if(FBPresent) console.log('no dot found - append filename to path - '.path);
 			}
+
 			subPath = path.split('/');
 			folderName = subPath[subPath.length-1];
 
@@ -1002,11 +1003,11 @@ body {
                     {
                         case 'delete':
                             echo "display = path+'".DS."<strong style=\"color: red;\">'+act_file+'</strong>';".NL;
-                            echo "$('act_name').value = act_file".NL;
+                            echo "$('act_name').value = act_file;".NL;
                         break;
 
                         case 'rename':
-                            echo "$('act_name').value = act_file".NL;
+                            echo "$('act_name').value = act_file;".NL;
                         break;
 
                         default:
@@ -1025,7 +1026,7 @@ body {
 			$('displ_folder').innerHTML = display;
 			$('act_folder').value = path;
 
-			function actProcess()
+			function processForm()
 			{
 				post = '';
 				post += '&act_path='+$('act_folder').value;
@@ -1033,8 +1034,6 @@ body {
 
 				act_name = $('act_name').value;
 				post += '&act_name='+act_name;
-
-				uri = '<?php echo $ajaxLink; ?>'+post;
 
                 <?php
                 if($action == 'rename')
@@ -1045,6 +1044,8 @@ body {
                 if($hasName)
                 {
                     ?>
+                    uri = '<?php echo $ajaxLink; ?>'+post;
+
 					if( ! act_name)
 					{
 						$('act_name').setStyle('background-color', 'red');
@@ -1055,8 +1056,8 @@ body {
                 }
                 ?>
 
-				new Ajax( uri,
-				{
+				new Request({
+					url: uri,
 					'postBody': post,
 					'onComplete': function(result)
 					{
@@ -1069,7 +1070,7 @@ body {
 							$('log').innerHTML = result;
 						}
 					}
-				}).request();
+				}).send();
 			}//function
 		</script>
 				<?php
@@ -1158,6 +1159,5 @@ body {
         $response['text'] = 'fubisdubi';
 
         echo json_encode($response);
-#        echo 'FU';
     }//function
 }//class

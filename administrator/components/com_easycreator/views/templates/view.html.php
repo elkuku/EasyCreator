@@ -54,6 +54,7 @@ class EasyCreatorViewTemplates extends JView
         if($task == 'install')
         {
             //-- We end our form first, cause another one follows
+            echo '<input type="hidden" name="com_type" /><input type="hidden" name="template" />';//:(
             ecrHTML::easyFormEnd(false);
 
             parent::display($tpl);

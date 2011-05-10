@@ -36,13 +36,16 @@ function save_file() {
 		break;
 	}// switch
 
-	new Ajax(url, {
+	new Request({
+		url: url,
+
 		'onRequest' : function() {
 			oldTitle = $('ecr_title_file').innerHTML;
 
 			title.innerHTML = jgettext('Saving...');
 			title.addClass('ajax_loading16-red');
 		},
+
 		'onComplete' : function(response) {
 			resp = Json.evaluate(response);
 
@@ -74,8 +77,9 @@ function save_file() {
 				});
 			});
 		},
+
 		'onFailure' : function(item) {
 			alert(item.responseText);
 		}
-	}).request(post);
+	}).send(post);
 }//function

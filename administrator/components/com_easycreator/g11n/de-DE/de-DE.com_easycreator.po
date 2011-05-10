@@ -2928,6 +2928,3 @@ msgstr "Archiv"
 msgid "No ZIP files found"
 msgstr "Keine Zipdateien gefunden"
 
-
-#~ msgid "Loading..."
-#~ msgstr "Wird geladen..."

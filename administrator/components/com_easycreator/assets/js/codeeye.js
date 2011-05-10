@@ -85,8 +85,8 @@ function doPHPUnit(folder, test, timeStamp, id)
     url += '&time_stamp='+timeStamp;
     url += '&results_base=' + $('results_base').value;
 
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking PHPUnit...';
@@ -107,7 +107,7 @@ function doPHPUnit(folder, test, timeStamp, id)
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 }//function
 
 /**
@@ -130,8 +130,8 @@ function doSelenium(folder, test, timeStamp, id)
     url += '&time_stamp='+timeStamp;
     url += '&results_base=' + $('results_base').value;
 
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking Selenium...';
@@ -152,7 +152,7 @@ function doSelenium(folder, test, timeStamp, id)
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 
 }//function
     
@@ -170,8 +170,8 @@ function doPHPCPD(ecr_project)
     url += '&min-lines='+$('phpcpd_min_lines').value;
     url += '&min-tokens='+$('phpcpd_min_tokens').value;
 
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking PHPCPD...';
@@ -191,7 +191,7 @@ function doPHPCPD(ecr_project)
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 }//function
 
 /**
@@ -229,8 +229,8 @@ function doPHPDoc(dirs, files)
     files = files.replace('\\', '/');
     url += '&parse_files='+files;
 
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'PhpDocumentor is generating documentation...';
@@ -250,7 +250,7 @@ function doPHPDoc(dirs, files)
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 }//function
 
 /**
@@ -303,8 +303,8 @@ function loadSniff(folder, file)
         url += '&sniff_sniffs=' + sniffs;
     }
 
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeSniffer sniffing...';
@@ -324,18 +324,18 @@ function loadSniff(folder, file)
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 }//function
 
 function create_skeleton(folder, file)
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax&task=create_skeleton';
+    var url = ecrAJAXLink+'&controller=codeeyeajax&task=create_skeleton';
     url += '&ecr_project=' + $('ecr_project').value;
     url += '&folder='+folder;
     url += '&file='+file;
 
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is creating a skeleton...';
@@ -360,10 +360,11 @@ function create_skeleton(folder, file)
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
             
-            url = ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir';
+            var url = ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir';
             url += '&ecr_project=' + $('ecr_project').value;
-            new Ajax(url,
-                {
+
+            new Request({
+            	url: url,
                     'onRequest' : function()
                     {
                         $('test_tree').innerHTML = 'Redraw tree...';
@@ -379,24 +380,24 @@ function create_skeleton(folder, file)
 
                         $('test_tree').innerHTML = resp.text;
                     }
-                }).request();
+                }).send();
             }
-        }
-    }).request();
+        }//onComplete
+    }).send();
 }//function
 
 function draw_test_dir(testDir)
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir';
+    new Request({
+    	url: ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir',
 
-    new Ajax(url,
-    {
-        'onRequest' : function()
+    	'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is checking your environment...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
+
         'onComplete' : function(response)
         {
             var resp = Json.evaluate(response);
@@ -409,7 +410,7 @@ function draw_test_dir(testDir)
             $('test_tree').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 }//function
 
 /**
@@ -418,16 +419,16 @@ function draw_test_dir(testDir)
  */
 function checkEnvironment()
 {
-    var url = ecrAJAXLink+'&controller=codeeyeajax&task=check_environment';
-    
-    new Ajax(url,
-    {
-        'onRequest' : function()
+    new Request({
+    	url: ecrAJAXLink+'&controller=codeeyeajax&task=check_environment',
+
+    	'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = jgettext('CodeEye is checking your environment...');
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
+
         'onComplete' : function(response)
         {
             var resp = Json.evaluate(response, true);
@@ -440,5 +441,5 @@ function checkEnvironment()
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
-    }).request();
+    }).send();
 }//function

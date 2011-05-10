@@ -105,7 +105,7 @@ class EasyLanguageHelper
         //-- Get component parameters
         $params = JComponentHelper::getParams('com_easycreator');
 
-        $file = new stdClass();
+        $file = new JObject;
 
         $file->fileName = $fileName;
         $file->lang = $lang;

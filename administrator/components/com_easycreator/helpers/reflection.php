@@ -249,10 +249,11 @@ default:
 //			html = '<div id="'+name+'"><strong style="color: red;">Loading...</strong>'+divCount+'</div>';
 //
 //			$('field_<?php echo $type; ?>').innerHTML += html;
-			new Ajax(url, {
+			new Request({
+				url: url,
 				method: 'get',
 				update: $(name)
-			}).request();
+			}).send();
 
 
 			divCount ++;

@@ -39,4 +39,6 @@ ecrScript('templates');
 
 </div><!-- Div from outer -->
 
+<input type="hidden" name="com_type" value="" />
+<input type="hidden" name="template" value="" />
 <?php

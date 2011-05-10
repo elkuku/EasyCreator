@@ -128,7 +128,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
     {
     case 'file':
         cl = $('ecr_title_file').className;
-        $('ecr_title_file').innerHTML = jgettext('Loading...');
+     //   $('ecr_title_file').innerHTML = jgettext('Loading...');
         $('ecr_title_file').className = cl + ' ajax_loading16';
         
         if (FBPresent)
@@ -136,9 +136,9 @@ function ecr_loadFile(task, file_path, file_name, link_id)
             console.log('set lastId(' + lastId + ') to: ' + link_id);
         }
 
-        new Ajax(url + '&task=loadFile',
-        {
-            'onAjaxRequest' : function()
+        new Request({
+        	url: url + '&task=loadFile',
+            'onRequest' : function()
             {
                 $('ecr_title_file').innerHTML = jgettext('Loading...');
             },
@@ -179,13 +179,13 @@ function ecr_loadFile(task, file_path, file_name, link_id)
                 sld_picture.hide();
                 sld_edit_area.show();
             }
-        }).request();
+        }).send();
 
         break;
     case 'pic':
-        new Ajax(url + '&task=loadPic',
-        {
-            'onAjaxRequest' : function()
+        new Request({
+        	url: url + '&task=loadPic',
+            'onRequest' : function()
             {
                 $('ecr_title_pic').innerHTML = jgettext('Loading...');
             },
@@ -221,7 +221,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
                     sld_picture.show();
                 }
             }
-        }).request();
+        }).send();
         break;
     }// switch
 
@@ -303,8 +303,8 @@ function xcheckVersion()
     url = 'http://joomla.org';
 //    url += '&format=raw';
 //    alert(url);
-    new Ajax(url,
-    {
+    new Request({
+    	url: url,
         'onRequest' : function()
         {
         	$('ecr_versionCheck').innerHTML = jgettext('Checking...');
@@ -353,5 +353,5 @@ function xcheckVersion()
 
             $('ecr_versionCheck').innerHTML = '<span class="'+cssClass+'" title="'+alt+'" alt="'+alt+'">'+msg+'</span>';
         }
-    }).request();
+    }).send();
 }//function

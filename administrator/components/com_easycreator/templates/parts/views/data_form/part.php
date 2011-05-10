@@ -103,8 +103,8 @@ class PartViewsData_form extends EasyPart
             $ajaxLink .= '&group=views&part=data_list';
             $ajaxLink .= '&part_task=show_tablefields';
 
-            $ajax = "new Ajax('".$ajaxLink."'+'&element='+this.value, '
-            .'{ update:'addPartTableFields', onComplete: function() { div_new_element.show(); } }).request();";
+            $ajax = "new Request({ url: '".$ajaxLink."'+'&element='+this.value, '
+            .' update:'addPartTableFields', onComplete: function() { div_new_element.show(); } }).send();";
 
             echo '<strong id="table_name_label">'.jgettext('Table').' :</strong>';
             echo '<select name="table_name" id="table_name" onchange="'.$ajax.'">';
@@ -318,7 +318,7 @@ $key = '##ECR_OPTIONS##';
      * @param string $table_name Name of the table
      * @param array $selecteds Array of selected table fields
      *
-     * Ajax called
+     * AJAX called
      *
      * @return void
      */

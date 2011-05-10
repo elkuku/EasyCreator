@@ -1,6 +1,9 @@
 <?php
 ##*HEADER*##
 
+$application = JFactory::getApplication();
+$templateParams	= $application->getTemplate(true)->params;
+
 ?>
 <?php echo '<?xml version="1.0" encoding="utf-8"?'.'>'; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,8 +12,9 @@ lang="<?php echo $this->language; ?>"
 dir="<?php echo $this->direction; ?>" >
     <head>
         <jdoc:include type="head" />
-        <link rel="stylesheet" href="<?php echo $this->baseurl.'/templates/'
-        .$this->template.'/css/template.css'; ?>" type="text/css" />
+        <link rel="stylesheet"
+         href="<?php echo $this->baseurl.'/templates/'.$this->template.'/css/template.css'; ?>"
+         type="text/css" />
     </head>
     <body>
         <div id="container">
@@ -18,11 +22,11 @@ dir="<?php echo $this->direction; ?>" >
             <div id="header">
                 <h1 class="sitename">
                     <?php
-                        if ($this->params->get('title')) :
-                            echo $this->params->get('title');
-                        else :
-                            echo JFactory::getApplication()->getCfg('sitename'); //Seitenname ausgeben
-                        endif;
+                        echo $application->getCfg('sitename'); //Seitenname ausgeben
+                        echo '<br />';
+                        echo $templateParams->get('sitetitle');
+                        echo '<br />';
+                        echo $templateParams->get('sitedescription');
                     ?>
                 </h1>
             </div>
@@ -41,10 +45,8 @@ dir="<?php echo $this->direction; ?>" >
                 </div>
 
                 <div id="menu">
-                    <jdoc:include type="modules" name="menu" style="xhtml" />
-
-                    <!-- Legacy 'left' position - please rename -->
-                    <jdoc:include type="modules" name="left" style="xhtml" />
+                    <jdoc:include type="modules" name="position-1" style="xhtml" />
+                    <jdoc:include type="modules" name="position-7" style="xhtml" />
                 </div>
             </div>
         </div>

@@ -47,8 +47,8 @@ function updateName(ecr_project)
     url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=ajax';
     url += '&ecr_project='+ecr_project;
     url += '&cst_format='+$('cst_format').value;
-    new Ajax(url + '&task=update_project_name',
-    {
+    new Request({
+    	url: url + '&task=update_project_name',
         'onRequest': function()
             {
                 $('ajMessage').className = 'ajax_loading16';
@@ -61,5 +61,5 @@ function updateName(ecr_project)
                 $('ajMessage').innerHTML = '';
                 $('ajMessage').className = '';
             }
-    }).request();
+    }).send();
 }//function

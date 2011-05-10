@@ -33,7 +33,7 @@ class EasyCreatorControllerConfig extends JController
      */
     public function display($cachable = false, $urlparams = false)
     {
-        #g11n::setDebug(true);
+        //g11n::setDebug(true);
         g11n::loadLanguage('com_easycreator.config');
 
         JRequest::setVar('view', 'config');

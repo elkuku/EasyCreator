@@ -19,7 +19,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
         parent::__construct();
 
         //-- Register Extra tasks
-        $this->registerTask('add' , 'edit');
+        $this->registerTask('add', 'edit');
     }//function
 
     /**

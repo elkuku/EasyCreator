@@ -13,9 +13,9 @@ function showPart(group, part)
 
     $('addPartShow').innerHTML = jgettext('Loading...');
     $('addElementMessage').innerHTML = '';
-    uri = ecrAJAXLink+'&controller=ajax'+'&group='+group+'&part='+part;
 
-    new Ajax(uri, {
+    new Request({
+    	url: ecrAJAXLink+'&controller=ajax'+'&group='+group+'&part='+part,
         update: 'addPartShow',
         onComplete: function()
         {
@@ -23,7 +23,7 @@ function showPart(group, part)
             $('addElementMessage').innerHTML = '';
             div_new_element.show();
         }
-    }).request();
+    }).send();
 
     return false;
 }//function

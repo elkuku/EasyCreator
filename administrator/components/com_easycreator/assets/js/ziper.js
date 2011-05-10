@@ -32,10 +32,13 @@ function deleteZipFile(path, file) {
 			break;
 	}// switch
 
-	new Ajax(url, {
+	new Request({
+		url: url,
+
 		onRequest : function() {
 			box.innerHTML = jgettext('Deleting...');
 		},
+
 		onComplete : function(response) {
 			resp = Json.evaluate(response);
 
@@ -63,5 +66,5 @@ function deleteZipFile(path, file) {
 				});
 			});
 		}
-	}).request();
+	}).send();
 }//function

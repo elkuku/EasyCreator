@@ -32,9 +32,10 @@ function getStats(ecr_project)
        	}
     }//for
 
-  	new Ajax(url,
-  	{
-      	'onRequest' : function()
+  	new Request({
+  	  	url: url,
+
+  	  	'onRequest' : function()
       	{
           $('control_btn').className = 'ajax_loading16';
 
@@ -43,6 +44,7 @@ function getStats(ecr_project)
           $('chart3').src = 'components/com_easycreator/assets/images/ajax-loader2.gif';
           $('matrix_table').className = 'ajax_loading';
       	},
+
       	'onComplete' : function(response)
       	{
           	var resp = Json.evaluate(response);
@@ -70,7 +72,7 @@ function getStats(ecr_project)
                 $('chart3').src=baseUrl+'&data='+resp.lines;
           	}
       	}
-  	}).request();
+  	}).send();
 }//function
 </script>
 

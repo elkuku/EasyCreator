@@ -291,7 +291,7 @@ class EasyCreatorViewLanguages extends JView
 
         try//
         {
-            $parser = JALHOO::getParser($this->langFormatOut);
+            $parser = g11n::getParser($this->langFormatOut);
 
             $this->parser = $parser;
 
@@ -600,7 +600,6 @@ class EasyCreatorViewLanguages extends JView
         if($this->sel_language)
         {
             $this->versions = $this->easyLanguage->getVersions($this->sel_language);
-            //            $this->assignRef('versions', $versions);
         }
 
         $this->setLayout('versions');
@@ -678,11 +677,13 @@ class EasyCreatorViewLanguages extends JView
         , 'icon' =>'rename'
         , 'tasks' => array('convert', 'convert')
         )
+        /*
         , array('title' => 'JALHOO'
         , 'description' => jgettext('JALHOO is an experimental language handler.')
         , 'icon' =>'ecr_language'
         , 'tasks' => array('jalhoo')
         )
+        */
         );
 
         $html = '';

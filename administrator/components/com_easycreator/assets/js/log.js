@@ -31,8 +31,8 @@ function loadLog(name, id)
     uri += '&task=show_logfile';
     uri += '&file_name=' + name;
 
-    var a = new Ajax(uri ,
-    {
+    var a = new Request({
+    	url: uri ,
         'onRequest': function()
         {
             $('ecr_logView').className = cl + ' ajax_loading16';
@@ -52,5 +52,5 @@ function loadLog(name, id)
 
              $('ecr_logView').className = cl;
         }
-    }).request();
+    }).send();
 }//function

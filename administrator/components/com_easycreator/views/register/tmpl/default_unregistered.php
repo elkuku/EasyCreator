@@ -93,7 +93,6 @@ foreach($projectScopes as $comType => $projectScope)
     }//foreach
 
     echo ecrHTML::floatBoxEnd();
-
 }//foreach
 ?>
 <div style="clear: both;"></div>

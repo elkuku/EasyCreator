@@ -1039,7 +1039,7 @@ abstract class EasyProject extends JObject
             $this->addSubstitute('_ECR_COM_COM_NAME_', $project->comName);
             $this->addSubstitute('ECR_AUTHOR', $project->author);
             $this->addSubstitute('AUTHORURL', $project->authorUrl);
-            $this->addSubstitute('_ECR_ACT_DATE_', date('d-M-y'));
+            $this->addSubstitute('_ECR_ACT_DATE_', date('d-M-Y'));
 
             foreach($substitutes as $key => $value)
             {

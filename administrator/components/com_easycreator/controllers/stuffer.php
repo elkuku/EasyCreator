@@ -62,7 +62,7 @@ class EasyCreatorControllerStuffer extends JController
         $ecr_project = JRequest::getCmd('ecr_project');
         $group = JRequest::getCmd('group');
         $part = JRequest::getCmd('part');
-
+//var_dump($_REQUEST);
         $element = JRequest::getCmd('element');
         $scope = JRequest::getCmd('element_scope');
 
@@ -84,7 +84,7 @@ class EasyCreatorControllerStuffer extends JController
             return;
         }//try
 
-        JRequest::setVar('task', $old_task);
+//        JRequest::setVar('task', $old_task);
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('file', '');
 
@@ -108,7 +108,7 @@ class EasyCreatorControllerStuffer extends JController
         ecrLoadHelper('logger');
         $logger = new easyLogger(date('ymd_Hi').'_add_part.log', JRequest::getVar('buildopts', array()));
 
-        $options = new stdClass();
+        $options = new stdClass;
         $options->ecr_project = $ecr_project;
         $options->group = $group;
         $options->part = $part;
@@ -133,6 +133,9 @@ class EasyCreatorControllerStuffer extends JController
         {
             ecrHTML::displayMessage(array(jgettext('Part added').' [group, part]', $group, $part));
             $logger->writeLog();
+
+            $cache = JFactory::getCache();
+            $cache->clean('EasyCreator_'.$ecr_project);
         }
 
         parent::display();

@@ -184,15 +184,18 @@ function drawFileTree(EasyProject $project)
 
                 $('addPartShow').innerHTML = jgettext('Loading...');
                 $('addElementMessage').innerHTML = '';
-                new Ajax('<?php echo $link; ?>&group='+group+'&part='+part, {
-                    update: 'addPartShow',
-                    onComplete: function()
+
+                new Request({
+                    url: '<?php echo $link; ?>&group='+group+'&part='+part,
+                    onComplete: function(response)
                     {
                         $('addPartShow').className = '';
+                        $('addPartShow').set('html', response);
                         $('addElementMessage').innerHTML = '';
                         div_new_element.show();
                     }
-                }).request();
+                }).send();
+
                 return false;
             }//function
         </script>

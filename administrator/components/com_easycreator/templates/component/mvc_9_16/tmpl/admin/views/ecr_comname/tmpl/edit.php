@@ -8,7 +8,7 @@ $actionLink = JRoute::_('index.php?option=_ECR_COM_COM_NAME_&layout=edit&id='.(i
 ?>
 <form action="<?php echo $actionLink; ?>" method="post" name="adminForm" id="_ECR_LOWER_COM_NAME_-form">
 	<fieldset class="adminform">
-        <legend><?php echo JText::_('COM_HALLOWELT_HALLOWELT_DETAILS'); ?></legend>
+        <legend><?php echo JText::_('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__DETAILS'); ?></legend>
 
         <ul class="adminformlist">
             <?php foreach($this->form->getFieldset() as $field): ?>

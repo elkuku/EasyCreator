@@ -16,8 +16,8 @@ function create_class_list()
     
     xref += 'components/com_easycreator/helpers/jmethodlister.php';
 
-    new Ajax(xref,
-    {
+    new Request({
+    	url: xref,
         'onComplete' : function(response)
         {
             if(response.indexOf('{') != 0)
@@ -42,7 +42,7 @@ function create_class_list()
                 }
             }
         }
-    }).request();
+    }).send();
 }//function
 
 function changeFrame(className, methodName, packageName)
@@ -86,8 +86,8 @@ function changeFrame(className, methodName, packageName)
         link = 'index.php?option=com_easycreator&controller=ajax&tmpl=component&format=raw&task=show_source';
         link += '&class='+className+'&method='+methodName;
         
-        new Ajax(link,
-        {
+        new Request({
+        	url: link,
             'onComplete' : function(request)
             {
 
@@ -100,7 +100,7 @@ function changeFrame(className, methodName, packageName)
                     fixed : true
                 });
             }
-        }).request();
+        }).send();
     } 
     else
     {

@@ -17,13 +17,13 @@ abstract class _ECR_COM_NAME_Helper
     public static function addSubmenu($viewName = '_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_')
     {
         JSubMenuHelper::addEntry(
-        JText::_('_ECR_COM_NAME_')
+        JText::_('_ECR_UPPER_COM_COM_NAME__LINKBAR')
         , 'index.php?option=_ECR_COM_COM_NAME_&view=_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_'
         , $viewName == '_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_'
         );
 
         JSubMenuHelper::addEntry(
-        JText::_('Categories')
+        JText::_('_ECR_UPPER_COM_COM_NAME__CATEGORIES')
         , 'index.php?option=com_categories&extension=_ECR_COM_COM_NAME_'
         , $viewName == 'categories'
         );
@@ -33,11 +33,11 @@ abstract class _ECR_COM_NAME_Helper
             $document = JFactory::getDocument();
 
             $document->addStyleDeclaration(
-        	'.icon-48-_ECR_LOWER_COM_NAME_-categories '
-        	.'{background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png) !important;}'); //-- dirty ;(
+            '.icon-48-_ECR_LOWER_COM_NAME_-categories '
+            .'{background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png) !important;}'); //-- dirty ;(
 
-        	//-- Fixed J! 1.6 ""constant""
-        	$document->setTitle(JText::_('_ECR_UPPER_COM_COM_NAME__ADMINISTRATION_CATEGORIES'));//-- @todo: do better =;)
+            //-- Fixed J! 1.6 ""constant""
+            $document->setTitle(JText::_('_ECR_UPPER_COM_COM_NAME__ADMINISTRATION_CATEGORIES'));//-- @todo: do better =;)
         }
     }//function
 }//class

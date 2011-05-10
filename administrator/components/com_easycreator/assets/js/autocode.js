@@ -40,13 +40,14 @@ function loadAutoCode(ecr_project, action, group, element, scope, part)
 
     url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
 
-    new Ajax(url, {
+    new Request({
+    	url: url,
         update: 'addPartShow',
         onComplete: function()
         {
         	dDiv.className = '';
         }
-    }).request();
+    }).send();
     
     return false;
 }//function
@@ -121,13 +122,14 @@ function loadPart(ecr_project, action, type, element, scope)
 
     url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
 
-    new Ajax(url, {
+    new Request({
+    	url: url,
         update: 'addPartShow',
         onComplete: function()
         {
         	dDiv.className = '';
         }
-    }).request();
+    }).send();
     
     return false;
 }//function
