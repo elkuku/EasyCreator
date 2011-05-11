@@ -50,7 +50,7 @@ function com_install()
         }
 
         //-- Get our special language file
-        g11n::loadLanguage();
+        g11n::loadLanguage('com_easycreator');
     }
     catch(Exception $e)
     {

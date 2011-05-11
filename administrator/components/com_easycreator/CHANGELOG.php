@@ -54,6 +54,7 @@ ______________________________________________
 
 10-May-2011 Nikolai Plath
  - Removed MooTools compat for Ajax
+ + New example plugins for J! 1.6
 
 03-May-2011 Nikolai Plath
  + Added AutoCodes for 1.6 select queries and xml forms

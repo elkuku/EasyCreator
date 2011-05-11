@@ -68,5 +68,5 @@ $buildOpts = $this->project->buildOpts;
 <br />
 <br />
 <?php echo sprintf(jgettext('* Note that those language file formats\n needs a special language handler called "g11n" - What ?\nPlease refer to <a href="%s">Wiki.Joomla-Nafu.de</a> for more information.')
-, 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutzer:Elkuku/Proyektz/JALHOO'); ?>
+, 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutzer:Elkuku/Proyektz/g11n'); ?>
 <?php echo ecrHTML::floatBoxEnd();
