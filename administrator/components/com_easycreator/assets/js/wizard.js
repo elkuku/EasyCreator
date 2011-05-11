@@ -25,6 +25,7 @@ function getExtensionTemplateInfo(extType, folder, e)
     if(e.open)
     {
         e.toggle();
+
         return;
     }
     
@@ -41,7 +42,7 @@ function getExtensionTemplateInfo(extType, folder, e)
 
     	'onRequest' : function()
         {
-            $('ecr_title_pic').innerHTML = jgettext('Loading...');
+            //$('ecr_title_pic').innerHTML = jgettext('Loading...');
         }
 
         , 'onComplete' : function(response)

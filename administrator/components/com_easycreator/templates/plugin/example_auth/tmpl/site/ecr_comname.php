@@ -4,10 +4,10 @@
 jimport('joomla.plugin.plugin');
 
 /**
- * Example Authentication Plugin.
+ * Authentication Plugin.
  *
  * @package    _ECR_COM_NAME_
- * @subpackage	Plugin
+ * @subpackage Plugin
  */
 class plgAuthentication_ECR_COM_NAME_ extends JPlugin
 {

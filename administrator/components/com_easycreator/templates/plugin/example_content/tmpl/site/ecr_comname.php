@@ -4,10 +4,10 @@
 jimport('joomla.plugin.plugin');
 
 /**
- * Example Content Plugin.
+ * Content Plugin.
  *
  * @package    _ECR_COM_NAME_
- * @subpackage	Plugin
+ * @subpackage Plugin
  */
 class plgContent_ECR_COM_NAME_ extends JPlugin
 {

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Custom options for EasyCreator extension templates.
  *
- * @package     EasyCreator
+ * @package EasyCreator
  */
 class EasyTemplateOptions
 {
