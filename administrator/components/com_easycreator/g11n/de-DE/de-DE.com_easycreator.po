@@ -1385,12 +1385,12 @@ msgid ""
 "EasyCreator is a developer tool.\n"
 "It tries to speed up the developing process of custom components, modules, plugin and templates.\n"
 "You can create a \"frame\" for your extension and an installable zip package with just a few \"clicks\""
-msgstr ""
+msgstr "EasyCreator ist ein Werkzeug für Entwickler."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:80
 #, php-format
 msgid "The %s Team."
-msgstr ""
+msgstr "Das %s Team"
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:86
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:56

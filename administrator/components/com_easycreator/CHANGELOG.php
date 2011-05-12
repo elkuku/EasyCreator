@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+--------------- 0.0.14 BETA -- [12-May-2011] ---------------------
+Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=14856
+
 10-May-2011 Nikolai Plath
  - Removed MooTools compat for Ajax
  + New example plugins for J! 1.6

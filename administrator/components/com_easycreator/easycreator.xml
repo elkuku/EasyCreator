@@ -21,8 +21,8 @@
   </uninstall>
   <files folder="site">
     <folder>assets</folder>
+    <folder>g11n</folder>
     <folder>helpers</folder>
-    <folder>language</folder>
     <folder>views</folder>
     <filename>controller.php</filename>
     <filename>easycreator.php</filename>
@@ -34,9 +34,9 @@
       <folder>builds</folder>
       <folder>controllers</folder>
       <folder>exports</folder>
+      <folder>g11n</folder>
       <folder>helpers</folder>
       <folder>install</folder>
-      <folder>language</folder>
       <folder>logs</folder>
       <folder>results</folder>
       <folder>scripts</folder>
@@ -48,7 +48,6 @@
       <filename>controller.php</filename>
       <filename>defines.php</filename>
       <filename>easycreator.php</filename>
-      <filename>easycreator.xml</filename>
       <filename>functions.php</filename>
     </files>
   </administration>
@@ -67,6 +66,6 @@
     <param name="warn_livesite" type="radio" label="Livesite warning" default="1" />
     <param name="use_google_trans_api" type="radio" label="Use Google translation API" default="1" />
     <param name="langfiles_chk_bom" type="radio" label="Check for BOM" default="1" />
-    <param name="ecr_debug_type" type="list" label="Debugger Type" default="easy" />
+    <param name="ecr_debug_type" type="list" label="Debugger Type" default="krumo" />
   </params>
 </install>

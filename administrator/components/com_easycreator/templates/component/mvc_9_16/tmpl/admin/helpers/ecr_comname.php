@@ -32,9 +32,9 @@ abstract class _ECR_COM_NAME_Helper
         {
             $document = JFactory::getDocument();
 
-            $document->addStyleDeclaration(
-            '.icon-48-_ECR_LOWER_COM_NAME_-categories '
-            .'{background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png) !important;}'); //-- dirty ;(
+            $document->addStyleSheet(JURI::root(true).'/administrator/components/_ECR_COM_COM_NAME_/assets/css/categories.css');
+
+            //-- NOTE: The proper way seems to be adding the css and images to the /media folder - coming soon =;) (@todo)
 
             //-- Fixed J! 1.6 ""constant""
             $document->setTitle(JText::_('_ECR_UPPER_COM_COM_NAME__ADMINISTRATION_CATEGORIES'));//-- @todo: do better =;)
