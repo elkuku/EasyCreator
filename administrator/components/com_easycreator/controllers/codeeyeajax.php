@@ -56,7 +56,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
-        $phpUnit = new EasyPHPUnit();
+        $phpUnit = new EasyPHPUnit;
 
         ob_start();
         $results = $phpUnit->test($arguments);
@@ -114,7 +114,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
-        $seleniumTest = new EasySeleniumTest();
+        $seleniumTest = new EasySeleniumTest;
 
         ob_start();
         $results = $seleniumTest->test($arguments);
@@ -193,7 +193,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                         $arguments[] = '--bootstrap '.JPATH_ROOT.DS.'bootstrap.php';
                         $arguments[] = '--skeleton-test '.$class.' '.$path;
 
-                        $phpUnit = new EasyPHPUnit();
+                        $phpUnit = new EasyPHPUnit;
 
                         ob_start();
                         $results = $phpUnit->skeleton($arguments);
@@ -358,7 +358,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             ob_start();
 
-            $sniffer = new EasyCodeSniffer();
+            $sniffer = new EasyCodeSniffer;
 
             $standard = JRequest::getVar('sniff_standard');
 
@@ -428,7 +428,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             }
 
             ob_start();
-            $phpcpd = new EasyPHPCPD();
+            $phpcpd = new EasyPHPCPD;
 
             $results = $phpcpd->detect($arguments, $path);
 
@@ -458,7 +458,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             $converter = JRequest::getVar('converter');
             $options = JRequest::getVar('options');
 
-            $phpDoc = new EasyPHPDoc();
+            $phpDoc = new EasyPHPDoc;
 
             if($converter)
             {
@@ -532,7 +532,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $response = array();
 
-            $pearConsole = new EasyPearConsole();
+            $pearConsole = new EasyPearConsole;
 
             ob_start();
             $pearPackages = $pearConsole->getPackages();

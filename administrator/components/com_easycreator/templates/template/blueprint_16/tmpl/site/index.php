@@ -22,7 +22,7 @@ dir="<?php echo $this->direction; ?>" >
             <div id="header">
                 <h1 class="sitename">
                     <?php
-                        echo $application->getCfg('sitename'); //Seitenname ausgeben
+                        echo $application->getCfg('sitename');
                         echo '<br />';
                         echo $templateParams->get('sitetitle');
                         echo '<br />';
@@ -34,7 +34,6 @@ dir="<?php echo $this->direction; ?>" >
             <div id="main">
                 <div id="content">
                     <?php if ($this->getBuffer('message')) : ?>
-                        <!-- Das Error Div wird nur eingebunden, wenn eine Nachricht existiert  -->
                         <div class="error">
                             <h2><?php echo JText::_('Message'); ?></h2>
                             <jdoc:include type="message" />

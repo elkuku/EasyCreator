@@ -650,9 +650,32 @@ class JoomlaManifest extends JObject
         if($this->project->isNew)
         {
             //-- No parameters for new projects
+            if('template' != $this->project->type)
+            return true;
+
+            //-- Except for templates :(
+            $path = $this->project->buildPath;
+
+            $path .= '/site';//@todo admin templates ?
+
+            $fileName = $path.'/templateDetails.xml';
+
+            if( ! JFile::exists($fileName))
+            return true;
+
+            $refXml = EasyProjectHelper::getXML($fileName);
+
+            $params = $this->manifest->addChild('params');
+            $this->appendXML($params, $refXml->params);
+
+            $config = $this->manifest->addChild('config');
+            $this->appendXML($config, $refXml->config);
+
+            $positions = $this->manifest->addChild('positions');
+            $this->appendXML($positions, $refXml->positions);
+
             return true;
         }
-
         //-- Search if there is a config.xml
         $fileName = EasyProjectHelper::findConfigXML($this->project->type, $this->project->comName);
 
@@ -699,6 +722,25 @@ class JoomlaManifest extends JObject
 
             $config = $this->manifest->addChild('config');
             $this->appendXML($config, $refXml->config);
+
+            if('template' == $this->project->type)
+            {
+                switch ($this->project->JCompat)
+                {
+                    case '1.5':
+                        ;
+                        break;
+                    case '1.6':
+                        $positions = $this->manifest->addChild('positions');
+                        $this->appendXML($positions, $refXml->positions);
+                        ;
+                        break;
+
+                    default:
+                        ecrHTML::displayMessage(__METHOD__.' : Undefined JVersion', 'error');
+                        break;
+                }//switch
+            }
 
             return true;
 
@@ -749,9 +791,9 @@ class JoomlaManifest extends JObject
             //                    }//foreach
             //                }//foreach
             //            }//foreach
-}
+        }
 
-return true;
+        return true;
     }//function
 
     /**

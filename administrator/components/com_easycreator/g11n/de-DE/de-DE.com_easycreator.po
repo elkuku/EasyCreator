@@ -2585,8 +2585,8 @@ msgstr "Format der Sprachdateien"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:70
 #, php-format
-msgid "* Note that those language file formats\\n needs a special language handler called \"g11n\" - What ?\\nPlease refer to <a href=\"%s\">Wiki.Joomla-Nafu.de</a> for more information."
-msgstr ""
+msgid "* Note that those language file formats\n needs a special language handler called \"g11n\" - What ?\nPlease refer to <a href=\"%s\">Wiki.Joomla-Nafu.de</a> for more information."
+msgstr "* Bitte beachten Sie, dass diese Formate\n einen spezielle Bibliothek mit Namen \"g11n\" benötigen - Wie bitte ?\nMehr Informationen finden Sie auf <a href=\"%s\">Wiki.Joomla-Nafu.de</a>."
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:22
 msgid "Menu"

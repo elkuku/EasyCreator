@@ -462,7 +462,7 @@ class EasyBuilder extends JObject
         ecrLoadHelper('manifest');
 
         //@todo: JVersion
-        $manifest = new JoomlaManifest();
+        $manifest = new JoomlaManifest;
 
         $this->project->isNew = true;
         $this->project->basepath = $this->_buildDir;

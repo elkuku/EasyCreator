@@ -1570,8 +1570,13 @@ case 'etc':
         }//foreach
 
         //-- No existing file found - return the last file from the array
-        $fileName = $paths[0].DS.$addPath;
 
-        return $fileName;
+        if(isset($paths[0]))
+        {
+            return $paths[0].DS.$addPath;
+        }
+
+        //-- Found nothing :(
+        return '';
     }//function
 }//class

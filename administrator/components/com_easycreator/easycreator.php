@@ -30,7 +30,7 @@ defined('_JEXEC') || die('=;)');
 
 //-- Dev mode - internal use =;)
 define('ECR_DEV_MODE', 1);//@@DEBUG
-xdebug_break();
+//xdebug_break();
 jimport('joomla.error.profiler');
 
 $profiler = JProfiler::getInstance('Application');

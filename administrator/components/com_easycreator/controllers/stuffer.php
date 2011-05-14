@@ -164,14 +164,14 @@ class EasyCreatorControllerStuffer extends JController
             if( ! isset($relations[$tableName]['foreign_table_field']))
             throw new Exception(jgettext('Invalid options'));
 
-            $relation = new EasyTableRelation();
+            $relation = new EasyTableRelation;
 
             $relation->type = $relations[$tableName]['join_type'];
             $relation->field = $relations[$tableName]['own_field'];
             $relation->onTable = $relations[$tableName]['foreign_table'];
             $relation->onField = $relations[$tableName]['foreign_table_field'];
 
-            $alias = new EasyTableRelationAlias();
+            $alias = new EasyTableRelationAlias;
 
             $alias->alias = $relations[$tableName]['alias'];
             $alias->aliasField = $relations[$tableName]['alias_field'];
