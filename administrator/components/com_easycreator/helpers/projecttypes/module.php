@@ -244,7 +244,7 @@ class EasyProjectModule extends EasyProject
                         break;
 
                     default:
-                        JError::raiseWarning(100, __METHOD__.' - Unknown J version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
             case 'site':
@@ -266,7 +266,7 @@ class EasyProjectModule extends EasyProject
                         , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper');
                         break;
                     default:
-                        JError::raiseWarning(100, __METHOD__.' - Unknown J version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
                 break;

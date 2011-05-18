@@ -45,7 +45,7 @@ class EasyCreatorViewConfig extends JView
                 break;
 
             default:
-                ecrHTML::displayMessage(sprintf(jgettext('Unsupported Joomla! version %s'), ECR_JVERSION));
+                ecrHTML::displayMessage(sprintf(jgettext('%s - Unsupported Joomla! version %s'),__METHOD__, ECR_JVERSION));
 
                 ecrHTML::easyFormEnd();
 

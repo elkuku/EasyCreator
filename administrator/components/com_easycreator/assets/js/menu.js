@@ -14,6 +14,20 @@ var stdMenuImgs = new Array('archive', 'article', 'category', 'checkin',
         'menu', 'menumgr', 'messages', 'module', 'plugin', 'section', 'static',
         'stats', 'themes', 'trash', 'user ');
 
+//sortSubMenu.addItems(newdiv);
+//var sortSubMenu = new Sortables('#divSubmenu', {
+//});
+
+function newSubmenu(x, x, x, x, x, parent)
+{
+    newLi = addSubmenu('', '', '', '', '', parent);
+//console.log(parent);
+    if('1.5' != ECR_JVERSION)
+    {
+    	sortSubMenu.addItems(newLi);
+    }
+}
+
 function addSubmenu(text, link, image, ordering, menuid, parent)
 {
     var ni = $('divSubmenu');
@@ -23,12 +37,15 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     numi.value = num;
     
     var divIdName = 'submenu'+num+'Div';
-    var newdiv = document.createElement('div');
     
-    newdiv.setAttribute('id', divIdName);
+    var newdiv = document.createElement('li');
+    
+   // newdiv.setAttribute('id', divIdName);
+    newdiv.setAttribute('class', 'menu');
 
     html = '';
-    html += '<div style="border-bottom: 1px solid gray; margin-bottom: 0.5em;">';
+//    html += '<li>';
+//    html += '<div style="border-bottom: 1px solid gray; margin-bottom: 0.5em;">';
     html += '<input type="hidden" name="submenu['+num+'][menuid]" value="'+menuid+'" />';
     
     if (parent)
@@ -40,12 +57,17 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += "<span class=\"ecr_label2\">" + jgettext('Text')
             + "</span><input type=\"text\" name=\"submenu[" + num
             + "][text]\" size=\"15\" value=\"" + text
-            + "\" style=\"font-size: 1.3em;\" />";
+            + "\" style=\"border: 2px solid blue; font-size: 1.3em;\" />";
     html += '<span class="ecr_label2">' + jgettext('Link') + '</span>';
     html += "<input type=\"text\" name=\"submenu[" + num
             + "][link]\" size=\"25\" value=\"" + link + "\" />";
-    html += '<span class="ecr_label2">' + jgettext('Ordering') + '</span>';
-    html += '<input type="text" name="submenu['+num+'][ordering]" size="2" value="'+ordering+'" />';
+
+    if('1.5' == ECR_JVERSION)
+    {
+        html += '<span class="ecr_label2">' + jgettext('Ordering') + '</span>';
+        html += '<input type="text" name="submenu['+num+'][ordering]" size="2" value="'+ordering+'" />';
+    }
+
     html += '<br />';
     html += '<br />';
     html += "<span class=\"ecr_label2\">" + jgettext('Image') + "</span>";
@@ -53,14 +75,19 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += "<div id=\"prev-" + num + "\" style=\"display: inline;\"></div>";
     html += "<input type=\"text\" name=\"submenu[" + num
             + "][img]\" size=\"30\" value=\"" + image + "\" id=\"img-" + num + "\" />";
-    html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\" onclick=\"removeElement(\'"
-        + divIdName + "\', 'divSubmenu')\">" + jgettext('Delete') + "</div>";
-    html += '<br />';
-    html += '</div>';
+    html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\""
+    	+ " onclick=\"this.getParent().dispose();\">" + jgettext('Delete') + "</div>";
+  //  html += '<br />';
+//    html += '</div>';
+//    html += '</li>';
 
     newdiv.innerHTML = html;
+
     ni.appendChild(newdiv);
+    
     drawPicChooser(num, image);
+    
+    return newdiv;
 }//function
 
 function chgMenuPic(num)

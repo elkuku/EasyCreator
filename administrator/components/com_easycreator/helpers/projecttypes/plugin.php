@@ -256,7 +256,7 @@ class EasyProjectPlugin extends EasyProject
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
-                JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');
+                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
         }//switch
 
@@ -297,12 +297,16 @@ class EasyProjectPlugin extends EasyProject
                         break;
                     case 'system':
                         $projects = array('backlink', 'cache', 'debug', 'legacy', 'log', 'remember', 'sef');
+                        $projects[] = 'mtupgrade';
                         break;
                     case 'user':
                         $projects = array('example', 'joomla');
                         break;
                     case 'xmlrpc':
                         $projects = array('blogger', 'joomla');
+                        break;
+                    default :
+                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
                 }//switch
                 break;
@@ -336,10 +340,13 @@ class EasyProjectPlugin extends EasyProject
                     case 'user':
                         $projects = array('example', 'contactcreator', 'joomla', 'profile');
                         break;
+                    default :
+                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        break;
                 }//switch
                 break;
             default:
-                JError::raiseWarning(100, 'EasyProjectPlugin::getCoreProjects Unknown J version');
+                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
         }//switch
 

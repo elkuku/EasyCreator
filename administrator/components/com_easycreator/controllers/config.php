@@ -63,7 +63,7 @@ class EasyCreatorControllerConfig extends JController
                     break;
 
                 default:
-                    throw new Exception(jgettext('Unsupported Joomla! version'));
+                    throw new Exception(__METHOD__.' - '.jgettext('Unsupported Joomla! version'));
                     break;
             }//switch
 

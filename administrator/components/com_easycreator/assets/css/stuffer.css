@@ -43,3 +43,7 @@ ul.sortable li:hover {
 ul#package-to {
 	background-color: #f2ffff;
 }
+
+ul.sortable li.menu {
+	height: 80px;
+}

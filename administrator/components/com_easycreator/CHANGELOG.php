@@ -52,6 +52,10 @@ Legend:
  ! -> Note
 ______________________________________________
 
+10-May-2011 Nikolai Plath
+ # Fixed admin menus in J! 1.6
+ + Drag & Drop in admin menu manager (1.6 only)
+
 --------------- 0.0.14 BETA -- [12-May-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=14856
 

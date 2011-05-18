@@ -238,7 +238,7 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     default:
-                        JError::raiseWarning(100, 'EasyProjectTemplate::getCoreProjects Unknown J version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
                 break;
@@ -253,7 +253,7 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('atomic', 'beez_20', 'beez5', 'rhuk_milkyway', 'system');
                         break;
                     default:
-                        JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
                 break;

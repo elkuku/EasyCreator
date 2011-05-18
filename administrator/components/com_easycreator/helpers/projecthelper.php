@@ -46,7 +46,7 @@ class EasyProjectHelper
                 break;
 
             default:
-                ;
+                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
         }
 

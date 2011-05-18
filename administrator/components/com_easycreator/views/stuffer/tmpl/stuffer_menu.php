@@ -52,20 +52,23 @@ defined('_JEXEC') || die('=;)');
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <div id="divSubmenu">
-                            <!--                            -->
-                            <!--          Submenu            -->
-                            <!-- To be filled by javascript -->
-                            <!--                            -->
-                        </div>
                     </td>
                 </tr>
             </table>
             <span style="float: right;" class="ecr_button img icon-16-add"
-            onclick="addSubmenu('', '', '', '', '', '<?php echo $this->project->menu['menuid']; ?>');">
+            onclick="newSubmenu('', '', '', '', '', '<?php echo $this->project->menu['menuid']; ?>');">
                 <?php echo jgettext('Add Submenu'); ?>
             </span>
         </td>
     </tr>
 </table>
+<?php
+$class =('1.5' != ECR_JVERSION) ? 'class="sortable"' : '';
+?>
+<ul id="divSubmenu" <?php echo $class; ?>>
+    <!--                            -->
+    <!--          Submenu            -->
+    <!-- To be filled by javascript -->
+    <!--                            -->
+</ul>
 <?php echo ecrHTML::floatBoxEnd();

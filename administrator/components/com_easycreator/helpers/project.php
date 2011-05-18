@@ -354,42 +354,6 @@ abstract class EasyProject extends JObject
     }//function
 
     /**
-     * Updates the administration main menu.
-     *
-     * @return boolean
-     */
-    private function updateAdminMenu()
-    {
-        if(ECR_JVERSION == '1.6')
-        {
-            JError::raiseNotice(100, 'Admin menus are still strange in J! 1.6 - not saving..');
-
-            return true;
-        }
-
-        $menu = JRequest::getVar('menu', array());
-
-        if(isset($menu['text']) && $menu['text'])
-        {
-            $menu['ordering'] = 0;
-            $this->setDbMenuItem($menu);
-        }
-
-        //--Submenu
-        $submenu = JRequest::getVar('submenu', array());
-
-        foreach($submenu as $menu)
-        {
-            if(isset($menu['text']) && $menu['text'])
-            {
-                $this->setDbMenuItem($menu);
-            }
-        }//foreach
-
-        return true;
-    }//function
-
-    /**
      * Updates the EasyCreator configuration file for the project.
      *
      * @param boolean $testMode If set to 'true' xml file will be generated but not written to disk

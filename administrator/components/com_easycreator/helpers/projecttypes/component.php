@@ -358,6 +358,75 @@ class EasyProjectComponent extends EasyProject
     }//function
 
     /**
+     * Updates the administration main menu.
+     *
+     * @return boolean
+     */
+    protected function updateAdminMenu()
+    {
+        $menu = JRequest::getVar('menu', array());
+
+        if( ! isset($menu['text'])
+        || ! $menu['text'])
+        {
+            $this->setError(__METHOD__.' - Empty admin menu');
+
+            return false;
+        }
+
+        if(ECR_JVERSION == '1.6')
+        {
+            $db = JFactory::getDbo();
+
+            $query	= $db->getQuery(true);
+
+            $query->from('#__menu AS m');
+            $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
+            $query->select('m.id, e.extension_id');
+            $query->where('m.parent_id = 1');
+            $query->where("m.client_id = 1");
+            $query->where('e.element = '.$db->quote($this->comName));
+
+            $db->setQuery($query);
+
+            $componentrow = $db->loadObject();
+
+            if($componentrow)
+            {
+                //-- So... in 1.6 we remove the admin menu first
+                $this->removeAdminMenus($componentrow);
+            }
+
+            $menu['parent'] = 1;
+            $menu['level'] = 1;
+        }
+
+        $menu['ordering'] = 0;
+        $mId = $this->setDbMenuItem($menu);
+
+        //-- Submenu
+        $submenu = JRequest::getVar('submenu', array());
+
+        foreach($submenu as $menu)
+        {
+            if(isset($menu['text'])
+            && $menu['text'])
+            {
+                if(ECR_JVERSION == '1.6')
+                {
+                    $menu['level'] = 2;
+                    $menu['parent'] = $mId;
+
+                }
+
+                $this->setDbMenuItem($menu);
+            }
+        }//foreach
+
+        return true;
+    }//function
+
+    /**
      * Add a submenu entry.
      *
      * @param string $text Menu title
@@ -412,7 +481,7 @@ class EasyProjectComponent extends EasyProject
                 $this->menu['img'] = $dbRow->admin_menu_img;
                 $this->menu['menuid'] = $dbRow->id;
 
-                //--Get submenu entries
+                //-- Get submenu entries
                 $query->clear('where');
 
                 $query->where('parent = '.$this->menu['menuid']);
@@ -444,9 +513,11 @@ class EasyProjectComponent extends EasyProject
                 $query = $db->getQuery(true);
 
                 $query->from('#__menu AS m');
-                $query->select('m.*');
-                $query->where('m.title = '.$db->quote($this->name));
+                $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
+                $query->select('m.title, m.link, m.img, m.id, e.extension_id');
                 $query->where('m.parent_id = 1');
+                $query->where("m.client_id = 1");
+                $query->where('e.element = '.$db->quote($this->comName));
 
                 $db->setQuery($query);
 
@@ -460,10 +531,11 @@ class EasyProjectComponent extends EasyProject
                 $this->menu['img'] = $dbRow->img;
                 $this->menu['menuid'] = $dbRow->id;
 
-                //--Get submenu entries
+                //-- Get submenu entries
                 $query->clear('where');
 
                 $query->where('m.parent_id = '.$this->menu['menuid']);
+                $query->order('m.id');
 
                 $submenus = $db->loadObjectList();
 
@@ -478,10 +550,10 @@ class EasyProjectComponent extends EasyProject
                     $this->submenu[$i]['text'] = $submenu->title;
                     $this->submenu[$i]['link'] = $submenu->link;
                     $this->submenu[$i]['img'] = $submenu->img;
-                    $this->submenu[$i]['ordering'] = $submenu->ordering;
+                    $this->submenu[$i]['ordering'] = 0;//$submenu->ordering;
                     $this->submenu[$i]['menuid'] = $submenu->id;
 
-                    $i++;
+                    $i ++;
                 }//foreach
                 break;
 
@@ -494,6 +566,64 @@ class EasyProjectComponent extends EasyProject
 
         return;
     }//function
+
+    /**
+     * Method to remove admin menu references to a component
+     *
+     * @param   object  $component	Component table object
+     *
+     * @return  boolean  True if successful
+     */
+    protected function removeAdminMenus($row)
+    {
+        // Initialise Variables
+        $db = JFactory::getDbo();
+        $table = JTable::getInstance('menu');
+        $id = $row->extension_id;
+
+        // Get the ids of the menu items
+        $query = $db->getQuery(true);
+
+        $query->from('#__menu');
+        $query->select('id');
+        $query->where('`client_id` = 1');
+        $query->where('`component_id` = '.(int) $id);
+
+        $db->setQuery($query);
+
+        $ids = $db->loadResultArray();
+
+        // Check for error
+        if ($error = $db->getErrorMsg() || empty($ids))
+        {
+            JError::raiseWarning('', JText::_('JLIB_INSTALLER_ERROR_COMP_REMOVING_ADMIN_MENUS_FAILED'));
+
+            if ($error && $error != 1)
+            {
+                JError::raiseWarning(100, $error);
+            }
+
+            return false;
+        }
+        else
+        {
+            // Iterate the items to delete each one.
+            foreach($ids as $menuid)
+            {
+                if( ! $table->delete((int) $menuid))
+                {
+                    $this->setError($table->getError());
+
+                    return false;
+                }
+            }//foreach
+
+            // Rebuild the whole tree
+            $table->rebuild();
+        }
+
+        return true;
+    }//functin
 
     /**
      * Updates a menu entry in database / Insert new one if not exists.
@@ -542,89 +672,42 @@ class EasyProjectComponent extends EasyProject
             case '1.6':
                 $table	= JTable::getInstance('menu');
 
-                if( ! $item['menuid'])
+                $data = array();
+                $data['menutype'] = 'main';
+                $data['client_id'] = 1;
+                $data['title'] = $item['text'];
+                $data['alias'] = $item['text'];
+                $data['type'] = 'component';
+                $data['published'] = 0;
+                $data['level'] = $item['level'];
+                $data['parent_id'] = (int)$item['parent'];
+                $data['component_id'] = (int)$this->dbId;
+                $data['img'] = $item['img'];
+                $data['link'] = $item['link'];
+                $data['home'] = 0;
+                $data['params'] = '';
+
+                if( ! $table->setLocation($data['parent_id'], 'last-child')
+                || ! $table->bind($data)
+                || ! $table->check()
+                || ! $table->store())
                 {
-                    //-- New item
-                    //                    $query->clear();
-                    //                    $query->insert('#__menu');
-                    //                    $query->set('menutype = '.$db->quote('_adminmenu'));
-                    //                    $query->set('title = '.$db->quote($this->comName));
-                    //                    $query->set('alias = '.$db->quote($item['text']));
-                    //                    $query->set('link = '.$db->quote($item['link']));
-                    //                    $query->set('img = '.$db->quote($item['img']));
-                    //                    $query->set('ordering = '.(int)$item['ordering']);
-                    //
-                    //                    $query->set('component_id = '.(int)$this->dbId);
-                    //                    $query->set('published = 0');
-                    //                    $query->set('home = 0');
-                    //                    $query->set('parent_id = '.(int)$item['parent']);
+                    $this->setError($table->getError());
 
-                    $data = array();
-                    $data['menutype'] = '_adminmenu';
-                    $data['title'] = $this->comName;
-                    $data['alias'] = $item['text'];
-                    $data['type'] = 'component';
-                    $data['published'] = 0;
-                    $data['parent_id'] = (int)$item['parent'];
-                    $data['component_id'] = (int)$this->dbId;
-                    $data['img'] = $item['img'];
-                    $data['link'] = $item['link'];
-                    $data['home'] = 0;
-                    $data['params'] = '';
-
-                    //if( ! $table->setLocation(1, 'last-child')
-                    if( ! $table->bind($data)
-                    || ! $table->check()
-                    || ! $table->store())
-                    {
-                        $this->setError($table->getErrorMsg());
-
-                        return false;
-                    }
-
-                    return true;
+                    return false;
                 }
-                else
-                {
-                    //-- Update existing item
-                    //                    $query->clear();
-                    //                    $query->update('#__menu');
-                    //                    $query->where('id = '.(int)$item['menuid']);
-                    //                    $query->set('alias = '.$db->quote($item['text']));
-                    //                    $query->set('link = '.$db->quote($item['link']));
-                    //                    $query->set('img = '.$db->quote($item['img']));
-                    //                    $query->set('ordering = '.(int)$item['ordering']);
-                    $data = array();
-                    $data['id'] = (int)$item['menuid'];
-                    $data['menutype'] = '_adminmenu';
-                    $data['title'] = $this->comName;
-                    $data['alias'] = $item['text'];
-                    $data['type'] = 'component';
-                    $data['published'] = 0;
-                    $data['parent_id'] =(isset($item['parent'])) ? (int)$item['parent'] : 1;
-                    $data['component_id'] = (int)$this->dbId;
-                    $data['img'] = $item['img'];
-                    $data['link'] = $item['link'];
-                    $data['home'] = 0;
-                    $data['params'] = '';
 
-                    //if( ! $table->setLocation(1, 'last-child')
-                    if( ! $table->bind($data)
-                    || ! $table->check()
-                    || ! $table->store())
-                    {
-                        $this->setError($table->getError());
+                $parent_id = $table->id;
 
-                        return false;
-                    }
+                // Rebuild the whole tree
+                $table->rebuild();
 
-                    return true;
-                }
+                return $parent_id;
 
                 break;
 
             default:
-                ecrHTML::displayMessage('Unknown JVersion', 'error');
+                ecrHTML::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
 
                 return false;
                 break;

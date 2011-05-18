@@ -102,7 +102,7 @@ class EasyProjectLibrary extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(0, __METHOD__.' Unknown J version');
+                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
         }//switch
 
@@ -199,7 +199,7 @@ class EasyProjectLibrary extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(0, __METHOD__.' Unknown J version');
+                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
         }//switch
 

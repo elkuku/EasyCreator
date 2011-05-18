@@ -53,7 +53,7 @@ if($this->scope != 'menu')
             break;
 
         default:
-            ecrHTML::displayMessage('Undefined JVersion: '.ECR_JVERSION, 'error');
+            ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
             break;
     }//switch
 

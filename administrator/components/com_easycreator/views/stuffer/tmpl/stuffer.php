@@ -63,6 +63,7 @@ if($this->project->type == 'component'):
 
     $js[] = '//--Submenus added by PHP';
 
+
     if(isset($this->project->submenu)) :
         foreach($this->project->submenu as $submenu) :
             $js[] = "addSubmenu('{$submenu['text']}', '".$submenu['link']
@@ -70,6 +71,13 @@ if($this->project->type == 'component'):
                 ."', '{$submenu['menuid']}', '{$this->project->menu['menuid']}');";
         endforeach;
     endif;
+
+    if('1.5' != ECR_JVERSION)
+    {
+        $js[] = "sortSubMenu = new Sortables('#divSubmenu', {
+        clone: true
+    	});";
+    }
 
     $js[] = '//--Package modules added by PHP';
 
@@ -115,7 +123,7 @@ if($this->project->type == 'component'):
     echo $this->loadTemplate('package');
     echo $this->loadTemplate('autocode');
     echo $this->loadTemplate('language');
-    endif;
+endif;
 ?>
 <?php if($this->project->type == 'package') echo $this->loadTemplate('packageelements'); ?>
 

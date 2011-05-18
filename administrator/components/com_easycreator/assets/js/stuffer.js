@@ -46,5 +46,5 @@ window.addEvent('domready', function()
 		clone : true,
 		revert : true
 	});
-
+	
 });

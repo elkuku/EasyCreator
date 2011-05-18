@@ -523,6 +523,8 @@ class EasyCreatorControllerStuffer extends JController
 
             $project->updateProjectFromRequest();
 
+            $project = EasyProjectHelper::getProject('', true);//-- Reload the project
+
             JFactory::getApplication()->enqueueMessage(jgettext('The Settings have been updated'));
         }
         catch(Exception $e)

@@ -31,6 +31,7 @@ class EasyTemplateOptions
                 break;
 
             default:
+                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
         }//switch
     }//function

@@ -233,7 +233,7 @@ class EasyProjectEmpty extends EasyProject
                         break;
 
                     default:
-                        JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
 
@@ -258,7 +258,7 @@ class EasyProjectEmpty extends EasyProject
                         , 'mod_wrapper');
                         break;
                     default:
-                        JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown J version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
 
