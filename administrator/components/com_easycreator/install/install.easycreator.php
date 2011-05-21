@@ -14,6 +14,7 @@ defined('_JEXEC') || die('=;)');
 defined('NL') || define('NL', "\n");
 
 define('ECR_XML_LOCATION', $this->parent->getPath('manifest'));
+//define('ECR_XML_LOCATION', JPATH_COMPONENT_ADMINISTRATOR.'/easycreator.xml');
 
 /**
  * Main installer.
@@ -34,12 +35,22 @@ function com_install()
 
     try
     {
-        if( ! jimport('g11n.language'))
+        if(jimport('g11n.language'))
         {
-            echo 'The g11n language library is required to run this extension.';
-            JError::raiseWarning(0, 'The g11n language library is required to run this extension.');
+            //-- Get our special language file
+            g11n::loadLanguage('com_easycreator');
+        }
+        else
+        {
+            //ecrLoadHelper('g11n_dummy');
+            JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR.'/components/com_easycreator');
 
-            return false;
+            echo '<h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>';
+            echo '<h3 style="color: red;">If you like EasyCreator in you language, just install the g11n language library :</h3>';
+            echo '<h3 style="color: red;"><a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">Download lig_g11n</a></h3>';
+            //JError::raiseWarning(0, 'The g11n language library is required to run this extension.');
+
+            //return false;
         }
 
         if( ! $xml = simplexml_load_file(ECR_XML_LOCATION))
@@ -49,8 +60,6 @@ function com_install()
             return false;
         }
 
-        //-- Get our special language file
-        g11n::loadLanguage('com_easycreator');
     }
     catch(Exception $e)
     {
@@ -74,9 +83,9 @@ function com_install()
 	alt="EasyCreator Logo" title="EasyCreator Logo" /></div>
 
 <h1>EasyCreator</h1>
-    <?php echo jgettext("EasyCreator is a developer tool.\n"
-    ."It tries to speed up the developing process of custom components, modules, plugin and templates.\n"
-    ."You can create a \"frame\" for your extension and an installable zip package with just a few \"clicks\""); ?>
+    <?php echo jgettext('EasyCreator is a developer tool.'); ?><br />
+    <?php echo jgettext('It tries to speed up the developing process of custom Joomla! extensions.'); ?><br />
+    <?php echo jgettext('You can create a "frame" for your extension and an installable zip package with just a few "clicks"'); ?>
 
 <p>Happy coding,<br />
 <?php echo sprintf(jgettext('The %s Team.'), '<a href="http://joomlacode.org/gf/project/elkuku">EasyCreator</a>'); ?>

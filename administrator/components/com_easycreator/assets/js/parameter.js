@@ -69,6 +69,8 @@ function addGroup(name)
 {
 	html = "<div id='div-group-"+name+"'><h1>"+name+"</h1></div>";
 	$('divParameters').innerHTML += html;
+	
+	new Element('option', { text: name }).inject($('addParamGroup'));
 }//function
 
 function newParameter()
@@ -257,8 +259,8 @@ if(FBPresent)console.log('add option: ', groupName, ctrlName, value, data);
 
 function switchType(ctrlName, type)
 {
-if(FBPresent)console.log('switchType:'+ctrlName+'---'+type);
-	found = true;
+	if(FBPresent)console.log('switchType:'+ctrlName+'---'+type);
+	
 	switch (type)
 	{
 		case 'spacer':
@@ -297,24 +299,28 @@ if(FBPresent)console.log('switchType:'+ctrlName+'---'+type);
 		break;
 
 		default:
-			alert('UNDEFINED TYPE: '+type);
-			if(FBPresent) console.error('UNDEFINED TYPE: '+type);
-			found = false;
+			if(FBPresent)
+			{
+				console.error('UNDEFINED TYPE: '+type);
+			}
+			else
+			{
+				alert('UNDEFINED TYPE: '+type);
+			}
+
+			return;
 		break;
 	}// switch
 
-	if(found)
-	{
-		optionalFields.each(function(item) {
-			$(ctrlName+"-optional-"+item).setStyles({ display:'none' })
-		});
-		
-		paramTypes[type].each(function(item) {
-			$(ctrlName+"-optional-"+item).setStyles({ display:'table-row' });
-		});
-		$(ctrlName+'-type').innerHTML = type;
-	}// if found
+	optionalFields.each(function(item) {
+		$(ctrlName+"-optional-"+item).setStyles({ display:'none' })
+	});
 	
+	paramTypes[type].each(function(item) {
+		$(ctrlName+"-optional-"+item).setStyles({ display:'table-row' });
+	});
+
+	$(ctrlName+'-type').innerHTML = type;
 }//function
 
 function fadeIn(ctrl)

@@ -14,9 +14,6 @@ defined('_JEXEC') || die('=;)');
 jimport('joomla.html.pane');
 
 ecrScript('parameter');
-
-//var_dump($this->params);
-//return;
 ?>
 
 <div class="toolbar" style="float: right;">
@@ -26,8 +23,7 @@ ecrScript('parameter');
 			<?php echo $this->xmlSelector; ?>
 			</td>
 			<?php
-            if($this->selected_xml
-            && $this->params)
+            if($this->selected_xml && isset($this->params->_xml))
             {
             ?>
 			<td>
@@ -91,7 +87,7 @@ if( ! $this->selected_xml)
     return;
 }
 
-if( ! $this->params->params)
+if( ! isset($this->params->_xml))
 {
     ecrHTML::displayMessage(jgettext('No parameters defined'), 'notice');
     $this->drawDocLinks();
@@ -107,66 +103,88 @@ if( ! $this->params->params)
 <?php
 $jsCntSpacers = 0;
 
-$js = '';
-
-foreach($this->params->params as $group)
+foreach($this->params->_xml as $groupName => $group)
 {
     ?>
-	<script type="text/javascript">addGroup('<?php echo $group->attributes()->group; ?>');</script>
+	<script type="text/javascript">addGroup('<?php echo $groupName; ?>');</script>
 	<?php
     $i = 0;
 
-    foreach($group->param as $param)
+    foreach($group->_children as $param)
     {
-        if($param->attributes()->type == 'spacer')
+        if($param instanceof JSimpleXMLElement)
         {
-            $this->params->_xml[$groupName]->_children[$i]->_attributes['name'] = '@spacer';
-            $jsDivName = 'div_spacer_'.$jsCntSpacers;
-            $jsCntSpacers++;
-        }
-        else
-        {
-            $jsDivName = 'div_'.$param->attributes()->name;
-        }
-
-        $attribs = array();
-
-        foreach($param->attributes() as $k => $v)
-        {
-            $attribs[] = "\"$k\":\"$v\"";
-        }//foreach
-
-        $jsParamAttributes = '{'.implode(',', $attribs).'}';
-
-        $jsParamChildren = '';
-
-        if(count($param->children()))
-        {
-            $attribs = array();
-
-            foreach($param->children() as $child)
+            if($param->_attributes['type'] == 'spacer')
             {
-                $attribs[] = '"'.$child->attributes()->value.'":"'.(string)$child.'"';
-            }//foreach
+                $this->params->_xml[$groupName]->_children[$i]->_attributes['name'] = '@spacer';
+                $jsDivName = 'div_spacer_'.$jsCntSpacers;
+                $jsCntSpacers++;
+            }
+            else
+            {
+                $jsDivName = 'div_'.$param->_attributes['name'];
+            }
 
-            $jsParamChildren = '{'.implode(',', $attribs).'}';
+            drawParam($groupName, $param, $jsDivName);
         }
-
-        $jsArgs = "'".$group->attributes()->group."', ".$jsParamAttributes;
-        $jsArgs .=($jsParamChildren) ? ", ".$jsParamChildren : '';
-
-        $js .= 'startParam('.$jsArgs.');'.NL;
 
         $i++;
     }//foreach
 }//foreach
 ?>
-<!-- draws a js function call with a js object array from config xml as argument for drawing the html parameter - hu.. -->
-<script type="text/javascript">
-    <?php echo $js; ?>
-</script>
-
 <input type="hidden" name="jscnt_spacers" value="<?php echo $jsCntSpacers; ?>"/>
 <?php
-
 echo $this->drawDocLinks();
+
+/*
+ * FUNCTIONS..
+ */
+
+/**
+ * draws a js function call with a js object array from
+ * config xml as argument for drawing the html parameter - hu..
+ *
+ * @param string $groupName
+ * @param object $param
+ *
+ * @return void
+ */
+function drawParam($groupName, $param, $jsDivName)
+{
+    $attribs = array();
+
+    foreach($param->_attributes as $k=>$v)
+    {
+        $attribs[] = "\"$k\":\"$v\"";
+    }//foreach
+
+    $jsParamAttributes = '{'.implode(',', $attribs).'}';
+
+    $jsParamChildren = '';
+
+    if(count($param->_children))
+    {
+        $attribs = array();
+
+        foreach($param->_children as $child)
+        {
+            if($child instanceof JSimpleXMLElement)
+            {
+                $attribs[] = '"'.$child->_attributes['value'].'":"'.$child->_data.'"';
+            }
+        }//foreach
+
+        $jsParamChildren = '{'.implode(',', $attribs).'}';
+    }
+
+    $jsArgs = "'".$groupName."', ".$jsParamAttributes;
+    $jsArgs .=($jsParamChildren) ? ", ".$jsParamChildren : '';
+    /*
+	 * drawing html by javascript...
+	 */
+    ?>
+	<script type="text/javascript">
+		startParam(<?php echo $jsArgs; ?>);
+	</script>
+	<?php
+}//function

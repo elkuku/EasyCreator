@@ -304,11 +304,24 @@ class EasyCreatorViewStuffer extends JView
 
         if(in_array($selected_xml, $xmlFiles))
         {
+            switch (ECR_JVERSION)
+            {
+                case '1.5':
+                    $this->params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
+                    break;
+
+                case '1.6':
+                    $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
+                    break;
+
+                default:
+                    ecrHTML::displayMessage(__METHOD__.' - Undefined J! version', 'error');
+                    return false;
+                    break;
+            }
             //--Get the project params
-            $params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
         }
 
-        $this->assignRef('params', $params);
         $options = array();
         $options[] = JHTML::_('select.option', '', jgettext('Select'));
 
@@ -323,7 +336,13 @@ class EasyCreatorViewStuffer extends JView
         $this->assignRef('xmlSelector', $xmlSelector);
 
         $this->assignRef('selected_xml', $selected_xml);
-        $this->setLayout('projectparams');
+
+        $layout = 'projectparams';
+
+        if('1.5' == ECR_JVERSION)
+        $layout .= '_15';
+
+        $this->setLayout($layout);
     }//function
 
     /**
@@ -405,4 +424,37 @@ class EasyCreatorViewStuffer extends JView
 
         $this->setLayout('snippet');
     }//function
+
+    /**
+     * draws a list of related links
+     */
+    public function drawDocLinks()
+    {
+        $docLinks = array(
+        'Standard parameter types'=>'http://docs.joomla.org/Standard_parameter_types'
+        , 'Reference: XML parameters'
+        =>'http://dev.joomla.org/component/option,com_jd-wiki/Itemid,/id,references:xml_parameters/'
+        , 'Component parameters'=>'http://docs.joomla.org/Component_parameters'
+        , 'Defining a parameter in templateDetails.xml'=>'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
+        , 'Creating custom template parameter types'=>'http://docs.joomla.org/Creating_custom_template_parameter_types'
+        );
+
+        $ret = '';
+
+        $ret .= '<br /><hr /><br />';
+        $ret .= '<div class="explanation">';
+        $ret .= '<br /><strong style="background-color: white; padding: 5px;">'.jgettext('Infos on parameters (external)').'</strong>';
+        $ret .= '<ul>';
+
+        foreach($docLinks as $title => $link)
+        {
+            $ret .= '<li><a class="external" href="'.$link.'" target="_blank" />'.$title.'</a></li>';
+        }//foreach
+        $ret .= '</ul>';
+        $ret .= '</div>';
+        $ret .= '<br />';
+
+        return $ret;
+    }//function
+
 }//class

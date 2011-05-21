@@ -1382,10 +1382,13 @@ msgid "Install manifest not found"
 msgstr ""
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:75
-msgid ""
-"EasyCreator is a developer tool.\n"
-"It tries to speed up the developing process of custom components, modules, plugin and templates.\n"
-"You can create a \"frame\" for your extension and an installable zip package with just a few \"clicks\""
+msgid "EasyCreator is a developer tool."
+msgstr ""
+
+msgid "It tries to speed up the developing process of custom Joomla! extensions."
+msgstr ""
+
+msgid "You can create a \"frame\" for your extension and an installable zip package with just a few \"clicks\""
 msgstr ""
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:80

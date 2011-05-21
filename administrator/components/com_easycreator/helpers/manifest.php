@@ -728,12 +728,10 @@ class JoomlaManifest extends JObject
                 switch ($this->project->JCompat)
                 {
                     case '1.5':
-                        ;
                         break;
                     case '1.6':
                         $positions = $this->manifest->addChild('positions');
                         $this->appendXML($positions, $refXml->positions);
-                        ;
                         break;
 
                     default:

@@ -33,6 +33,15 @@ $blacks = array('_default', 'Personal');
 <div style="clear: both;"></div>
 
 <?php
+if( ! class_exists('Xg11n')) :
+
+    echo '<div style="background-color: #ffc; border: 1px solid orange; padding: 0.5em;">'
+    .'EasyCreator is in "English ONLY" mode !'
+    .' If you want a localized version, please install the g11n library. - '
+    .'<a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">Download lig_g11n</a>'
+    .'</div>';
+endif;
+
 foreach(array_keys($groups) as $group):
     $style = str_replace(' ', '_', strtolower($group));
     ecrHTML::floatBoxStart();

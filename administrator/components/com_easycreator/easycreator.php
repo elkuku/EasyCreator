@@ -29,8 +29,8 @@
 defined('_JEXEC') || die('=;)');
 
 //-- Dev mode - internal use =;)
-define('ECR_DEV_MODE', 1);//@@DEBUG
-//xdebug_break();
+define('ECR_DEV_MODE', 0);//@@DEBUG
+
 jimport('joomla.error.profiler');
 
 $profiler = JProfiler::getInstance('Application');
@@ -68,24 +68,44 @@ if(ECR_DEV_MODE)
         define('ECR_DEBUG_LANG', 0);
     }
 }
+else
+{
+    define('ECR_DEBUG', 0);
+}
+
+//-- Load helpers
+ecrLoadHelper('easycreator');
+ecrLoadHelper('html');
+ecrLoadHelper('projecthelper');
+ecrLoadHelper('languagehelper');
 
 //-- Load the special Language
 try
 {
     if( ! jimport('g11n.language'))
-    throw new Exception('The g11n language library is required to run this extension.');
-
-    //TEMP@@debug
-    if(ECR_DEBUG_LANG)
     {
-        g11n::cleanStorage();//@@DEBUG
+        //-- Load dummy language handler - english only !
+        ecrLoadHelper('g11n_dummy');
+
+        ecrScript('g11n_dummy');
+        ecrScript('php2js');
+        //        throw new Exception('The g11n language library is required to run this extension.');
     }
+    else
+    {
 
-    //TEMP@@debug
-    g11n::setDebug(ECR_DEBUG_LANG);
+            g11n::cleanStorage();//@@DEBUG
+        //TEMP@@debug
+        if(ECR_DEV_MODE && ECR_DEBUG_LANG)
+        {
+            g11n::setDebug(ECR_DEBUG_LANG);
+        }
 
-    //-- Get our special language file
-    g11n::loadLanguage();
+        //TEMP@@debug
+
+        //-- Get our special language file
+        g11n::loadLanguage();
+    }
 }
 catch(Exception $e)
 {
@@ -93,12 +113,6 @@ catch(Exception $e)
 
     return;
 }//try
-
-//-- Load helpers
-ecrLoadHelper('easycreator');
-ecrLoadHelper('html');
-ecrLoadHelper('projecthelper');
-ecrLoadHelper('languagehelper');
 
 /**
  * EasyCreator Version
@@ -166,7 +180,7 @@ else
     //-- Perform the Request task
     $controller->execute(JRequest::getCmd('task'));
 
-    if(ECR_DEBUG_LANG)
+    if(ECR_DEV_MODE && ECR_DEBUG_LANG)
     {
         g11n::debugPrintTranslateds(true);
         g11n::debugPrintTranslateds();

@@ -14,16 +14,15 @@ defined('_JEXEC') || die('=;)');
 JHTML::_('behavior.mootools');
 
 $highChartsVersion = '2.0.5';
+//$highChartsVersion = '2.1.4';
 
 if(ECR_DEBUG)
 {
     ecrScript('highcharts-'.$highChartsVersion.'/highcharts.src');
-    //ecrScript('highcharts-1.2.4/excanvas.compiled');
 }
 else
 {
     ecrScript('highcharts-'.$highChartsVersion.'/highcharts');
-    //ecrScript('highcharts-1.2.4/excanvas.compiled');
 }
 
 $matrix = $this->projectMatrix;

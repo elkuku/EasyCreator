@@ -360,10 +360,12 @@ $stdJS .= "$('file_name').value='';";
         $version .=(strpos($version,'SVN')) ? ' <span style="color:red;">Rev. # '
         .ecrHTML::getVersionFromCHANGELOG('com_easycreator').'</span>' : '';
         ?>
-<div class="ecrFooter"><span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
+<div class="ecrFooter">
+<span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
 <a href="http://www.mozilla-europe.org/firefox/" title="FireFox" class="external">
 <span class="img icon-16-firefox">Firefox</span></a>
-and <a href="http://opensuse.org" title="openSUSE" class="external"><span class="img icon-16-opensuse"></span></a> <br />
+and <a href="http://opensuse.org" title="openSUSE" class="external">
+<span class="img icon-16-opensuse">openSUSE</span></a> <br />
 Made and partially Copyright &copy; 2008 - 2011 by <a
 href="http://joomlacode.org/gf/project/elkuku"
 	class="external">El KuKu</a><br />

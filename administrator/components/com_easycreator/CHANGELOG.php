@@ -60,6 +60,10 @@ ______________________________________________
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=14856
 
 10-May-2011 Nikolai Plath
+ ^ Created a g11n dummy to make the g11n library optional - if not installed, only english language will be available
+ # fixed parameters in J 1.6
+
+10-May-2011 Nikolai Plath
  - Removed MooTools compat for Ajax
  + New example plugins for J! 1.6
 
