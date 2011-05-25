@@ -20,5 +20,4 @@ class _ECR_COM_NAME_Controller_ECR_COM_NAME_ extends JControllerForm
      * @var string
      */
     protected $view_list = '_ECR_COM_NAME__ECR_LIST_POSTFIX_';
-
 }//class

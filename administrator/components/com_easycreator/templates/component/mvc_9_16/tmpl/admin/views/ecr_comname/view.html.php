@@ -32,7 +32,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
         // Auf Fehler prüfen
         $errors = $this->get('Errors');
 
-        if (count($errors))
+        if(count($errors))
         {
             JError::raiseError(500, implode('<br />', $errors));
 

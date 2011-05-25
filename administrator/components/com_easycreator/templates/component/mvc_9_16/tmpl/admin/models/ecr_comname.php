@@ -39,7 +39,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
         $form = $this->loadForm('_ECR_LOWER_COM_COM_NAME_._ECR_LOWER_COM_NAME_', '_ECR_LOWER_COM_NAME_'
         , array('control' => 'jform', 'load_data' => $loadData));
 
-        if (empty($form))
+        if(empty($form))
         {
             return false;
         }
@@ -58,7 +58,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
         $data = JFactory::getApplication()
         ->getUserState('_ECR_LOWER_COM_COM_NAME_.edit._ECR_LOWER_COM_NAME_.data');
 
-        if (empty($data))
+        if(empty($data))
         {
             $data = $this->getItem();
         }

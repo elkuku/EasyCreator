@@ -9,56 +9,56 @@ class _ECR_COM_COM_NAME_InstallerScript
      *
      * @return void
      */
-    function install($parent)
+    public function install($parent)
     {
         // $parent is the class calling this method
         //	$parent->getParent()->setRedirectURL('index.php?option=com_helloworld');
-        echo '<p>' . JText::_('COM_HELLOWORLD_INSTALL_TEXT') . '</p>';
-    }
+        echo '<p>'.JText::_('COM_HELLOWORLD_INSTALL_TEXT').'</p>';
+    }//function
 
     /**
      * method to uninstall the component
      *
      * @return void
      */
-    function uninstall($parent)
+    public function uninstall($parent)
     {
         // $parent is the class calling this method
-        echo '<p>' . JText::_('COM_HELLOWORLD_UNINSTALL_TEXT') . '</p>';
-    }
+        echo '<p>'.JText::_('COM_HELLOWORLD_UNINSTALL_TEXT').'</p>';
+    }//function
 
     /**
      * method to update the component
      *
      * @return void
      */
-    function update($parent)
+    public function update($parent)
     {
         // $parent is the class calling this method
-        echo '<p>' . JText::_('COM_HELLOWORLD_UPDATE_TEXT') . '</p>';
-    }
+        echo '<p>'.JText::_('COM_HELLOWORLD_UPDATE_TEXT').'</p>';
+    }//function
 
     /**
      * method to run before an install/update/uninstall method
      *
      * @return void
      */
-    function preflight($type, $parent)
+    public function preflight($type, $parent)
     {
         // $parent is the class calling this method
         // $type is the type of change (install, update or discover_install)
-        echo '<p>' . JText::_('COM_HELLOWORLD_PREFLIGHT_' . $type . '_TEXT') . '</p>';
-    }
+        echo '<p>'.JText::_('COM_HELLOWORLD_PREFLIGHT_'.$type.'_TEXT').'</p>';
+    }//function
 
     /**
      * method to run after an install/update/uninstall method
      *
      * @return void
      */
-    function postflight($type, $parent)
+    public function postflight($type, $parent)
     {
         // $parent is the class calling this method
         // $type is the type of change (install, update or discover_install)
-        echo '<p>' . JText::_('COM_HELLOWORLD_POSTFLIGHT_' . $type . '_TEXT') . '</p>';
-    }
-}
+        echo '<p>'.JText::_('COM_HELLOWORLD_POSTFLIGHT_'.$type.'_TEXT').'</p>';
+    }//function
+}//class

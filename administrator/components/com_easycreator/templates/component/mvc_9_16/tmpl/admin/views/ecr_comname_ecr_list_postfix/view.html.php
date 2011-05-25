@@ -16,7 +16,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
      *
      * @return void
      */
-    function display($tpl = null)
+    public function display($tpl = null)
     {
         //-- Get data from the model
         $this->items = $this->get('Items');
@@ -30,7 +30,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
         // Auf Fehler prüfen
         $errors = $this->get('Errors');
 
-        if (count($errors))
+        if(count($errors))
         {
             JError::raiseError(500, implode('<br />', $errors));
 
