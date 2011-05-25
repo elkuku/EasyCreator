@@ -362,28 +362,26 @@ class JoomlaManifest extends JObject
         if( ! in_array('media', $baseFolders))
         return true;
 
-        $folders = JFolder::folders($this->project->basepath.DS.'media', '', true, true);
+        $folders = JFolder::folders($this->project->basepath.DS.'media');
         $files = JFolder::files($this->project->basepath.DS.'media');
 
-        if(count($folders) || count($files))
+        if( ! count($folders)
+        && ! count($files))
+        return true;
+
+        $mediaElement = $this->manifest->addChild('media');
+        $mediaElement->addAttribute('destination', $this->project->comName);
+        $mediaElement->addAttribute('folder', 'media');
+
+        foreach($folders as $folder)
         {
-            $mediaElement = $this->manifest->addChild('media');
-            $mediaElement->addAttribute('destination', $this->project->comName);
-            $mediaElement->addAttribute('folder', 'media');
+            $mediaElement->addChild('folder', $folder);
+        }//foreach
 
-            $substrlen = strlen($this->project->basepath.DS.'media'.DS);
-
-            foreach($folders as $folder)
-            {
-                $t = str_replace(DS, '/', substr($folder, $substrlen));
-                $mediaElement->addChild('folder', $t);
-            }//foreach
-
-            foreach($files as $file)
-            {
-                $mediaElement->addChild('filename', $file);
-            }//foreach
-        }
+        foreach($files as $file)
+        {
+            $mediaElement->addChild('filename', $file);
+        }//foreach
 
         return true;
     }//function
@@ -676,6 +674,7 @@ class JoomlaManifest extends JObject
 
             return true;
         }
+
         //-- Search if there is a config.xml
         $fileName = EasyProjectHelper::findConfigXML($this->project->type, $this->project->comName);
 
@@ -725,7 +724,7 @@ class JoomlaManifest extends JObject
 
             if('template' == $this->project->type)
             {
-                switch ($this->project->JCompat)
+                switch($this->project->JCompat)
                 {
                     case '1.5':
                         break;

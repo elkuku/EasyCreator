@@ -17,7 +17,7 @@ defined('_JEXEC') || die('=;)');
 function jgettext($string)
 {
     return $string;
-}
+}//function
 
 function jngettext($singular, $plural, $count)
 {

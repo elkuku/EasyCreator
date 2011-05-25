@@ -161,7 +161,7 @@ class LanguageCheckerHelper
     public function getHead()
     {
         return $this->head;
-    }
+    }//function
 
     public function getStrings()
     {
@@ -513,13 +513,11 @@ class LanguageCheckerHelper
 
                 $potParser = JALHOO::getParser('language', 'pot');
 
-
                 $templateInfo = $potParser->parse($templatePath);
 
 //                $path = $p.DS.'language'.DS.'sources'.DS.$lang.DS.$fileName;
                 $path = $basePath.DS.$langFilePath.DS.$lang.DS.$fileName;
             }
-
 
             if( ! JFile::exists($path))
             {
@@ -572,7 +570,7 @@ class LanguageCheckerHelper
                 {
                     $found = false;
 
-                    foreach ($templateInfo->strings as $tKey => $tValue)
+                    foreach($templateInfo->strings as $tKey => $tValue)
                     {
                         if(strtoupper($tKey) == $key)
                         {
@@ -619,6 +617,7 @@ class LanguageCheckerHelper
             }
 
             $this->fileInfos[$scope] = $fileInfo;
+
             return;
         }//foreach
 

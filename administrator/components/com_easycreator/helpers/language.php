@@ -655,7 +655,7 @@ class EasyELanguage
                         //--Version string found
                         if($lang == $this->_default_lang)
                         {
-                            $this->_default_file[] = array('version'=>$line);
+                            $this->_default_file[] = array('version' => $line);
                         }
 
                         continue;
@@ -663,7 +663,7 @@ class EasyELanguage
 
                     if($lang == $this->_default_lang)
                     {
-                        $this->_default_file[] = array('comment'=>$line);
+                        $this->_default_file[] = array('comment' => $line);
                     }
 
                     continue;
@@ -833,7 +833,7 @@ class EasyELanguage
 
         foreach($this->_default_file as $line)
         {
-            foreach($line as $key=>$value)
+            foreach($line as $key => $value)
             {
                 switch($key)
                 {
@@ -897,7 +897,7 @@ class EasyELanguage
 
                         echo NL.'<tr class="row'.$k.'">';
 
-                        foreach($value as $skey=>$svalue)
+                        foreach($value as $skey => $svalue)
                         {
                             echo '<td align="left"><span style="color: #666666;">'.$skey.'</span></td>';
 
@@ -954,7 +954,7 @@ class EasyELanguage
                                             $definition->coreTranslated[] = $lang;
                                         }
                                     }//foreach
-                                    foreach($definition->files as $fName=>$fCount)
+                                    foreach($definition->files as $fName => $fCount)
                                     {
                                         if($this->_scope == 'menu')
                                         {
@@ -1253,7 +1253,7 @@ case 'etc':
 
                 foreach($matches as $match)
                 {
-                    foreach($match as $key=> $m)
+                    foreach($match as $key => $m)
                     {
                         $m = ltrim($m);
                         $m = rtrim($m);
@@ -1274,7 +1274,7 @@ case 'etc':
 
                 foreach($matches as $match)
                 {
-                    foreach($match as $key=> $m)
+                    foreach($match as $key => $m)
                     {
                         $m = ltrim($m);
                         $m = rtrim($m);
@@ -1363,7 +1363,7 @@ case 'etc':
         {
             if($file != 'menu' && $file != 'submenu')
             {
-                $def->files = array(substr($file, strlen(JPATH_ROOT))=>1);
+                $def->files = array(substr($file, strlen(JPATH_ROOT)) => 1);
             }
             else
             {

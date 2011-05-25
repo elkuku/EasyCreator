@@ -29,7 +29,7 @@
 defined('_JEXEC') || die('=;)');
 
 //-- Dev mode - internal use =;)
-define('ECR_DEV_MODE', 0);//@@DEBUG
+define('ECR_DEV_MODE', 1);//@@DEBUG
 
 jimport('joomla.error.profiler');
 
@@ -93,7 +93,6 @@ try
     }
     else
     {
-
             g11n::cleanStorage();//@@DEBUG
         //TEMP@@debug
         if(ECR_DEV_MODE && ECR_DEBUG_LANG)

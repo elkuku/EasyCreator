@@ -67,7 +67,7 @@ defined('NL') || define('NL', "\n");
 //define('ECR_JVERSION', substr(JVERSION, 0, 3));
 $parts = explode('.', JVERSION);
 
-if( 3 != count($parts))
+if(3 != count($parts))
 {
     die(__FILE__.' - Unfortunately we are not able to determine your Joomla! version :( :(');
 }

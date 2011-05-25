@@ -144,6 +144,22 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 		</ul>
         <?php echo $fileTree->endTree(); ?>
         <?php ecrHTML::floatBoxEnd(); ?>
+
+        <?php ecrHTML::floatBoxStart(); ?>
+        <h2><?php echo jgettext('Template constants'); ?></h2>
+        <h3><?php echo jgettext('Common constants')?></h3>
+        e.g. TestTest - com_testtest
+        <ul>
+        	<li>_ECR_COM_NAME_ - TestTest</li>
+        	<li>_ECR_LOWER_COM_NAME_ - testtest</li>
+        	<li>_ECR_UPPER_COM_NAME_ - TESTTEST</li>
+        	<li>_ECR_COM_COM_NAME_ - com_testtest</li>
+        	<li>_ECR_UPPER_COM_COM_NAME_ - COM_TESTTEST</li>
+        	<li>_ECR_ACT_DATE_ - date('d-M-Y')</li>
+        </ul>
+        <h3><?php echo jgettext('Custom constants')?></h3>
+        <?php echo jgettext('Custom constants may be defined in every template in options.php'); ?>
+        <?php ecrHTML::floatBoxEnd(); ?>
 		</td>
 		<td>
 			<?php ecrHTML::prepareFileEdit(); ?>

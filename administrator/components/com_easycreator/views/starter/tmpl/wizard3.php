@@ -100,7 +100,7 @@ function submitbutton(command)
             <?php echo jgettext('Just click on create it below to finish your component'); ?>
         </div>
 
-        <?php if(ECR_DEBUG) : ?>
+        <?php if(ECR_DEV_MODE) : ?>
             <input type="checkbox" name="ecr_test_mode" id="ecr_test_mode" value="test" />
             <label for="ecr_test_mode">TEST only</label>
         <?php endif; ?>

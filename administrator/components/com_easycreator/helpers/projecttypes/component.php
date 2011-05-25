@@ -416,7 +416,6 @@ class EasyProjectComponent extends EasyProject
                 {
                     $menu['level'] = 2;
                     $menu['parent'] = $mId;
-
                 }
 
                 $this->setDbMenuItem($menu);
@@ -587,18 +586,18 @@ class EasyProjectComponent extends EasyProject
         $query->from('#__menu');
         $query->select('id');
         $query->where('`client_id` = 1');
-        $query->where('`component_id` = '.(int) $id);
+        $query->where('`component_id` = '.(int)$id);
 
         $db->setQuery($query);
 
         $ids = $db->loadResultArray();
 
         // Check for error
-        if ($error = $db->getErrorMsg() || empty($ids))
+        if($error = $db->getErrorMsg() || empty($ids))
         {
             JError::raiseWarning('', JText::_('JLIB_INSTALLER_ERROR_COMP_REMOVING_ADMIN_MENUS_FAILED'));
 
-            if ($error && $error != 1)
+            if($error && $error != 1)
             {
                 JError::raiseWarning(100, $error);
             }
@@ -610,7 +609,7 @@ class EasyProjectComponent extends EasyProject
             // Iterate the items to delete each one.
             foreach($ids as $menuid)
             {
-                if( ! $table->delete((int) $menuid))
+                if( ! $table->delete((int)$menuid))
                 {
                     $this->setError($table->getError());
 
@@ -623,7 +622,7 @@ class EasyProjectComponent extends EasyProject
         }
 
         return true;
-    }//functin
+    }//function
 
     /**
      * Updates a menu entry in database / Insert new one if not exists.

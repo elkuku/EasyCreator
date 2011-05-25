@@ -290,7 +290,7 @@ class ECRLanguageConverter
 
         foreach($matches as $match)
         {
-            foreach($match as $key=> $m)
+            foreach($match as $key => $m)
             {
                 $m = trim($m);
 

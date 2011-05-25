@@ -33,7 +33,7 @@ $blacks = array('_default', 'Personal');
 <div style="clear: both;"></div>
 
 <?php
-if( ! class_exists('Xg11n')) :
+if( ! class_exists('g11n')) :
 
     echo '<div style="background-color: #ffc; border: 1px solid orange; padding: 0.5em;">'
     .'EasyCreator is in "English ONLY" mode !'
@@ -43,6 +43,10 @@ if( ! class_exists('Xg11n')) :
 endif;
 
 foreach(array_keys($groups) as $group):
+    if('Debug' == $group
+    && ! ECR_DEV_MODE)
+    continue;
+
     $style = str_replace(' ', '_', strtolower($group));
     ecrHTML::floatBoxStart();
     ?>

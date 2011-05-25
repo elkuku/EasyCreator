@@ -34,7 +34,7 @@ class EasyProjectHelper
         , 'tpl' => 'template'
         );
 
-        switch (ECR_JVERSION)
+        switch(ECR_JVERSION)
         {
             case '1.5' :
                 break;
@@ -48,7 +48,7 @@ class EasyProjectHelper
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;
-        }
+        }//switch
 
         return $projectTypes;
     }//function

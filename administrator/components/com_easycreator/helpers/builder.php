@@ -244,7 +244,7 @@ class EasyBuilder extends JObject
         $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_', strtoupper($this->project->comName));
         $this->addSubstitute('_ECR_COM_TBL_NAME_', strtolower($this->project->name));
 
-        $this->addSubstitute('_ECR_ACT_DATE_', date("d-M-Y"));
+        $this->addSubstitute('_ECR_ACT_DATE_', date('d-M-Y'));
 
         $this->addSubstitute('VERSION', $this->project->version);
         $this->addSubstitute('DESCRIPTION', $this->project->description);
