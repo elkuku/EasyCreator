@@ -120,8 +120,8 @@ class EasyProjectTemplate extends EasyProject
             case '1.5':
                 $dtd = array(
                  'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD template 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/template-install.dtd');
+                 , 'public' => '-//Joomla! 1.5//DTD template 1.0//EN'
+                 , 'uri' => 'http://joomla.org/xml/dtd/1.5/template-install.dtd');
                  break;
 
             case '1.6':
@@ -184,9 +184,42 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getId()
     {
-        //-- J! installer does not need an id to uninstall templates
 
-        return 0;
+        $db = JFactory::getDbo();
+
+        switch(ECR_JVERSION)
+        {
+            case '1.5':
+                $query = new JDatabaseQuery;
+
+                $query->from('#__components AS c');
+                $query->select('c.id');
+                $query->where('c.option = '.$db->quote($this->comName));
+                $query->where('c.parent = 0');
+                break;
+
+            case '1.6':
+                $query = $db->getQuery(true);
+
+                $query->from('#__extensions AS e');
+                $query->select('e.extension_id');
+                $query->where('e.element = '.$db->quote($this->comName));
+                $query->where('e.type = '.$db->quote('template'));
+                break;
+
+            default:
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+
+                return false;
+                break;
+        }//switch
+
+        $db->setQuery($query);
+
+        $id = $db->loadResult();
+
+        return $id;
+
     }//function
 
     /**

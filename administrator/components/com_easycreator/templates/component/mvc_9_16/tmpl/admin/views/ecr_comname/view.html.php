@@ -72,8 +72,9 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
 
         // CSS Klasse für das 48x48 Icon der Toolbar
         JFactory::getDocument()->addStyleDeclaration(
-		'.icon-48-_ECR_LOWER_COM_NAME_ {background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png);}'
-		);
+        '.icon-48-_ECR_LOWER_COM_NAME_ {background-image: url('
+        .'components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png);}'
+        );
     }//function
 
     /**
@@ -94,7 +95,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
         $document->addScript(JURI::root(true).$this->script);
 
         $document->addScript(JURI::root(true)
-        .'/administrator/components/_ECR_LOWER_COM_COM_NAME_/views/_ECR_LOWER_COM_NAME_/submitbutton.js');
+        .'/administrator/components/_ECR_COM_COM_NAME_/views/_ECR_LOWER_COM_NAME_/submitbutton.js');
 
         JText::script('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__ERROR_UNACCEPTABLE');
     }//function

@@ -112,12 +112,12 @@ class EasyCreatorViewStuffer extends JView
         , 'icon' => 'config'
         , 'task' => 'stuffer'
         )
-        , array('title'=> jgettext('Files')
+        , array('title' => jgettext('Files')
         , 'description' => jgettext('Shows all the files belonging to your project')
         , 'icon' => 'directory'
         , 'task' => 'files'
         )
-        , array('title'=> jgettext('Installing')
+        , array('title' => jgettext('Installing')
         , 'description' => jgettext('Create and modify install and uninstall files for your project.')
         , 'icon' => 'install'
         , 'task' => 'install'
@@ -304,7 +304,7 @@ class EasyCreatorViewStuffer extends JView
 
         if(in_array($selected_xml, $xmlFiles))
         {
-            switch (ECR_JVERSION)
+            switch(ECR_JVERSION)
             {
                 case '1.5':
                     $this->params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
@@ -316,6 +316,7 @@ class EasyCreatorViewStuffer extends JView
 
                 default:
                     ecrHTML::displayMessage(__METHOD__.' - Undefined J! version', 'error');
+
                     return false;
                     break;
             }
@@ -431,12 +432,12 @@ class EasyCreatorViewStuffer extends JView
     public function drawDocLinks()
     {
         $docLinks = array(
-        'Standard parameter types'=>'http://docs.joomla.org/Standard_parameter_types'
+        'Standard parameter types' => 'http://docs.joomla.org/Standard_parameter_types'
         , 'Reference: XML parameters'
-        =>'http://dev.joomla.org/component/option,com_jd-wiki/Itemid,/id,references:xml_parameters/'
-        , 'Component parameters'=>'http://docs.joomla.org/Component_parameters'
-        , 'Defining a parameter in templateDetails.xml'=>'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
-        , 'Creating custom template parameter types'=>'http://docs.joomla.org/Creating_custom_template_parameter_types'
+        => 'http://dev.joomla.org/component/option,com_jd-wiki/Itemid,/id,references:xml_parameters/'
+        , 'Component parameters' => 'http://docs.joomla.org/Component_parameters'
+        , 'Defining a parameter in templateDetails.xml' => 'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
+        , 'Creating custom template parameter types' => 'http://docs.joomla.org/Creating_custom_template_parameter_types'
         );
 
         $ret = '';
@@ -456,5 +457,4 @@ class EasyCreatorViewStuffer extends JView
 
         return $ret;
     }//function
-
 }//class

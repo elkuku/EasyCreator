@@ -54,11 +54,13 @@ class plgUser_ECR_COM_NAME_ extends JPlugin
         $args['fullname']	= $user['name'];
         $args['password']	= $user['password'];
 
-        if ($isnew) {
+        if($isnew)
+        {
             // Call a function in the external app to create the user
             // ThirdPartyApp::createUser($user['id'], $args);
         }
-        else {
+        else
+        {
             // Call a function in the external app to update the user
             // ThirdPartyApp::updateUser($user['id'], $args);
         }
@@ -147,5 +149,4 @@ class plgUser_ECR_COM_NAME_ extends JPlugin
 
         return $success;
     }//function
-
 }//class

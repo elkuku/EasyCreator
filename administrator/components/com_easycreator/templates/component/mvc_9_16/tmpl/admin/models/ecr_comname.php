@@ -36,7 +36,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
     public function getForm($data = array(), $loadData = true)
     {
         // Get the form.
-        $form = $this->loadForm('_ECR_LOWER_COM_COM_NAME_._ECR_LOWER_COM_NAME_', '_ECR_LOWER_COM_NAME_'
+        $form = $this->loadForm('_ECR_COM_COM_NAME_._ECR_LOWER_COM_NAME_', '_ECR_LOWER_COM_NAME_'
         , array('control' => 'jform', 'load_data' => $loadData));
 
         if(empty($form))
@@ -56,7 +56,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
     {
         // Check the session for previously entered form data.
         $data = JFactory::getApplication()
-        ->getUserState('_ECR_LOWER_COM_COM_NAME_.edit._ECR_LOWER_COM_NAME_.data');
+        ->getUserState('_ECR_COM_COM_NAME_.edit._ECR_LOWER_COM_NAME_.data');
 
         if(empty($data))
         {

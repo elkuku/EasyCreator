@@ -52,6 +52,10 @@ Legend:
  ! -> Note
 ______________________________________________
 
+29-May-2011 Nikolai Plath
+ # Fixed Code editor does not display ini files - thx 7list
+ # Fixed can not uninstall template projects - thx 7list
+
 24-May-2011 Nikolai Plath
  # Fixed media folders in manifest.xml
 
