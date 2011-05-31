@@ -36,7 +36,7 @@ class AutoCodeSiteViewCategoryTableElementCell
             }
 
             $ret .= $indent.'<td>'.NL;
-            $ret .= $indent.'    <?php echo $item->'.$field->name.' ; ?>'.NL;
+            $ret .= $indent.'    <?php echo $item->'.$field->name.'; ?>'.NL;
             $ret .= $indent.'</td>'.NL;
         }//foreach
 
