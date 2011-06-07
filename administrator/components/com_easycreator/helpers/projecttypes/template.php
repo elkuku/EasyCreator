@@ -111,11 +111,9 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getDTD($jVersion)
     {
-        $version = substr($jVersion, 0, 3);
-
         $dtd = false;
 
-        switch($version)
+        switch(ECR_JVERSION)
         {
             case '1.5':
                 $dtd = array(
@@ -125,6 +123,7 @@ class EasyProjectTemplate extends EasyProject
                  break;
 
             case '1.6':
+            case '1.7':
                 break;
 
             default:
@@ -199,6 +198,7 @@ class EasyProjectTemplate extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -268,10 +268,11 @@ class EasyProjectTemplate extends EasyProject
                         break;
 
                     case '1.6':
+                    case '1.7':
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                        JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
                         break;
                 }//switch
                 break;
@@ -285,8 +286,11 @@ class EasyProjectTemplate extends EasyProject
                     case '1.6':
                         $projects = array('atomic', 'beez_20', 'beez5', 'rhuk_milkyway', 'system');
                         break;
+                    case '1.7':
+                        $projects = array('atomic', 'beez_20', 'beez5', 'system');
+                        break;
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                        JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
                         break;
                 }//switch
                 break;

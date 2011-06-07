@@ -38,9 +38,9 @@ function switchProject()
     var project = $('ecr_project').value;
 
     if(project)
-	{
-    	$('ecr_stat_project').innerHTML = phpjs.sprintf(jgettext('Loading %s ...'), $('ecr_project').value);
-	}
+    {
+        $('ecr_stat_project').innerHTML = phpjs.sprintf(jgettext('Loading %s ...'), $('ecr_project').value);
+    }
 
     submitform('stuffer');
 }//function
@@ -137,7 +137,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
         }
 
         new Request({
-        	url: url + '&task=loadFile',
+            url: url + '&task=loadFile',
             'onRequest' : function()
             {
                 $('ecr_title_file').innerHTML = jgettext('Loading...');
@@ -184,7 +184,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
         break;
     case 'pic':
         new Request({
-        	url: url + '&task=loadPic',
+            url: url + '&task=loadPic',
             'onRequest' : function()
             {
                 $('ecr_title_pic').innerHTML = jgettext('Loading...');
@@ -229,7 +229,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
 
 function toggleDiv(name)
 {
-    $(name).style.display = ($(name).style.display == 'none') ? 'block' : 'none';
+    document.id(name).style.display = (document.id(name).style.display == 'none') ? 'block' : 'none';
 }//function
 
 function getElement(e,f){
@@ -277,17 +277,17 @@ function emptyCheckTheField(theForm, theFieldName)
 
 function checkVersion()
 {
-	var req = new Request.HTML({
-	method: 'post',
-	url: 'http://joomla.org',
-	data: { 'do' : '1' },
-	onRequest: function() 
-	{ 
-		$('ecr_versionCheck').innerHTML = jgettext('Checking...');
-	},
-	onComplete: function(response) { 
-		$('ecr_versionCheck').innerHTML = response; 
-		}
+    var req = new Request.HTML({
+    method: 'post',
+    url: 'http://joomla.org',
+    data: { 'do' : '1' },
+    onRequest: function() 
+    { 
+        $('ecr_versionCheck').innerHTML = jgettext('Checking...');
+    },
+    onComplete: function(response) { 
+        $('ecr_versionCheck').innerHTML = response; 
+        }
 }).send();
 
 }
@@ -304,18 +304,18 @@ function xcheckVersion()
 //    url += '&format=raw';
 //    alert(url);
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
-        	$('ecr_versionCheck').innerHTML = jgettext('Checking...');
+            $('ecr_versionCheck').innerHTML = jgettext('Checking...');
         },
         'onFailure' : function(rr)
         {
-//        	console.log(rr);
-//        	var resp = Json.evaluate(rr);
-//        	console.log(resp);
-        	$('ecr_versionCheck').innerHTML = '<b style="color: red;">'
-        		+jgettext('Server error')+'</b>'+url;
+//            console.log(rr);
+//            var resp = Json.evaluate(rr);
+//            console.log(resp);
+            $('ecr_versionCheck').innerHTML = '<b style="color: red;">'
+                +jgettext('Server error')+'</b>'+url;
             
             return;
         },
@@ -324,8 +324,8 @@ function xcheckVersion()
             var resp = Json.evaluate(response);
             
             if('undefined' == resp.status) {
-            	//-- Error
-            	msg = '? bad coder error..';
+                //-- Error
+                msg = '? bad coder error..';
                 
                 return;
             }
@@ -336,19 +336,19 @@ function xcheckVersion()
             
             switch (resp.status)
             {
-            	case -1 :
-            		cssClass = 'img outdated';
-            		msg = phpjs.sprintf(jgettext('The Latest EasyCreator version is: %s'), resp.version);
-            	break;
-            	
-            	case 0 :
-            		cssClass = 'img actual';
-            		alt = jgettext('Your version is up-to-date')
-            	break;
-            	
-            	default :
-            		msg = jgettext('Unknown version - maybe SVN ?');
-            	break;
+                case -1 :
+                    cssClass = 'img outdated';
+                    msg = phpjs.sprintf(jgettext('The Latest EasyCreator version is: %s'), resp.version);
+                break;
+                
+                case 0 :
+                    cssClass = 'img actual';
+                    alt = jgettext('Your version is up-to-date')
+                break;
+                
+                default :
+                    msg = jgettext('Unknown version - maybe SVN ?');
+                break;
             }//switch
 
             $('ecr_versionCheck').innerHTML = '<span class="'+cssClass+'" title="'+alt+'" alt="'+alt+'">'+msg+'</span>';

@@ -32,7 +32,7 @@ function loadLog(name, id)
     uri += '&file_name=' + name;
 
     var a = new Request({
-    	url: uri ,
+        url: uri ,
         'onRequest': function()
         {
             $('ecr_logView').className = cl + ' ajax_loading16';

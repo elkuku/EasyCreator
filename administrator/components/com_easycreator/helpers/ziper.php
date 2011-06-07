@@ -292,7 +292,7 @@ class EasyZIPer extends JObject
      *
      * @param string $file An xmlfile path to check
      *
-     * @return	mixed A SimpleXMLElement, or null if the file failed to parse
+     * @return mixed A SimpleXMLElement, or null if the file failed to parse
      */
     private function _isManifest($file)
     {

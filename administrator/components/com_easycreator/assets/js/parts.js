@@ -15,7 +15,7 @@ function showPart(group, part)
     $('addElementMessage').innerHTML = '';
 
     new Request({
-    	url: ecrAJAXLink+'&controller=ajax'+'&group='+group+'&part='+part,
+        url: ecrAJAXLink+'&controller=ajax'+'&group='+group+'&part='+part,
         update: 'addPartShow',
         onComplete: function()
         {

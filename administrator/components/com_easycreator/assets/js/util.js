@@ -48,7 +48,7 @@ function updateName(ecr_project)
     url += '&ecr_project='+ecr_project;
     url += '&cst_format='+$('cst_format').value;
     new Request({
-    	url: url + '&task=update_project_name',
+        url: url + '&task=update_project_name',
         'onRequest': function()
             {
                 $('ajMessage').className = 'ajax_loading16';

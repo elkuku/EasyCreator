@@ -354,7 +354,7 @@ class EasyFolder
      * the result.
      * @param array $exclude Exclude filter
      *
-     * @return	array	Files in the given folder.
+     * @return array Files in the given folder.
      */
     public static function files($path, $filter = '.', $recurse = false, $fullpath = false
     , $stripPath = '', $exclude = array('.svn', 'CVS'))
@@ -432,7 +432,7 @@ class EasyFolder
      * the result.
      *
      * @since 1.5
-     * @return	array	Folders in the given folder.
+     * @return array Folders in the given folder.
      */
     public static function folders($path, $filter = '.', $recurse = false
     , $fullpath = false, $exclude = array('.svn', 'CVS'))

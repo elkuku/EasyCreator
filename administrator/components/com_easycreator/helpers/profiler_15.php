@@ -35,7 +35,7 @@ class easyProfiler extends JProfiler
      * Only creating it if it doesn't already exist.
      *
      * This method must be invoked as:
-     * 		<pre>  $browser = JProfiler::getInstance( $prefix );</pre>
+     *         <pre>  $browser = JProfiler::getInstance( $prefix );</pre>
      *
      * @param string $prefix Prefix used to distinguish profiler objects.
      *

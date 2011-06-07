@@ -1,14 +1,14 @@
 /**
  * @version SVN: $Id$
- * @package		EasyCreator
- * @subpackage	CSS
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 20-Dec-2007
+ * @package    EasyCreator
+ * @subpackage CSS
+ * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Created on 20-Dec-2007
  */
 @CHARSET "UTF-8";
 
 div.ecrSpecialLangConvert {
-	padding: 0.7em;
-	margin: 0.5em;
-	background-color: #fff;
+    padding: 0.7em;
+    margin: 0.5em;
+    background-color: #fff;
 }

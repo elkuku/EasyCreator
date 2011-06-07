@@ -86,7 +86,7 @@ function doPHPUnit(folder, test, timeStamp, id)
     url += '&results_base=' + $('results_base').value;
 
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking PHPUnit...';
@@ -131,7 +131,7 @@ function doSelenium(folder, test, timeStamp, id)
     url += '&results_base=' + $('results_base').value;
 
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking Selenium...';
@@ -171,7 +171,7 @@ function doPHPCPD(ecr_project)
     url += '&min-tokens='+$('phpcpd_min_tokens').value;
 
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking PHPCPD...';
@@ -230,7 +230,7 @@ function doPHPDoc(dirs, files)
     url += '&parse_files='+files;
 
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'PhpDocumentor is generating documentation...';
@@ -304,7 +304,7 @@ function loadSniff(folder, file)
     }
 
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeSniffer sniffing...';
@@ -335,7 +335,7 @@ function create_skeleton(folder, file)
     url += '&file='+file;
 
     new Request({
-    	url: url,
+        url: url,
         'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is creating a skeleton...';
@@ -364,7 +364,7 @@ function create_skeleton(folder, file)
             url += '&ecr_project=' + $('ecr_project').value;
 
             new Request({
-            	url: url,
+                url: url,
                     'onRequest' : function()
                     {
                         $('test_tree').innerHTML = 'Redraw tree...';
@@ -389,9 +389,9 @@ function create_skeleton(folder, file)
 function draw_test_dir(testDir)
 {
     new Request({
-    	url: ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir',
+        url: ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir',
 
-    	'onRequest' : function()
+        'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is checking your environment...';
             $('ecr_title_file').className = 'ajax_loading16';
@@ -420,9 +420,9 @@ function draw_test_dir(testDir)
 function checkEnvironment()
 {
     new Request({
-    	url: ecrAJAXLink+'&controller=codeeyeajax&task=check_environment',
+        url: ecrAJAXLink+'&controller=codeeyeajax&task=check_environment',
 
-    	'onRequest' : function()
+        'onRequest' : function()
         {
             $('ecr_title_file').innerHTML = jgettext('CodeEye is checking your environment...');
             $('ecr_title_file').className = 'ajax_loading16';

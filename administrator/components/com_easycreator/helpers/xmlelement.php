@@ -13,10 +13,6 @@ defined('JPATH_BASE') || die('=;)');
 
 /**
  * Wrapper class for php SimpleXMLElement.
- *
- * @package		Joomla.Framework
- * @subpackage  Utilities
- * @since		1.6
  */
 class EasyXMLElement extends SimpleXMLElement
 {
@@ -27,7 +23,7 @@ class EasyXMLElement extends SimpleXMLElement
      * @param string $indent String used to indenting
      * @param integer $level Indentaion level.
      *
-     * @return	string
+     * @return string
      */
     public function asFormattedXML($compressed = false, $indent = '  ', $level = 0)
     {

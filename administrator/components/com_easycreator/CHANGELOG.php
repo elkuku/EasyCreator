@@ -52,6 +52,10 @@ Legend:
  ! -> Note
 ______________________________________________
 
+07-Jun-2011 Nikolai Plath
+ + Added modifications for J! 1.7
+ # Fixed a fatal error on PHP 5.3 - "Serialization of EasyXMLElement is not allowed" - thx Joni
+
 29-May-2011 Nikolai Plath
  # Fixed Code editor does not display ini files - thx 7list
  # Fixed can not uninstall template projects - thx 7list

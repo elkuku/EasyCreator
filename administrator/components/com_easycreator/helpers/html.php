@@ -16,7 +16,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Standard HTML stuff...
  *
- * @package		EasyCreator
+ * @package EasyCreator
  */
 final class ecrHTML
 {
@@ -129,18 +129,18 @@ final class ecrHTML
 <div class="white_box" style="margin-bottom: 0.5em;"><?php self::boxStart(); ?>
 <div class="ecr_easy_toolbar">
 <ul>
-	<li><a href="javascript:;"
-		onclick="$('file_name').value=''; easySubmit('jhelp', 'help');"> <span
-		class="icon-32-JHelp_btn" title="J Help"></span> <?php echo jgettext('J! API'); ?>
-	</a></li>
+    <li><a href="javascript:;"
+        onclick="$('file_name').value=''; easySubmit('jhelp', 'help');"> <span
+        class="icon-32-JHelp_btn" title="J Help"></span> <?php echo jgettext('J! API'); ?>
+    </a></li>
 </ul>
 </div>
         <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debugging</div>' : ''; ?>
 <div style="float: left; margin-top: -7px;"><img
-	src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
-	alt="EasyCreator Logo" /></div>
+    src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
+    alt="EasyCreator Logo" /></div>
 <div style="float: left; padding-left: 0.5em;"><span
-	style="font-size: 1.4em; font-weight: bold;">EasyCreator</span> <br />
+    style="font-size: 1.4em; font-weight: bold;">EasyCreator</span> <br />
         <?php self::drawProjectSelector(); ?> <br />
 <span id="ecr_stat_project"></span></div>
 <div style="float: left;"><?php
@@ -156,13 +156,13 @@ if( $ecr_project
 foreach($tasks as $k => $v)
 {
     ?>
-	<li class="<?php echo $actives[$k]; ?>"><?php
+    <li class="<?php echo $actives[$k]; ?>"><?php
     echo '<a href="javascript:;" onclick="$(\'file_name\').value=\'\'; easySubmit(\''.$k.'\', \''.$k.'\');">';
     echo '<span class="icon-32-'.$v->image.'" title="'.$v->title.'"></span>';
     echo $v->title.NL;
     echo '</a>';
     ?></li>
-	<?php
+    <?php
 }//foreach
 ?>
 </ul>
@@ -174,10 +174,10 @@ foreach($tasks as $k => $v)
 if( ! in_array($task, $rTasks))
 {
     ?> <a href="javascript:;" style="float: left; margin-left: 5px;"
-	class="ecr_button img icon-16-add hasTip"
-	title="<?php echo jgettext('More...'); ?>::<?php echo jgettext('Click for more options'); ?>"
-	onclick="this.setStyle('display', 'none'); ecr_options_box.toggle();">
-	<?php echo jgettext('More...'); ?> </a> <?php
+    class="ecr_button img icon-16-add hasTip"
+    title="<?php echo jgettext('More...'); ?>::<?php echo jgettext('Click for more options'); ?>"
+    onclick="this.setStyle('display', 'none'); ecr_options_box.toggle();">
+    <?php echo jgettext('More...'); ?> </a> <?php
 }
 
 $stdJS = '';
@@ -187,8 +187,8 @@ $stdJS .= "$('file_name').value='';";
 <div id="ecr_options_box" style="float: left; padding-left: 0.5em;">
 <div class="ecr_easy_toolbar">
 <ul>
-	<li class="divider"></li>
-	<?php
+    <li class="divider"></li>
+    <?php
     foreach($rightTasks as $k => $v)
     {
         $controller =(isset($v->controller)) ? $v->controller : $k;
@@ -198,7 +198,7 @@ $stdJS .= "$('file_name').value='';";
         $rel =(isset($v->rel)) ? $v->rel : '';
         $js =(isset($v->js)) ? $v->js : 'onclick="'.$stdJS.$cJS.'"';
         ?>
-	<li class="<?php echo $actives[$k]; ?>"><?php
+    <li class="<?php echo $actives[$k]; ?>"><?php
     echo '<a href="'.$href.'" '.$js.$rel.' class="'.$class.'">'.NL;
     echo '<span class="icon-32-'.$v->image.'" title="'.$v->title.'"></span>'.NL;
     echo $v->title.NL;
@@ -212,8 +212,8 @@ $stdJS .= "$('file_name').value='';";
 </div>
     <?php
     /*
-	 * J1.6 Alpha testing warning
-	 */
+     * J1.6 Alpha testing warning
+     */
     if(version_compare(JVERSION, '1.6', '>='))
     {
         //echo '<strong style="color: red; padding: 2em;">ALPHA TESTING on Joomla! 1.6!</strong>';
@@ -223,9 +223,9 @@ $stdJS .= "$('file_name').value='';";
     if( ! in_array($task, $rTasks))
     {
         ?> <script type="text/javascript">
-				var ecr_options_box = new Fx.Slide('ecr_options_box');
-				ecr_options_box.hide();
-			</script> <?php
+                var ecr_options_box = new Fx.Slide('ecr_options_box');
+                ecr_options_box.hide();
+            </script> <?php
     }
     ?>
 
@@ -368,17 +368,17 @@ and <a href="http://opensuse.org" title="openSUSE" class="external">
 <span class="img icon-16-opensuse">openSUSE</span></a> <br />
 Made and partially Copyright &copy; 2008 - 2011 by <a
 href="http://joomlacode.org/gf/project/elkuku"
-	class="external">El KuKu</a><br />
+    class="external">El KuKu</a><br />
 <small> <em style="color: silver;"><span class="img icon-16-joomla"></span>
 EasyCreator is not affiliated with or endorsed by the <a
-	href="http://joomla.org" class="external">Joomla! Project</a>. It is
+    href="http://joomla.org" class="external">Joomla! Project</a>. It is
 not supported or warranted by the <a href="http://joomla.org"
-	class="external">Joomla! Project</a> or <a
-	href="http://opensourcematters.org/" class="external">Open Source
+    class="external">Joomla! Project</a> or <a
+    href="http://opensourcematters.org/" class="external">Open Source
 Matters</a>.<br />
  <a
-	href="http://www.joomla.org/about-joomla/the-project/conditional-use-logos.html"
-	class="external">The Joomla! logo</a> is used under a limited license
+    href="http://www.joomla.org/about-joomla/the-project/conditional-use-logos.html"
+    class="external">The Joomla! logo</a> is used under a limited license
 granted by <a href="http://opensourcematters.org/" class="external">Open
 Source Matters</a> the trademark holder in the United States and other
 countries.</em></small>
@@ -438,13 +438,13 @@ countries.</em></small>
         echo '<input type="hidden" name="task" value="" />'.NL;
         echo '<input type="hidden" name="controller" '
         .'value="'.JRequest::getCmd('controller').'" />'.NL;
-        echo '<input type="hidden" name="view" 	'
+        echo '<input type="hidden" name="view"     '
         .'value="'.JRequest::getCmd('view').'" />'.NL;
         echo '<input type="hidden" name="file_name" id="file_name" '
         .'value="'.JRequest::getVar('file_name').'" />'.NL;
         echo '<input type="hidden" name="file_path" id="file_path" '
-	    . 'value="'.JRequest::getVar('file_path').'" />'.NL;
-	    echo '</form>'.NL;
+        . 'value="'.JRequest::getVar('file_path').'" />'.NL;
+        echo '</form>'.NL;
         echo($closeDiv) ? '</div>'.NL : '';
         echo '<div style="clear: both"></div>'.NL;
     }//function
@@ -456,7 +456,7 @@ countries.</em></small>
     {
         $buildopts = array(
           'files' => jgettext('Log file contents')
-        , 'profile'	=> jgettext('Profile')
+        , 'profile'    => jgettext('Profile')
         );
 
         //--Get component parameters
@@ -542,11 +542,11 @@ countries.</em></small>
      *       ** EditArea **
      *       **************
      * CFG:
-     * path		- to EditArea file
-     * type		- EditArea file name
-     * form		- name
-     * textarea	- name
-     * syntax	- for highlighting
+     * path        - to EditArea file
+     * type        - EditArea file name
+     * form        - name
+     * textarea    - name
+     * syntax    - for highlighting
      */
     public static function loadEditArea($cfg)
     {
@@ -569,15 +569,15 @@ countries.</em></small>
     <!-- *** EditArea *** -->
     <!-- **************** -->
     editAreaLoader.init({
-    	id : "{$cfg['textarea']}"
-    	,syntax: "$syntax"
-    	,start_highlight: true
-    	,replace_tab_by_spaces: 3
-    	,end_toolbar: 'html_select, autocompletion'
-    	,plugins: "html, autocompletion"
-    	,autocompletion: true
-    	,font_size: {$cfg['font-size']}
-    	$debug
+        id : "{$cfg['textarea']}"
+        ,syntax: "$syntax"
+        ,start_highlight: true
+        ,replace_tab_by_spaces: 3
+        ,end_toolbar: 'html_select, autocompletion'
+        ,plugins: "html, autocompletion"
+        ,autocompletion: true
+        ,font_size: {$cfg['font-size']}
+        $debug
     });
 EOF;
 
@@ -617,11 +617,11 @@ EOF;
         //-- Load EditArea code editor
         $editAreaVersion = '0_8_1_1';
         ecrHTML::loadEditArea(array(
-        'path'		=> '/administrator/components/com_easycreator/assets/js/editarea_'.$editAreaVersion,
-        'type'		=> $editarea_type,
-        'syntax'	=> '',
-        'form'		=> 'adminForm',
-        'textarea'	=> 'ecr_code_area',
+        'path'        => '/administrator/components/com_easycreator/assets/js/editarea_'.$editAreaVersion,
+        'type'        => $editarea_type,
+        'syntax'    => '',
+        'form'        => 'adminForm',
+        'textarea'    => 'ecr_code_area',
         'font-size' => $config->get('editarea_font_size', 8)
         ));
         ?>
@@ -630,7 +630,7 @@ EOF;
 </span> <br />
 <br />
 <div id="container_pic"
-	style="height: 100%; background-color: #ffffff; border: 1px solid grey;">
+    style="height: 100%; background-color: #ffffff; border: 1px solid grey;">
 </div>
 </div>
 <div id="sld_edit_area">
@@ -645,13 +645,13 @@ EOF;
 <div id="ajaxDebug"></div>
 
 <textarea id="ecr_code_area" name="c_insertstring"
-	style="height: 500px; width: 100%;"></textarea> <input type="hidden"
-	name="old_task" value="<?php //echo $task; ?>" /></div>
+    style="height: 500px; width: 100%;"></textarea> <input type="hidden"
+    name="old_task" value="<?php //echo $task; ?>" /></div>
 <script>
-			var sld_edit_area = new Fx.Slide('sld_edit_area');
-			var sld_picture = new Fx.Slide('sld_picture');
-			sld_picture.hide();
-		</script>
+            var sld_edit_area = new Fx.Slide('sld_edit_area');
+            var sld_picture = new Fx.Slide('sld_picture');
+            sld_picture.hide();
+        </script>
         <?php
     }//function
 
@@ -804,14 +804,14 @@ EOF;
 <div id="wizard_control">
 <div class="button1-right">
 <div class="prev"><a
-	onclick="submitbutton('wizard<?php echo $zNum; ?>');"
-	title="<?php echo jgettext('Back'); ?>"><?php echo jgettext('Back'); ?></a>
+    onclick="submitbutton('wizard<?php echo $zNum; ?>');"
+    title="<?php echo jgettext('Back'); ?>"><?php echo jgettext('Back'); ?></a>
 </div>
 </div>
 <div class="button1-left">
 <div class="next"><a
-	onclick="submitbutton('wizard<?php echo ($num + 1); ?>');"
-	title="<?php echo jgettext('Next'); ?>"><?php echo jgettext('Next'); ?></a>
+    onclick="submitbutton('wizard<?php echo ($num + 1); ?>');"
+    title="<?php echo jgettext('Next'); ?>"><?php echo jgettext('Next'); ?></a>
 </div>
 </div>
 </div>
@@ -921,9 +921,9 @@ EOF;
 <strong id="element_scope_label"><?php echo jgettext('Scope');?></strong>
 &nbsp;:
 <select name="element_scope" id="element_scope">
-	<option value=""><?php echo jgettext('Select'); ?></option>
-	<option value="admin"><?php echo jgettext('Admin'); ?></option>
-	<option value="site"><?php echo jgettext('Site'); ?></option>
+    <option value=""><?php echo jgettext('Select'); ?></option>
+    <option value="admin"><?php echo jgettext('Admin'); ?></option>
+    <option value="site"><?php echo jgettext('Site'); ?></option>
 </select>
 <br />
         <?php
@@ -948,7 +948,7 @@ EOF;
 <strong id="element_name_label"><?php echo $title; ?></strong>
 &nbsp;:
 <input
-	type="text" id="element_name" name="element_name" value="" />
+    type="text" id="element_name" name="element_name" value="" />
 <br />
         <?php
         return 'element_name';
@@ -986,8 +986,8 @@ EOF;
      * Displays a message with standard Joomla! backend css styles
      * Type can be:
      *
-     * 'notice'	: YELLOW
-     * 'error'	: RED
+     * 'notice'    : YELLOW
+     * 'error'    : RED
      * '[EMPTY]': BLUE [default]
      *
      * @param array $messages
@@ -1011,10 +1011,10 @@ EOF;
         }
         ?>
 <dl id="system-message">
-	<dt class="<?php echo $type; ?>"><?php echo $type; ?></dt>
-	<dd class="<?php echo $type; ?> message fade">
-	<ul>
-	<?php
+    <dt class="<?php echo $type; ?>"><?php echo $type; ?></dt>
+    <dd class="<?php echo $type; ?> message fade">
+    <ul>
+    <?php
     foreach($messages as $message)
     {
         echo '<li>'.$message.'</li>';
@@ -1025,10 +1025,10 @@ EOF;
         echo '<li><strong>'.$callFile.'</strong></li>';
     }
     ?>
-	</ul>
-	</dd>
+    </ul>
+    </dd>
 </dl>
-	<?php
+    <?php
     if(ECR_DEBUG && $type == 'error')
     {
         self::printTrace();
@@ -1105,10 +1105,10 @@ EOF;
 
         ?>
 <script type="text/javascript">
-			SimpleContextMenu.setup({'preventDefault':true, 'preventForms':false});
-			SimpleContextMenu.attach('pft-file', 'CM1');
-			SimpleContextMenu.attach('pft-directory', 'CM2');
-		</script>
+            SimpleContextMenu.setup({'preventDefault':true, 'preventForms':false});
+            SimpleContextMenu.attach('pft-file', 'CM1');
+            SimpleContextMenu.attach('pft-directory', 'CM2');
+        </script>
 
 <!-- Context menu files -->
         <?php
@@ -1120,8 +1120,8 @@ EOF;
         );
         ?>
 <ul id="CM1" class="SimpleContextMenu">
-	<li class="title"><?php echo jgettext('File'); ?></li>
-	<?php
+    <li class="title"><?php echo jgettext('File'); ?></li>
+    <?php
     foreach($menuEntries as $menuEntry)
     {
         self::contextMenuEntry($ajaxLink, $menuEntry[0], $menuEntry[1], $menuEntry[2]);
@@ -1139,8 +1139,8 @@ EOF;
     );
     ?>
 <ul id="CM2" class="SimpleContextMenu">
-	<li class="title"><?php echo jgettext('Folder'); ?></li>
-	<?php
+    <li class="title"><?php echo jgettext('Folder'); ?></li>
+    <?php
     foreach($menuEntries as $menuEntry)
     {
         self::contextMenuEntry($ajaxLink, $menuEntry[0], $menuEntry[1], $menuEntry[2]);
@@ -1149,19 +1149,19 @@ EOF;
 </ul>
 
 <input
-	type="hidden" name="act_folder" id="act_folder" />
+    type="hidden" name="act_folder" id="act_folder" />
 <input
-	type="hidden" name="act_file" id="act_file" />
-	<?php
+    type="hidden" name="act_file" id="act_file" />
+    <?php
     }//function
 
     private static function contextMenuEntry($ajaxLink, $title, $task, $icon)
     {
         ?>
 <li><a class="modal" onclick="SimpleContextMenu._hide();"
-	rel="{handler: 'iframe', size: {x: 600, y: 150}}"
-	href="<?php echo $ajaxLink.'&task='.$task; ?>"> <span
-	class="img icon-16-<?php echo $icon; ?>"> <?php echo $title; ?> </span>
+    rel="{handler: 'iframe', size: {x: 600, y: 150}}"
+    href="<?php echo $ajaxLink.'&task='.$task; ?>"> <span
+    class="img icon-16-<?php echo $icon; ?>"> <?php echo $title; ?> </span>
 </a></li>
         <?php
     }//function

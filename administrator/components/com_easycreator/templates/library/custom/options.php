@@ -30,6 +30,10 @@ class EasyTemplateOptions
                 $this->reservedNames = array('joomla', 'bitfolge', 'phpmailer', 'phputf8', 'simplepie');
                 break;
 
+            case '1.7':
+                $this->reservedNames = array('joomla', 'phpmailer', 'phputf8', 'simplepie');
+                break;
+
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
                 break;

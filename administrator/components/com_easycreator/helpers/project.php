@@ -127,6 +127,7 @@ abstract class EasyProject extends JObject
     public function getDTD($jVersion) {}//function
     public function getEcrXmlFileName() {}//function
     public function getId() {}//function
+    protected function updateAdminMenu() { return true; }//function
 
     // @codingStandardsIgnoreEnd
 
@@ -143,7 +144,7 @@ abstract class EasyProject extends JObject
         {
             foreach($data as $key => $value)
             {
-                $this->$key = $value;
+                $this->$key = (string)$value;
             }//foreach
 
             return true;

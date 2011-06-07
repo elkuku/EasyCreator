@@ -8,7 +8,7 @@
  */
 
 function showVersion(number) {
-	frm = document.adminForm;
-	frm.selected_version.value = number;
-	submitform('show_version');
+    frm = document.adminForm;
+    frm.selected_version.value = number;
+    submitform('show_version');
 }

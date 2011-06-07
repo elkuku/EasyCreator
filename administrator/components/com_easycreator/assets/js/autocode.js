@@ -41,11 +41,11 @@ function loadAutoCode(ecr_project, action, group, element, scope, part)
     url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
 
     new Request({
-    	url: url,
+        url: url,
         update: 'addPartShow',
         onComplete: function()
         {
-        	dDiv.className = '';
+            dDiv.className = '';
         }
     }).send();
     
@@ -123,11 +123,11 @@ function loadPart(ecr_project, action, type, element, scope)
     url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
 
     new Request({
-    	url: url,
+        url: url,
         update: 'addPartShow',
         onComplete: function()
         {
-        	dDiv.className = '';
+            dDiv.className = '';
         }
     }).send();
     
@@ -136,5 +136,5 @@ function loadPart(ecr_project, action, type, element, scope)
 
 function updateAutoCode()
 {
-	submitform('autocode_update');
+    submitform('autocode_update');
 }//function

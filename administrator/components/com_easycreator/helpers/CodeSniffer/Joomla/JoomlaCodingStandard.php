@@ -5,8 +5,8 @@
  * @version SVN: $Id$
  * @package
  * @subpackage
- * @author		Nikolai Plath {@link http://www.nik-it.de}
- * @author		Created on 09.09.2009
+ * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Created on 09-Sep-2009
  */
 
 if (class_exists('PHP_CodeSniffer_Standards_CodingStandard', true) === false) {

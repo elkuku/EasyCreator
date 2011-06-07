@@ -1,10 +1,10 @@
 <?php
 /**
  * @version $Id$
- * @package		EasyCreator
- * @subpackage	Helpers
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 19-Oct-2008
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Created on 19-Oct-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
@@ -64,9 +64,9 @@ class easyReflection
         {
             case 'component':
                 $comPath = 'components'.DS.$project->comName;
-                //				$scopes = array( 'administrator', '');
-                //				foreach($scopes as $scope)
-                //				{
+                //                $scopes = array( 'administrator', '');
+                //                foreach($scopes as $scope)
+                //                {
                 $scope = 'administrator';
 
                 $scopePath = JPATH_ROOT;
@@ -139,9 +139,9 @@ class easyReflection
             case 'component':
                 $this->initBattleField();
                 $comPath = 'components'.DS.$project->comName;
-                //				$scopes = array( 'administrator', '');
-                //				foreach($scopes as $scope)
-                //				{
+                //                $scopes = array( 'administrator', '');
+                //                foreach($scopes as $scope)
+                //                {
                 $scope = 'administrator';
 
                 $scopePath = JPATH_ROOT;
@@ -150,7 +150,7 @@ class easyReflection
 
                 $this->basePath = $scopePath;
 
-                //	#			$this->addReflectionFile('controllers', $scopePath.DS.'controller.php');
+                //    #            $this->addReflectionFile('controllers', $scopePath.DS.'controller.php');
                 $this->aj_addFile('controllers', 'controller.php');
 
                 $types = array('controllers', 'models', 'tables');
@@ -178,7 +178,7 @@ class easyReflection
                     {
                         foreach($files as $file)
                         {
-                            //						#	$this->addReflectionFile($type, $scopePath.DS.$type.DS.$file);
+                            //                        #    $this->addReflectionFile($type, $scopePath.DS.$type.DS.$file);
                             $this->aj_addFile($type, $type.DS.$file);
                         }//foreach
                     }
@@ -200,15 +200,15 @@ class easyReflection
                         {
                             ?>
 <script type="text/javascript">
-							name = 'insertDiv_'+divCount;
-			html = '<div id="'+name+'"><strong style="color: red;">Loading...</strong>'+divCount+'</div>';
-			$('field_<?php echo $type; ?>').innerHTML += html;
-			</script>
+                            name = 'insertDiv_'+divCount;
+            html = '<div id="'+name+'"><strong style="color: red;">Loading...</strong>'+divCount+'</div>';
+            $('field_<?php echo $type; ?>').innerHTML += html;
+            </script>
                             <?php
                         }//foreach
                         foreach($files as $file)
                         {
-                            //						#	$this->addReflectionFile('views', $scopePath.DS.'views'.DS.$view.DS.$file, $view);
+                            //                        #    $this->addReflectionFile('views', $scopePath.DS.'views'.DS.$view.DS.$file, $view);
                             $this->aj_addFile('views', 'views'.DS.$view.DS.$file);
                         }//foreach
                     }//foreach
@@ -221,11 +221,11 @@ default:
         }//switch
         ?>
 <script type="text/javascript">
-//		alert($('field_models').innerHtml);
-//		alert($('insertDiv_4').innerHtml);
-//		$('insertDiv_2').innerHtml='schnubbiDu';
-//		alert($('insertDiv_2').innerHtml);
-		</script>
+//        alert($('field_models').innerHtml);
+//        alert($('insertDiv_4').innerHtml);
+//        $('insertDiv_2').innerHtml='schnubbiDu';
+//        alert($('insertDiv_2').innerHtml);
+        </script>
 
         <?php
     }//function
@@ -243,21 +243,21 @@ default:
         ?>
 <script type="text/javascript">
 
-			url = "index.php?option=com_easycreator&controller=stuffer&task=aj_reflection&tmpl=component&el_num="+divCount;
+            url = "index.php?option=com_easycreator&controller=stuffer&task=aj_reflection&tmpl=component&el_num="+divCount;
 
-			name = 'insertDiv_'+divCount;
-//			html = '<div id="'+name+'"><strong style="color: red;">Loading...</strong>'+divCount+'</div>';
+            name = 'insertDiv_'+divCount;
+//            html = '<div id="'+name+'"><strong style="color: red;">Loading...</strong>'+divCount+'</div>';
 //
-//			$('field_<?php echo $type; ?>').innerHTML += html;
-			new Request({
-				url: url,
-				method: 'get',
-				update: $(name)
-			}).send();
+//            $('field_<?php echo $type; ?>').innerHTML += html;
+            new Request({
+                url: url,
+                method: 'get',
+                update: $(name)
+            }).send();
 
 
-			divCount ++;
-		</script>
+            divCount ++;
+        </script>
         <?php
     }//function
 
@@ -271,33 +271,33 @@ default:
         ?>
 
 <script type="text/javascript">
-		</script>
+        </script>
 
 <table width="100%" class="adminlist">
-	<tr>
-		<th>Models</th>
-		<th>Tables</th>
-	</tr>
-	<tr>
-		<td>
-		<div id="field_models"></div>
-		</td>
-		<td>
-		<div id="field_tables"></div>
-		</td>
-	</tr>
-	<tr>
-		<th>Controllers</th>
-		<th>Views</th>
-	</tr>
-	<tr>
-		<td>
-		<div id="field_controllers"></div>
-		</td>
-		<td>
-		<div id="field_views"></div>
-		</td>
-	</tr>
+    <tr>
+        <th>Models</th>
+        <th>Tables</th>
+    </tr>
+    <tr>
+        <td>
+        <div id="field_models"></div>
+        </td>
+        <td>
+        <div id="field_tables"></div>
+        </td>
+    </tr>
+    <tr>
+        <th>Controllers</th>
+        <th>Views</th>
+    </tr>
+    <tr>
+        <td>
+        <div id="field_controllers"></div>
+        </td>
+        <td>
+        <div id="field_views"></div>
+        </td>
+    </tr>
 
 </table>
         <?php
@@ -355,7 +355,7 @@ default:
                 foreach($cMethods as $cMethod)
                 {
                     $mPath = $cMethod->getFileName();
-                    //#					echo '<h2>'.$mPath.'</h2>';
+                    //#                    echo '<h2>'.$mPath.'</h2>';
                     $pClass = $cMethod->getDeclaringClass();
                     $mPath = $cMethod->getDeclaringClass()->getFileName();
 
@@ -372,20 +372,20 @@ default:
                     $method->docComment = $cMethod->getDocComment();
                     $method->parameters = array();
                     $method->fileName = $mPath;
-                    //					#$reflection->methods[$s] = new JObject();
+                    //                    #$reflection->methods[$s] = new JObject();
 
-                    //					}
-                    //					if( $s != $displayClassName )
-                    //					{
+                    //                    }
+                    //                    if( $s != $displayClassName )
+                    //                    {
                     //
-                    //						$indent++;
-                    //						echo '<h1>';
-                    //					#	echo str_repeat("&nbsp;&nbsp;", $indent);
-                    //						echo ( $displayClassName ) ? '<span style="color: orange">Extends</span>&nbsp;'.$s : $s;
-                    //						echo '</h1>';
-                    //						$displayClassName = $s;
+                    //                        $indent++;
+                    //                        echo '<h1>';
+                    //                    #    echo str_repeat("&nbsp;&nbsp;", $indent);
+                    //                        echo ( $displayClassName ) ? '<span style="color: orange">Extends</span>&nbsp;'.$s : $s;
+                    //                        echo '</h1>';
+                    //                        $displayClassName = $s;
                     //
-                    //					}
+                    //                    }
                     $paramString = array();
                     $parameters = $cMethod->getParameters();
 
@@ -397,10 +397,10 @@ default:
                         $oParameter->isPassedByReference = $parameter->isPassedByReference();
                         $oParameter->isDefaultValueAvailable = $parameter->isDefaultValueAvailable();
                         $method->parameters[] = $oParameter;
-                        //						#$color =($parameter->isOptional() ) ? 'blue' : 'brown';
+                        //                        #$color =($parameter->isOptional() ) ? 'blue' : 'brown';
                         $s = '';
                         $s .= sprintf("%s<strong style='color: brown;'>$%s</strong>",
-                        //#					       $parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
+                        //#                           $parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
                         $parameter->isPassedByReference() ? '<strong style="color: blue;"> & </strong>' : '',
                         $parameter->getName()
                         );
@@ -439,7 +439,7 @@ default:
                         $paramString[] = $s;
                     }//foreach
                     $paramString = implode(', ', $paramString);
-                    //#					$titel .= '( '.$paramString.' )';
+                    //#                    $titel .= '( '.$paramString.' )';
                     switch($type)
                     {
                         case 'controllers':
@@ -493,20 +493,20 @@ default:
         $endLine = $cMethod->getEndLine();
         $method->jcommands = array();
 
-        //        #		echo '<pre>';
+        //        #        echo '<pre>';
         for($i = $startLine - 1; $i < $endLine; $i++)
         {
             //-- do we have a $this ?
             if( ! strpos($fileContents[$i], '$this') === false)
             {
-                //                #	echo $fileContents[$i].NL;
+                //                #    echo $fileContents[$i].NL;
                 $commandLine = trim($fileContents[$i]);
                 $jCommand = new JObject();
 
                 $jCommand->raw = trim($fileContents[$i]);
                 $pattern = '/\$this->(\w+)/';//(\w+)/';
                 preg_match($pattern, $commandLine, $matches);//, PREG_OFFSET_CAPTURE, 3);
-                //                #				print_r($matches);
+                //                #                print_r($matches);
                 if(isset($matches[1]))
                 {
                     $paramString = trim(substr($commandLine
@@ -527,21 +527,21 @@ default:
                             }
                         }
 
-                        //                        #				echo substr($paramString,0,1);
-                        //                        #				echo substr($paramString, strlen($paramString)-1);
+                        //                        #                echo substr($paramString,0,1);
+                        //                        #                echo substr($paramString, strlen($paramString)-1);
                     }
 
-                    //                    #					echo $paramString.NL;
+                    //                    #                    echo $paramString.NL;
                     $jCommand->name = $matches[1];
                     $jCommand->params = $paramString;
                     $pattern = '/\$this->(\w+)/';//(\w+)/';
                     preg_match($pattern, $fileContents[$i], $matches);//, PREG_OFFSET_CAPTURE, 3);
-                    //                    #				print_r($matches);
+                    //                    #                print_r($matches);
                     $method->jcommands[] = $jCommand;
                 }
             }
         }//for
-        //        #		echo '</pre>';
+        //        #        echo '</pre>';
     }//function
 
     /**
@@ -561,7 +561,7 @@ default:
             if( ! strpos($line, '$this') === false)
             {
                 $jCommand = new JObject();
-                //                #	echo $fileContents[$i].NL;
+                //                #    echo $fileContents[$i].NL;
                 $commandLine = trim($line);
                 $jCommand->raw = $commandLine;
                 $pattern = '/\$this->(\w+)/';//(\w+)/';
@@ -571,23 +571,23 @@ default:
                 {
                     $paramString = trim(substr($commandLine
                     , (strpos($commandLine, '$this') + strlen('$this->') + strlen($matches[1]))));
-                    //					if( substr($paramString, strlen($paramString)-1) == ';')
-                    //					{
-                    //						//-- we have a semicolon at end of line.. proceed
-                    //						$paramString = substr($paramString, 0,strlen($paramString)-1);
-                    //						if( substr($paramString,0,1) == '(')
-                    //						{
-                    //							$paramString = substr($paramString,1);
-                    //							if( substr($paramString, strlen($paramString)-1) == ')')
-                    //							{
-                    //								$paramString = substr($paramString, 0, strlen($paramString)-1);
-                    //							}
-                    //						}
-                    //		#				echo substr($paramString,0,1);
-                    //		#				echo substr($paramString, strlen($paramString)-1);
-                    //					}
+                    //                    if( substr($paramString, strlen($paramString)-1) == ';')
+                    //                    {
+                    //                        //-- we have a semicolon at end of line.. proceed
+                    //                        $paramString = substr($paramString, 0,strlen($paramString)-1);
+                    //                        if( substr($paramString,0,1) == '(')
+                    //                        {
+                    //                            $paramString = substr($paramString,1);
+                    //                            if( substr($paramString, strlen($paramString)-1) == ')')
+                    //                            {
+                    //                                $paramString = substr($paramString, 0, strlen($paramString)-1);
+                    //                            }
+                    //                        }
+                    //        #                echo substr($paramString,0,1);
+                    //        #                echo substr($paramString, strlen($paramString)-1);
+                    //                    }
 
-                    //                    #					echo $paramString.NL;
+                    //                    #                    echo $paramString.NL;
                     $jCommand->name = $matches[1];
                     $jCommand->params = $paramString;
                     $jCommands[] = $jCommand;

@@ -99,6 +99,7 @@ class EasyProjectLibrary extends EasyProject
         switch(ECR_JVERSION)
         {
             case '1.6':
+            case '1.7':
                 break;
 
             default:
@@ -195,7 +196,8 @@ class EasyProjectLibrary extends EasyProject
         switch(ECR_JVERSION)
         {
             case '1.6':
-                return array('joomla', 'phpmailer', 'simplepie', 'phputf8');
+            case '1.7':
+                return array('joomla', 'phpmailer', 'phputf8', 'simplepie');
                 break;
 
             default:

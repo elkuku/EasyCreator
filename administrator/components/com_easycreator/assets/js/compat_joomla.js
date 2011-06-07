@@ -9,7 +9,7 @@
 
 //-- Only define the Joomla namespace if not defined.
 //if (typeof(Joomla) === 'undefined') {
-//	var Joomla = {};
+//    var Joomla = {};
 //}
 
 /**
@@ -18,14 +18,14 @@
  * Allows you to call Joomla.JText._() to get a translated JavaScript string pushed in with JText::script() in Joomla.
  */
 //Joomla.JText = {
-//	strings: {},
-//	'_': function(key) {
-//		return typeof this.strings[key.toUpperCase()] !== 'undefined' ? this.strings[key.toUpperCase()] : key;
-//	},
-//	load: function(object) {
-//		for (var key in object) {
-//			this.strings[key.toUpperCase()] = object[key];
-//		}
-//		return this;
-//	},
+//    strings: {},
+//    '_': function(key) {
+//        return typeof this.strings[key.toUpperCase()] !== 'undefined' ? this.strings[key.toUpperCase()] : key;
+//    },
+//    load: function(object) {
+//        for (var key in object) {
+//            this.strings[key.toUpperCase()] = object[key];
+//        }
+//        return this;
+//    },
 //};

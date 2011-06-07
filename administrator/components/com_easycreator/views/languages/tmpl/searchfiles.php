@@ -49,6 +49,7 @@ if($this->scope != 'menu')
             break;
 
         case '1.6':
+        case '1.7':
             $searchTitle = jgettext('PHP, XML and JavaScript file analysis');
             break;
 

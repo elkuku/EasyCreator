@@ -52,9 +52,6 @@ defined('_JEXEC') || die('=;)');
         <strong>Diff engine</strong> comes from <a href="http://www.dokuwiki.org" class="external">Dokuwiki</a> - see &copy; + License in helpers/DifferenceEngine.php
     </li>
     <li>
-        <strong>QTabs</strong> comes from <a href="http://www.latenight-coding.com/mootools/classes/qtabs.html" class="external">latenight-coding</a>
-    </li>
-    <li>
         <strong>Extension templates</strong> see individual templates and most of all <a href="http://docs.joomla.org/" class="external">docs.joomla.org</a>
     </li>
     <li>

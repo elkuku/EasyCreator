@@ -105,11 +105,9 @@ class EasyProjectPlugin extends EasyProject
      */
     public function getDTD($jVersion)
     {
-        $v = substr($jVersion, 0, 3);
-
         $dtd = false;
 
-        switch($v)
+        switch(ECR_JVERSION)
         {
             case '1.5':
                 $dtd = array(
@@ -119,6 +117,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 break;
 
             default:
@@ -162,6 +161,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
@@ -204,6 +204,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -253,10 +254,11 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
                 break;
         }//switch
 
@@ -307,7 +309,8 @@ class EasyProjectPlugin extends EasyProject
                         break;
                     default :
                         ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
-                        break;
+
+                        return array();
                 }//switch
                 break;
 
@@ -342,12 +345,48 @@ class EasyProjectPlugin extends EasyProject
                         break;
                     default :
                         ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+
+                        return array();
+                }//switch
+                break;
+            case '1.7':
+                switch($scope)
+                {
+                    case 'authentication':
+                        $projects = array('gmail', 'joomla', 'ldap');
+                        break;
+                    case 'content':
+                        $projects = array('emailcloak', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
+                        , 'pagenavigation', 'vote');
+                        break;
+                    case 'editors':
+                        $projects = array('none', 'tinymce', 'codemirror');
+                        break;
+                    case 'editors-xtd':
+                        $projects = array('article', 'image', 'pagebreak', 'readmore');
+                        break;
+                    case 'extension':
+                        $projects = array('joomla');
+                        break;
+                    case 'search':
+                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+                        break;
+                    case 'system':
+                        $projects = array('cache', 'debug', 'languagefilter'
+                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
+                        break;
+                    case 'user':
+                        $projects = array('contactcreator', 'joomla', 'profile');
+                        break;
+                    default :
+                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
                 }//switch
                 break;
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
-                break;
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+
+                return array();
         }//switch
 
         return $projects;

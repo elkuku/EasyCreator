@@ -227,23 +227,23 @@ class EasyTableHelper
         $db->setQuery(sprintf($columnQuery, $db->getPrefix().$tableName));
         $fields = $db->loadAssocList();
         //    $tableFields = array();
-        //	        foreach($fields as $field)
-        //	        {
-        //	       #     $f = array();
+        //            foreach($fields as $field)
+        //            {
+        //           #     $f = array();
         //
-        //	            foreach($field as $k => $v)
-        //	            {
-        //	            	$k = strtolower($k);
-        //	            	if($k == 'field') $k = 'name';
-        //	            	$f[$k] = $v;
-        //	            }//foreach
+        //                foreach($field as $k => $v)
+        //                {
+        //                    $k = strtolower($k);
+        //                    if($k == 'field') $k = 'name';
+        //                    $f[$k] = $v;
+        //                }//foreach
         //
-        //	            $f = new EasyTableField($f);
-        //	            $tableFields[] = $f;
+        //                $f = new EasyTableField($f);
+        //                $tableFields[] = $f;
         //
-        //	        }//foreach
+        //            }//foreach
         //
-        //	        return $tableFields;
+        //            return $tableFields;
         return $fields;
     }//function
 

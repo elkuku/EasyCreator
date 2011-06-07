@@ -39,13 +39,14 @@ class EasyCreatorViewConfig extends JView
                 $table->loadByOption('com_easycreator');
                 break;
             case '1.6':
+            case '1.7':
                 $component = JComponentHelper::getComponent('com_easycreator');
                 $table = JTable::getInstance('extension');
                 $table->load($component->id);
                 break;
 
             default:
-                ecrHTML::displayMessage(sprintf(jgettext('%s - Unsupported Joomla! version %s'),__METHOD__, ECR_JVERSION));
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
 
                 ecrHTML::easyFormEnd();
 

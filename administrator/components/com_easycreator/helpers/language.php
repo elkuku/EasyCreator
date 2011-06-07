@@ -301,27 +301,27 @@ class EasyELanguage
         ?>
 
 <table class="diff">
-	<tr>
-		<th colspan="2"><?php echo sprintf(jgettext('Version No. %s'), $revNo); ?></th>
-		<th colspan="2"><?php echo jgettext('Actual file'); ?></th>
-	</tr>
-	<?php echo $dwFormatter->format($dwDiff); ?>
+    <tr>
+        <th colspan="2"><?php echo sprintf(jgettext('Version No. %s'), $revNo); ?></th>
+        <th colspan="2"><?php echo jgettext('Actual file'); ?></th>
+    </tr>
+    <?php echo $dwFormatter->format($dwDiff); ?>
 </table>
 <?php
 /* PHP */
 
 ?>
 <!--
-		<table width="100%">
-			<tr>
-				<th><?php echo jgettext('Actual file'); ?></th>
-				<th><?php echo sprintf(jgettext('Version No. %s'), $revNo); ?></th>
-			</tr>
-			<tr valign="top">
-			<?php
+        <table width="100%">
+            <tr>
+                <th><?php echo jgettext('Actual file'); ?></th>
+                <th><?php echo sprintf(jgettext('Version No. %s'), $revNo); ?></th>
+            </tr>
+            <tr valign="top">
+            <?php
 
             ?>
-				<td><?php if( ! $fileOrig)
+                <td><?php if( ! $fileOrig)
                 {
                     echo '<strong style="color: red;">'.jgettext('File not found').'</strong>';
                 }
@@ -330,7 +330,7 @@ class EasyELanguage
                     $this->displayFields($lang, $fileOrig);
                 }
                 ?></td>
-				<td><?php if( ! $fileRev)
+                <td><?php if( ! $fileRev)
                 {
                     echo '<strong style="color: red;">'.jgettext('File not found').'</strong>';
                 }
@@ -339,9 +339,9 @@ class EasyELanguage
                     $this->displayFields($lang, $fileRev);
                 }
                 ?></td>
-			</tr>
-		</table>
-		-->
+            </tr>
+        </table>
+        -->
                 <?php
     }//function
 
@@ -802,13 +802,13 @@ class EasyELanguage
         }
         ?>
 <table>
-	<tr>
-		<td>
-		<h2><?php echo jgettext('Language files analysis'); ?></h2>
-		</td>
-		<td><?php echo sprintf(jgettext('Treat the first %s lines as comment')
+    <tr>
+        <td>
+        <h2><?php echo jgettext('Language files analysis'); ?></h2>
+        </td>
+        <td><?php echo sprintf(jgettext('Treat the first %s lines as comment')
         , '<select name="lang_fileanalysis_comment_num"
-				  onchange="submitbutton(\'languages\');">');
+                  onchange="submitbutton(\'languages\');">');
 
         for($i = 0; $i < 10; $i++)
         {
@@ -818,12 +818,12 @@ class EasyELanguage
 
         echo '</select>';
         ?> <br />
-		<input type="checkbox" name="lang_fileanalysis_fold"
-			id="lang_fileanalysis_fold" value="lang_fileanalysis_fold"
-			onclick="submitbutton('languages');" <?php echo $checked; ?> /> <label
-			for="lang_fileanalysis_fold"><?php echo jgettext('Fold'); ?></label>
-		</td>
-	</tr>
+        <input type="checkbox" name="lang_fileanalysis_fold"
+            id="lang_fileanalysis_fold" value="lang_fileanalysis_fold"
+            onclick="submitbutton('languages');" <?php echo $checked; ?> /> <label
+            for="lang_fileanalysis_fold"><?php echo jgettext('Fold'); ?></label>
+        </td>
+    </tr>
 </table>
         <?php
         $k = 0;
@@ -921,13 +921,13 @@ class EasyELanguage
                                 ?>
 
 <a class="modal" title="<?php echo jgettext('Click to translate'); ?>"
-	href="<?php echo $link; ?>"
-	rel="{handler: 'iframe', size: {x: 900, y: 310}}"
-	id="trfield_<?php echo $fieldID; ?>"> <?php
+    href="<?php echo $link; ?>"
+    rel="{handler: 'iframe', size: {x: 900, y: 310}}"
+    id="trfield_<?php echo $fieldID; ?>"> <?php
     $tmpStrings =(isset($this->_strings[$skey][$lang])) ? $this->_strings[$skey][$lang] : array();
     $this->_displayField($lang, $skey, $tmpStrings);
     ?> </a>
-	<?php
+    <?php
     echo '</td>';
                             }//foreach
                             $used = false;
@@ -1011,8 +1011,8 @@ case 'etc':
     {
         ?>
 <table>
-	<tr valign="top">
-	<?php
+    <tr valign="top">
+    <?php
     foreach($this->_languages as $lang)
     {
         if(in_array($lang, $this->_hideLangs))
@@ -1035,18 +1035,18 @@ case 'etc':
     {
         echo '<p style="color: red">'.jgettext('File not found').'</p>';
         ?>
-		<div class="ecr_button"
-			onclick="document.adminForm.lngcreate_lang.value='<?php echo $lang; ?>'; submitform('create_langfile');">
-			<?php echo jgettext('Create language file'); ?></div>
-			<?php
+        <div class="ecr_button"
+            onclick="document.adminForm.lngcreate_lang.value='<?php echo $lang; ?>'; submitform('create_langfile');">
+            <?php echo jgettext('Create language file'); ?></div>
+            <?php
         }
         ?></td>
-		<?php
+        <?php
     }//foreach
     ?>
-	</tr>
+    </tr>
 </table>
-	<?php
+    <?php
     }//function
 
     /**
@@ -1233,15 +1233,15 @@ case 'etc':
 
         //--RegEx pattern for JText in PHP files
         //        $pattern = "/JText::_\(\s*\'(.*)\'\s*\)|JText::_\(\s*\"(.*)\"\s*\)".
-        //		    "|JText::sprintf\(\s*\"(.*)\"|JText::sprintf\(\s*\'(.*)\'".
-        //		    "|JText::printf\(\s*\'(.*)\'|JText::printf\(\s*\"(.*)\"/iU";
+        //            "|JText::sprintf\(\s*\"(.*)\"|JText::sprintf\(\s*\'(.*)\'".
+        //            "|JText::printf\(\s*\'(.*)\'|JText::printf\(\s*\"(.*)\"/iU";
         //
         //        //--RegEx pattern for Joomla.JText in Javascript files
         //        $patternJs =
         //        //--In case there is the second parameter (default) set
         //            "/Joomla.JText._\(\s*\"(.*)\"|Joomla.JText._\(\s*\'(.*)\'".
         //        //--'''normal''' use...
-        //           	"|Joomla.JText._\(\s*\'(.*)\'\s*\)|JText::_\(\s*\"(.*)\"\s*\)/iU";
+        //               "|Joomla.JText._\(\s*\'(.*)\'\s*\)|JText::_\(\s*\"(.*)\"\s*\)/iU";
 
         switch(JFile::getExt($fileName))
         {

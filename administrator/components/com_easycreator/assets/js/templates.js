@@ -9,22 +9,22 @@
 
 function submitbutton(task, comType, template)
 {
-	frm=document.adminForm;
+    frm=document.adminForm;
 
-	if(comType == undefined)
-	{
-		comType = frm.com_type.value;
-	}
+    if(comType == undefined)
+    {
+        comType = frm.com_type.value;
+    }
 
-	if(template == undefined)
-	{
-		template = frm.template.value;
-	}
+    if(template == undefined)
+    {
+        template = frm.template.value;
+    }
 
-	frm.com_type.value = comType;
-	frm.template.value = template;
+    frm.com_type.value = comType;
+    frm.template.value = template;
 
-	submitform(task);
+    submitform(task);
 }//function
 
 function submitInstallForm()
@@ -36,5 +36,5 @@ function submitInstallForm()
         return;
     }
 
-	document.installForm.submit();
+    document.installForm.submit();
 }//function

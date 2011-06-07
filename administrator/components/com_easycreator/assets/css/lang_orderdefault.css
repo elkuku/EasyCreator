@@ -1,21 +1,21 @@
 /**
  * @version SVN: $Id$
- * @package		EasyCreator
- * @subpackage	CSS
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 20-Dec-2007
+ * @package    EasyCreator
+ * @subpackage CSS
+ * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Created on 20-Dec-2007
  */
  @CHARSET "UTF-8";
 
 li.handle {
-	cursor: move;
+    cursor: move;
 }
 
 li.handle:hover {
-	background-color: yellow;
+    background-color: yellow;
 }
 
 .ecr_code {
-	border: 1px dotted grey;
-	background-color: #F2F2FF;
+    border: 1px dotted grey;
+    background-color: #F2F2FF;
 }

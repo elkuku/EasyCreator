@@ -81,8 +81,8 @@ function com_install()
 <div>
 
 <div style="float: right"><img
-	src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
-	alt="EasyCreator Logo" title="EasyCreator Logo" /></div>
+    src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
+    alt="EasyCreator Logo" title="EasyCreator Logo" /></div>
 
 <h1>EasyCreator</h1>
     <?php echo jgettext('EasyCreator is a developer tool.'); ?><br />

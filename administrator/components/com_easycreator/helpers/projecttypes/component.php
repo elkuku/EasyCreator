@@ -202,6 +202,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
+            case '1.6':
                 return $this->comName.'.xml';
                 break;
 
@@ -222,11 +223,9 @@ class EasyProjectComponent extends EasyProject
      */
     public function getDTD($jVersion)
     {
-        $v = substr($jVersion, 0, 3);
-
         $dtd = false;
 
-        switch($v)
+        switch(ECR_JVERSION)
         {
             case '1.5':
                 $dtd = array(
@@ -235,6 +234,7 @@ class EasyProjectComponent extends EasyProject
                 , 'uri' => 'http://joomla.org/xml/dtd/1.5/component-install.dtd');
                 break;
 
+            case '1.6':
             case '1.6':
                 break;
 
@@ -277,7 +277,7 @@ class EasyProjectComponent extends EasyProject
         switch(ECR_JVERSION)
         {
             case '1.5':
-                $query = new JDatabaseQuery();
+                $query = new JDatabaseQuery;
 
                 $query->from('#__components AS c');
                 $query->select('c.id');
@@ -286,6 +286,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -341,6 +342,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 $projects = array(
                 'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
                 , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
@@ -350,7 +352,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(100, __METHOD__.' - Unknown scope');
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
                 break;
         }//switch
 
@@ -509,6 +511,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 $query = $db->getQuery(true);
 
                 $query->from('#__menu AS m');
@@ -668,6 +671,7 @@ class EasyProjectComponent extends EasyProject
                 }
                 break;
 
+            case '1.6':
             case '1.6':
                 $table	= JTable::getInstance('menu');
 

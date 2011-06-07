@@ -32,13 +32,13 @@ defined('_JEXEC') || die('=;)');
 define('ECR_DEV_MODE', 1);//@@DEBUG
 
 jimport('joomla.error.profiler');
-
 $profiler = JProfiler::getInstance('Application');
 
 JDEBUG ? $profiler->mark('com_easycreator starting') : null;
 
 //-- Global constants
 require_once 'defines.php';
+
 
 //-- Global functions
 require_once 'functions.php';
@@ -119,6 +119,25 @@ catch(Exception $e)
 //-- Get the component XML manifest data
 define('ECR_VERSION', EasyProjectHelper::parseXMLInstallFile(
 JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
+
+/**
+ * Check the Joomla! version
+ */
+switch (ECR_JVERSION)
+{
+    case '1.5':
+    case '1.6':
+        //We're all OK =;)
+    break;
+
+    case '1.7':
+        JError::raiseNotice(0, sprintf(jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s'), ECR_VERSION, ECR_JVERSION));
+    break;
+
+    default:
+        JError::raiseWarning(0, sprintf(jgettext('EasyCreator version %s may not work well with your Joomla! version %s'), ECR_VERSION, ECR_JVERSION));
+    break;
+}//switch
 
 //-- Add CSS
 ecrStylesheet('default');

@@ -36,7 +36,7 @@ class EasyProjectMatrix extends JFolder
 
     //--Private vars
 
-    private	$fileExtensions = array('php', 'js', 'html', 'css', 'xml', 'ini', 'sql', 'languages');
+    private $fileExtensions = array('php', 'js', 'html', 'css', 'xml', 'ini', 'sql', 'languages');
 
     private $imgExtensions = '.png$|.jpg$|.jpeg$|.ico$|.svg$|.gif$';
 
@@ -88,7 +88,7 @@ class EasyProjectMatrix extends JFolder
         switch($type)
         {
             case 'pcharts':
-                // #       	    $this->generatePChartCode();
+                // #               $this->generatePChartCode();
                 break;
 
             default:
@@ -619,64 +619,64 @@ class EasyProjectMatrix extends JFolder
         }
 
         $js = "
-	var $name = new Highcharts.Chart({
-		chart: {
-			renderTo: '$renderTo',
-			margin: [20, $marginRight, 0, 120],
-			width: $width,
-			height: $height
-		},
-		title: {
-			text: '$title'
-		},
-		plotArea: {
-			shadow: null,
-			borderWidth: null,
-			backgroundColor: null
-		},
-		tooltip: {
-			formatter: function() {
-				return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-			}
-		},
-		plotOptions: {
-			pie: {
-				size: '90%',
-				allowPointSelect: false,
-				dataLabels: {
-					enabled: true,
-					formatter: function() {
-						if (this.y > 5) return this.point.name;
-					},
-					color: 'white',
-					style: {
-						font: '14px Trebuchet MS, Verdana, sans-serif'
-					}
-				}
-			}
-		},
-		legend: {
-			enabled: $legendEnabled,
-			layout: 'vertical',
-			style: {
-						left: '0px',
-						bottom: '10px',
-						right: 'auto',
-						top: 'auto'
-					},
-			backgroundColor: '#eee',
-			borderColor: '#ccc',
-			borderWidth: 1,
-			shadow: true
+    var $name = new Highcharts.Chart({
+        chart: {
+            renderTo: '$renderTo',
+            margin: [20, $marginRight, 0, 120],
+            width: $width,
+            height: $height
+        },
+        title: {
+            text: '$title'
+        },
+        plotArea: {
+            shadow: null,
+            borderWidth: null,
+            backgroundColor: null
+        },
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+            }
+        },
+        plotOptions: {
+            pie: {
+                size: '90%',
+                allowPointSelect: false,
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        if (this.y > 5) return this.point.name;
+                    },
+                    color: 'white',
+                    style: {
+                        font: '14px Trebuchet MS, Verdana, sans-serif'
+                    }
+                }
+            }
+        },
+        legend: {
+            enabled: $legendEnabled,
+            layout: 'vertical',
+            style: {
+                        left: '0px',
+                        bottom: '10px',
+                        right: 'auto',
+                        top: 'auto'
+                    },
+            backgroundColor: '#eee',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            shadow: true
     },
-	        series: [{
-			type: 'pie',
-			name: '$title',
-			data: [
-			$serie
-				]
-			}]
-		});
+            series: [{
+            type: 'pie',
+            name: '$title',
+            data: [
+            $serie
+                ]
+            }]
+        });
 ";
 
         return $js;
@@ -710,50 +710,50 @@ class EasyProjectMatrix extends JFolder
         $seriesString = '[{'.NL.implode(NL.'}, {'.NL, $sEs).NL.'}]';
 
         $js = "
-	var chart = new Highcharts.Chart({
-		chart: {
-			renderTo: '$renderTo',
-			defaultSeriesType: 'bar'
-		},
-		title: {
-			text: '$title'
-		},
-		xAxis: {
-			categories: $categoryString
-		},
-		yAxis: {
-			min: 0,
-//			max: 100,
-			title: {
-				text: '%'
-			}
-		},
-		legend: {
-//			style: {
-//				left: 'auto',
-//				bottom: 'auto',
-//				right: '0px',
-//				top: '35px'
-//			},
-			backgroundColor: '#eee',
-			borderColor: '#ccc',
-			borderWidth: 1,
-//			shadow: true
-		},
-		tooltip: {
-			formatter: function() {
-//				return '<b>'+ this.x +'</b><br/>'+
-//					 this.series.name +': '+ this.y +'';
-				return this.x +' '+this.series.name+' : '+ this.y +'';
-    			}
-		},
-		plotOptions: {
-			bar: {
-				stacking: 'normal'
-			}
-		},
-	        series: $seriesString
-	});";
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: '$renderTo',
+            defaultSeriesType: 'bar'
+        },
+        title: {
+            text: '$title'
+        },
+        xAxis: {
+            categories: $categoryString
+        },
+        yAxis: {
+            min: 0,
+//            max: 100,
+            title: {
+                text: '%'
+            }
+        },
+        legend: {
+//            style: {
+//                left: 'auto',
+//                bottom: 'auto',
+//                right: '0px',
+//                top: '35px'
+//            },
+            backgroundColor: '#eee',
+            borderColor: '#ccc',
+            borderWidth: 1,
+//            shadow: true
+        },
+        tooltip: {
+            formatter: function() {
+//                return '<b>'+ this.x +'</b><br/>'+
+//                     this.series.name +': '+ this.y +'';
+                return this.x +' '+this.series.name+' : '+ this.y +'';
+                }
+        },
+        plotOptions: {
+            bar: {
+                stacking: 'normal'
+            }
+        },
+            series: $seriesString
+    });";
 
         return $js;
     }//function

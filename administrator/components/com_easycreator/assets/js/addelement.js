@@ -69,7 +69,7 @@ function getTableFields(tableName)
     link = 'index.php?option=com_easycreator&controller=ajax&task=show_tablefields&tmpl=component';
 
     new Request({
-    	url: link + '&table_name=' + tableName,
+        url: link + '&table_name=' + tableName,
         update : 'addPartTableFields',
         onComplete : function()
         {

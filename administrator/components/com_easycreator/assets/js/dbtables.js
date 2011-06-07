@@ -99,13 +99,13 @@ function newRow(elName)
     //-- Name / Field --- @todo change ?
     var fieldName = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldNameInput = new Element('input',
-    		{'type':'text', 'name':'fields['+obCount+'][name]', 'size':size}).injectInside(fieldName);
+            {'type':'text', 'name':'fields['+obCount+'][name]', 'size':size}).injectInside(fieldName);
     fieldName.injectInside(div);
     
     //-- Label
     var fieldDisplay = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldDisplayInput = new Element('input',
-    		{'type':'text', 'name':'fields['+obCount+'][label]', 'size':size}).injectInside(fieldDisplay);
+            {'type':'text', 'name':'fields['+obCount+'][label]', 'size':size}).injectInside(fieldDisplay);
     fieldDisplay.injectInside(div);
     
     //-- Type
@@ -115,7 +115,7 @@ function newRow(elName)
     //-- Length / Set
     var fieldLength = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldLengthInput = new Element('input',
-    		{'type':'text', 'name':'fields['+obCount+'][length]', 'size':size}).injectInside(fieldLength);
+            {'type':'text', 'name':'fields['+obCount+'][length]', 'size':size}).injectInside(fieldLength);
     fieldLength.injectInside(div);
     
     //-- Attributes
@@ -136,7 +136,7 @@ function newRow(elName)
     //-- Null
     var fieldNull = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldNullSelect = new Element('select',
-    		{ 'name': 'fields['+obCount+'][null]' }).injectInside(fieldNull);
+            { 'name': 'fields['+obCount+'][null]' }).injectInside(fieldNull);
     var option = new Element('option', {'value': 'NOT_NULL'});
     option.appendText('NOT NULL');
     option.injectInside(fieldNullSelect);
@@ -264,9 +264,9 @@ function getTableFieldSelector(tableName, fieldName)
     url += '&field_name=' + fieldName;
 
     new Request({
-    	url: url,
+        url: url,
 
-    	'onRequest' : function()
+        'onRequest' : function()
         {
             $(fieldName+'_container').innerHTML = jgettext('Loading...');
             $(fieldName+'_container').className = 'ajax_loading16';

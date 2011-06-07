@@ -900,21 +900,21 @@ class EasyCreatorControllerAjax extends JController
         ?>
 <style type="text/css">
 body {
-	background-color: #eee;
+    background-color: #eee;
 }
 </style>
 <h2 class="img icon-16-<?php echo $icon; ?>"><?php echo $title ?></h2>
 <div
-	style="background-color: #ffff99; border: 1px solid gray; padding: 0.5em;">
+    style="background-color: #ffff99; border: 1px solid gray; padding: 0.5em;">
 <div id="displ_folder" style="display: inline;"></div>
 <input type="<?php echo $inputType; ?>" id="act_name" /></div>
 <br />
 <div style="text-align: center;"><span
-	class="ecr_button img icon-16-<?php echo $icon; ?>"
-	onclick="processForm();"> <?php echo $text ?> </span></div>
+    class="ecr_button img icon-16-<?php echo $icon; ?>"
+    onclick="processForm();"> <?php echo $text ?> </span></div>
 <div id="log"></div>
 <input type="hidden"
-	id="act_folder" />
+    id="act_folder" />
         <?php
     }//function
 
@@ -944,37 +944,37 @@ body {
         ?>
 
 <script>
-			var FBPresent = true;
-			if(window.console == undefined)
-			{
-				if(window.parent.console != undefined)
-				{
-					console = window.parent.console;
-				}
-				else
-				{
-					FBPresent = false;
-				}
-			}
-			frm = window.parent.document.adminForm;
-			path = frm.act_folder.value;
-			act_file = frm.act_file.value;
+            var FBPresent = true;
+            if(window.console == undefined)
+            {
+                if(window.parent.console != undefined)
+                {
+                    console = window.parent.console;
+                }
+                else
+                {
+                    FBPresent = false;
+                }
+            }
+            frm = window.parent.document.adminForm;
+            path = frm.act_folder.value;
+            act_file = frm.act_file.value;
 
-			if(FBPresent) console.log(path);
-			if(FBPresent)console.log('act_file '+act_file);
+            if(FBPresent) console.log(path);
+            if(FBPresent)console.log('act_file '+act_file);
 
-			//-- No dot found in filename - must be a folder @todo
-			if( act_file.indexOf('.') === -1 )
-			{
-				path += '/' + act_file;
+            //-- No dot found in filename - must be a folder @todo
+            if( act_file.indexOf('.') === -1 )
+            {
+                path += '/' + act_file;
 
-				if(FBPresent) console.log('no dot found - append filename to path - '.path);
-			}
+                if(FBPresent) console.log('no dot found - append filename to path - '.path);
+            }
 
-			subPath = path.split('/');
-			folderName = subPath[subPath.length-1];
+            subPath = path.split('/');
+            folderName = subPath[subPath.length-1];
 
-			display = path;
+            display = path;
 <?php
             switch($type)
             {
@@ -1019,21 +1019,21 @@ body {
                 break;
             }//switch
             ?>
-			/*
-			* Javascript again..
-			*/
+            /*
+            * Javascript again..
+            */
 
-			$('displ_folder').innerHTML = display;
-			$('act_folder').value = path;
+            $('displ_folder').innerHTML = display;
+            $('act_folder').value = path;
 
-			function processForm()
-			{
-				post = '';
-				post += '&act_path='+$('act_folder').value;
-				post += '&ecr_project=<?php echo $ecr_project; ?>';
+            function processForm()
+            {
+                post = '';
+                post += '&act_path='+$('act_folder').value;
+                post += '&ecr_project=<?php echo $ecr_project; ?>';
 
-				act_name = $('act_name').value;
-				post += '&act_name='+act_name;
+                act_name = $('act_name').value;
+                post += '&act_name='+act_name;
 
                 <?php
                 if($action == 'rename')
@@ -1046,34 +1046,34 @@ body {
                     ?>
                     uri = '<?php echo $ajaxLink; ?>'+post;
 
-					if( ! act_name)
-					{
-						$('act_name').setStyle('background-color', 'red');
+                    if( ! act_name)
+                    {
+                        $('act_name').setStyle('background-color', 'red');
 
-						return false;
-					}
+                        return false;
+                    }
                     <?php
                 }
                 ?>
 
-				new Request({
-					url: uri,
-					'postBody': post,
-					'onComplete': function(result)
-					{
-						if(result == '*OK*')
-						{
-							window.parent.location = '<?php echo $hrefLink; ?>';
-						}
-						else
-						{
-							$('log').innerHTML = result;
-						}
-					}
-				}).send();
-			}//function
-		</script>
-				<?php
+                new Request({
+                    url: uri,
+                    'postBody': post,
+                    'onComplete': function(result)
+                    {
+                        if(result == '*OK*')
+                        {
+                            window.parent.location = '<?php echo $hrefLink; ?>';
+                        }
+                        else
+                        {
+                            $('log').innerHTML = result;
+                        }
+                    }
+                }).send();
+            }//function
+        </script>
+                <?php
     }//function
 
     /**

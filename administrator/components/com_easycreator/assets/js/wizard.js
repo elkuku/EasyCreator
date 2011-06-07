@@ -38,9 +38,9 @@ function getExtensionTemplateInfo(extType, folder, e)
     url += '&folder=' + folder;
     
     new Request({
-    	url: url,
+        url: url,
 
-    	'onRequest' : function()
+        'onRequest' : function()
         {
             //$('ecr_title_pic').innerHTML = jgettext('Loading...');
         }

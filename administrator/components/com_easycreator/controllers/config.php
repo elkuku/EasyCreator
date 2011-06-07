@@ -24,11 +24,11 @@ class EasyCreatorControllerConfig extends JController
     /**
      * Standard display method.
      *
-	 * @param boolean $cachable If true, the view output will be cached
-	 * @param array $urlparams An array of safe url parameters and their variable types,
-	 * for valid values see {@link JFilterInput::clean()}.
+     * @param boolean $cachable If true, the view output will be cached
+     * @param array $urlparams An array of safe url parameters and their variable types,
+     * for valid values see {@link JFilterInput::clean()}.
      *
-	 * @return void
+     * @return void
      * @see JController::display()
      */
     public function display($cachable = false, $urlparams = false)
@@ -60,6 +60,7 @@ class EasyCreatorControllerConfig extends JController
                     $table->loadByOption('com_easycreator');
                     break;
                 case '1.6':
+                case '1.7':
                     $component = JComponentHelper::getComponent('com_easycreator');
                     $table = JTable::getInstance('extension');
                     $table->load($component->id);

@@ -24,7 +24,7 @@ function newSubmenu(x, x, x, x, x, parent)
 //console.log(parent);
     if('1.5' != ECR_JVERSION)
     {
-    	sortSubMenu.addItems(newLi);
+        sortSubMenu.addItems(newLi);
     }
 }
 
@@ -76,7 +76,7 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += "<input type=\"text\" name=\"submenu[" + num
             + "][img]\" size=\"30\" value=\"" + image + "\" id=\"img-" + num + "\" />";
     html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\""
-    	+ " onclick=\"this.getParent().dispose();\">" + jgettext('Delete') + "</div>";
+        + " onclick=\"this.getParent().dispose();\">" + jgettext('Delete') + "</div>";
   //  html += '<br />';
 //    html += '</div>';
 //    html += '</li>';

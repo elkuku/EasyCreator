@@ -6,44 +6,44 @@
  * @author      Created on 28-Sep-2009
  */
 label.creditsLabel {
-	width: 13em;
-	float: left;
-	margin-right: 0.5em;
-	display: block;
-	font-weight: bold;
+    width: 13em;
+    float: left;
+    margin-right: 0.5em;
+    display: block;
+    font-weight: bold;
 }
 
 .ecr_floatbox ul {
-	padding: 0;
-	list-style: none;
+    padding: 0;
+    list-style: none;
 }
 
 .ecr_floatbox li {
-	margin-bottom: 0.3em;
+    margin-bottom: 0.3em;
 }
 
 x {
-	margin: 0;
+    margin: 0;
 }
 
 ul.sortable {
-	min-height: 18px;
-	border: 1px solid gray;
+    min-height: 18px;
+    border: 1px solid gray;
 }
 
 ul.sortable li {
-	height: 18px;
+    height: 18px;
 }
 
 ul.sortable li:hover {
-	background-color: #ddd;
-	cursor: move;
+    background-color: #ddd;
+    cursor: move;
 }
 
 ul#package-to {
-	background-color: #f2ffff;
+    background-color: #f2ffff;
 }
 
 ul.sortable li.menu {
-	height: 80px;
+    height: 80px;
 }

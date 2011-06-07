@@ -40,13 +40,14 @@ class EasyProjectHelper
                 break;
 
             case '1.6':
+            case '1.7':
                 $projectTypes += array(
                 'lib' => 'library'
                 , 'pkg' => 'package');
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
                 break;
         }//switch
 
@@ -422,7 +423,7 @@ class EasyProjectHelper
         , 'template' => array(jgettext('Templates'), jgettext('Template'))
         );
 
-        //-- Degfined for plural translations
+        //-- Degfined for automated plural translations
         if(0)
         {
             jngettext('%d Component', '%d Components', 0);

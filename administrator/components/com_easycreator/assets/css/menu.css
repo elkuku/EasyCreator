@@ -1,24 +1,16 @@
 /**
  * @version SVN: $Id$
- * @package		EasyCreator
- * @subpackage	CSS
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 20-Dec-2007
+ * @package    EasyCreator
+ * @subpackage CSS
+ * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Created on 20-Dec-2007
  */
 span.ecr_label2 {
    padding: 3px;
    background-color: #CCE5FF;
 }
 
-/**
- * JMenu javascript behavior styling
- *
- * @author		Johan Janssens <johan.janssens@joomla.org>
- * @package		Joomla
- * @since		1.5
- * @version    1.0
- */ /* ---- Basic menu styles ------------------- */
-   /* common styling */
+/* common styling */
 #ecr_menu,#ecr_menu ul,#ecr_menu li {
    margin: 0;
    padding: 0;

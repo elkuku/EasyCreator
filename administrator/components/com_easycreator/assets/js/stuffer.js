@@ -9,42 +9,42 @@
 
 function createFile(type1, type2)
 {
-	$('type1').value = type1;
-	$('type2').value = type2;
+    $('type1').value = type1;
+    $('type2').value = type2;
 
-	submitbutton('create_install_file');
+    submitbutton('create_install_file');
 }//function
 
 function submitStuffer(task)
 {
-	if ($('package-to') == null)
-	{
-		submitbutton(task);
+    if ($('package-to') == null)
+    {
+        submitbutton(task);
 
-		return;
-	}
+        return;
+    }
 
-	var elements = $('package-to').getElements('li');
+    var elements = $('package-to').getElements('li');
 
-	var inserts = new Array();
+    var inserts = new Array();
 
-	elements.each(function(el)
-	{
-		inserts.push(el.id);
-	});
+    elements.each(function(el)
+    {
+        inserts.push(el.id);
+    });
 
-	$('packageElements').value = inserts.join(',');
+    $('packageElements').value = inserts.join(',');
 
-	submitbutton(task);
+    submitbutton(task);
 }
 
 window.addEvent('domready', function()
 {
 
-	var mySortables = new Sortables('#package-from, #package-to', {
-		constrain : false,
-		clone : true,
-		revert : true
-	});
-	
+    var mySortables = new Sortables('#package-from, #package-to', {
+        constrain : false,
+        clone : true,
+        revert : true
+    });
+    
 });

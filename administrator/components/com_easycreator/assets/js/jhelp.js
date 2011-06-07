@@ -17,7 +17,7 @@ function create_class_list()
     xref += 'components/com_easycreator/helpers/jmethodlister.php';
 
     new Request({
-    	url: xref,
+        url: xref,
         'onComplete' : function(response)
         {
             if(response.indexOf('{') != 0)
@@ -87,7 +87,7 @@ function changeFrame(className, methodName, packageName)
         link += '&class='+className+'&method='+methodName;
         
         new Request({
-        	url: link,
+            url: link,
             'onComplete' : function(request)
             {
 
@@ -109,8 +109,8 @@ function changeFrame(className, methodName, packageName)
 
         if($('out_link').value)
         {
-        	iframeLink = parseLink('http://' + $('out_link').value, className, methodName, packageName);
-        	$('jhelpDisplay').src = iframeLink;
+            iframeLink = parseLink('http://' + $('out_link').value, className, methodName, packageName);
+            $('jhelpDisplay').src = iframeLink;
         }
     }
 
