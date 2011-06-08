@@ -12,30 +12,92 @@ jimport('joomla.plugin.plugin');
 class plgSystem_ECR_COM_NAME_ extends JPlugin
 {
     /**
+     * Constructor
+     *
+     * @param object $subject The object to observe
+     * @param array $config  An array that holds the plugin configuration
+     */
+    public function __construct(& $subject, $config)
+    {
+        $doSomething = 'here';
+
+        parent::__construct($subject, $config);
+    }//function
+
+    /**
      * Do something onAfterInitialise
      */
-    function onAfterInitialise()
+    public function onAfterInitialise()
     {
+        $this->_log(
+            'onAfterInitialise',
+            'After framework load and application initialise.'
+            );
     }//function
 
     /**
      * Do something onAfterRoute
      */
-    function onAfterRoute()
+    public function onAfterRoute()
     {
+        $this->_log(
+            'onAfterRoute',
+            'After the framework load, application initialised & route of client request.'
+            );
     }//function
 
     /**
      * Do something onAfterDispatch
      */
-    function onAfterDispatch()
+    public function onAfterDispatch()
     {
+        $this->_log(
+            'onAfterDispatch',
+            'After the framework has dispatched the application.'
+            );
+    }//function
+
+    public function onBeforeCompileHead()
+    {
+        $this->_log(
+            'onBeforeCompileHead',
+            'Before the framework creates the head section of the document.'
+            );
+    }
+
+    /**
+     * Do something onAfterRender
+     */
+    public function onBeforeRender()
+    {
+        $this->_log(
+            'onBeforeRender',
+            'Before the framework renders the application.'
+            );
     }//function
 
     /**
      * Do something onAfterRender
      */
-    function onAfterRender()
+    public function onAfterRender()
     {
+        $this->_log(
+            'onAfterRender',
+            'After the framework has rendered the application.'
+            );
+    }//function
+
+    /**
+     * Log events.
+     *
+     * @param string $event The event to be logged.
+     * @param string $comment A comment about the event.
+     */
+    private function _log ($status, $comment)
+    {
+        jimport('joomla.error.log');
+
+        JLog::getInstance('plugin_system_example_log.php')
+        ->addEntry(array('event' => $event, 'comment' => $comment));
     }//function
 }//class

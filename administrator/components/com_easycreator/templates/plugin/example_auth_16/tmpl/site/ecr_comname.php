@@ -21,7 +21,7 @@ class plgAuthentication_ECR_COM_NAME_ extends JPlugin
      * @return	boolean
      * @since	1.5
      */
-    function onUserAuthenticate($credentials, $options, &$response)
+    public function onUserAuthenticate($credentials, $options, &$response)
     {
         /*
          * Here you would do whatever you need for an authentication routine with the credentials
@@ -33,23 +33,24 @@ class plgAuthentication_ECR_COM_NAME_ extends JPlugin
         $success = true;
         $response->type = 'Example';
 
-        if ($success)
+        if($success)
         {
             $response->status = JAUTHENTICATE_STATUS_SUCCESS;
             $response->error_message = '';
+
             // You may also define other variables:
             /*
             $yourUser					= YourClass::getUser($credentials);
             $response->email			= $yourUser->email;
             $response->fullname			= $yourUser->name;
             */
+
             return true;
         }
-        else
-        {
-            $response->status = JAUTHENTICATE_STATUS_FAILURE;
-            $response->error_message = 'Could not authenticate';
-            return false;
-        }
+
+        $response->status = JAUTHENTICATE_STATUS_FAILURE;
+        $response->error_message = 'Could not authenticate';
+
+        return false;
     }//function
 }//class

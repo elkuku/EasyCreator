@@ -177,9 +177,11 @@ class EasyCreatorViewTemplates extends JView
         foreach($subtasks as $sTask)
         {
             $selected =($sTask['task'] == $task) ? '_selected' : '';
+
             $html .= '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"'
             .' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"'
             .' onclick="submitbutton(\''.$sTask['task'].'\');">';
+
             $html .= $sTask['title'].'</span>';
 
             if($ecr_help == 'all'

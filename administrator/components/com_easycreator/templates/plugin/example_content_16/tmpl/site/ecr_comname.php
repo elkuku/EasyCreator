@@ -38,8 +38,6 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      */
     public function onContentAfterDisplay($context, &$article, &$params, $limitstart)
     {
-        $app = JFactory::getApplication();
-
         return '';
     }//function
 
@@ -55,8 +53,6 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      */
     public function onContentAfterSave($context, &$article, $isNew)
     {
-        $app = JFactory::getApplication();
-
         return true;
     }//function
 
@@ -74,8 +70,6 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      */
     public function onContentAfterTitle($context, &$article, &$params, $limitstart)
     {
-        $app = JFactory::getApplication();
-
         return '';
     }//function
 
@@ -106,8 +100,6 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      */
     public function onContentBeforeDisplay($context, &$article, &$params, $limitstart)
     {
-        $app = JFactory::getApplication();
-
         return '';
     }//function
 
@@ -127,8 +119,6 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      */
     public function onContentBeforeSave($context, &$article, $isNew)
     {
-        $app = JFactory::getApplication();
-
         return true;
     }//function
 
@@ -159,6 +149,5 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      */
     public function onContentPrepare($context, &$article, &$params, $limitstart)
     {
-        $app = JFactory::getApplication();
     }//function
 }//class

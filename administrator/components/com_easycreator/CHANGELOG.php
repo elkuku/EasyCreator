@@ -52,6 +52,11 @@ Legend:
  ! -> Note
 ______________________________________________
 
+08-Jun-2011 Nikolai Plath
+ + More modifications for J! 1.7
+ + Templates for plugins Editor, Extension and Search
+ - removed qTabs
+
 07-Jun-2011 Nikolai Plath
  + Added modifications for J! 1.7
  # Fixed a fatal error on PHP 5.3 - "Serialization of EasyXMLElement is not allowed" - thx Joni
@@ -69,7 +74,7 @@ ______________________________________________
 
 18-May-2011 Nikolai Plath
  # Fixed admin menus in J! 1.6
- + Drag & Drop in admin menu manager (1.6 only)
+ + Drag & Drop in admin menu manager (J >= 1.6 only)
 
 --------------- 0.0.14 BETA -- [12-May-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=14856
