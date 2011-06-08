@@ -565,7 +565,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
     <tbody>
         <tr class="row0">
             <td>PHP_CodeSniffer</td>
-            <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages)) ? $pearPackages['PHP_CodeSniffer'] : $notFound; ?>
+            <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
+            ? $pearPackages['PHP_CodeSniffer']
+            : $notFound; ?>
             </td>
             <td>1.2.0</td>
             <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
@@ -585,7 +587,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         <tr class="row0">
             <td>PhpDocumentor</td>
-            <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages)) ? $pearPackages['PhpDocumentor'] : $notFound; ?>
+            <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
+            ? $pearPackages['PhpDocumentor']
+            : $notFound; ?>
             </td>
             <td>1.4.3</td>
             <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>

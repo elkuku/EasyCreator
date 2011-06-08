@@ -133,15 +133,16 @@ class EasyCreatorControllerTemplates extends JController
             EasyTemplateHelper::installTemplates();
 
             ecrHTML::displayMessage(jgettext('Templates have been installed.'));
+            JRequest::setVar('task', 'templates');
         }
         catch(Exception $e)
         {
             $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
             ecrHTML::displayMessage($m, 'error');
+            JRequest::setVar('task', 'tplinstall');
         }//try
 
         JRequest::setVar('view', 'templates');
-        JRequest::setVar('task', 'templates');
 
         parent::display();
     }//function

@@ -16,7 +16,7 @@ function deleteZipFile(path, file) {
     var box = $('ajaxMessage');
     var debug = $('ajaxDebug');
 
-    switch (ECR_JVERSION) 
+    switch(ECR_JVERSION) 
     {
         case '1.5':
             var fx = box.effects( {
@@ -25,6 +25,7 @@ function deleteZipFile(path, file) {
             });
             break;
         case '1.6':
+        case '1.7':
             var fx = new Fx.Morph(box, {});
             break;
         default:

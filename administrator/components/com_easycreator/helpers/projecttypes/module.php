@@ -181,7 +181,21 @@ class EasyProjectModule extends EasyProject
         $db = JFactory::getDBO();
         $clId =($this->scope == 'admin') ? 1 : 0;
 
-        $query = new JDatabaseQuery();
+        switch(ECR_JVERSION)
+        {
+            case '1.5':
+                $query = new JDatabaseQuery;
+                break;
+
+            case '1.6':
+            case '1.7':
+                $query = $db->getQuery(true);
+                break;
+
+            default:
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+                break;
+        }//switch
 
         $query->from('#__modules AS m');
         $query->select('m.id');
@@ -245,6 +259,7 @@ class EasyProjectModule extends EasyProject
 
                     default:
                         JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+
                         return array();
                 }//switch
             case 'site':

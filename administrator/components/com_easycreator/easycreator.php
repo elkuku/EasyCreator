@@ -21,7 +21,7 @@
  , 'EasyCreator', 'com_easycreator', 0
  , 'components/com_easycreator/assets/images/ico/icon-16-easycreator.png', 0, '', 1);
 
- ** J! 1.6
+ ** J! 1.6 ff
  Use the new 'Discover' feature from the Joomla! installer - works great =;)
  */
 
@@ -32,13 +32,13 @@ defined('_JEXEC') || die('=;)');
 define('ECR_DEV_MODE', 1);//@@DEBUG
 
 jimport('joomla.error.profiler');
+
 $profiler = JProfiler::getInstance('Application');
 
 JDEBUG ? $profiler->mark('com_easycreator starting') : null;
 
 //-- Global constants
 require_once 'defines.php';
-
 
 //-- Global functions
 require_once 'functions.php';
@@ -84,7 +84,7 @@ try
 {
     if( ! jimport('g11n.language'))
     {
-        //-- Load dummy language handler - english only !
+        //-- Load dummy language handler -> english only !
         ecrLoadHelper('g11n_dummy');
 
         ecrScript('g11n_dummy');
@@ -93,10 +93,10 @@ try
     }
     else
     {
-            g11n::cleanStorage();//@@DEBUG
         //TEMP@@debug
         if(ECR_DEV_MODE && ECR_DEBUG_LANG)
         {
+            g11n::cleanStorage();//@@DEBUG
             g11n::setDebug(ECR_DEBUG_LANG);
         }
 
@@ -123,19 +123,22 @@ JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
 /**
  * Check the Joomla! version
  */
-switch (ECR_JVERSION)
+switch(ECR_JVERSION)
 {
+    case 'X':
+        JError::raiseNotice(0, sprintf(jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s')
+        , ECR_VERSION, ECR_JVERSION));
+    break;
+
     case '1.5':
     case '1.6':
+    case '1.7':
         //We're all OK =;)
     break;
 
-    case '1.7':
-        JError::raiseNotice(0, sprintf(jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s'), ECR_VERSION, ECR_JVERSION));
-    break;
-
     default:
-        JError::raiseWarning(0, sprintf(jgettext('EasyCreator version %s may not work well with your Joomla! version %s'), ECR_VERSION, ECR_JVERSION));
+        JError::raiseWarning(0, sprintf(jgettext('EasyCreator version %s may not work well with your Joomla! version %s')
+        , ECR_VERSION, ECR_JVERSION));
     break;
 }//switch
 
@@ -147,6 +150,7 @@ ecrStylesheet('icon');
 //-- Add javascript
 ecrScript('global_vars');
 ecrScript('easycreator');
+//JHtml::_('behavior.mootools');
 
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);

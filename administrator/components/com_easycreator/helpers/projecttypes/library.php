@@ -158,16 +158,15 @@ class EasyProjectLibrary extends EasyProject
     public function getId()
     {
         $db = JFactory::getDBO();
-        $clId =($this->scope == 'admin') ? 1 : 0;
 
-        $query = new JDatabaseQuery();
+        $query = $db->getQuery(true);
 
         $query->from('#__extensions AS e');
         $query->select('e.extension_id');
         $query->where('e.type = '.$db->quote($this->type));
         $query->where('e.element = '.$db->quote($this->prefix.$this->comName));
 
-        $db->setQuery((string)$query);
+        $db->setQuery($query);
 
         return $db->loadResult();
     }//function

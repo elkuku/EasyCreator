@@ -51,7 +51,7 @@ class EasyCreatorViewTemplates extends JView
             echo 'UNDEFINED..'.$task.'<br />';
         }
 
-        if($task == 'install')
+        if($task == 'tplinstall')
         {
             //-- We end our form first, cause another one follows
             echo '<input type="hidden" name="com_type" /><input type="hidden" name="template" />';//:(
@@ -78,7 +78,7 @@ class EasyCreatorViewTemplates extends JView
         if($profiling)
         {
             jimport('joomla.error.profiler');
-            $this->profiler =& JProfiler::getInstance('EasyCreator');
+            $this->profiler = JProfiler::getInstance('EasyCreator');
         }
 
         $this->task = JRequest::getCmd('task');
@@ -116,7 +116,7 @@ class EasyCreatorViewTemplates extends JView
      *
      * @return void
      */
-    private function install()
+    private function tplinstall()
     {
         $this->setLayout('install');
     }//function
@@ -158,7 +158,7 @@ class EasyCreatorViewTemplates extends JView
         , array('title' => jgettext('Install')
         , 'description' => jgettext('Installs EasyCreator Extension Templates')
         , 'icon' => 'import'
-        , 'task' => 'install'
+        , 'task' => 'tplinstall'
         )
         , array('title' => jgettext('Export')
         , 'description' => jgettext('Exports EasyCreator Extension Templates')

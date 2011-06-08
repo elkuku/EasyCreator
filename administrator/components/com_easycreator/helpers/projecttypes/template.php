@@ -183,7 +183,6 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getId()
     {
-
         $db = JFactory::getDbo();
 
         switch(ECR_JVERSION)
@@ -219,7 +218,6 @@ class EasyProjectTemplate extends EasyProject
         $id = $db->loadResult();
 
         return $id;
-
     }//function
 
     /**

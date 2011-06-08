@@ -14,14 +14,10 @@ var stdMenuImgs = new Array('archive', 'article', 'category', 'checkin',
         'menu', 'menumgr', 'messages', 'module', 'plugin', 'section', 'static',
         'stats', 'themes', 'trash', 'user ');
 
-//sortSubMenu.addItems(newdiv);
-//var sortSubMenu = new Sortables('#divSubmenu', {
-//});
-
 function newSubmenu(x, x, x, x, x, parent)
 {
     newLi = addSubmenu('', '', '', '', '', parent);
-//console.log(parent);
+
     if('1.5' != ECR_JVERSION)
     {
         sortSubMenu.addItems(newLi);
@@ -40,12 +36,10 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     
     var newdiv = document.createElement('li');
     
-   // newdiv.setAttribute('id', divIdName);
     newdiv.setAttribute('class', 'menu');
 
     html = '';
-//    html += '<li>';
-//    html += '<div style="border-bottom: 1px solid gray; margin-bottom: 0.5em;">';
+
     html += '<input type="hidden" name="submenu['+num+'][menuid]" value="'+menuid+'" />';
     
     if (parent)
@@ -77,9 +71,6 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
             + "][img]\" size=\"30\" value=\"" + image + "\" id=\"img-" + num + "\" />";
     html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\""
         + " onclick=\"this.getParent().dispose();\">" + jgettext('Delete') + "</div>";
-  //  html += '<br />';
-//    html += '</div>';
-//    html += '</li>';
 
     newdiv.innerHTML = html;
 

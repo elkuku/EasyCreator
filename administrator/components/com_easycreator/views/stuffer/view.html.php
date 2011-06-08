@@ -109,7 +109,7 @@ class EasyCreatorViewStuffer extends JView
         $subtasks = array(
         array('title' => jgettext('Building')
         , 'description' => jgettext('Shows options for building your project like credits, files and folders to copy, languages and admin menu.')
-        , 'icon' => 'config'
+        , 'icon' => 'ecr_config'
         , 'task' => 'stuffer'
         )
         , array('title' => jgettext('Files')
@@ -124,17 +124,17 @@ class EasyCreatorViewStuffer extends JView
         )
         , array('title' => jgettext('Parameters')
         , 'description' => jgettext('Modify your project parameters stored in XML files.')
-        , 'icon' => 'article'
+        , 'icon' => 'ecr_params'
         , 'task' => 'projectparams'
         )
         , array('title' => jgettext('DataDesigner')
         , 'description' => jgettext('Automated source code and db creation for your project.')
-        , 'icon' => 'db'
+        , 'icon' => 'ecr_db'
         , 'task' => 'tables'
         )
         , array('title' => jgettext('Remove Project')
         , 'description' => jgettext('This will your delete your project.')
-        , 'icon' => 'logout'
+        , 'icon' => 'delete'
         , 'task' => 'projectdelete'
         )
         );

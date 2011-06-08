@@ -33,11 +33,13 @@ function ecrLoadHelper($name)
         return $helpers[$name];
     }
 
-    if( ! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', DS, $name).'.php'))
+    if( ! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
     {
         ecrHTML::displayMessage(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
 
-        return false;
+        $helpers[$name] = false;
+
+        return $helpers[$name];
     }
 
     $helpers[$name] = JLoader::import('helpers.'.$name, JPATH_COMPONENT_ADMINISTRATOR);

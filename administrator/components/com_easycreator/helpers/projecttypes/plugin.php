@@ -196,11 +196,14 @@ class EasyProjectPlugin extends EasyProject
         {
             case '1.5':
 
-                $query = new JDatabaseQuery();
+                $query = new JDatabaseQuery;
+
                 $query->from('#__plugins AS p');
                 $query->select('p.id');
                 $query->where('p.folder = '.$db->quote($this->scope));
                 $query->where('p.element = '.$db->quote($this->comName));
+
+                $db->setQuery((string)$query);
                 break;
 
             case '1.6':
@@ -211,6 +214,8 @@ class EasyProjectPlugin extends EasyProject
                 $query->select('e.extension_id');
                 $query->where('e.element = '.$db->quote($this->comName));
                 $query->where('e.type = '.$db->quote('plugin'));
+
+                $db->setQuery($query);
                 break;
 
             default:
@@ -220,7 +225,6 @@ class EasyProjectPlugin extends EasyProject
                 break;
         }//switch
 
-        $db->setQuery((string)$query);
         $id = $db->loadResult();
 
         return $id;

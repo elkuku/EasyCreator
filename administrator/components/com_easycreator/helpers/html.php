@@ -88,7 +88,7 @@ final class ecrHTML
         $rightTasks['templates'] = new stdClass();
         $rightTasks['templates']->title = jgettext('Templates');
         $rightTasks['templates']->image = 'wizard';
-        $rightTasks['templates']->tasks = array('templates', 'install', 'export');
+        $rightTasks['templates']->tasks = array('templates', 'tplinstall', 'export');
 
         $rightTasks['logfiles'] = new stdClass();
         $rightTasks['logfiles']->title = jgettext('Logfiles');

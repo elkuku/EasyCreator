@@ -202,7 +202,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
-            case '1.6':
+            case '1.7':
                 return $this->comName.'.xml';
                 break;
 
@@ -235,7 +235,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
-            case '1.6':
+            case '1.7':
                 break;
 
             default:
@@ -598,7 +598,7 @@ class EasyProjectComponent extends EasyProject
         // Check for error
         if($error = $db->getErrorMsg() || empty($ids))
         {
-            JError::raiseWarning('', JText::_('JLIB_INSTALLER_ERROR_COMP_REMOVING_ADMIN_MENUS_FAILED'));
+            JError::raiseWarning('', jgettext('There was a problem updating the admin menu'));
 
             if($error && $error != 1)
             {

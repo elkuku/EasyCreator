@@ -208,7 +208,7 @@ class easyReflection
                         }//foreach
                         foreach($files as $file)
                         {
-                            //                        #    $this->addReflectionFile('views', $scopePath.DS.'views'.DS.$view.DS.$file, $view);
+                            //$this->addReflectionFile('views', $scopePath.DS.'views'.DS.$view.DS.$file, $view);
                             $this->aj_addFile('views', 'views'.DS.$view.DS.$file);
                         }//foreach
                     }//foreach
@@ -381,7 +381,7 @@ default:
                     //                        $indent++;
                     //                        echo '<h1>';
                     //                    #    echo str_repeat("&nbsp;&nbsp;", $indent);
-                    //                        echo ( $displayClassName ) ? '<span style="color: orange">Extends</span>&nbsp;'.$s : $s;
+                    //echo ( $displayClassName ) ? '<span style="color: orange">Extends</span>&nbsp;'.$s : $s;
                     //                        echo '</h1>';
                     //                        $displayClassName = $s;
                     //
@@ -397,10 +397,10 @@ default:
                         $oParameter->isPassedByReference = $parameter->isPassedByReference();
                         $oParameter->isDefaultValueAvailable = $parameter->isDefaultValueAvailable();
                         $method->parameters[] = $oParameter;
-                        //                        #$color =($parameter->isOptional() ) ? 'blue' : 'brown';
+                        //$color =($parameter->isOptional() ) ? 'blue' : 'brown';
                         $s = '';
                         $s .= sprintf("%s<strong style='color: brown;'>$%s</strong>",
-                        //#                           $parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
+                        //$parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
                         $parameter->isPassedByReference() ? '<strong style="color: blue;"> & </strong>' : '',
                         $parameter->getName()
                         );
