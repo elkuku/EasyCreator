@@ -54,7 +54,8 @@ ______________________________________________
 
 08-Jun-2011 Nikolai Plath
  + More modifications for J! 1.7
- + Templates for plugins Editor, Extension and Search
+ + Templates for 1.6 plugins Editor, Extension and Search
+ + Templates for 1.6 modules front- and backend
  - removed qTabs
 
 07-Jun-2011 Nikolai Plath

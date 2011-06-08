@@ -5,7 +5,5 @@ $greeting = 'Hello World =;)';
 
 ?>
 <p>
-   <?php
-   echo $greeting;
-   ?>
+   <?php echo $greeting; ?>
 </p>
