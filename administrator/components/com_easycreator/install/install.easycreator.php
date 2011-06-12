@@ -35,25 +35,28 @@ function com_install()
 
     try
     {
-        if(jimport('g11n.language'))
+        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')//@todo remove JFolder::exists when dropping 1.5 support
+        || ! jimport('g11n.language'))
         {
             //-- Get our special language file
-            g11n::loadLanguage('com_easycreator');
+            JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR.'/components/com_easycreator');
+?>
+<div style="padding: 0.3em; background-color: #ffc;">
+	<h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
+	<h3 style="color: red;">
+		If you like EasyCreator in you language, just install the g11n language library :
+	</h3>
+	<h3 style="color: red;">
+		<a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
+			Download lig_g11n
+		</a>
+	</h3>
+</div>
+<?php
         }
         else
         {
-            //ecrLoadHelper('g11n_dummy');
-            JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR.'/components/com_easycreator');
-
-            echo '<h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>';
-            echo '<h3 style="color: red;">'
-            .'If you like EasyCreator in you language, just install the g11n language library :</h3>';
-            echo '<h3 style="color: red;">'
-            .'<a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">'
-            .'Download lig_g11n</a></h3>';
-            //JError::raiseWarning(0, 'The g11n language library is required to run this extension.');
-
-            //return false;
+            g11n::loadLanguage('com_easycreator');
         }
 
         if( ! $xml = simplexml_load_file(ECR_XML_LOCATION))

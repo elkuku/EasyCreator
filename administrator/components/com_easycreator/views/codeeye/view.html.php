@@ -288,7 +288,7 @@ class EasyCreatorViewCodeEye extends JView
         $ecr_help = JComponentHelper::getParams('com_easycreator')->get('ecr_help');
 
         $subtasks = array(
-        array('title'=> jgettext('CodeSniffer')
+        array('title' => jgettext('CodeSniffer')
         , 'description' => jgettext('Use CodeSniffer to assure coding standards.')
         , 'icon' => 'eye'
         , 'task' => 'phpcs'
@@ -300,12 +300,12 @@ class EasyCreatorViewCodeEye extends JView
         )
         , array('title' => jgettext('PHPUnit Tests')
         , 'description' => jgettext('Generates and executes PHPUnit Tests.')
-        , 'icon' =>'eye'
+        , 'icon' => 'eye'
         , 'task' => 'phpunit'
         )
         , array('title' => jgettext('Selenium Tests')
         , 'description' => jgettext('Generates and executes Selenium Tests.')
-        , 'icon' =>'eye'
+        , 'icon' => 'eye'
         , 'task' => 'selenium'
         )
         , array('title' => jgettext('PHPDocumentor')

@@ -87,7 +87,7 @@ function newParameter()
             opacity: 0
         });
         
-        new Fx.Style(div, 'opacity', {duration: 1500} ).start(1);
+        new Fx.Tween(div, $extend({property: 'opacity'}), {duration: 1500} ).start(1);
         $('addParamName').focus();
         div_new_parameter.slideIn();
         

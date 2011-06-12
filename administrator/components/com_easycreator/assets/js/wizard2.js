@@ -30,7 +30,7 @@ function submitbutton(command)
                 display:'block',
                 opacity: 0
             });
-            new Fx.Style($('req_version'), 'opacity', {duration: 1500} ).start(1);
+            new Fx.Tween($('req_version'), $extend({property: 'opacity'}), {duration: 1500} ).start(1);
             valid = false;
         }
 
@@ -42,7 +42,7 @@ function submitbutton(command)
                 display:'block',
                 opacity: 0
             });
-            new Fx.Style($('req_name'), 'opacity', {duration: 1500} ).start(1);
+            new Fx.Tween($('req_name'), $extend({property: 'opacity'}), {duration: 1500} ).start(1);
             valid = false;
         }
 
@@ -54,7 +54,7 @@ function submitbutton(command)
                 display:'block',
                 opacity: 0
             });
-            new Fx.Style($('req_list_postfix'), 'opacity', {duration: 1500} ).start(1);
+            new Fx.Tween($('req_list_postfix'), $extend({property: 'opacity'}), {duration: 1500} ).start(1);
             valid = false;
         }
 

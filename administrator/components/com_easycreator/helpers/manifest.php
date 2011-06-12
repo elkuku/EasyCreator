@@ -57,12 +57,15 @@ class JoomlaManifest extends JObject
         switch($this->project->JCompat)
         {
             case '1.6':
+            case '1.7':
                 $rootTag = 'extension';
                 break;
 
             case '1.5':
-            default:
                 $rootTag = 'install';
+                break;
+            default:
+                JError::raiseWarning(0, __METHOD__.'Unknown JCompat: '.$this->project->JCompat);
                 break;
         }//switch
 
@@ -239,6 +242,7 @@ class JoomlaManifest extends JObject
                 break;
 
             case '1.6':
+            case '1.7':
                 $this->manifest->addChild('scriptfile');
                 break;
 
@@ -252,12 +256,18 @@ class JoomlaManifest extends JObject
         $uninstall = $this->manifest->addChild('uninstall');
         $uninstallSql = $uninstall->addChild('sql');
 
-        if($this->project->JCompat == '1.6')
+        switch($this->project->JCompat)
         {
-            //-- J! 1.6 update stuff
-            $update = $this->manifest->addChild('update');
-            $updateSql = $update->addChild('sql');
-        }
+            case '1.6':
+            case '1.7':
+                //-- J! 1.6 update stuff
+                $update = $this->manifest->addChild('update');
+                $updateSql = $update->addChild('sql');
+                break;
+
+            default:
+                break;
+        }//switch
 
         //-- PHP
         if(count($installFiles['php']))
@@ -478,7 +488,23 @@ class JoomlaManifest extends JObject
             if($def_menu)
             {
                 $menu = $administration->addChild('menu', $def_menu['text']);
-                $menu->addAttribute('img', $def_menu['img']);
+
+                if(1.5 == ECR_JVERSION)
+                {
+                    $menu->addAttribute('img', $def_menu['img']);
+                }
+                else
+                {
+                    $s = $def_menu['img'];
+
+                    if($s
+                    && false == strpos($s, '/'))
+                    {
+                        $s = 'class:'.$s;
+                    }
+
+                    $menu->addAttribute('img', $s);
+                }
 
                 if(isset($def_menu['link'])
                 && $this->project->JCompat == '1.5')
@@ -499,7 +525,23 @@ class JoomlaManifest extends JObject
                 foreach($this->project->submenu as $item)
                 {
                     $menu = $submenu->addChild('menu', $item['text']);
-                    $menu->addAttribute('img', $item['img']);
+
+                    if(1.5 == ECR_JVERSION)
+                    {
+                        $menu->addAttribute('img', $item['img']);
+                    }
+                    else
+                    {
+                        $s = $item['img'];
+
+                        if($s
+                        && false == strpos($s, '/'))
+                        {
+                            $s = 'class:'.$s;
+                        }
+
+                        $menu->addAttribute('img', $s);
+                    }
 
                     switch($this->project->JCompat)
                     {
@@ -507,7 +549,8 @@ class JoomlaManifest extends JObject
                             $menu->addAttribute('link', $item['link']);
                             break;
                         case '1.6' :
-                            //-- For J 1.6 strip 'index.php?' from the link
+                        case '1.7' :
+                            //-- 'index.php?' from the link
                             $menu->addAttribute('link', str_replace('index.php?', '', $item['link']));
                             break;
                         default :
@@ -729,6 +772,7 @@ class JoomlaManifest extends JObject
                     case '1.5':
                         break;
                     case '1.6':
+                    case '1.7':
                         $positions = $this->manifest->addChild('positions');
                         $this->appendXML($positions, $refXml->positions);
                         break;

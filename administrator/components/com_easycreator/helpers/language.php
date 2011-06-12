@@ -1120,6 +1120,7 @@ case 'etc':
                         break;
 
                     case '1.6' :
+                    case '1.7' :
                         if(isset($this->project->buildOpts['lng_separate_javascript'])
                         && $this->project->buildOpts['lng_separate_javascript'])
                         {

@@ -15,7 +15,7 @@ window.addEvent('domready', function()
         initialize : function()
         {
 
-            this.fx = new Fx.Style(this.toolTip, 'opacity',
+            this.fx = new Fx.Tween(this.toolTip, $extend({property: 'opacity'}),
             {
                 duration : 500,
                 wait : false

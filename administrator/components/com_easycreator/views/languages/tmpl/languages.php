@@ -90,7 +90,7 @@ $baseLink .= '&amp;scope='.$this->scope;
 
 foreach($this->default_file as $line)
 {
-    foreach($line as $key=>$value)
+    foreach($line as $key => $value)
     {
         switch($key)
         {
@@ -117,7 +117,7 @@ foreach($this->default_file as $line)
                         else
                      {
                             $pane2 =& JPane::getInstance('sliders'
-                            , array('startOffset'=>$lang_fileanalysis_active, 'startTransition'=>''));
+                            , array('startOffset' => $lang_fileanalysis_active, 'startTransition' => ''));
                             echo $pane2->startPane('fold-pane');
                             echo $pane2->startPanel($value, $value.'-analysis-page');
                             echo $tableHeader;
@@ -154,7 +154,7 @@ foreach($this->default_file as $line)
 
                 echo NL.'<tr class="row'.$k.'">';
 
-                foreach($value as $skey=>$svalue)
+                foreach($value as $skey => $svalue)
                 {
                     echo '<td align="left"><span style="color: #666666;">'.$skey.'</span></td>';
 
@@ -209,7 +209,7 @@ foreach($this->default_file as $line)
                                     $definition->coreTranslated[] = $lang;
                                 }
                             }//foreach
-                            foreach($definition->files as $fName=>$fCount)
+                            foreach($definition->files as $fName => $fCount)
                             {
                                 if($this->scope == 'menu')
                                 {

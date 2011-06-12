@@ -40,6 +40,9 @@ class EasyCreatorViewStuffer extends JView
         try
         {
             $this->project = EasyProjectHelper::getProject();
+
+            if( ! $this->project->dbId)
+            throw new Exception(jgettext('Invalid project'));
         }
         catch(Exception $e)
         {
@@ -320,7 +323,7 @@ class EasyCreatorViewStuffer extends JView
 
                     return false;
                     break;
-            }
+            }//switch
             //--Get the project params
         }
 
@@ -437,8 +440,10 @@ class EasyCreatorViewStuffer extends JView
         , 'Reference: XML parameters'
         => 'http://dev.joomla.org/component/option,com_jd-wiki/Itemid,/id,references:xml_parameters/'
         , 'Component parameters' => 'http://docs.joomla.org/Component_parameters'
-        , 'Defining a parameter in templateDetails.xml' => 'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
-        , 'Creating custom template parameter types' => 'http://docs.joomla.org/Creating_custom_template_parameter_types'
+        , 'Defining a parameter in templateDetails.xml'
+        => 'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
+        , 'Creating custom template parameter types'
+        => 'http://docs.joomla.org/Creating_custom_template_parameter_types'
         );
 
         $ret = '';

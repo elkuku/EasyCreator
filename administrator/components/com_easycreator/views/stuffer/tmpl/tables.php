@@ -48,7 +48,7 @@ $dbTables = $db->getTableList();
 $dbPrefix = $db->getPrefix();
 $dbName = JFactory::getConfig()->getValue('config.db');
 
-$scopes = array('admin'=>jgettext('Admin'), 'site'=>jgettext('Site'));
+$scopes = array('admin' => jgettext('Admin'), 'site' => jgettext('Site'));
 
 $allTables = array();
 
@@ -121,7 +121,8 @@ $autocodeList = EasyProjectHelper::getAutoCodeList();
     </div>
 </div>
 
-<div id="er_display" style="border: 1px solid black; background-color: #ccc; margin: 1em; padding-bottom: 30px; padding-top: 30px;">
+<div id="er_display" style="border: 1px solid black; background-color: #ccc;
+margin: 1em; padding-bottom: 30px; padding-top: 30px;">
 <?php
 $plumbs = '';
 $tableCount = 0;
@@ -142,16 +143,21 @@ foreach($tables as $table) :
         $tableCount ++;
         $fields = $db->getTableFields($dbPrefix.$table->name, false);
         ?>
-	    <div class="plumbBox" id="table_<?php echo $table->name; ?>"style="float: left; border: 1px solid gray; background-color: #fff; margin-left: 3em;">
+	    <div class="plumbBox" id="table_<?php echo $table->name; ?>"style="float: left;
+	    border: 1px solid gray; background-color: #fff; margin-left: 3em;">
 
 	    <table cellspacing="0" cellpadding="0" width="100%">
 	    <thead>
 
 	    <tr>
     	    <th colspan="2">
-    	       <div class="table_name"><span style="color: gray;"><?php echo $dbPrefix; ?></span><?php echo $table->name; ?></div>
+    	       <div class="table_name">
+        	       	<span style="color: gray;"><?php echo $dbPrefix; ?></span>
+        	       	<?php echo $table->name; ?>
+    	       	</div>
     	    </th>
-    	    <th class="hasEasyTip" style="background-color: #b2cce5;" title="<?php echo nl2br(print_r($table->status, true)); ?>">
+    	    <th class="hasEasyTip" style="background-color: #b2cce5;" title="<?php
+            echo nl2br(print_r($table->status, true)); ?>">
     	    &bull;I&bull;
     	    </th>
 	    </tr>
@@ -163,7 +169,8 @@ foreach($tables as $table) :
         foreach($table->getFields() as $field) :
             echo '<tr>';
             printf('<td>%s</td><td style="color: gray;">%s</td>', $field->name, $field->type);
-            echo '<th class="hasEasyTip" style="background-color: #b2cce5;" title="'.nl2br(print_r($field, true)).'">&bull;I&bull;</th>';
+            echo '<th class="hasEasyTip" style="background-color: #b2cce5;" title="'
+            .nl2br(print_r($field, true)).'">&bull;I&bull;</th>';
             echo '</tr>';
         endforeach;
         ?>
@@ -186,13 +193,15 @@ foreach($tables as $table) :
 
                     if(array_key_exists($k, $this->project->autoCodes))
                     {
-                       echo "<div class=\"ecr_button img icon-16-edit\" onclick=\"loadAutoCode('".$this->ecr_project."', 'edit', '$name', '$table->name', '$scope', '$element');\">";
+                       echo "<div class=\"ecr_button img icon-16-edit\" onclick=\"loadAutoCode('"
+                       .$this->ecr_project."', 'edit', '$name', '$table->name', '$scope', '$element');\">";
                        echo $name;
                        echo '</div>'.NL;
                     }
                     else
                     {
-                       echo "<div class=\"ecr_button img icon-16-add\" onclick=\"loadAutoCode('".$this->ecr_project."', 'new', '$name', '".$table->name."', '$scope', '$element');\">";
+                       echo "<div class=\"ecr_button img icon-16-add\" onclick=\"loadAutoCode('"
+                       .$this->ecr_project."', 'new', '$name', '".$table->name."', '$scope', '$element');\">";
                        echo $name;
                        echo '</div>'.NL;
                     }
@@ -337,7 +346,8 @@ endforeach;
             {
                 echo '<div id="res-'.$table->name.'"></div>';
                 echo '<div class="ecr_button img icon-16-add" id="addbtn-'.$table->name.'"';
-                echo " onclick=\"document.adminForm.table_name.value='$table->name'; submitbutton('register_table');\">";//registerTable('$this->ecr_project', '$table->name', 'res-$table->name');\">";
+                echo " onclick=\"document.adminForm.table_name.value='$table->name'; submitbutton('register_table');\">";
+                //registerTable('$this->ecr_project', '$table->name', 'res-$table->name');\">";
                 echo jgettext('Register').'</div>';
             }
             ?>
@@ -348,7 +358,8 @@ endforeach;
 
             if( ! $table->inDB)
             {
-                echo '</div><div class="ecr_button img icon-16-add" onclick="createTable(\''.$table->name.'\', \'res-'.$table->name.'\');">CREATE</div>';
+                echo '</div><div class="ecr_button img icon-16-add" onclick="createTable(\''
+                .$table->name.'\', \'res-'.$table->name.'\');">CREATE</div>';
             }
             ?>
          </td>
@@ -362,11 +373,13 @@ endforeach;
 //                     {
 //                        if( in_array($sType, $table->$typeName) )
 //                        {
-//                            echo "<div class=\"ecr_button img icon-16-edit\" onclick=\"loadPart('".$this->ecr_project."', 'edit', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
+//                            echo "<div class=\"ecr_button img icon-16-edit\"
+// onclick=\"loadPart('".$this->ecr_project."', 'edit', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
 //                        }
 //                        else
 //                        {
-//                            echo "<div class=\"ecr_button img icon-16-add\" onclick=\"loadPart('".$this->ecr_project."', 'new', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
+//                            echo "<div class=\"ecr_button img icon-16-add\"
+// onclick=\"loadPart('".$this->ecr_project."', 'new', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
 //                        }
 //                     }//foreach
 //                     echo '</td>';
@@ -378,7 +391,8 @@ endforeach;
              }
              ?>
         <td><?php echo $table->hasInstall; ?></td>
-        <td><div class="hasEasyTip" title="<?php echo $table->name; ?> Info::<pre><?php print_r($table->status); ?></pre>">INFO</div></td>
+        <td><div class="hasEasyTip" title="<?php echo $table->name; ?> Info::<pre><?php
+        print_r($table->status); ?></pre>">INFO</div></td>
     </tr>
 <?php
     }//foreach

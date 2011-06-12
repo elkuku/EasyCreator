@@ -43,7 +43,7 @@ function addNewElement(fields)
             display : 'block',
             opacity : 0
         });
-        new Fx.Style(div, 'opacity',
+        new Fx.Tween(div, $extend({property: 'opacity'}),
         {
             duration : 1500
         }).start(1);

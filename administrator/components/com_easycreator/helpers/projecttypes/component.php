@@ -114,6 +114,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
+            case '1.7':
                 if($scope == 'menu')
                 $scope = 'sys';
 
@@ -376,32 +377,42 @@ class EasyProjectComponent extends EasyProject
             return false;
         }
 
-        if(ECR_JVERSION == '1.6')
+        switch(ECR_JVERSION)
         {
-            $db = JFactory::getDbo();
+            case '1.5':
+                break;
 
-            $query	= $db->getQuery(true);
+            case '1.6':
+            case '1.7':
+                $db = JFactory::getDbo();
 
-            $query->from('#__menu AS m');
-            $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
-            $query->select('m.id, e.extension_id');
-            $query->where('m.parent_id = 1');
-            $query->where("m.client_id = 1");
-            $query->where('e.element = '.$db->quote($this->comName));
+                $query	= $db->getQuery(true);
 
-            $db->setQuery($query);
+                $query->from('#__menu AS m');
+                $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
+                $query->select('m.id, e.extension_id');
+                $query->where('m.parent_id = 1');
+                $query->where("m.client_id = 1");
+                $query->where('e.element = '.$db->quote($this->comName));
 
-            $componentrow = $db->loadObject();
+                $db->setQuery($query);
 
-            if($componentrow)
-            {
-                //-- So... in 1.6 we remove the admin menu first
-                $this->removeAdminMenus($componentrow);
-            }
+                $componentrow = $db->loadObject();
 
-            $menu['parent'] = 1;
-            $menu['level'] = 1;
-        }
+                if($componentrow)
+                {
+                    //-- So... in 1.6 we remove the admin menu first
+                    $this->removeAdminMenus($componentrow);
+                }
+
+                $menu['parent'] = 1;
+                $menu['level'] = 1;
+                break;
+
+            default:
+                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+                break;
+        }//switch
 
         $menu['ordering'] = 0;
         $mId = $this->setDbMenuItem($menu);
@@ -414,11 +425,21 @@ class EasyProjectComponent extends EasyProject
             if(isset($menu['text'])
             && $menu['text'])
             {
-                if(ECR_JVERSION == '1.6')
+                switch(ECR_JVERSION)
                 {
-                    $menu['level'] = 2;
-                    $menu['parent'] = $mId;
-                }
+                    case '1.5':
+                        break;
+
+                    case '1.6':
+                    case '1.7':
+                        $menu['level'] = 2;
+                        $menu['parent'] = $mId;
+                        break;
+
+                    default:
+                        JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+                        break;
+                }//switch
 
                 $this->setDbMenuItem($menu);
             }
@@ -672,7 +693,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             case '1.6':
-            case '1.6':
+            case '1.7':
                 $table	= JTable::getInstance('menu');
 
                 $data = array();

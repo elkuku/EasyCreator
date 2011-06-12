@@ -52,6 +52,12 @@ Legend:
  ! -> Note
 ______________________________________________
 
+--------------- 0.0.14.1 BETA -- [12-Jun-2011] ---------------------
+Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15022
+
+12-Jun-2011 Nikolai Plath
+ ^ Mootools fixes Fx.Style => Fx.Tween
+
 08-Jun-2011 Nikolai Plath
  + More modifications for J! 1.7
  + Templates for 1.6 plugins Editor, Extension and Search

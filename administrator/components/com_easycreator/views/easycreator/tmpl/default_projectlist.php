@@ -80,7 +80,8 @@ endforeach;
 	<div class="ecr_noproject" style="color: orange; text-align: center;">
 	    <?php echo jgettext('None found'); ?>
 	</div>
-	<div style="padding: 1em; font-size: 1.3em; font-weight: bold;" class="ecr_button img icon-16-add" onclick="easySubmit('starter', 'starter');">
+	<div style="padding: 1em; font-size: 1.3em; font-weight: bold;"
+	class="ecr_button img icon-16-add" onclick="easySubmit('starter', 'starter');">
 		<?php echo jgettext('Create your first project'); ?>
 	</div>
 	<div style="padding: 2em;"></div>

@@ -49,17 +49,23 @@ final class ecrHTML
             }//try
         }
 
-        //-- Left bar
+        //--Menu highlighting... set css class _active
+        $actives = array();
         $tasks = array();
+        $rightTasks = array();
 
-        $tasks['stuffer'] = new stdClass();
-        $tasks['stuffer']->title = jgettext('Project');
-        $tasks['stuffer']->image = 'ecr_config';
-        $tasks['stuffer']->tasks = array('stuffer', 'stufferstuff', 'projectinfo', 'files', 'save_config'
-        , 'projectparams', 'projectdelete', 'tables');
-
-        if($project instanceof EasyProject && $project->type != 'package')
+        if($project instanceof EasyProject
+        && $project->dbId
+        && $project->type != 'package')
         {
+            //-- Left bar
+
+            $tasks['stuffer'] = new stdClass;
+            $tasks['stuffer']->title = jgettext('Project');
+            $tasks['stuffer']->image = 'ecr_config';
+            $tasks['stuffer']->tasks = array('stuffer', 'stufferstuff', 'projectinfo', 'files', 'save_config'
+            , 'projectparams', 'projectdelete', 'tables');
+
             $tasks['languages'] = new stdClass();
             $tasks['languages']->title = jgettext('Languages');
             $tasks['languages']->image = 'ecr_languages';
@@ -70,15 +76,20 @@ final class ecrHTML
             $tasks['codeeye']->title = jgettext('CodeEye');
             $tasks['codeeye']->image = 'xeyes';
             $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats');
+
+            $tasks['ziper'] = new stdClass();
+            $tasks['ziper']->title = jgettext('Package');
+            $tasks['ziper']->image = 'ecr_archive';
+            $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete');
+
+            foreach($tasks as $k=>$v)
+            {
+                $actives[$k]=(in_array($task, $v->tasks)) ? 'active' : '';
+            }
+
         }
 
-        $tasks['ziper'] = new stdClass();
-        $tasks['ziper']->title = jgettext('Package');
-        $tasks['ziper']->image = 'ecr_archive';
-        $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete');
-
         //-- Right bar
-        $rightTasks = array();
 
         $rightTasks['config'] = new stdClass();
         $rightTasks['config']->title = jgettext('Configuration');
@@ -109,14 +120,7 @@ final class ecrHTML
         $rightTasks['sandbox']->js = '';
         $rightTasks['sandbox']->rel = ' target="_blank"';
 
-        //--Menu highlighting... set css class _active
-        $actives = array();
         $rTasks = array();
-
-        foreach($tasks as $k=>$v)
-        {
-            $actives[$k]=(in_array($task, $v->tasks)) ? 'active' : '';
-        }
 
         foreach($rightTasks as $k=>$v)
         {
@@ -577,6 +581,7 @@ countries.</em></small>
         ,plugins: "html, autocompletion"
         ,autocompletion: true
         ,font_size: {$cfg['font-size']}
+  //      ,is_multi_files: true
         $debug
     });
 EOF;
@@ -610,12 +615,11 @@ EOF;
     {
         $config = JComponentHelper::getParams('com_easycreator');
 
-        $fieldId = 'ecr_code_area';
-
         $editarea_type = $config->get('editarea_type', 'edit_area_full.js');
 
         //-- Load EditArea code editor
         $editAreaVersion = '0_8_1_1';
+
         ecrHTML::loadEditArea(array(
         'path'        => '/administrator/components/com_easycreator/assets/js/editarea_'.$editAreaVersion,
         'type'        => $editarea_type,
@@ -640,13 +644,14 @@ EOF;
 <br />
 <span class="ecr_title_file" id="ecr_title_file"> <?php echo jgettext('Select a file'); ?>
 </span>
+
 <div style="clear: both; padding-bottom: 0.5em;"></div>
 
 <div id="ajaxDebug"></div>
 
 <textarea id="ecr_code_area" name="c_insertstring"
-    style="height: 500px; width: 100%;"></textarea> <input type="hidden"
-    name="old_task" value="<?php //echo $task; ?>" /></div>
+    style="height: 500px; width: 100%;"></textarea>
+</div>
 <script>
             var sld_edit_area = new Fx.Slide('sld_edit_area');
             var sld_picture = new Fx.Slide('sld_picture');

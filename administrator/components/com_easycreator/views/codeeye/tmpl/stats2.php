@@ -47,9 +47,9 @@ function getStats(ecr_project)
 
       	'onComplete' : function(response)
       	{
-          	var resp = Json.evaluate(response);
-
+          	var resp = Json.decode(response);
           	var baseUrl = ecrAJAXLink;
+
           	baseUrl += '&controller=codeeyeajax&task=get_chart';
           	baseUrl += '&labels='+resp.labels;
           	baseUrl += '&color='+color;

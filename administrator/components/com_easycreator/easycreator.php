@@ -80,16 +80,17 @@ ecrLoadHelper('projecthelper');
 ecrLoadHelper('languagehelper');
 
 //-- Load the special Language
+
 try
 {
-    if( ! jimport('g11n.language'))
+    if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')//@todo remove JFolder::exists when dropping 1.5 support
+    || ! jimport('g11n.language'))
     {
         //-- Load dummy language handler -> english only !
         ecrLoadHelper('g11n_dummy');
 
         ecrScript('g11n_dummy');
         ecrScript('php2js');
-        //        throw new Exception('The g11n language library is required to run this extension.');
     }
     else
     {
@@ -133,7 +134,7 @@ switch(ECR_JVERSION)
     case '1.5':
     case '1.6':
     case '1.7':
-        //We're all OK =;)
+        //-- We're all OK =;)
     break;
 
     default:
@@ -147,7 +148,7 @@ ecrStylesheet('default');
 ecrStylesheet('toolbar');
 ecrStylesheet('icon');
 
-//-- Add javascript
+//-- Add JavaScript
 ecrScript('global_vars');
 ecrScript('easycreator');
 //JHtml::_('behavior.mootools');
@@ -165,9 +166,10 @@ if(version_compare(JVERSION, '1.6', '>'))
 
     error_reporting(E_ALL);
     //error_reporting(E_STRICT);//...when ¿
+    //error_reporting(-1);
 
     //-- Mootools compat for 1.2, 1.3
-    ecrScript('compat_mootools');
+    //ecrScript('compat_mootools');
 }
 else
 {
@@ -184,7 +186,7 @@ else
 
     //-- J! 1.6 stuff not present in J! 1.5
     ecrLoadHelper('databasequery');
-    ecrScript('compat_joomla');
+//    ecrScript('compat_joomla');
 }
 
 $controller = EasyCreatorHelper::getController();

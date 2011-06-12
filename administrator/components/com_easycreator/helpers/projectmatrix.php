@@ -450,8 +450,6 @@ class EasyProjectMatrix extends JFolder
         $chartCode .= "
 <script type=\"text/javascript\">";
 //
-////-- Backwards compat from MooTools 1.2 to 1.1 - works =;)
-//Fx.Morph = Fx.Styles;".NL;
 
         foreach($charts as $chart => $title)
         {
@@ -516,12 +514,6 @@ class EasyProjectMatrix extends JFolder
         );
 
         $chartCode = '';
-
-        //        $chartCode .= "
-        //<script type=\"text/javascript\">
-        //
-        ////-- Backwards compat from MooTools 1.2 to 1.1 - works =;)
-        //Fx.Morph = Fx.Styles;".NL;
 
         foreach($charts as $chart => $title)
         {

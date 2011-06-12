@@ -1,5 +1,7 @@
 <?php
 /**
+ * THIS FILE WILL BE CALLED DIRECTLY !!
+ *
  * @version $Id$
  *
  * @description scans the directory /libraries/joomla/* and lists all
@@ -9,8 +11,6 @@
  * the output to a text file called jmethodlist_JVERSION_.txt
  *
  * This file must be placed in joomla root directory.
- *
- * THIS FILE WILL BE CALLED DIRECTLY !!
  *
  * @package    EasyCreator
  * @subpackage Helpers

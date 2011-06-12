@@ -213,7 +213,7 @@ function displayReflectedFiles($reflections, $type, EasyProject $project)
         case 'controllers':
         case 'models':
         case 'tables':
-            foreach($reflections[$type] as $name=>$refl)
+            foreach($reflections[$type] as $name => $refl)
             {
             ?>
 				<table style="border: 1px solid grey;" width="100%">
@@ -279,7 +279,7 @@ function displayReflectedFiles($reflections, $type, EasyProject $project)
 
         break;
         case 'views':
-            foreach($reflections[$type] as $name=>$types)
+            foreach($reflections[$type] as $name => $types)
             {
             $cPath = '';
             ?>
@@ -291,7 +291,7 @@ function displayReflectedFiles($reflections, $type, EasyProject $project)
 						</td>
 						<td>
 							<?php
-                            foreach($types as $tName=>$refl)
+                            foreach($types as $tName => $refl)
                             {
                                 echo '<strong>'.$tName.'</strong><br />';
 
@@ -321,7 +321,7 @@ function displayReflectedFiles($reflections, $type, EasyProject $project)
                                     echo NL.'</a>';
 
                                     echo '<br />';
-                                    $jViewCommands = array('assignRef'=>'orange', 'setLayout'=>'red');
+                                    $jViewCommands = array('assignRef' => 'orange', 'setLayout' => 'red');
 
                                     if(count($method->jcommands))
                                     {

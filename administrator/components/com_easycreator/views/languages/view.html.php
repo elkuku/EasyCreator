@@ -646,12 +646,12 @@ class EasyCreatorViewLanguages extends JView
         , 'icon' => 'apply'
         , 'tasks' => array('languages')
         )
-        , array('title'=> jgettext('Files and menus')
+        , array('title' => jgettext('Files and menus')
         , 'description' => jgettext('Searches inside the source files and menus for translatable strings')
         , 'icon' => 'ecr_language'
         , 'tasks' => array('searchfiles')
         )
-        , array('title'=> jgettext('Translations')
+        , array('title' => jgettext('Translations')
         , 'description' =>
         jgettext('Manage translations in ini files and inspect your php / xml files for JText strings to translate.')
         , 'icon' => 'ecr_language'
@@ -669,12 +669,12 @@ class EasyCreatorViewLanguages extends JView
         )
         , array('title' => jgettext('Versions')
         , 'description' => jgettext('Compare saved versions of your language files.')
-        , 'icon' =>'sig'
+        , 'icon' => 'sig'
         , 'tasks' => array('show_versions', 'show_version')
         )
         , array('title' => jgettext('Convert')
         , 'description' => jgettext('Convert your language files and your code simultaneously.')
-        , 'icon' =>'rename'
+        , 'icon' => 'rename'
         , 'tasks' => array('convert', 'convert')
         )
         /*
@@ -907,7 +907,7 @@ class EasyCreatorViewLanguages extends JView
             $html .= '<select name="sel_language" onchange="submitbutton(\''.$task.'\');">';
             $html .= '<option value="">'.jgettext('Choose').'</option>';
 
-            foreach($this->project->langs as $lang=>$scopes)
+            foreach($this->project->langs as $lang => $scopes)
             {
                 if($lang == 'en-GB' && ! $showDefault)
                 {

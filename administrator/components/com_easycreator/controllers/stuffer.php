@@ -555,9 +555,9 @@ class EasyCreatorControllerStuffer extends JController
     }//function
 
     /**
-     * Deletes a project.
+     * Deletes a project using the Joomla! installer.
      *
-     * @param boolean $complete Set true to delete the whole project with J! installer.
+     * @param boolean $complete True to delete the whole project.
      *
      * @return void
      */
@@ -592,8 +592,6 @@ class EasyCreatorControllerStuffer extends JController
 
             parent::display();
         }
-
-        return true;
     }//function
 
     /**

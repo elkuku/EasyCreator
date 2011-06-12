@@ -29,7 +29,8 @@ ecrScript('parameter');
 			<td>
 				<div class="ecr_button img icon-16-add" onclick="div_new_group.toggle(); $('addGroupName').focus();"><?php echo jgettext('New group') ?></div>
 				<div id="div_new_group" align="left">
-				<div style="background-color: #F2F2F2; padding-left: 2px; padding-right: 2px; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9;">
+				<div style="background-color: #F2F2F2; padding-left: 2px;
+				padding-right: 2px; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9;">
 				<br />
 					<?php echo jgettext('Name'); ?>:
 					<input type="text" id="addGroupName" name="addGroupName" value="" />
@@ -47,7 +48,8 @@ ecrScript('parameter');
 			<td>
 				<div class="ecr_button img icon-16-add" onclick="div_new_parameter.toggle();$('addParamName').focus();"><?php echo jgettext('New parameter') ?></div>
 				<div id="div_new_parameter" align="left">
-				<div style="background-color: #F2F2F2; padding-left: 2px; padding-right: 2px; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9;">
+				<div style="background-color: #F2F2F2; padding-left: 2px;
+				padding-right: 2px; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9;">
 				<br />
 					<?php echo jgettext('Name'); ?>:
 					<input type="text" id="addParamName" name="addParamName" value="" />
@@ -153,7 +155,7 @@ function drawParam($groupName, $param, $jsDivName)
 {
     $attribs = array();
 
-    foreach($param->_attributes as $k=>$v)
+    foreach($param->_attributes as $k => $v)
     {
         $attribs[] = "\"$k\":\"$v\"";
     }//foreach
