@@ -47,7 +47,7 @@ function getExtensionTemplateInfo(extType, folder, e)
 
         , 'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
 
             if(resp.status)
             {

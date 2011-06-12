@@ -35,14 +35,12 @@ function deleteZipFile(path, file) {
 
     new Request({
         url: url,
-
         onRequest : function() {
             box.innerHTML = jgettext('Deleting...');
         },
 
         onComplete : function(response) {
-            resp = Json.evaluate(response);
-
+            resp = JSON.decode(response);
             box.set('text', resp.message);
 
             box.style.color = 'green';

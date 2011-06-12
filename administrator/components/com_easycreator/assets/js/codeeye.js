@@ -98,7 +98,7 @@ function doPHPUnit(folder, test, timeStamp, id)
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
 
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -143,7 +143,7 @@ function doSelenium(folder, test, timeStamp, id)
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
 
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -181,7 +181,7 @@ function doPHPCPD(ecr_project)
         },
         'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -240,7 +240,7 @@ function doPHPDoc(dirs, files)
         },
         'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -316,7 +316,7 @@ function loadSniff(folder, file)
         {
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -347,7 +347,7 @@ function create_skeleton(folder, file)
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
 
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -371,7 +371,7 @@ function create_skeleton(folder, file)
                     },
                     'onComplete' : function(response)
                     {
-                        var resp = Json.evaluate(response);
+                        var resp = JSON.decode(response);
                         
                         if( ! resp.status) {
                             //-- Error
@@ -400,7 +400,7 @@ function draw_test_dir(testDir)
 
         'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
@@ -431,7 +431,7 @@ function checkEnvironment()
 
         'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response, true);
+            var resp = JSON.decode(response, true);
             
             if( ! resp.status) {
                 //-- Error

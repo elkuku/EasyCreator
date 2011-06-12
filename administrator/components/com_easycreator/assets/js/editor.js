@@ -49,7 +49,7 @@ function save_file() {
         },
 
         'onComplete' : function(response) {
-            resp = Json.evaluate(response);
+            resp = JSON.decode(response);
 
             title.innerHTML = oldTitle;
             title.removeClass('ajax_loading16-red');

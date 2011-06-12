@@ -144,7 +144,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
             },
             'onComplete' : function(response)
             {
-                var resp = Json.evaluate(response, true);
+                var resp = JSON.decode(response, true);
                 
                 if( ! resp.status) {
                     //-- Error
@@ -208,7 +208,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
                 frm.file_path.value = file_path;
                 frm.file_name.value = file_name;
 
-                var resp = Json.evaluate(response);
+                var resp = JSON.decode(response);
 
                 if( ! resp.status) {
                     //-- Error
@@ -312,7 +312,7 @@ function xcheckVersion()
         'onFailure' : function(rr)
         {
 //            console.log(rr);
-//            var resp = Json.evaluate(rr);
+//            var resp = JSON.decode(rr);
 //            console.log(resp);
             $('ecr_versionCheck').innerHTML = '<b style="color: red;">'
                 +jgettext('Server error')+'</b>'+url;
@@ -321,7 +321,7 @@ function xcheckVersion()
         },
         'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if('undefined' == resp.status) {
                 //-- Error

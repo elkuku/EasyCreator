@@ -57,12 +57,14 @@ Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&rel
 
 12-Jun-2011 Nikolai Plath
  ^ Mootools fixes Fx.Style => Fx.Tween
+ - Mootools fixes Json.evaluate => JSON.decode
+ - Removed Mootools compat
 
 08-Jun-2011 Nikolai Plath
  + More modifications for J! 1.7
  + Templates for 1.6 plugins Editor, Extension and Search
  + Templates for 1.6 modules front- and backend
- - removed qTabs
+ - Removed qTabs
 
 07-Jun-2011 Nikolai Plath
  + Added modifications for J! 1.7

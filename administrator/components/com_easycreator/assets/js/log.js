@@ -41,7 +41,7 @@ function loadLog(name, id)
         },
         'onComplete': function(response)
         {
-             var resp = Json.evaluate(response);
+             var resp = JSON.decode(response);
 
              if(resp.status) {
                  $('ecr_logView').innerHTML = '<pre>' + resp.text + '</pre>';

@@ -274,7 +274,7 @@ function getTableFieldSelector(tableName, fieldName)
 
         'onComplete' : function(response)
         {
-            var resp = Json.evaluate(response);
+            var resp = JSON.decode(response);
             
             if( ! resp.status) {
                 //-- Error
