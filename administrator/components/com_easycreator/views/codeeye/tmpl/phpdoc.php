@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 
 ecrLoadHelper('pearhelpers.phpdoc');
 
-$phpDoc = new EasyPHPDoc();
+$phpDoc = new EasyPHPDoc;
 
 if( ! $phpDoc->checkEnv()):
     echo 'Environment check failed.. cannot continue :(';

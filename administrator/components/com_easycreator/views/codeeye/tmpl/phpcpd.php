@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 
 ecrLoadHelper('pearhelpers.phpcpd');
 
-$phpcpd = new EasyPHPCPD();
+$phpcpd = new EasyPHPCPD;
 
 if( ! $phpcpd->checkEnv()):
     echo 'Env check failed.. cannot continue :(';

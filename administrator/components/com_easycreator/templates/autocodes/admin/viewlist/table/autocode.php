@@ -231,7 +231,7 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
             }
             else
             {
-                $fieldHeader = new EasyTableField();
+                $fieldHeader = new EasyTableField;
                 $fieldHeader->name = $name;
                 $fieldHeader->label = $name;
             }
@@ -242,7 +242,7 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
             }
             else
             {
-                $fieldCell = new EasyTableField();
+                $fieldCell = new EasyTableField;
                 $fieldCell->name = $name;
             }
 

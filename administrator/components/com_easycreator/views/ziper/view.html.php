@@ -92,7 +92,7 @@ class EasyCreatorViewZiper extends JView
 
         $this->buildopts = JRequest::getVar('buildopts', array());
 
-        $this->EasyZiper = new EasyZIPer();
+        $this->EasyZiper = new EasyZIPer;
 
         $this->setLayout('ziperresult');
     }//function

@@ -341,7 +341,7 @@ default:
                 return false;
             }
 
-            $reflection = new JObject();
+            $reflection = new JObject;
 
             foreach($foundClasses as $clas)
             {
@@ -365,14 +365,14 @@ default:
                     }
 
                     $s = $cMethod->getName();
-                    $method = new JObject();
+                    $method = new JObject;
                     $method->name = $cMethod->getName();
                     $method->startLine = $cMethod->getStartLine();
                     $method->endLine = $cMethod->getEndLine();
                     $method->docComment = $cMethod->getDocComment();
                     $method->parameters = array();
                     $method->fileName = $mPath;
-                    //                    #$reflection->methods[$s] = new JObject();
+                    //                    #$reflection->methods[$s] = new JObject;
 
                     //                    }
                     //                    if( $s != $displayClassName )
@@ -391,7 +391,7 @@ default:
 
                     foreach($parameters as $parameter)
                     {
-                        $oParameter = new JObject();
+                        $oParameter = new JObject;
                         $oParameter->name = $parameter->getName();
                         $oParameter->isOptional = $parameter->isOptional();
                         $oParameter->isPassedByReference = $parameter->isPassedByReference();
@@ -501,7 +501,7 @@ default:
             {
                 //                #    echo $fileContents[$i].NL;
                 $commandLine = trim($fileContents[$i]);
-                $jCommand = new JObject();
+                $jCommand = new JObject;
 
                 $jCommand->raw = trim($fileContents[$i]);
                 $pattern = '/\$this->(\w+)/';//(\w+)/';
@@ -560,7 +560,7 @@ default:
         {
             if( ! strpos($line, '$this') === false)
             {
-                $jCommand = new JObject();
+                $jCommand = new JObject;
                 //                #    echo $fileContents[$i].NL;
                 $commandLine = trim($line);
                 $jCommand->raw = $commandLine;

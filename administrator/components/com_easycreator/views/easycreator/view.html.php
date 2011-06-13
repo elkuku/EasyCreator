@@ -37,7 +37,7 @@ class EasyCreatorViewEasyCreator extends JView
 
         jimport('joomla.environment.browser');
 
-        $browser = new JBrowser();
+        $browser = new JBrowser;
 
         if($browser->getBrowser() == 'msie')
         {

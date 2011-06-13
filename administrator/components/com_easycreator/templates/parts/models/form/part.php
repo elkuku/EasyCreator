@@ -25,7 +25,7 @@ class PartModelsForm
      */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = ucfirst($this->group);
         $info->title = 'Data Form';

@@ -66,18 +66,18 @@ final class ecrHTML
             $tasks['stuffer']->tasks = array('stuffer', 'stufferstuff', 'projectinfo', 'files', 'save_config'
             , 'projectparams', 'projectdelete', 'tables');
 
-            $tasks['languages'] = new stdClass();
+            $tasks['languages'] = new stdClass;
             $tasks['languages']->title = jgettext('Languages');
             $tasks['languages']->image = 'ecr_languages';
             $tasks['languages']->tasks = array('languages','translations','searchfiles', 'langcorrectdeforder'
             , 'langcorrectorder', 'show_version', 'show_versions', 'language_check', 'create_langfile', 'convert');
 
-            $tasks['codeeye'] = new stdClass();
+            $tasks['codeeye'] = new stdClass;
             $tasks['codeeye']->title = jgettext('CodeEye');
             $tasks['codeeye']->image = 'xeyes';
             $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats');
 
-            $tasks['ziper'] = new stdClass();
+            $tasks['ziper'] = new stdClass;
             $tasks['ziper']->title = jgettext('Package');
             $tasks['ziper']->image = 'ecr_archive';
             $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete');
@@ -91,27 +91,27 @@ final class ecrHTML
 
         //-- Right bar
 
-        $rightTasks['config'] = new stdClass();
+        $rightTasks['config'] = new stdClass;
         $rightTasks['config']->title = jgettext('Configuration');
         $rightTasks['config']->image = 'ecr_config';
         $rightTasks['config']->tasks = array('config');
 
-        $rightTasks['templates'] = new stdClass();
+        $rightTasks['templates'] = new stdClass;
         $rightTasks['templates']->title = jgettext('Templates');
         $rightTasks['templates']->image = 'wizard';
         $rightTasks['templates']->tasks = array('templates', 'tplinstall', 'export');
 
-        $rightTasks['logfiles'] = new stdClass();
+        $rightTasks['logfiles'] = new stdClass;
         $rightTasks['logfiles']->title = jgettext('Logfiles');
         $rightTasks['logfiles']->image = 'menus';
         $rightTasks['logfiles']->tasks = array('logfiles');
 
-        $rightTasks['help'] = new stdClass();
+        $rightTasks['help'] = new stdClass;
         $rightTasks['help']->title = jgettext('Help');
         $rightTasks['help']->image = 'help';
         $rightTasks['help']->tasks = array('help', 'quicky', 'credits');
 
-        $rightTasks['sandbox'] = new stdClass();
+        $rightTasks['sandbox'] = new stdClass;
         $rightTasks['sandbox']->title = jgettext('Sandbox');
         $rightTasks['sandbox']->image = 'default';
         $rightTasks['sandbox']->tasks = array();

@@ -54,7 +54,8 @@ JLoader::import('helpers.html', JPATH_COMPONENT);
 
 //-- Require the base controller
 require_once JPATH_COMPONENT.DS.'controller.php';
-$controller = new EasyCreatorController();
+
+$controller = new EasyCreatorController;
 
 easyHTML::start();
 

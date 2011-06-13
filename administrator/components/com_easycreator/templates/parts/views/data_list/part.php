@@ -53,7 +53,7 @@ class PartViewsData_list extends EasyPart
     */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data List';
@@ -141,7 +141,7 @@ class PartViewsData_list extends EasyPart
         /* Draws an input box for a name field */
         $requireds[] = ecrHTML::drawSelectName($this->_element, jgettext('Table'));
 //        JLoader::import('helpers.autocode', JPATH_COMPONENT);
-//        $AutoCode = new EasyAutoCode();
+//        $AutoCode = new EasyAutoCode;
 
         $ecr_project = JRequest::getCmd('ecr_project');
         $element_name = JRequest::getCmd('element');
@@ -188,7 +188,7 @@ class PartViewsData_list extends EasyPart
         {
             foreach($fileList as $fileName)
             {
-                $file = new stdClass();
+                $file = new stdClass;
                 $file->path = str_replace(JPATH_ROOT.DS, '', $fileName);
                 $file->autoCodes = $AutoCode->getContents(JFile::read($fileName));
 
@@ -342,7 +342,7 @@ class PartViewsData_list extends EasyPart
         ?>
 <h4><?php echo jgettext('Include')?></h4>
         <?php
-        foreach($fields[$table_name] as $key=>$value)
+        foreach($fields[$table_name] as $key => $value)
         {
             //@todo db type fields
             switch($value)

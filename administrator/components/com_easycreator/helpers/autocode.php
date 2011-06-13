@@ -348,7 +348,7 @@ class EasyAutoCode
             return false;
         }
 
-        $elements[$name] = new $className();
+        $elements[$name] = new $className;
 
         return $elements[$name];
     }//function

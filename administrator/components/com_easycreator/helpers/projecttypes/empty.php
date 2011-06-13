@@ -163,7 +163,7 @@ class EasyProjectEmpty extends EasyProject
         $db = JFactory::getDBO();
         $clId =($this->scope == 'admin') ? 1 : 0;
 
-        $query = new JDatabaseQuery();
+        $query = new JDatabaseQuery;
 
         $query->from('#__extensions AS e');
         $query->select('e.extension_id');

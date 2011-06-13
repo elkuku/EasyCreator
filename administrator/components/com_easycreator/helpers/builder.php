@@ -627,7 +627,7 @@ class EasyBuilder extends JObject
                 return false;
             }
 
-            $templateOptions = new EasyTemplateOptions();
+            $templateOptions = new EasyTemplateOptions;
         }
 
         switch($action)
@@ -764,11 +764,23 @@ class EasyBuilder extends JObject
      */
     private function readHeader()
     {
-        $header = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'header.php');
+        $types = array('', 'js', 'css');
 
-        //-- Replace vars in header
-        $header = $this->_substitute($header);
-        $this->addSubstitute('##*HEADER*##', $header);
+        foreach($types as $type)
+        {
+            $path = ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'header'.$type.'.txt';
+
+            if( ! JFile::exists($path))
+            continue;
+
+            $header = JFile::read($path);
+
+            //-- Replace vars in header
+            $header = $this->_substitute($header);
+
+            $this->addSubstitute('##*HEADER'.strtoupper($type).'*##', $header);
+        }//foreach
+
 
         return true;
     }//function

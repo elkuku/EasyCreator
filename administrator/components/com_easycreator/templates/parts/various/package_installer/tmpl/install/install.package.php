@@ -7,7 +7,7 @@
 
 ##*HEADER*##
 
-$status = new JObject();
+$status = new JObject;
 $status->modules = array();
 $status->plugins = array();
 
@@ -18,6 +18,7 @@ $status->plugins = array();
  ***********************************************************************************************/
 
 $modules = &$this->manifest->getElementByPath('modules');
+
 if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
 {
     foreach($modules->children() as $module)
@@ -33,6 +34,7 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
         else
         {
             $this->parent->abort(JText::_('Module').' '.JText::_('Install').': '.JText::_('No module file specified'));
+
             return false;
         }
 
@@ -75,28 +77,34 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
 
         //--Copy all necessary files
         $element = &$module->getElementByPath('files');
+
         if($this->parent->parseFiles($element, -1) === false)
         {
             //--Install failed, roll back changes
             $this->parent->abort();
+
             return false;
         }
 
         //--Copy language files
         $element = &$module->getElementByPath('languages');
+
         if($this->parent->parseLanguages($element, $mclient->id) === false)
         {
             //--Install failed, roll back changes
             $this->parent->abort();
+
             return false;
         }
 
         //--Copy media files
         $element = &$module->getElementByPath('media');
+
         if($this->parent->parseMedia($element, $mclient->id) === false)
         {
             //--Install failed, roll back changes
             $this->parent->abort();
+
             return false;
         }
 
@@ -108,6 +116,7 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
         $db =& JFactory::getDBO();
         $query = 'SELECT `id` FROM `#__modules` WHERE module = '.$db->Quote($mname);
         $db->setQuery($query);
+
         if( ! $db->Query())
         {
             //--Install failed, roll back changes
@@ -136,24 +145,27 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
             {
                 //--Install failed, roll back changes
                 $this->parent->abort(JText::_('Module').' '.JText::_('Install').': '.$db->stderr(true));
+
                 return false;
             }
 
             //--Make visible evertywhere if site module
             if($mclient->id == 0)
             {
-                $query = 'REPLACE INTO `#__modules_menu` (moduleid,menuid) values ('.$db->Quote( $row->id).',0)';
+                $query = 'REPLACE INTO `#__modules_menu` (moduleid,menuid) values ('.$db->Quote($row->id).',0)';
                 $db->setQuery($query);
+
                 if( ! $db->query())
                 {
                     //--Install failed, roll back changes
                     $this->parent->abort(JText::_('Module').' '.JText::_('Install').': '.$db->stderr(true));
+
                     return false;
                 }
             }
         }
 
-        $status->modules[] = array('name'=>$mname,'client'=>$mclient->name);
+        $status->modules[] = array('name' => $mname, 'client' => $mclient->name);
     }//foreach
 }
 
@@ -164,6 +176,7 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
  ***********************************************************************************************/
 
 $plugins = &$this->manifest->getElementByPath('plugins');
+
 if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
 {
     foreach($plugins->children() as $plugin)
@@ -180,6 +193,7 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
         else
         {
             $this->parent->abort(JText::_('Plugin').' '.JText::_('Install').': '.JText::_('No plugin file specified'));
+
             return false;
         }
 
@@ -191,6 +205,7 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
 
         //--If the plugin directory does not exist, lets create it
         $created = false;
+
         if( ! file_exists($this->parent->getPath('extension_root')))
         {
             if( ! $created = JFolder::create($this->parent->getPath('extension_root')))
@@ -214,28 +229,34 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
 
         //--Copy all necessary files
         $element = &$plugin->getElementByPath('files');
+
         if($this->parent->parseFiles($element, -1) === false)
         {
             //--Install failed, roll back changes
             $this->parent->abort();
+
             return false;
         }
 
         //--Copy all necessary files
         $element = &$plugin->getElementByPath('languages');
+
         if($this->parent->parseLanguages($element, 1) === false)
         {
             //--Install failed, roll back changes
             $this->parent->abort();
+
             return false;
         }
 
         //--Copy media files
         $element = &$plugin->getElementByPath('media');
+
         if($this->parent->parseMedia($element, 1) === false)
         {
             //--Install failed, roll back changes
             $this->parent->abort();
+
             return false;
         }
 
@@ -293,11 +314,12 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
             {
                 //--Install failed, roll back changes
                 $this->parent->abort(JText::_('Plugin').' '.JText::_('Install').': '.$db->stderr(true));
+
                 return false;
             }
         }
 
-        $status->plugins[] = array('name'=>$pname,'group'=>$pgroup);
+        $status->plugins[] = array('name' => $pname, 'group' => $pgroup);
     }//foreach
 }
 

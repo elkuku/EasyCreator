@@ -29,7 +29,7 @@ class PartControllersData
      */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = ucfirst($this->group);
         $info->title = ucfirst($this->name);

@@ -59,6 +59,7 @@ Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&rel
  ^ Mootools fixes Fx.Style => Fx.Tween
  - Mootools fixes Json.evaluate => JSON.decode
  - Removed Mootools compat
+ + Header templates for css and js files
 
 08-Jun-2011 Nikolai Plath
  + More modifications for J! 1.7

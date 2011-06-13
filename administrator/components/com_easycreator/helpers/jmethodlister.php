@@ -65,7 +65,7 @@ include_once JPATH_LIBRARIES.DS.'phpmailer'.DS.'phpmailer.php';
 $prevIncluded = array('JObject', 'JObservable', 'JObserver', 'JDocumentRenderer', 'JRequest'
 , 'JEvent', 'JRegistry', 'JVersion');
 
-$v = new JVersion();
+$v = new JVersion;
 
 switch($v->RELEASE)
 {
@@ -202,7 +202,7 @@ for($i = 0; $i < count($folders); $i++)
         {
             echo (DEBUG == 2)? '<span style="background-color: yellow;">CLASS: '.$c.'</span>'.BR:'';
             $class = new ReflectionClass($c);
-            $cl = new stdClass();
+            $cl = new stdClass;
 
             $cl->comment = $class->getDocComment();
             $comment = explode(NL, $cl->comment);
@@ -249,7 +249,7 @@ for($i = 0; $i < count($folders); $i++)
 
                 echo (DEBUG == 2)?$method->name.BR:'';
 
-                $m = new stdClass();
+                $m = new stdClass;
                 $m->class = $c;
                 $m->name = $method->name;
                 $s =($file == 'xxxxx') ? $method->getFileName() : $file;
@@ -260,7 +260,7 @@ for($i = 0; $i < count($folders); $i++)
                 $JMethods[$c][$method->name] = $m;
             }//foreach
 
-            $classes[$c] = new stdClass();
+            $classes[$c] = new stdClass;
             $classes[$c]->package =($subPackage) ? $subPackage : 'Base';
             $classes[$c]->class = $class;
             $classes[$c]->methods = $ms;
@@ -272,7 +272,7 @@ ksort($classes);
 
 $cPath = substr(JPATH_LIBRARIES, 0, strpos(JPATH_LIBRARIES, DS.'administrator'.DS));
 
-$ver = new JVersion();
+$ver = new JVersion;
 $ret = '';
 $ret .= '<?php'.NL;
 $ret .= '/* Class list for Joomla! '.$ver->getShortVersion().' generated on '.date('Y-M-d').' */'.NL;

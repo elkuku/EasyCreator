@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 
 ecrLoadHelper('pearhelpers.CodeSniffer');
 
-$sniffer = new EasyCodeSniffer();
+$sniffer = new EasyCodeSniffer;
 
 if( ! $sniffer->checkEnv()):
     echo 'Env check failed.. cannot continue :(';

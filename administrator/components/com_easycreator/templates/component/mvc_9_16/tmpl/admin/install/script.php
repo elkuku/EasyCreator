@@ -1,11 +1,13 @@
 <?php
+##*HEADER*##
+
 /**
- * Script file of HelloWorld component.
+ * Script file for _ECR_COM_NAME_ component.
  */
 class _ECR_COM_COM_NAME_InstallerScript
 {
     /**
-     * method to install the component
+     * Method to install the component.
      *
      * @return void
      */
@@ -13,33 +15,33 @@ class _ECR_COM_COM_NAME_InstallerScript
     {
         // $parent is the class calling this method
         //	$parent->getParent()->setRedirectURL('index.php?option=com_helloworld');
-        echo '<p>'.JText::_('COM_HELLOWORLD_INSTALL_TEXT').'</p>';
+        echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__INSTALL_TEXT').'</p>';
     }//function
 
     /**
-     * method to uninstall the component
+     * Method to uninstall the component.
      *
      * @return void
      */
     public function uninstall($parent)
     {
         // $parent is the class calling this method
-        echo '<p>'.JText::_('COM_HELLOWORLD_UNINSTALL_TEXT').'</p>';
+        echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__UNINSTALL_TEXT').'</p>';
     }//function
 
     /**
-     * method to update the component
+     * Method to update the component.
      *
      * @return void
      */
     public function update($parent)
     {
         // $parent is the class calling this method
-        echo '<p>'.JText::_('COM_HELLOWORLD_UPDATE_TEXT').'</p>';
+        echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__UPDATE_TEXT').'</p>';
     }//function
 
     /**
-     * method to run before an install/update/uninstall method
+     * Method to run before an install/update/uninstall method.
      *
      * @return void
      */
@@ -47,11 +49,11 @@ class _ECR_COM_COM_NAME_InstallerScript
     {
         // $parent is the class calling this method
         // $type is the type of change (install, update or discover_install)
-        echo '<p>'.JText::_('COM_HELLOWORLD_PREFLIGHT_'.$type.'_TEXT').'</p>';
+        echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__PREFLIGHT_'.$type.'_TEXT').'</p>';
     }//function
 
     /**
-     * method to run after an install/update/uninstall method
+     * Method to run after an install/update/uninstall method.
      *
      * @return void
      */
@@ -59,6 +61,6 @@ class _ECR_COM_COM_NAME_InstallerScript
     {
         // $parent is the class calling this method
         // $type is the type of change (install, update or discover_install)
-        echo '<p>'.JText::_('COM_HELLOWORLD_POSTFLIGHT_'.$type.'_TEXT').'</p>';
+        echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__POSTFLIGHT_'.$type.'_TEXT').'</p>';
     }//function
 }//class

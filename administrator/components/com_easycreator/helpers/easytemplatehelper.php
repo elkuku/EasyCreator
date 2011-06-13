@@ -73,7 +73,7 @@ class EasyTemplateHelper
 
         $xml = EasyProjectHelper::getXML(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml');
 
-        $info = new stdClass();
+        $info = new stdClass;
         $info->folder = $tplName;
         $info->name = (string)$xml->name;
         $info->description = jgettext((string)$xml->description);

@@ -70,7 +70,7 @@ class PartViewsData_form extends EasyPart
      */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data Form';
@@ -208,7 +208,7 @@ class PartViewsData_form extends EasyPart
 
         foreach($req_table_fields as $field)
         {
-            $f = new stdClass();
+            $f = new stdClass;
             $f->name = $field;
             $f->type = $req_table_fields_types[$field];
 

@@ -1,9 +1,9 @@
 /**
  * @version SVN: $Id$
  * @package		EasyCreator
- * @subpackage	Frontend-Assets
+ * @subpackage	Frontend-JavaScript
  * @author		Nikolai Plath {@link http://www.nik-it.de}
- * @author		Created on 24-Sep-08
+ * @author		Created on 24-Sep-2008
  */
 
 function drawProject(project)

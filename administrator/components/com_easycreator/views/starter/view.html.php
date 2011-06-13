@@ -33,7 +33,7 @@ class EasyCreatorViewStarter extends JView
         $task = JRequest::getCmd('task');
 
         ecrLoadHelper('builder');
-        $this->EasyBuilder = new EasyBuilder();
+        $this->EasyBuilder = new EasyBuilder;
 
         ecrStylesheet('wizard');
         ecrScript('wizard');

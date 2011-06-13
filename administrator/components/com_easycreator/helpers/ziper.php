@@ -859,7 +859,7 @@ class EasyZIPer extends JObject
                 continue;
             }//try
 
-            $ziper = new EasyZIPer();
+            $ziper = new EasyZIPer;
             $result = $ziper->create($project);
             $files = $ziper->getCreatedFiles();
 

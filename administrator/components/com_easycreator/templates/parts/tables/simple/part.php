@@ -48,7 +48,7 @@ class PartTablesSimple extends EasyPart
      */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data';

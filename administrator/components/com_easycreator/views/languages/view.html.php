@@ -304,8 +304,8 @@ class EasyCreatorViewLanguages extends JView
             JError::raiseWarning(0, $m);
         }//try
 
-        $this->checks = new JObject();
-        $this->buildOpts = new JObject();
+        $this->checks = new JObject;
+        $this->buildOpts = new JObject;
 
         $buildOpts = JRequest::getVar('buildOpts', array());
 

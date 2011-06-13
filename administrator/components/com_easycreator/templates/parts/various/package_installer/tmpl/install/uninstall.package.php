@@ -9,7 +9,7 @@
 
 jimport('joomla.application.helper');
 
-$status = new JObject();
+$status = new JObject;
 $status->modules = array();
 $status->plugins = array();
 
@@ -120,8 +120,8 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
         {
         }
 
-        $status->modules[] = array('name'=>$mname,'client'=>$mclient->name);
-    }
+        $status->modules[] = array('name' => $mname, 'client' => $mclient->name);
+    }//foreach
 }
 
 /***********************************************************************************************
@@ -197,8 +197,8 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
             JFolder::delete($this->parent->getPath('extension_root'));
         }
 
-        $status->plugins[] = array('name'=>$pname,'group'=>$pgroup);
-    }
+        $status->plugins[] = array('name' => $pname, 'group' => $pgroup);
+    }//foreach
 }
 
 /***********************************************************************************************

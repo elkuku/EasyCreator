@@ -340,7 +340,7 @@ class EasyProjectHelper
                 if($xml->getName() != 'easyproject')
                 continue;
 
-                $p = new stdClass();
+                $p = new stdClass;
                 $p->type = (string)$xml->attributes()->type;
                 $p->name = (string)$xml->name;
                 $p->comName = (string)$xml->comname;
@@ -657,7 +657,7 @@ class EasyProjectHelper
 
         foreach($files as $file)
         {
-            $f = new stdClass();
+            $f = new stdClass;
             $f->folder = '';
             $f->name = $file;
 
@@ -675,7 +675,7 @@ class EasyProjectHelper
                 $folder = str_replace($base.DS, '', $file);
                 $folder = str_replace(DS.JFile::getName($file), '', $folder);
 
-                $f = new stdClass();
+                $f = new stdClass;
                 $f->folder = $folder;
                 $f->name = JFile::getName($file);
 

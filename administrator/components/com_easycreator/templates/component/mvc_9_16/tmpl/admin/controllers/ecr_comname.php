@@ -1,7 +1,7 @@
 <?php
 ##*HEADER*##
 
-//-- Import the Class JControllerForm
+//-- Import the class JControllerForm
 jimport('joomla.application.component.controllerform');
 
 /**

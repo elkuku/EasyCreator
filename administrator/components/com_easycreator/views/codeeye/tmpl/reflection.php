@@ -113,7 +113,7 @@ function aj_drawProject(EasyProject $project)
     echo '<h3>'.$project->comName.'</h2>';
     echo '<h3>credits..</h2>';
 
-    $reflection = new easyReflection();
+    $reflection = new easyReflection;
 
     switch($project->type)
     {
@@ -162,7 +162,7 @@ function drawProject(EasyProject $project)
     echo '<h3>'.$project->comName.'</h2>';
     echo '<h3>credits..</h2>';
 
-    $reflection = new easyReflection();
+    $reflection = new easyReflection;
 
     switch($project->type)
     {
@@ -487,7 +487,7 @@ function reflect($path, $file)
 
     ecrLoadHelper('reflection');
 
-    $reflection = new easyReflection();
+    $reflection = new easyReflection;
 
 //#	$reflection->printDeclaredClasses();
 

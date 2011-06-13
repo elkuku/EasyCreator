@@ -52,7 +52,7 @@ class ECRLanguageConverter
         {
             JError::raiseWarning(100, jgettext('Invalid options for lanuage converter'));
 
-            $this->options = new JObject();
+            $this->options = new JObject;
         }
 
         if($this->options->get('add_prefix'))

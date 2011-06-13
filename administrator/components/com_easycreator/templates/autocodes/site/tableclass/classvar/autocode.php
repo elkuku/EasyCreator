@@ -220,7 +220,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
                 }
                 else
                 {
-                    $field = new EasyTableField();
+                    $field = new EasyTableField;
                     $field->name = $name;
                     $field->label = $name;
                     $field->type = $type;

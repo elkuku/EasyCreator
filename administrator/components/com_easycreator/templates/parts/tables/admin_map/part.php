@@ -29,7 +29,7 @@ class PartTablesAdmin_map
      */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Map and Admin';

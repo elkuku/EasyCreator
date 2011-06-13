@@ -34,13 +34,13 @@ class EasyTableHelper
      */
     public function __construct()
     {
-        $s = new stdClass();
+        $s = new stdClass;
         $s->folder = DS.'administrator';
         $s->title = jgettext('Admin');
         $s->tag = 'admin';
         $this->scopes['admin'] = $s;
 
-        $s = new stdClass();
+        $s = new stdClass;
         $s->folder = '';
         $s->title = jgettext('Site');
         $s->tag = 'site';
@@ -390,7 +390,7 @@ var_dump($furz);
      */
     public static function drawStdInsertRow()
     {
-        $field = new EasyTableField();
+        $field = new EasyTableField;
         $field->name = 'id';
         $field->label = 'Primary key';
         $field->type = 'INT';

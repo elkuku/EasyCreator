@@ -40,7 +40,7 @@ echo '<span class="ecr_button" style="color: blue;" onclick="submitform(\'tables
 echo '<span class="ecr_button" style="color: black;" onclick="submitform(\'table_edit\');">EDIT</span>';
 echo '</h2>';
 
-$tableHelper = new EasyTableHelper();
+$tableHelper = new EasyTableHelper;
 
 $db = JFactory::getDBO();
 

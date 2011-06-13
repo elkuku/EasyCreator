@@ -181,7 +181,7 @@ class AutoCodeAdminFormsEdit extends EasyAutoCode
             }
             else
             {
-                $fieldHeader = new EasyTableField();
+                $fieldHeader = new EasyTableField;
                 $fieldHeader->name = $name;
             }
 

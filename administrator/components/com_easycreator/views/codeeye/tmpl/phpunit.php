@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 
 ecrLoadHelper('pearhelpers.phpunit');
 
-$phpUnit = new EasyPHPUnit();
+$phpUnit = new EasyPHPUnit;
 
 if( ! $phpUnit->checkEnv()):
     echo 'Env check failed.. cannot continue :(';

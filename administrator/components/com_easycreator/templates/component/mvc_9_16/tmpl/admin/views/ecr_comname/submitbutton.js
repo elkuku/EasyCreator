@@ -1,3 +1,5 @@
+##*HEADERJS*##
+
 Joomla.submitbutton = function(task)
 {
     if (task == '')

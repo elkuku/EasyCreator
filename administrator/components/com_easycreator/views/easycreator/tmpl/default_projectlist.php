@@ -18,7 +18,7 @@ $projectTypes = EasyProjectHelper::getProjectTypes();
 
 $toolImgBase = '&lt;span class=\'img icon-16-%s\' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;';
 
-$toolImg = new stdClass();
+$toolImg = new stdClass;
 $toolImg->package = sprintf($toolImgBase, 'module');
 $toolImg->config = sprintf($toolImgBase, 'config');
 $toolImg->language = sprintf($toolImgBase, 'language');

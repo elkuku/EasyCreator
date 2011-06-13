@@ -237,7 +237,7 @@ class EasyCreatorControllerStuffer extends JController
             ecrLoadHelper('logger');
             $logger = new easyLogger(date('ymd_Hi').'_add_part.log', JRequest::getVar('buildopts', array()));
 
-            $options = new stdClass();
+            $options = new stdClass;
             $options->ecr_project = $ecr_project;
             $options->group = $group;
             $options->part = $part;

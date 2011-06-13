@@ -26,7 +26,7 @@ class PartTablesAdmin_create
      */
     public function info()
     {
-        $info = new EasyTemplateInfo();
+        $info = new EasyTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Create and Admin';

@@ -162,7 +162,7 @@ class EasyELanguage
 
             if(JFile::exists($fileName.$test))
             {
-                $version = new JObject();
+                $version = new JObject;
                 $lastMod = date("d-M-y H:i.", filectime($fileName.$test));
 
                 $size = $this->byte_convert(filesize($fileName.$test));
@@ -385,7 +385,7 @@ class EasyELanguage
         //--read the header from translated language
         foreach($translatedLanguage as $line)
         {
-            $corrected = new JObject();
+            $corrected = new JObject;
 
             if($line->key == '#')
             {
@@ -403,7 +403,7 @@ class EasyELanguage
 
         foreach($defaultLanguage as $line)
         {
-            $corrected = new JObject();
+            $corrected = new JObject;
 
             if($line->key == '#')
             {
@@ -721,7 +721,7 @@ class EasyELanguage
         foreach($file as $line)
         {
             $line = trim($line);
-            $translation = new stdClass();
+            $translation = new stdClass;
 
             if(strpos($line, '#') === 0)
             {
@@ -1355,7 +1355,7 @@ case 'etc':
      */
     private function _addDefinition($definition, $file)
     {
-        $def = new stdClass();
+        $def = new stdClass;
         $def->definition = $definition;
         $def->translated = array();
         $def->coreTranslated = array();

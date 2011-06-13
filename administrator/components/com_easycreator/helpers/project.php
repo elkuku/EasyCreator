@@ -181,7 +181,7 @@ abstract class EasyProject extends JObject
 
         foreach($items as $item)
         {
-            $m = new stdClass();
+            $m = new stdClass;
             $m->scope = $item['client'];
             $m->name = $item['name'];
             $m->title = $item['title'];
@@ -197,7 +197,7 @@ abstract class EasyProject extends JObject
 
         foreach($items as $item)
         {
-            $m = new stdClass();
+            $m = new stdClass;
             $m->name = $item['name'];
             $m->title = $item['title'];
             $m->scope = $item['client'];
@@ -613,7 +613,7 @@ abstract class EasyProject extends JObject
         {
             foreach($manifest->modules->module as $e)
             {
-                $c = new stdClass();
+                $c = new stdClass;
 
                 foreach($e->attributes() as $k => $a)
                 {
@@ -635,7 +635,7 @@ abstract class EasyProject extends JObject
         {
             foreach($manifest->plugins->plugin as $e)
             {
-                $c = new stdClass();
+                $c = new stdClass;
 
                 foreach($e->attributes() as $k => $a)
                 {
@@ -658,14 +658,14 @@ abstract class EasyProject extends JObject
             {
                 $table = new EasyTable((string)$e->name);
 
-                $t = new stdClass();
+                $t = new stdClass;
                 $t->name = (string)$e->name;
 
                 if(isset($e->relations->relation))
                 {
                     foreach($e->relations->relation as $r)
                     {
-                        $relation = new EasyTableRelation();
+                        $relation = new EasyTableRelation;
                         $relation->type = (string)$r->type;
                         $relation->field = (string)$r->field;
                         $relation->onTable = (string)$r->onTable;
@@ -675,7 +675,7 @@ abstract class EasyProject extends JObject
                         {
                             foreach($r->aliases->alias as $elAlias)
                             {
-                                $alias = new EasyTableRelationAlias();
+                                $alias = new EasyTableRelationAlias;
                                 $alias->alias = (string)$elAlias->name;
                                 $alias->aliasField = (string)$elAlias->field;
 
@@ -773,7 +773,7 @@ abstract class EasyProject extends JObject
         {
             foreach($manifest->elements->element as $e)
             {
-                //                $eL = new stdClass();
+                //                $eL = new stdClass;
                 //                $eL->name = (string)$e;
 
                 $this->elements[(string)$e] = (string)$e;
