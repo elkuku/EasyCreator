@@ -75,7 +75,6 @@ class AutoCodeAdminFormsEditElementField
             }
 
             $a[] = '/>';
-
         }//foreach
 
         $ret = $indent.implode(NL.$indent, $a).NL;

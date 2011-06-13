@@ -31,7 +31,7 @@ EasyCreator is a developer tool.
 It tries to speed up the developing process of custom components, modules, plugin and templates.
 You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'.
 
-<b>From version 0.0.14 onwards the g11n language library is required !</b>
+<b>From version 0.0.14 onwards the g11n language library is required for foreign (non English) languages !</b>
 </description>
 _______________________________________________
 _______________________________________________
@@ -57,9 +57,10 @@ Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&rel
 
 12-Jun-2011 Nikolai Plath
  ^ Mootools fixes Fx.Style => Fx.Tween
+ ^ Changed DTD location to joomlacode.org
  - Mootools fixes Json.evaluate => JSON.decode
  - Removed Mootools compat
- + Header templates for css and js files
+ + Header templates for css and js files - Thanks 7list
 
 08-Jun-2011 Nikolai Plath
  + More modifications for J! 1.7
@@ -69,11 +70,11 @@ Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&rel
 
 07-Jun-2011 Nikolai Plath
  + Added modifications for J! 1.7
- # Fixed a fatal error on PHP 5.3 - "Serialization of EasyXMLElement is not allowed" - thx Joni
+ # Fixed a fatal error on PHP 5.3 - "Serialization of EasyXMLElement is not allowed" - Thanks Joni
 
 29-May-2011 Nikolai Plath
- # Fixed Code editor does not display ini files - thx 7list
- # Fixed can not uninstall template projects - thx 7list
+ # Fixed Code editor does not display ini files - Thanks 7list
+ # Fixed can not uninstall template projects - Thanks 7list
 
 24-May-2011 Nikolai Plath
  # Fixed media folders in manifest.xml

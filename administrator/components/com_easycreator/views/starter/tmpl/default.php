@@ -44,6 +44,7 @@ $infoLinks = array(
             , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
             , 'How to override the output from the Joomla! core'
             => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
+            , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
     )
     , 'library' => array()
     , 'package' => array()

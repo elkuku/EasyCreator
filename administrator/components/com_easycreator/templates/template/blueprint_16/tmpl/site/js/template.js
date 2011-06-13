@@ -1,3 +1,1 @@
-/**
- * @version SVN: $Id$
- **/
+##*HEADERJS*##

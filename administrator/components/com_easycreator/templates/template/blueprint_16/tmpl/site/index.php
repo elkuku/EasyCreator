@@ -33,19 +33,16 @@ dir="<?php echo $this->direction; ?>" >
 
             <div id="main">
                 <div id="content">
-                    <?php if ($this->getBuffer('message')) : ?>
-                        <div class="error">
-                            <h2><?php echo JText::_('Message'); ?></h2>
-                            <jdoc:include type="message" />
-                        </div>
-                    <?php endif; ?>
+                    <div class="error">
+                        <jdoc:include type="message" />
+                    </div>
 
                     <jdoc:include type="component" />
                 </div>
 
                 <div id="menu">
                     <jdoc:include type="modules" name="position-1" style="xhtml" />
-                    <jdoc:include type="modules" name="position-7" style="xhtml" />
+                    <jdoc:include type="modules" name="position-2" style="xhtml" />
                 </div>
             </div>
         </div>

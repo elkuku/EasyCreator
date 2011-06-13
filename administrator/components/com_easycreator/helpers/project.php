@@ -364,9 +364,9 @@ abstract class EasyProject extends JObject
     public function writeProjectXml($testMode = false)
     {
         $type = 'type="'.$this->type.'" ';
-        $scope =($this->scope) ? 'scope="'.$this->scope.'" ' : '';
+        $scope = 'scope="'.$this->scope.'" ';
 
-        $xml = EasyProjectHelper::getXML('<easyproject '.$type.$scope.' version="'.ECR_VERSION.'"'
+        $xml = EasyProjectHelper::getXML("<easyproject $type $scope".' version="'.ECR_VERSION.'"'
         .' tpl="'.$this->fromTpl.'" />', false);
 
         $xml->addChild('name', $this->name);
@@ -542,8 +542,10 @@ abstract class EasyProject extends JObject
 
         $root = '';
         $root .= '<?xml version="1.0" encoding="UTF-8"?>'.NL;
-        $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project 1.0//EN"'.NL;
-        $root .= '"http://xml.der-beta-server.de/dtd/easycreator/0.0.14/project.dtd">';
+        $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14.1//DTD project 1.0//EN"'.NL;
+//        $root .= '"http://xml.der-beta-server.de/dtd/easycreator/0.0.14.1/project.dtd">';
+        $root .= '"http://joomlacode.org/gf/project/elkuku/scmsvn/?action=browse'
+        .'&path=/*checkout*/dtd/easycreator/0.0.14.1/project.dtd">';
 
         $output = $root.$xml->asFormattedXML();
 

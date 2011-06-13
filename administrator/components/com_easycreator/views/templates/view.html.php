@@ -150,7 +150,7 @@ class EasyCreatorViewTemplates extends JView
         $ecr_help = $params->get('ecr_help');
 
         $subtasks = array(
-        array('title'=> jgettext('Templates')
+        array('title' => jgettext('Templates')
         , 'description' => jgettext('Manage EasyCreator Extension Templates')
         , 'icon' => 'directory'
         , 'task' => 'templates'

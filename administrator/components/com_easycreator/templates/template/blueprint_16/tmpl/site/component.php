@@ -7,15 +7,17 @@
 lang="<?php echo $this->language; ?>"
 dir="<?php echo $this->direction; ?>">
 <head>
-	<jdoc:include type="head" />
-	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php $this->template; ?>/css/template.css" type="text/css" />
+    <jdoc:include type="head" />
+    <link rel="stylesheet"
+    href="<?php echo $this->baseurl ?>/templates/<?php $this->template; ?>/css/template.css" type="text/css" />
 
 <?php if($this->direction == 'rtl') : ?>
-	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php $this->template; ?>/css/template_rtl.css" type="text/css" />
+    <link rel="stylesheet"
+    href="<?php echo $this->baseurl ?>/templates/<?php $this->template; ?>/css/template_rtl.css" type="text/css" />
 <?php endif; ?>
 </head>
 <body class="contentpane">
-	<jdoc:include type="message" />
-	<jdoc:include type="component" />
+    <jdoc:include type="message" />
+    <jdoc:include type="component" />
 </body>
 </html>

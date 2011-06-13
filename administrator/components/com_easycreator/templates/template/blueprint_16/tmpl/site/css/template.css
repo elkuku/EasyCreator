@@ -1,24 +1,21 @@
-body { /* ist der ganze Bildschirm */
-   background-color: #0000CD; /* Hintergrundfarbe */
-   color: Black; /* Schriftfarbe */
+##*HEADERCSS*##
+
+body {
+   background-color: #0000CD;
+   color: Black;
    font-family: Verdana, Generis, Arial, Helvetica, sans-serif;
-   /* Schrift-Familie */
-   font-size: 10pt; /* Schrifttgröße */
+   font-size: 10pt;
 }
 
 #container {
-   /* umfasst den ganzen Inhalt, also haeder, main mit content und menue */
-   border: thin solid #0000CD;
-   /* Rand um container, hilfreich beim Aufbau der Seite */
+   border: 1px solid #0000CD;
    margin: 5px auto;
-   /* Abstand rundherum und Platzierung horizontal in der Mitte */
-   width: 1000px; /* Breite */
+   width: 1000px;
 }
 
-#header { /* Für den Kopf */
+#header {
    background-color: #00BFFF;
-   border: thin solid #0000CD;
-   /* zum Aufbau besser verschiedene Farben verwenden */
+   border: 1px solid #0000CD;
    width: 1000px;
 }
 
@@ -28,402 +25,1201 @@ body { /* ist der ganze Bildschirm */
 }
 
 #main {
-   /* Der Hauptbereich/Haupt-Slice, umfasst die Slices content und menu */
    background-color: #AFEEEE;
-   border: thin solid #0000CD;
-   overflow: hidden; /* Damit der ganze Inhalt angezeigt wird */
+   border: 1px solid #0000CD;
+   overflow: hidden;
    width: 1000px;
 }
 
-#content { /* Slice für den Content */
-   border: thin solid #0000CD;
-   float: left; /* Setzt den Slice nach links */
+#content {
+   border: 3px solid red;/*#0000CD;*/
+   float: left;
    width: 600px;
 }
 
 #menu {
    background-color: Aqua;
    border: thin solid #0000CD;
-   float: right; /* Setzt den Slice nach rechts */
+   float: right;
    width: 395px;
 }
 
-/*****************************************/
-   /*** Joomla! specific content elements ***/
-   /*****************************************/
-div.offline {
-   
-}
-
-span.pathway {
-   
-}
-
-/* headers */
-div.componentheading {
-   
-}
-
-h1 {
-   
-}
-
-h2,.contentheading {
-   
-}
-
-table.contentpaneopen h3 {
-   
-}
-
-h4 {
-   
-}
-
-h3,.componentheading,table.moduletable th,legend {
-   
-}
-
-/* small text */
-.small {
-   
-}
-
-.modifydate {
-   
-}
-
-.createdate {
-   
-}
-
-a.readon {
-   
-}
-
-/* form validation */
-.invalid {
-   
-}
-
-label.invalid {
-   
-}
-
-/** overlib **/
-.ol-foreground {
-   
-}
-
-.ol-background {
-   
-}
-
-.ol-textfont {
-   
-}
-
-.ol-captionfont {
-   
-}
-
-.ol-captionfont a {
-   
-}
-
-.ol-closefont {
-   
-}
-
-/* menu links */
-a.mainlevel:link,a.mainlevel:visited {
-   
-}
-
-a.mainlevel:hover {
-   
-}
-
-/* spacers */
-span.article_separator {
-   
-}
-
-.article_column {
-   
-}
-
-.column_separator {
-   
-}
-
-td.buttonheading {
-   
-}
-
-td.buttonheading img {
-   
-}
-
-.clr {
-   
-}
-
-td.greyline {
-   
-}
-
-div#maindivider {
-   
-}
-
-table.blog span.article_separator {
-   
-}
-
-/* edit button */
-.contentpaneopen_edit {
-   
-}
-
-/* table of contents */
-table.contenttoc {
-   
-}
-
-table.contenttoc td {
-   
-}
-
-/* content tables */
-td.sectiontableheader {
-   
-}
-
-tr.sectiontableentry0 td,tr.sectiontableentry1 td,tr.sectiontableentry2 td
-   {
-   
-}
-
-td.sectiontableentry0,td.sectiontableentry1,td.sectiontableentry2 {
-   
-}
-
-/* content styles */
-table.contentpaneopen,table.contentpane {
-   
-}
-
-table.contentpaneopen li {
-   
-}
-
-table.contentpaneopen fieldset {
-   
-}
-
-table.contentpaneopen h3 {
-   
-}
-
-table.contentpaneopen h4 {
-   
-}
-
-.highlight {
-   
-}
-
-/* module control elements */
-table.user1user2 div.moduletable {
-   
-}
+input.required.invalid {
+	border: 2px solid red;
+}
+
+div#system-debug {
+	background-color: #fff;
+	font-family: monospace;
+}
 
-div.moduletable,div.module {
-   
-}
-
-div.module_menu h3 {
-   
-}
-
-div.module_menu {
-   
-}
-
-div.module_menu div div div {
-   
-}
-
-div.module_menu div div div div {
-   
-}
-
-div.module_menu ul {
-   
-}
-
-div.module_menu ul li a:link,div.module_menu ul li a:visited {
-   
-}
-
-#leftcolumn div.module {
-   
-}
-
-#leftcolumn div.module table {
-   
-}
-
-/* forms */
-table.adminform textarea {
-   
-}
-
-div.search input {
-   
-}
-
-form#form-login fieldset {
-   
-}
-
-form#form-login ul {
-   
-}
-
-form#com-form-login fieldset {
-   
-}
-
-form#com-form-login ul {
-   
-}
-
-/* thumbnails */
-div.mosimage {
-   
-}
-
-div.mosimage_caption {
-   
-}
-
-div.caption {
-   
-}
-
-div.caption img {
-   
-}
-
-div.caption p {
-   
-}
-
-/* Parameter Table */
-table.paramlist {
-   
-}
-
-table.paramlist td.paramlist_key {
-   
-}
-
-table.paramlist td.paramlist_value {
-   
-}
-
-div.message {
-   
-}
-
-/* Banners module */ /* Default skyscraper style */
-.bannergroup {
-   
-}
-
-.banneritem img {
-   
-}
-
-/* Text advert style */
-.banneritem_text {
-   
-}
-
-.bannerfooter_text {
-   
-}
-
-/* System Messages */ /* see system general.css */
-.pagination span {
-   
-}
-
-.pagination a {
-   
-}
-
-/* Polls */
-.pollstableborder td {
-   
-}
-
-/* WebLinks */
-span.description {
-   
-}
-
-/* Frontend Editing*/
-fieldset {
-   
-}
-
-legend {
-   
-}
-
-td.key {
-   
-}
-
-/* Tooltips */
-.tool-tip {
-   
-}
-
-.tool-title {
-   
-}
-
-.tool-text {
-   
-}
-
-/* System Standard Messages */
-#system-message {
-   
-}
-
-#system-message dd.message ul {
-   
-}
-
-/* System Error Messages */
-#system-message dd.error ul {
-   
-}
-
-/* System Notice Messages */
-#system-message dd.notice ul {
-   
-}
-
-#syndicate {
-   
-}
-
-#power_by {
-   
-}
+/* ***************************************
+   ** Joomla! specific content elements **
+   ****************************************/
+
+/* CSS Document for Joomla styles 1.6.x */
+
+/*	================================================================================== 
+	AUTHORS
+	The default Joomla CSS template was originally developed by Barrie North. 
+	This document adjusted for Joomla 1.6 by C.R. van Oudheusden, Joomla-CSS.
+	For more information go to www.joom-css.nl.
+
+	DISCLAIMER
+	While Joomla-CSS has taken the greatest care in preparing this document. No
+	liability can be accepted by Joomla-CSS for any errors or omissions in the published
+	information. Joomla-CSS like wise accepts no liability for loss arising from or related
+	to the use of information presented in this document or website.
+
+	COPYRIGHT
+	You are free to copy and use this document or alter it in any way.
+	================================================================================ */
+
+/* --------------------------
+   Print, Email, Editor button
+--------------------------- */
+ul.actions {}
+ul.actions li {}
+ul.actions li a {}
+ul.actions li a img {}
+
+/* Print button */
+ul.actions li.print-icon {}
+ul.actions li.print-icon a {}
+ul.actions li.print-icon a:hover {}
+ul.actions li.print-icon a img {}
+ul.actions li.print-icon a:hover img {}
+
+/* Email button */
+ul.actions li.email-icon {}
+ul.actions li.email-ico a {}
+ul.actions li.email-ico a
+ul.actions li.email-ico a img {}
+
+/* Editor button */
+ul.actions li.edit-icon {}
+ul.actions li.edit-icon span.hasTip {}
+ul.actions li.edit-icon span.hasTip a {}
+ul.actions li.edit-icon span.hasTip a img {}
+
+/* -------------------------------------------------------------------------
+   Print popup screen
+   There is no Joomla file in templates/system/css/template.css present.
+   In sourcecode Joomla refers to this document.
+   To apply the styles of your website to the printpage do the following: 
+
+   Create a new css file "template.css" or download it form joomla-css.
+   Save this document in the system/css folder.
+   !! Be carefull not to overwrite your template.css in your template folder.
+   Add the following line to the top of this document.
+
+   @import url("../../yourtemplatefolder/css/template.css");
+
+   Change "yourtemplatefolder" in the templatefolder name of your website.
+---------------------------------------------------------------------------- */
+body.contentpane {}
+
+
+/* -------------------
+   E-mail Popup Screen
+---------------------- */
+
+div#mailto-window {}
+div#mailto-window h2 {}
+
+div#mailto-window div.mailto-close {}
+div#mailto-window div.mailto-close a {}
+div#mailto-window div.mailto-close a span {}
+
+div#mailto-window form#mailtoForm {}
+
+div#mailto-window form#mailtoForm div.formelm {}
+div#mailto-window form#mailtoForm div.formelm label {}
+div#mailto-window form#mailtoForm div.formelm input#mailto_field.inputbox {}
+div#mailto-window form#mailtoForm div.formelm input#sender_field.inputbox {}
+div#mailto-window form#mailtoForm div.formelm input#from_field.inputbox {}
+div#mailto-window form#mailtoForm div.formelm input#subject_field.inputbox {}
+
+div#mailto-window form#mailtoForm {}
+div#mailto-window form#mailtoForm p {}
+div#mailto-window form#mailtoForm button.button {}
+
+
+/* ---------------------
+   Tooltip Editor Button
+---------------------- */
+.tip {}
+.tip-title {}
+
+
+/* --------------
+   Content rating
+---------------- */
+span.content_rating {}
+span.content_rating img {}
+
+/* --------------------
+   Content rating Form
+--------------------- */
+form span.content_vote {}
+form span.content_vote input {}
+form span.content_vote input.button {}
+
+
+/* -------------------
+   Article Information
+-------------------- */
+dl.article-info {}
+dl.article-info dt.article-info-term {}
+
+dl.article-info	dd {}
+dl.article-info dd a {}
+dl.article-info dd a:hover {}
+
+/* Specific */
+dl.article-info	dd.parent-category-name a {}
+dl.article-info	dd.category-name a {}
+dl.article-info	dd.create {}
+dl.article-info	dd.modified {}
+dl.article-info	dd.published {}
+dl.article-info	dd.createdby a {}
+dl.article-info dd.hits {}
+
+
+/* -------------
+   Read more ...
+--------------- */
+p.readmore {}
+p.readmore a {}
+
+
+/* -----------------
+   Article seperator
+-------------------- */
+div.item-separator {}
+
+
+/* -------------
+   Row seperator
+---------------- */
+span.row-separator {}
+
+
+/* ----------
+   More items
+------------- */
+div.items-more {}
+div.items-more h3 {}
+div.items-more ol {}
+div.items-more ol li {}
+div.items-more ol li a {}
+
+
+/* ------------------
+   Pagination General
+--------------------- */
+div.pagination {}
+div.pagination p.counter {}
+div.pagination ul {}
+div.pagination ul li {}
+
+div.pagination ul li.pagination-start span.pagenav {}
+div.pagination ul li.pagination-prev span.pagenav {}
+div.pagination ul li span.pagenav {}
+div.pagination ul li a.pagenav {}
+div.pagination ul li.pagination-next a.pagenav {}
+div.pagination ul li.pagination-end a.pagenav {}
+
+
+/* -------------------------
+   Pagination Single article
+---------------------------- */
+div.item-page div.pagination {}
+div.item-page div.pagination ul.pagenav {}
+div.item-page div.pagination ul.pagenav li {}
+div.item-page div.pagination ul.pagenav li a {} 
+
+div.item-page div.pagination ul.pagenav li.pagenav-prev {}
+div.item-page div.pagination ul.pagenav li.pagenav-prev a {}
+div.item-page div.pagination ul.pagenav li.pagenav-next {}
+div.item-page div.pagination ul.pagenav li.pagenav-next a {}
+
+
+/* -----------
+   Pagebreak
+-------------- */
+/* Article index */  
+div#article-index {}
+div#article-index ul {}
+div#article-index ul li {}
+div#article-index ul li a {}
+div#article-index ul li a.toclink {}
+div.pagenavcounter {}
+
+/* Article index Pagination Pagebreak */
+div.item-page div.pagination ul {}
+div.item-page div.pagination ul li {}
+div.item-page div.pagination ul li a {} 
+
+
+/* --------------------------------------------
+   Category blog (incl. frontpage blog featured
+---------------------------------------------- */
+/* blog featured */
+div.blog-featured {}
+div.blog-featured h1 {}
+
+/* Blog category */
+div.blog {}
+div.blog h1 {}
+
+/* Subheading & description blog category */
+span.subheading-category {}
+div.category-desc p {}
+div.category-desc div.clr {}
+
+/* ------------------------------
+   Blog Category & Blog Featured 
+------------------------------ */
+
+/* ---------------
+   Leading article
+------------------ */
+div.items-leading {}
+div.items-leading div.leading-0,
+div.items-leading div.leading-1 {} /* etc. */
+
+/* Titel / Title */
+div.items-leading div.leading-0 h2 {}
+div.items-leading div.leading-0 h2 a {}
+
+
+/* ----------------------------------
+   Styles for 1, 2 or 3 columns a row
+------------------------------------- */
+/* 1 column first row, second row, third row etc. */
+div.items-row.cols-1.row-0 {}
+div.items-row.cols-1.row-1 {}
+div.items-row.cols-1.row-2 {} /* etc. */
+
+div.items-row.cols-1.row-0 div.item.column-1 {}
+div.items-row.cols-1.row-1 div.item.column-1 {}
+div.items-row.cols-1.row-2 div.item.column-1 {} /* etc. */
+
+/* 2 columns first row, second row, third row etc. */
+div.items-row.cols-2.row-0 {}
+div.items-row.cols-2.row-1 {}
+div.items-row.cols-2.row-2 {} /* etc. */
+
+div.items-row.cols-2.row-0 div.item.column-1 {}
+div.items-row.cols-2.row-0 div.item.column-2 {}
+
+div.items-row.cols-2.row-1 div.item.column-1 {}
+div.items-row.cols-2.row-1 div.item.column-2 {}
+
+div.items-row.cols-2.row-2 div.item.column-1 {}
+div.items-row.cols-2.row-2 div.item.column-2 {} /* etc. */
+
+/* 3 columns first row, second row, third row etc. */
+div.items-row.cols-3.row-0 {}
+div.items-row.cols-3.row-1 {}
+div.items-row.cols-3.row-2 {} /* etc. */
+
+div.items-row.cols-3.row-0 div.item.column-1 {}
+div.items-row.cols-3.row-0 div.item.column-2 {}
+div.items-row.cols-3.row-0 div.item.column-3 {}
+
+div.items-row.cols-3.row-1 div.item.column-1 {}
+div.items-row.cols-3.row-1 div.item.column-2 {}
+div.items-row.cols-3.row-1 div.item.column-3 {}
+
+div.items-row.cols-3.row-2 div.item.column-1 {}
+div.items-row.cols-3.row-2 div.item.column-2 {}
+div.items-row.cols-3.row-2 div.item.column-3 {} /* etc. */
+
+
+/* --------------
+   Single article 
+----------------- */
+div.item-page {}
+div.item-page h1 {}
+div.item-page h2 {}
+
+
+/* ---------
+   Archive 
+------------ */
+div.archive {}
+div.archive h1 {}
+
+form#jForm {}
+fieldset.filters {}
+fieldset.filters legend.hidelabeltxt {}
+fieldset.filters div.filter-search label.filter-search-lbl {}
+fieldset.filters div.filter-search {}
+fieldset.filters div.filter-search input#filter-search {}
+fieldset.filters div.filter-search input.inputbox {}
+fieldset.filters div.filter-search select.inputbox {}
+fieldset.filters div.filter-search select#month {}
+fieldset.filters div.filter-search select#month option {}
+fieldset.filters div.filter-search select#year {}
+fieldset.filters div.filter-search select#year option {}
+fieldset.filters div.filter-search select#limit {}
+fieldset.filters div.filter-search select#limit option {}
+fieldset.filters div.filter-search button.button {}
+
+ul#archive-items {}
+ul#archive-items li {}
+
+ul#archive-items li.row0 {}
+ul#archive-items li.row0 div.intro {}
+ul#archive-items li.row1 {}
+ul#archive-items li.row1 div.intro {}
+
+
+/* -------------------
+   List all categories
+---------------------- */
+div.categories-list {}
+div.categories-list h1 {}
+
+/* First level of categories */
+
+/* First item */
+div.categories-list ul {}
+div.categories-list ul li.first {}
+div.categories-list ul li.first span.item-title {}
+div.categories-list ul li.first span.item-title a {}
+div.categories-list ul li.first div.category-desc {}
+div.categories-list ul li.first div.category-desc p {}
+div.categories-list ul li.first dl.article-count {}
+div.categories-list ul li.first dl.article-count dt {}
+div.categories-list ul li.first dl.article-count dd {}
+
+/* Middle items */
+div.categories-list ul {}
+div.categories-list ul li {}
+div.categories-list ul li span.item-title {}
+div.categories-list ul li span.item-title a {}
+div.categories-list ul li div.category-desc {}
+div.categories-list ul li div.category-desc p {}
+div.categories-list ul li dl.article-count {}
+div.categories-list ul li dl.article-count dt {}
+div.categories-list ul li dl.article-count dd {}
+
+/* Last item */
+div.categories-list ul {}
+div.categories-list ul li.last {}
+div.categories-list ul li.last span.item-title {}
+div.categories-list ul li.last span.item-title a {}
+div.categories-list ul li.last div.category-desc {}
+div.categories-list ul li.last div.category-desc p {}
+div.categories-list ul li.last dl.article-count {}
+div.categories-list ul li.last dl.article-count dt {}
+div.categories-list ul li.last dl.article-count dd {}
+
+
+/* First Sublevel of categories */
+div.categories-list ul li.first ul {}
+
+/* First main item / Group subitems */ 
+div.categories-list ul li.first ul li.first {} /* etc. */
+div.categories-list ul li.first ul li {} /* etc. */
+div.categories-list ul li.first ul li.last {} /* etc. */
+
+/* Middle main items / Group subitems */ 
+div.categories-list ul li ul li.first {} /* etc. */
+div.categories-list ul li ul li {} /* etc. */
+div.categories-list ul li ul li.last {} /* etc. */
+
+/* Last main item / Group subitems */ 
+div.categories-list ul li.last ul li.first {} /* etc. */
+div.categories-list ul li.last ul li {} /* etc. */
+div.categories-list ul li.last ul li.last {} /* etc. */
+
+
+/* -----------------
+   List one category
+-------------------- */
+div.category-list {}
+div.category-list h1 {}
+div.category-list h2 {}
+div.category-list h2 span.subheading-category {}
+
+div.category-list div.category-desc {}
+div.category-list div.category-desc p {}
+div.category-list div.category-desc div.clr {}
+
+div.category-list div.cat-items {}
+div.category-list div.cat-items p {}
+
+div.category-list div.cat-children {}
+div.category-list div.cat-children h3 {}
+
+div.category-list div.cat-children ul {}
+
+/* First item */
+div.category-list div.cat-children ul li.first {}
+div.category-list div.cat-children ul li.first span.item-title {}
+div.category-list div.cat-children ul li.first span.item-title a {}
+div.category-list div.cat-children ul li.first div.category-desc {}
+div.category-list div.cat-children ul li.first div.category-desc p {}
+div.category-list div.cat-children ul li.first dl {}
+div.category-list div.cat-children ul li.first dl dt {}
+div.category-list div.cat-children ul li.first dl dd {}
+
+/* Middle items */
+div.category-list div.cat-children ul li {}
+div.category-list div.cat-children ul li span.item-title {}
+div.category-list div.cat-children ul li span.item-title a {}
+div.category-list div.cat-children ul li div.category-desc {}
+div.category-list div.cat-children ul li div.category-desc p {}
+div.category-list div.cat-children ul li dl {}
+div.category-list div.cat-children ul li dl dt {}
+div.category-list div.cat-children ul li dl dd {}
+
+/* Last item */
+div.category-list div.cat-children ul li.last {}
+div.category-list div.cat-children ul li.last span.item-title {}
+div.category-list div.cat-children ul li.last span.item-title a {}
+div.category-list div.cat-children ul li.last div.category-desc {}
+div.category-list div.cat-children ul li.last div.category-desc p {}
+div.category-list div.cat-children ul li.last dl {}
+div.category-list div.cat-children ul li.last dl dt {}
+div.category-list div.cat-children ul li.last dl dd {}
+
+/* ---------------------------
+   List all contact categories
+------------------------------ */ 
+div.categories-list {}
+div.categories-list h1 {}
+div.categories-list div.category-desc.base-desc {}
+
+div.categories-list ul {}
+
+/* First item */
+div.categories-list ul li.first {}
+div.categories-list ul li.first span.item-title {}
+div.categories-list ul li.first span.item-title a {}
+div.categories-list ul li.first div.category-desc {}
+div.categories-list ul li.first div.category-desc p {}
+div.categories-list ul li.first dl {}
+div.categories-list ul li.first dl dt {}
+div.categories-list ul li.first dl dd {}
+
+/* Middle items */
+div.categories-list ul li {}
+div.categories-list ul li span.item-title {}
+div.categories-list ul li span.item-title a {}
+div.categories-list ul li div.category-desc {}
+div.categories-list ul li div.category-desc p {}
+div.categories-list ul li dl {}
+div.categories-list ul li dl dt {}
+div.categories-list ul li dl dd {}
+
+/* Last item */
+div.categories-list ul li.last {}
+div.categories-list ul li.last span.item-title {}
+div.categories-list ul li.last span.item-title a {}
+div.categories-list ul li.last div.category-desc {}
+div.categories-list ul li.last div.category-desc p {}
+div.categories-list ul li.last dl {}
+div.categories-list ul li.last dl dt {}
+div.categories-list ul li.last dl dd {}
+
+/* -------------------------
+   List one contact category
+---------------------------- */
+div.contact-category {}
+div.contact-category h1 {}
+div.contact-category h2 {}
+
+div.contact-category div.category-desc {}
+div.contact-category div.category-desc p {}
+div.contact-category div.category-desc div.clr {}
+
+div.contact-category form#adminForm {}
+div.contact-category form#adminForm table.category {}
+
+/* Table head */
+div.contact-category form#adminForm table.category thead {}
+div.contact-category form#adminForm table.category thead tr {}
+div.contact-category form#adminForm table.category thead tr th {}
+div.contact-category form#adminForm table.category thead tr th a {}
+
+div.contact-category form#adminForm table.category thead tr th.item-title {}
+div.contact-category form#adminForm table.category thead tr th.item-position {}
+div.contact-category form#adminForm table.category thead tr th.item-phone {}
+div.contact-category form#adminForm table.category thead tr th.item-suburb {}
+div.contact-category form#adminForm table.category thead tr th.item-state {}
+
+/* Table Body */
+div.contact-category form#adminForm table.category tbody {}
+div.contact-category form#adminForm table.category tbody tr.cat-list-row0 {}
+div.contact-category form#adminForm table.category tbody tr.cat-list-row1 {}
+
+div.contact-category form#adminForm table.category tbody tr td.item-title {}
+div.contact-category form#adminForm table.category tbody tr td.item-position {}
+div.contact-category form#adminForm table.category tbody tr td.item-phone {}
+div.contact-category form#adminForm table.category tbody tr td.item-suburb {}
+div.contact-category form#adminForm table.category tbody tr td.item-state {}
+
+/* ---------------------
+   Contact + Contactform
+------------------------ */
+div.contact {}
+div.contact h1 {}
+div.contact h2 {}
+div.contact h2 span.contact-name {}
+div.contact h3 {}
+div.contact h3 span.contact-category {}
+div.contact h3 span.contact-category a {}
+
+div.contact p.contact-position {}
+
+div.contact div.contact-address {}
+div.contact div.contact-address span.jicons-icons {}
+div.contact div.contact-address span.jicons-icons img {}
+div.contact div.contact-address address {}
+div.contact div.contact-address address span.contact-street {}
+div.contact div.contact-address address span.contact-suburb {}
+div.contact div.contact-address address span.contact-state {}
+div.contact div.contact-address address span.contact-postcode {}
+div.contact div.contact-address address span.contact-country {}
+
+div.contact div.contact-contactinfo {}
+div.contact div.contact-contactinfo p {}
+div.contact div.contact-contactinfo p span.jicons-icons {}
+div.contact div.contact-contactinfo p span.jicons-icons img {}
+div.contact div.contact-contactinfo p span.contact-emailto {}
+div.contact div.contact-contactinfo p span.contact-telephone {}
+div.contact div.contact-contactinfo p span.contact-fax {}
+div.contact div.contact-contactinfo p span.contact-mobile {}
+div.contact div.contact-contactinfo p span.contact-webpage {}
+div.contact div.contact-contactinfo p span.contact-webpage a {}
+
+
+div.contact  div.contact-form {}
+div.contact  div.contact-form form#emailForm {}
+div.contact  div.contact-form form.form-validate {}
+
+div.contact  div.contact-form form#emailForm p.form-required {}
+
+div.contact  div.contact-form form#emailForm div.contact-email {}
+div.contact  div.contact-form form#emailForm div.contact-email div {}
+
+div.contact  div.contact-form form#emailForm div.contact-email div label {}
+div.contact  div.contact-form form#emailForm div.contact-email div input.inputbox {}
+div.contact  div.contact-form form#emailForm div.contact-email div input#contact-formname {}
+div.contact  div.contact-form form#emailForm div.contact-email div label#contact-emailmsg {}
+div.contact  div.contact-form form#emailForm div.contact-email div input#contact-email {}
+div.contact  div.contact-form form#emailForm div.contact-email div input#contact-subject {}
+div.contact  div.contact-form form#emailForm div.contact-email div label#contact-textmsg {}
+div.contact  div.contact-form form#emailForm div.contact-email div textarea#contact-text {}
+div.contact  div.contact-form form#emailForm div.contact-email div textarea.inputbox {}
+div.contact  div.contact-form form#emailForm div.contact-email div textarea.required {}
+div.contact  div.contact-form form#emailForm div.contact-email div input#contact-email-copy {}
+div.contact  div.contact-form form#emailForm div.contact-email div button.button {}
+div.contact  div.contact-form form#emailForm div.contact-email div button.validate {}
+
+div.contact div.contact-links {}
+div.contact div.contact-links ul {}
+div.contact div.contact-links ul li {}
+div.contact div.contact-links ul li a {}
+
+div.contact div.contact-articles {}
+div.contact div.contact-articles ol {}
+div.contact div.contact-articles ul li {}
+div.contact div.contact-articles ol li a {}
+
+div.contact div.contact-miscinfo {}
+div.contact div.contact-miscinfo div.jicons-icons {}
+div.contact div.contact-miscinfo div.jicons-icons img {}
+div.contact div.contact-miscinfo div.jicons-icons div.contact-misc {}
+div.contact div.contact-miscinfo div.jicons-icons div.contact-misc  p {}
+
+
+/* -------------
+   User profile
+---------------- */
+
+/* Login screen user */
+div.login {}
+div.login h1 {}
+div.login form {}>
+div.login form fieldset {}
+div.login form fieldset div.login-fields {}
+div.login form fieldset div.login-fields label#username-lbl.required {}
+div.login form fieldset div.login-fields label#username-lbl.required span.star {}
+div.login form fieldset div.login-fields input#username.validate-username.required {}
+div.login form fieldset div.login-fields label#password-lbl.required {}
+div.login form fieldset div.login-fields label#password-lbl.required span.star {}
+div.login form fieldset div.login-fields input#password.validate-password.required {}
+div.login form fieldset div.login-fields button.button {}
+
+/* Show User profile after logged in */
+div.profile {}
+div.profile h1 {}
+
+div.profile fieldset#users-profile-core {}
+div.profile fieldset#users-profile-core legend {}
+div.profile fieldset#users-profile-core dl {}
+div.profile fieldset#users-profile-core dl dt {}
+div.profile fieldset#users-profile-core dl dd {}
+
+div.profile fieldset#users-profile-custom {}
+div.profile fieldset#users-profile-custom legend {}
+div.profile fieldset#users-profile-custom dl {}
+div.profile fieldset#users-profile-custom dl dt {}
+div.profile fieldset#users-profile-custom dl dd {}
+
+div.profile a {}
+
+/* Change User profile */
+div.profile-edit {}
+div.profile-edit h1 {}
+
+div.profile-edit form#member-profile.form-validate {}
+div.profile-edit form#member-profile fieldset {}
+div.profile-edit form#member-profile fieldset legend {}
+div.profile-edit form#member-profile fieldset dl {}
+div.profile-edit form#member-profile fieldset dl dt {}
+div.profile-edit form#member-profile fieldset dl dd {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_name-lbl.hasTip.required {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_name-lbl.hasTip.required span.star
+div.profile-edit form#member-profile fieldset dl dd input#jform_name.required {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_password1-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_password1-lbl.hasTip span.star {}
+div.profile-edit form#member-profile fieldset dl dd input#jform_password1.validate-password {}
+
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_password2-lbl,hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_password2-lbl,hasTip span.star {}
+div.profile-edit form#member-profile fieldset dl dd input#jform_password2.validate-password {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_email1-lbl.hasTip.required {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_email1-lbl.hasTip.required span.star {}
+div.profile-edit form#member-profile fieldset dl dd input#jform_email1.validate-email.required {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_email2-lbl.hasTip.required {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_email2-lbl.hasTip.required span.star {}
+div.profile-edit form#member-profile fieldset dl dd input#jform_email2.validate-email.required {}
+
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_editor-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_editor-lbl.hasTip span.optional {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_editor {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_editor option {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_timezone-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_timezone-lbl.hasTip span.optional {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_timezone {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_timezone option {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_language-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_language-lbl.hasTip span.optional {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_language {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_language option {}
+
+div.profile-edit form#member-profile fieldset dl dt label#form_params_admin_style-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#form_params_admin_style-lbl.hasTip span.optional {}
+div.profile-edit form#member-profile fieldset dl dd select#form_params_admin_style {}
+div.profile-edit form#member-profile fieldset dl dd select#form_params_admin_style option {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_admin_language-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_admin_language-lbl.hasTip span.optional {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_admin_language {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_admin_language option {}
+
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_helpsite-lbl.hasTip {}
+div.profile-edit form#member-profile fieldset dl dt label#jform_params_helpsite-lbl.hasTip span.optional {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_helpsite {}
+div.profile-edit form#member-profile fieldset dl dd select#jform_params_helpsite option {}
+
+
+div.profile-edit form#member-profile div {}
+div.profile-edit form#member-profile div button.validate {}
+div.profile-edit form#member-profile div button.validate span {}
+div.profile-edit form#member-profile div a {}
+
+/* -----------------
+   User registration
+-------------------- */
+div.registration {}
+ 
+div.registration form#member-registration {}
+div.registration form#member-registration fieldset {}
+div.registration form#member-registration fieldset legend {}
+div.registration form#member-registration fieldset dl {}
+div.registration form#member-registration fieldset dl dt span.spacer span.text label#jform_spacer-lbl {}
+div.registration form#member-registration fieldset dl dt label {}
+div.registration form#member-registration fieldset dl dt span {}
+div.registration form#member-registration fieldset dl dt span span {}
+div.registration form#member-registration fieldset dl dt label {}
+div.registration form#member-registration fieldset dl dt label span {}
+div.registration form#member-registration fieldset dl dd {}
+div.registration form#member-registration fieldset dl dd input {}
+
+/* --------------------------
+   User Request New Username
+----------------------------- */
+div.remind {}
+
+div.remind form#user-registration.form-validate {}
+div.remind form#user-registration.form-validate p {}
+div.remind form#user-registration.form-validate fieldset {}
+div.remind form#user-registration.form-validate fieldset dl {}
+div.remind form#user-registration.form-validate fieldset dl dt {}
+div.remind form#user-registration.form-validate fieldset dl dt label#jform_email-lbl.hasTip.required {}
+div.remind form#user-registration.form-validate fieldset dl dt label#jform_email-lbl.hasTip.required span.star {}
+div.remind form#user-registration.form-validate fieldset dl dd {}
+div.remind form#user-registration.form-validate fieldset dl dd input#jform_email.validate-email.required {}
+
+div.remind form#user-registration.form-validate div {}
+div.remind form#user-registration.form-validate div button {}
+
+
+/* -------------------------
+   User Request New Password
+---------------------------- */
+div.reset {}
+
+div.reset form#user-registration.form-validate {}
+div.reset form#user-registration.form-validate p {}
+div.reset form#user-registration.form-validate fieldset {}
+div.reset form#user-registration.form-validate fieldset dl {}
+div.reset form#user-registration.form-validate fieldset dl dt {}
+div.reset form#user-registration.form-validate fieldset dl dt label#jform_email-lbl.hasTip.required {}
+div.reset form#user-registration.form-validate fieldset dl dt label#jform_email-lbl.hasTip.required span.star
+div.reset form#user-registration.form-validate fieldset dl dt dd {}
+div.reset form#user-registration.form-validate fieldset dl dt dd input#jform_email.validate-username.required {}
+div.reset form#user-registration.form-validate div {}
+div.reset form#user-registration.form-validate div button {}
+
+
+/* ----------------------------
+   List All Newsfeed categories
+------------------------------- */
+div.categories-list {}
+div.categories-list h3 {}
+
+div.categories-list div.category-desc.base-desc {}
+div.categories-list ul {}
+div.categories-list ul li.first {}
+div.categories-list ul li.first span.item-title {}
+div.categories-list ul li.first div.category-desc {}
+div.categories-list ul li.first div.category-desc p {}
+div.categories-list ul li.first dl.newsfeed-count {}
+div.categories-list ul li.first dl.newsfeed-count dt {}
+div.categories-list ul li.first dl.newsfeed-count dd {}
+
+div.categories-list ul li.last {}
+div.categories-list ul li.last span.item-title {}
+div.categories-list ul li.last div.category-desc {}
+div.categories-list ul li.last div.category-desc p {}
+div.categories-list ul li.last dl.newsfeed-count {}
+div.categories-list ul li.last dl.newsfeed-count dt {}
+div.categories-list ul li.last dl.newsfeed-count dd {}
+
+
+/* ----------------------
+   List one feed category
+------------------------- */
+div.newsfeed-category {}
+div.newsfeed-category h1 {}
+div.newsfeed-category h2 {}
+
+div.newsfeed-category div.category-desc {}
+div.newsfeed-category div.category-desc p {}
+div.newsfeed-category div.category-desc div.clr {}
+
+
+div.newsfeed-category form#adminForm {}
+div.newsfeed-category form#adminForm fieldset.filters legend.hidelabeltxt {}
+div.newsfeed-category form#adminForm fieldset.filters div.display-limit {}
+div.newsfeed-category form#adminForm fieldset.filters div.display-limit select#limit.inputbox {}
+div.newsfeed-category form#adminForm fieldset.filters div.display-limit select#limit.inputbox option
+
+/* Table */
+div.newsfeed-category form#adminForm table.category {}
+
+/* Table head */
+div.newsfeed-category form#adminForm table.category thead {}
+div.newsfeed-category form#adminForm table.category thead tr {}
+div.newsfeed-category form#adminForm table.category thead tr th.item-title#tableOrdering {}
+div.newsfeed-category form#adminForm table.category thead tr th.item-title#tableOrdering a {}
+div.newsfeed-category form#adminForm table.category thead tr th.item-num-art#tableOrdering2 {}
+div.newsfeed-category form#adminForm table.category thead tr th.item-num-art#tableOrdering2 a {}
+div.newsfeed-category form#adminForm table.category thead tr th.item-link#tableOrdering3 {}
+div.newsfeed-category form#adminForm table.category thead tr th.item-link#tableOrdering3 a {}
+
+/* Table body */
+div.newsfeed-category form#adminForm table.category tbody {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row1 {} /* etc */
+
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-title {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-title a {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-num-art {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-num-art a {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-link {}
+div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-link a {}
+
+
+/* --------------------
+   Disolay one newsfeed
+----------------------- */
+div.newsfeed.redirect-ltr {}
+div.newsfeed.redirect-ltr h1.redirect-ltr {}
+div.newsfeed.redirect-ltr h2.redirect-ltr {}
+div.newsfeed.redirect-ltr h2.redirect-ltr a {}
+
+div.newsfeed.redirect-ltr div.feed-description {} 
+
+/* items */
+div.newsfeed.redirect-ltr ol {}
+div.newsfeed.redirect-ltr ol li {}
+div.newsfeed.redirect-ltr ol li a {}
+div.newsfeed.redirect-ltr ol li div.feed-item-description {}
+div.newsfeed.redirect-ltr ol li div.feed-item-description img {}
+
+
+/* ----------------------
+   All weblink categories
+------------------------- */
+div.categories-list {}
+div.categories-list h1 {}
+
+div.categories-list div.category-desc.base-desc {}
+
+div.categories-list ul {}
+
+/* First item */
+div.categories-list ul li.first {}
+div.categories-list ul li.first span.item-title {}
+div.categories-list ul li.first span.item-title a {}
+div.categories-list ul li.first div.category-desc {}
+div.categories-list ul li.first div.category-desc p {}
+div.categories-list ul li.first dl.weblink-count {}
+div.categories-list ul li.first dl.weblink-count dt {}
+div.categories-list ul li.first dl.weblink-count dd {}
+	
+/* Middle items */
+div.categories-list ul li {}
+div.categories-list ul li span.item-title {}
+div.categories-list ul li span.item-title a {}
+div.categories-list ul li div.category-desc {}
+div.categories-list ul li div.category-desc p {}
+div.categories-list ul li dl.weblink-count {}
+div.categories-list ul li dl.weblink-count dt {}
+div.categories-list ul li dl.weblink-count dd {}
+
+
+/* Last item */
+div.categories-list ul li.last {}
+div.categories-list ul li.last span.item-title {}
+div.categories-list ul li.last span.item-title a {}
+div.categories-list ul li.last div.category-desc {}
+div.categories-list ul li.last div.category-desc p {}
+div.categories-list ul li.last dl.weblink-count {}
+div.categories-list ul li.last dl.weblink-count dt {}
+div.categories-list ul li.last dl.weblink-count dd {}
+
+
+/* ------------
+   weblink page
+--------------- */
+div.weblink-category {}
+div.weblink-category h1 {}
+div.weblink-category h2 {}
+
+div.weblink-category div.category-desc {}
+div.weblink-category div.category-desc p {}
+div.weblink-category div.category-desc div.clr {}
+
+div.weblink-category form#adminForm {}
+div.weblink-category form#adminForm fieldset.filters {}
+div.weblink-category form#adminForm fieldset.filters legend.hidelabeltxt {}
+div.weblink-category form#adminForm fieldset.filters div.display-limit {}
+div.weblink-category form#adminForm fieldset.filters div.display-limit select#limit.inputbox {}
+div.weblink-category form#adminForm fieldset.filters div.display-limit select#limit.inputbox option {}
+
+/* Table */
+div.weblink-category form#adminForm table.category {}
+
+/* Table head */
+div.weblink-category form#adminForm table.category thead {}
+div.weblink-category form#adminForm table.category thead tr {}
+div.weblink-category form#adminForm table.category thead tr th.title
+div.weblink-category form#adminForm table.category thead tr th.title a {}
+
+/* Table body */
+div.weblink-category form#adminForm table.category tbody {}
+
+div.weblink-category form#adminForm table.category tbody tr.cat-list-row0 {}
+div.weblink-category form#adminForm table.category tbody tr.cat-list-row1 {}
+div.weblink-category form#adminForm table.category tbody tr td.title {}
+div.weblink-category form#adminForm table.category tbody tr td.title p {}
+div.weblink-category form#adminForm table.category tbody tr td.title p img {}
+div.weblink-category form#adminForm table.category tbody tr td.title p a {}
+div.weblink-category form#adminForm table.category tbody tr td.hits {}
+
+
+/* -------
+   Wrapper
+---------- */
+div.contentpane {}
+div.contentpane h2 {}
+div.contentpane iframe {}
+
+
+/* ====================
+   Components & Modules
+===================== */
+
+/* ---------------------------------------------------------
+   Breadcrumbs moduleclass suffix = _breadcrumbs
+---------------------------------------------------------  */
+div.moduletable_breadcrumbs {}
+div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs {}
+div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs  a.pathway {}
+div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs img {}
+div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs span {}
+
+
+/* ----------------------------------------------------
+   Language / language module class suffix = _language
+----------------------------------------------------- */
+div.moduletable_language {}
+div.moduletable_language div.mod-languages_language {}
+div.moduletable_language div.mod-languages_language ul {}
+div.moduletable_language div.mod-languages_language ul li {}
+div.moduletable_language div.mod-languages_language ul li a img {}
+div.moduletable_language div.mod-languages_language ul li a:hover img {}
+
+
+/* ------------------------------------------
+   Search module moduleclass suffix = _search
+--------------------------------------------- */
+div.moduletable_search {}
+div.moduletable_search form {}
+div.moduletable_search form div.search_search {}
+div.moduletable_search form div.search_search label {}
+div.moduletable_search form div.search_search input#mod-search-searchword.inputbox_search {}
+div.moduletable_search form div.search_search input.button_search {}
+
+
+/* --------------------
+   Seaarch results page
+----------------------- */
+/* Search cntainer */
+div.search {}
+div.search h1 {}
+
+/* --------
+   Form
+----------- */
+div.search form#searchForm {}
+
+div.search form#searchForm fieldset.word {}
+div.search form#searchForm fieldset.word label {}
+div.search form#searchForm fieldset.word input#search-searchword {}
+div.search form#searchForm fieldset.word button.button {}
+
+div.search form#searchForm div.searchintro {}
+div.search form#searchForm div.searchintro p {}
+
+div.search form#searchForm fieldset.phrases {}
+div.search form#searchForm fieldset.phrases legend {}
+div.search form#searchForm fieldset.phrases div.phrases-box {}
+div.search form#searchForm fieldset.phrases div.phrases-box input#searchphraseall {}
+div.search form#searchForm fieldset.phrases div.phrases-box label#searchphraseall-lbl {}
+div.search form#searchForm fieldset.phrases div.phrases-box input#searchphraseany {}
+div.search form#searchForm fieldset.phrases div.phrases-box label#searchphraseany-lbl {}
+div.search form#searchForm fieldset.phrases div.phrases-box input#searchphraseexact {}
+div.search form#searchForm fieldset.phrases div.phrases-box label#searchphraseexact-lbl {}
+
+div.search form#searchForm fieldset.phrases div.ordering-box {}
+div.search form#searchForm fieldset.phrases div.ordering-box label.ordering {}
+div.search form#searchForm fieldset.phrases div.ordering-box select#ordering {}
+div.search form#searchForm fieldset.phrases div.ordering-box select#ordering option {}
+
+div.search form#searchForm fieldset.only {}
+div.search form#searchForm fieldset.only legend {}
+div.search form#searchForm fieldset.only label	
+div.search form#searchForm fieldset.only input#area-categories {}
+div.search form#searchForm fieldset.only input#area-contacts {}
+div.search form#searchForm fieldset.only input#area-content {}
+div.search form#searchForm fieldset.only input#area-newsfeeds {}
+div.search form#searchForm fieldset.only input#area-weblinks {}
+
+div.search form#searchForm div.form-limit {}
+div.search form#searchForm div.form-limit label {}
+div.search form#searchForm div.form-limit select#limit {}
+div.search form#searchForm div.form-limit select#limit option {}
+
+div.search form#searchForm p.counter {}
+
+div.search dl.search-results {}
+div.search dl.search-results dt.result-title {}
+div.search dl.search-results dt.result-title a {}
+div.search dl.search-results dd.result-category {}
+div.search dl.search-results dd.result-category span.small {}
+div.search dl.search-results dd.result-text {}
+div.search dl.search-results dd.result-text span.highlight {}
+div.search dl.search-results dd.result-created {}
+
+
+/* --------------
+   Who is on-line
+----------------- */
+div.moduletable_whoisonline {}
+div.moduletable_whoisonline h3 {}
+div.moduletable_whoisonline p {}
+div.moduletable_whoisonline ul {}
+div.moduletable_whoisonline ul li {}
+div.moduletable_whoisonline ul li a {}
+
+/* ----------------------------------------------
+   Feed Syndicate moduleclass suffix = _syndicate
+----------------------------------------------- */
+div.moduletable_syndicate {}
+div.moduletable_syndicate h3 {}
+div.moduletable_syndicate a.syndicate-module_syndicate {}
+div.moduletable_syndicate a:hover.syndicate-module_syndicate {}
+div.moduletable_syndicate a.syndicate-module_syndicate img {}
+div.moduletable_syndicate a.syndicate-module_syndicate span {}
+
+
+/* --------------------------------------------------------------
+   Main menu * moduleclass suffix = _mainmenu, Menu tag ID = nav
+----------------------------------------------------------------- */
+div.moduletable_mainmenu {}
+div.moduletable_mainmenu h3 {}
+div.moduletable_mainmenu ul#nav {}
+div.moduletable_mainmenu ul#nav li {}
+div.moduletable_mainmenu ul#nav li a {}
+div.moduletable_mainmenu ul#nav li a:hover,
+div.moduletable_mainmenu ul#nav li.active a {}
+
+
+/* ----------------------------------------------
+   Log-in/-uit Module moduleclass suffix = _login
+----------------------------------------------- */
+div.moduletable_login {}
+div.moduletable_login h3 {}
+div.moduletable_login form#login-form {}
+
+/* Pre- en post tekst */
+div.moduletable_login form#login-form div.pretext {}
+div.moduletable_login form#login-form div.posttext {}
+
+/* Fieldset */
+div.moduletable_login form#login-form fieldset.userdata {}
+
+/* Paragraaf instellingen label en inputvelden */
+
+/* paragraaf */
+p#form-login-username, 
+p#form-login-password, 
+p#form-login-remember {}
+
+/* labels */
+p#form-login-username label, 
+p#form-login-password label, 
+p#form-login-remember label {}
+
+/* input velden */
+input#modlgn-username {}
+input#modlgn-passwd {}
+input#modlgn-passwd {}
+
+/* List items login formulier */
+div.moduletable_login form#login-form ul {}
+div.moduletable_login form#login-form ul li {}
+div.moduletable_login form#login-form ul li a {}
+
+/* Login button */
+div.moduletable_login form#login-form fieldset.userdata input.button {}
+
+/* ---------------
+   Log-uit button
+--------------- */
+div.moduletable_login form#login-form {}
+div.moduletable_login form#login-form div.login-greeting {}
+div.moduletable_login form#login-form div.logout-button {}
+div.moduletable_login form#login-form div.logout-button input.button {}
+
+
+/* -------------------------------------------------------
+   Laatste Nieuws Moddule moduleclass suffix = _latestnews
+-------------------------------------------------------- */
+div.moduletable_latestnews {}
+div.moduletable_latestnews h3 {}
+div.moduletable_latestnews ul.latestnews_latestnews {}
+div.moduletable_latestnews ul.latestnews_latestnews li {}
+div.moduletable_latestnews ul.latestnews_latestnews li a {}
+
+
+/* ---------------------------------------------------
+   Meest gelezenModdule moduleclass suffix = _mostread
+---------------------------------------------------- */
+div.moduletable_mostread {}
+div.moduletable_mostread h3 {}
+div.moduletable_mostread ul.mostread_mostread {}
+div.moduletable_mostread ul.mostread_mostread li {}
+div.moduletable_mostread ul.mostread_mostread li a {}
+
+
+/* ------------------------------------------
+   Feed Module moduleclass suffix = _feed
+------------------------------------------- */
+div.moduletable_feed {}
+div.moduletable_feed h3 {}
+div.moduletable_feed div.feed_feed {}
+div.moduletable_feed div.feed_feed ul.newsfeed_feed {}
+div.moduletable_feed div.feed_feed ul.newsfeed_feed li.newsfeed-item {}
+div.moduletable_feed div.feed_feed ul.newsfeed_feed li.newsfeed-item h4.feed-link {}
+div.moduletable_feed div.feed_feed ul.newsfeed_feed li.newsfeed-item h4.feed-link a {}
+
+
+/* --------------------------------------------
+   Banner module - moduleclass suffix = _banner
+-------------------------------------------- */
+div.moduletable_banner {}
+
+/* Titel */
+div.moduletable_banner h3 {}
+
+/* Banner inhoud */
+div.moduletable_banner div.bannergroup_banner div.banneritem {}
+div.moduletable_banner div.bannergroup_banner div.banneritem a {}
+div.moduletable_banner div.bannergroup_banner div.banneritem a img {}
+div.moduletable_banner div.bannergroup_banner div.banneritem div.clr {}
+
+ 
+/* Header en Footer */
+div.moduletable_banner div.bannergroup_banner,
+div.moduletable_banner div.bannergroup_banner div.bannerfooter {}
+
+
+/* ----------------------------------------------------------
+   Module Archived articles moduleclass suffix = _archivelist
+---------------------------------------------------------- */
+div.moduletable_archivelist {}
+div.moduletable_archivelist h3 {}
+div.moduletable_archivelist ul.archive-module_archivelist {}
+div.moduletable_archivelist ul.archive-module_archivelist li {}
+div.moduletable_archivelist ul.archive-module_archivelist li a {}
+
+
+/* ----------
+   Statistics
+----------- */
+div.moduletable_statistics {}
+div.moduletable_statistics h3 {}
+div.moduletable_statistics dl {}
+div.moduletable_statistics dl dt {}
+div.moduletable_statistics dl dd {}

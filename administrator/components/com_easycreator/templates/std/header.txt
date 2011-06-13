@@ -1,5 +1,5 @@
 /**
- * @version SVN: $Id$
+ * @version SVN: $@@Id@@$
  * @package    _ECR_COM_NAME_
  * @subpackage _ECR_SUBPACKAGE_
  * @author     ECR_AUTHOR {@link AUTHORURL}
