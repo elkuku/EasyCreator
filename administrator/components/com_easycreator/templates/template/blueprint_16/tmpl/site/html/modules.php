@@ -18,9 +18,9 @@
 
 /**
  *
- * @param $module
- * @param $params
- * @param $attribs
+ * @param $module object
+ * @param $params object
+ * @param $attribs array
  */
 function modChrome_custom($module, $params, $attribs)
 {

@@ -144,13 +144,11 @@ div#mailto-window form#mailtoForm {}
 div#mailto-window form#mailtoForm p {}
 div#mailto-window form#mailtoForm button.button {}
 
-
 /* ---------------------
    Tooltip Editor Button
 ---------------------- */
 .tip {}
 .tip-title {}
-
 
 /* --------------
    Content rating
@@ -185,25 +183,21 @@ dl.article-info	dd.published {}
 dl.article-info	dd.createdby a {}
 dl.article-info dd.hits {}
 
-
 /* -------------
    Read more ...
 --------------- */
 p.readmore {}
 p.readmore a {}
 
-
 /* -----------------
    Article seperator
 -------------------- */
 div.item-separator {}
 
-
 /* -------------
    Row seperator
 ---------------- */
 span.row-separator {}
-
 
 /* ----------
    More items
@@ -213,7 +207,6 @@ div.items-more h3 {}
 div.items-more ol {}
 div.items-more ol li {}
 div.items-more ol li a {}
-
 
 /* ------------------
    Pagination General
@@ -230,7 +223,6 @@ div.pagination ul li a.pagenav {}
 div.pagination ul li.pagination-next a.pagenav {}
 div.pagination ul li.pagination-end a.pagenav {}
 
-
 /* -------------------------
    Pagination Single article
 ---------------------------- */
@@ -243,7 +235,6 @@ div.item-page div.pagination ul.pagenav li.pagenav-prev {}
 div.item-page div.pagination ul.pagenav li.pagenav-prev a {}
 div.item-page div.pagination ul.pagenav li.pagenav-next {}
 div.item-page div.pagination ul.pagenav li.pagenav-next a {}
-
 
 /* -----------
    Pagebreak
@@ -260,7 +251,6 @@ div.pagenavcounter {}
 div.item-page div.pagination ul {}
 div.item-page div.pagination ul li {}
 div.item-page div.pagination ul li a {} 
-
 
 /* --------------------------------------------
    Category blog (incl. frontpage blog featured
@@ -292,7 +282,6 @@ div.items-leading div.leading-1 {} /* etc. */
 /* Titel / Title */
 div.items-leading div.leading-0 h2 {}
 div.items-leading div.leading-0 h2 a {}
-
 
 /* ----------------------------------
    Styles for 1, 2 or 3 columns a row
@@ -337,14 +326,12 @@ div.items-row.cols-3.row-2 div.item.column-1 {}
 div.items-row.cols-3.row-2 div.item.column-2 {}
 div.items-row.cols-3.row-2 div.item.column-3 {} /* etc. */
 
-
 /* --------------
    Single article 
 ----------------- */
 div.item-page {}
 div.item-page h1 {}
 div.item-page h2 {}
-
 
 /* ---------
    Archive 
@@ -375,7 +362,6 @@ ul#archive-items li.row0 {}
 ul#archive-items li.row0 div.intro {}
 ul#archive-items li.row1 {}
 ul#archive-items li.row1 div.intro {}
-
 
 /* -------------------
    List all categories
@@ -436,7 +422,6 @@ div.categories-list ul li ul li.last {} /* etc. */
 div.categories-list ul li.last ul li.first {} /* etc. */
 div.categories-list ul li.last ul li {} /* etc. */
 div.categories-list ul li.last ul li.last {} /* etc. */
-
 
 /* -----------------
    List one category
@@ -638,7 +623,6 @@ div.contact div.contact-miscinfo div.jicons-icons img {}
 div.contact div.contact-miscinfo div.jicons-icons div.contact-misc {}
 div.contact div.contact-miscinfo div.jicons-icons div.contact-misc  p {}
 
-
 /* -------------
    User profile
 ---------------- */
@@ -780,7 +764,6 @@ div.remind form#user-registration.form-validate fieldset dl dd input#jform_email
 div.remind form#user-registration.form-validate div {}
 div.remind form#user-registration.form-validate div button {}
 
-
 /* -------------------------
    User Request New Password
 ---------------------------- */
@@ -797,7 +780,6 @@ div.reset form#user-registration.form-validate fieldset dl dt dd {}
 div.reset form#user-registration.form-validate fieldset dl dt dd input#jform_email.validate-username.required {}
 div.reset form#user-registration.form-validate div {}
 div.reset form#user-registration.form-validate div button {}
-
 
 /* ----------------------------
    List All Newsfeed categories
@@ -822,7 +804,6 @@ div.categories-list ul li.last div.category-desc p {}
 div.categories-list ul li.last dl.newsfeed-count {}
 div.categories-list ul li.last dl.newsfeed-count dt {}
 div.categories-list ul li.last dl.newsfeed-count dd {}
-
 
 /* ----------------------
    List one feed category
@@ -867,7 +848,6 @@ div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.it
 div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-link {}
 div.newsfeed-category form#adminForm table.category tbody tr.cat-list-row0 td.item-link a {}
 
-
 /* --------------------
    Disolay one newsfeed
 ----------------------- */
@@ -884,7 +864,6 @@ div.newsfeed.redirect-ltr ol li {}
 div.newsfeed.redirect-ltr ol li a {}
 div.newsfeed.redirect-ltr ol li div.feed-item-description {}
 div.newsfeed.redirect-ltr ol li div.feed-item-description img {}
-
 
 /* ----------------------
    All weblink categories
@@ -927,7 +906,6 @@ div.categories-list ul li.last dl.weblink-count {}
 div.categories-list ul li.last dl.weblink-count dt {}
 div.categories-list ul li.last dl.weblink-count dd {}
 
-
 /* ------------
    weblink page
 --------------- */
@@ -966,14 +944,12 @@ div.weblink-category form#adminForm table.category tbody tr td.title p img {}
 div.weblink-category form#adminForm table.category tbody tr td.title p a {}
 div.weblink-category form#adminForm table.category tbody tr td.hits {}
 
-
 /* -------
    Wrapper
 ---------- */
 div.contentpane {}
 div.contentpane h2 {}
 div.contentpane iframe {}
-
 
 /* ====================
    Components & Modules
@@ -988,7 +964,6 @@ div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs  a.pathway {}
 div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs img {}
 div.moduletable_breadcrumbs div.breadcrumbs_breadcrumbs span {}
 
-
 /* ----------------------------------------------------
    Language / language module class suffix = _language
 ----------------------------------------------------- */
@@ -999,7 +974,6 @@ div.moduletable_language div.mod-languages_language ul li {}
 div.moduletable_language div.mod-languages_language ul li a img {}
 div.moduletable_language div.mod-languages_language ul li a:hover img {}
 
-
 /* ------------------------------------------
    Search module moduleclass suffix = _search
 --------------------------------------------- */
@@ -1009,7 +983,6 @@ div.moduletable_search form div.search_search {}
 div.moduletable_search form div.search_search label {}
 div.moduletable_search form div.search_search input#mod-search-searchword.inputbox_search {}
 div.moduletable_search form div.search_search input.button_search {}
-
 
 /* --------------------
    Seaarch results page
@@ -1071,7 +1044,6 @@ div.search dl.search-results dd.result-text {}
 div.search dl.search-results dd.result-text span.highlight {}
 div.search dl.search-results dd.result-created {}
 
-
 /* --------------
    Who is on-line
 ----------------- */
@@ -1092,7 +1064,6 @@ div.moduletable_syndicate a:hover.syndicate-module_syndicate {}
 div.moduletable_syndicate a.syndicate-module_syndicate img {}
 div.moduletable_syndicate a.syndicate-module_syndicate span {}
 
-
 /* --------------------------------------------------------------
    Main menu * moduleclass suffix = _mainmenu, Menu tag ID = nav
 ----------------------------------------------------------------- */
@@ -1103,7 +1074,6 @@ div.moduletable_mainmenu ul#nav li {}
 div.moduletable_mainmenu ul#nav li a {}
 div.moduletable_mainmenu ul#nav li a:hover,
 div.moduletable_mainmenu ul#nav li.active a {}
-
 
 /* ----------------------------------------------
    Log-in/-uit Module moduleclass suffix = _login
@@ -1152,7 +1122,6 @@ div.moduletable_login form#login-form div.login-greeting {}
 div.moduletable_login form#login-form div.logout-button {}
 div.moduletable_login form#login-form div.logout-button input.button {}
 
-
 /* -------------------------------------------------------
    Laatste Nieuws Moddule moduleclass suffix = _latestnews
 -------------------------------------------------------- */
@@ -1162,7 +1131,6 @@ div.moduletable_latestnews ul.latestnews_latestnews {}
 div.moduletable_latestnews ul.latestnews_latestnews li {}
 div.moduletable_latestnews ul.latestnews_latestnews li a {}
 
-
 /* ---------------------------------------------------
    Meest gelezenModdule moduleclass suffix = _mostread
 ---------------------------------------------------- */
@@ -1171,7 +1139,6 @@ div.moduletable_mostread h3 {}
 div.moduletable_mostread ul.mostread_mostread {}
 div.moduletable_mostread ul.mostread_mostread li {}
 div.moduletable_mostread ul.mostread_mostread li a {}
-
 
 /* ------------------------------------------
    Feed Module moduleclass suffix = _feed
@@ -1183,7 +1150,6 @@ div.moduletable_feed div.feed_feed ul.newsfeed_feed {}
 div.moduletable_feed div.feed_feed ul.newsfeed_feed li.newsfeed-item {}
 div.moduletable_feed div.feed_feed ul.newsfeed_feed li.newsfeed-item h4.feed-link {}
 div.moduletable_feed div.feed_feed ul.newsfeed_feed li.newsfeed-item h4.feed-link a {}
-
 
 /* --------------------------------------------
    Banner module - moduleclass suffix = _banner
@@ -1199,11 +1165,9 @@ div.moduletable_banner div.bannergroup_banner div.banneritem a {}
 div.moduletable_banner div.bannergroup_banner div.banneritem a img {}
 div.moduletable_banner div.bannergroup_banner div.banneritem div.clr {}
 
- 
 /* Header en Footer */
 div.moduletable_banner div.bannergroup_banner,
 div.moduletable_banner div.bannergroup_banner div.bannerfooter {}
-
 
 /* ----------------------------------------------------------
    Module Archived articles moduleclass suffix = _archivelist
@@ -1213,7 +1177,6 @@ div.moduletable_archivelist h3 {}
 div.moduletable_archivelist ul.archive-module_archivelist {}
 div.moduletable_archivelist ul.archive-module_archivelist li {}
 div.moduletable_archivelist ul.archive-module_archivelist li a {}
-
 
 /* ----------
    Statistics
