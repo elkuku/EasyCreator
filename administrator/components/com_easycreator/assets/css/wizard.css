@@ -18,7 +18,8 @@ div#wizard_control {
    padding: 5px;
    background-color: #FFFFCC;
    border: 1px solid grey;
-   margin-right: 5px;
+   margin-right: 10px;
+   margin-left: 10px;
 }
 
 .ecr_wiz_desc {

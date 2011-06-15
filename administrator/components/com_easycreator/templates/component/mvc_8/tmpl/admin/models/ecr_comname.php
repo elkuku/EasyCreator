@@ -75,6 +75,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
         if( ! $row->bind($data))
         {
             $this->setError($this->_db->getError());
+
             return false;
         }
 
@@ -82,6 +83,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
         if( ! $row->check())
         {
             $this->setError($this->_db->getError());
+
             return false;
         }
 
@@ -89,6 +91,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
         if( ! $row->store())
         {
             $this->setError($row->getError());
+
             return false;
         }
 
@@ -114,6 +117,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
                 if( ! $row->delete($cid))
                 {
                     $this->setError($row->getError());
+
                     return false;
                 }
             }//foreach
@@ -121,4 +125,4 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
 
         return true;
     }//function
-}// class
+}//class

@@ -75,7 +75,8 @@ class EasyCreatorViewStarter extends JView
         $this->assignRef('project', $project);
 
         if($task != 'starter'
-        && $task != 'wizard')
+        && $task != 'wizard'
+        && $task)
         {
             $this->setLayout($task);
         }

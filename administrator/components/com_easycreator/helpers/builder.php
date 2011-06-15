@@ -793,7 +793,6 @@ class EasyBuilder extends JObject
             $this->addSubstitute('##*HEADER'.strtoupper($type).'*##', $header);
         }//foreach
 
-
         return true;
     }//function
 

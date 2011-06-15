@@ -61,6 +61,7 @@ Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&rel
  - Mootools fixes Json.evaluate => JSON.decode
  - Removed Mootools compat
  + Header templates for css and js files - Thanks 7list
+ + JVersion selector in wizard step 1
 
 08-Jun-2011 Nikolai Plath
  + More modifications for J! 1.7

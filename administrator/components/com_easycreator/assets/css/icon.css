@@ -315,6 +315,14 @@
     padding-bottom: 2px;
 }
 
+.img4 {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 43px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+
 .img32 {
     background-repeat: no-repeat;
     background-position: 4px 3px ! important;

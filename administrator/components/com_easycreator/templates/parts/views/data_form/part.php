@@ -381,7 +381,7 @@ $key = '##ECR_OPTIONS##';
                 <?php
                 $selected =(isset ($selecteds[$key])) ? $selecteds[$key]->type : '';
                 $attribs = array();
-                $attribs =($checked) ? null : array('disabled'=>'disabled');
+                $attribs =($checked) ? null : array('disabled' => 'disabled');
                 echo JHTML::_('select.genericlist', $fieldTypes, 'table_fields_types['.$key.']'
                 , $attribs, 'value', 'text', $selected, 'tblfield_type_'.$key); ?>
                 </td>

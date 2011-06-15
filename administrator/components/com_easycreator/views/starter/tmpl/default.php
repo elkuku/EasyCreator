@@ -60,19 +60,35 @@ $infoLinks = array(
     <div class="ecr_wiz_desc">
         <?php echo jgettext('Choose a component type from a predefined template'); ?>
     </div>
+<?php
+echo jgettext('Hide templates for Joomla! versions');
+
+$hideVersions = JRequest::getVar('show_templates_jversion', array());
+$jVersions = array('1.5', '1.6');
+
+foreach ($jVersions as $v)
+{
+    $vX = str_replace('.', '', $v);
+    $checked =(in_array($v, $hideVersions)) ? ' checked="checked"' : '';
+    ?>
+    <input type="checkbox" name="show_templates_jversion[]"
+    id="hideVersion<?php echo $vX; ?>"
+    <?php echo $checked; ?>
+    value="<?php echo $v; ?>" onchange="submitform()">
+    <label for="hideVersion<?php echo $vX; ?>"
+	class="img4 icon-joomla-compat-<?php echo $vX; ?>">
+    </label>
+    <?php
+}//foreach
+?>
+
 <?php echo ecrHTML::boxEnd(); ?>
 </div>
-
 <div style="clear: both; height: 1em;"></div>
 <?php
-/*
-echo jgettext('Filter');
-
-<input type="checkbox" name="show_templates_jversion[]" value="1.5"> 1.5
-<input type="checkbox" name="show_templates_jversion[]" value="1.6"> 1.6
-<div style="clear: both; height: 1em;"></div>
-*/
+//<input type="checkbox" name="show_templates_jversion[]" value="1.6"> 1.6
 ?>
+<div style="clear: both; height: 1em;"></div>
 <?php foreach(EasyProjectHelper::getProjectTypes() as $extType => $description): ?>
     <div class="ecr_floatbox" style="width: 250px;">
         <?php echo ecrHTML::boxStart(); ?>
@@ -82,6 +98,9 @@ echo jgettext('Filter');
         <?php if(isset($templateList[$extType])): ?>
             <?php
             foreach($templateList[$extType] as $template):
+                if(in_array($template->jVersion, $hideVersions))
+                continue;
+
                 $link =($template->authorUrl)
                 ? '<a href="'.$template->authorUrl.'" class="external">'.jgettext('Description').'</a>'
                 : '';

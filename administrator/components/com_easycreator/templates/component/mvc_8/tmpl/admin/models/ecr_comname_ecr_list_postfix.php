@@ -57,7 +57,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ exte
         . ' FROM #___ECR_COM_TBL_NAME_';
 
         return $query;
-    }
+    }//function
 
     /**
      * Retrieves the hello data
