@@ -111,7 +111,7 @@ class EasyTemplateOptions
         $easyBuilder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
 
         //-- Add the core categories table
-        $table = new EasyTable('categories');
+        $table = new EasyTable('categories', true);
         $easyBuilder->project->addTable($table);
 
         //-- Prepare extension table

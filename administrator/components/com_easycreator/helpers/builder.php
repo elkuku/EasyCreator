@@ -225,7 +225,7 @@ class EasyBuilder extends JObject
                 break;
         }//switch
 
-        $this->project->JCompat = $this->_buildManifest->jVersion;
+        $this->project->JCompat = (string)$this->_buildManifest->jVersion;
 
         $this->project->version = JRequest::getVar('version');
         $this->project->description = JRequest::getVar('description');

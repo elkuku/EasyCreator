@@ -11,9 +11,15 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-$params = JComponentHelper::getParams('com_easycreator');
-
 ecrScript('util');
+
+if('package' == $this->project->type
+&& ! $this->project->elements)
+{
+    ecrHTML::displayMessage(jgettext('Please add some extensions to your package before creating it'), 'error');
+
+    return;
+}
 
 ecrHTML::floatBoxStart();
 echo $this->loadTemplate('format');

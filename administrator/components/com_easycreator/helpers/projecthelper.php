@@ -102,8 +102,14 @@ class EasyProjectHelper
 
         $project = new $className($name);
 
-        if( ! $project->type)
-        throw new Exception(sprintf(jgettext('Project %s not found'), $name));
+        if( ! $project->dbId)
+        {
+            if('package' != $project->type)
+            {
+                //-- All projects *except packages* must be installed in the database
+                throw new Exception(sprintf(jgettext('Project %s not found'), $name));
+            }
+        }
 
         $projects[$name] = $project;
 
@@ -149,41 +155,75 @@ class EasyProjectHelper
      */
     public static function findManifest(EasyProject $project)
     {
-        $path = '';
-        $fileName = '';
-        $admin =($project->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
-
         $path = $project->getJoomlaManifestPath();
 
-        if(ECR_JVERSION == '1.5'
-        && $project->type == 'plugin')
+        if( ! JFolder::exists($path))
         {
-            /*
-             * Special treatment for plugins in 1.5
-             */
-            $xmlFiles = array($path.DS.$project->comName.'.xml');
+            return false;
         }
-        else if(ECR_JVERSION == '1.6'
-        && $project->type == 'library')
+
+        switch(ECR_JVERSION)
         {
-            /*
-             * Very Special treatment for libraries in 1.6
-             */
-            $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
-        }
-        else if(ECR_JVERSION == '1.6'
-        && $project->type == 'package')
-        {
-            /*
-             * Very Special treatment for packages in 1.6
-             */
-            $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
-        }
-        else
+            case '1.5':
+                if('plugin' == $project->type)
+                {
+                    $xmlFiles = array($path.DS.$project->comName.'.xml');
+                }
+                break;
+
+            case '1.6':
+            case '1.7':
+                if('library' == $project->type
+                || 'package' == $project->type)
+                {
+                    $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
+                }
+                break;
+
+            default:
+                ecrHTML::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
+
+                return false;
+                break;
+        }//switch
+
+        if(empty($xmlFiles))
         {
             $xmlFiles = JFolder::files($path, '.xml$', false, true);
         }
 
+        /*
+         if(ECR_JVERSION == '1.5'
+         && $project->type == 'plugin')
+         {
+         /*
+         * Special treatment for plugins in 1.5
+         $xmlFiles = array($path.DS.$project->comName.'.xml');
+         }
+         else if(ECR_JVERSION == '1.6'
+         && $project->type == 'library')
+         {
+         /*
+         * Very Special treatment for libraries in 1.6
+         $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
+         }
+         else if(ECR_JVERSION == '1.6'
+         && $project->type == 'package')
+         {
+         /*
+         * Very Special treatment for packages in 1.6
+         $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
+         }
+         else
+         {
+         if( ! JFolder::exists($path))
+         {
+         return false;
+         }
+
+         $xmlFiles = JFolder::files($path, '.xml$', false, true);
+         }
+         */
         if(empty($xmlFiles))
         {
             return false;
@@ -194,9 +234,10 @@ class EasyProjectHelper
         {
             if( ! JFile::exists($fileName))
             {
-                JError::raiseWarning(100, 'File not found '.$fileName);
-                ecrHTML::displayMessage('Unable to load XML file '.$fileName, 'error');
-
+                /*
+                 JError::raiseWarning(100, 'File not found '.$fileName);
+                 ecrHTML::displayMessage('Unable to load XML file '.$fileName, 'error');
+                 */
                 return false;
             }
 
@@ -207,7 +248,7 @@ class EasyProjectHelper
             return false;
 
             if($xml->getName() == 'install'//J! 1.5
-            || $xml->getName() == 'extension'//J! 1.6
+            || $xml->getName() == 'extension'//J! 1.6+
             )
             {
                 //-- Valid xml manifest found

@@ -90,6 +90,9 @@ abstract class EasyProject extends JObject
     /** Special : g11n Languiage handling */
     public $langFormat = 'ini';
 
+    /** Flag to identify a *somewhat* invalid project */
+    public $isValid = true;
+
     /**
      * Constructor.
      *
@@ -127,6 +130,7 @@ abstract class EasyProject extends JObject
     public function getDTD($jVersion) {}//function
     public function getEcrXmlFileName() {}//function
     public function getId() {}//function
+
     protected function updateAdminMenu() { return true; }//function
 
     // @codingStandardsIgnoreEnd
@@ -140,17 +144,23 @@ abstract class EasyProject extends JObject
     {
         $fileName = EasyProjectHelper::findManifest($this);
 
-        if($data = EasyProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$fileName))
+        if( ! $fileName)
         {
-            foreach($data as $key => $value)
-            {
-                $this->$key = (string)$value;
-            }//foreach
-
-            return true;
+            $this->isValid = false;
+            return false;
         }
 
+        $data = EasyProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$fileName);
+
+        if( ! $data)
         return false;
+
+        foreach($data as $key => $value)
+        {
+            $this->$key = (string)$value;
+        }//foreach
+
+        return true;
     }//function
 
     /**
@@ -434,7 +444,9 @@ abstract class EasyProject extends JObject
             foreach($this->tables as $table)
             {
                 $tableElement = $tablesElement->addChild('table');
+
                 $tableElement->addChild('name', $table->name);
+                $tableElement->addChild('foreign', $table->foreign);
 
                 if($table->getRelations())
                 {
@@ -543,7 +555,7 @@ abstract class EasyProject extends JObject
         $root = '';
         $root .= '<?xml version="1.0" encoding="UTF-8"?>'.NL;
         $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14.1//DTD project 1.0//EN"'.NL;
-//        $root .= '"http://xml.der-beta-server.de/dtd/easycreator/0.0.14.1/project.dtd">';
+        //        $root .= '"http://xml.der-beta-server.de/dtd/easycreator/0.0.14.1/project.dtd">';
         $root .= '"http://joomlacode.org/gf/project/elkuku/scmsvn/?action=browse'
         .'&path=/*checkout*/dtd/easycreator/0.0.14.1/project.dtd">';
 
@@ -658,7 +670,7 @@ abstract class EasyProject extends JObject
         {
             foreach($manifest->tables->table as $e)
             {
-                $table = new EasyTable((string)$e->name);
+                $table = new EasyTable($e->name, $e->foreign);
 
                 $t = new stdClass;
                 $t->name = (string)$e->name;
@@ -775,9 +787,6 @@ abstract class EasyProject extends JObject
         {
             foreach($manifest->elements->element as $e)
             {
-                //                $eL = new stdClass;
-                //                $eL->name = (string)$e;
-
                 $this->elements[(string)$e] = (string)$e;
             }//foreach
         }

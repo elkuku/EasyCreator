@@ -473,6 +473,8 @@ class EasyTable
 {
     public $name;
 
+    public $foreign = false;
+
     private $fields = array();
 
     private $relations = array();
@@ -480,11 +482,13 @@ class EasyTable
     /**
      * Constructor.
      *
-     * @param string $name Table name
+     * @param string $name Table name.
+     * @param boolean $foreign False if the table does not belong to thwe component.
      */
-    public function __construct($name)
+    public function __construct($name, $foreign = false)
     {
-        $this->name = $name;
+        $this->name = (string)$name;
+        $this->foreign = (string)$foreign;
     }//function
 
     /**

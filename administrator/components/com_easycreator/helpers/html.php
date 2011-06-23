@@ -55,8 +55,9 @@ final class ecrHTML
         $rightTasks = array();
 
         if($project instanceof EasyProject
-        && $project->dbId
-        && $project->type != 'package')
+        && $project->isValid)
+//        && $project->dbId
+//        && $project->type != 'package')
         {
             //-- Left bar
 
@@ -66,16 +67,19 @@ final class ecrHTML
             $tasks['stuffer']->tasks = array('stuffer', 'stufferstuff', 'projectinfo', 'files', 'save_config'
             , 'projectparams', 'projectdelete', 'tables');
 
-            $tasks['languages'] = new stdClass;
-            $tasks['languages']->title = jgettext('Languages');
-            $tasks['languages']->image = 'ecr_languages';
-            $tasks['languages']->tasks = array('languages','translations','searchfiles', 'langcorrectdeforder'
-            , 'langcorrectorder', 'show_version', 'show_versions', 'language_check', 'create_langfile', 'convert');
+            if('package' != $project->type)
+            {
+                $tasks['languages'] = new stdClass;
+                $tasks['languages']->title = jgettext('Languages');
+                $tasks['languages']->image = 'ecr_languages';
+                $tasks['languages']->tasks = array('languages','translations','searchfiles', 'langcorrectdeforder'
+                , 'langcorrectorder', 'show_version', 'show_versions', 'language_check', 'create_langfile', 'convert');
 
-            $tasks['codeeye'] = new stdClass;
-            $tasks['codeeye']->title = jgettext('CodeEye');
-            $tasks['codeeye']->image = 'xeyes';
-            $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats');
+                $tasks['codeeye'] = new stdClass;
+                $tasks['codeeye']->title = jgettext('CodeEye');
+                $tasks['codeeye']->image = 'xeyes';
+                $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats');
+            }
 
             $tasks['ziper'] = new stdClass;
             $tasks['ziper']->title = jgettext('Package');

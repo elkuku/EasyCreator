@@ -742,14 +742,18 @@ class EasyCreatorControllerStuffer extends JController
                 switch($type2) //-- install or uninstall
                 {
                     case 'install' :
+                        ecrHTML::displayMessage(__METHOD__.' Unfinished install php');
                         break;
 
                     case 'uninstall' :
+                        ecrHTML::displayMessage(__METHOD__.' Unfinished uninstall php');
                         break;
                     default :
                         ecrHTML::displayMessage('Unknown type: '.$type1, 'error');
                         break;
                 }//switch
+
+                break;
 
             case 'sql' :
                 $db = JFactory::getDbo();

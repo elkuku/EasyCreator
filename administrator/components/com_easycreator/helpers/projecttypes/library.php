@@ -12,8 +12,7 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * Enter description here ...
- *
+ * EasyCreator project type library.
  */
 class EasyProjectLibrary extends EasyProject
 {
@@ -148,6 +147,7 @@ class EasyProjectLibrary extends EasyProject
     public function getJoomlaManifestName()
     {
         return $this->prefix.$this->comName.'.xml';
+        //return $this->comName.'.xml';
     }//function
 
     /**

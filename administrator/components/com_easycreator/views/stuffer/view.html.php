@@ -41,8 +41,12 @@ class EasyCreatorViewStuffer extends JView
         {
             $this->project = EasyProjectHelper::getProject();
 
-            if( ! $this->project->dbId)
-            throw new Exception(jgettext('Invalid project'));
+            if('package' == $this->project->type
+            && ! $this->project->creationDate)
+            {
+                //-- This is a hack to detect that a package has no install manifest :(
+                throw new Exception(jgettext('Invalid project'));
+            }
         }
         catch(Exception $e)
         {

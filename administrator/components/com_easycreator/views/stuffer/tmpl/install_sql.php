@@ -71,6 +71,9 @@ var_dump($this->project->tables);
 
 foreach($this->project->tables as $table)
 {
+    if('true' == $table->foreign)
+    continue;
+
     echo '<h4>'.$table->name.'</h4>';
 
     if( ! count($table->getFields()))

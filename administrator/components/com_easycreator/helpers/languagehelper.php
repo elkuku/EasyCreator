@@ -73,8 +73,6 @@ class EasyLanguageHelper
 
                     $fileName = JPath::clean($path.'/'.$addPath);
 
-                    //     $fileName = "$path/language/$tag/$tag.{$project->getLanguageFileName($scope)}";
-
                     if(JFile::exists($fileName))
                     {
                         $languages[$pKey][$tag][] = $scope;

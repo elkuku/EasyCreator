@@ -52,6 +52,12 @@ Legend:
  ! -> Note
 ______________________________________________
 
+--------------- 0.0.14.2 BETA -- [22-Jun-2011] ---------------------
+Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15067
+
+22-Jun-2011 Nikolai Plath
+ # Fixed errors on creating extensions type "package" for J! 1.6 - Thanks Greg Keys
+
 --------------- 0.0.14.1 BETA -- [12-Jun-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15022
 
