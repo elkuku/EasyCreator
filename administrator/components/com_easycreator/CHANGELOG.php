@@ -52,6 +52,13 @@ Legend:
  ! -> Note
 ______________________________________________
 
+02-Jul-2011 Nikolai Plath
+ + Added PEARs SQL parser class
+ ^ Today I learned about css border-radius... can you see it ? =;)
+
+22-Jun-2011 Nikolai Plath
+ + Small optional compression on md5 checksum files
+
 --------------- 0.0.14.2 BETA -- [22-Jun-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15067
 

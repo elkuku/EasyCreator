@@ -34,17 +34,14 @@ $fileTree = new phpFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFold
 ?>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     <strong><?php echo jgettext('Project'); ?></strong>
     <div class="ecrBigInfo">
 	    <?php echo jgettext('Click a file to create a skeleton class.'); ?>
     </div>
     <?php echo drawFileTree($this->project); ?>
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">
-<?php ecrHTML::boxStart(); ?>
     <strong><?php echo jgettext('Tests'); ?></strong>
     <div class="ecrBigInfo">
 	    <?php echo jgettext('Click a to execute a UnitTest.'); ?>
@@ -53,11 +50,9 @@ $fileTree = new phpFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFold
     <div id="test_tree">
         <?php echo $fileTree->drawFullTree(); ?>
     </div>
-<?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     <strong><?php echo jgettext('Options'); ?></strong>
     <br />
     <input type="checkbox" checked="checked" id="show_result" />
@@ -67,7 +62,6 @@ $fileTree = new phpFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFold
     <label for="show_console" style="background-color: black; color: white;
     	font-family: monospace; padding: 0.1em;"><?php echo jgettext('Show console output'); ?></label>
     <p><b>@todo</b> add more options..</p>
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">

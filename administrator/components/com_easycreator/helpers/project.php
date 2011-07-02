@@ -147,6 +147,7 @@ abstract class EasyProject extends JObject
         if( ! $fileName)
         {
             $this->isValid = false;
+
             return false;
         }
 
@@ -248,6 +249,7 @@ abstract class EasyProject extends JObject
         $this->buildOpts['archive_bz2'] =(in_array('archive_bz2', $buildOpts)) ? 'ON' : 'OFF';
         $this->buildOpts['create_indexhtml'] =(in_array('create_indexhtml', $buildOpts)) ? 'ON' : 'OFF';
         $this->buildOpts['create_md5'] =(in_array('create_md5', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['create_md5_compressed'] =(in_array('create_md5_compressed', $buildOpts)) ? 'ON' : 'OFF';
         $this->buildOpts['include_ecr_projectfile'] =(in_array('include_ecr_projectfile', $buildOpts)) ? 'ON' : 'OFF';
         $this->buildOpts['remove_autocode'] =(in_array('remove_autocode', $buildOpts)) ? 'ON' : 'OFF';
 
@@ -886,8 +888,8 @@ abstract class EasyProject extends JObject
     public function insertPart($options, EasyLogger $logger, $overwrite = false)
     {
         $element_scope = JRequest::getVar('element_scope');
-        $element_name = JRequest::getVar('element_name', NULL);
-        $element = JRequest::getVar('element', NULL);
+        $element_name = JRequest::getVar('element_name', null);
+        $element = JRequest::getVar('element', null);
 
         if( ! isset($options->pathSource)
         || ! $options->pathSource)
@@ -1013,6 +1015,7 @@ abstract class EasyProject extends JObject
 
             $this->addSubstitute('_ECR_COM_NAME_', $project->name);
             $this->addSubstitute('_ECR_COM_COM_NAME_', $project->comName);
+            $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_', strtoupper($project->comName));
             $this->addSubstitute('ECR_AUTHOR', $project->author);
             $this->addSubstitute('AUTHORURL', $project->authorUrl);
             $this->addSubstitute('_ECR_ACT_DATE_', date('d-M-Y'));
@@ -1023,7 +1026,7 @@ abstract class EasyProject extends JObject
             }//foreach
 
             //-- Read the header file
-            $header = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'header.php');
+            $header = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'header.txt');
 
             //-- Replace vars in header
             $this->substitute($header);

@@ -1,9 +1,9 @@
 /**
  * @version SVN: $Id$
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Javascript
- * @author Nikolai Plath {@link http://www.nik-it.de}
- * @author Created on 31-May-2010
+ * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Created on 31-May-2010
  * @license GNU/GPL, see JROOT/LICENSE.php
  */
 
@@ -40,11 +40,9 @@ function submitStuffer(task)
 
 window.addEvent('domready', function()
 {
-
     var mySortables = new Sortables('#package-from, #package-to', {
         constrain : false,
         clone : true,
         revert : true
     });
-    
 });

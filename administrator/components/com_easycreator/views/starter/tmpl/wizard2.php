@@ -18,7 +18,6 @@ ecrScript('wizard2');
 ?>
 
 <div class="ecr_floatbox" style="width: 55%;">
-    <?php echo ecrHTML::boxStart(); ?>
 		<?php ecrHTML::displayWizNextPrev(); ?>
     	<div class="wizard-header">
         	<span id="wizard-loader" class="img32 icon-32-wizard"></span>
@@ -108,7 +107,6 @@ ecrScript('wizard2');
             </tr>
         </table>
 
-    <?php echo ecrHTML::boxEnd(); ?>
 </div>
 
 <script type="text/javascript">

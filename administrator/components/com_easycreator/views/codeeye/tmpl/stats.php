@@ -38,8 +38,6 @@ myEffect.start();
 //-->
 </script>
 <div class="ecr_floatbox" id="foooo">
-<?php ecrHTML::boxStart(); ?>
-
     <table>
         <tr>
             <th style="background-color: #cce5ff;"><?php echo jgettext('Type'); ?></th>
@@ -130,36 +128,23 @@ myEffect.start();
     </tr>
 
     </table>
-<?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div style="clear: both;"></div>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     <div id="filecount"></div>
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     <div id="sizecount"></div>
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     <div id="linecount"></div>
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div style="clear: both;"></div>
-<!--
-<div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
-    <?php ecrHTML::boxEnd(); ?>
-</div>
- -->
-    <div id="ratio"></div>
+<div id="ratio"></div>
 
 <div style="clear: both;"></div>

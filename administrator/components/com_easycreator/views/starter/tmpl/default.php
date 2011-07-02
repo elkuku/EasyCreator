@@ -52,7 +52,6 @@ $infoLinks = array(
 
 ?>
 <div class="white_box">
-<?php echo ecrHTML::BoxStart(); ?>
 	<div class="wizard-header">
     	<span id="wizard-loader" class="img32 icon-32-wizard"></span>
         <span class="wiz_step">1 / 3</span><?php echo jgettext('Extension type'); ?>
@@ -82,16 +81,10 @@ foreach ($jVersions as $v)
 }//foreach
 ?>
 
-<?php echo ecrHTML::boxEnd(); ?>
 </div>
-<div style="clear: both; height: 1em;"></div>
-<?php
-//<input type="checkbox" name="show_templates_jversion[]" value="1.6"> 1.6
-?>
 <div style="clear: both; height: 1em;"></div>
 <?php foreach(EasyProjectHelper::getProjectTypes() as $extType => $description): ?>
     <div class="ecr_floatbox" style="width: 250px;">
-        <?php echo ecrHTML::boxStart(); ?>
         <div class="ecr_floatbox_title img icon-12-<?php echo $extType; ?>">
             <?php echo $description; ?>
         </div>
@@ -181,7 +174,6 @@ foreach ($jVersions as $v)
         </div>
         <?php endif; ?>
        <?php endif; ?>
-       <?php echo ecrHTML::boxEnd(); ?>
    </div>
 <?php endforeach; ?>
 

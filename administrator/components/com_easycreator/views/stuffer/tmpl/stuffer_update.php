@@ -14,11 +14,14 @@ defined('_JEXEC') || die('=;)');
 $upgradeChecked =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
-<div class="infoHeader imgbarleft icon-24-update"><?php echo jgettext('Update') ?></div>
-<strong><?php echo jgettext('Method'); ?></strong>
-<input type="checkbox" <?php echo $upgradeChecked; ?> name="buildvars[method]" id="buildvars_method" value="upgrade" />
-<label for="buildvars_method" class="hasEasyTip" title="method=upgrade::<?php echo jgettext('This will perform an upgrade on installing your extension'); ?>">
-    <?php echo jgettext('Upgrade'); ?>
-</label>
-<?php echo ecrHTML::floatBoxEnd();
+<div class="ecr_floatbox">
+    <div class="infoHeader imgbarleft icon-24-update"><?php echo jgettext('Update') ?></div>
+    <strong><?php echo jgettext('Method'); ?></strong>
+    <input type="checkbox" <?php echo $upgradeChecked; ?>
+    name="buildvars[method]" id="buildvars_method" value="upgrade" />
+
+    <label for="buildvars_method" class="hasEasyTip"
+    title="method=upgrade::<?php echo jgettext('This will perform an upgrade on installing your extension'); ?>">
+        <?php echo jgettext('Upgrade'); ?>
+    </label>
+</div>

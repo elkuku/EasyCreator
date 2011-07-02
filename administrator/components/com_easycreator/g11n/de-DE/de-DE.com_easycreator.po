@@ -732,7 +732,7 @@ msgstr "Protokollierung aktivieren"
 
 #: administrator/components/com_easycreator/helpers/html.php:517
 msgid "Please set a compression type"
-msgstr "Bitte setzen Sie einen Komprimierungstyp"
+msgstr "Bitte wählen Sie einen Komprimierungstyp"
 
 #: administrator/components/com_easycreator/helpers/html.php:519
 msgid "You can set a default compression type in configuration"

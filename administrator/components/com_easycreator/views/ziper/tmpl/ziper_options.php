@@ -23,7 +23,7 @@ $params = JComponentHelper::getParams('com_easycreator');
 <strong><?php echo jgettext('Custom name format'); ?>:</strong>
 <div style="clear: both"></div>
 <div style="border: 1px dotted gray; padding: 0.5em; background-color: #ffc; margin: 0.5em;
-font-family: monospace;">
+font-size: 1.3em; font-family: monospace;">
     <?php echo $this->project->comName; ?><div id="ajName" style="color: blue; display: inline;
     margin: 0; font-weight: bold;"></div>.&lt;EXT&gt;
 </div>

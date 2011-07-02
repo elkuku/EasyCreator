@@ -14,7 +14,6 @@ defined('_JEXEC') || die('=;)');
 ?>
 <br />
 <div class="white_box">
-<?php ecrHTML::boxStart(); ?>
 
 <h1><?php echo jgettext('Help'); ?></h1>
 <p>
@@ -65,7 +64,6 @@ defined('_JEXEC') || die('=;)');
     <li>Who's missing?... ah, me - Nikolai Plath (aka elkuku) - <a href="http://www.nik-it.de" class="external">NiK-IT.de</a> - responsible for the <strong>rest</strong> <tt style="color: green;">=;)</tt></li>
 </ul>
 
-<?php ecrHTML::boxEnd(); ?>
 </div>
 <br />
 <?php

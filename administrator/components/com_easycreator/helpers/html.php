@@ -56,8 +56,6 @@ final class ecrHTML
 
         if($project instanceof EasyProject
         && $project->isValid)
-//        && $project->dbId
-//        && $project->type != 'package')
         {
             //-- Left bar
 
@@ -134,7 +132,7 @@ final class ecrHTML
 
         $js = 'onchange="submitbutton(\''.$task.'\')"';
         ?>
-<div class="white_box" style="margin-bottom: 0.5em;"><?php self::boxStart(); ?>
+<div class="white_box" style="margin-bottom: 0.5em;">
 <div class="ecr_easy_toolbar">
 <ul>
     <li><a href="javascript:;"
@@ -143,7 +141,7 @@ final class ecrHTML
     </a></li>
 </ul>
 </div>
-        <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debugging</div>' : ''; ?>
+        <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debug</div>' : ''; ?>
 <div style="float: left; margin-top: -7px;"><img
     src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
     alt="EasyCreator Logo" /></div>
@@ -238,9 +236,7 @@ $stdJS .= "$('file_name').value='';";
     ?>
 
 <div style="clear: both"></div>
-    <?php
-    self::boxEnd();
-    ?></div>
+    </div>
     <?php
     }//function
 
@@ -968,7 +964,7 @@ EOF;
      *
      * @param array $requireds required field names separated by komma
      */
-    public static function drawSubmitParts($requireds=array())
+    public static function drawSubmitParts($requireds = array())
     {
         $requireds = (array)$requireds;
         $requireds = implode(',', $requireds);
@@ -982,7 +978,7 @@ EOF;
      *
      * @param array $requireds required field names separated by komma
      */
-    public static function drawSubmitAutoCode($requireds=array())
+    public static function drawSubmitAutoCode($requireds = array())
     {
         $requireds = (array)$requireds;
         $requireds = implode(',', $requireds);
@@ -1236,42 +1232,6 @@ EOF;
         }
 
         return number_format($converted_value,2,',','.').' '.$symbols[$exp];
-    }//function
-
-    public static function boxStart()
-    {
-        ?>
-<div class="q">
-<div class="q">
-<div class="q"></div>
-</div>
-</div>
-<div class="s"><?php
-    }//function
-
-    public static function floatBoxStart()
-    {
-        ?>
-<div class="ecr_floatbox"><?php
-self::boxStart();
-    }//function
-
-    public static function floatBoxEnd()
-    {
-        self::boxEnd();
-        ?></div>
-        <?php
-    }//function
-
-    public static function boxEnd()
-    {
-        ?></div>
-<div class="w">
-<div class="w">
-<div class="w"></div>
-</div>
-</div>
-        <?php
     }//function
 
 }// class

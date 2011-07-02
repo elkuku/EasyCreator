@@ -47,7 +47,7 @@ function getStats(ecr_project)
 
       	'onComplete' : function(response)
       	{
-          	var resp = Json.decode(response);
+          	var resp = JSON.decode(response);
           	var baseUrl = ecrAJAXLink;
 
           	baseUrl += '&controller=codeeyeajax&task=get_chart';
@@ -77,7 +77,7 @@ function getStats(ecr_project)
 </script>
 
 <div id="control">
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <h4><?php echo jgettext('Color scheme'); ?></h4>
 <ul class="colorChooser">
 <?php
@@ -99,38 +99,37 @@ foreach($colorFiles as $fileName)
 }//foreach
 ?>
 </ul>
-<?php ecrHTML::floatBoxEnd(); ?>
- <?php ecrHTML::floatBoxStart(); ?>
-  <div class="ecr_button img32a icon-32-chart" id="control_btn"
+</div>
+<div class="ecr_floatbox">
+   <div class="ecr_button img32a icon-32-chart" id="control_btn"
 	onclick="getStats('<?php echo $this->ecr_project; ?>');">
 	<?php echo jgettext('Generate statistics'); ?>
-	</div>
-
-<?php ecrHTML::floatBoxEnd(); ?>
+   </div>
+</div>
 
 <div style="clear: both;"></div>
 </div>
 
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <h2><?php echo sprintf(jgettext('Extension %s Code statistics'), $this->project->name); ?></h2>
 <div id="matrix_table"></div>
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
 <div style="clear: both;"></div>
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <h2><?php echo jgettext('Files'); ?></h2>
 <img id="chart1" src="" />
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <h2><?php echo jgettext('Size'); ?></h2>
 <img id="chart2" src="" />
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <h2><?php echo jgettext('Code lines'); ?></h2>
 <img id="chart3" src="" />
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
 <div style="clear: both;"></div>
 

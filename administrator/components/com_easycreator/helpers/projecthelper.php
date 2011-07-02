@@ -60,7 +60,7 @@ class EasyProjectHelper
      * @param string $name Project name.
      * @param boolean $reload Reload the project.
      *
-     * @return mixed [EasyProject project on success | boolean false on error]
+     * @return object EasyProject [EasyProject project on success | boolean false on error]
      */
     public static function getProject($name = '', $reload = false)
     {

@@ -30,13 +30,15 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 //$ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-shadow.png';
 ?>
 
-<a href="index.php?option=com_easycreator&amp;controller=help" style="float: right; padding-right: 0.3em;">
-	<span class="img icon-16-forum">Credits</span>
-</a>
 <ul style="list-style: none; margin: 0; padding: 0;">
     <li class="img icon-16-sig">
         <a href="<?php echo ECR_DOCU_LINK; ?>" class="external">
             <?php echo jgettext('Documentation'); ?>
+        </a>
+    </li>
+    <li class="img icon-16-forum">
+        <a href="index.php?option=com_easycreator&amp;controller=help">
+            <?php echo jgettext('Credits'); ?>
         </a>
     </li>
     <li class="img icon-16-forum">
@@ -85,7 +87,7 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
     </li>
     <li>
         <!-- Ohloh button -->
-        <a href="http://www.ohloh.net/stack_entries/new?project_id=EasyCreator&amp;ref=WidgetProjectUsersLogo"
+        <a class="ohloh" href="http://www.ohloh.net/stack_entries/new?project_id=EasyCreator&amp;ref=WidgetProjectUsersLogo"
          style="border-bottom:none; text-decoration:none; display:block; background:url(<?php
          echo JURI::root(true).$ohlohImg; ?>) 0px 0px no-repeat;width:73px;height:23px;"
          title="<?php echo jgettext('Support EasyCreator by adding it to your stack at Ohloh'); ?>"

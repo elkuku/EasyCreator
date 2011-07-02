@@ -20,15 +20,13 @@ endif;
 //<div onclick="checkVersion();">Check</div>
 ?>
 
-<div style="background-color: #fff; width: 222px; position: absolute; right: 3em;">
-    <?php echo ecrHTML::boxStart(); ?>
-        <div class="ecr_button img icon-16-easycreator" onclick="ecrInfoBox.toggle();">
-        	<?php echo jgettext('EasyCreator Information'); ?>
-        </div>
-        <div id="ecrInfoBox" style="background-color: #ccc;">
-            <?php echo $this->loadTemplate('ecrbox'); ?>
-        </div>
-    <?php echo ecrHTML::boxEnd(); ?>
+<div style="width: 222px; position: absolute; right: 3em;">
+    <div class="ecr_button img icon-16-easycreator" onclick="ecrInfoBox.toggle();">
+        <?php echo jgettext('EasyCreator Information'); ?>
+    </div>
+    <div id="ecrInfoBox" style="background-color: #ccc;">
+        <?php echo $this->loadTemplate('ecrbox'); ?>
+    </div>
 </div>
 
 <?php
@@ -54,9 +52,7 @@ endif;
 
 <?php echo $this->loadTemplate('projectlist'); ?>
 
-<?php #echo ecrHTML::boxStart(); ?>
-    <?php $this->addTemplatePath(JPATH_COMPONENT.DS.'views'.DS.'register'.DS.'tmpl'); ?>
-    <?php echo $this->loadTemplate('unregistered'); ?>
-<?php #echo ecrHTML::boxEnd(); ?>
+<?php $this->addTemplatePath(JPATH_COMPONENT.DS.'views'.DS.'register'.DS.'tmpl'); ?>
+<?php echo $this->loadTemplate('unregistered'); ?>
 
 <div style="clear: both;"></div>

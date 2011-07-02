@@ -28,6 +28,7 @@ div.ecr_easy_toolbar li {
 div.ecr_easy_toolbar li.active {
    border-bottom: 2px solid #ffcc00;
    border-top: 2px solid #ffcc00;
+   -moz-border-radius: 5px;
 }
 
 div.ecr_easy_toolbar li.spacer {
@@ -57,7 +58,7 @@ div.ecr_easy_toolbar a {
    color: #000;
 }
 
-div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar  a:focus {
+div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar a:focus {
    border-left: 1px solid #eee;
    border-top: 1px solid #eee;
    border-right: 1px solid #ccc;
@@ -66,4 +67,5 @@ div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar  a:focus {
    background-color: #eee;
    color: #003300;
    outline: none;
+   -moz-border-radius: 5px;
 }

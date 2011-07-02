@@ -25,24 +25,21 @@ ecrStylesheet('php_file_tree');
 //--Add javascript
 ecrScript('php_file_tree');
 ecrScript('log');
+
+$fileTree = new phpFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);
 ?>
 
 <h1 style="display: inline;"><span class="img32c icon-32-menus"></span><?php echo jgettext('Logfiles'); ?></h1>
 
-<span class="img icon-16-server" style="background-color: #ffc;">
+<span class="img icon-16-server">
     <?php echo ECRPATH_LOGS; ?>
 </span>
 
 <div class="ecr_floatbox" style="width: 230px;">
-    <?php ecrHTML::boxStart(); ?>
     <div class="ecr_button img icon-16-delete" onclick="submitbutton('clear_log');">
     	<?php echo jgettext('Clear log'); ?>
     </div>
-    <?php
-    $fileTree = new phpFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);
-    echo $fileTree->drawFullTree();
-    ?>
-    <?php ecrHTML::boxEnd(); ?>
+    <?php echo $fileTree->drawFullTree(); ?>
 </div>
 
 <div style="margin-left: 240px;">

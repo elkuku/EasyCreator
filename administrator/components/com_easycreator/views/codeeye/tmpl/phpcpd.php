@@ -23,7 +23,6 @@ endif;
 ?>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     Min-Lines:<br />
     <input type="text" id="phpcpd_min_lines" size="5" value="5" />
     <br />
@@ -34,10 +33,8 @@ endif;
     @todo activate when phpcpd supports multiple dirs
     <div class="ecr_button" onclick="doPHPCPD('<?php echo $this->ecr_project; ?>');">Find duplicated Code</div>
      -->
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
     <?php
     foreach($this->project->copies as $dir):
         if(is_dir($dir)):
@@ -45,8 +42,6 @@ endif;
             echo '<div onclick="setPath(\''.$d.'\'); doPHPCPD();" class="ecr_button">'.$d.'</div>';
         endif;
     endforeach;
-
-    ecrHTML::boxEnd();
     ?>
 </div>
 

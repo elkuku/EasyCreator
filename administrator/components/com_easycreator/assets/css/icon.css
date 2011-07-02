@@ -230,6 +230,10 @@
     background-image: url(../images/ico/icon-16-rss.png);
 }
 
+.icon-16-update {
+    background-image: url(../images/ico/reload_page.png);
+}
+
 .icon-16-wizard {
     background-image: url(../images/ico/icon-16-wizard.png);
 }
@@ -286,7 +290,7 @@
 
 .imgbarleft {
     background-repeat: no-repeat;
-    background-position: 0 50%;
+    background-position: 4px 50%;
     height: 28px;
 }
 

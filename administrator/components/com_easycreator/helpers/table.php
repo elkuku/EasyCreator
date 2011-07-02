@@ -63,7 +63,6 @@ class EasyTableHelper
 
         $path = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName;
 
-        //@todo define listPostfix in project config
         $listPostfix = $project->listPostfix;
 
         if( ! JFolder::exists($path))

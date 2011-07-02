@@ -14,9 +14,8 @@ defined('_JEXEC') || die('=;)');
 $templateList = EasyTemplateHelper::getTemplateList();
 ?>
 <div style="height: 1em;"></div>
-
+<div class="ecr_floatbox">
 <?php
-ecrHTML::floatBoxStart();
 
 echo '<h2>'.jgettext('Export templates').'</h2>';
 echo '<div class="ecrBigInfo">'.jgettext('Select the templates to export').'</div>';
@@ -34,13 +33,12 @@ endforeach;
 echo BR;
 echo '<div class="ecr_button img icon-16-save" onclick="submitbutton(\'do_export\');">'.jgettext('Export').'</div>';
 
-ecrHTML::floatBoxEnd();
 ?>
-
+</div>
+<div class="ecr_floatbox">
 <?php
 $exportTypes = JFolder::folders(ECRPATH_EXPORTS);
 
-ecrHTML::floatBoxStart();
 echo '<h2>'.jgettext('Exports').'</h2>';
 
 foreach($exportTypes as $exportType) :
@@ -113,8 +111,7 @@ foreach($exportTypes as $exportType) :
     endif;
 endforeach;
 
-ecrHTML::floatBoxEnd();
 ?>
-
+</div>
 <div style="clear: both;"></div>
 <?php

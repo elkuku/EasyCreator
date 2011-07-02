@@ -42,7 +42,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 <table width="100%">
 	<tr valign="top">
 		<td width="20%">
-		<?php ecrHTML::floatBoxStart(); ?>
+		<div class="ecr_floatbox">
 			<span style="float: right;" class="img icon-16-info hasEasyTip" title="<?php echo jgettext('File tree').'::'.jgettext('Left click files to edit.').'<br />'.jgettext('Right click files and folders for options.'); ?>">&nbsp;</span>
 		<?php echo $fileTree->startTree(); ?>
 		<ul>
@@ -143,9 +143,9 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 			</li>
 		</ul>
         <?php echo $fileTree->endTree(); ?>
-        <?php ecrHTML::floatBoxEnd(); ?>
+        </div>
 
-        <?php ecrHTML::floatBoxStart(); ?>
+        <div class="ecr_floatbox">
         <h2><?php echo jgettext('Template constants'); ?></h2>
         <h3><?php echo jgettext('Common constants')?></h3>
         e.g. TestTest - com_testtest
@@ -159,7 +159,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
         </ul>
         <h3><?php echo jgettext('Custom constants')?></h3>
         <?php echo jgettext('Custom constants may be defined in every template in options.php'); ?>
-        <?php ecrHTML::floatBoxEnd(); ?>
+        </div>
 		</td>
 		<td>
 			<?php ecrHTML::prepareFileEdit(); ?>

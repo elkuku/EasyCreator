@@ -14,8 +14,9 @@ defined('_JEXEC') || die('=;)');
 $projects = EasyProjectHelper::getProjectList();
 $projectTypes = EasyProjectHelper::getProjectTypes();
 
-echo ecrHTML::floatBoxStart();
 ?>
+
+<div class="ecr_floatbox">
 <div class="infoHeader imgbarleft icon-24-package_creation"><?php echo jgettext('Package elements') ?></div>
 <input type="hidden" name="package_elements" id="packageElements" />
 <div style="float: left;">
@@ -81,5 +82,4 @@ echo ecrHTML::floatBoxStart();
     </ul>
 </div>
 <div style="clear: both;"></div>
-<?php
-echo ecrHTML::floatBoxEnd();
+</div>

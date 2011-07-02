@@ -44,7 +44,9 @@ foreach($projectScopes as $comType => $projectScope)
 {
     $scopes = explode(',', $projectScope);
 
-    echo ecrHTML::floatBoxStart();
+    ?>
+    <div class="ecr_floatbox">
+    <?php
 
     echo '<div class="boxHeader img icon-12-'.$comType.'" style=" min-width: 150px;">';
     echo $projectTypes[$comType];
@@ -91,8 +93,9 @@ foreach($projectScopes as $comType => $projectScope)
             $k = 1 - $k;
         }//foreach
     }//foreach
-
-    echo ecrHTML::floatBoxEnd();
+?>
+</div>
+<?php
 }//foreach
 ?>
 <div style="clear: both;"></div>

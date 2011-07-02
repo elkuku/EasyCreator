@@ -59,62 +59,60 @@ function submitbutton(command)
 </script>
 
 <div class="ecr_floatbox" style="width: 75%;">
-    <?php echo ecrHTML::boxStart(); ?>
-        <div style="float: right;">
-            <div class="button1-right">
-                <div class="prev">
-                    <a onclick="submitbutton('wizard2');" title="<?php echo jgettext('Back'); ?>">
-                        <?php echo jgettext('Back'); ?>
-                    </a>
-                </div>
+    <div style="float: right;">
+        <div class="button1-right">
+            <div class="prev">
+                <a onclick="submitbutton('wizard2');" title="<?php echo jgettext('Back'); ?>">
+                    <?php echo jgettext('Back'); ?>
+                </a>
             </div>
         </div>
+    </div>
 
-    	<div class="wizard-header">
-        	<span id="wizard-loader-back" class="img32 icon-32-wizard"></span>
-            <span class="wiz_step">3 / 3</span><?php echo jgettext('Build options'); ?>
+	<div class="wizard-header">
+    	<span id="wizard-loader-back" class="img32 icon-32-wizard"></span>
+        <span class="wiz_step">3 / 3</span><?php echo jgettext('Build options'); ?>
+	</div>
+
+    <div class="ecr_custom_options">
+        <?php $cst = $this->EasyBuilder->customOptions('display', $this->project); ?>
+    </div>
+    <?php if($cst) : ?>
+    	<div class="ecrBigInfo">
+            <h3><?php echo jgettext('More options'); ?></h3>
     	</div>
-
-        <div class="ecr_custom_options">
-            <?php $cst = $this->EasyBuilder->customOptions('display', $this->project); ?>
-        </div>
-        <?php if($cst) : ?>
-        	<div class="ecrBigInfo">
-	            <h3><?php echo jgettext('More options'); ?></h3>
-        	</div>
-        <?php endif; ?>
-        <div class="ecr_table">
-            <div class="ecr_table-row">
-                <div class="ecr_table-cell">
-                    <input type="checkbox" name="create_changelog" id="create_changelog" checked="checked" />
-                    <label for="create_changelog"><?php echo jgettext('Create CHANGELOG.php'); ?></label>
-                </div>
-                <div class="ecr_table-cell">
-                        <?php ecrHTML::drawLoggingOptions(); ?>
-                </div>
+    <?php endif; ?>
+    <div class="ecr_table">
+        <div class="ecr_table-row">
+            <div class="ecr_table-cell">
+                <input type="checkbox" name="create_changelog" id="create_changelog" checked="checked" />
+                <label for="create_changelog"><?php echo jgettext('Create CHANGELOG.php'); ?></label>
+            </div>
+            <div class="ecr_table-cell">
+                    <?php ecrHTML::drawLoggingOptions(); ?>
             </div>
         </div>
+    </div>
 
-        <div class="ecr_wiz_desc">
-            <p style="font-weight: bold;"><?php echo jgettext('Youre done'); ?></p>
-            <?php echo jgettext('Just click on create it below to finish your component'); ?>
-        </div>
+    <div class="ecr_wiz_desc">
+        <p style="font-weight: bold;"><?php echo jgettext('Youre done'); ?></p>
+        <?php echo jgettext('Just click on create it below to finish your component'); ?>
+    </div>
 
-        <?php if(ECR_DEV_MODE) : ?>
-            <input type="checkbox" name="ecr_test_mode" id="ecr_test_mode" value="test" />
-            <label for="ecr_test_mode">TEST only</label>
-        <?php endif; ?>
+    <?php if(ECR_DEV_MODE) : ?>
+        <input type="checkbox" name="ecr_test_mode" id="ecr_test_mode" value="test" />
+        <label for="ecr_test_mode">TEST only</label>
+    <?php endif; ?>
 
-        <div class="ecr_button" style="margin-top: 1em; text-align: center;" onclick="submitbutton('starterstart');">
-            <p style="padding-bottom: 1em;">
-            <span id="wizard-loader" class="img32 icon-32-wizard"></span>
-            </p>
+    <div class="ecr_button" style="margin-top: 1em; text-align: center;" onclick="submitbutton('starterstart');">
+        <p style="padding-bottom: 1em;">
+        <span id="wizard-loader" class="img32 icon-32-wizard"></span>
+        </p>
 
-            <h1>
-                <?php echo jgettext('Create it'); ?>
-            </h1>
-        </div>
-    <?php echo ecrHTML::boxEnd(); ?>
+        <h1>
+            <?php echo jgettext('Create it'); ?>
+        </h1>
+    </div>
 </div>
 <div class="ecr_floatbox" style="width: 20%;">
     <?php ecrHTML::displayResult($this->project); ?>

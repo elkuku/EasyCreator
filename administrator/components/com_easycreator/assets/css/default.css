@@ -15,19 +15,24 @@
     height: 100px;
 }
 
+/*
 #ecr_box {
     background-color: #efefef;
 }
+*/
 
 div.boxHeader {
     font-size: 1.3em;
     font-weight: bold;
 }
 
+/*
 div#element-box {
     background: #efefef ! important;
 }
+*/
 
+/*
 div.q,div.w {
     height: 6px;
     padding: 0;
@@ -86,7 +91,7 @@ div#element-box div.b div.b {
 div#element-box div.b div.b div.b {
     background: url(../images/j_crn_bl_dark.png) 0 0 no-repeat ! important;
 }
-
+*/
 pre.ebc_code {
     border: 1px dashed grey;
     padding: 5px;
@@ -164,6 +169,7 @@ div.ebc_error {
     background-color: yellow;
     font-size: 1.5em;
     font-weight: bold;
+    display: inline-block;
 }
 
 .ecr_deletebutton:hover {
@@ -223,7 +229,8 @@ div.ebc_error {
     padding: 3px;
     border: 1px solid #d9d9d9;
     cursor: pointer;
-    background-color: #eee ! important;
+    background: #eee;
+    border-radius: 10px;
 }
 
 .ecr_button a,.ecr_button a:visited {
@@ -236,8 +243,11 @@ div.ebc_error {
 }
 
 .ecr_button:hover {
-    background-color: #fff ! important;
-    border: 1px solid black;
+    background-color: #fff;
+    /*
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    */
     text-decoration: none;
     color: black;
 }
@@ -250,6 +260,7 @@ div.ebc_error {
     border-top: 2px solid #ffcc00;
     color: black;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 .ecr_toggle {
@@ -277,7 +288,8 @@ label {
 }
 
 label:hover {
-    background-color: #eee;
+    background-color: #ffc;
+    border-radius: 10px;
 }
 
 .ecr_result {
@@ -366,6 +378,7 @@ div.debug_ON {
     border: 2px solid grey;
     padding: 4px;
     float: right;
+    border-radius: 5px;
 }
 
 /*
@@ -476,6 +489,8 @@ div.table_name {
     font-weight: bold;
     background-color: #ffc;
     padding: 0.2em;
+    border: 1px solid silver;
+    border-radius: 10px;
 }
 
 .closeButton {
@@ -501,6 +516,9 @@ div.ecr_floatbox {
     margin: 0.5em;
     background-color: #fff;
     min-width: 160px;
+    padding: 0.5em;
+    border: 1px solid silver;
+    border-radius: 10px;
 }
 
 div.ecr_floatbox_title {
@@ -517,6 +535,9 @@ div.ecr_floatbox_title {
 
 div.white_box {
     background-color: #fff;
+    padding: 1em;
+    border:1px solid silver;
+    border-radius: 10px;
 }
 
 div.ecr_dbRowCell {
@@ -587,10 +608,30 @@ div#jsourceDisplay div.path {
     font-weight: bold;
     text-align: center;
     min-height: 20px;
+    border:1px solid silver;
+    border-radius: 10px;
 }
 
 div#ecrInfoBox {
     padding-top: 0.5em;
+    border-radius: 10px 10px 0 0;
+    border: 2px solid orange;
+}
+
+div#ecrInfoBox a {
+	color: #000;
+	padding: 0.4em;
+	padding-right: 18px;
+}
+
+div#ecrInfoBox a:hover {
+	background-color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+div#ecrInfoBox a.ohloh {
+	padding: 0;
 }
 
 div.ecrFooter {
@@ -626,7 +667,7 @@ div.projectListRow {
 }
 
 div.projectListRow:hover {
-    background-color: #eee;
+    /*background-color: #eee;*/
 }
 
 .projectListHeader {

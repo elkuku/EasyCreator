@@ -15,8 +15,7 @@ $buildOpts = $this->project->buildOpts;
 
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
-
+<div class="ecr_floatbox">
 <div class="infoHeader img icon-24-package_creation">
 	<?php echo jgettext('Package'); ?>
 </div>
@@ -53,15 +52,26 @@ $buildOpts = $this->project->buildOpts;
 </strong>
 <br />
 <input type="checkbox" name="buildopts[]" id="lbl_create_index_html"
- <?php echo (isset($buildOpts['create_indexhtml']) && $buildOpts['create_indexhtml'] == 'ON') ? ' checked="checked"' : ''; ?>
+ <?php echo (isset($buildOpts['create_indexhtml'])
+ && $buildOpts['create_indexhtml'] == 'ON') ? ' checked="checked"' : ''; ?>
  value="create_indexhtml" />
 <label for="lbl_create_index_html"><?php echo jgettext('Create index.html files'); ?></label>
 <br />
 
 <input type="checkbox" name="buildopts[]" id="lbl_create_md5"
- <?php echo (isset($buildOpts['create_md5']) && $buildOpts['create_md5'] == 'ON') ? ' checked="checked"' : ''; ?>
+ <?php echo (isset($buildOpts['create_md5'])
+ && $buildOpts['create_md5'] == 'ON') ? ' checked="checked"' : ''; ?>
  value="create_md5" />
 <label for="lbl_create_md5"><?php echo jgettext('Create MD5 checksum file'); ?></label>
+<br />
+&nbsp;&nbsp;&nbsp;|__<input type="checkbox" name="buildopts[]" id="lbl_create_md5_compressed"
+ <?php echo (isset($buildOpts['create_md5_compressed'])
+ && $buildOpts['create_md5_compressed'] == 'ON') ? ' checked="checked"' : ''; ?>
+ value="create_md5_compressed" />
+<label for="lbl_create_md5_compressed"><?php echo jgettext('Compress checksum file'); ?></label>
+<?php echo JHTML::tooltip(jgettext('Compress checksum file').'::'
+    .jgettext('This will do a small compression on your checksum file')); ?>
+
 <br />
 <br />
 
@@ -69,7 +79,8 @@ $buildOpts = $this->project->buildOpts;
 <br />
 
 <input type="checkbox" name="buildopts[]" id="lbl_include_ecr_projectfile"
- <?php echo (isset($buildOpts['include_ecr_projectfile']) && $buildOpts['include_ecr_projectfile'] == 'ON')
+ <?php echo (isset($buildOpts['include_ecr_projectfile'])
+ && $buildOpts['include_ecr_projectfile'] == 'ON')
  ? ' checked="checked"'
  : ''; ?>
  value="include_ecr_projectfile" />
@@ -77,8 +88,8 @@ $buildOpts = $this->project->buildOpts;
 <br />
 
 <input type="checkbox" name="buildopts[]" id="lbl_remove_autocode"
- <?php echo (isset($buildOpts['remove_autocode']) && $buildOpts['remove_autocode'] == 'ON') ? ' checked="checked"' : ''; ?>
+ <?php echo (isset($buildOpts['remove_autocode'])
+ && $buildOpts['remove_autocode'] == 'ON') ? ' checked="checked"' : ''; ?>
  value="remove_autocode" />
 <label for="lbl_remove_autocode"><?php echo jgettext('Remove EasyCreator AutoCode'); ?></label>
-
-<?php echo ecrHTML::floatBoxEnd();
+</div>

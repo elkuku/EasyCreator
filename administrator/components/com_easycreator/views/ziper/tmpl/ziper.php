@@ -20,17 +20,17 @@ if('package' == $this->project->type
 
     return;
 }
-
-ecrHTML::floatBoxStart();
-echo $this->loadTemplate('format');
-ecrHTML::floatBoxEnd();
-
-ecrHTML::floatBoxStart();
-echo $this->loadTemplate('options');
-ecrHTML::floatBoxEnd();
 ?>
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('format'); ?>
+</div>
 
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('options'); ?>
+</div>
+
+<div class="ecr_floatbox">
+	<h3><?php echo jgettext('Create the package'); ?></h3>
     <div class="ecr_button" onclick="$('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
     style="margin: 1em; padding: 1em; text-align: center;">
         <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
@@ -40,7 +40,7 @@ ecrHTML::floatBoxEnd();
         </h1>
         <div id="xecr_ajax_loader"></div>
     </div>
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
 <div style="clear: both;"></div>
 

@@ -10,9 +10,11 @@
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
+
+return;
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <table>
     <tr>
         <th colspan="2" class="infoHeader imgbarleft icon-24-install"><?php echo jgettext('Install and Uninstall') ?></th>
@@ -56,4 +58,4 @@ defined('_JEXEC') || die('=;)');
         </tr>
     <?php endif; ?>
 </table>
-<?php echo ecrHTML::floatBoxEnd();
+</div>

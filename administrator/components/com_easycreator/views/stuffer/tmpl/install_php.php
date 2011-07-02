@@ -15,7 +15,7 @@ $hasInstall = false;
 $hasUnInstall = false;
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <table>
     <tr>
         <th colspan="2" class="infoHeader imgbarleft icon-24-install">
@@ -29,8 +29,12 @@ $hasUnInstall = false;
         </tr>
         <?php foreach($this->installFiles['php'] as $file) : ?>
         <?php
-        if(strpos($file->name, 'install') === 0) $hasInstall = true;
-        if(strpos($file->name, 'uninstall') === 0) $hasUnInstall = true;
+        if(strpos($file->name, 'install') === 0
+        || strpos($file->name, 'script') === 0)
+        $hasInstall = true;
+
+        if(strpos($file->name, 'uninstall') === 0)
+        $hasUnInstall = true;
         ?>
         <tr>
             <td style="background-color: #cce5ff;"><?php echo $file->folder; ?></td>
@@ -53,5 +57,4 @@ $hasUnInstall = false;
 	    <?php echo jgettext('Create uninstall file'); ?>
 	</div>
 <?php endif; ?>
-
-<?php echo ecrHTML::floatBoxEnd();
+</div>

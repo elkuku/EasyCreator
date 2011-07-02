@@ -59,6 +59,14 @@ value="upgrade" />
  value="create_md5" />
 <label for="lbl_create_md5"><?php echo jgettext('Create MD5 checksum file'); ?></label>
 <br />
+&nbsp;&nbsp;&nbsp;|__<input type="checkbox" name="buildopts[]" id="lbl_create_md5_compressed"
+ <?php echo (isset($projectOptions['create_md5_compressed'])
+ && $projectOptions['create_md5_compressed'] == 'ON') ? ' checked="checked"' : ''; ?>
+ value="create_md5_compressed" />
+<label for="lbl_create_md5_compressed"><?php echo jgettext('Compress checksum file'); ?></label>
+<?php echo JHTML::tooltip(jgettext('Compress checksum file').'::'
+    .jgettext('This will do a small compression on your checksum file')); ?>
+<br />
 <?php endif; ?>
 <br />
 

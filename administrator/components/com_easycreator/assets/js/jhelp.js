@@ -22,7 +22,7 @@ function create_class_list()
         {
             if(response.indexOf('{') != 0)
             {
-                //-- Not Json - must be an error
+                //-- Not JSON - must be an error
                 $('jsonDebug').innerHTML = response;
             }
             else

@@ -92,8 +92,9 @@ $fileTree->showExtension = false;
 <table width="100%">
 	<tr valign="top">
 		<td width="5%" nowrap="nowrap">
-		<?php ecrHTML::floatBoxStart(); ?>
-		  <span class="img icon-16-joomla" style="font-size: 1.4em; font-weight: bold;">Joomla! Framework</span>
+		<div class="ecr_floatbox">
+		  <span class="img icon-16-joomla"
+		  style="font-size: 1.4em; font-weight: bold;">Joomla! Framework</span>
 		  <div style="float: right;"><?php echo JVERSION; ?></div>
 <div class="php-file-tree">
    <ul>
@@ -198,7 +199,7 @@ $fileTree->showExtension = false;
     	</li>
     </ul>
 </div>
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
 		</td>
 		<td>

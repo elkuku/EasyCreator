@@ -118,7 +118,7 @@ class EasyZIPer extends JObject
         $stdOpts = array('verbose', 'files'
         , 'archive_zip', 'archive_tgz', 'archive_bz'
         , 'create_indexhtml', 'remove_autocode', 'include_ecr_projectfile'
-        , 'create_md5');
+        , 'create_md5', 'create_md5_compressed');
 
         foreach($stdOpts as $opt)
         {
@@ -560,54 +560,55 @@ class EasyZIPer extends JObject
                     $destPath .= DS.$folder;
                 }
 
-                if(JFile::copy($srcPath, $destPath.DS.$file->name))
-                {
-                    $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath.'<br />DST: '.$destPath.DS.$file->name);
-
-                    if($file->name == 'install.php'
-                    || $file->name == 'install.package.php')
-                    {
-                        if($this->buildopts['create_md5'])
-                        {
-                            $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check.php');
-                            $fileContents = str_replace('<?php', '', $fileContents);
-                            $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
-
-                            $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check_call.php');
-                            $fileContents = str_replace('<?php', '', $fileContents);
-                            $this->project->addSubstitute('##ECR_MD5CHECK##', $fileContents);
-
-                            $this->project->addSubstitute('_ECR_COM_COM_NAME_', $this->project->comName);
-
-                            $fileContents = JFile::read($destPath.DS.$file->name);
-                            $fileContents = $this->project->substitute($fileContents);
-
-                            if( ! JFile::write($destPath.DS.$file->name, $fileContents))
-                            {
-                                $this->logger->log('Failed to add MD5 install check routine to installphp', 'error');
-                            }
-                        }
-                        else
-                        {
-                            $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', '');
-                            $this->project->addSubstitute('##ECR_MD5CHECK##', '');
-
-                            $fileContents = JFile::read($destPath.DS.$file->name);
-                            $fileContents = $this->project->substitute($fileContents);
-
-                            if( ! JFile::write($destPath.DS.$file->name, $fileContents))
-                            {
-                                $this->logger->log('Failed to clean install.php', 'error');
-                            }
-                        }
-
-                        $this->logger->logFileWrite('', 'install/install.php', $fileContents);
-                    }
-                }
-                else
+                if( ! JFile::copy($srcPath, $destPath.DS.$file->name))
                 {
                     $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath
                     .'<br />DST: '.$destPath.DS.$file->name, 'ERROR copy file');
+
+                    continue;
+                }
+
+                $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath.'<br />DST: '.$destPath.DS.$file->name);
+
+                if($file->name == 'install.php'
+                || $file->name == 'install.package.php')
+                {
+                    if($this->buildopts['create_md5'])
+                    {
+                        $compressed =($this->buildopts['create_md5_compressed']) ? '_compressed' : '';
+                        $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.'.php');
+                        $fileContents = str_replace('<?php', '', $fileContents);
+                        $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
+
+                        $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check_call.php');
+                        $fileContents = str_replace('<?php', '', $fileContents);
+                        $this->project->addSubstitute('##ECR_MD5CHECK##', $fileContents);
+
+                        $this->project->addSubstitute('_ECR_COM_COM_NAME_', $this->project->comName);
+
+                        $fileContents = JFile::read($destPath.DS.$file->name);
+                        $fileContents = $this->project->substitute($fileContents);
+
+                        if( ! JFile::write($destPath.DS.$file->name, $fileContents))
+                        {
+                            $this->logger->log('Failed to add MD5 install check routine to installphp', 'error');
+                        }
+                    }
+                    else
+                    {
+                        $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', '');
+                        $this->project->addSubstitute('##ECR_MD5CHECK##', '');
+
+                        $fileContents = JFile::read($destPath.DS.$file->name);
+                        $fileContents = $this->project->substitute($fileContents);
+
+                        if( ! JFile::write($destPath.DS.$file->name, $fileContents))
+                        {
+                            $this->logger->log('Failed to clean install.php', 'error');
+                        }
+                    }
+
+                    $this->logger->logFileWrite('', 'install/install.php', $fileContents);
                 }
             }//foreach
 
@@ -1029,7 +1030,18 @@ class EasyZIPer extends JObject
 
         foreach($fileList as $file)
         {
-            $md5Str .= md5_file($file).' '.str_replace($this->temp_dir.DS, '', $file).NL;
+            if($this->buildopts['create_md5_compressed'])
+            {
+                $path = str_replace($this->temp_dir.DS, '', $file);
+                $parts = explode(DS, $path);
+                $fName = array_pop($parts);
+                $path = implode('/', $parts);
+                $md5Str .= md5_file($file).' '.$this->compressPath($path).'@'.$fName.NL;
+            }
+            else
+            {
+                $md5Str .= md5_file($file).' '.str_replace($this->temp_dir.DS, '', $file).NL;
+            }
         }//foreach
 
         $subDir =(JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
@@ -1048,6 +1060,59 @@ class EasyZIPer extends JObject
         $this->logger->logFileWrite('MD5SUMS', $this->temp_dir.DS.'MD5SUMS', $md5Str);
 
         return true;
+    }//function
+
+    private function compressPath($path)
+    {
+        static $previous = '';
+
+        if( ! $previous) //-- Init
+        {
+            $previous = $path;
+
+            return $previous;
+        }
+
+        $compressed = '=';//-- Same as previous path - maximun compression :)
+
+        if($previous != $path) //-- Different path - too bad..
+        {
+            $subParts = explode(DS, $path);
+
+            $compressed = $path;//-- One element at Root level
+
+            if(count($subParts) > 1) //-- More elements...
+            {
+                $previousParts = explode(DS, $previous);
+
+                $result = array();
+
+                foreach($subParts as $i => $part)
+                {
+                    if(isset($previousParts[$i])
+                    && $part == $previousParts[$i]) //-- Same as previous sub path
+                    {
+                        $result[] = '-';
+                    }
+                    else //-- Different sub path
+                    {
+                        if(count($result) && $result[count($result) - 1] == '-')
+                        $result[] = '|'; //-- Add a separator
+
+                        $result[] = $part.DS;
+                    }
+                }//foreach
+
+                if(count($result) && $result[count($result) - 1] == '-')
+                $result[] = '|'; //-- Add a separator(no add path)
+
+                $compressed = implode('', $result);
+            }
+        }
+
+        $previous = $path;
+
+        return $compressed;
     }//function
 
     /**

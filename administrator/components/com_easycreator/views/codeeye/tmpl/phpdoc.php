@@ -51,17 +51,14 @@ $listConverters = JHTML::_('select.genericlist', $options, 'phpdoc_converter', n
 ?>
 
 <div class="ecr_floatbox">
-<?php ecrHTML::boxStart(); ?>
     Target Dir: JROOT <?php echo DS; ?>&nbsp;
     <input type="text" id="target_dir" size="25" value="documentation<?php echo DS.$this->project->comName; ?>" />
     <br />
     Format:
     <?php echo $listConverters; ?>
-<?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">
-<?php ecrHTML::boxStart(); ?>
 <strong><?php echo jgettext('Options'); ?></strong>
 <br />
 <input type="checkbox" id="phpdoc_quiet"/><label for="phpdoc_quiet" > Quiet</label><br />
@@ -72,17 +69,14 @@ Parse private:<br />
 Title:<br />
 readmeinstallchangelog<br />
 <input type="text" id="phpcpd_min_tokens" size="15" value="" /><br />
-<?php ecrHTML::boxEnd(); ?>
 </div>
 
 <br /><br />
 <div class="ecr_floatbox">
 
-<?php ecrHTML::boxStart(); ?>
 <div onclick="doPHPDoc(<?php echo "'$sDirs', '$sFiles'"; ?>);" class="ecr_button" style="font-size: 1.5em;">
     <?php echo jgettext('Generate documentation'); ?>
 </div>
-<?php ecrHTML::boxEnd(); ?>
 </div>
 <div style="clear: both;"></div>
 

@@ -14,7 +14,7 @@ var ecrTranslator = new Class({
      */
     copyTrans : function()
     {
-        var s = this.stripQuotes(trim($('default').innerHTML));
+        var s = this.stripQuotes(php2js.trim($('default').innerHTML));
         $('translation').value = s;
         $('translation').focus();
     },// function
@@ -98,7 +98,7 @@ var ecrTranslator = new Class({
             gbranding_displayed = true;
         }
 
-        var text = this.stripQuotes(trim($('default').innerHTML));
+        var text = this.stripQuotes(php2js.trim($('default').innerHTML));
 
         google.language.translate(text, 'en', lang, function(result)
         {

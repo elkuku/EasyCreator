@@ -29,8 +29,9 @@ foreach($projectTypes as $comType => $titel) :
     if( ! isset($projects[$comType])
     || ! count($projects[$comType]))
     continue;
-
-    echo ecrHTML::floatBoxStart();
+?>
+<div class="ecr_floatbox">
+<?php
 
     switch ($comType) :
         case 'library':
@@ -71,10 +72,9 @@ foreach($projectTypes as $comType => $titel) :
     <?php
     $projectCount += count($projects[$comType]);
     endforeach;
-
-    echo ecrHTML::floatBoxEnd();
-endforeach;
 ?>
+</div>
+<?php endforeach; ?>
 
 <?php if($projectCount == 0) : ?>
 	<div class="ecr_noproject" style="color: orange; text-align: center;">

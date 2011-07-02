@@ -12,7 +12,7 @@
 defined('_JEXEC') || die('=;)');
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <div class="infoHeader imgbarleft icon-24-personal">
     <?php echo jgettext('Credits') ?>
 </div>
@@ -43,4 +43,4 @@ defined('_JEXEC') || die('=;)');
 		value="<?php echo $this->project->copyright; ?>" />
 </li>
 </ul>
-<?php echo ecrHTML::floatBoxEnd();
+</div>

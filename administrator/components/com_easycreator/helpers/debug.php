@@ -12,7 +12,7 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * Enter description here ...
+ * EasyCreator's tiny debugger.
  *
  */
 class ecrDebugger

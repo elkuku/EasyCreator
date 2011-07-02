@@ -32,7 +32,6 @@ $fileTree = $cache->call('drawFileTree', $this->project);
     <tr valign="top">
         <td width="15%">
         <div class="ecr_floatbox" style="min-width: 200px;">
-        <?php ecrHTML::boxStart(); ?>
             <?php
             switch($this->project->type):
                 case 'component':
@@ -54,7 +53,6 @@ $fileTree = $cache->call('drawFileTree', $this->project);
         echo $fileTree;
 
         ?>
-        <?php ecrHTML::boxEnd(); ?>
         </div>
 
         </td>
@@ -231,12 +229,12 @@ foreach(EasyProjectHelper::getPartsGroups() as $group)
 }//foreach
 
 ?></div>
-<div style="float: left; margin-left: 1em; background-color: #fff;">
-	<?php echo ecrHTML::boxStart(); ?>
-	<div id="addPartShow">
-		<strong style="color: red;"><?php echo jgettext('Select an element'); ?></strong>
+<div style="float: left; margin-left: 1em;">
+	<div class="ecr_floatbox">
+    	<div id="addPartShow">
+    		<strong style="color: red;"><?php echo jgettext('Select an element'); ?></strong>
+    	</div>
 	</div>
-    <?php echo ecrHTML::boxEnd(); ?>
 </div>
 
 <div style="clear: both;"></div>

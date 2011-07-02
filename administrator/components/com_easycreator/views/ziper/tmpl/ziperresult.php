@@ -12,7 +12,8 @@
 defined('_JEXEC') || die('=;)');
 
 ?>
-<?php ecrHTML::floatBoxStart(); ?>
+
+<div class="ecr_floatbox">
 <?php
 $result = $this->EasyZiper->create($this->project);
 $errors = $this->EasyZiper->getErrors();
@@ -29,29 +30,22 @@ else:
     echo '<ul><li>'.implode('</li><li>', $errors).'</li></ul>';
 endif;
 
-ecrHTML::floatBoxEnd();
 ?>
-<?php
-ecrHTML::floatBoxStart();
-    $this->drawArchive();
-ecrHTML::floatBoxEnd();
-?>
+</div>
+<div class="ecr_floatbox">
+<?php $this->drawArchive(); ?>
+</div>
 
 <?php if(in_array('logging', $this->buildopts)): ?>
-    <?php
-    ecrHTML::floatBoxStart();
-        ?>
+	<div class="ecr_floatbox">
         <div class="ecr_codebox_header" style="font-size: 1.4em;" onclick="toggleDiv('ecr_logdisplay');">
             <?php echo jgettext('Log File'); ?>
         </div>
         <div id="ecr_logdisplay" style="display: none;">
         <?php echo $this->EasyZiper->printLog(); ?>
         </div>
-        <?php
-    ecrHTML::floatBoxEnd();
-    ?>
+    </div>
 <?php endif; ?>
-
 
 <div style="clear: both;"></div>
 <?php

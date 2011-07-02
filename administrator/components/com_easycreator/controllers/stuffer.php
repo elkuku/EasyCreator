@@ -62,7 +62,7 @@ class EasyCreatorControllerStuffer extends JController
         $ecr_project = JRequest::getCmd('ecr_project');
         $group = JRequest::getCmd('group');
         $part = JRequest::getCmd('part');
-//var_dump($_REQUEST);
+
         $element = JRequest::getCmd('element');
         $scope = JRequest::getCmd('element_scope');
 
@@ -84,7 +84,7 @@ class EasyCreatorControllerStuffer extends JController
             return;
         }//try
 
-//        JRequest::setVar('task', $old_task);
+        //        JRequest::setVar('task', $old_task);
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('file', '');
 
@@ -187,8 +187,6 @@ class EasyCreatorControllerStuffer extends JController
             $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
 
             ecrHTML::displayMessage($m, 'error');
-
-            ecrHTML::displayMessage($m, 'error');
         }//try
 
         JRequest::setVar('view', 'stuffer');
@@ -235,7 +233,9 @@ class EasyCreatorControllerStuffer extends JController
 
             //--Setup logging
             ecrLoadHelper('logger');
-            $logger = new easyLogger(date('ymd_Hi').'_add_part.log', JRequest::getVar('buildopts', array()));
+
+            $logger = new easyLogger(date('ymd_Hi').'_add_part.log'
+            , JRequest::getVar('buildopts', array()));
 
             $options = new stdClass;
             $options->ecr_project = $ecr_project;
@@ -454,7 +454,9 @@ class EasyCreatorControllerStuffer extends JController
                         {
                             if( ! array_key_exists($v, $paramTypes))
                             {
-                                JError::raiseWarning(100, 'EasyCreatorControllerStuffer::save_params undefined type: '.$v);
+                                JError::raiseWarning(100
+                                , 'EasyCreatorControllerStuffer::save_params undefined type: '.$v);
+
                                 $paramElem->addAttribute($k, $v);
                             }
                             else
@@ -587,6 +589,7 @@ class EasyCreatorControllerStuffer extends JController
         else
         {
             JError::raiseWarning(100, sprintf(jgettext('The Project %s could not be removed'), $project->name));
+
             JRequest::setVar('view', 'stuffer');
             JRequest::setVar('task', 'stuffer');
 
@@ -652,6 +655,7 @@ class EasyCreatorControllerStuffer extends JController
     public function createTable()
     {
         echo 'StufferController::createTable';
+
         JRequest::setVar('view', 'stuffer');
 
         parent::display();
@@ -697,7 +701,7 @@ class EasyCreatorControllerStuffer extends JController
 
         JRequest::setVar('task', 'install');
 
-        if( ! $type1 || ! $type1)
+        if( ! $type1 || ! $type2)
         {
             ecrHTML::displayMessage('Missing values', 'error');
 
@@ -742,64 +746,36 @@ class EasyCreatorControllerStuffer extends JController
                 switch($type2) //-- install or uninstall
                 {
                     case 'install' :
-                        ecrHTML::displayMessage(__METHOD__.' Unfinished install php');
+                        ecrHTML::displayMessage(__METHOD__.' Unfinished install php', 'notice');
                         break;
 
                     case 'uninstall' :
-                        ecrHTML::displayMessage(__METHOD__.' Unfinished uninstall php');
+                        ecrHTML::displayMessage(__METHOD__.' Unfinished uninstall php', 'notice');
                         break;
                     default :
-                        ecrHTML::displayMessage('Unknown type: '.$type1, 'error');
+                        ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
                         break;
                 }//switch
 
                 break;
 
             case 'sql' :
-                $db = JFactory::getDbo();
-
                 switch($type2) //-- install or uninstall
                 {
                     case 'install' :
-                        $string = '';
-
-                        foreach($project->tables as $table)
-                        {
-                            $sS = $db->getTableCreate($db->getPrefix().$table->name);
-
-                            foreach($sS as $x => $s)
-                            {
-                                $s = str_replace($db->getPrefix(), '#__', $s);
-                                $string .= $s.NL.NL;
-                            }//foreach
-                        }//foreach
-
-                        if( ! JFile::write($path.DS.'install.sql', $string))
-                        {
-                            ecrHTML::displayMessage('Can not create file', 'error');
-                        }
-
-                        ecrHTML::displayMessage('Install sql file created');
+                        $this->processSQLInstall($project, $path);
                         break;
 
                     case 'uninstall' :
-
-                        $string = '';
-
-                        foreach($project->tables as $table)
-                        {
-                            $string .= 'DROP TABLE '.$db->nameQuote('#__'.$table->name).NL.NL;
-                        }//foreach
-
-                        if( ! JFile::write($path.DS.'uninstall.sql', $string))
-                        {
-                            ecrHTML::displayMessage('Can not create file', 'error');
-                        }
-
-                        ecrHTML::displayMessage('Uninstall sql file created');
+                        $this->processSQLUnInstall($project, $path);
                         break;
+
+                    case 'update' :
+                        $this->processSQLUpdate($project, $path);
+                        break;
+
                     default :
-                        ecrHTML::displayMessage('Unknown type: '.$type1, 'error');
+                        ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
                         break;
                 }//switch
 
@@ -812,4 +788,79 @@ class EasyCreatorControllerStuffer extends JController
 
         parent::display();
     }//function
+
+    private function processSQLInstall(EasyProject $project, $path)
+    {
+        $db = JFactory::getDbo();
+
+        $string = '';
+
+        foreach($project->tables as $table)
+        {
+            if('true' == $table->foreign)
+            continue;
+
+            $sS = $db->getTableCreate($db->getPrefix().$table->name);
+
+            foreach($sS as $x => $s)
+            {
+                $s = str_replace($db->getPrefix(), '#__', $s);
+                $string .= $s.NL.NL;
+            }//foreach
+        }//foreach
+
+        $msg =(JFile::exists($path.'/sql/install.sql'))
+        ? jgettext('Install sql file updated')
+        : jgettext('Install sql file created');
+
+        if( ! JFile::write($path.'/sql/install.sql', $string))
+        {
+            ecrHTML::displayMessage(jgettext('Can not create file'), 'error');
+
+            return;
+        }
+
+        ecrHTML::displayMessage($msg);
+    }//function
+
+    private function processSQLUnInstall(EasyProject $project, $path)
+    {
+        $db = JFactory::getDbo();
+
+        $string = '';
+
+        foreach($project->tables as $table)
+        {
+            if('true' == $table->foreign)
+            continue;
+
+            $string .= 'DROP TABLE '.$db->nameQuote('#__'.$table->name).NL.NL;
+        }//foreach
+
+        $msg =(JFile::exists($path.'/sql/uninstall.sql'))
+        ? jgettext('Uninstall sql file updated')
+        : jgettext('Uninstall sql file created');
+
+        if( ! JFile::write($path.'/sql/uninstall.sql', $string))
+        {
+            ecrHTML::displayMessage(jgettext('Can not create file'), 'error');
+
+            return;
+        }
+
+        ecrHTML::displayMessage($msg);
+    }//function
+
+    private function processSQLUpdate(EasyProject $project, $path)
+    {
+        ecrLoadHelper('dbupdater');
+
+        echo 'updating...';
+        $updater = new dbUpdater($project);
+        $versions = $updater->getVersions();
+        var_dump($versions);
+        $file = $updater->buildFromECRBuildDir();
+//        $files = $updater->parseFiles();
+
+    }
 }//class

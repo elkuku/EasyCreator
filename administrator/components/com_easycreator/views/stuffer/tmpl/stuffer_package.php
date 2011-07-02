@@ -10,14 +10,14 @@
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
-
+if($this->project->JCompat != 1.5)
+return;
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
-
-<div class="infoHeader img icon-24-package_creation">
-	<?php echo jgettext('Add extensions'); ?>
-</div>
+<div class="ecr_floatbox">
+    <div class="infoHeader img icon-24-package_creation">
+    	<?php echo jgettext('Add extensions'); ?>
+    </div>
 
 <table>
     <tr valign="top">
@@ -100,4 +100,4 @@ if($this->project->modules
     }
 }
 ?>
-<?php echo ecrHTML::floatBoxEnd();
+</div>

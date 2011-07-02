@@ -15,7 +15,7 @@ ecrScript('templates');
 ?>
 
 <br />
-<?php ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <h2><?php echo jgettext('Install templates'); ?></h2>
 <div class="ecrBigInfo"><?php echo jgettext('Select a template package to import'); ?></div>
 
@@ -32,8 +32,7 @@ ecrScript('templates');
     <input type="hidden" name="task" value="do_install" />
 	</div>
 </form>
-
-<?php ecrHTML::floatBoxEnd(); ?>
+</div>
 
 <div style="clear: both;"></div>
 

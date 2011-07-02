@@ -39,9 +39,7 @@ function reflectFile(file_path, file_nameame)
 	<tr valign="top">
     	<td>
         	<div class="ecr_floatbox">
-                <?php echo ecrHTML::boxStart(); ?>
                 <?php echo drawFileTree($this->project); ?>
-                <?php echo ecrHTML::boxEnd(); ?>
         	</div>
     	</td>
 

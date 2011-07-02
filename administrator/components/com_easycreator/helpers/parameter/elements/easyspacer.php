@@ -58,7 +58,7 @@ class JElementEasySpacer extends JElement
     {
         if($value)
         {
-            return '<div align="center" style="background-color: #E5FF99; font-size: 1.2em;">'.jgettext($value).'</div>';
+            return '<div align="center" style="background-color: #E5FF99; font-size: 1.2em; border-radius: 10px;">'.jgettext($value).'</div>';
         }
         else
         {

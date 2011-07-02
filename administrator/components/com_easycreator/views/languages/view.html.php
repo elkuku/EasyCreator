@@ -95,7 +95,7 @@ class EasyCreatorViewLanguages extends JView
         }
         catch(Exception $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage;
+            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
             ecrHTML::displayMessage($m, 'error');
 
             ecrHTML::easyFormEnd();

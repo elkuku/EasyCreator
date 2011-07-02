@@ -34,15 +34,11 @@ $fileTree = drawFileTree($this->project);
 ?>
 
 <div class="ecr_floatbox">
-    <?php ecrHTML::boxStart(); ?>
         <?php echo $fileTree; ?>
         <div onclick="sniffFolder();" class="ecr_button img32 icon-32-nose"><?php echo jgettext('Sniff folder')?></div>
-    <?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div class="ecr_floatbox">
-
-    <?php ecrHTML::boxStart(); ?>
         Standard:<br />
         <select name="sniff_standard" id="sniff_standard">
         <optgroup label="PEAR provided">
@@ -72,7 +68,8 @@ $fileTree = drawFileTree($this->project);
 ?>
         </select>
         <br /><br />
-        <input type="checkbox" name="sniff_verbose" id="sniff_verbose" /><label for="sniff_verbose">Verbose</label>
+        <input type="checkbox" name="sniff_verbose" id="sniff_verbose" />
+        <label for="sniff_verbose">Verbose</label>
 
         <?php
         foreach($this->project->copies as $dir):
@@ -104,17 +101,14 @@ $fileTree = drawFileTree($this->project);
                 endforeach;
             endforeach;
         endforeach;
-        ecrHTML::boxEnd();
         ?>
 </div>
 
 <div class="ecr_floatbox"">
-<?php ecrHTML::boxStart(); ?>
     <span id="dspl_sniff_folder"></span>
     <span id="dspl_sniff_file"></span>
     <br />
     <div id="ecr_title_file"></div>
-<?php ecrHTML::boxEnd(); ?>
 </div>
 
 <div style="clear: both;"></div>

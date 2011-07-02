@@ -78,6 +78,8 @@ class EasyCreatorControllerConfig extends JController
 
             $ecr_project = JRequest::getCmd('ecr_project');
 
+            $adds = '';
+
             if(strpos($ecr_project, 'ecr') !== 0)
             {
                 $adds =($ecr_project) ? '&view=stuffer&ecr_project='.$ecr_project : '';

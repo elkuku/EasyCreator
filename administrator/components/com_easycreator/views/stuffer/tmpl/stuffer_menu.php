@@ -12,7 +12,7 @@
 defined('_JEXEC') || die('=;)');
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <table>
     <tr valign="top">
         <td>
@@ -71,4 +71,4 @@ $class =('1.5' != ECR_JVERSION) ? 'class="sortable"' : '';
     <!-- To be filled by javascript -->
     <!--                            -->
 </ul>
-<?php echo ecrHTML::floatBoxEnd();
+</div>

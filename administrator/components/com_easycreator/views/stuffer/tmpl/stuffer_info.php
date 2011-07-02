@@ -12,7 +12,7 @@
 defined('_JEXEC') || die('=;)');
 ?>
 
-<?php echo ecrHTML::floatBoxStart(); ?>
+<div class="ecr_floatbox">
 <div class="infoHeader imgbarleft icon-24-info">
     <?php echo jgettext('Info') ?>
 </div>
@@ -67,4 +67,4 @@ defined('_JEXEC') || die('=;)');
     <?php echo ($this->project->fromTpl) ? $this->project->fromTpl : '?'; ?>
 </li>
 </ul>
-<?php echo ecrHTML::floatBoxEnd();
+</div>
