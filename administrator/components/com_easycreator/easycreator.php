@@ -164,9 +164,9 @@ if(version_compare(JVERSION, '1.6', '>'))
 {
     //-- Joomla! 1.6+ compat
 
-    error_reporting(E_ALL);
+    //error_reporting(E_ALL);
     //error_reporting(E_STRICT);//...when ¿
-    //error_reporting(-1);
+    error_reporting(-1);
 
     //-- Mootools compat for 1.2, 1.3
     //ecrScript('compat_mootools');

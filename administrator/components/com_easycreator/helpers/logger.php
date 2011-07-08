@@ -237,7 +237,9 @@ class EasyLogger
             return true;
         }
 
-        if( ! JFile::write(ECRPATH_LOGS.DS.$this->fileName, implode("\n", $this->log)))
+        $log = implode("\n", $this->log);
+
+        if( ! JFile::write(ECRPATH_LOGS.DS.$this->fileName, $log))
         {
             JError::raiseWarning(100, sprintf(jgettext('The file %s could not be written to path %s')
             , $this->fileName, ECRPATH_LOGS));

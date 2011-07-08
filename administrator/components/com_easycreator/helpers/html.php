@@ -688,17 +688,26 @@ EOF;
 
         while($line = fgets($f, 1000))
         {
-            if(strpos($line, '@version'))
-            {
-                $line = explode('$', $line);
-                $line = explode(' ', $line[1]);
-                $svn_rev = $line[2];
-                $svn_date = date("d-M-Y", strtotime($line[3]));
+            if(false == strpos($line, '@version'))
+            continue;
+
+                $parts = explode('$', $line);
+
+                if(count($parts) < 2)
+                continue;
+
+                $parts = explode(' ', $parts[1]);
+
+                if(count($parts) < 3)
+                continue;
+
+                $svn_rev = $parts[2];
+                $svn_date = date('d-M-Y', strtotime($parts[3]));
                 $ret = $svn_rev;
                 $ret .=($revOnly) ? '' : '  / '.$svn_date;
 
                 break;
-            }
+
         }// while
 
         fclose($f);

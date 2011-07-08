@@ -11,11 +11,17 @@
 //--No direct access
 defined('_JEXEC') || die('=;)');
 
+/**
+ * Update Joomla! extensions.
+ *
+ */
 class extensionUpdater
 {
     private $project = null;
 
     private $hasUpdates = false;
+
+    private $tmpPath = '';
 
     public function __construct(EasyProject $project)
     {
@@ -26,6 +32,16 @@ class extensionUpdater
             $this->hasUpdates = $this->prepareUpdate();
         }
     }//function
+
+    public function __get($what)
+    {
+        if(in_array($what, array('hasUpdates', 'tmpPath')))
+        {
+            return $this->$what;
+        }
+
+        ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+    }
 
     private function prepareUpdate()
     {
@@ -52,7 +68,7 @@ class extensionUpdater
             return false;
         }
 
-        foreach ($folders as $folder)
+        foreach($folders as $folder)
         {
             JFolder::create($tmpPath.'/'.$folder);
 
@@ -62,45 +78,29 @@ class extensionUpdater
 
             if(1 == count($files))
             {
-                $source = $buildsPath.'/'.$folder.'/'.$files[0];
                 //-- Only one file found in folder - take it
-
+                $source = $buildsPath.'/'.$folder.'/'.$files[0];
             }
             else
             {
-                echo 'more files found....';
+                //@todo tmp solution
+                echo 'more files found....picking '.$files[0];
                 $source = $buildsPath.'/'.$folder.'/'.$files[0];//temp
             }
 
             $destination = $tmpPath.'/'.$folder;
 
             if( ! JArchive::extract($source, $destination))
-            return false;
+            {
+                ecrHTML::displayMessage(sprintf('Unable to extract the package %s to %s'
+                , $source, $destination), 'error');
 
-
-            $this->fileList[$folder] = $buildsPath.'/'.$folder.'/install.sql';
+                return false;
+            }
         }//foreach
-        ;
+
+        $this->tmpPath = $tmpPath;
+
+        return true;
     }//function
-
-    private function unpack($source, $destination)
-    {
-        		// Path to the archive
-		$archivename = $p_filename;
-
-		// Temporary folder to extract the archive into
-		$tmpdir = uniqid('install_');
-
-		// Clean the paths to use for archive extraction
-		$extractdir = JPath::clean(dirname($p_filename) . '/' . $tmpdir);
-		$archivename = JPath::clean($archivename);
-
-		// Do the unpacking of the archive
-		$result = JArchive::extract($source, $destination);
-
-		if ($result === false) {
-			return false;
-		}
-        ;
-    }
 }//class

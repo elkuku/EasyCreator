@@ -120,7 +120,7 @@ abstract class EasyProject extends JObject
 
     // @codingStandardsIgnoreStart
 
-    public function findCopies() {}//function
+    public abstract function findCopies();
 
     public function getLanguageScopes() {}//function
     public function getLanguagePaths() {}//function
@@ -156,9 +156,11 @@ abstract class EasyProject extends JObject
         if( ! $data)
         return false;
 
+        $this->method = (string)$data->attributes()->method;
+
         foreach($data as $key => $value)
         {
-            $this->$key = (string)$value;
+            $this->$key = $value;
         }//foreach
 
         return true;

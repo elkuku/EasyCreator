@@ -857,9 +857,11 @@ class EasyCreatorControllerStuffer extends JController
 
         echo 'updating...';
         $updater = new dbUpdater($project);
-        $versions = $updater->getVersions();
+        $versions = $updater->versions;
         var_dump($versions);
-        $file = $updater->buildFromECRBuildDir();
+        $files = $updater->buildFromECRBuildDir();
+
+        var_dump($files);
 //        $files = $updater->parseFiles();
 
     }

@@ -411,6 +411,8 @@ class EasyProjectComponent extends EasyProject
 
             default:
                 JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+
+                return false;
                 break;
         }//switch
 
@@ -438,12 +440,40 @@ class EasyProjectComponent extends EasyProject
 
                     default:
                         JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+
+                        return false;
                         break;
                 }//switch
 
                 $this->setDbMenuItem($menu);
             }
         }//foreach
+
+        $this->readMenu();
+
+        if('1.5' == ECR_JVERSION)
+        {
+            //-- Remove admin submenu items
+            foreach($this->submenu as $dbMenu)
+            {
+                $found = false;
+
+                foreach($submenu as $menu)
+                {
+                    if($dbMenu['menuid'] == $menu['menuid'])
+                    {
+                        $found = true;
+                        break;
+                    }
+                }//foreach
+
+                if( ! $found)
+                {
+                    if( ! $this->removeAdminMenu($dbMenu))
+                    return false;
+                }
+            }//foreach
+        }
 
         return true;
     }//function
@@ -581,7 +611,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(100, __METHOD__.' - Invalid project id');
+                JError::raiseWarning(100, __METHOD__.' - Unknown JVersion');
 
                 return false;
                 break;
@@ -599,12 +629,12 @@ class EasyProjectComponent extends EasyProject
      */
     protected function removeAdminMenus($row)
     {
-        // Initialise Variables
+        //-- Initialise Variables
         $db = JFactory::getDbo();
         $table = JTable::getInstance('menu');
         $id = $row->extension_id;
 
-        // Get the ids of the menu items
+        //-- Get the ids of the menu items
         $query = $db->getQuery(true);
 
         $query->from('#__menu');
@@ -616,7 +646,7 @@ class EasyProjectComponent extends EasyProject
 
         $ids = $db->loadResultArray();
 
-        // Check for error
+        //-- Check for error
         if($error = $db->getErrorMsg() || empty($ids))
         {
             JError::raiseWarning('', jgettext('There was a problem updating the admin menu'));
@@ -630,7 +660,7 @@ class EasyProjectComponent extends EasyProject
         }
         else
         {
-            // Iterate the items to delete each one.
+            //-- Iterate the items to delete each one.
             foreach($ids as $menuid)
             {
                 if( ! $table->delete((int)$menuid))
@@ -641,7 +671,7 @@ class EasyProjectComponent extends EasyProject
                 }
             }//foreach
 
-            // Rebuild the whole tree
+            //-- Rebuild the whole tree
             $table->rebuild();
         }
 
@@ -741,6 +771,34 @@ class EasyProjectComponent extends EasyProject
         if( ! $db->query())
         {
             ecrHTML::displayMessage($db->stderr(true));
+
+            return false;
+        }
+
+        return true;
+    }//function
+
+    /**
+     * Remove an admin menu entry.
+     * For Joomla! 1.5 only !
+     *
+     * @param array $item Item to remove
+     */
+    private function removeAdminMenu($item)
+    {
+        $query = new JDatabaseQuery;
+
+        $db = JFactory::getDBO();
+
+        $query->from('#__components');
+        $query->delete();
+        $query->where('id='.$item['menuid']);
+
+        $db->setQuery($query);
+
+        if( ! $db->query())
+        {
+            ecrHTML::displayMessage($db->getErrorMsg(), 'error');
 
             return false;
         }

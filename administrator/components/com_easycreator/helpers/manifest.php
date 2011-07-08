@@ -113,7 +113,9 @@ class JoomlaManifest extends JObject
             .JFile::getName(EasyProjectHelper::findManifest($this->project)));
         }
 
-        if( ! JFile::write($path, $this->formatXML()))
+        $xml = $this->formatXML();
+
+        if( ! JFile::write($path, $xml))
         {
             $this->setError('Could not save XML file!');
 
@@ -262,7 +264,18 @@ class JoomlaManifest extends JObject
             case '1.7':
                 //-- J! 1.6 update stuff
                 $update = $this->manifest->addChild('update');
-                $updateSql = $update->addChild('sql');
+                $updateSql = $update->addChild('schemas');
+
+                //-- SQL updates
+                if(count($installFiles['sql_updates']))
+                {
+                    foreach($installFiles['sql_updates'] as $file)
+                    {
+                        $schema = $updateSql->addChild('schemapath', $file->folder.'/'.$file->name);
+                        $schema->addAttribute('type', $file->name);
+                    }//foreach
+                }
+
                 break;
 
             default:
@@ -1123,9 +1136,10 @@ class JoomlaManifest extends JObject
      */
     public function formatXML()
     {
-        //        $errRep = ini_get('error_reporting');
-        //
-        //        ini_set('error_reporting', 0);
+        $errRep = ini_get('error_reporting');
+
+        //-- DOMImplementation throws strict errors :(
+        ini_set('error_reporting', 0);
 
         if($dtd = $this->project->getDTD(JVERSION))
         {
@@ -1146,7 +1160,7 @@ class JoomlaManifest extends JObject
         $document->encoding = 'utf-8';
         $document->formatOutput = true;
 
-        //        ini_set('error_reporting', $errRep);
+        ini_set('error_reporting', $errRep);
 
         return $document->saveXML();
     }//function

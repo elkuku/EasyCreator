@@ -660,6 +660,7 @@ class EasyProjectHelper
         $installFiles = array();
         $installFiles['php'] = array();
         $installFiles['sql'] = array();
+        $installFiles['sql_updates'] = array();
 
         if($project->type != 'component')
         {
@@ -671,7 +672,7 @@ class EasyProjectHelper
         if($project->buildPath)
         {
             //-- if $project->buildPath is set we are building a NEW project)
-            if(JFolder::exists($project->buildPath.DS.'install'))
+            if(JFolder::exists($project->buildPath.'/install'))
             {
                 $base = $project->buildPath.DS.'install';
             }
@@ -706,7 +707,7 @@ class EasyProjectHelper
         }//foreach
 
         //-- Look in 'install' folder
-        if(JFolder::exists($base.DS.'install'))
+        if(JFolder::exists($base.'/install'))
         {
             $files = JFolder::files($base.DS.'install'
             , '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$)', true, true);
@@ -722,6 +723,23 @@ class EasyProjectHelper
 
                 $installFiles[JFile::getExt($file)][] = $f;
             }//foreach
+        }
+
+        //-- Look for update folder - must be in specific location
+        $locTest = '/install/sql/updates';
+
+        if(JFolder::exists($base.$locTest))
+        {
+            $folders = JFolder::folders($base.$locTest);
+
+            foreach($folders as $folder)
+            {
+                $f = new stdClass;
+                $f->folder = $locTest;
+                $f->name = $folder;
+
+                $installFiles['sql_updates'][] = $f;
+            }
         }
 
         return $installFiles;

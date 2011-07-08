@@ -37,18 +37,19 @@ class dbUpdater
         if( ! $folders)
         return;
 
-        foreach ($folders as $folder)
-        {
-            $this->versions[$folder] = $buildsPath.'/'.$folder.'/install.sql';
-        }//foreach
-
+        $this->versions = $folders;
         $this->project = $project;
     }//function
 
-    public function getVersions()
+    public function __get($what)
     {
-        return array_keys($this->versions);
-    }
+        if(in_array($what, array('versions', 'tmpPath')))
+        {
+            return $this->$what;
+        }
+
+        ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+    }//function
 
     public function buildFromECRBuildDir()
     {
@@ -56,11 +57,84 @@ class dbUpdater
 
         $updater = new extensionUpdater($this->project);
 
+        if( ! $updater->hasUpdates)
+        return;
 
-    }
+        foreach($this->versions as $version)
+        {
+            //-- Find a install.sql file
+
+            $fileName = $this->findInstallFile($updater->tmpPath.'/'.$version.'/admin/install/sql');
+
+            if( ! $fileName)
+            {
+                echo 'No install.sql file for '.$version;
+
+                continue;
+            }
+
+            $this->fileList[$version] = $fileName;
+        }//foreach
+
+        var_dump($this->fileList);
+
+        if( ! array_key_exists($this->project->version, $this->fileList))
+        {
+            //-- Search for current install file
+            $fileName = $this->findInstallFile(JPATH_ADMINISTRATOR.'/components/'
+            .$this->project->comName.'/install/sql');
+
+            if( ! $fileName)
+            {
+                echo 'No install.sql file for '.$this->project->version;
+
+                continue;
+            }
+
+            $this->fileList[$this->project->version] = $fileName;
+        }
+
+        $files = $this->parseFiles();
+
+        var_dump($files);
+
+        $path = JPATH_ADMINISTRATOR.'/components/'.$this->project->comName.'/install/sql/updates/mysql';
+
+        foreach($files as $file)
+        {
+            $fileName = $file->version.'.sql';
+
+            if( ! JFile::write($path.'/'.$fileName, $file->query))
+            {
+                echo 'Can not write file to '.$path.'/'.$fileName;
+
+                return false;
+            }
+        }//foreach
+    }//function
+
+    private function findInstallFile($path)
+    {
+        $files = JFolder::files($path);
+
+        $fileName = '';
+
+        foreach($files as $file)
+        {
+            if(0 == strpos($file, 'install'))
+            {
+                $fileName = $path.'/'.$file;
+                break;
+            }
+        }//foreach
+
+        return $fileName;
+    }//function
 
     public function parseFiles()
     {
+        ecrLoadHelper('SQL.Parser');
+
         if( ! $this->fileList)
         return array();
 
@@ -176,7 +250,7 @@ class dbUpdater
                     {
                         foreach($field['constraints'] as $c)
                         {
-                            foreach ($pField['constraints'] as $pC)
+                            foreach($pField['constraints'] as $pC)
                             {
                                 if( ! isset($pC['type']) || ! isset($c['type']))
                                 continue;
@@ -190,18 +264,18 @@ class dbUpdater
 
                                     continue 2;
                                 }
-                            }
+                            }//foreach
                         }//foreach
                     }
                 }//foreach
 
-                foreach ($previous->tables[$table->name]->fields as $fName => $field)
+                foreach($previous->tables[$table->name]->fields as $fName => $field)
                 {
                     if( ! array_key_exists($fName, $table->fields))
                     {
                         $alters[] = 'DROP COLUMN '.$this->quote($fName).NL;
                     }
-                }
+                }//foreach
 
                 $alter =($alters) ? implode(', ', $alters) : '';
 
@@ -253,5 +327,5 @@ class dbUpdater
     private function quote($string)
     {
         return $this->nameQuote.$string.$this->nameQuote;
-    }
+    }//function
 }//class
