@@ -107,6 +107,7 @@ class EasyProjectHelper
             if('package' != $project->type)
             {
                 //-- All projects *except packages* must be installed in the database
+                //return $project;
                 throw new Exception(sprintf(jgettext('Project %s not found'), $name));
             }
         }

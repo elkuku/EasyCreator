@@ -118,7 +118,18 @@ class EasyCreatorViewZiper extends JView
     {
         echo '<h1>'.jgettext('Archive').'</h1>';
 
-        $this->zip_dir_path = ECRPATH_BUILDS.DS.$this->project->comName;
+        $path = $this->project->getZipPath();
+
+        if($path)
+        {
+            $this->zip_dir_path = $path;
+            $base_href = 'file://'.$path;
+        }
+        else
+        {
+            $this->zip_dir_path = ECRPATH_BUILDS.DS.$this->project->comName;
+            $base_href = JURI::Root().'administrator/components/com_easycreator/builds/'.$this->project->comName;
+        }
 
         if( ! JFolder::exists($this->zip_dir_path))
         {
@@ -130,9 +141,10 @@ class EasyCreatorViewZiper extends JView
         }
 
         $folders = JFolder::folders($this->zip_dir_path);
-        $base_href = JURI::Root().'administrator/components/com_easycreator/builds/'.$this->project->comName;
 
-        rsort($folders);
+        natcasesort($folders);
+
+        $folders = array_reverse($folders);
 
         foreach($folders as $folder)
         {
@@ -153,56 +165,51 @@ class EasyCreatorViewZiper extends JView
             <div id="ajaxMessage"></div>
             <div id="ajaxDebug"></div>
 <table class="adminlist" cellspacing="5">
-	<tbody>
-		<tr style="background-color: #eee;">
-			<th><?php echo jgettext('File'); ?></th>
-			<th><?php echo jgettext('Modified'); ?></th>
-			<th><?php echo jgettext('Size'); ?></th>
-			<th colspan="2" align="center"><?php echo jgettext('Action'); ?></th>
-		</tr>
-		<?php
+    <tbody>
+        <tr style="background-color: #eee;">
+            <th><?php echo jgettext('File'); ?></th>
+            <th><?php echo jgettext('Modified'); ?></th>
+            <th><?php echo jgettext('Size'); ?></th>
+            <th colspan="2" align="center"><?php echo jgettext('Action'); ?></th>
+        </tr>
+        <?php
         $k = 0;
 
         foreach($files as $file)
         {
             $info = lstat($base_path.DS.$file);
-            $date = JFactory::getDate($info[9]);
             $href = $base_href.'/'.$folder.'/'.$file;
-            $fsize = $info[7];
 
-            $js_delete = '';
-            $js_delete .= " document.adminForm.file_name.value='".$file."';";
             $p = str_replace(JPATH_ROOT.DS, '', $base_path);
             $p = str_replace('\\', '/', $p);
-            $js_delete .= " document.adminForm.file_path.value='".$p."';";
-            $js_delete .= " submitbutton('delete');";
-
-            $js_delete = ' onclick="'.$js_delete.'"';
 
             ?>
-		<tr id="row<?php echo $file; ?>"
-		class="<?php echo 'row'.$k; ?>">
-			<td><?php echo $file; ?></td>
-			<td><?php echo $date->toFormat(); ?></td>
-			<td><?php echo ecrHTML::byte_convert($fsize); ?></td>
-			<td width="2%"><a href="<?php echo $href; ?>"
-				style="padding-left: 20px; height: 14px;"
-				class="ecr_button img icon-16-save hasEasyTip"
-				title="<?php echo jgettext('Download'); ?>::"> </a></td>
-			<td width="2%">
-			<div style="padding-left: 20px; height: 14px;"
-				class="ecr_button img icon-16-delete hasEasyTip"
-				title="<?php echo jgettext('Delete'); ?>::"
-				onclick="deleteZipFile(<?php echo "'$p', '$file'"?>);"></div>
-			</td>
-		</tr>
-		<?php
+        <tr id="row<?php echo $file; ?>"
+        class="<?php echo 'row'.$k; ?>">
+            <td><?php echo $file; ?></td>
+            <td><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
+            <td><?php echo ecrHTML::byte_convert($info[7]); ?></td>
+            <td width="2%"><a href="<?php echo $href; ?>"
+                style="padding-left: 20px; height: 14px;"
+                class="ecr_button img icon-16-save hasEasyTip"
+                title="<?php echo jgettext('Download'); ?>::"> </a></td>
+            <td width="2%">
+            <?php if( ! $this->project->zipPath) { ?>
+                <div style="padding-left: 20px; height: 14px;"
+                    class="ecr_button img icon-16-delete hasEasyTip"
+                    title="<?php echo jgettext('Delete'); ?>::"
+                    onclick="deleteZipFile(<?php echo "'$p', '$file'"?>);">
+                </div>
+            <?php } ?>
+            </td>
+        </tr>
+        <?php
         $k = 1 - $k;
         }//foreach
         ?>
-	</tbody>
+    </tbody>
 </table>
-		<?php
+        <?php
         }//foreach
     }//function
 }//class

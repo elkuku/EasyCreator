@@ -2,9 +2,9 @@
 /**
  * @version SVN: $Id$
  * @package    EasyCreator
- * @subpackage	Views
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 07-Mar-2008
+ * @subpackage Views
+ * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Created on 07-Mar-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
@@ -30,15 +30,18 @@ if('package' == $this->project->type
 </div>
 
 <div class="ecr_floatbox">
-	<h3><?php echo jgettext('Create the package'); ?></h3>
+    <?php echo $this->loadTemplate('folder'); ?>
+</div>
+
+<div class="ecr_floatbox">
+    <h3><?php echo jgettext('Create the package'); ?></h3>
     <div class="ecr_button" onclick="$('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
     style="margin: 1em; padding: 1em; text-align: center;">
         <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
         style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
         <h1>
-        <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
+            <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
         </h1>
-        <div id="xecr_ajax_loader"></div>
     </div>
 </div>
 

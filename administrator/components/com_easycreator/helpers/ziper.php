@@ -54,7 +54,9 @@ class EasyZIPer extends JObject
     {
         $this->project = $project;
 
-        $this->build_dir = substr(JPATH_COMPONENT_ADMINISTRATOR, strlen(JPATH_SITE) + 1).DS.'builds';
+        //$this->build_dir = substr(JPATH_COMPONENT_ADMINISTRATOR, strlen(JPATH_SITE) + 1).DS.'builds';
+
+        $this->build_dir = $this->project->getZipPath();
 
         //-- Init buildopts
         $buildopts = JRequest::getVar('buildopts', array());
@@ -1131,7 +1133,16 @@ class EasyZIPer extends JObject
 
         $this->logger->log('Start adding files');
 
-        $zipDir = JPATH_ROOT.DS.$this->build_dir.DS.$this->project->comName.DS.$this->project->version;
+        //$zipDir = JPATH_ROOT.DS.$this->build_dir.DS.$this->project->comName.DS.$this->project->version;
+
+        if($this->build_dir != ECRPATH_BUILDS)
+        {
+            $zipDir = $this->build_dir.DS.$this->project->version;
+        }
+        else
+        {
+            $zipDir = $this->build_dir.DS.$this->project->comName.DS.$this->project->version;
+        }
 
         //--Build the file list
         $files = JFolder::files($this->temp_dir, '.', true, true);
@@ -1142,8 +1153,15 @@ class EasyZIPer extends JObject
             JFolder::create($zipDir);
         }
 
-        $hrefBase = JURI::Root().'administrator/components/com_easycreator/builds/'
-        .$this->project->comName.'/'.$this->project->version;
+        if($this->project->zipPath)
+        {
+            $hrefBase = 'file://'.$this->project->zipPath.'/'.$this->project->version;
+        }
+        else
+        {
+            $hrefBase = JURI::Root().'administrator/components/com_easycreator/builds/'
+            .$this->project->comName.'/'.$this->project->version;
+        }
 
         $customFileName = EasyProjectHelper::formatFileName($this->project, JRequest::getVar('cst_format'));
 

@@ -78,6 +78,8 @@ abstract class EasyProject extends JObject
 
     public $buildPath = false;
 
+    public $zipPath = '';
+
     public $buildOpts = array();
 
     private $_substitutes = array();
@@ -388,6 +390,7 @@ abstract class EasyProject extends JObject
         $xml->addChild('JCompat', $this->JCompat);
         $xml->addChild('extensionPrefix', $this->extensionPrefix);
         $xml->addChild('langFormat', $this->langFormat);
+        $xml->addChild('zipPath', $this->zipPath);
 
         //-- Package Modules
         if(count($this->modules))
@@ -619,6 +622,7 @@ abstract class EasyProject extends JObject
         $this->comName = (string)$manifest->comname;
         $this->JCompat = ((string)$manifest->JCompat) ? (string)$manifest->JCompat : '1.5';
         $this->langFormat = (string)$manifest->langFormat;
+        $this->zipPath = (string)$manifest->zipPath;
 
         $this->extensionPrefix = (string)$manifest->extensionPrefix;
 
@@ -1067,11 +1071,30 @@ abstract class EasyProject extends JObject
     public function getSubstitute($key)
     {
         if(array_key_exists($key, $this->_substitutes))
-        {
-            return $this->_substitutes[$key];
-        }
+        return $this->_substitutes[$key];
 
         return '';
+    }//function
+
+    /**
+     * Get the path to the build directory.
+     *
+     * @return string
+     */
+    public function getZipPath()
+    {
+        //-- Project specific build dir
+        if($this->zipPath)
+        return $this->zipPath;
+
+        //-- Standard config build dir
+        $path = JComponentHelper::getParams('com_easycreator')->get('zipPath');
+
+        if($path)
+        return $path;
+
+        //-- Standard extension build dir
+        return ECRPATH_BUILDS;
     }//function
 
     /**
@@ -1089,5 +1112,10 @@ abstract class EasyProject extends JObject
         }//foreach
 
         return $string;
+    }//function
+
+    public function __toString()
+    {
+        return $this->comName;
     }//function
 }//class

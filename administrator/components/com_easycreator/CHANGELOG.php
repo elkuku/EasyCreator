@@ -53,6 +53,9 @@ Legend:
 ______________________________________________
 
 08-Jul-2011 Nikolai Plath
+ + Added posibility to specify a custom output directory for created zip packages
+
+08-Jul-2011 Nikolai Plath
  # Fixed setting method="upgrade" not read from install.xml - Thanks Kharlanki
  # Fixed Can not delete admin submenu entries in J! 1.5 - Thanks Kharlanki
  # Fixed notices in packager when projects CHANGELOG is not under svn version control - Thanks Kharlanki

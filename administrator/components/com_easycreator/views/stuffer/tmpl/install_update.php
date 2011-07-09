@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
 $checked =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 
 $updater = new dbUpdater($this->project);
-//$files = $updater->parseFiles();
+
 $versions = $updater->versions;
 
 ?>
@@ -34,20 +34,22 @@ $versions = $updater->versions;
         <?php echo jgettext('Upgrade'); ?>
     </label>
 
-    <h4><?php echo jgettext('Versions'); ?></h4>
-    <?php if($versions) : ?>
-        <ul>
-        <?php foreach($versions as $version) : ?>
-            <li><?php echo $version; ?></li>
-        <?php endforeach; ?>
-        <?php if( ! in_array($this->project->version, $versions)) : ?>
-            <li>
-                <?php echo sprintf(jgettext('Current version: %s'), $this->project->version); ?>
-            </li>
-        <?php endif; ?>
-         </ul>
-         <div class="ecr_button img icon-16-add" onclick="createFile('sql', 'update');">
-             <?php echo jgettext('Create database updates'); ?>
-         </div>
+    <?php if('1.5' != $this->project->JCompat) : ?>
+        <h4><?php echo jgettext('Versions'); ?></h4>
+        <?php if($versions) : ?>
+            <ul>
+            <?php foreach($versions as $version) : ?>
+                <li><?php echo $version; ?></li>
+            <?php endforeach; ?>
+            <?php if( ! in_array($this->project->version, $versions)) : ?>
+                <li>
+                    <?php echo sprintf(jgettext('Current version: %s'), $this->project->version); ?>
+                </li>
+            <?php endif; ?>
+             </ul>
+             <div class="ecr_button img icon-16-add" onclick="createFile('sql', 'update');">
+                 <?php echo jgettext('Create database updates'); ?>
+             </div>
+         <?php endif; ?>
      <?php endif; ?>
 </div>
