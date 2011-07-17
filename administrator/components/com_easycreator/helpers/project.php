@@ -162,7 +162,7 @@ abstract class EasyProject extends JObject
 
         foreach($data as $key => $value)
         {
-            $this->$key = $value;
+            $this->$key = (string)$value;
         }//foreach
 
         return true;
@@ -1077,27 +1077,6 @@ abstract class EasyProject extends JObject
     }//function
 
     /**
-     * Get the path to the build directory.
-     *
-     * @return string
-     */
-    public function getZipPath()
-    {
-        //-- Project specific build dir
-        if($this->zipPath)
-        return $this->zipPath;
-
-        //-- Standard config build dir
-        $path = JComponentHelper::getParams('com_easycreator')->get('zipPath');
-
-        if($path)
-        return $path;
-
-        //-- Standard extension build dir
-        return ECRPATH_BUILDS;
-    }//function
-
-    /**
      * Replaces tags in a string with values from the substitution array.
      *
      * @param string &$string The string to apply the substitution
@@ -1112,6 +1091,27 @@ abstract class EasyProject extends JObject
         }//foreach
 
         return $string;
+    }//function
+
+    /**
+     * Get the path to the build directory.
+     *
+     * @return string
+     */
+    public function getZipPath()
+    {
+        //-- 1. Project specific build dir
+        if($this->zipPath)
+        return $this->zipPath;
+
+        //-- 2. Standard config build dir
+        $path = JComponentHelper::getParams('com_easycreator')->get('zipPath');
+
+        if($path)
+        return $path;
+
+        //-- 3. Standard extension build dir
+        return ECRPATH_BUILDS.'/'.$this->comName;
     }//function
 
     public function __toString()

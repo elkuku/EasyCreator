@@ -204,11 +204,10 @@ else
     //-- Perform the Request task
     $controller->execute(JRequest::getCmd('task'));
 
-    if(ECR_DEV_MODE && ECR_DEBUG_LANG)
+    if(ECR_DEV_MODE && ECR_DEBUG_LANG && class_exists('g11n'))
     {
         g11n::debugPrintTranslateds(true);
         g11n::debugPrintTranslateds();
-        //    var_dump(g11n::getStrings());
     }
 
     //-- Display the footer

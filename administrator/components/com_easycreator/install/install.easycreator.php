@@ -125,7 +125,9 @@ function com_install()
 
           $md5Check = checkMD5File($md5Path, $paths);
 
-          if(count($md5Check))
+          echo sprintf(jgettext('%d files checked...'), $md5Check[0]);
+
+          if(count($md5Check) > 1)
           {
               echo '<strong style="color: red;">'.jgettext('There have been errors').'</strong>';
               echo '<ul style="color: red;">';
@@ -165,6 +167,8 @@ function checkMD5File($path, $extensionPaths)
 
     $errors = array();
 
+    $count = 0;
+
     foreach($lines as $line)
     {
         if( ! trim($line))
@@ -176,6 +180,8 @@ function checkMD5File($path, $extensionPaths)
 
         if( ! array_key_exists($parts[0], $extensionPaths))
         continue;
+
+        $count ++;
 
         $path = $extensionPaths[$parts[0]].DS.substr($file, strlen($parts[0]) + 1);
 
@@ -191,6 +197,8 @@ function checkMD5File($path, $extensionPaths)
             $errors[] = sprintf(jgettext('File not found: %s'), $path);
         }
     }//foreach
+
+    array_unshift($errors, $count);
 
     return $errors;
 }//function

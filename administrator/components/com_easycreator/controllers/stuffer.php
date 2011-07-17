@@ -740,51 +740,58 @@ class EasyCreatorControllerStuffer extends JController
             }
         }
 
-        switch($type1) // php or sql
+        try {
+            switch($type1) // php or sql
+            {
+                case 'php' :
+                    switch($type2) //-- install or uninstall
+                    {
+                        case 'install' :
+                            ecrHTML::displayMessage(__METHOD__.' Unfinished install php', 'notice');
+                            break;
+
+                        case 'uninstall' :
+                            ecrHTML::displayMessage(__METHOD__.' Unfinished uninstall php', 'notice');
+                            break;
+                        default :
+                            ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
+                            break;
+                    }//switch
+
+                    break;
+
+                case 'sql' :
+                    switch($type2) //-- install or uninstall
+                    {
+                        case 'install' :
+                            $this->processSQLInstall($project, $path);
+                            break;
+
+                        case 'uninstall' :
+                            $this->processSQLUnInstall($project, $path);
+                            break;
+
+                        case 'update' :
+                            $this->processSQLUpdate($project, $path);
+                            break;
+
+                        default :
+                            ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
+                            break;
+                    }//switch
+
+                    break;
+
+                default :
+                    ecrHTML::displayMessage('Unknown type: '.$type1, 'error');
+                    break;
+            }//switch
+        }
+        catch (Exception $e)
         {
-            case 'php' :
-                switch($type2) //-- install or uninstall
-                {
-                    case 'install' :
-                        ecrHTML::displayMessage(__METHOD__.' Unfinished install php', 'notice');
-                        break;
+            ecrHTML::displayMessage($e->getMessage(), 'error');
+        }//try
 
-                    case 'uninstall' :
-                        ecrHTML::displayMessage(__METHOD__.' Unfinished uninstall php', 'notice');
-                        break;
-                    default :
-                        ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
-                        break;
-                }//switch
-
-                break;
-
-            case 'sql' :
-                switch($type2) //-- install or uninstall
-                {
-                    case 'install' :
-                        $this->processSQLInstall($project, $path);
-                        break;
-
-                    case 'uninstall' :
-                        $this->processSQLUnInstall($project, $path);
-                        break;
-
-                    case 'update' :
-                        $this->processSQLUpdate($project, $path);
-                        break;
-
-                    default :
-                        ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
-                        break;
-                }//switch
-
-                break;
-
-            default :
-                ecrHTML::displayMessage('Unknown type: '.$type1, 'error');
-                break;
-        }//switch
 
         parent::display();
     }//function
@@ -805,15 +812,15 @@ class EasyCreatorControllerStuffer extends JController
             foreach($sS as $x => $s)
             {
                 $s = str_replace($db->getPrefix(), '#__', $s);
-                $string .= $s.NL.NL;
+                $string .= $s.';'.NL.NL;
             }//foreach
         }//foreach
 
-        $msg =(JFile::exists($path.'/sql/install.sql'))
+        $msg =(JFile::exists($path.'/sql/install.utf8.sql'))
         ? jgettext('Install sql file updated')
         : jgettext('Install sql file created');
 
-        if( ! JFile::write($path.'/sql/install.sql', $string))
+        if( ! JFile::write($path.'/sql/install.utf8.sql', $string))
         {
             ecrHTML::displayMessage(jgettext('Can not create file'), 'error');
 
@@ -834,14 +841,14 @@ class EasyCreatorControllerStuffer extends JController
             if('true' == $table->foreign)
             continue;
 
-            $string .= 'DROP TABLE '.$db->nameQuote('#__'.$table->name).NL.NL;
+            $string .= 'DROP TABLE '.$db->nameQuote('#__'.$table->name).';'.NL.NL;
         }//foreach
 
-        $msg =(JFile::exists($path.'/sql/uninstall.sql'))
+        $msg =(JFile::exists($path.'/sql/uninstall.utf8.sql'))
         ? jgettext('Uninstall sql file updated')
         : jgettext('Uninstall sql file created');
 
-        if( ! JFile::write($path.'/sql/uninstall.sql', $string))
+        if( ! JFile::write($path.'/sql/uninstall.utf8.sql', $string))
         {
             ecrHTML::displayMessage(jgettext('Can not create file'), 'error');
 
@@ -855,14 +862,43 @@ class EasyCreatorControllerStuffer extends JController
     {
         ecrLoadHelper('dbupdater');
 
-        echo 'updating...';
         $updater = new dbUpdater($project);
-        $versions = $updater->versions;
-        var_dump($versions);
-        $files = $updater->buildFromECRBuildDir();
 
-        var_dump($files);
-//        $files = $updater->parseFiles();
+        if($updater->versions)
+        {
+            echo 'updating...';
 
-    }
+            $files = $updater->buildFromECRBuildDir();
+
+            if(ECR_DEBUG) var_dump($files);
+
+            return;
+        }
+
+        echo 'initing...';
+
+        $dbType = 'mysql';
+        $path = JPATH_ADMINISTRATOR.'/components/'.$project->comName.'/install/sql/updates/'.$dbType;
+        $fileName = $project->version.'.sql';
+
+        $fullPath = $path.'/'.$fileName;
+
+        if(JFile::exists($fullPath))
+        {
+            ecrHTML::displayMessage(jgettext('Update sql already exists'), 'error');
+
+            return;
+        }
+
+        $contents = '';
+
+        if(JFile::write($fullPath, $contents))
+        {
+            ecrHTML::displayMessage(jgettext('Update sql file has been written'));
+        }
+        else
+        {
+            ecrHTML::displayMessage(jgettext('Can not create the update sql file'), 'error');
+        }
+    }//function
 }//class

@@ -106,7 +106,7 @@ $buildOpts = $this->project->buildOpts;
 		value="<?php echo $this->project->zipPath; ?>" />
 		<?php
 		if($this->project->zipPath && ! JFolder::exists($this->project->zipPath)) :
-		    ecrHTML::displayMessage(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'error');
+		    ecrHTML::displayMessage(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'warning');
 		endif;
 		?>
 

@@ -33,7 +33,7 @@ if('package' == $this->project->type
     <?php echo $this->loadTemplate('folder'); ?>
 </div>
 
-<div class="ecr_floatbox">
+<div class="ecr_floatbox" style="background-color: #ccff99;">
     <h3><?php echo jgettext('Create the package'); ?></h3>
     <div class="ecr_button" onclick="$('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
     style="margin: 1em; padding: 1em; text-align: center;">
@@ -47,7 +47,13 @@ if('package' == $this->project->type
 
 <div style="clear: both;"></div>
 
-<?php $this->drawArchive(); ?>
+<div class="ecr_floatbox">
+<?php
+$old = $this->setLayout('common');
+echo $this->loadTemplate('archive');
+$this->setLayout($old);
+?>
+</div>
 
 <script type="text/javascript">
 updateName('<?php echo $this->ecr_project; ?>');

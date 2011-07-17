@@ -40,7 +40,10 @@ $basePath = $J__ROOT.DS.'libraries'.DS.'joomla';
 define('JPATH_SITE', '');
 define('JPATH_ROOT', '');
 define('JPATH_ADMINISTRATOR', '');
+
 define('_JEXEC', '');
+define('JPATH_PLATFORM', '');
+define('JDEBUG', '');
 
 define('JPATH_BASE', '');
 
@@ -51,7 +54,20 @@ if( ! file_exists(JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'object.php'))
     die('Joomla libs NOT FOUND');
 }
 
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'version.php';
+if(file_exists(JPATH_LIBRARIES.DS.'joomla'.DS.'version.php'))
+{
+    include_once JPATH_LIBRARIES.DS.'joomla'.DS.'version.php';
+}
+else if(file_exists($J__ROOT.DS.'includes'.DS.'version.php'))
+{
+    include_once $J__ROOT.DS.'includes'.DS.'version.php';
+}
+else
+{
+    echo $J__ROOT.DS.'includes'.DS.'version.php';
+    die('No Joomla! version file found :(');
+}
+
 include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'object.php';
 include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observer.php';
 include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observable.php';
@@ -91,10 +107,27 @@ switch($v->RELEASE)
         include_once JPATH_LIBRARIES.DS.'joomla'.DS.'form'.DS.'formfield.php';
         include_once JPATH_LIBRARIES.DS.'joomla'.DS.'updater'.DS.'updateadapter.php';
 
-        $prevIncluded = $prevIncluded + array('JTable', 'JTableNested', 'JAdapterInstance', 'JFormField', 'JUpdateAdapter');
+        $prevIncluded = $prevIncluded + array('JTable', 'JTableNested', 'JAdapterInstance'
+        , 'JFormField', 'JUpdateAdapter');
         break;
 
-    default:
+    case '1.7':
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'databasequery.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'table.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'tablenested.php';
+
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'adapterinstance.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'application'.DS.'component'.DS.'model.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'application'.DS.'component'.DS.'modelform.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'form'.DS.'helper.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'form'.DS.'formfield.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'updater'.DS.'updateadapter.php';
+
+        $prevIncluded = $prevIncluded + array('JDatabaseQuery', 'JTable', 'JTableNested'
+        , 'JAdapterInstance', 'JFormField', 'JUpdateAdapter');
+        break;
+
+        default:
         die('Unsupported Joomla! version: '.$v->RELEASE);
         break;
 }//switch
@@ -332,6 +365,8 @@ class JLoader
     function register() {}
 
     function import() {}
+
+    function discover() {}
 }//class
 // @codingStandardsIgnoreEnd
 

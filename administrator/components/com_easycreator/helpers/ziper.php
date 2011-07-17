@@ -1150,7 +1150,12 @@ class EasyZIPer extends JObject
 
         if( ! is_dir($zipDir))
         {
-            JFolder::create($zipDir);
+            if( ! JFolder::create($zipDir))
+            {
+                $this->logger->log('ERROR creating folder '.$zipDir, 'ERROR packing routine');
+
+                return false;
+            }
         }
 
         if($this->project->zipPath)

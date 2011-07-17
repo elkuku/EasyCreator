@@ -12,11 +12,19 @@
 defined('_JEXEC') || die('=;)');
 
 $checked =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
+try
+{
 
-$updater = new dbUpdater($this->project);
+    $updater = new dbUpdater($this->project);
+}
+catch (Exception $e)
+{
+    ecrHTML::displayMessage($e->getMessage(), 'error');
+
+    return;
+}
 
 $versions = $updater->versions;
-
 ?>
 
 <div class="ecr_floatbox">
@@ -35,8 +43,10 @@ $versions = $updater->versions;
     </label>
 
     <?php if('1.5' != $this->project->JCompat) : ?>
-        <h4><?php echo jgettext('Versions'); ?></h4>
-        <?php if($versions) : ?>
+        <h4><?php echo jgettext('Versions');
+        var_dump($versions);?></h4>
+        <?php if(count($versions) > 1
+        || $versions[0] != $this->project->version) : ?>
             <ul>
             <?php foreach($versions as $version) : ?>
                 <li><?php echo $version; ?></li>
@@ -50,6 +60,15 @@ $versions = $updater->versions;
              <div class="ecr_button img icon-16-add" onclick="createFile('sql', 'update');">
                  <?php echo jgettext('Create database updates'); ?>
              </div>
+         <?php else :
+             $path = JPATH_ADMINISTRATOR.'/components/'.$this->project->comName.'/install/sql/updates/'.$this->project->version.'.sql';
+             if(Jfile::exists($path)) :
+                 echo jgettext('The first update.sql file is in place');
+             else : ?>
+                 <div class="ecr_button img icon-16-add" onclick="createFile('sql', 'update');">
+                     <?php echo jgettext('Init database updates'); ?>
+                 </div>
+             <?php endif; ?>
          <?php endif; ?>
      <?php endif; ?>
 </div>

@@ -14,6 +14,8 @@ defined('_JEXEC') || die('=;)');
 /**
  * Update Joomla! extensions.
  *
+ * @status First draft =;)
+ *
  */
 class extensionUpdater
 {
@@ -83,7 +85,7 @@ class extensionUpdater
             }
             else
             {
-                //@todo tmp solution
+                //@todo tmp solution for multiple file :-?
                 echo 'more files found....picking '.$files[0];
                 $source = $buildsPath.'/'.$folder.'/'.$files[0];//temp
             }

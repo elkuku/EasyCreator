@@ -2,9 +2,9 @@
 /**
  * @version SVN: $Id$
  * @package    EasyCreator
- * @subpackage	Views
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 07-Mar-2008
+ * @subpackage Views
+ * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Created on 07-Mar-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
@@ -33,7 +33,11 @@ endif;
 ?>
 </div>
 <div class="ecr_floatbox">
-<?php $this->drawArchive(); ?>
+<?php
+$old = $this->setLayout('common');
+echo $this->loadTemplate('archive');
+$this->setLayout($old);
+?>
 </div>
 
 <?php if(in_array('logging', $this->buildopts)): ?>
@@ -42,7 +46,7 @@ endif;
             <?php echo jgettext('Log File'); ?>
         </div>
         <div id="ecr_logdisplay" style="display: none;">
-        <?php echo $this->EasyZiper->printLog(); ?>
+            <?php echo $this->EasyZiper->printLog(); ?>
         </div>
     </div>
 <?php endif; ?>

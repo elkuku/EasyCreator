@@ -947,10 +947,14 @@ class SQL_Parser
                 }
                 $this->getTok();
                 $rows = array();
-                while ($this->token != ')') {
-                    if ($this->token != 'ident') {
+                while ($this->token != ')')
+                {
+                    if ($this->token != 'ident'
+                    && $this->token != ',')
+                    {
                         $this->raiseError('Expected identifier');
                     }
+
                     $name= $this->lexer->tokText;
                     $fields[$name]['constraints'][] = array(
                         'type'  => 'key',
@@ -990,7 +994,7 @@ class SQL_Parser
                 }
                 $this->getTok();
             }
-            $fields[$name]['type'] = $this->synonyms[$type];
+            $fields[$name]['type'] =(isset($this->synonyms[$type])) ? $this->synonyms[$type] : '';
             // parse type parameters
             if ($this->token == '(') {
                 $results = $this->getParams($values, $types);

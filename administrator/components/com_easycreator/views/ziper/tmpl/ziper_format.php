@@ -2,7 +2,7 @@
 /**
  * @version SVN: $Id$
  * @package    EasyCreator
- * @subpackage	Views
+ * @subpackage Views
  * @author     Nikolai Plath {@link http://www.nik-it.de}
  * @author     Created on 25-Mar-2010
  * @license    GNU/GPL, see JROOT/LICENSE.php

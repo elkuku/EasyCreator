@@ -78,9 +78,7 @@ class EasyProjectHelper
 
         if(isset($projects[$name])
         && ! $reload)
-        {
-            return $projects[$name];
-        }
+        return $projects[$name];
 
         $projectTypes = self::getProjectTypesTags();
 

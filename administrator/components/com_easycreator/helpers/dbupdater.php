@@ -23,11 +23,22 @@ class dbUpdater
 
     private $project = null;
 
+    private $adapter = null;
+
     private $nameQuote = '`';//@todo db specific quotes
 
-    public function __construct(EasyProject $project)
+    /**
+     *
+     * Enter description here ...
+     * @param EasyProject $project
+     * @param string $adapter
+     */
+    public function __construct(EasyProject $project, $adapter = 'mysql')
     {
-        $buildsPath = ECRPATH_BUILDS.'/'.$project->comName;
+        if( ! $this->setAdapter($adapter))
+        return false;
+
+        $buildsPath = $project->getZipPath();
 
         if( ! JFolder::exists($buildsPath))
         return;
@@ -41,18 +52,56 @@ class dbUpdater
         $this->project = $project;
     }//function
 
+    private function setAdapter($adapter)
+    {
+        if( ! ecrLoadHelper('dbadapters.'.$adapter))
+        {
+            ecrHTML::displayMessage(__METHOD__.': Invalid adapter '.$adapter);
+
+            return false;
+        }
+
+        //-- @todo support case insensitive class names until PHP supports it =;)
+        $className = 'dbAdapter'.ucfirst($adapter);
+
+        if( ! class_exists($className))
+        {
+//            ecrHTML::displayMessage(__METHOD__.': Class name not found '.$className);
+
+            throw new Exception('Class name not found '.$className);
+
+//            return false;
+        }
+
+        $this->adapter = new $className;
+
+        return true;
+    }//function
+
+    /**
+     * Make some properties public accessible.
+     *
+     * @param string $what
+     *
+     * @return mixed
+     */
     public function __get($what)
     {
         if(in_array($what, array('versions', 'tmpPath')))
-        {
-            return $this->$what;
-        }
+        return $this->$what;
 
         ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
     }//function
 
+    /**
+     *
+     * Enter description here ...
+     */
     public function buildFromECRBuildDir()
     {
+        if( ! $this->project)
+        return;
+
         ecrLoadHelper('updater');
 
         $updater = new extensionUpdater($this->project);
@@ -133,7 +182,6 @@ class dbUpdater
 
     public function parseFiles()
     {
-        ecrLoadHelper('SQL.Parser');
 
         if( ! $this->fileList)
         return array();
@@ -166,7 +214,20 @@ class dbUpdater
                     if( ! $q)
                     continue;
 
-                    if(0 == strpos($q, 'CREATE'))
+                    $this->adapter->setQuery($q);
+
+                    if('create' == $this->adapter->queryType)
+                    {
+                        $query = substr($q, 7);
+                        $parsed = $this->adapter->parseCreate();
+                    }
+                    else
+                    {
+                        //-- Not a CREATE query
+                        continue;
+                    }
+
+                    if(0 == strpos($q, 'CREATE'))//@todo check for a CREATE in adapter
                     {
                         $query = substr($q, 7);
                     }
@@ -176,14 +237,14 @@ class dbUpdater
                         continue;
                     }
 
-                    $parser = new SQL_Parser($query, 'MySQL');
-
-                    $parsed = $parser->parseCreate();
+                    //-- Invoke the PEAR parser
+                    //@todo parser by adapter ?
 
                     $t = new stdClass;
                     $t->name = $parsed['table_names'][0];
                     $t->fields = $parsed['column_defs'];
                     $t->raw = $q;
+
                     $item->tables[$t->name] = $t;
                 }//foreach
 
@@ -202,6 +263,9 @@ class dbUpdater
         foreach($creates as $item)
         {
             $statement = '';
+
+            if( ! is_object($item))
+            continue;//@todo: bad coder :(
 
             $qq = new stdClass;
             $qq->version = $item->version;
@@ -227,6 +291,8 @@ class dbUpdater
                     continue;
                 }
 
+                //-- Computing alter table statements
+
                 $alter = '';
                 $alters = array();
 
@@ -234,6 +300,7 @@ class dbUpdater
                 {
                     if( ! array_key_exists($fName, $previous->tables[$table->name]->fields))
                     {
+                        //-- New column
                         $alters[] = 'ADD '.$this->quote($fName).$this->parseField($field).NL;
 
                         continue;
