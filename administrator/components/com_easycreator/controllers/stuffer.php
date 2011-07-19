@@ -336,11 +336,13 @@ class EasyCreatorControllerStuffer extends JController
         'calendar'     => array('format')
         , 'category'   => array('class', 'section', 'scope')
         , 'editors'    => array()
-        , 'filelist'   => array('directory', 'filter', 'exclude', 'hide_none', 'hide_default', 'stripext')
+        , 'filelist'   => array('directory', 'filter', 'exclude', 'hide_none'
+        , 'hide_default', 'stripext')
         , 'folderlist' => array('directory', 'filter', 'exclude', 'hide_none', 'hide_default')
         , 'helpsites'  => array()
         , 'hidden'     => array('class')
-        , 'imagelist'  => array('directory', 'filter', 'exclude', 'hide_none', 'hide_default', 'stripext')
+        , 'imagelist'  => array('directory', 'filter', 'exclude', 'hide_none'
+        , 'hide_default', 'stripext')
         , 'languages'  => array('client')
         , 'list'       => array()
         , 'menu'       => array()
@@ -588,7 +590,8 @@ class EasyCreatorControllerStuffer extends JController
         }
         else
         {
-            JError::raiseWarning(100, sprintf(jgettext('The Project %s could not be removed'), $project->name));
+            JError::raiseWarning(100, sprintf(
+            jgettext('The Project %s could not be removed'), $project->name));
 
             JRequest::setVar('view', 'stuffer');
             JRequest::setVar('task', 'stuffer');
@@ -710,37 +713,32 @@ class EasyCreatorControllerStuffer extends JController
             return;
         }
 
-        //--Get the project
         try
         {
+            ecrLoadHelper('logger');
+
+            //--Get the project
             $project = EasyProjectHelper::getProject();
-        }
-        catch(Exception $e)
-        {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
 
-            ecrHTML::displayMessage($m, 'error');
+            $path = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName.DS.'install';
 
-            parent::display();
+            //-- Init buildopts
+            $buildopts = JRequest::getVar('buildopts', array());
 
-            return;
-        }//try
+            //-- Setup logging
+            $logName = date('ymd_Hi').'_'.$type1.'_'.$type2.'.log';
+            $this->logger = new easyLogger($logName, $buildopts);
 
-        $path = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName.DS.'install';
+            $this->logger->log('Start: '.$type1.' - '.$type2);
 
-        if( ! JFolder::exists($path))
-        {
-            if( ! JFolder::create($path))
+            if( ! JFolder::exists($path))
             {
-                ecrHTML::displayMessage('Unable to create install folder', 'error');
+                if( ! JFolder::create($path))
+                throw new Exception('Unable to create install folder '.$path);
 
-                parent::display();
-
-                return;
+                $this->logger->log('Folder created: '.$path);
             }
-        }
 
-        try {
             switch($type1) // php or sql
             {
                 case 'php' :
@@ -754,7 +752,7 @@ class EasyCreatorControllerStuffer extends JController
                             ecrHTML::displayMessage(__METHOD__.' Unfinished uninstall php', 'notice');
                             break;
                         default :
-                            ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
+                            throw new Exception('Unknown type: '.$type1.' - '.$type2);
                             break;
                     }//switch
 
@@ -764,19 +762,14 @@ class EasyCreatorControllerStuffer extends JController
                     switch($type2) //-- install or uninstall
                     {
                         case 'install' :
-                            $this->processSQLInstall($project, $path);
-                            break;
-
                         case 'uninstall' :
-                            $this->processSQLUnInstall($project, $path);
-                            break;
-
                         case 'update' :
-                            $this->processSQLUpdate($project, $path);
+                            $f = 'process'.$type1.$type2;
+                            $this->$f($project, $path);
                             break;
 
                         default :
-                            ecrHTML::displayMessage('Unknown type: '.$type1.' - '.$type2, 'error');
+                            throw new Exception('Unknown type: '.$type1.' - '.$type2);
                             break;
                     }//switch
 
@@ -787,11 +780,20 @@ class EasyCreatorControllerStuffer extends JController
                     break;
             }//switch
         }
-        catch (Exception $e)
+        catch(Exception $e)
         {
-            ecrHTML::displayMessage($e->getMessage(), 'error');
+            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
+
+            ecrHTML::displayMessage($m, 'error');
+
+            $this->logger->log($e->getMessage(), 'exception');
         }//try
 
+        $this->logger->log('Finished =;)');
+
+        $this->logger->writeLog();
+
+        echo $this->logger->printLog();
 
         parent::display();
     }//function
@@ -804,8 +806,14 @@ class EasyCreatorControllerStuffer extends JController
 
         foreach($project->tables as $table)
         {
+            $this->logger->log('Processing table '.$table);
+
             if('true' == $table->foreign)
-            continue;
+            {
+                $this->logger->log('Is a foreign table');
+
+                continue;
+            }
 
             $sS = $db->getTableCreate($db->getPrefix().$table->name);
 
@@ -816,72 +824,106 @@ class EasyCreatorControllerStuffer extends JController
             }//foreach
         }//foreach
 
-        $msg =(JFile::exists($path.'/sql/install.utf8.sql'))
+        $encoding = 'utf8';
+
+        $fullPath = $path.'/sql/install.'.$encoding.'.sql';
+
+        $msg =(JFile::exists($fullPath))
         ? jgettext('Install sql file updated')
         : jgettext('Install sql file created');
 
-        if( ! JFile::write($path.'/sql/install.utf8.sql', $string))
+        if( ! JFile::write($fullPath, $string))
         {
-            ecrHTML::displayMessage(jgettext('Can not create file'), 'error');
+            ecrHTML::displayMessage(jgettext('Can not create file at '.$fullPath), 'error');
 
-            return;
+            $this->logger->log($fullPath, 'Can not create file');
         }
+        else
+        {
+            ecrHTML::displayMessage($msg);
 
-        ecrHTML::displayMessage($msg);
+            $this->logger->logFileWrite('DB', $fullPath, $string);
+        }
     }//function
 
     private function processSQLUnInstall(EasyProject $project, $path)
     {
+        //-- Init buildopts
+        $buildopts = JRequest::getVar('buildopts', array());
+
         $db = JFactory::getDbo();
 
         $string = '';
 
         foreach($project->tables as $table)
         {
+            $this->logger->log('Processing table '.$table);
+
             if('true' == $table->foreign)
-            continue;
+            {
+                $this->logger->log('Is a foreign table');
+
+                continue;
+            }
 
             $string .= 'DROP TABLE '.$db->nameQuote('#__'.$table->name).';'.NL.NL;
         }//foreach
 
-        $msg =(JFile::exists($path.'/sql/uninstall.utf8.sql'))
+        $encoding = 'utf8';
+
+        $fullPath = $path.'/sql/uninstall.'.$encoding.'.sql';
+
+        $msg =(JFile::exists($fullPath))
         ? jgettext('Uninstall sql file updated')
         : jgettext('Uninstall sql file created');
 
-        if( ! JFile::write($path.'/sql/uninstall.utf8.sql', $string))
+        if(JFile::write($fullPath, $string))
         {
-            ecrHTML::displayMessage(jgettext('Can not create file'), 'error');
+            ecrHTML::displayMessage($msg);
 
-            return;
+            $this->logger->logFileWrite('DB', $fullPath, $string);
         }
+        else
+        {
+            ecrHTML::displayMessage(jgettext('Can not create file at '.$fullPath), 'error');
 
-        ecrHTML::displayMessage($msg);
+            $this->logger->log($fullPath, 'Can not create file');
+        }
     }//function
 
     private function processSQLUpdate(EasyProject $project, $path)
     {
         ecrLoadHelper('dbupdater');
 
-        $updater = new dbUpdater($project);
+        $dbType = 'mysql';
+
+        $updater = new dbUpdater($project, $dbType, $this->logger);
 
         if($updater->versions)
         {
-            echo 'updating...';
+            $this->logger->log('Updating...');
 
-            $files = $updater->buildFromECRBuildDir();
+            if($updater->buildFromECRBuildDir())
+            {
+            ecrHTML::displayMessage(jgettext('Update sql file has been written'));
+        }
+        else
+        {
+            ecrHTML::displayMessage(jgettext('Can not create the update sql file'), 'error');
+        }
 
             if(ECR_DEBUG) var_dump($files);
 
             return;
         }
 
-        echo 'initing...';
+        $this->logger->log('Initing...');
 
-        $dbType = 'mysql';
-        $path = JPATH_ADMINISTRATOR.'/components/'.$project->comName.'/install/sql/updates/'.$dbType;
+        $path .= '/sql/updates/'.$dbType;
+
         $fileName = $project->version.'.sql';
 
-        $fullPath = $path.'/'.$fileName;
+        $fullPath = $path.'/sql/updates/'.$dbType.'/'.$fileName;
 
         if(JFile::exists($fullPath))
         {

@@ -39,8 +39,7 @@ natcasesort($folders);
 
 $folders = array_reverse($folders);
 
-foreach($folders as $folder)
-{
+foreach($folders as $folder) :
     echo '<div style="background-color: #B2CCE5; font-size: 1.3em; font-weight: bold; padding-left: 1em;">';
     echo $this->project->comName.' '.$folder;
     echo '</div>';
@@ -48,12 +47,11 @@ foreach($folders as $folder)
     $base_path = $path.DS.$folder;
     $files = JFolder::files($base_path.DS);
 
-    if( ! count($files))
-    {
+    if( ! count($files)) :
         echo '<strong style="color: red;">'.jgettext('No ZIP files found').'</strong>';
 
         continue;
-    }
+    endif;
 ?>
 <div id="ajaxMessage"></div>
 <div id="ajaxDebug"></div>
@@ -102,4 +100,4 @@ foreach($folders as $folder)
     </tbody>
 </table>
 <?php
-}//foreach
+endforeach;

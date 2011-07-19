@@ -1108,7 +1108,7 @@ abstract class EasyProject extends JObject
         $path = JComponentHelper::getParams('com_easycreator')->get('zipPath');
 
         if($path)
-        return $path;
+        return $path.'/'.$this->comName;
 
         //-- 3. Standard extension build dir
         return ECRPATH_BUILDS.'/'.$this->comName;

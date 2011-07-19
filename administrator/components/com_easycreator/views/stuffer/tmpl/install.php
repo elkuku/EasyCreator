@@ -21,6 +21,10 @@ echo $this->loadTemplate('sql');
 echo $this->loadTemplate('update');
 
 ?>
+<div class="ecr_floatbox">
+    <strong><?php echo jgettext('Build options'); ?>:</strong>
+    <?php ecrHTML::drawLoggingOptions(); ?>
+</div>
 
 <input type="hidden" name="old_task" value="install" />
 <?php

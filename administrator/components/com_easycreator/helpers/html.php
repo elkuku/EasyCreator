@@ -1307,6 +1307,7 @@ class EasyTemplateInfo
     public static function error($message)
     {
         echo $message.' in '.get_parent_class($this);
+
         var_dump(debug_print_backtrace());
     }//function
 

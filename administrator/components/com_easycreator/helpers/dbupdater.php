@@ -25,7 +25,7 @@ class dbUpdater
 
     private $adapter = null;
 
-    private $nameQuote = '`';//@todo db specific quotes
+    private $logger = null;
 
     /**
      *
@@ -33,17 +33,23 @@ class dbUpdater
      * @param EasyProject $project
      * @param string $adapter
      */
-    public function __construct(EasyProject $project, $adapter = 'mysql')
+    public function __construct(EasyProject $project, $adapter = 'mysql', EasyLogger $logger = null)
     {
+        $this->logger = $logger;
+
         if( ! $this->setAdapter($adapter))
         return false;
 
         $buildsPath = $project->getZipPath();
 
+        $this->log('Looking for versions in '.$buildsPath);
+
         if( ! JFolder::exists($buildsPath))
         return;
 
         $folders = JFolder::folders($buildsPath);
+
+        $this->log(sprintf('Found %d version(s) ', count($folders)));
 
         if( ! $folders)
         return;
@@ -52,31 +58,22 @@ class dbUpdater
         $this->project = $project;
     }//function
 
-    private function setAdapter($adapter)
+    private function log($message)
     {
-        if( ! ecrLoadHelper('dbadapters.'.$adapter))
-        {
-            ecrHTML::displayMessage(__METHOD__.': Invalid adapter '.$adapter);
+        if( ! $this->logger)
+        return;
 
-            return false;
-        }
-
-        //-- @todo support case insensitive class names until PHP supports it =;)
-        $className = 'dbAdapter'.ucfirst($adapter);
-
-        if( ! class_exists($className))
-        {
-//            ecrHTML::displayMessage(__METHOD__.': Class name not found '.$className);
-
-            throw new Exception('Class name not found '.$className);
-
-//            return false;
-        }
-
-        $this->adapter = new $className;
-
-        return true;
+        $this->logger->log($message);
     }//function
+
+    private function logFile($path, $contents)
+    {
+        if( ! $this->logger)
+        return;
+
+        $this->logger->logFileWrite('dbUpdate', $path, $contents);
+
+    }
 
     /**
      * Make some properties public accessible.
@@ -100,14 +97,20 @@ class dbUpdater
     public function buildFromECRBuildDir()
     {
         if( ! $this->project)
-        return;
+        return false;
+
+        $dbType = 'mysql';
 
         ecrLoadHelper('updater');
 
-        $updater = new extensionUpdater($this->project);
+        $updater = new extensionUpdater($this->project, $this->logger);
 
         if( ! $updater->hasUpdates)
-        return;
+        {
+            $this->log('No updates found');
+
+            return false;
+        }
 
         foreach($this->versions as $version)
         {
@@ -121,11 +124,8 @@ class dbUpdater
 
                 continue;
             }
-
             $this->fileList[$version] = $fileName;
         }//foreach
-
-        var_dump($this->fileList);
 
         if( ! array_key_exists($this->project->version, $this->fileList))
         {
@@ -141,13 +141,15 @@ class dbUpdater
             }
 
             $this->fileList[$this->project->version] = $fileName;
+
+            $this->log('Found install file at: '.$fileName);
         }
 
         $files = $this->parseFiles();
 
-        var_dump($files);
+        $this->log(sprintf('Created %d update files', count($files)));
 
-        $path = JPATH_ADMINISTRATOR.'/components/'.$this->project->comName.'/install/sql/updates/mysql';
+        $path = JPATH_ADMINISTRATOR.'/components/'.$this->project->comName.'/install/sql/updates/'.$dbType;
 
         foreach($files as $file)
         {
@@ -157,32 +159,20 @@ class dbUpdater
             {
                 echo 'Can not write file to '.$path.'/'.$fileName;
 
+                $this->log(sprintf('Created update file at: %s', $file));
+
                 return false;
             }
-        }//foreach
-    }//function
 
-    private function findInstallFile($path)
-    {
-        $files = JFolder::files($path);
+            $this->logFile($path.'/'.$fileName, $file->query);
 
-        $fileName = '';
-
-        foreach($files as $file)
-        {
-            if(0 == strpos($file, 'install'))
-            {
-                $fileName = $path.'/'.$file;
-                break;
-            }
         }//foreach
 
-        return $fileName;
+        return true;
     }//function
 
     public function parseFiles()
     {
-
         if( ! $this->fileList)
         return array();
 
@@ -195,9 +185,13 @@ class dbUpdater
             if( ! JFile::exists($path))
             continue;
 
+            $this->log('Parsing file at: '.$path);
+
             $contents = JFile::read($path);
 
             $qs = $db->splitSql($contents);
+
+            $this->log(sprintf('Found %d queries', count($qs)));
 
             $creates[$version] = array();
 
@@ -216,36 +210,24 @@ class dbUpdater
 
                     $this->adapter->setQuery($q);
 
-                    if('create' == $this->adapter->queryType)
-                    {
-                        $query = substr($q, 7);
-                        $parsed = $this->adapter->parseCreate();
-                    }
-                    else
-                    {
-                        //-- Not a CREATE query
-                        continue;
-                    }
+                    if('create' != $this->adapter->queryType)
+                    //-- Not a CREATE query
+                    continue;
 
-                    if(0 == strpos($q, 'CREATE'))//@todo check for a CREATE in adapter
-                    {
-                        $query = substr($q, 7);
-                    }
-                    else
-                    {
-                        //-- Not a CREATE query
-                        continue;
-                    }
+                    /*
+                     $parsed = $this->adapter->parseCreate();
 
-                    //-- Invoke the PEAR parser
-                    //@todo parser by adapter ?
+                     $t = new stdClass;
+                     $t->name = $parsed['table_names'][0];
+                     $t->fields = $parsed['column_defs'];
+                     $t->raw = $q;
 
-                    $t = new stdClass;
-                    $t->name = $parsed['table_names'][0];
-                    $t->fields = $parsed['column_defs'];
-                    $t->raw = $q;
+                     $item->tables[$t->name] = $t;
+                     */
 
-                    $item->tables[$t->name] = $t;
+                    $parsed = $this->adapter->parseCreate();
+
+                    $item->tables[$parsed->name] = $parsed;
                 }//foreach
 
                 $creates[$version] = $item;
@@ -253,6 +235,8 @@ class dbUpdater
             catch(Exception $e)
             {
                 JError::raiseWarning(0, $e->getMessage());
+
+                $this->log('Exception: '.$e->getMessage());
             }//try
         }//foreach
 
@@ -285,6 +269,7 @@ class dbUpdater
                 if( ! array_key_exists($table->name, $previous->tables))
                 {
                     //-- New table
+                    $this->log('Found a new table '.$table->name);
 
                     $statement .= $table->raw.NL;
 
@@ -301,32 +286,40 @@ class dbUpdater
                     if( ! array_key_exists($fName, $previous->tables[$table->name]->fields))
                     {
                         //-- New column
-                        $alters[] = 'ADD '.$this->quote($fName).$this->parseField($field).NL;
+                        $this->log(sprintf('Found a new column %s in table %s', $fName, $table->name));
+
+                        $alters[] = $this->adapter->getStatement('addColumn', $fName, $field);
 
                         continue;
                     }
 
                     $pField = $previous->tables[$table->name]->fields[$fName];
 
-                    if($pField['type'] != $field['type']
-                    || $pField['length'] != $field['length'])
+                    if($pField->type != $field->type
+                    || $pField->length != $field->length)
                     {
-                        $alters[] = 'MODIFY '.$this->quote($fName).$this->parseField($field).NL;
+                        //-- Different length
+                        $alters[] = $this->adapter->getStatement('modifyColumn', $fName, $field);
+
+                        $this->log(sprintf('Modified column %s in table %s (different type or length)', $fName, $table->name));
                     }
                     else
                     {
-                        foreach($field['constraints'] as $c)
+                        foreach($field->constraints as $c)
                         {
-                            foreach($pField['constraints'] as $pC)
+                            foreach($pField->constraints as $pC)
                             {
                                 if( ! isset($pC['type']) || ! isset($c['type']))
                                 continue;
 
                                 if($pC['type'] == $c['type'])
                                 {
+                                    //-- Different value
                                     if($pC['value'] != $c['value'])
                                     {
-                                        $alters[] = 'MODIFY '.$this->quote($fName).$this->parseField($field).NL;
+                                        $alters[] = $this->adapter->getStatement('modifyColumn', $fName, $field);
+
+                                        $this->log(sprintf('Modified column %s in table %s - different type %s', $fName, $table->name, $c['type']));
                                     }
 
                                     continue 2;
@@ -340,13 +333,16 @@ class dbUpdater
                 {
                     if( ! array_key_exists($fName, $table->fields))
                     {
-                        $alters[] = 'DROP COLUMN '.$this->quote($fName).NL;
+                        $alters[] = $this->adapter->getStatement('dropColumn', $fName, $field);
+
+                        $this->log(sprintf('Dropping column %s from table %s', $fName, $table->name));
                     }
+
                 }//foreach
 
-                $alter =($alters) ? implode(', ', $alters) : '';
+                $statement .= $this->adapter->getAlterTable($table, $alters);
 
-                $statement .=($alter) ? 'ALTER TABLE '.$this->quote($table->name).NL.$alter.NL : '';
+                $this->log(sprintf('%d alter statements', count($alters)));
             }//foreach
 
             $qq->query = $statement;
@@ -359,40 +355,41 @@ class dbUpdater
         return $parsedQueries;
     }//function
 
-    private function parseField($field)
+    private function setAdapter($adapter)
     {
-        $parsed = ' ';
+        if( ! ecrLoadHelper('dbadapters.'.$adapter))
+        throw new Exception(__METHOD__.': Invalid adapter '.$adapter);
 
-        $parsed .= strtoupper($field['type']);
-        $parsed .= '('.$field['length'].')';
+        //-- @todo support case insensitive class names until PHP supports it =;)
+        //-- ucfirst is only for the eye
+        $className = 'dbAdapter'.ucfirst($adapter);
 
-        foreach($field['constraints'] as $c)
-        {
-            if( ! isset($c['type']))
-            continue;
+        if( ! class_exists($className))
+        throw new Exception(__METHOD__.': Class name not found '.$className);
 
-            //var_dump($c);
-            switch($c['type'])
-            {
-                case 'not_null' :
-                    $parsed .= ' NOT NULL';
-                    break;
+        $this->adapter = new $className;
 
-                case 'comment' :
-                    $parsed .= " COMMENT '".$c['value']."'";
-                    break;
+        $this->log('Adapter loaded: '.$className);
 
-                default:
-                    ecrHTML::displayMessage('Unknown field type '.$c['type'], 'error');
-                    break;
-            }//switch
-        }//foreach
-
-        return $parsed;
+        return true;
     }//function
 
-    private function quote($string)
+    private function findInstallFile($path)
     {
-        return $this->nameQuote.$string.$this->nameQuote;
+        $files = JFolder::files($path);
+
+        $fileName = '';
+
+        foreach($files as $file)
+        {
+            if(0 == strpos($file, 'install'))
+            {
+                //-- Pick only the first one @todo
+                $fileName = $path.'/'.$file;
+                break;
+            }
+        }//foreach
+
+        return $fileName;
     }//function
 }//class

@@ -77,16 +77,12 @@ class EasyLogger
     public function log($string, $error = '')
     {
         if( ! $this->logging)
-        {
-            return;
-        }
+        return;
 
         $ret = '';
 
         if($this->profile)
-        {
-            $ret .= $this->profiler->mark('log');
-        }
+        $ret .= $this->profiler->mark('log');
 
         $ret .=($error) ? '<div class="ebc_error">'.$error.'</div>' : '';
         $ret .= $string;
@@ -94,9 +90,7 @@ class EasyLogger
         $this->log[] = $ret;
 
         if($this->hot)
-        {
-            $this->writeLog();
-        }
+        $this->writeLog();
     }//function
 
     /**
@@ -111,24 +105,22 @@ class EasyLogger
      */
     public function logFileWrite($from = '', $to = '', $fileContents = '', $error = '')
     {
-        $noFileContents = array('ico', 'png', 'jpg', 'gif');
-        $fileContents =(in_array(JFile::getExt($to), $noFileContents)) ? '' : $fileContents;
+        $noFileContents = array('php', 'css', 'js', 'ini', 'po');
+        $fileContents =(in_array(JFile::getExt($to), $noFileContents)) ? $fileContents : '';
 
         if( ! $this->logging)
-        {
-            return;
-        }
+        return;
 
         if($from)
         {
-            $from = str_replace(JPATH_ROOT, '', $from);
+            $from = str_replace(JPATH_ROOT, 'JROOT', $from);
             $fromFile = JFile::getName($from);
             $from = str_replace($fromFile, '', $from);
         }
 
         if($to)
         {
-            $to = str_replace(JPATH_ROOT, '', $to);
+            $to = str_replace(JPATH_ROOT, 'JROOT', $to);
             $toFile = JFile::getName($to);
             $to = str_replace($toFile, '', $to);
         }
@@ -142,7 +134,8 @@ class EasyLogger
 
         if($fileContents)
         {
-            $ret .= '<div class="ecr_codebox_header" onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
+            $ret .= '<div class="ecr_codebox_header"'
+            .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
             .jgettext('File Contents').'</div>';
             $ret .= '<div id="ecr_codebox_'.$this->cntCodeBoxes.'" style="display: none;">';
             $ret .= '<div class="ebc_code">'.highlight_string($fileContents, true).'</div>';
@@ -190,7 +183,8 @@ class EasyLogger
             $ret .= '<h2 style="background-color: #ffb299;">'.jgettext('Error').'</h2>';
         }
 
-        $ret .= '<div class="ecr_codebox_header" onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
+        $ret .= '<div class="ecr_codebox_header"'
+        .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
         .jgettext('Query').'</div>';
 
         $ret .= '<div id="ecr_codebox_'.$this->cntCodeBoxes.'" style="display: none;">';
@@ -200,7 +194,8 @@ class EasyLogger
 
         if($error)
         {
-            $ret .= '<div class="ecr_codebox_header" onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
+            $ret .= '<div class="ecr_codebox_header"'
+            .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
             .jgettext('Error').'</div>';
 
             $ret .= '<div id="ecr_codebox_'.$this->cntCodeBoxes.'" style="display: none;">';
@@ -226,16 +221,9 @@ class EasyLogger
      */
     public function writeLog()
     {
-        if( ! $this->logging)
-        {
-            return true;
-        }
-
-        if( ! count($this->log))
-        {
-            //--No log entries
-            return true;
-        }
+        if( ! $this->logging
+        || ! count($this->log))
+        return true;
 
         $log = implode("\n", $this->log);
 
@@ -259,17 +247,18 @@ class EasyLogger
     {
         $html = '';
 
-        if($this->logging)
+        if( ! $this->logging
+        || ! count($this->log))
+        return $html;
+
+        $html .= '<ul>';
+
+        foreach($this->log as $entry)
         {
-            $html .= '<ul>';
+            $html .= '<li>'.$entry.'</li>';
+        }//foreach
 
-            foreach($this->log as $entry)
-            {
-                $html .= '<li>'.$entry.'</li>';
-            }//foreach
-
-            $html .= '</ul>';
-        }
+        $html .= '</ul>';
 
         return $html;
     }//function

@@ -25,11 +25,14 @@ class extensionUpdater
 
     private $tmpPath = '';
 
-    public function __construct(EasyProject $project)
+    private $logger = null;
+
+    public function __construct(EasyProject $project, EasyLogger $logger = null)
     {
         if($project instanceof EasyProject)
         {
             $this->project = $project;
+            $this->logger = $logger;
 
             $this->hasUpdates = $this->prepareUpdate();
         }
@@ -43,13 +46,23 @@ class extensionUpdater
         }
 
         ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
-    }
+    }//function
+
+    private function log($message)
+    {
+        if( ! $this->logger)
+        return;
+
+        $this->logger->log($message);
+    }//function
 
     private function prepareUpdate()
     {
         jimport('joomla.filesystem.archive');
 
         $buildsPath = ECRPATH_BUILDS.'/'.$this->project->comName;
+
+        $buildsPath = $this->project->getZipPath();
 
         if( ! JFolder::exists($buildsPath))
         return false;
@@ -63,9 +76,12 @@ class extensionUpdater
         $tmpPath .= JFactory::getConfig()->get('tmp_path');
         $tmpPath .= '/'.$this->project->comName.'_update_'.time();
 
+        $this->log('Temp path is set to '.$tmpPath);
+
         if( ! JFolder::create($tmpPath))
         {
             ecrHTML::displayMessage('Unable to create temp folder for update', 'error');
+            $this->log('Can not create the temp folder '.$tmpPath);
 
             return false;
         }
@@ -73,10 +89,11 @@ class extensionUpdater
         foreach($folders as $folder)
         {
             JFolder::create($tmpPath.'/'.$folder);
+            $this->log('Processing version '.$folder);
 
             $files = JFolder::files($buildsPath.'/'.$folder);
 
-            var_dump($files);
+            $this->log(sprintf('Found %d package(s) ', count($files)));
 
             if(1 == count($files))
             {
@@ -89,6 +106,8 @@ class extensionUpdater
                 echo 'more files found....picking '.$files[0];
                 $source = $buildsPath.'/'.$folder.'/'.$files[0];//temp
             }
+
+            $this->log('Processing package: '.$source);
 
             $destination = $tmpPath.'/'.$folder;
 
