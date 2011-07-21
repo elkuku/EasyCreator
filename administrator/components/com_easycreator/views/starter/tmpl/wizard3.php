@@ -75,13 +75,14 @@ function submitbutton(command)
 	</div>
 
     <div class="ecr_custom_options">
-        <?php $cst = $this->EasyBuilder->customOptions('display', $this->project); ?>
+        <?php $this->EasyBuilder->customOptions('display', $this->project); ?>
     </div>
-    <?php if($cst) : ?>
-    	<div class="ecrBigInfo">
-            <h3><?php echo jgettext('More options'); ?></h3>
-    	</div>
-    <?php endif; ?>
+
+    <div class="ecr_wiz_desc">
+        <p style="font-weight: bold;"><?php echo jgettext('Youre done'); ?></p>
+        <?php echo jgettext('Just click on create it below to finish your component'); ?>
+    </div>
+
     <div class="ecr_table">
         <div class="ecr_table-row">
             <div class="ecr_table-cell">
@@ -92,11 +93,6 @@ function submitbutton(command)
                     <?php ecrHTML::drawLoggingOptions(); ?>
             </div>
         </div>
-    </div>
-
-    <div class="ecr_wiz_desc">
-        <p style="font-weight: bold;"><?php echo jgettext('Youre done'); ?></p>
-        <?php echo jgettext('Just click on create it below to finish your component'); ?>
     </div>
 
     <?php if(ECR_DEV_MODE) : ?>

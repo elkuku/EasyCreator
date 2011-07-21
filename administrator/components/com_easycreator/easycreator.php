@@ -42,6 +42,7 @@ require_once 'defines.php';
 
 //-- Global functions
 require_once 'functions.php';
+require_once 'exceptions.php';
 
 if(ECR_DEV_MODE)
 {

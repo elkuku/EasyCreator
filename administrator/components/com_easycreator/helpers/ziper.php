@@ -65,8 +65,9 @@ class EasyZIPer extends JObject
         //-- Setup logging
         ecrLoadHelper('logger');
 
-        $logName = date('ymd_Hi').'_packing.log';
-        $this->logger = new easyLogger($logName, $buildopts);
+        $buildOpts['fileName'] = date('ymd_Hi').'_packing.log';
+
+        $this->logger = easyLogger::getInstance('ecr', $buildopts);
 
         $this->logger->log('Start building');
         $this->logger->log('Build dir:<br />'.$this->build_dir);

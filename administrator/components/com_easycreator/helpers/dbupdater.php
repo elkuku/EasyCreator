@@ -33,9 +33,10 @@ class dbUpdater
      * @param EasyProject $project
      * @param string $adapter
      */
-    public function __construct(EasyProject $project, $adapter = 'mysql', EasyLogger $logger = null)
+    public function __construct(EasyProject $project, $adapter = 'mysql')
     {
-        $this->logger = $logger;
+        if(class_exists('easyLogger'))
+        $this->logger = easyLogger::getInstance('ecr');
 
         if( ! $this->setAdapter($adapter))
         return false;
@@ -159,7 +160,7 @@ class dbUpdater
             {
                 echo 'Can not write file to '.$path.'/'.$fileName;
 
-                $this->log(sprintf('Created update file at: %s', $file));
+                $this->log('Can not write file to '.$path.'/'.$fileName);
 
                 return false;
             }

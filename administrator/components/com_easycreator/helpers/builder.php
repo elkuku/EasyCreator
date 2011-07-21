@@ -55,7 +55,11 @@ class EasyBuilder extends JObject
         ecrLoadHelper('logger');
 
         $logName = date('ymd_Hi').'_building.log';
-        $this->logger = new EasyLogger($logName, JRequest::getVar('buildopts', array()));
+
+        $buildOpts = JRequest::getVar('buildopts', array());
+        $buildOpts['fileName'] = date('ymd_Hi').'_building.log';
+
+        $this->logger = easyLogger::getInstance('ecr', $buildOpts);
 
         $this->_buildBase = ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template;
         $this->logger->log('buildBase set to: '.$this->_buildBase);
@@ -716,8 +720,10 @@ class EasyBuilder extends JObject
         }//foreach
 
         ecrLoadHelper('logger');
-        $logName = date('ymd_Hi').'_register.log';
-        $this->logger = new easyLogger($logName, $options);
+
+        $options['fileName'] = date('ymd_Hi').'_register.log';
+
+        $this->logger = easyLogger::getInstance('ecr', $options);
 
         $projectTypes = EasyProjectHelper::getProjectTypes();
 

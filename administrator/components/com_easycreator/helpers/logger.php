@@ -34,13 +34,32 @@ class EasyLogger
 
     private $cntCodeBoxes = 0;
 
+    public static function getInstance($name, $options = array())
+    {
+        static $instances = array();
+
+        if(isset($instances[$name]))
+        return $instances[$name];
+
+        $fileName =(isset($options['fileName']) && $options['fileName'])
+        ? $options['fileName']
+        : '/log_'.time().'.log';
+
+        if( ! touch(ECRPATH_LOGS.DS.$fileName))
+        throw new EcrLogException('Can not create log file '.$fileName);
+
+        $instances[$name] = new EasyLogger($fileName, $options);
+
+        return $instances[$name];
+    }//function
+
     /**
      * Constructor.
      *
      * @param string $fileName Log file name
      * @param array $options Logging options
      */
-    public function __construct($fileName, $options)
+    protected function __construct($fileName, $options)
     {
         $this->fileName = $fileName;
 
@@ -58,7 +77,7 @@ class EasyLogger
             }
             else
             {
-                //-- Load profiler for J! 1.6
+                //-- Load profiler for J! 1.6 +
                 ecrLoadHelper('profiler');
             }
 
@@ -105,11 +124,11 @@ class EasyLogger
      */
     public function logFileWrite($from = '', $to = '', $fileContents = '', $error = '')
     {
-        $noFileContents = array('php', 'css', 'js', 'ini', 'po');
-        $fileContents =(in_array(JFile::getExt($to), $noFileContents)) ? $fileContents : '';
-
         if( ! $this->logging)
         return;
+
+        $noFileContents = array('php', 'css', 'js', 'xml', 'ini', 'po', 'sql');
+        $fileContents =(in_array(JFile::getExt($to), $noFileContents)) ? $fileContents : '';
 
         if($from)
         {
@@ -222,7 +241,8 @@ class EasyLogger
     public function writeLog()
     {
         if( ! $this->logging
-        || ! count($this->log))
+        || ! count($this->log)
+        || $this->hot)
         return true;
 
         $log = implode("\n", $this->log);
@@ -259,6 +279,24 @@ class EasyLogger
         }//foreach
 
         $html .= '</ul>';
+
+        return $html;
+    }//function
+
+    public function printLogBox()
+    {
+        $html = '';
+
+        if( ! $this->logging
+        || ! count($this->log))
+        return $html;
+
+        $html .= '<div class="ecr_codebox_header" style="font-size: 1.4em;" onclick="toggleDiv(\'ecr_logdisplay\');">'
+        .jgettext('Log File')
+        .'</div>'
+        .'<div id="ecr_logdisplay" style="display: none;">'
+            .$this->printLog()
+        .'</div>';
 
         return $html;
     }//function

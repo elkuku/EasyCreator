@@ -703,3 +703,7 @@ div#ecr_versionCheck {
     padding: 0.5em;
     background-color: #fff;
 }
+
+#system-message {
+	border-radius: 10px;
+}

@@ -106,7 +106,11 @@ class EasyCreatorControllerStuffer extends JController
 
         //--Setup logging
         ecrLoadHelper('logger');
-        $logger = new easyLogger(date('ymd_Hi').'_add_part.log', JRequest::getVar('buildopts', array()));
+
+        $buildOpts = JRequest::getVar('buildopts', array());
+        $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
+
+        $logger = easyLogger::getInstance('ecr', $buildOpts);
 
         $options = new stdClass;
         $options->ecr_project = $ecr_project;
@@ -234,8 +238,10 @@ class EasyCreatorControllerStuffer extends JController
             //--Setup logging
             ecrLoadHelper('logger');
 
-            $logger = new easyLogger(date('ymd_Hi').'_add_part.log'
-            , JRequest::getVar('buildopts', array()));
+            $buildOpts = JRequest::getVar('buildopts', array());
+            $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
+
+            $logger = easyLogger::getInstance('ecr', $buildOpts);
 
             $options = new stdClass;
             $options->ecr_project = $ecr_project;
@@ -726,8 +732,8 @@ class EasyCreatorControllerStuffer extends JController
             $buildopts = JRequest::getVar('buildopts', array());
 
             //-- Setup logging
-            $logName = date('ymd_Hi').'_'.$type1.'_'.$type2.'.log';
-            $this->logger = new easyLogger($logName, $buildopts);
+            $buildopts['fileName'] = date('ymd_Hi').'_'.$type1.'_'.$type2.'.log';
+            $this->logger = easyLogger::getInstance('ecr', $buildopts);
 
             $this->logger->log('Start: '.$type1.' - '.$type2);
 
@@ -780,6 +786,16 @@ class EasyCreatorControllerStuffer extends JController
                     break;
             }//switch
         }
+        catch(EcrLogException $e)
+        {
+            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
+
+            ecrHTML::displayMessage($m, 'error');
+
+            parent::display();
+
+            return;
+        }
         catch(Exception $e)
         {
             $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
@@ -793,7 +809,7 @@ class EasyCreatorControllerStuffer extends JController
 
         $this->logger->writeLog();
 
-        echo $this->logger->printLog();
+        echo $this->logger->printLogBox();
 
         parent::display();
     }//function
@@ -905,21 +921,17 @@ class EasyCreatorControllerStuffer extends JController
 
             if($updater->buildFromECRBuildDir())
             {
-            ecrHTML::displayMessage(jgettext('Update sql file has been written'));
-        }
-        else
-        {
-            ecrHTML::displayMessage(jgettext('Can not create the update sql file'), 'error');
-        }
-
-            if(ECR_DEBUG) var_dump($files);
+                ecrHTML::displayMessage(jgettext('Update sql file has been written'));
+            }
+            else
+            {
+                ecrHTML::displayMessage(jgettext('Can not create the update sql file'), 'error');
+            }
 
             return;
         }
 
         $this->logger->log('Initing...');
-
-        $path .= '/sql/updates/'.$dbType;
 
         $fileName = $project->version.'.sql';
 
@@ -929,6 +941,8 @@ class EasyCreatorControllerStuffer extends JController
         {
             ecrHTML::displayMessage(jgettext('Update sql already exists'), 'error');
 
+            $this->logger->log('Update sql already exists in '.$fullPath);
+
             return;
         }
 
@@ -937,10 +951,14 @@ class EasyCreatorControllerStuffer extends JController
         if(JFile::write($fullPath, $contents))
         {
             ecrHTML::displayMessage(jgettext('Update sql file has been written'));
+
+            $this->logger->logFileWrite('dbUpdate', $fullPath, $contents);
         }
         else
         {
             ecrHTML::displayMessage(jgettext('Can not create the update sql file'), 'error');
+
+            $this->logger->logFileWrite('dbUpdate', $fullPath, $contents, 'Can not create the update sql file');
         }
     }//function
 }//class
