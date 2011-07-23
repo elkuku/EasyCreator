@@ -46,8 +46,8 @@ endif;
 */
 ?>
 <div style="text-align: center">
-<span class="img128 icon-128-easycreator"></span>
-<h1 style="margin-top: 120px;">What do you want to Create today ?</h1>
+    <span class="img128 icon-128-easycreator"></span>
+    <h1 style="margin-top: 120px;">What do you want to Create today ?</h1>
 </div>
 
 <?php echo $this->loadTemplate('projectlist'); ?>

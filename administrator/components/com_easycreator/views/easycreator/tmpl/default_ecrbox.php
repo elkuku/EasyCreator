@@ -27,7 +27,6 @@ $link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';
 $link->translations = 'http://g11n.der-beta-server.de/translations/elkuku/easycreator';
 
 $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
-//$ecrLogo = 'administrator/components/com_easycreator/assets/images/easycreator-shadow.png';
 ?>
 
 <ul style="list-style: none; margin: 0; padding: 0;">
@@ -100,7 +99,6 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 </ul>
 
 <div style="clear: both;"></div>
-<?php #echo JHTML::image($ecrLogo, 'EasyCreator Logo'); ?>
 
 <div class="ecrFooter">
 EasyCreator <span style="color: blue;"><?php echo ECR_VERSION; ?></span>

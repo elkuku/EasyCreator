@@ -125,6 +125,7 @@ class dbUpdater
 
                 continue;
             }
+
             $this->fileList[$version] = $fileName;
         }//foreach
 

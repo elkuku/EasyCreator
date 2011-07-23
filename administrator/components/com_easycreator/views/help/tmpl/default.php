@@ -15,6 +15,7 @@ defined('_JEXEC') || die('=;)');
 <br />
 <div class="white_box">
 
+<div style="float: right" class="img128 icon-128-easycreator"></div>
 <h1><?php echo jgettext('Help'); ?></h1>
 <p>
     <span class="img32a icon-32-help">

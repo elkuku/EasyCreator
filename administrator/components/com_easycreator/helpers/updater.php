@@ -60,8 +60,6 @@ class extensionUpdater
     {
         jimport('joomla.filesystem.archive');
 
-        $buildsPath = ECRPATH_BUILDS.'/'.$this->project->comName;
-
         $buildsPath = $this->project->getZipPath();
 
         if( ! JFolder::exists($buildsPath))
