@@ -12,6 +12,17 @@
 defined('_JEXEC') || die('=;)');
 
 $upgradeChecked =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
+
+$js = '';
+
+foreach ($this->project->updateServers as $server)
+{
+    $js .= "   addUpdateServer('$server->name', '$server->url', '$server->type', '$server->priority');\n";
+}
+
+$js = "window.addEvent('domready', function() {\n".$js."\n});";
+
+JFactory::getDocument()->addScriptDeclaration($js);
 ?>
 
 <div class="ecr_floatbox">
@@ -24,4 +35,13 @@ $upgradeChecked =($this->project->method == 'upgrade') ? ' checked="checked"' : 
     title="method=upgrade::<?php echo jgettext('This will perform an upgrade on installing your extension'); ?>">
         <?php echo jgettext('Upgrade'); ?>
     </label>
+
+    <?php if('1.5' != $this->project->JCompat) : ?>
+        <h4><?php echo jgettext('Update server'); ?></h4>
+        <div id="updateServers"></div>
+        <div onclick="addUpdateServer('<?php echo $this->project->name?> update server', '', 'extension', '1');"
+        class="ecr_button img icon-16-add">
+            <?php echo jgettext('Add Server');?>
+        </div>
+    <?php endif; ?>
 </div>

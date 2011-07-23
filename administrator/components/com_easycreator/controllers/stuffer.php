@@ -824,7 +824,7 @@ class EasyCreatorControllerStuffer extends JController
         {
             $this->logger->log('Processing table '.$table);
 
-            if('true' == $table->foreign)
+            if('1' == $table->foreign)
             {
                 $this->logger->log('Is a foreign table');
 

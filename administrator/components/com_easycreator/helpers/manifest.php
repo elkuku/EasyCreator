@@ -82,6 +82,7 @@ class JoomlaManifest extends JObject
         'setUp'
         , 'processCredits'
         , 'processInstall'
+        , 'processUpdates'
         , 'processSite'
         , 'processAdmin'
         , 'processMedia'
@@ -369,6 +370,26 @@ class JoomlaManifest extends JObject
                 }
             }//foreach
         }
+
+        return true;
+    }//function
+
+    private function processUpdates()
+    {
+        if( ! count($this->project->updateServers))
+        return true;
+
+        //-- Update site
+        $updateServers = $this->manifest->addChild('updateservers');
+
+        foreach($this->project->updateServers as $server)
+        {
+            $sElement = $updateServers->addChild('server', $server->url);
+
+            $sElement->addAttribute('name', $server->name);
+            $sElement->addAttribute('type', $server->type);
+            $sElement->addAttribute('priority', $server->priority);
+        }//foreach
 
         return true;
     }//function

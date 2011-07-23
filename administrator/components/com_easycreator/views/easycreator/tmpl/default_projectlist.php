@@ -46,7 +46,10 @@ foreach($projectTypes as $comType => $titel) :
     $count =(isset($projects[$comType])) ? count($projects[$comType]) : 0;
 
     echo '<div class="boxHeader img icon-12-'.$comType.'">';
+
+    # Do not translate
     echo sprintf(jngettext('%d '.ucfirst($comType), '%d '.$plural, $count), $count);
+
     echo '</div>';
 
     foreach($projects[$comType] as $project) :

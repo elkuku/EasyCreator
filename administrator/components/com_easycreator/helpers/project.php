@@ -87,6 +87,8 @@ abstract class EasyProject extends JObject
     /** Package elements */
     public $elements = array();
 
+    public $updateServers = array();
+
     private $basePath = '';
 
     /** Special : g11n Languiage handling */
@@ -257,6 +259,20 @@ abstract class EasyProject extends JObject
         $this->buildOpts['include_ecr_projectfile'] =(in_array('include_ecr_projectfile', $buildOpts)) ? 'ON' : 'OFF';
         $this->buildOpts['remove_autocode'] =(in_array('remove_autocode', $buildOpts)) ? 'ON' : 'OFF';
 
+        $this->updateServers = array();
+
+        $updateServers = JRequest::getVar('updateServers', array());
+
+        foreach($updateServers['name'] as $i => $value)
+        {
+            $u = new stdClass;
+            $u->name = $value;
+            $u->priority = $updateServers['priority'][$i];
+            $u->type = $updateServers['type'][$i];
+            $u->url = $updateServers['url'][$i];
+            $this->updateServers[$i] = $u;
+        }//foreach
+
         $this->JCompat = JRequest::getString('jcompat');
 
         if( ! $this->writeProjectXml())
@@ -324,6 +340,7 @@ abstract class EasyProject extends JObject
         }
         else
         {
+            //-- Set the method to empty
             if($manifest->attributes()->method)
             {
                 $manifest->attributes()->method = '';
@@ -556,6 +573,21 @@ abstract class EasyProject extends JObject
             foreach($this->buildOpts as $k => $opt)
             {
                 $buildElement->addChild($k, $opt);
+            }//foreach
+        }
+
+        //-- Update servers
+        if(count($this->updateServers))
+        {
+            $element = $xml->addChild('updateservers');
+
+            foreach($this->updateServers as $server)
+            {
+                $sElement = $element->addChild('server', $server->url);
+
+                $sElement->addAttribute('name', $server->name);
+                $sElement->addAttribute('type', $server->type);
+                $sElement->addAttribute('priority', $server->priority);
             }//foreach
         }
 
@@ -809,6 +841,22 @@ abstract class EasyProject extends JObject
                 $this->buildOpts[$k] = (string)$v;
             }//foreach
         }//foreach
+
+        /*
+         * Update servers
+         */
+        if(isset($manifest->updateservers->server))
+        {
+            foreach($manifest->updateservers->server as $server)
+            {
+                $u = new stdClass;
+                $u->name = $server->attributes()->name;
+                $u->priority = $server->attributes()->priority;
+                $u->type = $server->attributes()->type;
+                $u->url = (string)$server;
+                $this->updateServers[] = $u;
+            }//foreach
+        }
 
         return true;
     }//function

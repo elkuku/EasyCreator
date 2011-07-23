@@ -52,6 +52,11 @@ Legend:
  ! -> Note
 ______________________________________________
 
+22-Jul-2011 Nikolai Plath
+ + 1.6+ Define updateserver(s) for projects
+ + Generate SQL install / uninstall files
+ + Generate update SQL files for previous versions
+
 08-Jul-2011 Nikolai Plath
  + Added posibility to specify a custom output directory for created zip packages
 

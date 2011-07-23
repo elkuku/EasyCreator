@@ -117,7 +117,9 @@ class EasyCreatorViewLanguages extends JView
     {
         $this->selected_file = JRequest::getVar('selected_file');
 
-        $this->options = JArrayHelper::toObject(JRequest::getVar('options', array()), 'JObject');
+        $options = JRequest::getVar('options', array());
+
+        $this->options = JArrayHelper::toObject($options, 'JObject');
 
         ecrLoadHelper('languageconverter');
 

@@ -15,6 +15,26 @@ function createFile(type1, type2)
     submitbutton('create_install_file');
 }//function
 
+function addUpdateServer(name, url, type, priority)
+{
+	var container = document.id('updateServers');
+	var div = new Element('div', {'style' : 'border: 1px dashed gray; padding: 0.4em; margin: 0.2em;'});
+	var html = '';
+
+	html += 'Name: <input type="text" name="updateServers[name][]" value="'+name+'" /><br />';
+	html += 'Priority: <input type="text" name="updateServers[priority][]" value="'+priority+'" /><br />';
+	html += 'Type: <input type="text" name="updateServers[type][]" value="'+type+'" /><br />';
+	html += 'URL: <input type="text" name="updateServers[url][]" value="'+url+'" /><br />';
+
+	html += '<br /><span class="ecr_button" onclick="this.getParent().dispose();">';
+	html += jgettext('Delete');
+	html += '</span>';
+
+	div.set('html', html);
+
+	div.inject(container);
+}//function
+
 function submitStuffer(task)
 {
     if ($('package-to') == null)

@@ -152,8 +152,7 @@ class EasyCreatorViewStuffer extends JView
         $jsEvents = '';
         $html = '';
 
-        if($task == 'stuffer'
-        || $task == 'install')
+        if($task == 'stuffer')
         {
             $html .= '<div class="ecr_easy_toolbar" style="float: right;">';
             $html .= '	<div class="ecr_button img icon-16-save" onclick="submitStuffer(\'save_config\');">'

@@ -15,37 +15,9 @@ defined('_JEXEC') || die('=;)');
 <?php
 $InstallFile = null;
 $unInstallFile = null;
-//#var_dump($this->project->tables);
 
-ecrLoadHelper('dqml2tree');
-ecrLoadHelper('sqlparser');
-ecrLoadHelper('SQL.Parser');
-
-ecrLoadHelper('dbupdater');
-
-$paths = array(
-'1.0' => JPATH_COMPONENT.'/test/install1.sql'
-, '1.1' => JPATH_COMPONENT.'/test/install2.sql'
-, '1.2' => JPATH_COMPONENT.'/test/install3.sql'
-);
-
-//$updater = new dbUpdater($paths);
-//$files = $updater->parseFiles();
-
-//var_dump($files);
-
-/*
-$totalCountSql = SqlParser::ParseString( $contents, false );// -> getCountQuery();
-//$totalCountSql = SqlParser::Tokenize( $contents, false );// -> getCountQuery();
-
-//$result = YourDbAbstractionLayer->ExecuteQuery($totalCountSQL);
-
-//$query2tree = new dqml2tree($contents);
-//$sql_tree = $query2tree->make();
-
-echo '<pre>'.print_r($totalCountSql, 1).'</pre>';
-*/
 ?>
+
 <div class="ecr_floatbox">
 <table>
 	<tr>
