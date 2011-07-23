@@ -11,14 +11,31 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-/*
- * PHP dummy functions :
+/**
+ * PHP dummy function
+ */
+
+/**
+ * PHP dummy function.
+ *
+ * @param string $string The string
+ *
+ * @return string
  */
 function jgettext($string)
 {
     return $string;
 }//function
 
+/**
+ * PHP dummy function.
+ *
+ * @param string $singular Singular string
+ * @param string $pluralPlural string
+ * @param integer $count Count
+ *
+ * @return string
+ */
 function jngettext($singular, $plural, $count)
 {
     return (1 == $count) ? $singular : $plural;

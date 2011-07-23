@@ -217,15 +217,6 @@ $stdJS .= "$('file_name').value='';";
 </div>
 </div>
     <?php
-    /*
-     * J1.6 Alpha testing warning
-     */
-    if(version_compare(JVERSION, '1.6', '>='))
-    {
-        //echo '<strong style="color: red; padding: 2em;">ALPHA TESTING on Joomla! 1.6!</strong>';
-    }
-
-    ?> <?php
     if( ! in_array($task, $rTasks))
     {
         ?> <script type="text/javascript">
@@ -1189,6 +1180,7 @@ EOF;
     public static function idt($ac = '', $newIndent = 0)
     {
         static $indent = 0;
+
         if( $newIndent )
         {
             $indent = $newIndent;
@@ -1200,6 +1192,7 @@ EOF;
         }
 
         $i = NL.str_repeat('   ', $indent);
+
         if($ac == '+')
         {
             $indent ++;

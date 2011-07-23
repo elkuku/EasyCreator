@@ -19,11 +19,8 @@ $unInstallFile = null;
 ?>
 
 <div class="ecr_floatbox">
+    <div class="infoHeader img icon-24-install"><?php echo jgettext('Install and Uninstall SQL') ?></div>
 <table>
-	<tr>
-		<th colspan="2" class="infoHeader imgbarleft icon-24-install"><?php echo jgettext('Install and Uninstall SQL') ?>
-		</th>
-	</tr>
 	<?php if(count($this->installFiles['sql'])) :?>
     	<tr>
     		<th><?php echo jgettext('Folder'); ?></th>
@@ -54,7 +51,8 @@ $unInstallFile = null;
 	onclick="createFile('sql', 'install');"><?php echo jgettext('Create install file'); ?>
 </div>
 	<?php else : ?>
-<div class="ecr_button img icon-16-update" onclick="createFile('sql', 'install');">
+<div class="ecr_button img icon-16-update"
+	onclick="createFile('sql', 'install');">
     <?php echo jgettext('Update install file'); ?>
 </div>
 	<?php endif; ?>
@@ -70,6 +68,7 @@ $unInstallFile = null;
 	<?php endif; ?>
 
 </div>
+
 <input type="hidden" name="type1" id="type1" />
 <input type="hidden" name="type2" id="type2" />
 

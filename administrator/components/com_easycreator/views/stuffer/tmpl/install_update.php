@@ -42,7 +42,10 @@ $files = JFolder::files($path);
 <div class="ecr_floatbox">
     <div class="infoHeader img icon-24-install"><?php echo jgettext('Update SQL') ?></div>
 
-    <h4><?php echo jgettext('Versions'); ?></h4>
+    <strong><?php echo jgettext('Versions'); ?></strong>
+    <br />
+    <?php echo jgettext('Package path'); ?>
+    <?php echo JHtml::tooltip($this->project->getZipPath(), jgettext('Path')); ?>
     <?php if($versions) : ?>
         <ul>
         <?php foreach($versions as $version) : ?>
@@ -62,14 +65,15 @@ $files = JFolder::files($path);
 
      <?php if($files) : ?>
          <?php echo jgettext('Found sql update files'); ?>
-         <br >/
-     	<?php echo $path; ?>
+         <?php echo JHtml::tooltip($path, jgettext('Path')); ?>
          <ul>
          <?php foreach ($files as $file) { ?>
              <li><?php echo $file; ?></li>
          <?php }?>
          </ul>
-     <?php else : ?>
+     <?php endif; ?>
+
+     <?php if( ! $files) : ?>
          <div class="ecr_button img icon-16-add" onclick="createFile('sql', 'update');">
              <?php echo jgettext('Init database updates'); ?>
          </div>
@@ -83,4 +87,5 @@ $files = JFolder::files($path);
          </div>
          <?php endif; ?>
      <?php endif; ?>
+
 </div>
