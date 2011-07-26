@@ -56,11 +56,9 @@ function ecrLoadHelper($name)
  */
 function ecrStylesheet($name)
 {
-    //-- We do this if the administrator folder is named somewhat other than 'administrator'
-    $adminPath = str_replace(DS, '/', str_replace(JPATH_ROOT.DS, '', JPATH_COMPONENT_ADMINISTRATOR));
-
     return JFactory::getDocument()->addStylesheet(JURI::root(true)
-    .'/'.$adminPath.'/assets/css/'.$name.'.css');
+    .'/'.EasyCreatorHelper::getAdminComponentUrlPath()
+    .'/assets/css/'.$name.'.css');
 }//function
 
 /**
@@ -72,9 +70,9 @@ function ecrStylesheet($name)
  */
 function ecrScript($name)
 {
-    //-- We do this if the administrator folder is named somewhat other than 'administrator'
-    $adminPath = str_replace(DS, '/', str_replace(JPATH_ROOT.DS, '', JPATH_COMPONENT_ADMINISTRATOR));
+    $adminPath = getAdminComponentUrlPath();
 
     return JFactory::getDocument()->addScript(JURI::root(true)
-    .'/'.$adminPath.'/assets/js/'.$name.'.js');
+    .'/'.EasyCreatorHelper::getAdminComponentUrlPath()
+    .'/assets/js/'.$name.'.js');
 }//function

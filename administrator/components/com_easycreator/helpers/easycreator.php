@@ -58,4 +58,24 @@ class EasyCreatorHelper
 
         return new $classname;
     }//function
+
+    /**
+     *  We do this if the administrator folder is named somewhat other than 'administrator'.
+     *
+     *  @return string Relative URL path of components administration
+     */
+    public static function getAdminComponentUrlPath()
+    {
+        static $adminPath = '';
+
+        if($adminPath)
+        return $adminPath;
+
+        $root = str_replace(DS, '/', JPATH_ROOT);
+        $component = str_replace(DS, '/', JPATH_COMPONENT_ADMINISTRATOR);
+        $adminPath = str_replace($root.'/', '', $component);
+
+        return $adminPath;
+    }//function
+
 }//class
