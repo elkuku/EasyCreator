@@ -69,6 +69,9 @@ class EasyProjectMatrix extends JFolder
 
     );
 
+    /**
+     * @var EasyProject
+     */
     private $project;
 
     /**

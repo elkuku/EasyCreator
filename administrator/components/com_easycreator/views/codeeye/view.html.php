@@ -187,6 +187,16 @@ class EasyCreatorViewCodeEye extends JView
     }//function
 
     /**
+     * GitHub View.
+     *
+     * @return void
+     */
+    protected function git()
+    {
+        $this->setLayout('git');
+    }//function
+
+    /**
      * PHPUnit View.
      *
      * @return void
@@ -327,6 +337,11 @@ class EasyCreatorViewCodeEye extends JView
         , 'description' => jgettext('Displays information about your project (experimental).')
         , 'icon' => 'icon'
         , 'task' => 'reflection'
+        )
+        , array('title' => jgettext('GitHub')
+        , 'description' => jgettext('aaaaaaaaaa')
+        , 'icon' => 'icon'
+        , 'task' => 'git'
         )
         );
 

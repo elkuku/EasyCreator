@@ -20,7 +20,7 @@ class EasyCreatorHelper
     /**
      * Get a specific controller.
      *
-     * @return object Controller
+     * @return JController
      * @throws Exception
      */
     public static function getController()

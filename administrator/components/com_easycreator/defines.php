@@ -64,7 +64,6 @@ defined('NL') || define('NL', "\n");
 /**
  * Joomla! version - only the important part..
  */
-//define('ECR_JVERSION', substr(JVERSION, 0, 3));
 $parts = explode('.', JVERSION);
 
 if(3 != count($parts))

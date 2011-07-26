@@ -34,6 +34,17 @@ class EasyLogger
 
     private $cntCodeBoxes = 0;
 
+    /**
+     *
+     * Get a logger instance.
+     *
+     * @param string $name Custom name for the instance
+     * @param array $options Log options
+     *
+     * @return EasyLogger
+     *
+     * @throws EcrLogException
+     */
     public static function getInstance($name, $options = array())
     {
         static $instances = array();

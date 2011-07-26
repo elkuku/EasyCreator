@@ -937,7 +937,7 @@ abstract class EasyProject extends JObject
      * @param EasyLogger $logger The logger
      * @param boolean $overwrite Overwrite existing files
      *
-     * @return return_type
+     * @return boolean
      */
     public function insertPart($options, EasyLogger $logger, $overwrite = false)
     {

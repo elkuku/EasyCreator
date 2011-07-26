@@ -9,6 +9,9 @@
 
 class EasyProjectTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var EasyProject
+     */
     private $project;
 
     protected function setUp()

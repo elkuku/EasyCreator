@@ -18,6 +18,9 @@ defined('_JEXEC') || die('=;)');
  */
 class EasyBuilder extends JObject
 {
+    /**
+     * @var EasyProject
+     */
     public $project = null;
 
     private $_substitutes = array();
@@ -47,7 +50,7 @@ class EasyBuilder extends JObject
      * @param string $template Name of the extension template
      * @param string $name Babys name
      *
-     * @return mixed EasyProject on success | false on error.
+     * @return EasyProject on success | false on error.
      */
     public function build($type, $template, $name)
     {
@@ -702,7 +705,7 @@ class EasyBuilder extends JObject
      * @param string $name Project name
      * @param string $scope Project scope e.g. admin, site
      *
-     * @return mixed [object EasyProject on success | false on error]
+     * @return EasyProject on success | false on error
      */
     public function registerProject($type, $name, $scope = '')
     {
@@ -778,7 +781,7 @@ class EasyBuilder extends JObject
     /**
      * Read the header file.
      *
-     * @return boolena true on success
+     * @return boolen true on success
      */
     private function readHeader()
     {

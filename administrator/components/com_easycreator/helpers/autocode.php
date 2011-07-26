@@ -125,7 +125,7 @@ class EasyAutoCode
      * @param string $string String to be replaced
      * @param string $key The replacing key
      *
-     * @return return_type
+     * @return string
      */
     public function replaceCode($string, $key)
     {

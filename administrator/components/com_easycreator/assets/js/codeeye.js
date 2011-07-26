@@ -78,8 +78,6 @@ function doPHPUnit(folder, test, timeStamp, id)
     
     url = ecrAJAXLink+'&controller=codeeyeajax';
     url += '&task=phpunit';
-//    url += '&ecr_project=' + project;
-//    url += '&path='+$('dspl_sniff_folder').innerHTML;
     url += '&folder='+folder;
     url += '&test='+test;
     url += '&time_stamp='+timeStamp;
@@ -123,8 +121,6 @@ function doSelenium(folder, test, timeStamp, id)
 {
     url = ecrAJAXLink+'&controller=codeeyeajax';
     url += '&task=selenium';
-//    url += '&ecr_project=' + project;
-//    url += '&path='+$('dspl_sniff_folder').innerHTML;
     url += '&folder='+folder;
     url += '&test='+test;
     url += '&time_stamp='+timeStamp;
@@ -443,3 +439,32 @@ function checkEnvironment()
         }
     }).send();
 }//function
+
+/**
+ * Git stuff
+ */
+
+function gitStatus()
+{
+    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url += '&task=gitStatus';
+    
+    new Request({
+        url: url,
+        'onRequest' : function()
+        {
+            $('ecr_codeeye_output').innerHTML = '';
+            $('ecr_codeeye_console').innerHTML = '';
+        },
+        'onComplete' : function(response)
+        {
+            var resp = JSON.decode(response);
+            
+            if( ! resp.status) {
+                //-- Error
+            }
+            $('ecr_codeeye_output').innerHTML = resp.text;
+            $('ecr_codeeye_console').innerHTML = resp.console;
+        }
+    }).send();
+}

@@ -20,7 +20,7 @@ class PartModelsSimple
     /**
      * Info about the thing.
      *
-     * @return object ecrTemplateInfo
+     * @return EasyTemplateInfo
      */
     public function info()
     {

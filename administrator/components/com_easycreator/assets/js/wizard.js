@@ -66,3 +66,11 @@ function getExtensionTemplateInfo(extType, folder, e)
     }).send();
     
 }//function
+
+function changeJVersion(version)
+{
+	$$('div.jcompat_'+version).each(function(e){
+		var style =(e.getStyle('display') == 'none') ? 'block' : 'none';
+		e.setStyle('display', style);
+		});
+}

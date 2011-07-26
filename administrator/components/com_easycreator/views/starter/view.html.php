@@ -21,6 +21,8 @@ jimport('joomla.application.component.view');
  */
 class EasyCreatorViewStarter extends JView
 {
+    protected $infoLinks = array();
+
     /**
      * Standard display method.
      *
@@ -81,8 +83,46 @@ class EasyCreatorViewStarter extends JView
             $this->setLayout($task);
         }
 
+        $this->setUpInfoLinks();
+
         parent::display($tpl);
 
         ecrHTML::easyFormEnd();
+    }//function
+
+    private function setUpInfoLinks()
+    {
+        $docBase = 'http://docs.joomla.org/';
+
+        $this->infoLinks = array(
+      'component' => array(
+            'Category:Components'
+            => $docBase.'Category:Components'
+    )
+    , 'module' => array(
+              'Category:Modules' => $docBase.'Category:Modules'
+            , 'Creating a Hello World Module'
+            => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
+    )
+    , 'plugin' => array(
+              'Category:Plugins' => $docBase.'Category:Plugins'
+            , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
+            , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
+            , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
+            , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
+            , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
+    )
+    , 'template' => array(
+              'Category:Templates' => $docBase.'Category:Templates'
+            , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
+            , 'How to override the output from the Joomla! core'
+            => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
+            , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
+    )
+    , 'library' => array()
+    , 'package' => array()
+);
+
+        ;
     }//function
 }//class

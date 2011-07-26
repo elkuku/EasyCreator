@@ -25,6 +25,9 @@ class JoomlaManifest extends JObject
 {
     private $manifest = null;
 
+    /**
+     * @var EasyProject
+     */
     private $project = null;
 
     /**

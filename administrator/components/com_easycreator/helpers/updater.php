@@ -19,6 +19,9 @@ defined('_JEXEC') || die('=;)');
  */
 class extensionUpdater
 {
+    /**
+     * @var EasyProject
+     */
     private $project = null;
 
     private $hasUpdates = false;

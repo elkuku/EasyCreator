@@ -21,6 +21,9 @@ class dbUpdater
 
     private $versions = array();
 
+    /**
+     * @var EasyProject
+     */
     private $project = null;
 
     private $adapter = null;
@@ -28,8 +31,8 @@ class dbUpdater
     private $logger = null;
 
     /**
+     * Constructor.
      *
-     * Enter description here ...
      * @param EasyProject $project
      * @param string $adapter
      */

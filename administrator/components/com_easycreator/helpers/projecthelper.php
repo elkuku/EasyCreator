@@ -60,7 +60,7 @@ class EasyProjectHelper
      * @param string $name Project name.
      * @param boolean $reload Reload the project.
      *
-     * @return object EasyProject [EasyProject project on success | boolean false on error]
+     * @return EasyProject [EasyProject project on success | boolean false on error]
      */
     public static function getProject($name = '', $reload = false)
     {
@@ -120,7 +120,7 @@ class EasyProjectHelper
      *
      * @param string $type Project type (component, plugin, etc.)
      *
-     * @return mixed [object EasyProject | boolean false on error]
+     * @return EasyProject | boolean false on error
      */
     public static function newProject($type)
     {
@@ -315,7 +315,7 @@ class EasyProjectHelper
      *
      * @param string $path Path to xml file
      *
-     * @return [mixed array credits data | boolean false on error]
+     * @return mixed array credits data | boolean false on error
      */
     public static function parseXMLInstallFile($path)
     {
@@ -613,7 +613,7 @@ class EasyProjectHelper
      * @param string $scope The scope e.g. admin, site etc.
      * @param boolean $edit Open the part to edit
      *
-     * @return mixed [EasyPart on success | null on error]
+     * @return EasyPart on success | null on error
      */
     public static function getPart($group, $part, $element, $scope, $edit = false)
     {
@@ -862,7 +862,7 @@ class EasyProjectHelper
      *
      * @todo This may go in a separate class - error reporting may be improved.
      *
-     * @return mixed [JXMLElement on success | false on error].
+     * @return JXMLElement on success | false on error
      */
     public static function getXML($data, $isFile = true)
     {

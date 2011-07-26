@@ -30,7 +30,7 @@ class EasyProfiler extends JProfiler
      *
      * @param string $prefix Prefix used to distinguish profiler objects.
      *
-     * @return object EasyProfiler The Profiler object.
+     * @return EasyProfiler The Profiler object.
      */
     public static function getInstance($prefix = '')
     {

@@ -28,6 +28,9 @@ class EasyZIPer extends JObject
 
     private $createdFiles = array();
 
+    /**
+     * @var EasyProject
+     */
     private $project;
 
     private $buildopts = array();

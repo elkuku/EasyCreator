@@ -18,68 +18,28 @@ ecrStylesheet('php_file_tree');
 
 $comTypes = EasyProjectHelper::getProjectTypes();
 $templateList = EasyTemplateHelper::getTemplateList();
-
-$docBase = 'http://docs.joomla.org/';
-
-$infoLinks = array(
-      'component' => array(
-            'Category:Components'
-            => $docBase.'Category:Components'
-    )
-    , 'module' => array(
-              'Category:Modules' => $docBase.'Category:Modules'
-            , 'Creating a Hello World Module'
-            => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
-    )
-    , 'plugin' => array(
-              'Category:Plugins' => $docBase.'Category:Plugins'
-            , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
-            , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
-            , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
-            , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
-            , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
-    )
-    , 'template' => array(
-              'Category:Templates' => $docBase.'Category:Templates'
-            , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
-            , 'How to override the output from the Joomla! core'
-            => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
-            , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
-    )
-    , 'library' => array()
-    , 'package' => array()
-);
+$jVersions = array('15', '16');
 
 ?>
 <div class="white_box">
-	<div class="wizard-header">
-    	<span id="wizard-loader" class="img32 icon-32-wizard"></span>
+    <div class="wizard-header">
+        <span id="wizard-loader" class="img32 icon-32-wizard"></span>
         <span class="wiz_step">1 / 3</span><?php echo jgettext('Extension type'); ?>
-	</div>
+    </div>
     <div class="ecr_wiz_desc">
         <?php echo jgettext('Choose a component type from a predefined template'); ?>
     </div>
 <?php
+
 echo jgettext('Hide templates for Joomla! versions');
 
-$hideVersions = JRequest::getVar('show_templates_jversion', array());
-$jVersions = array('1.5', '1.6');
-
-foreach ($jVersions as $v)
-{
-    $vX = str_replace('.', '', $v);
-    $checked =(in_array($v, $hideVersions)) ? ' checked="checked"' : '';
-    ?>
-    <input type="checkbox" name="show_templates_jversion[]"
-    id="hideVersion<?php echo $vX; ?>"
-    <?php echo $checked; ?>
-    value="<?php echo $v; ?>" onchange="submitform()">
-    <label for="hideVersion<?php echo $vX; ?>"
-	class="img4 icon-joomla-compat-<?php echo $vX; ?>">
+foreach ($jVersions as $v) : ?>
+    <input type="checkbox" id="hideVersion<?php echo $v; ?>"
+    onchange="changeJVersion('<?php echo $v; ?>');">
+    <label for="hideVersion<?php echo $v; ?>"
+    class="img4 icon-joomla-compat-<?php echo $v; ?>">
     </label>
-    <?php
-}//foreach
-?>
+<?php endforeach; ?>
 
 </div>
 <div style="clear: both; height: 1em;"></div>
@@ -91,9 +51,6 @@ foreach ($jVersions as $v)
         <?php if(isset($templateList[$extType])): ?>
             <?php
             foreach($templateList[$extType] as $template):
-                if(in_array($template->jVersion, $hideVersions))
-                continue;
-
                 $link =($template->authorUrl)
                 ? '<a href="'.$template->authorUrl.'" class="external">'.jgettext('Description').'</a>'
                 : '';
@@ -101,8 +58,7 @@ foreach ($jVersions as $v)
                 $htmlId = $extType.'_'.$template->folder;
                 $action = "onclick=\"setTemplate('$extType', '$template->folder'); goWizard(2);\"";
 
-                if($template->jVersion == '1.6' && ECR_JVERSION == '1.5')
-                {
+                if($template->jVersion == '1.6' && ECR_JVERSION == '1.5') :
                     $action = '';
                     $s = '<span class="img icon-16-logout"></span>';
                     $m = '<strong style=\'color: red;\'>'
@@ -112,19 +68,16 @@ foreach ($jVersions as $v)
                     $template->description = $m.BR.$template->description;
                     $template->info = $template->info.BR.$m;
                     $template->name = $s.$template->name;
-                }
-                else
-                {
-                }
+                endif;
                 ?>
-        		<div class="wizard-row">
-    				<div title="<?php echo jgettext('Info').'::'.jgettext('Click to view files'); ?>"
-    				class="ecr_button img icon-16-add hasEasyTip" style="float: right;"
-    				id="btn_<?php echo $htmlId; ?>"
-    				onclick="getExtensionTemplateInfo(<?php echo "'$extType', '$template->folder', $htmlId"; ?>)">
-    				    <?php echo jgettext('Info') ?>
-    				</div>
-            		<div class="hasEasyTip" title="<?php echo $template->info; ?>">
+                <div class="wizard-row jcompat_<?php echo str_replace('.', '', $template->jVersion);?>">
+                    <div title="<?php echo jgettext('Info').'::'.jgettext('Click to view files'); ?>"
+                    class="ecr_button img icon-16-add hasEasyTip" style="float: right;"
+                    id="btn_<?php echo $htmlId; ?>"
+                    onclick="getExtensionTemplateInfo(<?php echo "'$extType', '$template->folder', $htmlId"; ?>)">
+                        <?php echo jgettext('Info') ?>
+                    </div>
+                    <div class="hasEasyTip" title="<?php echo $template->info; ?>">
                         <a href="javascript:;" style="display: block;"
                         class="ecr_button img icon-joomla-compat-<?php
                         echo str_replace('.', '', $template->jVersion); ?>" <?php echo $action; ?>>
@@ -152,22 +105,22 @@ foreach ($jVersions as $v)
                             <strong><?php echo jgettext('Files'); ?></strong>
                             <div id="<?php echo $htmlId; ?>_files"></div>
                         </div>
-        				<script type="text/javascript">
-        					<?php echo $htmlId; ?> = new Fx.Slide('<?php echo $htmlId; ?>');
-        					<?php echo $htmlId; ?>.hide();
-        				</script>
+                        <script type="text/javascript">
+                            <?php echo $htmlId; ?> = new Fx.Slide('<?php echo $htmlId; ?>');
+                            <?php echo $htmlId; ?>.hide();
+                        </script>
                     </div>
-        		</div>
+                </div>
             <?php endforeach; ?>
-        <?php if(count($infoLinks[$extType])) : ?>
+        <?php if(count($this->infoLinks[$extType])) : ?>
         <div class="ecr_wiz_desc">
             <strong><?php echo jgettext('External infos'); ?></strong>
             <ul>
-            <?php foreach($infoLinks[$extType] as $text => $href) : ?>
+            <?php foreach($this->infoLinks[$extType] as $text => $href) : ?>
                 <li>
-                	<a class="external" href="<?php echo $href; ?>">
-                	    <?php echo $text; ?>
-                	</a>
+                    <a class="external" href="<?php echo $href; ?>">
+                        <?php echo $text; ?>
+                    </a>
                 </li>
             <?php endforeach; ?>
             </ul>

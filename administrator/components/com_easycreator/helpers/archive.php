@@ -26,7 +26,7 @@ class EasyArchive
      * @param string $compress The compression for the archive
      * @param string $removePath Path to remove within the archive
      *
-     * @return object Archive_Tar
+     * @return Archive_Tar
      */
     public static function createTgz($archive, $files, $compress = 'tar', $removePath = '')
     {
@@ -46,7 +46,7 @@ class EasyArchive
      * @param array $files Files to include in the archive
      * @param string $removePath Path to remove within the archive
      *
-     * @return object Archive_Zip
+     * @return Archive_Zip
      */
     public static function createZip($fileName, $files, $removePath = '')
     {
