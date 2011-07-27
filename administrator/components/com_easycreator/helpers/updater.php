@@ -93,6 +93,9 @@ class extensionUpdater
             $this->log('Processing version '.$folder);
 
             $files = JFolder::files($buildsPath.'/'.$folder);
+            
+            if( ! $files)
+            continue;
 
             $this->log(sprintf('Found %d package(s) ', count($files)));
 

@@ -141,13 +141,13 @@ class dbUpdater
             if( ! $fileName)
             {
                 echo 'No install.sql file for '.$this->project->version;
-
-                continue;
             }
-
-            $this->fileList[$this->project->version] = $fileName;
-
-            $this->log('Found install file at: '.$fileName);
+            else
+            {
+	            $this->fileList[$this->project->version] = $fileName;
+	
+	            $this->log('Found install file at: '.$fileName);
+            }
         }
 
         $files = $this->parseFiles();
@@ -382,6 +382,9 @@ class dbUpdater
     private function findInstallFile($path)
     {
         $files = JFolder::files($path);
+        
+        if( ! $files)
+        return false;
 
         $fileName = '';
 
