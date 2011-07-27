@@ -1,24 +1,14 @@
 <?php
-/**
- * @version SVN: $Id$
- * @package    HaWehOhWeh
- * @subpackage C:
- * @author     Nik {@link uri}
- * @author     Created on 26-Jul-2011
- * @license    GNU/GPL
- */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
+##*HEADER*##
 
 jimport('joomla.application.component.controller');
 
 /**
- * HaWehOhWeh Controller.
+ * _ECR_COM_NAME_ Controller.
  *
- * @package    HaWehOhWeh
+ * @package    _ECR_COM_NAME_
  * @subpackage Controllers
  */
-class HaWehOhWehController extends JController
+class _ECR_COM_NAME_Controller extends JController
 {
 }//class
