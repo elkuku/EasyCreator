@@ -64,7 +64,7 @@ class EasyBuilder extends JObject
 
         $this->logger = easyLogger::getInstance('ecr', $buildOpts);
 
-        $this->_buildBase = ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template;
+        $this->_buildBase = JPath::clean(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template);
         $this->logger->log('buildBase set to: '.$this->_buildBase);
 
         $projectTypes = EasyProjectHelper::getProjectTypesTags();
@@ -338,6 +338,9 @@ class EasyBuilder extends JObject
     {
         //-- Create build directory
         $this->_buildDir = JFactory::getConfig()->getValue('config.tmp_path').DS.uniqid($this->project->comName.'_');
+        
+        //-- Clean the path @since J 1.7
+        $this->_buildDir = JPath::clean($this->_buildDir);
 
         if( ! JFolder::create($this->_buildDir))
         {
