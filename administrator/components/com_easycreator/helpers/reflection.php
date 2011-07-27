@@ -551,7 +551,7 @@ default:
      *
      * @return array
      */
-    public function inspectTemplate($fileName)
+    public static function inspectTemplate($fileName)
     {
         $fileContents = explode("\n", JFile::read($fileName));
         $jCommands = array();

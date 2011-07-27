@@ -151,12 +151,10 @@ function loadColorPalette($FileName)
 
     foreach($fileContents as $line)
     {
-        $Values = split(',', $line);
+        $values = explode(',', $line);
 
-        if(count($Values) == 3)
-        {
-            $colors[] = implode(',', $Values);
-        }
+        if(count($values) == 3)
+        $colors[] = implode(',', $values);
     }//foreach
 
     return $colors;
