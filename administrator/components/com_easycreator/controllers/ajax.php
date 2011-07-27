@@ -248,7 +248,7 @@ class EasyCreatorControllerAjax extends JController
                 echo '<div style="font-size: 1.2em;">'.$docComment.'</div>';
                 $hlCode = highlight_string('<?php'.NL.$code, true);
                 $hlCode = str_replace('&lt;?php', '', $hlCode);
-                echo '<div style="border: 1px dashed gray; background-color: #eee;">'.$hlCode.'</div>';
+                echo '<div style="border: 1px dashed gray; background-color: #eee; padding: 0.5em;">'.$hlCode.'</div>';
             }//foreach
         }
         else

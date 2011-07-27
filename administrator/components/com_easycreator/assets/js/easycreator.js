@@ -39,7 +39,7 @@ function switchProject()
 
     if(project)
     {
-        $('ecr_stat_project').innerHTML = phpjs.sprintf(jgettext('Loading %s ...'), $('ecr_project').value);
+        document.id('ecr_stat_project').set('html', jgettext('Loading project...'));
     }
 
     submitform('stuffer');
