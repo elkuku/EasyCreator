@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+27-Jul-2011 Nikolai Plath
+# Fixed path error on windows in J 1.7 - Thanks Rita & Krishna
+
 22-Jul-2011 Nikolai Plath
  + 1.6+ Define updateserver(s) for projects
  + Generate SQL install / uninstall files

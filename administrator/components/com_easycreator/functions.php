@@ -70,8 +70,6 @@ function ecrStylesheet($name)
  */
 function ecrScript($name)
 {
-    $adminPath = getAdminComponentUrlPath();
-
     return JFactory::getDocument()->addScript(JURI::root(true)
     .'/'.EasyCreatorHelper::getAdminComponentUrlPath()
     .'/assets/js/'.$name.'.js');

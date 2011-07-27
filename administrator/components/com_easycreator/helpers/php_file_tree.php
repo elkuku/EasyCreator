@@ -237,7 +237,9 @@ class phpFileTree
                     if(is_dir($directory.DS.$this_file))
                     {
                         //-- Directory
-                        $li =($directory == JPATH_ROOT) ? '' : str_replace(JPATH_ROOT.DS, '', $directory);
+                        $li =($directory == JPATH_ROOT) ? '' : str_replace(JPATH_ROOT, '', $directory);
+                        
+                        $li = trim($li, DS);
 
                         if(substr($li, -1) != DS)
                         $li .= DS;
@@ -330,7 +332,10 @@ class phpFileTree
      */
     public function getLink($folder, $file)
     {
-        $li =($folder == JPATH_ROOT) ? '' : str_replace(JPATH_ROOT.DS, '', $folder);
+        $li =($folder == JPATH_ROOT) ? '' : str_replace(JPATH_ROOT, '', $folder);
+        
+        $li = ltrim($li, DS);
+        $li = ltrim($li, '/');//---WTF :|
 
         if(substr($li, -1) != DS)
         $li .= DS;

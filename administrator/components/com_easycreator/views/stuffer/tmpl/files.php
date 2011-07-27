@@ -23,7 +23,7 @@ ecrHTML::initFileTree();
 
 //-- Create a cache instance.
 $cache = JFactory::getCache('EasyCreator_'.$this->ecr_project);
-$cache->setCaching(1);
+$cache->setCaching(0);
 
 $fileTree = $cache->call('drawFileTree', $this->project);
 ?>
@@ -112,7 +112,8 @@ function drawFileTree(EasyProject $project)
     {
         if(is_dir($dir))
         {
-            $dspl = str_replace(JPATH_ROOT.DS, '', $dir);
+            $dspl = str_replace(JPATH_ROOT, '', $dir);
+            $dspl = trim($dspl, DS);
             $dspl = str_replace(DS, ' '.DS.' ', $dspl);
             $ret .= '<div class="file_tree_path"><strong>JROOT</strong>'.BR.$dspl.'</div>';
 
