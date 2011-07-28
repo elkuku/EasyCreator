@@ -5,7 +5,7 @@
  * This is the changelog for _ECR_COM_NAME_.<br>
  * <b>Please</b> be patient =;)
  *
- * @version    $Id$
+ * @version    SVN $Id$
  * @package    _ECR_COM_NAME_
  * @subpackage Documentation
  * @author     ECR_AUTHOR {@link AUTHORURL}
