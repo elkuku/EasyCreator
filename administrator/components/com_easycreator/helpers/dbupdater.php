@@ -76,8 +76,7 @@ class dbUpdater
         return;
 
         $this->logger->logFileWrite('dbUpdate', $path, $contents);
-
-    }
+    }//function
 
     /**
      * Make some properties public accessible.
@@ -144,9 +143,9 @@ class dbUpdater
             }
             else
             {
-	            $this->fileList[$this->project->version] = $fileName;
-	
-	            $this->log('Found install file at: '.$fileName);
+                $this->fileList[$this->project->version] = $fileName;
+
+                $this->log('Found install file at: '.$fileName);
             }
         }
 
@@ -170,7 +169,6 @@ class dbUpdater
             }
 
             $this->logFile($path.'/'.$fileName, $file->query);
-
         }//foreach
 
         return true;
@@ -306,7 +304,8 @@ class dbUpdater
                         //-- Different length
                         $alters[] = $this->adapter->getStatement('modifyColumn', $fName, $field);
 
-                        $this->log(sprintf('Modified column %s in table %s (different type or length)', $fName, $table->name));
+                        $this->log(sprintf('Modified column %s in table %s (different type or length)'
+                        , $fName, $table->name));
                     }
                     else
                     {
@@ -324,7 +323,8 @@ class dbUpdater
                                     {
                                         $alters[] = $this->adapter->getStatement('modifyColumn', $fName, $field);
 
-                                        $this->log(sprintf('Modified column %s in table %s - different type %s', $fName, $table->name, $c['type']));
+                                        $this->log(sprintf('Modified column %s in table %s - different type %s'
+                                        , $fName, $table->name, $c['type']));
                                     }
 
                                     continue 2;
@@ -342,7 +342,6 @@ class dbUpdater
 
                         $this->log(sprintf('Dropping column %s from table %s', $fName, $table->name));
                     }
-
                 }//foreach
 
                 $statement .= $this->adapter->getAlterTable($table, $alters);
@@ -382,7 +381,7 @@ class dbUpdater
     private function findInstallFile($path)
     {
         $files = JFolder::files($path);
-        
+
         if( ! $files)
         return false;
 

@@ -11,6 +11,10 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
+/**
+ * Database adapter class.
+ *
+ */
 class dbAdapter
 {
     protected $nameQuote = '`';
@@ -35,8 +39,7 @@ class dbAdapter
         }
 
         ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
-
-    }
+    }//function
 
     public function setQuery($query)
     {

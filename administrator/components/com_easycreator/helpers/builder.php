@@ -338,7 +338,7 @@ class EasyBuilder extends JObject
     {
         //-- Create build directory
         $this->_buildDir = JFactory::getConfig()->getValue('config.tmp_path').DS.uniqid($this->project->comName.'_');
-        
+
         //-- Clean the path @since J 1.7
         $this->_buildDir = JPath::clean($this->_buildDir);
 

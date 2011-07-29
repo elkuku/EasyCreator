@@ -795,7 +795,7 @@ class EasyCreatorControllerStuffer extends JController
             parent::display();
 
             return;
-        }
+        }//try
         catch(Exception $e)
         {
             $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();

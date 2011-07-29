@@ -29,7 +29,6 @@ class Com_EasyCreatorInstallerScript
             JFactory::getDocument()->addStylesheet(JURI::root(true)
     .'/administrator/components/com_easycreator/assets/css/default.css');
 
-
         $PHPMinVersion = '5.2.4';
 
         if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
@@ -39,7 +38,6 @@ class Com_EasyCreatorInstallerScript
 
             return false;
         }
-
     }//function
 
     /**

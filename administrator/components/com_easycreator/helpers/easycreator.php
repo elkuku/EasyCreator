@@ -77,5 +77,4 @@ class EasyCreatorHelper
 
         return $adminPath;
     }//function
-
 }//class

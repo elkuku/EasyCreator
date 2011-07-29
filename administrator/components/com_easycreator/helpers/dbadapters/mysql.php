@@ -13,10 +13,14 @@ defined('_JEXEC') || die('=;)');
 
 ecrLoadHelper('dbadapters.adapter');// or throw new Exception('dbAdapter not found');
 
+/**
+ * Database adapter for MySQL.
+ */
 class dbAdapterMySQL extends dbAdapter
 {
     public function __construct()
     {
+        $foo = '';
         parent::__construct();
     }//function
 
@@ -36,7 +40,7 @@ class dbAdapterMySQL extends dbAdapter
 
         $result->fields = array();
 
-        foreach ($parsed['column_defs'] as $name => $defs)
+        foreach($parsed['column_defs'] as $name => $defs)
         {
             $d = new stdClass;
             $d->type =(isset($defs['type'])) ?  $defs['type'] : '';
@@ -44,7 +48,7 @@ class dbAdapterMySQL extends dbAdapter
             $d->constraints = $defs['constraints'];
 
             $result->fields[$name] = $d;
-        }
+        }//foreach
 
         $result->raw = $this->query->raw;
 
@@ -76,7 +80,7 @@ default :
 
                 return '';
                 break;
-        }
+        }//switch
     }//function
 
     public function getAlterTable($table, $alters)

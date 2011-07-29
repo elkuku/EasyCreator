@@ -1,4 +1,7 @@
 <?php
+//-- This file does not meet the KuKuKodingStandards =;(
+// @codingStandardsIgnoreStart
+
 /**
  * PHP ctype compatibility functions. See the PHP ctype module for more
  * information on usage.

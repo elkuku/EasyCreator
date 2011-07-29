@@ -738,7 +738,7 @@ class EasyProjectHelper
                 $f->name = $folder;
 
                 $installFiles['sql_updates'][] = $f;
-            }
+            }//foreach
         }
 
         return $installFiles;

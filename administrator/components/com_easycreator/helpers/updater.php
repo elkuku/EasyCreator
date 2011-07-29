@@ -93,7 +93,7 @@ class extensionUpdater
             $this->log('Processing version '.$folder);
 
             $files = JFolder::files($buildsPath.'/'.$folder);
-            
+
             if( ! $files)
             continue;
 

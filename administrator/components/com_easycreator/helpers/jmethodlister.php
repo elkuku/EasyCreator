@@ -68,15 +68,15 @@ else
     die('No Joomla! version file found :(');
 }
 
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'object.php';
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observer.php';
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observable.php';
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'event'.DS.'event.php';
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'document'.DS.'renderer.php';
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'registry'.DS.'registry.php';
-include_once JPATH_LIBRARIES.DS.'joomla'.DS.'environment'.DS.'request.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'object.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observer.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observable.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'event'.DS.'event.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'document'.DS.'renderer.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'registry'.DS.'registry.php';
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'environment'.DS.'request.php';
 
-include_once JPATH_LIBRARIES.DS.'phpmailer'.DS.'phpmailer.php';
+require_once JPATH_LIBRARIES.DS.'phpmailer'.DS.'phpmailer.php';
 
 $prevIncluded = array('JObject', 'JObservable', 'JObserver', 'JDocumentRenderer', 'JRequest'
 , 'JEvent', 'JRegistry', 'JVersion');

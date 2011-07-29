@@ -1,6 +1,9 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 
+//-- This file does not meet the KuKuKodingStandards =;(
+// @codingStandardsIgnoreStart
+
 /**
  *
  * PHP versions 5
