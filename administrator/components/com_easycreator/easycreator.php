@@ -103,8 +103,6 @@ try
             g11n::setDebug(ECR_DEBUG_LANG);
         }
 
-        //TEMP@@debug
-
         //-- Get our special language file
         g11n::loadLanguage();
     }
@@ -119,7 +117,6 @@ catch(Exception $e)
 /**
  * EasyCreator Version
  */
-//-- Get the component XML manifest data
 define('ECR_VERSION', EasyProjectHelper::parseXMLInstallFile(
 JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
 
@@ -128,7 +125,7 @@ JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
  */
 switch(ECR_JVERSION)
 {
-    case 'X':
+    case '1.8': //-- Get prepared =;)
         JError::raiseNotice(0, sprintf(jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s')
         , ECR_VERSION, ECR_JVERSION));
     break;
@@ -153,7 +150,6 @@ ecrStylesheet('icon');
 //-- Add JavaScript
 ecrScript('global_vars');
 ecrScript('easycreator');
-//JHtml::_('behavior.mootools');
 
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
@@ -166,12 +162,9 @@ if(version_compare(JVERSION, '1.6', '>'))
 {
     //-- Joomla! 1.6+ compat
 
-    error_reporting(E_ALL);
-    //error_reporting(E_STRICT);//...when ¿
-    error_reporting(-1);
-
-    //-- Mootools compat for 1.2, 1.3
-    //ecrScript('compat_mootools');
+    $prevErrorReporting = error_reporting(E_ALL);
+    //$prevErrorReporting = error_reporting(E_STRICT);//...when ¿
+    //$prevErrorReporting = error_reporting(-1);
 }
 else
 {
@@ -179,7 +172,7 @@ else
      * Joomla! 1.5 legacy stuff
      */
 
-    error_reporting(E_ALL);
+    $prevErrorReporting = error_reporting(E_ALL);
 
     $MTVersion = JFactory::getApplication()->get('MooToolsVersion');
 
@@ -188,7 +181,6 @@ else
 
     //-- J! 1.6 stuff not present in J! 1.5
     ecrLoadHelper('databasequery');
-//    ecrScript('compat_joomla');
 }
 
 $controller = EasyCreatorHelper::getController();
@@ -206,7 +198,8 @@ else
     //-- Perform the Request task
     $controller->execute(JRequest::getCmd('task'));
 
-    if(ECR_DEV_MODE && ECR_DEBUG_LANG && class_exists('g11n'))
+    if(ECR_DEV_MODE && ECR_DEBUG_LANG
+    && class_exists('g11n'))
     {
         g11n::debugPrintTranslateds(true);
         g11n::debugPrintTranslateds();
@@ -219,7 +212,7 @@ else
 }
 
 //-- Re-set error_reporting
-error_reporting(E_ALL);
+error_reporting($prevErrorReporting);
 
 //-- Redirect if set by the controller
 $controller->redirect();//-- We don't do this very often =;)

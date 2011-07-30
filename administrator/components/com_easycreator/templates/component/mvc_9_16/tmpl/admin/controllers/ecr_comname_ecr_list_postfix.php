@@ -5,7 +5,7 @@
 jimport('joomla.application.component.controlleradmin');
 
 /**
- * HalloWeltList Controller.
+ * _ECR_COM_NAME_ Controller.
  */
 class _ECR_COM_NAME_Controller_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JControllerAdmin
 {

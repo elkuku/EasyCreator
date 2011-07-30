@@ -263,15 +263,18 @@ abstract class EasyProject extends JObject
 
         $updateServers = JRequest::getVar('updateServers', array());
 
-        foreach($updateServers['name'] as $i => $value)
+        if($updateServers)
         {
-            $u = new stdClass;
-            $u->name = $value;
-            $u->priority = $updateServers['priority'][$i];
-            $u->type = $updateServers['type'][$i];
-            $u->url = $updateServers['url'][$i];
-            $this->updateServers[$i] = $u;
-        }//foreach
+            foreach($updateServers['name'] as $i => $value)
+            {
+                $u = new stdClass;
+                $u->name = $value;
+                $u->priority = $updateServers['priority'][$i];
+                $u->type = $updateServers['type'][$i];
+                $u->url = $updateServers['url'][$i];
+                $this->updateServers[$i] = $u;
+            }//foreach
+        }
 
         $this->JCompat = JRequest::getString('jcompat');
 

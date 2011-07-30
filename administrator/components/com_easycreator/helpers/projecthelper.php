@@ -713,6 +713,7 @@ class EasyProjectHelper
 
             foreach($files as $file)
             {
+            	$file = str_replace('/', DS, $file);//@todo since 1.7 :(
                 $folder = str_replace($base.DS, '', $file);
                 $folder = str_replace(DS.JFile::getName($file), '', $folder);
 
