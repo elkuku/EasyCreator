@@ -12,11 +12,12 @@
 defined('_JEXEC') || die('=;)');
 
 // Register the element class with the loader.
-JLoader::register('JElement', dirname(__FILE__).'/element.php');
+//JLoader::register('JElement', dirname(__FILE__).'/element.php');
 
 /**
- * Enter description here ...
+ * Extended to provide g11n translations.
  *
+ * @deprecated when support for J 1.5 is dropped
  */
 class ECRParameter extends JParameter
 {
@@ -28,7 +29,7 @@ class ECRParameter extends JParameter
      *
      * @return string	HTML
      */
-    public function render($name = 'params', $group = '_default')
+    public function xrender($name = 'params', $group = '_default')
     {
         if( ! isset($this->_xml[$group]))
         {

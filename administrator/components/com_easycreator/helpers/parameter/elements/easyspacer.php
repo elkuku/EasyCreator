@@ -13,8 +13,12 @@ defined('_JEXEC') || die('=;)');
 /**
  * Renders a spacer element.
  *
+ * Extended to provide g11n translations.
+ *
  * @package 	EasyCreator
  * @subpackage	Parameter
+ *
+ * @deprecated when support for J 1.5 is dropped
  */
 class JElementEasySpacer extends JElement
 {

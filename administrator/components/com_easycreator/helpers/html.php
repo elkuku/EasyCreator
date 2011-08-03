@@ -1010,6 +1010,11 @@ EOF;
             $callFile .= ' ('.$trace[0]['line'].')';
         }
 
+        if(is_a($messages, 'exception'))
+        {
+            $messages = array($messages->getMessage());
+        }
+
         if( ! is_array($messages))
         {
             $messages = array($messages);

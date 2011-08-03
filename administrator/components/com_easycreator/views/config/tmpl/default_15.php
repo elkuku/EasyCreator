@@ -11,7 +11,8 @@
 //--No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrStylesheet('config');
+$groups = $this->parameters->getGroups();
+$blacks = array('_default', 'Personal');
 
 ?>
 <div class="ecr_easy_toolbar" style="float: right;">
@@ -43,20 +44,22 @@ ecrStylesheet('config');
     </div>
 <?php endif; ?>
 
-<?php foreach ($this->form->getFieldSets() as $fieldSet) : ?>
-<?php if('Debug' == $fieldSet->name && ! ECR_DEV_MODE) continue; ?>
+<?php
+foreach(array_keys($groups) as $group):
+    if('Debug' == $group
+    && ! ECR_DEV_MODE)
+    continue;
+
+    $style = str_replace(' ', '_', strtolower($group));
+    ?>
     <div class="ecr_floatbox">
-        <div class="imgbar icon-24-<?php echo $fieldSet->name; ?>"></div>
-        <fieldset class="adminform">
-            <legend><?php echo jgettext($fieldSet->label); ?></legend>
-            <ul class="adminformlist">
-            <?php foreach ($this->form->getFieldset($fieldSet->name) as $field): ?>
-                <li>
-                    <?php echo $field->label; ?>
-                    <?php echo $field->input; ?>
-                </li>
-            <?php endforeach; ?>
-            </ul>
-        </fieldset>
-    </div>
-<?php endforeach;
+		<div class="imgbar icon-24-<?php echo $style; ?>"></div>
+
+    	<div class="table_name"><?php echo jgettext($group); ?></div>
+    	<?php echo $this->parameters->render('params', $group); ?>
+        </div>
+<?php endforeach; ?>
+
+<div style="clear: both;"></div>
+
+<?php

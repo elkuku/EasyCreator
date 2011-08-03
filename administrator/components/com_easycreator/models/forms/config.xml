@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form>
+	<fieldset name="personal" label="Personal information">
+		<field name="cred_author" type="text" size="30" label="Author" />
+		<field name="cred_author_email" type="text" size="30" label="Author e-mail" />
+		<field name="cred_author_url" type="text" size="30" label="Author URL" />
+		<field name="cred_license" type="text" size="30" label="License"
+			default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" />
+		<field name="cred_copyright" type="text" size="30" label="Copyright" />
+	</fieldset>
+
+
+	<fieldset name="package_creation" label="Package creation">
+		<field name="zipPath" type="text" size="40" label="Build directory"
+			description="The folder where your final package ends up. The folders extension_name and version will be added automatically.&lt;br /&gt;If left blank the default folder will be used."
+			default="" />
+
+		<field name="spacer1_1" type="spacer" default="Package formats" />
+
+		<field name="archive_zip" type="checkbox" label="zip"
+			description="ZIP format" />
+		<field name="archive_tgz" type="checkbox" label="tar.gz"
+			description="Ziped Tarball" default="on_" />
+		<!-- <field name="archive_bz" type="checkbox" label="bz2" description="BZ2 
+			format" /> -->
+
+		<field name="spacer1_2" type="spacer" default="Custom file name" />
+
+		<field name="custom_name_1" type="text" size="40"
+			label="Custom name default" default="_*VERSION*_*SVNREV*_*DATETIMEYmd_Hi*" />
+		<field name="custom_name_2" type="text" size="40" label="Custom name"
+			default="_*VERSION*_*DATETIMEYmd_Hi*" />
+		<field name="custom_name_3" type="text" size="40" label="Custom name"
+			default="_*VERSION*" />
+	</fieldset>
+
+	<fieldset name="various" label="Various">
+		<field name="versionCheck" type="radio" default="0"
+			label="Check EasyCreator version" description="Automatically check for the latest EasyCreator version.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="ecr_help" type="list" default="all" label="Help Type"
+			description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
+			<option value="all">All</option>
+			<option value="some">Some</option>
+			<option value="none">None</option>
+		</field>
+		<field name="editarea_type" type="list" default="edit_area_full.js"
+			label="Editor type"
+			description="Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)">
+			<option value="edit_area_full.js">edit_area_full.js</option>
+			<option value="edit_area_compressor.php">edit_area_compressor.php</option>
+			<option value="edit_area_compressor.php?plugins">edit_area_compressor.php?plugins</option>
+			<option value="edit_area_full.gz">edit_area_full.gz</option>
+			<option value="edit_area_loader.js">edit_area_loader.js</option>
+		</field>
+		<field name="editarea_font_size" type="text" size="3"
+			label="Editor font size" description="The default font size for the code editor in pixel"
+			default="8" />
+		<field name="local_api_copy" type="text" size="40" label="Local API copy"
+			description="Your copy of the Joomla! API - get it from http://api.joomla.org" />
+		<field name="warn_livesite" type="radio" default="1"
+			label="Livesite warning"
+			description="If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="save_versions" type="radio" default="1" label="Save versions"
+			description="When modifying your files, always save a backup version. These will be named *.rx">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="spacer4_1" type="spacer" default="Language" />
+		<field name="use_google_trans_api" type="radio" default="1"
+			label="Use Google translation API"
+			description="Should we use the Google Translation API for helping in translations ?">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="langfiles_chk_utf8" type="radio" default="0"
+			label="Check for UTF8" description="Should languages files be checked for UTF-8">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+		<field name="langfiles_chk_bom" type="radio" default="1"
+			label="Check for BOM" description="Should languages files be checked for a BOM">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+	</fieldset>
+
+	<fieldset name="logging" label="Logging">
+		<field name="logging" type="radio" default="1" label="Logger"
+			description="Should we write some logfiles">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</field>
+		<field name="profile" type="radio" default="1" label="Profiler"
+			description="Profile time and memory">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</field>
+		<field name="files" type="radio" default="1" label="Log file contents"
+			description="Log the contents / the code of the files been written to disk">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</field>
+	</fieldset>
+
+	<fieldset name="debug" label="Debug">
+		<field name="spacer5_1" type="spacer" default="EasyCreator only" />
+		<field name="ecr_debug" type="radio" default="0" label="Debugger"
+			description="Shall we use the Debug mode ?">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</field>
+		<field name="ecr_debug_type" type="list" default="krumo" label="Debugger Type"
+			description="Which debugger to use">
+			<option value="easy">EasyDebug</option>
+			<option value="jdump">JDump</option>
+			<option value="debugtools">DebugTools</option>
+			<option value="krumo">Krumo</option>
+		</field>
+		<field name="ecr_debug_lang" type="radio" default="0"
+			label="Debug language" description="Shall we debug our special language files ?">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</field>
+	</fieldset>
+
+
+</form>

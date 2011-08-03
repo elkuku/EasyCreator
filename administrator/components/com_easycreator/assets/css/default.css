@@ -640,6 +640,7 @@ div.ecrFooter {
     background-color: #ddd;
     border-top: 3px solid #bbb;
     border-bottom: 3px solid #bbb;
+    border-radius: 30px;
 }
 
 div.ecrFooter a {

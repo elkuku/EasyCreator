@@ -16,9 +16,9 @@ defined('JPATH_BASE') || die('=;)');
  *
  * The JElement is the base class for all JElement types
  *
- * @abstract
- * @package		Joomla.Framework
- * @subpackage		Parameter
+ * Extended to provide g11n translations.
+ *
+ * @deprecated when support for J 1.5 is dropped
  */
 class JElement extends JObject
 {

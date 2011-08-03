@@ -53,11 +53,11 @@ class Com_EasyCreatorInstallerScript
     }//function
 
     /**
-     * Method to update the component.
+     * Method to update the component. DISABLED...
      *
      * @return void
      */
-    public function update($parent)
+    public function NOupdate($parent)
     {
         // $parent is the class calling this method
         //echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__UPDATE_TEXT').'</p>';

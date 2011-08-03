@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+/**
+ * @version SVN: $Id$
+ * @package     EasyCreator
+ * @subpackage  CSS
+ * @author      Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author      Created on 03-Aug-2011
+ */
+fieldset.adminform {
+	border: 0;
+}

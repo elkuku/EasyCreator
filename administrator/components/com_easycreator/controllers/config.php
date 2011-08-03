@@ -81,9 +81,7 @@ class EasyCreatorControllerConfig extends JController
             $adds = '';
 
             if(strpos($ecr_project, 'ecr') !== 0)
-            {
-                $adds =($ecr_project) ? '&view=stuffer&ecr_project='.$ecr_project : '';
-            }
+            $adds =($ecr_project) ? '&view=stuffer&ecr_project='.$ecr_project : '';
 
             $this->setRedirect('index.php?option=com_easycreator'.$adds, jgettext('Configuration has been saved'));
         }

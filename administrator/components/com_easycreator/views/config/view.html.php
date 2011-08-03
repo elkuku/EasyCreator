@@ -30,19 +30,32 @@ class EasyCreatorViewConfig extends JView
      */
     public function display($tpl = null)
     {
-        ecrLoadHelper('parameter.parameter');
-
         switch(ECR_JVERSION)
         {
             case '1.5':
                 $table = JTable::getInstance('component');
                 $table->loadByOption('com_easycreator');
+
+                JLoader::register('JElement', JPATH_COMPONENT.'/helpers/parameter/element.php');
+
+                $this->parameters = new JParameter($table->params, JPATH_COMPONENT.'/models/forms/config_15.xml');
+
+                $this->setLayout('default_15');
                 break;
             case '1.6':
             case '1.7':
-                $component = JComponentHelper::getComponent('com_easycreator');
-                $table = JTable::getInstance('extension');
-                $table->load($component->id);
+                try
+                {
+                    $this->form = $this->get('Form');
+                }
+                catch(Exception $e)
+                {
+                    ecrHTML::displayMessage($e);
+
+                    ecrHTML::easyFormEnd();
+
+                    return;
+                }//try
                 break;
 
             default:
@@ -54,52 +67,8 @@ class EasyCreatorViewConfig extends JView
                 break;
         }//switch
 
-        $this->parameters = new ECRParameter($table->params, JPATH_COMPONENT.DS.'config.xml');
-
         parent::display($tpl);
 
         ecrHTML::easyFormEnd();
-    }//function
-}//class
-
-/**
- * Enter description here ...@todo class description.
- *
- */
-class EasyParameter extends JParameter {
-    /**
-     * Constructor.
-     *
-     * @param string $data The raw parms text.
-     * @param string $path Path to the xml setup file.
-     *
-     * @since	1.5
-     */
-    public function __construct($data = '', $path = '')
-    {
-        parent::__construct($data, $path);
-
-        return;
-        // Set base path.
-        $this->_elementPath[] = dirname(__FILE__).'/parameter/element';
-
-        if($data = trim($data))
-        {
-            if(strpos($data, '{') === 0)
-            {
-                $this->loadJSON($data);
-            }
-            else
-            {
-                $this->loadINI($data);
-            }
-        }
-
-        if($path)
-        {
-            $this->loadSetupFile($path);
-        }
-
-        $this->_raw = $data;
     }//function
 }//class

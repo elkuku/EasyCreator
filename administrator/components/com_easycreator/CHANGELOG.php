@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+02-Aug-2011 Nikolai Plath
+ ^ Config now uses JForm
+
 --------------- 0.0.14.3 BETA -- [29-Jun-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15410
 
