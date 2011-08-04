@@ -17,7 +17,7 @@ $buildOpts = $this->project->buildOpts;
 
 <div class="ecr_floatbox">
     <div class="infoHeader img icon-24-package_creation">
-    	<?php echo jgettext('Package'); ?>
+        <?php echo jgettext('Package'); ?>
     </div>
 
     <br />
@@ -102,12 +102,12 @@ $buildOpts = $this->project->buildOpts;
         ?>
 <br />
 <br />
-	<input type="text" name="buildvars[zipPath]" size="40"
-		value="<?php echo $this->project->zipPath; ?>" />
-		<?php
-		if($this->project->zipPath && ! JFolder::exists($this->project->zipPath)) :
-		    ecrHTML::displayMessage(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'warning');
-		endif;
-		?>
+    <input type="text" name="buildvars[zipPath]" size="40"
+        value="<?php echo $this->project->zipPath; ?>" />
+        <?php
+        if($this->project->zipPath && ! JFolder::exists($this->project->zipPath)) :
+            ecrHTML::displayMessage(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'warning');
+        endif;
+        ?>
 
 </div>

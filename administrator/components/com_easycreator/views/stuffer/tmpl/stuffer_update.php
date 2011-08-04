@@ -15,10 +15,9 @@ $upgradeChecked =($this->project->method == 'upgrade') ? ' checked="checked"' : 
 
 $js = '';
 
-foreach ($this->project->updateServers as $server)
-{
+foreach ($this->project->updateServers as $server) :
     $js .= "   addUpdateServer('$server->name', '$server->url', '$server->type', '$server->priority');\n";
-}
+endforeach;
 
 $js = "window.addEvent('domready', function() {\n".$js."\n});";
 

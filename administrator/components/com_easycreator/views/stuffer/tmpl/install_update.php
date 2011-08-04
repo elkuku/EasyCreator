@@ -26,7 +26,7 @@ catch (Exception $e)
     ecrHTML::displayMessage($e->getMessage(), 'error');
 
     return;
-}
+}//try
 
 $versions = $updater->versions;
 
@@ -67,9 +67,9 @@ $files = JFolder::files($path);
          <?php echo jgettext('Found sql update files'); ?>
          <?php echo JHtml::tooltip($path, jgettext('Path')); ?>
          <ul>
-         <?php foreach ($files as $file) { ?>
+         <?php foreach ($files as $file) : ?>
              <li><?php echo $file; ?></li>
-         <?php }?>
+         <?php endforeach; ?>
          </ul>
      <?php endif; ?>
 
