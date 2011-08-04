@@ -1,7 +1,6 @@
 <?php
 
 /**
- *
  * Extended  to provide g11n translations.
  *
  *

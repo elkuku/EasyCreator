@@ -2,13 +2,21 @@
 
 if('1.5' == ECR_JVERSION)
 {
-    class EasyCreatorModelConfig extends JModel {}
+    /**
+     * Extending JModel.
+     */
+    class EasyCreatorModelConfig extends JModel
+    {
+    }//class
 
     return;
 }
 
 jimport('joomla.application.component.modeladmin');
 
+/**
+ * Prototype admin model.
+ */
 class EasyCreatorModelConfig extends JModelAdmin
 {
     public function getForm($data = array(), $loadData = true)

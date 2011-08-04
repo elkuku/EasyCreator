@@ -461,7 +461,7 @@ msgstr "Das Template wurde gelöscht"
 
 #: administrator/components/com_easycreator/controllers/templates.php:104
 msgid "No templates selected"
-msgstr "Keine Templates selected"
+msgstr "Keine Templates ausgewählt"
 
 #: administrator/components/com_easycreator/controllers/templates.php:108
 msgid "Templates have been exported."

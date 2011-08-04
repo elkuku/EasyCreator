@@ -164,7 +164,7 @@ if(version_compare(JVERSION, '1.6', '>'))
 
     $prevErrorReporting = error_reporting(E_ALL);
     //$prevErrorReporting = error_reporting(E_STRICT);//...when ¿
-    //$prevErrorReporting = error_reporting(-1);
+    $prevErrorReporting = error_reporting(-1);
 }
 else
 {

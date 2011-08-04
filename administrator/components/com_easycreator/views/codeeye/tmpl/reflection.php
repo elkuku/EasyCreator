@@ -536,7 +536,7 @@ function reflect($path, $file)
                 echo '<h1>';
                 printf("%s%s%s %s"
                        , $theClass->isInternal() ? 'internal' : 'user-defined'
-                       . $theClass->isAbstract() ? ' abstract' : ''
+                       , $theClass->isAbstract() ? ' abstract' : ''
                        , $theClass->isFinal() ? ' final' : ''
                        , $theClass->isInterface() ? 'Interface' : 'Class'
                 );
@@ -552,14 +552,14 @@ function reflect($path, $file)
                     $property = $theClass->getProperty($prop->name);
 
                     printf(
-                       "%s%s%s%s property <strong>%s</strong>",
-                           $property->isPublic() ? ' <strong style="color: green">public</strong>' : '',
-                           $property->isPrivate() ? ' <strong style="color: orange">private</strong>' : '',
-                           $property->isProtected() ? ' <strong style="color: red">protected</strong>' : '',
-                           $property->isStatic() ? ' <strong style="color: black">static</strong>' : '',
-                           $property->getName()
-
+                       "%s%s%s%s property <strong>%s</strong>"
+                           , $property->isPublic() ? ' <strong style="color: green">public</strong>' : ''
+                           , $property->isPrivate() ? ' <strong style="color: orange">private</strong>' : ''
+                           , $property->isProtected() ? ' <strong style="color: red">protected</strong>' : ''
+                           , $property->isStatic() ? ' <strong style="color: black">static</strong>' : ''
+                           , $property->getName()
                     );
+
                     echo '<br />';
                 }//foreach
                 echo NL.'</pre>';

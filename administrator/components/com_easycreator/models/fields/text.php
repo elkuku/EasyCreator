@@ -15,7 +15,7 @@ jimport('joomla.form.formfield');
 /**
  * Renders a text element.
  *
- * Extended  to provide g11n translations.
+ * Extended to provide g11n translations.
  *
  * @package 	EasyCreator
  * @subpackage	Parameter

@@ -20,25 +20,9 @@ echo JHTML::tooltip(jgettext('Build folder').'::'
 .jgettext('<br />If left blank the default folder will be used.'));
 
 echo '<br /><br />';
-//echo jgettext('Standard build folder');
-//echo '<br />';
 echo $buildPath;
-?>
-<!--
-<br />
-<br />
-<label for="zipPath">
-	<?php echo jgettext('Custom build folder'); ?>
-</label>
-<br />
-<input type="text" id="zipPath" name="buildvars[zipPath]" size="40"
-    value="<?php echo $this->project->zipPath; ?>" />
- -->
-<?php
-//echo DS.$this->project->comName;
 echo DS.$this->project->version;
 
-if( ! JFolder::exists($buildPath)) :
-    ecrHTML::displayMessage(sprintf(jgettext('The folder %s does not exist'), $buildPath), 'error');
+if( ! JFolder::exists($buildPath.DS.$this->project->version)) :
+    ecrHTML::displayMessage(jgettext('The folder does not exist'), 'warning');
 endif;
-?>

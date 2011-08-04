@@ -32,7 +32,7 @@ abstract class EcrFormField extends JFormField
 
         // Build the class for the label.
         $class =( ! empty($this->description)) ? 'hasTip' : '';
-        $class =( $this->required == true) ? $class.' required' : $class;
+        $class =($this->required == true) ? $class.' required' : $class;
 
         // Add the opening label tag and main attributes attributes.
         $label .= '<label id="'.$this->id.'-lbl" for="'.$this->id.'" class="'.$class.'"';
