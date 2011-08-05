@@ -26,8 +26,8 @@ class EasyCreatorModelConfig extends JModelAdmin
         $option = JRequest::getCmd('option');
 
         //-- Get the form.
-        $form = $this->loadForm($option.'.config', 'config',
-        array('control' => 'params', 'load_data' => $loadData));
+        $form = $this->loadForm($option.'.config', 'config'
+        , array('control' => 'params', 'load_data' => $loadData));
 
         if(empty($form))
         throw new Exception(jgettext('Unable to load the config form'));

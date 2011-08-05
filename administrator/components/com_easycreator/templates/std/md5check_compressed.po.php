@@ -27,7 +27,6 @@ function checkMD5File($path, $extensionPaths)
         $pos = strpos($subPath, '@');
 
         $path = $subPath;
-        
         $file = '';
 
         if($pos !== false)// lines containing a @ must be compressed..
@@ -36,6 +35,7 @@ function checkMD5File($path, $extensionPaths)
             $file = substr($subPath, $pos + 1);
             $path = decompress($compressed).'/'.$file;
         }
+
 
         $parts = explode(DS, $path);
 
@@ -58,7 +58,8 @@ function checkMD5File($path, $extensionPaths)
 
         if(md5_file($path) != $md5)
         {
-            $errors[] = JText::sprintf('MD5 check failed on file: %s', $path);
+            $errors[] = sprintf(jgettext('MD5 check failed on file: %s'), $path);
+            
             echo (JDEBUG) ? 'md5 check failed<br />' : '';
 
             continue;

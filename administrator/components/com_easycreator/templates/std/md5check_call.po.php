@@ -15,17 +15,17 @@
 
     if(JFile::exists($md5Path))
     {
-        echo '<br />'.JText::_('Checking MD5 sums...');
+        echo '<br />'.jgettext('Checking MD5 sums...');
 
         $md5Result = checkMD5File($md5Path, $paths);
         
-        echo JText::sprintf('%d files checked...', $md5Result[0]);
+        echo sprintf(jgettext('%d files checked...'), $md5Result[0]);
 
         if(count($md5Result) > 1)
         {
             array_shift($md5Result);
             
-            echo '<strong style="color: red;">'.JText::_('There have been errors').'</strong>';
+            echo '<strong style="color: red;">'.jgettext('There have been errors').'</strong>';
             echo '<ul style="color: red;">';
             echo '<li>';
             echo implode('</li><li>', $md5Result);
@@ -34,6 +34,6 @@
         }
         else
         {
-            echo '<strong style="color: green;">OK</strong>';
+            echo '<strong style="color: green;">'.jgettext('OK').'</strong>';
         }
     }

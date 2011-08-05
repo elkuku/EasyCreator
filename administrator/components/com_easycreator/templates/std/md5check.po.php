@@ -34,10 +34,11 @@ function checkMD5File($path, $extensionPaths)
         echo (JDEBUG) ? $path.'...' : '';
 
         $errors[0] ++;
-        
+
         if( ! JFile::exists($path))
         {
-            $errors[] = JText::sprintf('File not found: %s', $path);
+            $errors[] = sprintf(jgettext('File not found: %s'), $path);
+
             echo (JDEBUG) ? 'not found<br />' : '';
 
             continue;
@@ -45,7 +46,8 @@ function checkMD5File($path, $extensionPaths)
 
         if(md5_file($path) != $md5)
         {
-            $errors[] = JText::sprintf('MD5 check failed on file: %s', $path);
+            $errors[] = sprintf(jgettext('MD5 check failed on file: %s'), $path);
+
             echo (JDEBUG) ? 'md5 check failed<br />' : '';
 
             continue;

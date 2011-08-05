@@ -116,6 +116,11 @@
 			<option value="0">Off</option>
 			<option value="1">On</option>
 		</field>
+		<field name="ecr_debug_lang" type="radio" default="0"
+			label="Debug language" description="Shall we debug our special language files ?">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</field>
 		<field name="ecr_debug_type" type="list" default="krumo" label="Debugger Type"
 			description="Which debugger to use">
 			<option value="easy">EasyDebug</option>
@@ -123,12 +128,6 @@
 			<option value="debugtools">DebugTools</option>
 			<option value="krumo">Krumo</option>
 		</field>
-		<field name="ecr_debug_lang" type="radio" default="0"
-			label="Debug language" description="Shall we debug our special language files ?">
-			<option value="0">Off</option>
-			<option value="1">On</option>
-		</field>
 	</fieldset>
-
 
 </form>

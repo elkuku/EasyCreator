@@ -112,11 +112,12 @@ ecrScript('menu');
 
 
 <!-- Info & credits -->
-<?php echo $this->loadTemplate('info'); ?>
-<?php echo $this->loadTemplate('credits'); ?>
+<?php 
+echo $this->loadTemplate('info'); 
+echo $this->loadTemplate('credits'); 
 
-<?php
-    echo $this->loadTemplate('packing');
+echo $this->loadTemplate('packing');
+
 if($this->project->type == 'component'):
     echo $this->loadTemplate('menu');
     echo $this->loadTemplate('install');
@@ -124,14 +125,13 @@ if($this->project->type == 'component'):
     echo $this->loadTemplate('autocode');
     echo $this->loadTemplate('language');
 endif;
-?>
-<?php if($this->project->type == 'package') echo $this->loadTemplate('packageelements'); ?>
 
-<?php echo $this->loadTemplate('update');
-/*
-<input type="hidden" name="buildvars[method]" value="<?php echo $this->project->method; ?>" />
- */
- ?>
+if($this->project->type == 'package') 
+echo $this->loadTemplate('packageelements');
+
+echo $this->loadTemplate('update'); 
+?>
+
 <div style="clear: both; height: 1em;"></div>
 
 <?php

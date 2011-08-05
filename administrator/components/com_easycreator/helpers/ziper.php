@@ -77,39 +77,39 @@ class EasyZIPer extends JObject
 
         $steps = array(
           'setTempDir'
-          , 'copyCopies'
-          , 'copyLanguage'
-          , 'copyMedia'
-          , 'copyPackageModules'
-          , 'copyPackagePlugins'
-          , 'copyPackageElements' // 1.6
-          , 'processInstall'
-          , 'cleanProject'
-          , 'deleteManifest'
-          , 'createMD5'
-          , 'createManifest'
-          , 'createArchive'
-          , 'removeBuildDir'
-          );
+        , 'copyCopies'
+        , 'copyLanguage'
+        , 'copyMedia'
+        , 'copyPackageModules'
+        , 'copyPackagePlugins'
+        , 'copyPackageElements' // 1.6
+        , 'processInstall'
+        , 'cleanProject'
+        , 'deleteManifest'
+        , 'createMD5'
+        , 'createManifest'
+        , 'createArchive'
+        , 'removeBuildDir'
+        );
 
-          foreach($steps as $step)
-          {
-              if( ! $this->$step())
-              {
-                  $this->logger->log('FINISHED with ERRORS');
-                  $this->setError('Error in '.$step);
+        foreach($steps as $step)
+        {
+            if( ! $this->$step())
+            {
+                $this->logger->log('FINISHED with ERRORS');
+                $this->setError('Error in '.$step);
 
-                  $this->logger->writeLog();
+                $this->logger->writeLog();
 
-                  return false;
-              }
-          }//foreach
+                return false;
+            }
+        }//foreach
 
-          $this->logger->log('FINISHED');
+        $this->logger->log('FINISHED');
 
-          $this->logger->writeLog();
+        $this->logger->writeLog();
 
-          return true;
+        return true;
     }//function
 
     /**
@@ -229,26 +229,26 @@ class EasyZIPer extends JObject
         //-- Look for unwanted files
         $unwanted = array(
             'Thumbs.db'
-            );
+        );
 
-            foreach($files as $file)
+        foreach($files as $file)
+        {
+            foreach($unwanted as $item)
             {
-                foreach($unwanted as $item)
+                //-- Simple check if the full path contains an 'unwanted' string
+                if(strpos($file, $item))
                 {
-                    //-- Simple check if the full path contains an 'unwanted' string
-                    if(strpos($file, $item))
+                    $this->logger->log('Removing unwanted '.$item.' at '.$file);
+
+                    if( ! JFile::delete($file))
                     {
-                        $this->logger->log('Removing unwanted '.$item.' at '.$file);
-
-                        if( ! JFile::delete($file))
-                        {
-                            $this->logger->log('Unable to remove '.$file, 'ERROR');
-                        }
+                        $this->logger->log('Unable to remove '.$file, 'ERROR');
                     }
-                }//foreach
+                }
             }//foreach
+        }//foreach
 
-            return true;
+        return true;
     }//function
 
     /**
@@ -312,7 +312,7 @@ class EasyZIPer extends JObject
 
         /*
          * Check for a valid XML root tag.
-         */
+        */
         if($xml->getName() != 'install'
         && $xml->getName() != 'extension')
         {
@@ -407,7 +407,7 @@ class EasyZIPer extends JObject
 
                     /*
                      * We are packing EasyCreator.. need to strip off some stuff =;)
-                     */
+                    */
                     if($this->project->comName == 'com_easycreator' && $dest == 'admin')
                     {
                         $ecrBase = $this->temp_dir.DS.'admin';
@@ -533,110 +533,112 @@ class EasyZIPer extends JObject
 
         $installFiles = EasyProjectHelper::findInstallFiles($this->project);
 
-        if(count($installFiles['php']))
+        if( ! count($installFiles['php']))
+        return true;
+
+        $srcDir = $this->temp_dir.DS.'admin';
+        $destDir = $this->temp_dir.DS.'install';
+
+        //-- Create 'install' folder in temp dir
+        JFolder::create($destDir);
+
+        //-- Copy install files from 'admin' to 'temp'
+        foreach($installFiles['php'] as $file)
         {
-            $srcDir = $this->temp_dir.DS.'admin';
-            $destDir = $this->temp_dir.DS.'install';
+            $srcPath = $srcDir;
+            $srcPath .=($file->folder) ? DS.$file->folder : '';
+            $srcPath .= DS.$file->name;
 
-            //-- Create 'install' folder in temp dir
-            JFolder::create($destDir);
+            $destPath = $destDir;
 
-            //-- Copy install files from 'admin' to 'temp'
-            foreach($installFiles['php'] as $file)
+            if($file->folder == 'install')
             {
-                $srcPath = $srcDir;
-                $srcPath .=($file->folder) ? DS.$file->folder : '';
-                $srcPath .= DS.$file->name;
+                $folder = '';
+            }
+            else
+            {
+                $folder = str_replace('install'.DS, '', $file->folder);
+            }
 
-                $destPath = $destDir;
+            if($folder)
+            {
+                $destPath .= DS.$folder;
 
-                if($file->folder == 'install')
-                {
-                    $folder = '';
-                }
-                else
-                {
-                    $folder = str_replace('install'.DS, '', $file->folder);
-                }
+                // Create the folder
+                JFolder::create($destPath);
 
-                if($folder)
-                {
-                    // Create the folder
-                    JFolder::create($destPath.DS.$folder);
-                    $destPath .= DS.$folder;
-                }
+            }
 
-                if( ! JFile::copy($srcPath, $destPath.DS.$file->name))
-                {
-                    $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath
-                    .'<br />DST: '.$destPath.DS.$file->name, 'ERROR copy file');
-
-                    continue;
-                }
-
+            if(JFile::copy($srcPath, $destPath.DS.$file->name))
+            {
                 $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath.'<br />DST: '.$destPath.DS.$file->name);
-
-                if($file->name == 'install.php'
-                || $file->name == 'install.package.php')
-                {
-                    if($this->buildopts['create_md5'])
-                    {
-                        $compressed =($this->buildopts['create_md5_compressed']) ? '_compressed' : '';
-                        $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.'.php');
-                        $fileContents = str_replace('<?php', '', $fileContents);
-                        $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
-
-                        $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check_call.php');
-                        $fileContents = str_replace('<?php', '', $fileContents);
-                        $this->project->addSubstitute('##ECR_MD5CHECK##', $fileContents);
-
-                        $this->project->addSubstitute('_ECR_COM_COM_NAME_', $this->project->comName);
-
-                        $fileContents = JFile::read($destPath.DS.$file->name);
-                        $fileContents = $this->project->substitute($fileContents);
-
-                        if( ! JFile::write($destPath.DS.$file->name, $fileContents))
-                        {
-                            $this->logger->log('Failed to add MD5 install check routine to installphp', 'error');
-                        }
-                    }
-                    else
-                    {
-                        $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', '');
-                        $this->project->addSubstitute('##ECR_MD5CHECK##', '');
-
-                        $fileContents = JFile::read($destPath.DS.$file->name);
-                        $fileContents = $this->project->substitute($fileContents);
-
-                        if( ! JFile::write($destPath.DS.$file->name, $fileContents))
-                        {
-                            $this->logger->log('Failed to clean install.php', 'error');
-                        }
-                    }
-
-                    $this->logger->logFileWrite('', 'install/install.php', $fileContents);
-                }
-            }//foreach
-
-            //-- Delete install files from 'admin'
-            foreach($installFiles['php'] as $file)
+            }
+            else
             {
-                $srcPath = $srcDir;
-                $srcPath .=($file->folder) ? DS.$file->folder : '';
-                $srcPath .= DS.$file->name;
+                $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath
+                .'<br />DST: '.$destPath.DS.$file->name, 'ERROR copy file');
 
-                if(JFile::delete($srcPath))
-                {
-                    $this->logger->log('INSTALL FILE DELETED<br />SRC: '.$srcPath);
-                }
-                else
-                {
-                    $this->logger->log('DELETE INSTALL FILE<br />SRC: '.$srcPath, 'ERROR deleting file');
+                continue;
+            }
 
-                    return false;
-                }
-            }//foreach
-        }
+            if(0 != strpos($file->name, 'install'))
+            continue;
+
+            if($this->buildopts['create_md5'])
+            {
+                $format =('po' == $this->project->langFormat) ? '.po' : '';
+                $compressed =($this->buildopts['create_md5_compressed']) ? '_compressed' : '';
+                $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.$format.'.php');
+                $fileContents = str_replace('<?php', '', $fileContents);
+                $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
+
+                $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check_call'.$format.'.php');
+                $fileContents = str_replace('<?php', '', $fileContents);
+                $this->project->addSubstitute('##ECR_MD5CHECK##', $fileContents);
+
+                $this->project->addSubstitute('_ECR_COM_COM_NAME_', $this->project->comName);
+
+                $fileContents = JFile::read($destPath.DS.$file->name);
+                $fileContents = $this->project->substitute($fileContents);
+
+            }
+            else
+            {
+                $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', '');
+                $this->project->addSubstitute('##ECR_MD5CHECK##', '');
+
+                $fileContents = JFile::read($destPath.DS.$file->name);
+                $fileContents = $this->project->substitute($fileContents);
+            }
+
+            if(JFile::write($destPath.DS.$file->name, $fileContents))
+            {
+                $this->logger->logFileWrite('', 'install/install.php', $fileContents);
+            }
+            else
+            {
+                $this->logger->log('Failed to add MD5 install check routine to install.php', 'error');
+            }
+        }//foreach
+
+        //-- Delete install files from 'admin'
+        foreach($installFiles['php'] as $file)
+        {
+            $srcPath = $srcDir;
+            $srcPath .=($file->folder) ? DS.$file->folder : '';
+            $srcPath .= DS.$file->name;
+
+            if(JFile::delete($srcPath))
+            {
+                $this->logger->log('INSTALL FILE DELETED<br />SRC: '.$srcPath);
+            }
+            else
+            {
+                $this->logger->log('DELETE INSTALL FILE<br />SRC: '.$srcPath, 'ERROR deleting file');
+
+                return false;
+            }
+        }//foreach
 
         return true;
     }//function
@@ -1092,11 +1094,14 @@ class EasyZIPer extends JObject
                 $previousParts = explode(DS, $previous);
 
                 $result = array();
+                
+                $foundDifference = false;
 
                 foreach($subParts as $i => $part)
                 {
                     if(isset($previousParts[$i])
-                    && $part == $previousParts[$i]) //-- Same as previous sub path
+                    && $part == $previousParts[$i]
+                    && ! $foundDifference) //-- Same as previous sub path
                     {
                         $result[] = '-';
                     }
@@ -1106,6 +1111,8 @@ class EasyZIPer extends JObject
                         $result[] = '|'; //-- Add a separator
 
                         $result[] = $part.DS;
+                        
+                        $foundDifference = true;
                     }
                 }//foreach
 
@@ -1249,8 +1256,8 @@ class EasyZIPer extends JObject
                 default:
                     JError::raiseWarning(100, 'undefined packing type '.$ext);
 
-                    return false;
-                    break;
+                return false;
+                break;
             }//switch
 
             $this->logger->log('Packing routine for '.$ext.' finished');

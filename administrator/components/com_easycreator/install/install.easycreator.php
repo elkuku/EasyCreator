@@ -18,6 +18,8 @@ define('ECR_XML_LOCATION', $this->parent->getPath('manifest'));
 
 /**
  * Main installer.
+ * 
+ * @deprecated @todo remove when J! 1.5 is dropped.
  *
  * @return boolean
  */
@@ -44,11 +46,11 @@ function com_install()
 <div style="padding: 0.3em; background-color: #ffc;">
 	<h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
 	<h3 style="color: red;">
-		If you like EasyCreator in you language, just install the g11n language library :
+		If you like EasyCreator in your language, just install the g11n language library :
 	</h3>
 	<h3 style="color: red;">
 		<a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
-			Download lig_g11n
+			Download lib_g11n
 		</a>
 	</h3>
 </div>
@@ -83,9 +85,11 @@ function com_install()
 
 <div>
 
-<div style="float: right"><img
+<div style="float: right">
+    <img
     src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
-    alt="EasyCreator Logo" title="EasyCreator Logo" /></div>
+    alt="EasyCreator Logo" title="EasyCreator Logo" />
+</div>
 
 <h1>EasyCreator</h1>
     <?php echo jgettext('EasyCreator is a developer tool.'); ?><br />
@@ -93,7 +97,7 @@ function com_install()
     <?php echo jgettext('You can create a "frame" for your extension and an installable zip package with just a few "clicks"'); ?>
 
 <p>Happy coding,<br />
-<?php echo sprintf(jgettext('The %s Team.'), '<a href="http://joomlacode.org/gf/project/elkuku">EasyCreator</a>'); ?>
+    <?php echo sprintf(jgettext('The %s Team.'), '<a href="http://joomlacode.org/gf/project/elkuku">EasyCreator</a>'); ?>
 </p>
 
 </div>
@@ -107,98 +111,10 @@ function com_install()
 </p>
 
     <?php
+    ##ECR_MD5CHECK##
 
-    /*
-     * MD5 check
-     */
-    jimport('joomla.filesystem.file');
+    ecrHTML::footer();
 
-    $paths = array(
-      'admin' => JPATH_ADMINISTRATOR.DS.'components'.DS.'com_easycreator'
-      , 'site' => JPATH_SITE.DS.'components'.DS.'com_easycreator');
-
-      $md5Path = $paths['admin'].DS.'install'.DS.'MD5SUMS';
-
-      if(JFile::exists($md5Path))
-      {
-          echo '<br />'.jgettext('Checking MD5 sums...');
-
-          $md5Check = checkMD5File($md5Path, $paths);
-
-          echo sprintf(jgettext('%d files checked...'), $md5Check[0]);
-
-          if(count($md5Check) > 1)
-          {
-              echo '<strong style="color: red;">'.jgettext('There have been errors').'</strong>';
-              echo '<ul style="color: red;">';
-              echo '<li>';
-              echo implode('</li><li>', $md5Check);
-              echo '</li>';
-              echo '</ul>';
-          }
-          else
-          {
-              echo '<strong style="color: green;">'.jgettext('OK').'</strong>';
-          }
-      }
-
-      ecrHTML::footer();
-
-      return true;
+    return true;
 }//function
-
-/**
- * Checks an extension against a given MD5 checksum file.
- *
- * @param string $path Path to md5 file
- * @param array $extensionPaths Indexed array:
- *         First folder in md5 file path as key - extension path as value
- *         e.g. array(
- *            'admin' => JPATH_ADMINISTRATOR.DS.'components'.DS.'com_easycreator'
- *          , 'site' => JPATH_SITE.DS.'components'.DS.'com_easycreator');
- *
- * @return array Array of errors
- */
-function checkMD5File($path, $extensionPaths)
-{
-    jimport('joomla.filesystem.file');
-
-    $lines = explode("\n", JFile::read($path));
-
-    $errors = array();
-
-    $count = 0;
-
-    foreach($lines as $line)
-    {
-        if( ! trim($line))
-        continue;
-
-        list($md5, $file) = explode(' ', $line);
-
-        $parts = explode(DS, $file);
-
-        if( ! array_key_exists($parts[0], $extensionPaths))
-        continue;
-
-        $count ++;
-
-        $path = $extensionPaths[$parts[0]].DS.substr($file, strlen($parts[0]) + 1);
-
-        if(JFile::exists($path))
-        {
-            if(md5_file($path) != $md5)
-            {
-                $errors[] = sprintf(jgettext('MD5 check failed on file: %s'), $path);
-            }
-        }
-        else
-        {
-            $errors[] = sprintf(jgettext('File not found: %s'), $path);
-        }
-    }//foreach
-
-    array_unshift($errors, $count);
-
-    return $errors;
-}//function
+##ECR_MD5CHECK_FNC##
