@@ -19,7 +19,7 @@ $xmlfile = $basePath.DS.$this->selectedProject.'.xml';
 $parameter = new JParameter($module->params, $xmlfile);
 
 ?>
-<table width="100%">
+<table style="width: 100%">
   <tr valign="top">
     <td>
     	<?php easyHTML::projectSelector(); ?>

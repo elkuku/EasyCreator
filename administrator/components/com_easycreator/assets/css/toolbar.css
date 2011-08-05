@@ -28,7 +28,7 @@ div.ecr_easy_toolbar li {
 div.ecr_easy_toolbar li.active {
    border-bottom: 2px solid #ffcc00;
    border-top: 2px solid #ffcc00;
-   -moz-border-radius: 5px;
+   border-radius: 5px;
 }
 
 div.ecr_easy_toolbar li.spacer {
@@ -36,8 +36,9 @@ div.ecr_easy_toolbar li.spacer {
 }
 
 div.ecr_easy_toolbar li.divider {
-   border-right: 1px solid #eee;
+   border-right: 2px solid #eee;
    width: 5px;
+   margin-right: 10px
 }
 
 div.ecr_easy_toolbar span {
@@ -52,10 +53,11 @@ div.ecr_easy_toolbar a {
    display: block;
    float: left;
    white-space: nowrap;
-   border: 1px solid #fbfbfb;
    padding: 1px 5px;
    cursor: pointer;
    color: #000;
+   border: 1px solid #fbfbfb;
+   border-radius: 5px;
 }
 
 div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar a:focus {
@@ -67,5 +69,5 @@ div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar a:focus {
    background-color: #eee;
    color: #003300;
    outline: none;
-   -moz-border-radius: 5px;
+   border-radius: 5px;
 }

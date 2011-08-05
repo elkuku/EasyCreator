@@ -21,6 +21,7 @@ div#wizard_control {
    border: 1px solid grey;
    margin-right: 10px;
    margin-left: 10px;
+   border-radius: 5px;
 }
 
 .ecr_wiz_desc {
@@ -31,6 +32,7 @@ div#wizard_control {
    border-top: 2px solid green;
    border-bottom: 2px solid green;
    min-height: 30px;
+   border-radius: 10px;
 }
 
 .ecr_wiz_desc ul {
@@ -131,6 +133,7 @@ div.wizard-row {
 div.ecr_floatbox_title {
    margin-bottom: 0.5em;
    border-bottom: 1px solid #ddd;
+   border-radius: 5px;
 }
 
 div.wizard-header {

@@ -145,7 +145,7 @@ final class ecrHTML
 <div style="float: left; margin-top: -7px;"><img
     src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
     alt="EasyCreator Logo" /></div>
-<div style="float: left; padding-left: 0.5em;"><span
+<div style="float: left; padding-left: 0.5em;"><span class="ecrTopTitle"
     style="font-size: 1.4em; font-weight: bold;">EasyCreator</span> <br />
         <?php self::drawProjectSelector(); ?> <br />
 <span id="ecr_stat_project"></span></div>

@@ -61,9 +61,6 @@ defined('BR') || define('BR', '<br />');
  */
 defined('NL') || define('NL', "\n");
 
-/**
- * Joomla! version - only the important part..
- */
 $parts = explode('.', JVERSION);
 
 if(3 != count($parts))
@@ -71,6 +68,9 @@ if(3 != count($parts))
     die(__FILE__.' - Unfortunately we are not able to determine your Joomla! version :( :(');
 }
 
+/**
+ * Joomla! version - only the important part..
+ */
 define('ECR_JVERSION', $parts[0].'.'.$parts[1]);
 
 /**

@@ -53,13 +53,15 @@ Legend:
 ______________________________________________
 
 02-Aug-2011 Nikolai Plath
+ # Fixed md5 compression method
  ^ Config now uses JForm
+ ^ More CSS 3 eye candy
 
 --------------- 0.0.14.3 BETA -- [29-Jun-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15410
 
 27-Jul-2011 Nikolai Plath
-# Fixed a whole lot of path errors on windows in J! 1.7 - Thanks Rita & Krishna
+ # Fixed a whole lot of path errors on windows in J! 1.7 - Thanks Rita & Krishna
 
 22-Jul-2011 Nikolai Plath
  + 1.6+ Define updateserver(s) for projects

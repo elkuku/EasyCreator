@@ -35,7 +35,7 @@ function iFrameHeight() {
 
 <div style="color: red; border: 1px dashed grey; padding-left: 10px;">Framed !</div>
 
-<table width="100%">
+<table style="width: 100%;">
   <tr valign="top">
     <td>
     	<?php easyHTML::projectSelector(); ?>

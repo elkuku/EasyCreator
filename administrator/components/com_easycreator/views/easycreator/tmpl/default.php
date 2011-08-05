@@ -19,8 +19,7 @@ endif;
 //<a class="modal" href="http://joomla.org">@TEST</a>
 //<div onclick="checkVersion();">Check</div>
 ?>
-
-<div style="width: 222px; position: absolute; right: 3em;">
+<div class="ecrInfoBoxContainer">
     <div class="ecr_button img icon-16-easycreator" onclick="ecrInfoBox.toggle();">
         <?php echo jgettext('EasyCreator Information'); ?>
     </div>
@@ -47,7 +46,7 @@ endif;
 ?>
 <div style="text-align: center">
     <span class="img128 icon-128-easycreator"></span>
-    <h1 style="margin-top: 120px;">What do you want to Create today ?</h1>
+    <h1 class="ecrTitel">What do you want to Create today ?</h1>
 </div>
 
 <?php echo $this->loadTemplate('projectlist'); ?>

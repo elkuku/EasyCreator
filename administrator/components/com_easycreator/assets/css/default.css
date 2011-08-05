@@ -15,83 +15,23 @@
     height: 100px;
 }
 
-/*
-#ecr_box {
-    background-color: #efefef;
+h1 {
+	text-shadow: #999 2px 2px 2px;
 }
-*/
 
+h1.ecrTitel {
+	margin-top:120px;
+}
+
+span.ecrTopTitle {
+	text-shadow: orange -1px -1px 2px;
+}
 div.boxHeader {
     font-size: 1.3em;
     font-weight: bold;
+    text-shadow: #999 1px 1px 2px;
 }
 
-/*
-div#element-box {
-    background: #efefef ! important;
-}
-*/
-
-/*
-div.q,div.w {
-    height: 6px;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-}
-
-div#ecr_box div.q {
-    background: url(../images/j_border.png) 0 0 repeat-x;
-}
-
-div#ecr_box div.q div.q {
-    background: url(../images/j_crn_tr_light.png) 100% 0 no-repeat;
-}
-
-div#ecr_box div.q div.q div.q {
-    background: url(../images/j_crn_tl_light.png) 0 0 no-repeat;
-}
-
-div#ecr_box div.w {
-    background: url(../images/j_border.png) 0 100% repeat-x;
-}
-
-div#ecr_box div.w div.w {
-    background: url(../images/j_crn_br_light.png) 100% 0 no-repeat;
-}
-
-div#ecr_box div.w div.w div.w {
-    background: url(../images/j_crn_bl_light.png) 0 0 no-repeat;
-}
-
-div#ecr_box div.s {
-    padding: 5px 10px;
-}
-
-div.s {
-    border-left: 1px solid #CCCCCC;
-    border-right: 1px solid #CCCCCC;
-    padding: 0 8px;
-}
-
-div#element-box div.t div.t {
-    background: url(../images/j_crn_tr_dark.png) 100% 0 no-repeat
-        ! important;
-}
-
-div#element-box div.t div.t div.t {
-    background: url(../images/j_crn_tl_dark.png) 0 0 no-repeat ! important;
-}
-
-div#element-box div.b div.b {
-    background: url(../images/j_crn_br_dark.png) 100% 0 no-repeat
-        ! important;
-}
-
-div#element-box div.b div.b div.b {
-    background: url(../images/j_crn_bl_dark.png) 0 0 no-repeat ! important;
-}
-*/
 pre.ebc_code {
     border: 1px dashed grey;
     padding: 5px;
@@ -149,6 +89,7 @@ div.ebc_error {
     background-color: #FFFF99;
     border: 1px solid gray;
     padding: 4px;
+    border-radius: 5px 5px 0 0;
 }
 
 .ecr_create_it {
@@ -182,9 +123,10 @@ div.ebc_error {
     background-color: #E5FF99;
     padding: 3px;
     padding-left: 35px;
+    min-height: 30px;
     border-top: 2px solid green;
     border-bottom: 2px solid green;
-    min-height: 30px;
+    border-radius: 10px;
 }
 
 /*//////////*/
@@ -297,6 +239,7 @@ label:hover {
     border-bottom: 2px solid #ffe566;
     background-color: #ffc;
     padding: 3px;
+    border-radius: 10px;
 }
 
 div#stepbar {
@@ -331,7 +274,8 @@ div.ecr_error {
     background-color: #FFFFCC;
 }
 
-div#toolbar-box { /* let's kill the standard Joomla! toolbar box ;)
+div#toolbar-box { 
+    /* let's kill the standard Joomla! toolbar box ;)
      * otherwise displays an ugly empty div with some J! images..
      * TODO: any cleaner method ?
      */
@@ -519,6 +463,7 @@ div.ecr_floatbox {
     padding: 0.5em;
     border: 1px solid silver;
     border-radius: 10px;
+    box-shadow: 4px 4px 4px #666;
 }
 
 div.ecr_floatbox_title {
@@ -648,8 +593,10 @@ div.ecrFooter a {
 }
 
 .logging-options {
-    border: 1px dashed gray;
+    border: 1px solid gray;
     padding: 0.3em;
+    border-radius: 10px;
+    background-color: #eeeeff;
 }
 
 :focus {
@@ -675,6 +622,9 @@ div.projectListRow:hover {
     font-size: 1.2em;
     font-weight: bold;
     padding: 0.5em;
+    border: 2px solid silver;
+    border-radius: 10px;
+    text-shadow: #999 1px 1px 2px;
 }
 
 .projectListHeader.registered {
@@ -703,4 +653,10 @@ div#ecr_versionCheck {
     border: 1px solid gray;
     padding: 0.5em;
     background-color: #fff;
+}
+
+div.ecrInfoBoxContainer {
+    width: 222px;
+    position: absolute;
+    right: 3em;
 }
