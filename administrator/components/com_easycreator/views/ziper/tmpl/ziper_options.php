@@ -13,20 +13,17 @@ defined('_JEXEC') || die('=;)');
 
 $params = JComponentHelper::getParams('com_easycreator');
 ?>
-<div style="float: left;">
 <h3><?php echo jgettext('File name'); ?></h3>
-<span class="editlinktip hasEasyTip" title="<?php echo jgettext('Custom name format').'::'
-    .jgettext('Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*'); ?>">
-<img src="<?php echo JURI::root(true); ?>/includes/js/ThemeOffice/tooltip.png" border="0" alt="Tooltip"/>
-</span>
-</div>&nbsp;
-<strong><?php echo jgettext('Custom name format'); ?>:</strong>
-<div style="clear: both"></div>
+
 <div style="border: 1px dotted gray; padding: 0.5em; background-color: #ffc; margin: 0.5em;
 font-size: 1.3em; font-family: monospace;">
     <?php echo $this->project->comName; ?><div id="ajName" style="color: blue; display: inline;
     margin: 0; font-weight: bold;"></div>.&lt;EXT&gt;
 </div>
+<strong><?php echo jgettext('Custom name format'); ?></strong>
+<?php echo JHTML::tooltip(jgettext('Custom name format').'::'
+    .jgettext('Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*')); ?>
+<br />
 <input type="radio" name="opt_format" id="opt_format_1" class="custom_opt"
 checked="checked"
  onclick="$('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"

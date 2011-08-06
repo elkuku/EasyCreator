@@ -192,6 +192,7 @@ div.ebc_error {
     */
     text-decoration: none;
     color: black;
+    box-shadow: 0 0 2px orange;
 }
 
 .ecr_button_selected {
@@ -230,8 +231,9 @@ label {
 }
 
 label:hover {
-    background-color: #ffc;
-    border-radius: 10px;
+    /*background-color: #ffc;
+    border-radius: 10px;*/
+    box-shadow: 0 0 3px orange;
 }
 
 .ecr_result {
@@ -463,7 +465,7 @@ div.ecr_floatbox {
     padding: 0.5em;
     border: 1px solid silver;
     border-radius: 10px;
-    box-shadow: 4px 4px 4px #666;
+    box-shadow: 2px 2px 2px #666;
 }
 
 div.ecr_floatbox_title {

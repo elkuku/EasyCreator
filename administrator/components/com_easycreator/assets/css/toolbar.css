@@ -56,18 +56,12 @@ div.ecr_easy_toolbar a {
    padding: 1px 5px;
    cursor: pointer;
    color: #000;
-   border: 1px solid #fbfbfb;
-   border-radius: 5px;
 }
 
 div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar a:focus {
-   border-left: 1px solid #eee;
-   border-top: 1px solid #eee;
-   border-right: 1px solid #ccc;
-   border-bottom: 1px solid #ccc;
-   text-decoration: none;
-   background-color: #eee;
    color: #003300;
    outline: none;
    border-radius: 5px;
+   box-shadow: 0 0 3px orange;
+   text-decoration: none;
 }

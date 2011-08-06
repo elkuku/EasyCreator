@@ -853,9 +853,9 @@ abstract class EasyProject extends JObject
             foreach($manifest->updateservers->server as $server)
             {
                 $u = new stdClass;
-                $u->name = $server->attributes()->name;
-                $u->priority = $server->attributes()->priority;
-                $u->type = $server->attributes()->type;
+                $u->name = (string)$server->attributes()->name;
+                $u->priority = (string)$server->attributes()->priority;
+                $u->type = (string)$server->attributes()->type;
                 $u->url = (string)$server;
                 $this->updateServers[] = $u;
             }//foreach

@@ -540,7 +540,10 @@ class EasyELanguage
         if( ! EasyFile::saveVersion($fileName))
         throw new Exception(sprintf(jgettext('Unable to save backup version for file %s'), $fileName));
 
-        if( ! JFile::write($fileName, implode(NL, $resultFile)))
+
+        $contents =  implode(NL, $resultFile);
+
+        if( ! JFile::write($fileName, $contents))
         throw new Exception(sprintf(jgettext('Unable to write the file %s'), $fileName));
 
         return true;

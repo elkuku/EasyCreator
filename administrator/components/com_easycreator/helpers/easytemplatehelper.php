@@ -143,7 +143,9 @@ class EasyTemplateHelper
         $domnode = $doc->importNode($domnode, true);
         $domnode = $doc->appendChild($domnode);
 
-        if( ! JFile::write($tempDir.DS.'manifest.xml', $doc->saveXML()))
+        $result = $doc->saveXML();
+
+        if( ! JFile::write($tempDir.DS.'manifest.xml', $result))
         throw new Exception(sprintf(jgettext('Unable to write file %s'), $tempDir.DS.$fileName));
 
         $files[] = $tempDir.DS.'manifest.xml';
@@ -222,7 +224,7 @@ class EasyTemplateHelper
      *
      * @return mixed array the package on success | boolean false on error
      */
-    private function _getPackageFromUpload()
+    private static function _getPackageFromUpload()
     {
         //-- Get the uploaded file information
         $userfile = JRequest::getVar('install_package', null, 'files', 'array');

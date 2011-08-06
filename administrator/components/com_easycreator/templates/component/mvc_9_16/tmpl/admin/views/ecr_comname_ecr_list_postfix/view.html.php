@@ -52,9 +52,9 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
         JToolBarHelper::title(JText::_('_ECR_UPPER_COM_COM_NAME__MANAGER__ECR_UPPER_COM_NAME__ECR_UPPER_LIST_POSTFIX_')
         , '_ECR_LOWER_COM_NAME_');
 
-        JToolBarHelper::deleteList('', '_ECR_LOWER_COM_NAME__ECR_LOWER_LIST_POSTFIX_.delete');
-        JToolBarHelper::editList('_ECR_LOWER_COM_NAME_.edit');
         JToolBarHelper::addNew('_ECR_LOWER_COM_NAME_.add');
+        JToolBarHelper::editList('_ECR_LOWER_COM_NAME_.edit');
+        JToolBarHelper::deleteList('', '_ECR_LOWER_COM_NAME__ECR_LOWER_LIST_POSTFIX_.delete');
 
         // CSS class for the 48x48 toolbar icon
         JFactory::getDocument()->addStyleDeclaration(
