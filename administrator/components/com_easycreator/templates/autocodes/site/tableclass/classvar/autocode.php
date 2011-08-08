@@ -31,7 +31,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
      *
      * @return string
      */
-    public function getCode($type, EasyTableField $field)
+    public function getCode($type, EasyTable $table)
     {
         $element = $this->getElement($type, dirname(__FILE__));
 
@@ -40,7 +40,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
             return false;
         }
 
-        return $element->getCode($field);
+        return $element->getCode($table);
     }//function
 
     /**

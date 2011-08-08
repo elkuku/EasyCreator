@@ -40,7 +40,7 @@ $files = JFolder::files($path);
 
 ?>
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-install"><?php echo jgettext('Update SQL') ?></div>
+    <div class="infoHeader img icon-24-update"><?php echo jgettext('Update SQL') ?></div>
 
     <strong><?php echo jgettext('Versions'); ?></strong>
     <br />

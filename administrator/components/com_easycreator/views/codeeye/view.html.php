@@ -41,6 +41,7 @@ class EasyCreatorViewCodeEye extends JView
         ecrStylesheet('codeeye');
 
         $this->ecr_project = JRequest::getCmd('ecr_project');
+
         $this->task = JRequest::getCmd('task');
 
         //--Get the project

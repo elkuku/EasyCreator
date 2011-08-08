@@ -23,7 +23,8 @@ ecrHTML::initFileTree();
 
 //-- Create a cache instance.
 $cache = JFactory::getCache('EasyCreator_'.$this->ecr_project);
-$cache->setCaching(0);
+
+$cache->setCaching(1);
 
 $fileTree = $cache->call('drawFileTree', $this->project);
 ?>

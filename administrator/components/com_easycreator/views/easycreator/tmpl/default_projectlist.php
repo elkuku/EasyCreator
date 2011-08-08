@@ -62,12 +62,12 @@ foreach($projectTypes as $comType => $titel) :
 			<a class="ecr_button img icon-16-language hasEasyTip"
 				style="margin-right: 5px; padding-left: 20px; height: 14px;"
 				title="<?php echo jgettext('Languages').$toolImg->language.'::'.$project->name; ?>"
-				onclick="translateProject('<?php echo $project->fileName; ?>');">
+				onclick="translateProject('<?php echo $project->fileName; ?>');">&nbsp;
 			</a>
 			<a class="ecr_button img icon-16-module hasEasyTip"
 				style="margin-right: 5px; padding-left: 20px;; height: 14px;"
 				title="<?php echo jgettext('Package').$toolImg->package.'::'.$project->name; ?>"
-				onclick="packProject('<?php echo $project->fileName; ?>');">
+				onclick="packProject('<?php echo $project->fileName; ?>');">&nbsp;
 			</a>
 		</div>
 		<strong><?php echo $project->name;?></strong>

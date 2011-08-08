@@ -21,8 +21,6 @@ jimport('joomla.application.component.view');
  */
 class EasyCreatorViewStuffer extends JView
 {
-    protected $plumbing = true;
-
     /**
      * Standard display method.
      *
@@ -50,9 +48,7 @@ class EasyCreatorViewStuffer extends JView
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             ecrHTML::easyFormEnd();
 
@@ -351,17 +347,6 @@ class EasyCreatorViewStuffer extends JView
         $layout .= '_15';
 
         $this->setLayout($layout);
-    }//function
-
-    /**
-     * Table edit View.
-     *
-     * @return void
-     */
-    private function table_edit()
-    {
-        $this->plumbing = false;
-        $this->tables();
     }//function
 
     /**

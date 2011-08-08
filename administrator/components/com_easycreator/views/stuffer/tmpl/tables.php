@@ -16,28 +16,12 @@ ecrScript('parts');
 ecrScript('autocode');
 ecrScript('util');
 
+ecrStylesheet('stuffer');
+
+
 ecrLoadHelper('table');
 
-if($this->plumbing)
-{
-    JHTML::script('jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/', false);
-    JHTML::script('jquery-ui.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/', false);
-    JHTML::script('jsPlumb-0.0.4-RC1.js', 'administrator/components/com_alabaster/assets/js/', false);
-?>
-<style type="text/css">
-.plumbBox {
-   filter: alpha(opacity = 90);
-   opacity: 0.9;
-   z-index: 20;
-   padding: 0.2em;
-}
-</style>
-<?php
-}
-
 echo '<h2 style="color: red; float: right;">W I P !';
-echo '<span class="ecr_button" style="color: blue;" onclick="submitform(\'tables\');">DESIGN</span>';
-echo '<span class="ecr_button" style="color: black;" onclick="submitform(\'table_edit\');">EDIT</span>';
 echo '</h2>';
 
 $tableHelper = new EasyTableHelper;
@@ -100,29 +84,14 @@ $autocodeList = EasyProjectHelper::getAutoCodeList();
 
 <div id="addElementMessage"></div>
 
-<div id="addBox" style="background-color: #eee; display: none; z-index: 33;">
-    <div class="t">
-        <div class="t">
-            <div class="t"></div>
-        </div>
-    </div>
-
-    <div class="m">
-        <div class="closeButton" style="float:right" onclick="$('addBox').style.display='none';">X</div>
+<div id="addBox">
+        <div class="closeButton" onclick="document.id('addBox').style.display='none';">X</div>
         <div id="addPartShow" >
             <strong style="color: red;"><?php echo jgettext('Select an element'); ?></strong>
         </div>
-    </div>
-
-    <div class="b">
-        <div class="b">
-            <div class="b"></div>
-        </div>
-    </div>
 </div>
 
-<div id="er_display" style="border: 1px solid black; background-color: #ccc;
-margin: 1em; padding-bottom: 30px; padding-top: 30px;">
+<div id="er_display">
 <?php
 $plumbs = '';
 $tableCount = 0;
@@ -134,7 +103,7 @@ foreach($tables as $table) :
         {
             if($relation->onTable)
             {
-                $plumbs .= "$('#table_".$table->name."').plumb({target: 'table_".$relation->onTable."'});".NL;
+                //$plumbs .= "$('#table_".$table->name."').plumb({target: 'table_".$relation->onTable."'});".NL;
             }
         }//foreach
     }
@@ -156,8 +125,7 @@ foreach($tables as $table) :
         	       	<?php echo $table->name; ?>
     	       	</div>
     	    </th>
-    	    <th class="hasEasyTip" style="background-color: #b2cce5;" title="<?php
-            echo nl2br(print_r($table->status, true)); ?>">
+    	    <th class="hasEasyTip" title="<?php echo nl2br(print_r($table->status, true)); ?>">
     	    &bull;I&bull;
     	    </th>
 	    </tr>
@@ -178,7 +146,7 @@ foreach($tables as $table) :
 	    </tbody>
 	    </table>
 
-        <?php if($table->hasInstall && ! $this->plumbing) : ?>
+        <?php if($table->hasInstall) : ?>
 	    <table>
 	    <?php
         foreach(array_keys($autocodeList) as $scope)
@@ -470,19 +438,5 @@ foreach($dbTables as $table)
 
 <input type="hidden" name="old_task" value="tables" />
 <?php
-        /*
-         * Add 'Plumbing'
-         */
-        if($plumbs
-        && $this->plumbing)
-        {
-            JFactory::getDocument()->addCustomTag("<script type=\"text/javascript\">
-jQuery(document).ready(function($) {
-".$plumbs."
-$.noConflict();
-});
-</script>
-");
-        }
 
 ECR_DEBUG ? ecrDebugger::varDump($this->project) : null;

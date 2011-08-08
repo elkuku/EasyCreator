@@ -159,7 +159,7 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
             else
             {
                 //-- New field
-                $value = $tableField[$name]->field;
+                $value = $tableField->Field;
             }
 
             echo '<tr>';

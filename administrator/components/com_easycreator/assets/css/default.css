@@ -114,8 +114,9 @@ div.ebc_error {
 }
 
 .ecr_deletebutton:hover {
-    background-color: red;
+    background-color: #ff0033;
     cursor: pointer;
+    box-shadow: 0 0 15px #000;
 }
 
 .ecrBigInfo {
@@ -190,9 +191,10 @@ div.ebc_error {
     border-bottom: 2px solid black;
     border-top: 2px solid black;
     */
+    border: 1px solid #fff;
     text-decoration: none;
     color: black;
-    box-shadow: 0 0 2px orange;
+    box-shadow: 0 0 6px orange;
 }
 
 .ecr_button_selected {
@@ -352,9 +354,11 @@ div.tree_link selected {
 }
 
 .ecr_description {
-    background-color: #E5FF99;
-    padding: 5px;
-    border: 1px dashed grey;
+    background-color: #ffc;
+    font-weight: bold;
+    padding: 1.2em;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #ffc;
 }
 
 /* external links */
@@ -437,17 +441,6 @@ div.table_name {
     padding: 0.2em;
     border: 1px solid silver;
     border-radius: 10px;
-}
-
-.closeButton {
-    border: 1px solid gray;
-    padding: 0.3em;
-    font-weight: bold;
-}
-
-.closeButton:hover {
-    cursor: pointer;
-    background-color: #e5ff99;;
 }
 
 /* Console style */
@@ -584,10 +577,10 @@ div#ecrInfoBox a.ohloh {
 div.ecrFooter {
     text-align: center;
     padding: 3px;
+    margin-top: 1em;
     background-color: #ddd;
-    border-top: 3px solid #bbb;
-    border-bottom: 3px solid #bbb;
     border-radius: 30px;
+    box-shadow: 0 0 4px black;
 }
 
 div.ecrFooter a {
@@ -661,4 +654,10 @@ div.ecrInfoBoxContainer {
     width: 222px;
     position: absolute;
     right: 3em;
+}
+
+div.path {
+	background-color: #fff;
+	font-family: monospace;
+	font-size: 1.3em;
 }

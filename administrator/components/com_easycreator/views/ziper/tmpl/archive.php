@@ -4,7 +4,7 @@
  * @package    EasyCreator
  * @subpackage Views
  * @author     Nikolai Plath {@link http://www.nik-it.de}
- * @author     Created on 16-Jul-2011
+ * @author     Created on 07-Aug-2011
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
@@ -13,25 +13,19 @@ defined('_JEXEC') || die('=;)');
 
 $path = $this->project->getZipPath();
 
-echo '<h1>'.jgettext('Archive').'</h1>';
+$base_href =(0 === strpos($path, ECRPATH_BUILDS))
+? JURI::Root().'administrator/components/com_easycreator/builds/'.$this->project->comName
+: 'file://'.$path;
 
-echo '<div class="img icon-16-server">'.$path.'</div>';
+echo '<div class="img icon-16-server path">'.$path.'</div>';
 
 if( ! JFolder::exists($path))
 {
-    ecrHTML::displayMessage(jgettext('Archive is empty'));
+    ecrHTML::displayMessage(jgettext('Archive is empty'), 'warning');
 
     return;
 }
 
-if(0 === strpos($path, ECRPATH_BUILDS))
-{
-    $base_href = JURI::Root().'administrator/components/com_easycreator/builds/'.$this->project->comName;
-}
-else
-{
-    $base_href = 'file://'.$path;
-}
 
 $folders = JFolder::folders($path);
 
@@ -55,13 +49,15 @@ foreach($folders as $folder) :
 ?>
 <div id="ajaxMessage"></div>
 <div id="ajaxDebug"></div>
-<table class="adminlist" cellspacing="5">
+<table class="adminlist">
     <tbody>
         <tr style="background-color: #eee;">
             <th><?php echo jgettext('File'); ?></th>
-            <th><?php echo jgettext('Modified'); ?></th>
-            <th><?php echo jgettext('Size'); ?></th>
-            <th colspan="2" align="center"><?php echo jgettext('Action'); ?></th>
+            <th width="10%"><?php echo jgettext('Modified'); ?></th>
+            <th width="10%"><?php echo jgettext('Size'); ?></th>
+            <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
+            	<th align="center"><?php echo jgettext('Action'); ?></th>
+            <?php endif; ?>
         </tr>
         <?php
         $k = 0;
@@ -76,22 +72,18 @@ foreach($folders as $folder) :
             ?>
         <tr id="row<?php echo $file; ?>"
         class="<?php echo 'row'.$k; ?>">
-            <td><?php echo $file; ?></td>
-            <td><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
+            <td><a href="<?php echo $href; ?>"><?php echo $file; ?></a></td>
+            <td nowrap="nowrap"><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
             <td><?php echo ecrHTML::byte_convert($info[7]); ?></td>
-            <td width="2%"><a href="<?php echo $href; ?>"
-                style="padding-left: 20px; height: 14px;"
-                class="ecr_button img icon-16-save hasEasyTip"
-                title="<?php echo jgettext('Download'); ?>::"> </a></td>
-            <td width="2%">
             <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
+            <td width="2%">
                 <div style="padding-left: 20px; height: 14px;"
                     class="ecr_button img icon-16-delete hasEasyTip"
                     title="<?php echo jgettext('Delete'); ?>::"
-                    onclick="deleteZipFile(<?php echo "'$p', '$file'"?>);">
+                    onclick="deleteZipFile(<?php echo "'$p', '$file'"?>);">&nbsp;
                 </div>
-            <?php endif; ?>
             </td>
+            <?php endif; ?>
         </tr>
         <?php
         $k = 1 - $k;
@@ -100,4 +92,4 @@ foreach($folders as $folder) :
     </tbody>
 </table>
 <?php
-endforeach;
+endforeach; ?>

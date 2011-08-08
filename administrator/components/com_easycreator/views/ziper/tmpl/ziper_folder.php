@@ -17,12 +17,11 @@ $buildPath = $this->project->getZipPath();
 <?php
 echo JHTML::tooltip(jgettext('Build folder').'::'
 .jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.')
-.jgettext('<br />If left blank the default folder will be used.'));
+.jgettext('<br />If left blank the default folder will be used.')); ?>
 
-echo '<br /><br />';
-echo $buildPath;
-echo DS.$this->project->version;
-
+<br /><br />
+<div class="path"><?php echo $buildPath.DS.$this->project->version; ?></div>
+<?php
 if( ! JFolder::exists($buildPath.DS.$this->project->version)) :
     ecrHTML::displayMessage(jgettext('The folder does not exist'), 'warning');
 endif;

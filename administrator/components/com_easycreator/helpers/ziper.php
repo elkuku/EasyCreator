@@ -1094,7 +1094,7 @@ class EasyZIPer extends JObject
                 $previousParts = explode(DS, $previous);
 
                 $result = array();
-                
+
                 $foundDifference = false;
 
                 foreach($subParts as $i => $part)
@@ -1111,7 +1111,7 @@ class EasyZIPer extends JObject
                         $result[] = '|'; //-- Add a separator
 
                         $result[] = $part.DS;
-                        
+
                         $foundDifference = true;
                     }
                 }//foreach
@@ -1169,14 +1169,14 @@ class EasyZIPer extends JObject
             }
         }
 
-        if($this->project->zipPath)
-        {
-            $hrefBase = 'file://'.$this->project->zipPath.'/'.$this->project->version;
-        }
-        else
+        if(0 === strpos($this->project->getZipPath(), ECRPATH_BUILDS))
         {
             $hrefBase = JURI::Root().'administrator/components/com_easycreator/builds/'
             .$this->project->comName.'/'.$this->project->version;
+        }
+        else
+        {
+            $hrefBase = 'file://'.$this->project->getZipPath().'/'.$this->project->version;
         }
 
         $customFileName = EasyProjectHelper::formatFileName($this->project, JRequest::getVar('cst_format'));
@@ -1299,23 +1299,9 @@ class EasyZIPer extends JObject
      *
      * @return void
      */
-    public function displayDownloadLink()
+    public function getDownloadLinks()
     {
-        if(count($this->downloadLinks))
-        {
-            echo '<div align="center">';
-            echo '<h2 style="color: red;">'.jgettext('Download').' :</h2>';
-
-            foreach($this->downloadLinks as $link)
-            {
-                echo '<h2><a href="'.$link.'">'.JFile::getName(JPath::clean($link)).'</a></h2>';
-            }//foreach
-            echo '</div>';
-        }
-        else
-        {
-            echo '<p>'.jgettext('No download available').'</p>';
-        }
+        return $this->downloadLinks;
     }//function
 
     /**

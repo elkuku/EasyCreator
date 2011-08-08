@@ -82,7 +82,7 @@ final class ecrHTML
             $tasks['ziper'] = new stdClass;
             $tasks['ziper']->title = jgettext('Package');
             $tasks['ziper']->image = 'ecr_archive';
-            $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete');
+            $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete', 'archive');
 
             foreach($tasks as $k=>$v)
             {
@@ -190,8 +190,7 @@ $stdJS = '';
 $stdJS .= "$('adminForm').value='';";
 $stdJS .= "$('file_name').value='';";
 ?>
-<div id="ecr_options_box" style="float: left; padding-left: 0.5em;">
-<div class="ecr_easy_toolbar">
+<div id="ecr_options_box" class="ecr_easy_toolbar right">
 <ul>
     <li class="divider"></li>
     <?php
@@ -214,7 +213,6 @@ $stdJS .= "$('file_name').value='';";
     }//foreach
     ?>
 </ul>
-</div>
 </div>
     <?php
     if( ! in_array($task, $rTasks))
@@ -399,6 +397,7 @@ countries.</em></small>
     {
         $pName =($project) ? $project->name : '';
         $pType =($project) ? ucfirst($project->type) : '';
+        $pVersion =($project) ? $project->version : '';
 
         $icon =($class) ? '<span class="img32c icon-32-'.$class.'"></span>' : '';
 
@@ -407,6 +406,7 @@ countries.</em></small>
         $html .= $title;
         $html .=($pType) ? '&nbsp;<span style="color: black">'.jgettext($pType).'</span>' : '';
         $html .=($pName) ? '&nbsp;<span style="color: green">'.$pName.'</span>' : '';
+        $html .=($pVersion) ? '&nbsp;<small><small>'.$pVersion.'</small></small>' : '';
 
         echo '<h1>'.$html.'</h1>';
     }//function
@@ -1012,7 +1012,11 @@ EOF;
 
         if(is_a($messages, 'exception'))
         {
-            $messages = array($messages->getMessage());
+            $m =(JDEBUG || ECR_DEBUG) ? nl2br($messages) : $messages->getMessage();
+
+            $messages = array($m);
+
+            $type = 'error';
         }
 
         if( ! is_array($messages))

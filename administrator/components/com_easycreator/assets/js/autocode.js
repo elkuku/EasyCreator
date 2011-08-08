@@ -40,7 +40,7 @@ function loadAutoCode(ecr_project, action, group, element, scope, part)
 
     url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
 
-    new Request({
+    new Request.HTML({
         url: url,
         update: 'addPartShow',
         onComplete: function()

@@ -20,7 +20,12 @@ if('package' == $this->project->type
 
     return;
 }
+
+echo $this->loadTemplate('result');
+
 ?>
+<div style="clear: both;"></div>
+
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('format'); ?>
 </div>
@@ -43,16 +48,6 @@ if('package' == $this->project->type
             <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
         </h1>
     </div>
-</div>
-
-<div style="clear: both;"></div>
-
-<div class="ecr_floatbox">
-<?php
-$old = $this->setLayout('common');
-echo $this->loadTemplate('archive');
-$this->setLayout($old);
-?>
 </div>
 
 <script type="text/javascript">

@@ -98,7 +98,9 @@ class EasyTableHelper
             {
                 if( ! $fContents = JFile::read($file))
                 {
-                    JError::raiseWarning(100, 'read error');
+                    ecrHTML::displayMessage('File read error', 'error');
+
+//                    JError::raiseWarning(100, 'read error');
 
                     return $tables;
                 }
