@@ -237,7 +237,7 @@ class dbUpdater
             }
             catch(Exception $e)
             {
-                JError::raiseWarning(0, $e->getMessage());
+                ecrHTML::displayMessage($e);
 
                 $this->log('Exception: '.$e->getMessage());
             }//try

@@ -705,7 +705,7 @@ class JoomlaManifest extends JObject
             }
             catch(Exception $e)
             {
-                $this->setError(sprintf($e->getMessage()));
+                $this->setError($e->getMessage());
 
                 return false;
             }//try
@@ -927,9 +927,7 @@ class JoomlaManifest extends JObject
             }
             catch(Exception $e)
             {
-                $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-                ecrHTML::displayMessage($m, 'error');
+                ecrHTML::displayMessage($e);
 
                 return false;
             }//try
@@ -1061,9 +1059,7 @@ class JoomlaManifest extends JObject
             }
             catch(Exception $e)
             {
-                $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-                ecrHTML::displayMessage($m, 'error');
+                ecrHTML::displayMessage($e);
 
                 return false;
             }//try

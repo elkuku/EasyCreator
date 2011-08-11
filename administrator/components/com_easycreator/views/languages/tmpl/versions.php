@@ -49,13 +49,14 @@ if($this->selected_version)
   <?php
   $k = 0;
     foreach($this->versions as $version) :
+    $selected =($version->revNo == $this->selected_version) ? '_selected' : '';
     ?>
   <tr class="row<?php echo $k; ?>">
     <td><?php echo $version->revNo; ?></td>
     <td><?php echo $version->size; ?></td>
     <td><?php echo $version->lastMod; ?></td>
     <td>
-    <div class="ecr_button" onclick="showVersion('<?php echo $version->revNo; ?>');"><?php echo jgettext('Show'); ?></div>
+    <div class="ecr_button<?php echo $selected; ?>" onclick="showVersion('<?php echo $version->revNo; ?>');"><?php echo jgettext('Show'); ?></div>
     </td>
   </tr>
   <?php

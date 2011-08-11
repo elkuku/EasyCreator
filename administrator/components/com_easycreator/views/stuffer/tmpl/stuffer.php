@@ -111,10 +111,11 @@ ecrScript('menu');
 <input type="hidden" value="0" id="totalPackageElementsPlugins" />
 
 
+
 <!-- Info & credits -->
-<?php 
-echo $this->loadTemplate('info'); 
-echo $this->loadTemplate('credits'); 
+<?php
+echo $this->loadTemplate('info');
+echo $this->loadTemplate('credits');
 
 echo $this->loadTemplate('packing');
 
@@ -126,10 +127,10 @@ if($this->project->type == 'component'):
     echo $this->loadTemplate('language');
 endif;
 
-if($this->project->type == 'package') 
+if($this->project->type == 'package')
 echo $this->loadTemplate('packageelements');
 
-echo $this->loadTemplate('update'); 
+echo $this->loadTemplate('update');
 ?>
 
 <div style="clear: both; height: 1em;"></div>

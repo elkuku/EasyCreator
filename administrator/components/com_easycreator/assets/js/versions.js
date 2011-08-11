@@ -7,8 +7,8 @@
  * @license GNU/GPL, see JROOT/LICENSE.php
  */
 
-function showVersion(number) {
-    frm = document.adminForm;
-    frm.selected_version.value = number;
-    submitform('show_version');
+function showVersion(number) 
+{
+    document.adminForm.selected_version.value = number;
+    submitform('show_versions');
 }

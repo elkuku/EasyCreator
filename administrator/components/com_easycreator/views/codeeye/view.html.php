@@ -54,9 +54,7 @@ class EasyCreatorViewCodeEye extends JView
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? $e->getMessage() : $e;
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             ecrHTML::easyFormEnd();
 
@@ -295,10 +293,7 @@ class EasyCreatorViewCodeEye extends JView
      */
     private function displayBar()
     {
-        //--Setup debugger
-        $ecr_help = JComponentHelper::getParams('com_easycreator')->get('ecr_help');
-
-        $subtasks = array(
+        $subTasks = array(
         array('title' => jgettext('CodeSniffer')
         , 'description' => jgettext('Use CodeSniffer to assure coding standards.')
         , 'icon' => 'eye'
@@ -346,63 +341,6 @@ class EasyCreatorViewCodeEye extends JView
         )
         );
 
-        $htmlDescriptionDivs = '';
-        $jsVars = '';
-        $jsMorphs = '';
-        $jsEvents = '';
-        $html = '';
-        $html .= '<div id="ecr_sub_toolbar" style="margin-bottom: 1em; margin-top: 0.5em;">';
-
-        foreach($subtasks as $sTask)
-        {
-            if($this->project->type != 'component'
-            && $sTask['task'] == 'tables')
-            {
-                continue;
-            }
-
-            $selected =($sTask['task'] == $this->task) ? '_selected' : '';
-            $html .= '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;" class="ecr_button'
-            .$selected.' img icon-16-'.$sTask['icon'].'" onclick="submitbutton(\''.$sTask['task'].'\');">';
-
-            $html .= $sTask['title'].'</span>';
-
-            if($ecr_help == 'all'
-            || $ecr_help == 'some')
-            {
-                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'
-                .$sTask['task'].'">'.$sTask['description'].'</div>';
-
-                $jsVars .= "var desc_".$sTask['task']." = $('desc_".$sTask['task']."');\n";
-
-                $jsEvents .= "$('btn_".$sTask['task']."').addEvents({\n"
-                . "'mouseenter': showTaskDesc.bind(desc_".$sTask['task']."),\n"
-                . "'mouseleave': hideTaskDesc.bind(desc_".$sTask['task'].")\n"
-                . "});\n";
-            }
-        }//foreach
-
-        $html .= $htmlDescriptionDivs;
-
-        if($ecr_help == 'all'
-        || $ecr_help == 'some')
-        {
-            $html .= "<script type='text/javascript'>"
-            ."window.addEvent('domready', function() {\n"
-            ."function showTaskDesc(name) {\n"
-            ."this.setStyle('display', 'block');\n"
-            ."}\n"
-            ."function hideTaskDesc(name) {\n"
-            ."  this.setStyle('display', 'none');\n"
-            ."}\n"
-            . $jsVars
-            . $jsEvents
-            . "});\n"
-            . "</script>";
-        }
-
-        $html .= '</div>';
-
-        return $html;
+        return ecrHTML::getSubBar($subTasks);
     }//function
 }//class

@@ -63,7 +63,7 @@ final class ecrHTML
             $tasks['stuffer']->title = jgettext('Project');
             $tasks['stuffer']->image = 'ecr_config';
             $tasks['stuffer']->tasks = array('stuffer', 'stufferstuff', 'projectinfo', 'files', 'save_config'
-            , 'projectparams', 'projectdelete', 'tables');
+            , 'projectparams', 'projectdelete', 'tables', 'install');
 
             if('package' != $project->type)
             {
@@ -227,6 +227,75 @@ $stdJS .= "$('file_name').value='';";
 <div style="clear: both"></div>
     </div>
     <?php
+    }//function
+
+    public static function getSubBar($subTasks, $rightTasks = array())
+    {
+        $task = JRequest::getCmd('task');
+        $html = '';
+        $htmlDescriptionDivs = '';
+        $jsVars = '';
+        $jsEvents = '';
+
+        if($rightTasks)
+        {
+            $html .= '<div class="ecr_easy_toolbar" style="float: right;">';
+
+            foreach ($rightTasks as $rTask)
+            {
+                $html .= '<div class="ecr_button img icon-16-'.$rTask['icon'].'"';
+                $html .= ' onclick="submitStuffer(\''.$rTask['task'].'\');">';
+                $html .= $rTask['title'].'</div>';
+                $html .= '</div>';
+            }//foreach
+
+            $html .= '</div>';
+        }
+
+        $html .= '<div id="ecr_sub_toolbar" style="margin-bottom: 1em; margin-top: 0.5em;">';
+
+        foreach($subTasks as $sTask)
+        {
+            $selected =($sTask['task'] == $task) ? '_selected' : '';
+            $html .= '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"';
+            $html .= ' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"';
+            $html .= ' onclick="submitbutton(\''.$sTask['task'].'\');">';
+            $html .= $sTask['title'].'</span>';
+
+            if(ECR_HELP > 1)
+            {
+                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'.$sTask['task'].'">'
+                .$sTask['description'].'</div>';
+                $jsVars .= "var desc_".$sTask['task']." = $('desc_".$sTask['task']."');\n";
+
+                $jsEvents .= "$('btn_".$sTask['task']."').addEvents({\n"
+                . "'mouseenter': showTaskDesc.bind(desc_".$sTask['task']."),\n"
+                . "'mouseleave': hideTaskDesc.bind(desc_".$sTask['task'].")\n"
+                . "});\n";
+            }
+        }//foreach
+
+        $html .= $htmlDescriptionDivs;
+
+        if(ECR_HELP > 1)
+        {
+            $html .= "<script type='text/javascript'>"
+            ."window.addEvent('domready', function() {\n"
+            ."function showTaskDesc(name) {\n"
+            ."this.setStyle('display', 'block');\n"
+            ."}\n"
+            ."function hideTaskDesc(name) {\n"
+            ."	this.setStyle('display', 'none');\n"
+            ."}\n"
+            . $jsVars
+            . $jsEvents
+            . "});\n"
+            . "</script>";
+        }
+
+        $html .= '</div>';
+
+        return $html;
     }//function
 
     /**
@@ -792,38 +861,6 @@ EOF;
     }//function
 
     /**
-     * Wizard: Next - Previous
-     *
-     */
-    public static function displayWizNextPrev()
-    {
-        $task = JRequest::getCmd('task');
-        $num = intval(substr($task, strlen('wizard')));
-
-        if($num > 1)
-        {
-            //...workaround cause first page is named 'wizard' - rename to 'wizard1' - to-do..
-            $zNum =( $num == 2 ) ? '' : $num - 1;
-        }
-        ?>
-<div id="wizard_control">
-<div class="button1-right">
-<div class="prev"><a
-    onclick="submitbutton('wizard<?php echo $zNum; ?>');"
-    title="<?php echo jgettext('Back'); ?>"><?php echo jgettext('Back'); ?></a>
-</div>
-</div>
-<div class="button1-left">
-<div class="next"><a
-    onclick="submitbutton('wizard<?php echo ($num + 1); ?>');"
-    title="<?php echo jgettext('Next'); ?>"><?php echo jgettext('Next'); ?></a>
-</div>
-</div>
-</div>
-        <?php
-    }//function
-
-    /**
      * replaces opening and closing tags with entities - nothing else..
      *
      * @param string $string
@@ -1001,6 +1038,7 @@ EOF;
     public static function displayMessage($messages, $type = '')
     {
         $callFile = '';
+        $trace = false;
 
         if(ECR_DEBUG && function_exists('debug_backtrace'))
         {
@@ -1014,7 +1052,8 @@ EOF;
         {
             $m =(JDEBUG || ECR_DEBUG) ? nl2br($messages) : $messages->getMessage();
 
-            $messages = array($m);
+            $trace = $messages->getTrace();
+            $messages = array($messages->getMessage());
 
             $type = 'error';
         }
@@ -1045,18 +1084,34 @@ EOF;
     <?php
     if(ECR_DEBUG && $type == 'error')
     {
-        self::printTrace();
+        self::printTrace($trace);
     }
     }//function
 
-    public static function printTrace()
+    public static function printTrace($trace = null)
     {
         if( ! function_exists('debug_backtrace'))
         return '';
 
+        if( ! $trace)
         $trace = debug_backtrace();
 
+        $traces = array();
+
+        $traces['Debug trace'] = debug_backtrace();
+
+        if($trace)
+        $traces['Exception trace'] = $trace;
+
+        $linkFormat = ini_get('xdebug.file_link_format');
+
+echo $linkFormat;
+        foreach ($traces as $traceType => $trace)
+        {
+            ;
+
         $s = '';
+        $s = '<h2>'.$traceType.'</h2>';
         $s .= '<table border="1">';
         $s .= '<tr>';
         $s .= '<th>#</th><th>Function</th><th>File</th><th>Line</th><th>Args</th>';
@@ -1064,19 +1119,37 @@ EOF;
 
         for($i = count($trace) - 1; $i >= 0; --$i)
         {
+            $link = '&nbsp;';
+
+            if(isset($trace[$i]['file']))
+            {
+                $link = str_replace(JPATH_ROOT.DS, '', $trace[$i]['file']);
+
+                if($linkFormat)
+                {
+                    $href = $linkFormat;
+                    $href = str_replace('%f', $trace[$i]['file'], $href);
+
+                    if(isset($trace[$i]['line']))
+                    {
+                        $href = str_replace('%l', $trace[$i]['line'], $href);
+                    }
+
+                    $link = '<a href="'.$href.'">'.$link.'</a>';
+                }
+            }
+
             $s .= '<tr>';
             $s .= '<td align="right"><tt>'.$i.'</tt></td>';
             $s .= '<td>';
-            $s .=(isset( $trace[$i]['class'] )) ? $trace[$i]['class'] : '';
-            $s .=(isset( $trace[$i]['type'] )) ? $trace[$i]['type'] : '';
-            $s .=(isset( $trace[$i]['function'] )) ? $trace[$i]['function'] : '';
+            $s .=(isset($trace[$i]['class'])) ? $trace[$i]['class'] : '';
+            $s .=(isset($trace[$i]['type'])) ? $trace[$i]['type'] : '';
+            $s .=(isset($trace[$i]['function'])) ? $trace[$i]['function'] : '';
             $s .= '</td>';
 
-            $s .=(isset( $trace[$i]['file'] ))
-            ? '<td>'.str_replace(JPATH_ROOT.DS, '', $trace[$i]['file']).'</td>'
-            : '<td>&nbsp;</td>';
+            $s .= '<td>'.$link.'</td>';
 
-            $s .=(isset( $trace[$i]['line'] ))
+            $s .=(isset($trace[$i]['line']))
             ? '<td align="right"><tt>'.$trace[$i]['line'].'</tt></td>'
             : '<td>&nbsp;</td>';
 
@@ -1098,6 +1171,7 @@ EOF;
         $s .= '</table>';
 
         echo $s;
+        }//foreach
     }//function
 
     /**

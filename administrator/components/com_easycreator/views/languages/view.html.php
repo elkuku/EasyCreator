@@ -95,8 +95,7 @@ class EasyCreatorViewLanguages extends JView
         }
         catch(Exception $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             ecrHTML::easyFormEnd();
 
@@ -580,21 +579,11 @@ class EasyCreatorViewLanguages extends JView
     }//function
 
     /**
-     * Show versions View.
-     *
-     * @return void
-     */
-    private function show_versions()
-    {
-        $this->show_version();
-    }//function
-
-    /**
      * Show version View.
      *
      * @return void
      */
-    private function show_version()
+    private function show_versions()
     {
         $this->sel_language = JRequest::getCmd('sel_language', '');
         $this->selected_version = JRequest::getInt('selected_version', 0);
@@ -637,47 +626,42 @@ class EasyCreatorViewLanguages extends JView
         $sel_language = JRequest::getCmd('sel_language');
         $this->sel_language = $sel_language;
 
-        $imgBase = JURI::root().'administrator/components/com_easycreator/assets/images/ico/';
-
-        //--Get component parameters
-        $ecr_help = JComponentHelper::getParams('com_easycreator')->get('ecr_help');
-
         $subTasks = array(
         array('title' => jgettext('Setup')
         , 'description' => jgettext('Setup your language files')
         , 'icon' => 'apply'
-        , 'tasks' => array('languages')
+        , 'task' => 'languages'
         )
         , array('title' => jgettext('Files and menus')
         , 'description' => jgettext('Searches inside the source files and menus for translatable strings')
         , 'icon' => 'ecr_language'
-        , 'tasks' => array('searchfiles')
+        , 'task' => 'searchfiles'
         )
         , array('title' => jgettext('Translations')
         , 'description' =>
         jgettext('Manage translations in ini files and inspect your php / xml files for JText strings to translate.')
         , 'icon' => 'ecr_language'
-        , 'tasks' => array('translations', 'dotranslate')
+        , 'task' => 'translations'
         )
         , array('title' => jgettext('Default file order')
         , 'description' => jgettext('Change the order of your default language file and add comments to create a structure.')
         , 'icon' => 'text'
-        , 'tasks' => array('langcorrectdeforder', 'save_deflang_corrected')
+        , 'task' => 'langcorrectdeforder'
         )
         , array('title' => jgettext('Translation order')
         , 'description' => jgettext('Change the order of your translated language files according to your default file.')
         , 'icon' => 'text'
-        , 'tasks' => array('langcorrectorder', 'save_lang_corrected')
+        , 'task' => 'langcorrectorder'
         )
         , array('title' => jgettext('Versions')
         , 'description' => jgettext('Compare saved versions of your language files.')
         , 'icon' => 'sig'
-        , 'tasks' => array('show_versions', 'show_version')
+        , 'task' => 'show_versions'
         )
         , array('title' => jgettext('Convert')
         , 'description' => jgettext('Convert your language files and your code simultaneously.')
         , 'icon' => 'rename'
-        , 'tasks' => array('convert', 'convert')
+        , 'task' => 'convert'
         )
         /*
         , array('title' => 'JALHOO'
@@ -688,34 +672,9 @@ class EasyCreatorViewLanguages extends JView
         */
         );
 
+        //@todo - unify..
         $html = '';
-        $htmlDescriptionDivs = '';
-        $jsVars = '';
-        $jsMorphs = '';
-        $jsEvents = '';
-
-        foreach($subTasks as $sTask)
-        {
-            $selected =(in_array($task, $sTask['tasks'])) ? '_selected' : '';
-            $html .= '<span id="btn_'.$sTask['tasks'][0].'" style="margin-left: 0.3em;" class="ecr_button'
-            .$selected.' img icon-16-'.$sTask['icon'].'" onclick="submitbutton(\''.$sTask['tasks'][0].'\');">';
-
-            $html .= $sTask['title'].'</span>';
-
-            if($ecr_help == 'all'
-            || $ecr_help == 'some')
-            {
-                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description"'
-                .' id="desc_'.$sTask['tasks'][0].'">'.$sTask['description'].'</div>';
-
-                $jsVars .= "var desc_".$sTask['tasks'][0]." = $('desc_".$sTask['tasks'][0]."');\n";
-
-                $jsEvents .= "$('btn_".$sTask['tasks'][0]."').addEvents({\n"
-                . "'mouseenter': showTaskDesc.bind(desc_".$sTask['tasks'][0]."),\n"
-                . "'mouseleave': hideTaskDesc.bind(desc_".$sTask['tasks'][0].")\n"
-                . "});\n";
-            }
-        }//foreach
+        $html .= ecrHTML::getSubBar($subTasks);
 
         $html .= '<div style="clear: both; height: 1em;"></div>';
 
@@ -734,16 +693,6 @@ class EasyCreatorViewLanguages extends JView
                 $html .= '>';
                 $html .= $scope.'</option>';
             }//foreach
-
-            //            $html .= '<option value="site" ';
-            //            $html .=($this->scope == 'site') ? ' selected="selected"' : '';
-            //            $html .= '>';
-            //            $html .= 'Site</option>';
-            //
-            //            $html .= '<option value="menu" ';
-            //            $html .=($this->scope == 'menu') ? ' selected="selected"' : '';
-            //            $html .= '>';
-            //            $html .= jgettext('Menu').'</option>';
 
             $html .= '</select>';
             $html .= '</div>';
@@ -769,8 +718,10 @@ class EasyCreatorViewLanguages extends JView
                         $checked =(in_array($lang, $this->hideLangs)) ? 'checked="checked"' : '';
                         $color =(in_array($lang, $this->hideLangs)) ? 'red' : 'green';
 
-                        $html .= '<input type="checkbox" name="hide_langs[]" id="hide_langs_'.$lang
-                        .'" value="'.$lang.'" '.$checked.' onclick="submitbutton(\''.$task.'\');">';
+                        $html .= '<input type="checkbox" name="hide_langs[]"'
+                        .' id="hide_langs_'.$lang.'"'
+                        .' value="'.$lang.'" '.$checked
+                        .' onclick="submitbutton(\''.$task.'\');">';
 
                         $html .= '<label for="hide_langs_'.$lang.'" style="color: '.$color.';">'.$lang.'</label>';
                     }//foreach
@@ -796,9 +747,10 @@ class EasyCreatorViewLanguages extends JView
                     .' value="show_core" onclick="submitbutton(\'searchfiles\');" '.$checked.'>';
 
                     $html .= '<label for="showCore" '.$style.'>'.jgettext('Load core language').'</label>';
-                    $html .= '<img src="'.$imgBase.'icon-16-info.png" class="hasEasyTip" title="'
-                    .jgettext('Load core language').'::'
-                    .jgettext('Also load the core language file to check for translations (displayed in orange)').'" />';
+
+                    $html .= JHtml::tooltip(
+                    jgettext('Also load the core language file to check for translations (displayed in orange)')
+                    , jgettext('Load core language'));
 
                     $html .= '</div>';
                 }
@@ -866,25 +818,6 @@ class EasyCreatorViewLanguages extends JView
                 echo 'UNDEFINED: '.$task;
                 break;
         }//switch
-
-        $html .= $htmlDescriptionDivs;
-
-        if($ecr_help == 'all'
-        || $ecr_help == 'some')
-        {
-            $html .= "<script type='text/javascript'>"
-            ."window.addEvent('domready', function() {\n"
-            ."function showTaskDesc(name) {\n"
-            ."this.setStyle('display', 'block');\n"
-            ."}\n"
-            ."function hideTaskDesc(name) {\n"
-            ."  this.setStyle('display', 'none');\n"
-            ."}\n"
-            . $jsVars
-            . $jsEvents
-            . "});\n"
-            . "</script>";
-        }
 
         return $html;
     }//function

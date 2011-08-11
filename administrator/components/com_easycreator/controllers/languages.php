@@ -52,9 +52,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -100,9 +98,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -222,9 +218,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 

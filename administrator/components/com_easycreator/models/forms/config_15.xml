@@ -45,10 +45,10 @@
             <option value="0">No</option>
             <option value="1">Yes</option>
         </param>
-        <param name="ecr_help" type="list" default="all" label="Help Type" description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
-            <option value="all">All</option>
-            <option value="some">Some</option>
-            <option value="none">None</option>
+        <param name="ecr_help" type="list" default="2" label="Help Type" description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
+            <option value="2">All</option>
+            <option value="1">Some</option>
+            <option value="0">None</option>
         </param>
         <param name="editarea_type" type="list" default="edit_area_full.js" label="Editor type" description="Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)">
             <option value="edit_area_full.js">edit_area_full.js</option>

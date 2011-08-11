@@ -88,9 +88,7 @@ class EasyCreatorControllerAjax extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -1091,9 +1089,7 @@ body {
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 

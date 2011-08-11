@@ -107,8 +107,6 @@ class EasyCreatorViewStuffer extends JView
      */
     private function displayBar($task)
     {
-        $ecr_help = JComponentHelper::getParams('com_easycreator')->get('ecr_help');
-
         $subtasks = array(
         array('title' => jgettext('Building')
         , 'description' => jgettext('Shows options for building your project like credits, files and folders to copy, languages and admin menu.')
@@ -142,81 +140,17 @@ class EasyCreatorViewStuffer extends JView
         )
         );
 
-        $htmlDescriptionDivs = '';
-        $jsVars = '';
-        $jsMorphs = '';
-        $jsEvents = '';
-        $html = '';
+        $rightTasks = array();
 
         if($task == 'stuffer')
         {
-            $html .= '<div class="ecr_easy_toolbar" style="float: right;">';
-            $html .= '	<div class="ecr_button img icon-16-save" onclick="submitStuffer(\'save_config\');">'
-            .jgettext('Save').'</div>';
-            $html .= '</div>';
+            $rightTasks[] = array('title' => jgettext('Save')
+            , 'description' => jgettext('Save the configuration')
+            , 'icon' => 'save'
+            , 'task' => 'save_config');
         }
 
-        $html .= '<div id="ecr_sub_toolbar" style="margin-bottom: 1em; margin-top: 0.5em;">';
-
-        foreach($subtasks as $sTask)
-        {
-            if($this->project->type != 'component'
-            && ($sTask['task'] == 'tables'
-            || $sTask['task'] == 'install')
-            )
-            {
-                continue;
-            }
-
-            if($this->project->type == 'package')
-            {
-                if($sTask['task'] != 'stuffer'
-                && $sTask['task'] != 'projectdelete')
-                continue;
-            }
-
-            $selected =($sTask['task'] == $task) ? '_selected' : '';
-            $html .= '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"';
-            $html .= ' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"';
-            $html .= ' onclick="submitbutton(\''.$sTask['task'].'\');">';
-            $html .= $sTask['title'].'</span>';
-
-            if($ecr_help == 'all'
-            || $ecr_help == 'some')
-            {
-                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'.$sTask['task'].'">'
-                .$sTask['description'].'</div>';
-                $jsVars .= "var desc_".$sTask['task']." = $('desc_".$sTask['task']."');\n";
-
-                $jsEvents .= "$('btn_".$sTask['task']."').addEvents({\n"
-                . "'mouseenter': showTaskDesc.bind(desc_".$sTask['task']."),\n"
-                . "'mouseleave': hideTaskDesc.bind(desc_".$sTask['task'].")\n"
-                . "});\n";
-            }
-        }//foreach
-
-        $html .= $htmlDescriptionDivs;
-
-        if($ecr_help == 'all'
-        || $ecr_help == 'some')
-        {
-            $html .= "<script type='text/javascript'>"
-            ."window.addEvent('domready', function() {\n"
-            ."function showTaskDesc(name) {\n"
-            ."this.setStyle('display', 'block');\n"
-            ."}\n"
-            ."function hideTaskDesc(name) {\n"
-            ."	this.setStyle('display', 'none');\n"
-            ."}\n"
-            . $jsVars
-            . $jsEvents
-            . "});\n"
-            . "</script>";
-        }
-
-        $html .= '</div>';
-
-        return $html;
+        return ecrHTML::getSubBar($subtasks, $rightTasks);
     }//function
 
     /**
@@ -308,6 +242,7 @@ class EasyCreatorViewStuffer extends JView
         {
             switch(ECR_JVERSION)
             {
+                //--Get the project params
                 case '1.5':
                     $this->params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
                     break;
@@ -320,10 +255,9 @@ class EasyCreatorViewStuffer extends JView
                 default:
                     ecrHTML::displayMessage(__METHOD__.' - Undefined J! version', 'error');
 
-                    return false;
-                    break;
+                return false;
+                break;
             }//switch
-            //--Get the project params
         }
 
         $options = array();

@@ -41,7 +41,7 @@ $chk_upgrade =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 <input type="checkbox" <?php echo $chk_upgrade; ?> name="buildvars[method]" id="buildvars_method"
 value="upgrade" />
 <label for="buildvars_method"><?php echo jgettext('Upgrade'); ?></label>
-<?php echo JHTML::tooltip('method=upgrade::'
+<?php if(2 == ECR_HELP) echo JHTML::tooltip('method=upgrade::'
     .jgettext('This will perform an upgrade on installing your extension')); ?>
 <br />
 
@@ -64,7 +64,7 @@ value="upgrade" />
  && $projectOptions['create_md5_compressed'] == 'ON') ? ' checked="checked"' : ''; ?>
  value="create_md5_compressed" />
 <label for="lbl_create_md5_compressed"><?php echo jgettext('Compress checksum file'); ?></label>
-<?php echo JHTML::tooltip(jgettext('Compress checksum file').'::'
+<?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Compress checksum file').'::'
     .jgettext('This will do a small compression on your checksum file')); ?>
 <br />
 <?php endif; ?>

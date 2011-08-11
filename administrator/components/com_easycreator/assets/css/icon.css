@@ -89,6 +89,14 @@
     background-image: url(../images/ico/icon-24-various.png);
 }
 
+.icon-16-2leftarrow {
+    background-image: url(../images/ico/icon-16-2leftarrow.png);
+}
+
+.icon-16-2rightarrow {
+    background-image: url(../images/ico/icon-16-2rightarrow.png);
+}
+
 .icon-16-add {
     background-image: url(../images/ico/edit_add.png);
 }
@@ -377,6 +385,15 @@
     background-position: 4px 3px ! important;
     padding-left: 135px;
     padding-bottom: 130px;
+}
+
+.imgR {
+    background-repeat: no-repeat;
+    background-position: 90%;
+    padding-right: 27px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .ajax_loading {

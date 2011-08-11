@@ -87,8 +87,7 @@ class EasyCreatorControllerConfig extends JController
         }
         catch(Exception $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             ecrHTML::easyFormEnd();
         }//try

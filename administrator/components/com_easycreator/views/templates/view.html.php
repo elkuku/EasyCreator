@@ -38,7 +38,7 @@ class EasyCreatorViewTemplates extends JView
 
         ecrHTML::header(jgettext('Extension templates'), null, 'wizard');
 
-        echo $this->displayBar($task);
+        echo $this->displayBar();
 
         if(in_array($task, get_class_methods($this)))
         {
@@ -55,6 +55,7 @@ class EasyCreatorViewTemplates extends JView
         {
             //-- We end our form first, cause another one follows
             echo '<input type="hidden" name="com_type" /><input type="hidden" name="template" />';//:(
+
             ecrHTML::easyFormEnd(false);
 
             parent::display($tpl);
@@ -62,6 +63,7 @@ class EasyCreatorViewTemplates extends JView
         else
         {
             parent::display($tpl);
+
             ecrHTML::easyFormEnd();
         }
     }//function
@@ -138,18 +140,9 @@ class EasyCreatorViewTemplates extends JView
      *
      * @return string html
      */
-    private function displayBar($task)
+    private function displayBar()
     {
-        //--Get Joomla! document object
-        $document = JFactory::getDocument();
-
-        //--Get component parameters
-        $params = JComponentHelper::getParams('com_easycreator');
-
-        //--Setup debugger
-        $ecr_help = $params->get('ecr_help');
-
-        $subtasks = array(
+        $subTasks = array(
         array('title' => jgettext('Templates')
         , 'description' => jgettext('Manage EasyCreator Extension Templates')
         , 'icon' => 'directory'
@@ -167,58 +160,6 @@ class EasyCreatorViewTemplates extends JView
         )
         );
 
-        $htmlDescriptionDivs = '';
-        $jsVars = '';
-        $jsMorphs = '';
-        $jsEvents = '';
-        $html = '';
-        $html .= '<div id="ecr_sub_toolbar" >';
-
-        foreach($subtasks as $sTask)
-        {
-            $selected =($sTask['task'] == $task) ? '_selected' : '';
-
-            $html .= '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"'
-            .' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"'
-            .' onclick="submitbutton(\''.$sTask['task'].'\');">';
-
-            $html .= $sTask['title'].'</span>';
-
-            if($ecr_help == 'all'
-            || $ecr_help == 'some')
-            {
-                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'.$sTask['task'].'">'
-                .$sTask['description'].'</div>';
-                $jsVars .= "var desc_".$sTask['task']." = $('desc_".$sTask['task']."');\n";
-
-                $jsEvents .= "$('btn_".$sTask['task']."').addEvents({\n"
-                . "'mouseenter': showTaskDesc.bind(desc_".$sTask['task']."),\n"
-                . "'mouseleave': hideTaskDesc.bind(desc_".$sTask['task'].")\n"
-                . "});\n";
-            }
-        }//foreach
-
-        $html .= $htmlDescriptionDivs;
-
-        if($ecr_help == 'all'
-        || $ecr_help == 'some')
-        {
-            $html .= "<script type='text/javascript'>"
-            ."window.addEvent('domready', function() {\n"
-            ."function showTaskDesc(name) {\n"
-            ."this.setStyle('display', 'block');\n"
-            ."}\n"
-            ."function hideTaskDesc(name) {\n"
-            ."  this.setStyle('display', 'none');\n"
-            ."}\n"
-            . $jsVars
-            . $jsEvents
-            . "});\n"
-            . "</script>";
-        }
-
-        $html .= '</div>';
-
-        return $html;
+        return ecrHTML::getSubBar($subTasks);
     }//function
 }//class

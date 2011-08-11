@@ -21,21 +21,25 @@ if('package' == $this->project->type
     return;
 }
 
+JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() {
+updateName('".$this->ecr_project."');
+});");
+
 echo $this->loadTemplate('result');
 
 ?>
 <div style="clear: both;"></div>
 
 <div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('folder'); ?>
+</div>
+<div style="clear: both;"></div>
+<div class="ecr_floatbox">
     <?php echo $this->loadTemplate('format'); ?>
 </div>
 
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('options'); ?>
-</div>
-
-<div class="ecr_floatbox">
-    <?php echo $this->loadTemplate('folder'); ?>
 </div>
 
 <div class="ecr_floatbox" style="background-color: #ccff99;">
@@ -49,9 +53,5 @@ echo $this->loadTemplate('result');
         </h1>
     </div>
 </div>
-
-<script type="text/javascript">
-updateName('<?php echo $this->ecr_project; ?>');
-</script>
 
 <input type="hidden" name="old_task" value="<?php echo JRequest::getCmd('task'); ?>" />

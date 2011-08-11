@@ -55,7 +55,7 @@ class EasyCreatorControllerTemplates extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e->getMessage(), 'error');
+            ecrHTML::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -80,7 +80,7 @@ class EasyCreatorControllerTemplates extends JController
         }
         catch(Exception $e)
         {
-            JError::raiseWarning(100, $retVal);
+            ecrHTML::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -109,8 +109,7 @@ class EasyCreatorControllerTemplates extends JController
         }
         catch(Exception $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -133,12 +132,13 @@ class EasyCreatorControllerTemplates extends JController
             EasyTemplateHelper::installTemplates();
 
             ecrHTML::displayMessage(jgettext('Templates have been installed.'));
+
             JRequest::setVar('task', 'templates');
         }
         catch(Exception $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
+
             JRequest::setVar('task', 'tplinstall');
         }//try
 

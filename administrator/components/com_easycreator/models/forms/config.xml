@@ -41,11 +41,11 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</field>
-		<field name="ecr_help" type="list" default="all" label="Help Type"
+		<field name="ecr_help" type="list" default="2" label="Help Type"
 			description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
-			<option value="all">All</option>
-			<option value="some">Some</option>
-			<option value="none">None</option>
+			<option value="2">All</option>
+			<option value="1">Some</option>
+			<option value="0">None</option>
 		</field>
 		<field name="editarea_type" type="list" default="edit_area_full.js"
 			label="Editor type"

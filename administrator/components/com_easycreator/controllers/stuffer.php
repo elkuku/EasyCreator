@@ -75,9 +75,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -188,9 +186,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'stuffer');
@@ -266,9 +262,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             $logger->log($e->getMessage());
         }//try
@@ -539,9 +533,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -580,9 +572,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -632,9 +622,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            $m =(JDEBUG || ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -788,9 +776,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(EcrLogException $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             parent::display();
 
@@ -798,9 +784,7 @@ class EasyCreatorControllerStuffer extends JController
         }//try
         catch(Exception $e)
         {
-            $m =(ECR_DEBUG) ? nl2br($e) : $e->getMessage();
-
-            ecrHTML::displayMessage($m, 'error');
+            ecrHTML::displayMessage($e);
 
             $this->logger->log($e->getMessage(), 'exception');
         }//try

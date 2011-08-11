@@ -59,7 +59,7 @@
     <param name="logging" type="radio" label="Logger" default="1" />
     <param name="profile" type="radio" label="Profiler" default="1" />
     <param name="files" type="radio" label="Log file contents" default="1" />
-    <param name="ecr_help" type="list" label="Help Type" default="all" />
+    <param name="ecr_help" type="list" label="Help Type" default="2" />
     <param name="editarea_type" type="list" label="Editor type" default="edit_area_full.js" />
     <param name="editarea_font_size" type="text" label="Editor font size" default="8" />
     <param name="warn_livesite" type="radio" label="Livesite warning" default="1" />

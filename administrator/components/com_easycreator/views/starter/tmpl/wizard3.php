@@ -59,14 +59,12 @@ function submitbutton(command)
 </script>
 
 <div class="ecr_floatbox" style="width: 75%;">
-    <div style="float: right;">
-        <div class="button1-right">
-            <div class="prev">
-                <a onclick="submitbutton('wizard2');" title="<?php echo jgettext('Back'); ?>">
-                    <?php echo jgettext('Back'); ?>
-                </a>
-            </div>
-        </div>
+    <div class="buttonBox">
+        <a class="ecr_button img icon-16-2leftarrow"
+        onclick="submitbutton('wizard2');"
+        title="<?php echo jgettext('Back'); ?>">
+		    <?php echo jgettext('Back'); ?>
+		</a>
     </div>
 
 	<div class="wizard-header">

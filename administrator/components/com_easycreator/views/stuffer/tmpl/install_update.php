@@ -23,7 +23,7 @@ try
 }
 catch (Exception $e)
 {
-    ecrHTML::displayMessage($e->getMessage(), 'error');
+    ecrHTML::displayMessage($e);
 
     return;
 }//try

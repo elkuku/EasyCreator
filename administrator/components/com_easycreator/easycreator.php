@@ -38,13 +38,13 @@ $profiler = JProfiler::getInstance('Application');
 JDEBUG ? $profiler->mark('com_easycreator starting') : null;
 
 //-- Global constants
-require_once 'defines.php';
+require_once JPATH_COMPONENT.'/includes/defines.php';
 
 //-- Global functions
-require_once 'functions.php';
+require_once JPATH_COMPONENT.'/includes/functions.php';
 
 ecrLoadHelper('exceptions');
-
+echo ECR_HELP;
 if(ECR_DEV_MODE)
 {
     //-- Setup debugger
