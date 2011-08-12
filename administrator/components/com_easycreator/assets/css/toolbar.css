@@ -67,7 +67,6 @@ div.ecr_easy_toolbar a:hover,div.ecr_easy_toolbar a:focus {
 }
 
 div#ecr_options_box {
-	float: left;
-	padding: 0.2em;
+    float: left;
+    padding: 0.2em;
 }
-

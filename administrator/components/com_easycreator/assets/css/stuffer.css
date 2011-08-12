@@ -6,83 +6,83 @@
  * @author      Created on 28-Sep-2009
  */
 label.creditsLabel {
-	width: 13em;
-	float: left;
-	margin-right: 0.5em;
-	display: block;
-	font-weight: bold;
+    width: 13em;
+    float: left;
+    margin-right: 0.5em;
+    display: block;
+    font-weight: bold;
 }
 
 .ecr_floatbox ul {
-	padding: 0;
-	list-style: none;
+    padding: 0;
+    list-style: none;
 }
 
 .ecr_floatbox li {
-	margin-bottom: 0.3em;
+    margin-bottom: 0.3em;
 }
 
 x {
-	margin: 0;
+    margin: 0;
 }
 
 ul.sortable {
-	min-height: 18px;
-	border: 1px solid gray;
+    min-height: 18px;
+    border: 1px solid gray;
 }
 
 ul.sortable li {
-	height: 18px;
+    height: 18px;
 }
 
 ul.sortable li:hover {
-	background-color: #ddd;
-	cursor: move;
+    background-color: #ddd;
+    cursor: move;
 }
 
 ul#package-to {
-	background-color: #f2ffff;
+    background-color: #f2ffff;
 }
 
 ul.sortable li.menu {
-	height: 80px;
+    height: 80px;
 }
 
 /* Tables view */
 div#er_display {
-	border: 1px solid black;
-	background-color: #ccc;
-	margin: 1em;
-	padding-bottom: 30px;
-	padding-top: 30px;
+    border: 1px solid black;
+    background-color: #ccc;
+    margin: 1em;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 div.closeButton {
-	border: 1px solid gray;
-	padding: 0.3em;
-	font-weight: bold;
-	float: right;
+    border: 1px solid gray;
+    padding: 0.3em;
+    font-weight: bold;
+    float: right;
 }
 
 div.closeButton:hover {
-	cursor: pointer;
-	background-color: #e5ff99;;
+    cursor: pointer;
+    background-color: #e5ff99;;
 }
 
 div#addBox {
-	background-color: #fff;
-	display: none;
-	z-index: 33;
-	padding: 0.5em;
-	border-radius: 10px;
-	box-shadow: 0 0 10px black;
+    background-color: #fff;
+    display: none;
+    z-index: 33;
+    padding: 0.5em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
 }
 
 div.plumbBox {
-	padding: 0.3em;
+    padding: 0.3em;
 }
 
 th.hasEasyTip {
-	background-color: #b2cce5;
-	cursor: help;
+    background-color: #b2cce5;
+    cursor: help;
 }

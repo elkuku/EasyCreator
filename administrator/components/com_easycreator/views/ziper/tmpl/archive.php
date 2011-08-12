@@ -92,4 +92,4 @@ foreach($folders as $folder) :
     </tbody>
 </table>
 <?php
-endforeach; ?>
+endforeach;

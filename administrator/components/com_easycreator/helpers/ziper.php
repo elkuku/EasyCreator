@@ -566,7 +566,6 @@ class EasyZIPer extends JObject
 
                 // Create the folder
                 JFolder::create($destPath);
-
             }
 
             if(JFile::copy($srcPath, $destPath.DS.$file->name))
@@ -600,7 +599,6 @@ class EasyZIPer extends JObject
 
                 $fileContents = JFile::read($destPath.DS.$file->name);
                 $fileContents = $this->project->substitute($fileContents);
-
             }
             else
             {

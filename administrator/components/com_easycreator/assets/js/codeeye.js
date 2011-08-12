@@ -18,7 +18,7 @@ var ecr_act_field;
 function setPath(folder, file)
 {
     $('dspl_sniff_folder').innerHTML = folder;
-    
+
     if(file)
     {
         $('dspl_sniff_file').innerHTML = (file) ? file : '';
@@ -38,7 +38,7 @@ function doPHPUnit(folder, test, timeStamp, id)
 {
    //format my f*** date
    var dx = new Date();
-   
+
    if(ecr_act_field)
    {
        $(ecr_act_field).setStyle('color', 'black');
@@ -46,36 +46,33 @@ function doPHPUnit(folder, test, timeStamp, id)
 
    $(id).setStyle('color', 'red');
    ecr_act_field = id;
-    
+
 //   console.log(dx.toString());
    //Ausgabe: Sun Oct 04 2009 14:00:09 GMT-0500 (ECT)
 
     y = dx.getFullYear();
 
     m = dx.getMonth().toString();
-    m =(m.length == 1) ? '0'+m : m;
+    m =(m.length == 1) ? '0' + m : m;
 
     d = dx.getDay().toString();
-    d =(d.length == 1) ? '0'+d : d;
-    
-    h = dx.getHours().toString();
-    h =(h.length == 1) ? '0'+h : h;
-    
-    i = dx.getMinutes().toString();
-    i =(i.length == 1) ? '0'+i : i;
-    
-    s = dx.getSeconds().toString();
-    s =(s.length == 1) ? '0'+s : s;
+    d =(d.length == 1) ? '0' + d : d;
 
-    timeStamp = ''+y+m+d+'_'+h+i+s;
-    
+    h = dx.getHours().toString();
+    h =(h.length == 1) ? '0' + h : h;
+
+    i = dx.getMinutes().toString();
+    i =(i.length == 1) ? '0' + i : i;
+
+    s = dx.getSeconds().toString();
+    s =(s.length == 1) ? '0' + s : s;
+
+    timeStamp = '' + y + m + d + '_' + h + i + s;
+
 //    console.log(timeStamp);
     //Ausgabe: 200990_1409
-    
     // getMonth() und getDay() liefern falsche Werte ...
-    
     // ?
-    
     url = ecrAJAXLink+'&controller=codeeyeajax';
     url += '&task=phpunit';
     url += '&folder='+folder;

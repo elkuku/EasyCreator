@@ -23,11 +23,11 @@ jimport('joomla.form.formfield');
  */
 class JFormFieldCheckbox extends EcrFormField
 {
-    public function __construct($form = null) {
-
-        $foo = 'bar';
+    public function __construct($form = null)
+    {
         parent::__construct($form);
-    }
+    }//function
+
     /**
      * The form field type.
      *

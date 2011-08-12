@@ -6,69 +6,69 @@
  * @author      Created on 28-Sep-2009
  */
 img#loaderPic {
-	float: left;
-	padding: 0.5em;
+    float: left;
+    padding: 0.5em;
 }
 
 div#wizard_control {
-	float: right;
+    float: right;
 }
 
 .wiz_step {
-	padding-left: 5px;
-	padding-right: 5px;
-	background-color: #FFFFCC;
-	border: 1px solid grey;
-	margin-right: 10px;
-	margin-left: 10px;
-	border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #FFFFCC;
+    border: 1px solid grey;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
 }
 
 .ecr_wiz_desc {
-	background: url(../images/splash_green.png) 0 50% no-repeat;
-	background-color: #E5FF99;
-	padding: 3px;
-	padding-left: 35px;
-	border-top: 2px solid green;
-	border-bottom: 2px solid green;
-	min-height: 30px;
-	border-radius: 10px;
+    background: url(../images/splash_green.png) 0 50% no-repeat;
+    background-color: #E5FF99;
+    padding: 3px;
+    padding-left: 35px;
+    border-top: 2px solid green;
+    border-bottom: 2px solid green;
+    min-height: 30px;
+    border-radius: 10px;
 }
 
 .ecr_wiz_desc ul {
-	padding-left: 10px;
+    padding-left: 10px;
 }
 
 .ecr_prevnext {
-	text-align: center;
-	border: 1px solid black;
-	padding: 3px;
-	margin: 7px;
-	background-color: #FFFFCC;
+    text-align: center;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 7px;
+    background-color: #FFFFCC;
 }
 
 div.wizard-row {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 div.ecr_floatbox_title {
-	margin-bottom: 0.5em;
-	border-bottom: 1px solid #ddd;
-	border-radius: 5px;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 div.wizard-header {
-	font-size: 1.5em;
-	font-weight: bold;
-	padding-bottom: 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 1em;
 }
 
 div.buttonBox {
-	margin: 1em;
-	float: right;
+    margin: 1em;
+    float: right;
 }
 
 a.ecr_button {
-	margin-left: 0.3em;
-	margin-right: 0.3em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
 }

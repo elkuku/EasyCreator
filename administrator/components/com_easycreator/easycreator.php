@@ -44,7 +44,7 @@ require_once JPATH_COMPONENT.'/includes/defines.php';
 require_once JPATH_COMPONENT.'/includes/functions.php';
 
 ecrLoadHelper('exceptions');
-echo ECR_HELP;
+
 if(ECR_DEV_MODE)
 {
     //-- Setup debugger

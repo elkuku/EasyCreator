@@ -17,8 +17,7 @@ defined('_JEXEC') || die('=;)');
 class AutoCodeAdminFormsEditElementField
 {
     /**
-     * EasyTableField
-     * @var $field
+     * @var EasyTableField $field
      */
     private $field;
 
