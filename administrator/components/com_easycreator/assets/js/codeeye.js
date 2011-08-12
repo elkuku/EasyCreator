@@ -440,7 +440,6 @@ function checkEnvironment()
 /**
  * Git stuff
  */
-
 function gitStatus()
 {
     url = ecrAJAXLink+'&controller=codeeyeajax';
@@ -464,4 +463,33 @@ function gitStatus()
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}
+}//function
+
+/**
+ * Git stuff
+ */
+function phploc(dir)
+{
+    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url += '&task=phploc';
+    url += '&dir='+dir;
+    
+    new Request({
+        url: url,
+        'onRequest' : function()
+        {
+            $('ecr_codeeye_output').innerHTML = '';
+            $('ecr_codeeye_console').innerHTML = '';
+        },
+        'onComplete' : function(response)
+        {
+            var resp = JSON.decode(response);
+            
+            if( ! resp.status) {
+                //-- Error
+            }
+            $('ecr_codeeye_output').innerHTML = resp.text;
+            $('ecr_codeeye_console').innerHTML = resp.console;
+        }
+    }).send();
+}//function

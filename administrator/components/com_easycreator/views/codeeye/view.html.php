@@ -176,6 +176,16 @@ class EasyCreatorViewCodeEye extends JView
     }//function
 
     /**
+     * PHPLOC View.
+     *
+     * @return void
+     */
+    protected function phploc()
+    {
+        $this->setLayout('phploc');
+    }//function
+
+    /**
      * W3CValidation View.
      *
      * @return void
@@ -318,6 +328,11 @@ class EasyCreatorViewCodeEye extends JView
         , 'description' => jgettext('Create automatic documentation for your project with PHPDocumentor.')
         , 'icon' => 'eye'
         , 'task' => 'phpdoc'
+        )
+        , array('title' => jgettext('PHPLOC')
+        , 'description' => jgettext('Count the lines of code you have written.')
+        , 'icon' => 'eye'
+        , 'task' => 'phploc'
         )
         , array('title' => jgettext('Statistics')
         , 'description' => jgettext('Shows some statistics about your project.')

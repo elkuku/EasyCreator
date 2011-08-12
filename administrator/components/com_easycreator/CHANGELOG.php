@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+12-Aug-2011 Nikolai Plath
+ + Added interface for PHPLOC
+
 02-Aug-2011 Nikolai Plath
  # Fixed md5 compression method
  ^ Config now uses JForm

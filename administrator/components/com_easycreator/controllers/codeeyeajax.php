@@ -30,7 +30,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
     {
         ecrLoadHelper('pearhelpers.phpunit');
 
-        $response = array();
+        $response = new JsonResponse;
+
 
         $folder = JRequest::getString('folder');
         $test = JRequest::getString('test');
@@ -65,16 +66,16 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         if(JFile::exists($logName))
         {
-            $response['text'] = $add.BR.$phpUnit->showFormattedLog($logName);
-            $response['status'] = 1;
+            $response->text = $add.BR.$phpUnit->showFormattedLog($logName);
+            $response->status = 1;
         }
         else
         {
-            $response['text'] = $add.BR.'ERROR writing: '.$logName;
-            $response['status'] = 0;
+            $response->text = $add.BR.'ERROR writing: '.$logName;
+            $response->status = 0;
         }
 
-        $response['console'] = htmlentities($results);
+        $response->console = htmlentities($results);
 
         echo json_encode($response);
     }//function
@@ -88,7 +89,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
     {
         ecrLoadHelper('pearhelpers.selenium');
 
-        $response = array();
+        $response = new JsonResponse;
 
         $folder = JRequest::getString('folder');
         $test = JRequest::getString('test');
@@ -130,9 +131,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         //        {
         //            $response['text'] = $add.BR.'ERROR writing: '.$logName;
         //        }
-        $response['status'] = 0;
 
-        $response['console'] = htmlentities($results);
+        $response->console = htmlentities($results);
 
         echo json_encode($response);
     }//function
@@ -152,21 +152,20 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $path = JPATH_ROOT.DS.$folder.DS.$file;
 
+        $response = new JsonResponse;
         $arguments = array();
-        $response = array();
-
-        $response['status'] = 0;
 
         if( ! JFile::exists($path))
         {
-            $response['text'] = jgettext('File not found');
+            $response->text = jgettext('File not found');
+            $response->status = 1;
         }
         else
         {
             if(JFile::getExt($path) != 'php')
             {
-                $response['text'] = jgettext('Only PHP files are allowed');
-                $response['console'] = $response['text'];
+                $response->text = jgettext('Only PHP files are allowed');
+                $response->console = $response->text;
             }
             else
             {
@@ -181,8 +180,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                 if( ! count($foundClasses))
                 {
-                    $response['text'] = jgettext('No classes found');
-                    $response['console'] = $response['text'];
+                    $response->text = jgettext('No classes found');
+                    $response->console = $response->text;
                 }
                 else
                 {
@@ -240,7 +239,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                         if(JFile::move($resultPath, $destFolder.DS.$destFileName))
                         {
-                            $response['status'] = 1;
+                            $response->status = 1;
                         }
                         else
                         {
@@ -250,8 +249,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                     {
                     }
 
-                    $response['text'] = $add.$includedOutput;
-                    $response['console'] = htmlentities($results);
+                    $response->text = $add.$includedOutput;
+                    $response->console = htmlentities($results);
                 }
             }
         }
@@ -307,13 +306,11 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $path = JRequest::getVar('path');
         $file = JRequest::getVar('file');
 
-        $response = array();
-
-        $response['status'] = 0;
-        $response['text'] = '';
-        $response['console'] = '';
+        $response = new JsonResponse;
 
         $args = array();
+
+        ob_start();
 
         $console = new EasyPearConsole;
 
@@ -326,8 +323,44 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $results = $console->cliExec($goToPath.'git', $args);
 
-        $response['text'] = 'aaa';
-        $response['console'] = $results;
+        $response->text = ob_get_contents();
+
+        ob_end_clean();
+
+        $response->console = $results;
+
+        echo json_encode($response);
+    }//function
+
+    public function phploc()
+    {
+        ecrLoadHelper('pearhelpers.phploc');
+
+        $dir = JRequest::getString('dir');
+
+        $response = new JsonResponse;
+
+        if( ! $dir || 'undefined' == $dir)
+        {
+            $response->status = 1;
+            $response->text = 'No directory given';
+
+            echo json_encode($response);
+
+            return;
+        }
+
+        ob_start();
+
+        $counter = new EasyPHPLOC;
+
+        $results = $counter->count($dir);
+
+        $response->text = ob_get_contents();
+
+        ob_end_clean();
+
+        $response->console = $results;
 
         echo json_encode($response);
     }//function
@@ -448,8 +481,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $path = JRequest::getVar('path');
 
         $arguments = array();
-        $arguments['min-lines'] = (int)JRequest::getInt('min-lines', 5);
-        $arguments['min-tokens'] = (int)JRequest::getInt('min-tokens', 70);
+        $arguments['min-lines'] = JRequest::getInt('min-lines', 5);
+        $arguments['min-tokens'] = JRequest::getInt('min-tokens', 70);
 
         $response = array();
 
@@ -586,67 +619,69 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             ?>
 
 <h3>Installed PEAR Packages</h3>
-            <?php echo sprintf(jgettext('See also: %s')
-            , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
+
+<?php echo sprintf(jgettext('See also: %s')
+, '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
 <table class="adminlist">
 
-    <thead>
-        <tr>
-            <th><?php echo jgettext('Package'); ?></th>
-            <th><?php echo jgettext('Version'); ?></th>
-            <th><?php echo jgettext('Recommended'); ?></th>
-            <th><?php echo jgettext('Info'); ?></th>
-        </tr>
-    </thead>
+	<thead>
+		<tr>
+			<th><?php echo jgettext('Package'); ?></th>
+			<th><?php echo jgettext('Version'); ?></th>
+			<th><?php echo jgettext('Recommended'); ?></th>
+			<th><?php echo jgettext('Info'); ?></th>
+		</tr>
+	</thead>
 
-    <tbody>
-        <tr class="row0">
-            <td>PHP_CodeSniffer</td>
-            <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
-            ? $pearPackages['PHP_CodeSniffer']
-            : $notFound; ?>
-            </td>
-            <td>1.2.0</td>
-            <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
-                class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
-                CSS files and detects violations of a defined set of coding
-                standards.</td>
-        </tr>
+	<tbody>
+		<tr class="row0">
+			<td>PHP_CodeSniffer</td>
+			<td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
+			? $pearPackages['PHP_CodeSniffer']
+			: $notFound; ?>
+			</td>
+			<td>1.2.0</td>
+			<td><a href="http://pear.php.net/package/PHP_CodeSniffer"
+				class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
+				CSS files and detects violations of a defined set of coding
+				standards.</td>
+		</tr>
 
-        <tr class="row1">
-            <td>phpcpd</td>
-            <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
-            <td>1.1.1</td>
-            <td><a href="http://github.com/sebastianbergmann/phpcpd"
-                class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
-                code.</td>
-        </tr>
+		<tr class="row1">
+			<td>phpcpd</td>
+			<td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
+			<td>1.1.1</td>
+			<td><a href="http://github.com/sebastianbergmann/phpcpd"
+				class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
+				code.</td>
+		</tr>
 
-        <tr class="row0">
-            <td>PhpDocumentor</td>
-            <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
-            ? $pearPackages['PhpDocumentor']
-            : $notFound; ?>
-            </td>
-            <td>1.4.3</td>
-            <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
-                is the world standard auto-documentation tool for PHP.</td>
-        </tr>
+		<tr class="row0">
+			<td>PhpDocumentor</td>
+			<td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
+			? $pearPackages['PhpDocumentor']
+			: $notFound; ?>
+			</td>
+			<td>1.4.3</td>
+			<td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
+				is the world standard auto-documentation tool for PHP.</td>
+		</tr>
 
-        <tr class="row1">
-            <td>PhpUnit</td>
-            <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
-            <td>3.4.0</td>
-            <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
-                provides both a framework that makes the writing of tests easy as
-                well as the functionality to easily run the tests and analyse their
-                results.</td>
-        </tr>
+		<tr class="row1">
+			<td>PhpUnit</td>
+			<td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
+			<td>3.4.0</td>
+			<td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
+				provides both a framework that makes the writing of tests easy as
+				well as the functionality to easily run the tests and analyse their
+				results.</td>
+		</tr>
 
-    </tbody>
+	</tbody>
 
 </table>
-            <?php
+
+<?php
         }
 
         $response['text'] = ob_get_contents();

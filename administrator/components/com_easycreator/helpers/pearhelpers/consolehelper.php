@@ -192,3 +192,10 @@ class EasyPearConsole extends JObject
         return $lastLine;
     }//function
 }//class
+
+class JsonResponse
+{
+    public $status = 0;
+    public $text = '';
+    public $console = '';
+}//class
