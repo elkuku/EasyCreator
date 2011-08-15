@@ -238,7 +238,7 @@ class EasyCreatorControllerLanguages extends JController
 
         /*
          * Clean language files
-         */
+        */
         $paths = (array)$project->getLanguagePaths();
 
         foreach($languages as $tag => $language)
@@ -268,7 +268,7 @@ class EasyCreatorControllerLanguages extends JController
         {
             /*
              * Clean PHP file
-             */
+            */
             $origCode = JFile::read(JPATH_ROOT.DS.$selectedFile);
 
             $errors = $converter->findPHPErrors($origCode, array_keys($selectedErrors));
@@ -287,6 +287,53 @@ class EasyCreatorControllerLanguages extends JController
                 JFile::write(JPATH_ROOT.DS.$selectedFile, $newCode);
             }
         }
+
+        parent::display();
+    }//function
+
+    public function g11nUpdateLanguage()
+    {
+        try
+        {
+            ecrLoadHelper('g11n');
+
+            $project = EasyProjectHelper::getProject();
+
+            $scope = JRequest::getCmd('scope');
+            $lang = JRequest::getCmd('langTag');
+
+            $msg = G11nHelper::updateLanguage($project->comName, $scope, $lang);
+
+            JFactory::getApplication()->enqueueMessage($msg);
+        }
+        catch(Exception $e)
+        {
+            JError::raiseWarning(0, $e->getMessage());
+        }//try
+
+        JRequest::setVar('task', 'g11nUpdate');
+
+        parent::display();
+    }//function
+
+    public function g11nCreateTemplate()
+    {
+        try
+        {
+            ecrLoadHelper('g11n');
+
+            $project = EasyProjectHelper::getProject();
+
+            $msg = G11nHelper::createTemplate($project->comName, $project->scope);
+
+            JFactory::getApplication()->enqueueMessage($msg);
+        }
+        catch(Exception $e)
+        {
+            JError::raiseWarning(0, $e->getMessage());
+        }//try
+
+        JRequest::setVar('task', 'g11nUpdate');
 
         parent::display();
     }//function

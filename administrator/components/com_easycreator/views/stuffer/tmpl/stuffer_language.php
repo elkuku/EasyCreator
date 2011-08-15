@@ -10,6 +10,10 @@
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
+
+if('package' == $this->project->type)
+return;
+
 $buildOpts = $this->project->buildOpts;
 ?>
 

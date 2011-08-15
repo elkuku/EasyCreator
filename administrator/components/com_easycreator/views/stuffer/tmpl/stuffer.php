@@ -124,11 +124,12 @@ if($this->project->type == 'component'):
     echo $this->loadTemplate('install');
     echo $this->loadTemplate('package');
     echo $this->loadTemplate('autocode');
-    echo $this->loadTemplate('language');
 endif;
 
-if($this->project->type == 'package')
+echo $this->loadTemplate('language');
+
 echo $this->loadTemplate('packageelements');
+
 
 echo $this->loadTemplate('update');
 ?>

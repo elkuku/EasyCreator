@@ -1105,11 +1105,8 @@ EOF;
 
         $linkFormat = ini_get('xdebug.file_link_format');
 
-echo $linkFormat;
         foreach ($traces as $traceType => $trace)
         {
-            ;
-
         $s = '';
         $s = '<h2>'.$traceType.'</h2>';
         $s .= '<table border="1">';

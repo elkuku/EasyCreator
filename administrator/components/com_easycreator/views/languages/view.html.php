@@ -46,33 +46,44 @@ class EasyCreatorViewLanguages extends JView
         {
             $this->project = EasyProjectHelper::getProject();
 
-            if( ! $this->scope)
-            {
-                $this->scope = 'site';
-
-                if($this->project->type == 'plugin')
-                {
-                    //-- todo special treatment for plugins
-                    $this->scope = 'admin';
-                }
-            }
-
             //--Draw h1 header
             ecrHTML::header(jgettext('Languages'), $this->project, 'ecr_languages');
 
-            if( ! count($this->project->langs))
+            if('ini' != $this->project->langFormat)
             {
-                $this->easyLanguage = false;
+                //-- Here goes g11n =;)
+                echo $this->displayBarG11n($task);
             }
             else
             {
-                ecrLoadHelper('language');
-                $this->easyLanguage = new EasyELanguage($this->project, $this->scope, $this->hideLangs, $this->_showCore);
+                //             var_dump($this->project);
 
-                if(JRequest::getCmd('tmpl') != 'component')
+                if( ! $this->scope)
                 {
-                    //--draw selector
-                    echo $this->displayBar($task);
+                    $this->scope = 'site';
+
+                    if($this->project->type == 'plugin')
+                    {
+                        //-- @todo special treatment for plugins
+                        $this->scope = 'admin';
+                    }
+                }
+
+
+                if( ! count($this->project->langs))
+                {
+                    $this->easyLanguage = false;
+                }
+                else
+                {
+                    ecrLoadHelper('language');
+                    $this->easyLanguage = new EasyELanguage($this->project, $this->scope, $this->hideLangs, $this->_showCore);
+
+                    if(JRequest::getCmd('tmpl') != 'component')
+                    {
+                        //--draw selector
+                        echo $this->displayBar($task);
+                    }
                 }
             }
 
@@ -106,6 +117,153 @@ class EasyCreatorViewLanguages extends JView
 
         ecrHTML::easyFormEnd();
     }//function
+
+    /**
+     * Languages View - Default.
+     *
+     * @return void
+     */
+    private function languages()
+    {
+        if('ini' != $this->project->langFormat)
+        {
+
+            $this->g11nInfo = $this->getG11nInfo();
+
+
+            $this->setLayout('g11n');
+        }
+    }//function
+
+    private function getG11nInfo()
+    {
+        ecrLoadHelper('g11n');
+
+        $info = new stdClass;
+
+        $this->languages = g11nHelper::getLanguages();// $this->get('languages');
+
+        $baseLink = '';
+
+        $info->scope =($this->project->scope) ? $this->project->scope : 'admin';
+        $info->id = $this->project->dbId;
+        $info->extension = $this->project->comName;
+        $info->exists = g11nExtensionHelper::isExtension($this->project->comName, $info->scope);
+
+        $info->templateLink =($info->exists)
+        ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
+        : '';
+
+
+
+
+        $cachedFiles = G11nHelper::getCachedFiles();// $this->get('CachedFiles');
+
+        $this->scopes = array('admin' => JPATH_ADMINISTRATOR, 'site' => JPATH_SITE);
+
+        //-- Get data from the model
+        //             $items = $this->get('Data');
+
+        $baseLink = 'index.php?option=com_g11n';
+
+        //             foreach($items as $i => $item)
+        //             {
+        //         $info = new stdClass;
+
+        $scope =($this->project->scope) ? $this->project->scope : 'admin';
+
+        //         $info->exists = g11nExtensionHelper::isExtension($this->project->comName, $scope);
+        $info->editLink = $baseLink.'&task=g11n.edit';//&cid[]='.$item->id;
+
+        //         $info->templateLink =($info->exists)
+        //         ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
+        //         : '';
+
+        $info->templateCommands = array();
+
+        $info->updateLinks = array();
+
+        $info->cacheLinks = array();
+
+        $s = jgettext('Not cached');
+
+        $extensionName = $this->project->comName;
+
+        if(strpos($extensionName, '.'))
+        $extensionName = substr($extensionName, 0, strpos($extensionName, '.'));
+
+        foreach($this->scopes as $scope => $path)
+        {
+            try
+            {
+                $info->templateExists[$scope] = g11nStorage::templateExists($info->extension, $scope);
+            }
+            catch(Exception $e)
+            {
+                $info->templateCommands[$scope] = $e->getMessage();
+                $info->templateLink = '';
+            }//try
+
+            try//
+            {
+                $info->templateStatus[$scope] = g11nStorage::templateExists($this->project->comName, $scope);
+            }
+            catch(Exception $e)
+            {
+                $info->templateStatus[$scope] = $e->getMessage();
+                echo '';
+            }//try
+
+            foreach($this->languages[$scope] as $lang)
+            {
+                if($lang['tag'] == 'xx-XX')
+                continue;
+
+                $exists = g11nExtensionHelper::findLanguageFile($lang['tag']
+                , $this->project->comName, $scope);
+
+                $info->fileStatus[$scope][$lang['tag']] =($exists) ? true : false;
+                //                     g11nExtensionHelper::findLanguageFile($lang['tag']
+                //                    , $item->extension, $scope);
+
+                $link = $baseLink.'&task=utility.updateLanguage';
+                $link .= '&extension='.$info->extension.'&scope='.$scope;
+                $link .= '&langTag='.$lang['tag'];
+
+                $info->updateLinks[$scope][$lang['tag']] = $link;
+
+                if( ! array_key_exists($extensionName, $cachedFiles)
+                || ! array_key_exists($scope, $cachedFiles[$extensionName]))
+                {
+                    $info->cacheStatus[$scope][$lang['tag']] = false;
+                    continue;
+                }
+
+                $s = jgettext('Not cached');
+                $info->cacheStatus[$scope][$lang['tag']] = false;
+
+                $fName = $lang['tag'].'.'.$this->project->comName;
+
+                foreach($cachedFiles[$extensionName][$scope] as $file)
+                {
+                    if(strpos($file, $fName) === 0)
+                    {
+                        $s = jgettext('Cached');
+                        $info->cacheStatus[$scope][$lang['tag']] = true;
+                    }
+                }//foreach
+            }//foreach
+        }//foreach
+        //             }//foreach
+
+        //                 $info->scope = $scope;
+
+
+
+//         var_dump($this->project);
+
+        return $info;
+    }
 
     /**
      * Convert language files View.
@@ -234,19 +392,10 @@ class EasyCreatorViewLanguages extends JView
 
     /*
      * Task methods
-     */
+    */
 
     /**
-     * Languages View.
-     *
-     * @return void
-     */
-    private function languages()
-    {
-    }//function
-
-    /**
-     * Stuffer View.
+     * Translations View.
      *
      * @return void
      */
@@ -262,7 +411,7 @@ class EasyCreatorViewLanguages extends JView
     }//function
 
     /**
-     * Stuffer View.
+     * Search files View.
      *
      * @return void
      */
@@ -622,7 +771,6 @@ class EasyCreatorViewLanguages extends JView
      */
     private function displayBar($task)
     {
-        $task = JRequest::getCmd('task');
         $sel_language = JRequest::getCmd('sel_language');
         $this->sel_language = $sel_language;
 
@@ -663,13 +811,11 @@ class EasyCreatorViewLanguages extends JView
         , 'icon' => 'rename'
         , 'task' => 'convert'
         )
-        /*
         , array('title' => 'JALHOO'
         , 'description' => jgettext('JALHOO is an experimental language handler.')
         , 'icon' =>'ecr_language'
         , 'tasks' => array('jalhoo')
         )
-        */
         );
 
         //@todo - unify..
@@ -816,8 +962,60 @@ class EasyCreatorViewLanguages extends JView
 
             default:
                 echo 'UNDEFINED: '.$task;
-                break;
+            break;
         }//switch
+
+        return $html;
+    }//function
+
+    private function g11nUpdate()
+    {
+        ecrLoadHelper('g11n');
+
+        $this->languages = g11nHelper::getLanguages();// $this->get('languages');
+
+
+        $this->g11nInfo = $this->getG11nInfo();
+
+        $this->setLayout('g11nupdate');
+    }
+
+    /**
+     * Display the bar View.
+     *
+     * @param string $task The actual task
+     *
+     * @todo move
+     *
+     * @return string
+     */
+    private function displayBarG11n($task)
+    {
+        $sel_language = JRequest::getCmd('sel_language');
+        $this->sel_language = $sel_language;
+
+        $subTasks = array(
+        array('title' => jgettext('Status')
+        , 'description' => jgettext('Displays the status of your language files including cache.')
+        , 'icon' => 'apply'
+        , 'task' => 'languages'
+        )
+        , array('title' => jgettext('Cache')
+        , 'description' => jgettext('Displays the cache status of your language files.')
+        , 'icon' => 'ecr_language'
+        , 'task' => 'g11nCache'
+        )
+        , array('title' => jgettext('g11n')
+        , 'description' =>
+        jgettext('Utility to create and update your language files.')
+        , 'icon' => 'ecr_language'
+        , 'task' => 'g11nUpdate'
+        )
+        );
+
+        //@todo - unify..
+        $html = '';
+        $html .= ecrHTML::getSubBar($subTasks);
 
         return $html;
     }//function

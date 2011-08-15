@@ -11,6 +11,9 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
+if('package' != $this->project->type)
+return;
+
 $projects = EasyProjectHelper::getProjectList();
 $projectTypes = EasyProjectHelper::getProjectTypes();
 
