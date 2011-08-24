@@ -974,7 +974,7 @@ abstract class EasyProject extends JObject
 
         foreach($files as $file)
         {
-            $fName = str_replace($options->pathSource.DS, '', $file);
+            $fName = str_replace($options->pathSource.DS, '', JPath::clean($file));//JPath::clean @since J 1.7
             $fName = str_replace('ecr_element_name', strtolower($element_name), $fName);
             $fName = str_replace('ecr_list_postfix', strtolower($this->listPostfix), $fName);
 

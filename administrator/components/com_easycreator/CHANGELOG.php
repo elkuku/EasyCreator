@@ -52,6 +52,9 @@ Legend:
  ! -> Note
 ______________________________________________
 
+23-Aug-2011 Nikolai Plath
+ # Fixed "add elements" not working on Windows in J! 1.7 - Thanks Apfelkuchen
+ 
 12-Aug-2011 Nikolai Plath
  + Added interface for PHPLOC
 

@@ -114,7 +114,7 @@ class EasyCreatorControllerStuffer extends JController
         $options->ecr_project = $ecr_project;
         $options->group = $group;
         $options->part = $part;
-        $options->pathSource = ECRPATH_PARTS.DS.$group.DS.$part.DS.'tmpl';
+        $options->pathSource = JPath::clean(ECRPATH_PARTS.DS.$group.DS.$part.DS.'tmpl');//JPath::clean @since J 1.7
 
         $string = '';
         $string .= '<h2>Add Element</h2>';
