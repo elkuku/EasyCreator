@@ -40,6 +40,10 @@
     background-image: url(../images/ico/icon-32-the-nose-r.png);
 }
 
+.icon-24-easycreator {
+    background-image: url(../images/ico/icon-24-easycreator.png);
+}
+
 .icon-32-ecr_save {
     background-image: url(../images/ico/icon-32-save.png);
 }
@@ -259,11 +263,18 @@
 }
 
 .icon-joomla-compat-15 {
-    background-image: url(../images/Compat_icon_1_5.png);
+    background-image: url(../images/ico/Compat_icon_1_5.png);
 }
 
 .icon-joomla-compat-16 {
-    background-image: url(../images/Compat_icon_1_6.png);
+    background-image: url(../images/ico/Compat_icon_1_6.png);
+}
+
+.icon-joomla-compat-17 {
+    background-image: url(../images/ico/Compat_icon_1_7.png);
+}
+.icon-joomla-compat-11-1 {
+    background-image: url(../images/ico/Compat_icon_11_1.png);
 }
 
 .icon-12-component {

@@ -16,6 +16,23 @@ defined('_JEXEC') || die('=;)');
 <div class="infoHeader imgbarleft icon-24-info">
     <?php echo jgettext('Info') ?>
 </div>
+<br />
+<strong class="img icon-16-joomla">
+    <?php echo jgettext('Joomla! version'); ?>
+</strong>
+
+<input type="radio" id="jversion15" name="jcompat" value="1.5"
+<?php echo ($this->project->JCompat == '1.5') ? ' checked="checked"' : ''; ?>
+/>
+<label for="jversion15" class="img32b icon-joomla-compat-15"></label>
+
+<input type="radio" id="jversion16" name="jcompat" value="1.6"
+<?php echo ($this->project->JCompat == '1.6') ? ' checked="checked"' : ''; ?>
+/>
+<label for="jversion16" class="img32b icon-joomla-compat-16"><span class="img32b icon-joomla-compat-17"></span></label>
+
+<br /><br />
+
 <ul>
 <li>
     <label class="creditsLabel">

@@ -592,10 +592,10 @@ countries.</em></small>
         {
             $checked =($opts[$name]) ? ' checked="checked"' : '';
 
-            echo NL.'<div align="left">';
+//             echo NL.'<div align="left">';
             echo NL.'   <input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
             echo NL.'   <label for="'.$name.'">'.$ext.'</label>';
-            echo NL.'</div>';
+//             echo NL.'</div>';
         }//foreach
     }//function
 
