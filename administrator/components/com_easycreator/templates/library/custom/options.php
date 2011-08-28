@@ -40,7 +40,7 @@ class EasyTemplateOptions
         }//switch
     }//function
     /**
-    * Displays available options with nput fields.
+    * Displays available options with input fields.
     *
     * @return string HTML
     */

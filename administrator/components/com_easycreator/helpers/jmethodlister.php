@@ -23,7 +23,7 @@ error_reporting(E_ALL);
 
 ob_start();
 
-define('DEBUG', 1);
+define('DEBUG', 0);
 define('DS', DIRECTORY_SEPARATOR);
 define('BR', '<br />');
 define('NL', "\n");

@@ -42,7 +42,11 @@ class EasyProjectLibrary extends EasyProject
         if($this->copies)
         return $this->copies;
 
-        if(JFolder::exists(JPATH_LIBRARIES.DS.$this->comName))
+        if(JFolder::exists(JPATH_PLATFORM.DS.$this->comName))
+        {
+            $this->copies[] = JPATH_PLATFORM.DS.$this->comName;
+        }
+        else if(JFolder::exists(JPATH_LIBRARIES.DS.$this->comName))
         {
             $this->copies[] = JPATH_LIBRARIES.DS.$this->comName;
         }
@@ -103,7 +107,7 @@ class EasyProjectLibrary extends EasyProject
 
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
-                break;
+            break;
         }//switch
 
         return $dtd;
@@ -180,7 +184,16 @@ class EasyProjectLibrary extends EasyProject
      */
     public function getAllProjects()
     {
-        return JFolder::folders(JPATH_LIBRARIES);
+        $folders = array();
+
+        if(defined('JPATH_PLATFORM'))
+        {
+            $folders = JFolder::folders(JPATH_PLATFORM.'/libraries');
+        }
+
+        $folders = array_merge($folders, JFolder::folders(JPATH_LIBRARIES));
+
+        return $folders;
     }//function
 
     /**
@@ -201,7 +214,7 @@ class EasyProjectLibrary extends EasyProject
 
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
-                break;
+            break;
         }//switch
 
         return array();

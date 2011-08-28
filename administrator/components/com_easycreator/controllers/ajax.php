@@ -179,7 +179,14 @@ class EasyCreatorControllerAjax extends JController
         {
             if(array_key_exists($rClass, $cList))
             {
-                $path = JPATH_LIBRARIES.DS.'joomla'.DS.$cList[$rClass][1];
+                if(defined('JPATH_PLATFORM'))
+                {
+                    $path = JPATH_PLATFORM.DS.'joomla'.DS.$cList[$rClass][1];
+                }
+                else
+                {
+                    $path = JPATH_LIBRARIES.DS.'joomla'.DS.$cList[$rClass][1];
+                }
 
                 if( ! JFile::exists($path))
                 {
@@ -898,22 +905,26 @@ class EasyCreatorControllerAjax extends JController
         ?>
 <style type="text/css">
 body {
-    background-color: #eee;
+	background-color: #eee;
 }
 </style>
-<h2 class="img icon-16-<?php echo $icon; ?>"><?php echo $title ?></h2>
+<h2 class="img icon-16-<?php echo $icon; ?>">
+
+<?php echo $title ?></h2>
 <div
-    style="background-color: #ffff99; border: 1px solid gray; padding: 0.5em;">
-<div id="displ_folder" style="display: inline;"></div>
-<input type="<?php echo $inputType; ?>" id="act_name" /></div>
+	style="background-color: #ffff99; border: 1px solid gray; padding: 0.5em;">
+	<div id="displ_folder" style="display: inline;"></div>
+	<input type="<?php echo $inputType; ?>" id="act_name" />
+</div>
 <br />
-<div style="text-align: center;"><span
-    class="ecr_button img icon-16-<?php echo $icon; ?>"
-    onclick="processForm();"> <?php echo $text ?> </span></div>
+<div style="text-align: center;">
+	<span class="ecr_button img icon-16-<?php echo $icon; ?>"
+		onclick="processForm();"> <?php echo $text ?> </span>
+</div>
 <div id="log"></div>
-<input type="hidden"
-    id="act_folder" />
-        <?php
+<input type="hidden" id="act_folder" />
+
+<?php
     }//function
 
     /**
@@ -1071,7 +1082,8 @@ body {
                 }).send();
             }//function
         </script>
-                <?php
+
+        <?php
     }//function
 
     /**
@@ -1084,7 +1096,7 @@ body {
     {
         //--Get the project
         try
-       {
+        {
             $project = EasyProjectHelper::getProject();
         }
         catch(Exception $e)

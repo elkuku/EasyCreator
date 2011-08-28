@@ -48,7 +48,7 @@ class EasyProjectHelper
 
             default:
                 JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
-                break;
+            break;
         }//switch
 
         return $projectTypes;
@@ -182,8 +182,8 @@ class EasyProjectHelper
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
 
-                return false;
-                break;
+            return false;
+            break;
         }//switch
 
         if(empty($xmlFiles))
@@ -193,36 +193,36 @@ class EasyProjectHelper
 
         /*
          if(ECR_JVERSION == '1.5'
-         && $project->type == 'plugin')
-         {
-         /*
-         * Special treatment for plugins in 1.5
-         $xmlFiles = array($path.DS.$project->comName.'.xml');
-         }
-         else if(ECR_JVERSION == '1.6'
-         && $project->type == 'library')
-         {
-         /*
-         * Very Special treatment for libraries in 1.6
-         $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
-         }
-         else if(ECR_JVERSION == '1.6'
-         && $project->type == 'package')
-         {
-         /*
-         * Very Special treatment for packages in 1.6
-         $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
-         }
-         else
-         {
-         if( ! JFolder::exists($path))
-         {
-         return false;
-         }
+        && $project->type == 'plugin')
+        {
+        /*
+        * Special treatment for plugins in 1.5
+        $xmlFiles = array($path.DS.$project->comName.'.xml');
+        }
+        else if(ECR_JVERSION == '1.6'
+        && $project->type == 'library')
+        {
+        /*
+        * Very Special treatment for libraries in 1.6
+        $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
+        }
+        else if(ECR_JVERSION == '1.6'
+        && $project->type == 'package')
+        {
+        /*
+        * Very Special treatment for packages in 1.6
+        $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
+        }
+        else
+        {
+        if( ! JFolder::exists($path))
+        {
+        return false;
+        }
 
-         $xmlFiles = JFolder::files($path, '.xml$', false, true);
-         }
-         */
+        $xmlFiles = JFolder::files($path, '.xml$', false, true);
+        }
+        */
         if(empty($xmlFiles))
         {
             return false;
@@ -235,8 +235,8 @@ class EasyProjectHelper
             {
                 /*
                  JError::raiseWarning(100, 'File not found '.$fileName);
-                 ecrHTML::displayMessage('Unable to load XML file '.$fileName, 'error');
-                 */
+                ecrHTML::displayMessage('Unable to load XML file '.$fileName, 'error');
+                */
                 return false;
             }
 
@@ -280,7 +280,7 @@ class EasyProjectHelper
             default:
 
                 return false;
-                break;
+            break;
         }//switch
 
         $xmlFiles = JFolder::files($path, '.xml$', true, true);
@@ -339,7 +339,7 @@ class EasyProjectHelper
 
         /*
          * Check for a valid XML root tag.
-         */
+        */
         if($manifest->getName() != 'install'//J! 1.5
         && $manifest->getName() != 'extension'//J! 1.6
         )
@@ -475,7 +475,14 @@ class EasyProjectHelper
         }
 
         //-- Get a list of J! installer adapters
-        $adapters = JFolder::files(JPATH_LIBRARIES.DS.'joomla'.DS.'installer'.DS.'adapters', '.php$');
+        if(defined('JPATH_PLATFORM'))
+        {
+            $adapters = JFolder::files(JPATH_PLATFORM.DS.'joomla'.DS.'installer'.DS.'adapters', '.php$');
+        }
+        else
+        {
+            $adapters = JFolder::files(JPATH_LIBRARIES.DS.'joomla'.DS.'installer'.DS.'adapters', '.php$');
+        }
 
         foreach($adapters as $aName)
         {
@@ -542,8 +549,8 @@ class EasyProjectHelper
             default:
                 JError::raiseWarning(0, 'UNKNOWN TYPE: '.$type);
 
-                return array();
-                break;
+            return array();
+            break;
         }//switch
 
         $project = self::newProject($type);
