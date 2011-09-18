@@ -41,9 +41,11 @@ ecrScript('g11n');
         if($scope == 'all')
         continue;
 
-        if($item->scope
-        && $item->scope != $scope)
-        continue;
+        if('component' != $this->project->type) :
+            if($item->scope
+            && $item->scope != $scope)
+            continue;
+        endif;
 
         ?>
     <tr class="<?php echo 'row'.$k; ?>">
@@ -57,8 +59,8 @@ ecrScript('g11n');
             if($sS != $scope) :
                 echo '<td>';
 
-                if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
-                else :
+//                 if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
+//                 else :
                     if($item->templateLink) :
                         if($item->templateExists[$scope]) :
                             $class = 'update';
@@ -77,12 +79,12 @@ ecrScript('g11n');
 
                 echo '</td>';
                 $sS = $scope;
-            endif;
+//             endif;
 
             echo '<td>';
 
-            if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
-            else :
+//             if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
+//             else :
                 if($item->fileStatus[$scope][$lang['tag']]) :
                     $class = 'update';
                     $s = jgettext('Update file');
@@ -93,7 +95,7 @@ ecrScript('g11n');
 
                 $js = "g11nCreate('g11nUpdateLanguage', '".$lang['tag']."', '$scope');";
                 echo '<a class="ecr_button img icon-16-'.$class.'" href="javascript:;" onclick="'.$js.'">'.$s.'</a>';
-            endif;
+//             endif;
 
             echo '</td>';
         endforeach;

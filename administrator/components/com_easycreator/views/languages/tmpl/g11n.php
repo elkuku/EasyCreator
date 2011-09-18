@@ -49,15 +49,16 @@ ecrStylesheet('g11n');
         if('all' == $scope)
         continue;
 
-        if($item->scope
-        && $item->scope != $scope)
-        continue;
+        if('component' != $this->project->type) :
+            if($item->scope
+            && $item->scope != $scope)
+            continue;
+        endif;
         ?>
 		<tr class="<?php echo "row$k"; ?>">
-			<?php if($checkDrawn) : ?>
+			<?php if(0&&$checkDrawn) : ?>
 				<td colspan="3">&nbsp;</td>
 			<?php else : ?>
-			</td>
 			<?php $checkDrawn = true;?>
 			<?php endif; ?>
 			<td>
@@ -77,10 +78,10 @@ ecrStylesheet('g11n');
                         $class = ' notfound';
                     }
 
-                    if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
-                    else :
+                    //if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
+                    //else :
                         echo '<span class="status '.$class.'" alt="'.$s.'" title="'.$s.'" />';
-                    endif;
+                    //endif;
 
                     echo '</td>';
 
@@ -90,8 +91,8 @@ ecrStylesheet('g11n');
 
                     echo '<td>';
 
-                    if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
-                    else :
+                    //if($item->scope != '' && $item->scope != $scope || ! $item->exists) :
+                    //else :
                         if($item->fileStatus[$scope][$lang['tag']])
                         {
                             $s = jgettext('Found');
@@ -118,7 +119,7 @@ ecrStylesheet('g11n');
 
                         echo '<br />';
 
-                        endif;
+                        //endif;
 
                     echo '</td>';
                 endforeach;

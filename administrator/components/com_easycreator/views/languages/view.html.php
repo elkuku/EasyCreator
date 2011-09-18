@@ -148,7 +148,30 @@ class EasyCreatorViewLanguages extends JView
         $info->scope =($this->project->scope) ? $this->project->scope : 'admin';
         $info->id = $this->project->dbId;
         $info->extension = $this->project->comName;
-        $info->exists = g11nExtensionHelper::isExtension($this->project->comName, $info->scope);
+
+        switch ($this->project->type)
+        {
+            case 'component':
+        $comName = $this->project->comName;
+            ;
+            break;
+
+            case 'plugin':
+        $comName = 'plg_content_'.$this->project->comName;
+            ;
+            break;
+
+            case 'template':
+        $comName = 'tpl_'.$this->project->comName;
+            ;
+            break;
+
+            default:
+                echo 'undefined type: '.$this->project->type;
+        $comName = $this->project->comName;                ;
+            break;
+        }
+        $info->exists = g11nExtensionHelper::isExtension($comName, $info->scope);
 
         $info->templateLink =($info->exists)
         ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
@@ -196,7 +219,7 @@ class EasyCreatorViewLanguages extends JView
         {
             try
             {
-                $info->templateExists[$scope] = g11nStorage::templateExists($info->extension, $scope);
+                $info->templateExists[$scope] = g11nStorage::templateExists($comName, $scope);
             }
             catch(Exception $e)
             {
@@ -206,7 +229,7 @@ class EasyCreatorViewLanguages extends JView
 
             try//
             {
-                $info->templateStatus[$scope] = g11nStorage::templateExists($this->project->comName, $scope);
+                $info->templateStatus[$scope] = g11nStorage::templateExists($comName, $scope);
             }
             catch(Exception $e)
             {
@@ -220,7 +243,7 @@ class EasyCreatorViewLanguages extends JView
                 continue;
 
                 $exists = g11nExtensionHelper::findLanguageFile($lang['tag']
-                , $this->project->comName, $scope);
+                , $comName, $scope);
 
                 $info->fileStatus[$scope][$lang['tag']] =($exists) ? true : false;
                 //                     g11nExtensionHelper::findLanguageFile($lang['tag']
