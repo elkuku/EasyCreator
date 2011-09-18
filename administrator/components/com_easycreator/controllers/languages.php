@@ -299,10 +299,21 @@ class EasyCreatorControllerLanguages extends JController
 
             $project = EasyProjectHelper::getProject();
 
+            switch ($project->type)
+            {
+                case 'template':
+                    $comName = 'tpl_'.$project->comName;
+                    break;
+
+                default:
+                    $comName = $project->comName;
+                break;
+            }
+
             $scope = JRequest::getCmd('scope');
             $lang = JRequest::getCmd('langTag');
 
-            $msg = G11nHelper::updateLanguage($project->comName, $scope, $lang);
+            $msg = G11nHelper::updateLanguage($comName, $scope, $lang);
 
             JFactory::getApplication()->enqueueMessage($msg);
         }
@@ -324,7 +335,20 @@ class EasyCreatorControllerLanguages extends JController
 
             $project = EasyProjectHelper::getProject();
 
-            $msg = G11nHelper::createTemplate($project->comName, $project->scope);
+            $scope = JRequest::getCmd('scope');
+
+            switch ($project->type)
+            {
+                case 'template':
+                    $comName = 'tpl_'.$project->comName;
+                    break;
+
+                default:
+                    $comName = $project->comName;
+                break;
+            }
+
+            $msg = G11nHelper::createTemplate($comName, $scope);
 
             JFactory::getApplication()->enqueueMessage($msg);
         }
