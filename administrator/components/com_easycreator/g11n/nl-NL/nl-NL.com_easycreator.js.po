@@ -1,0 +1,145 @@
+# @version SVN: $Id$
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Steven Zeegers <steven.zeegers@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
+"POT-Creation-Date: 2010-12-07 23:45-0500\n"
+"PO-Revision-Date: 2011-09-06 10:42+0000\n"
+"Last-Translator: Toretto <steven.zeegers@gmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/opentranslators/team/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:39
+msgid "Please review your input"
+msgstr "Controleer je invoer"
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:180
+#: administrator/components/com_easycreator/assets/js/menu.js:57
+msgid "Delete"
+msgstr "Verwijder"
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:218
+#: administrator/components/com_easycreator/assets/js/menu.js:101
+msgid "Select..."
+msgstr "Selecteer"
+
+#: administrator/components/com_easycreator/assets/js/autocode.js:86
+#: administrator/components/com_easycreator/assets/js/dbtables.js:269
+#: administrator/components/com_easycreator/assets/js/easycreator.js:131
+#: administrator/components/com_easycreator/assets/js/easycreator.js:143
+#: administrator/components/com_easycreator/assets/js/easycreator.js:190
+#: administrator/components/com_easycreator/assets/js/log.js:39
+#: administrator/components/com_easycreator/assets/js/parts.js:14
+#: administrator/components/com_easycreator/assets/js/util.js:55
+#: administrator/components/com_easycreator/assets/js/wizard.js:43
+msgid "Loading..."
+msgstr "Bezig..."
+
+#: administrator/components/com_easycreator/assets/js/codeeye.js:427
+msgid "CodeEye is checking your environment..."
+msgstr "CodeEye controleert je omgeving"
+
+#: administrator/components/com_easycreator/assets/js/dbtables.js:61
+msgid "This is not a number"
+msgstr "Dit is geen nummer"
+
+#: administrator/components/com_easycreator/assets/js/dbtables.js:80
+msgid "Please add at least one field"
+msgstr "Voeg tenminste één veld toe"
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:25
+msgid "New project..."
+msgstr "Nieuw project"
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:33
+msgid "Register project..."
+msgstr "Registreer project"
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:42
+#, python-format
+msgid "Loading %s ..."
+msgstr "Laden %s..."
+
+#: administrator/components/com_easycreator/assets/js/editor.js:43
+#: administrator/components/com_easycreator/assets/js/translator.js:123
+msgid "Saving..."
+msgstr "Bezig met opslaan"
+
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:20
+msgid "Please enter a description for the element"
+msgstr "Geef aub een beschrijving op voor het element"
+
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:36
+msgid "The element has been added"
+msgstr "Het element is toegevoegd"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:40
+msgid "Text"
+msgstr "Tekst"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:44
+msgid "Link"
+msgstr "Link"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:47
+msgid "Ordering"
+msgstr "Sortering"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:51
+msgid "Image"
+msgstr "Afbeelding"
+
+#: administrator/components/com_easycreator/assets/js/menu.js:125
+msgid "User defined"
+msgstr "Gedefinieerd door gebruiker"
+
+#: administrator/components/com_easycreator/assets/js/parameter.js:80
+#: administrator/components/com_easycreator/assets/js/wizard2.js:39
+msgid "You must provide a name"
+msgstr "Je moet een naam opgeven"
+
+#: administrator/components/com_easycreator/assets/js/templates.js:34
+msgid "Please select a package to upload"
+msgstr "Selecteer aub een pakket om op te laden"
+
+#: administrator/components/com_easycreator/assets/js/translator.js:30
+#: administrator/components/com_easycreator/assets/js/ziper.js:38
+msgid "Deleting..."
+msgstr "Bezig met verwijderen..."
+
+#: administrator/components/com_easycreator/assets/js/translator.js:50
+msgid "Empty"
+msgstr "leeg"
+
+#: administrator/components/com_easycreator/assets/js/translator.js:63
+msgid "Undefined Joomla! version"
+msgstr "Joomla! versie niet gedefinieerd"
+
+#: administrator/components/com_easycreator/assets/js/translator.js:93
+msgid "Translating..."
+msgstr "Bezig met vertalen..."
+
+#: administrator/components/com_easycreator/assets/js/wizard2.js:27
+msgid "You must provide a version number"
+msgstr "Je moet een versienummer opgeven"
+
+#: administrator/components/com_easycreator/assets/js/wizard2.js:51
+msgid "You must provide a list postfix"
+msgstr "Je moet een postfix voor de lijst opgeven"
+
+#: administrator/components/com_easycreator/assets/js/ziper.js:32
+#, python-format
+msgid "Undefined Joomla! version: %s"
+msgstr "Niet-gedefinieerde Joomla! versie: %s"
+
+
