@@ -174,7 +174,7 @@ class JoomlaManifest extends JObject
                 break;
 
             case 'package':
-                $this->manifest->addChild('packagename', $this->project->name);
+                $this->manifest->addChild('packagename', strtolower($this->project->name));
                 break;
             default :
                 $this->setError('JoomlaManifest::setUp unknown project type: '.$this->project->type);
