@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="EasyCreator" default="build" basedir=".">
+
+	<splash displayText="Building EasyCreator" />
+
+	<property name="source" value="administrator/components/com_easycreator" />
+
+	<target name="clean" description="Clean up and create artifact directories">
+		<delete dir="${basedir}/build/docs" />
+		<delete dir="${basedir}/build/code-browser" />
+		<delete dir="${basedir}/build/coverage" />
+		<delete dir="${basedir}/build/logs" />
+		<delete dir="${basedir}/build/pdepend" />
+
+		<mkdir dir="${basedir}/build/docs" />
+		<mkdir dir="${basedir}/build/code-browser" />
+		<mkdir dir="${basedir}/build/coverage" />
+		<mkdir dir="${basedir}/build/logs" />
+		<mkdir dir="${basedir}/build/pdepend" />
+	</target>
+
+	 <target name="phploc"
+	         description="Generate phploc.csv">
+	  <exec executable="phploc">
+	   <arg value="--log-xml" />
+	   <arg value="${basedir}/build/logs/phploc.xml" />
+	   <arg path="${source}" />
+	  </exec>
+	 </target>
+
+	<target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer">
+		<exec executable="phpcs">
+			<arg value="--report=checkstyle" />
+			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+			<arg value="--standard=KuKu" />
+			<arg value="--ignore=assets/js/editarea_0_8_1_1/*,assets/js/highcharts-2.0.5/*,helpers/krumo_0_2/*,helpers/pchart/*,helpers/pear/*" />
+			<arg path="${source}" />
+		</exec>
+	</target>
+
+	<target name="phpdoc" description="Generate API documentation using PHPDocumentor">
+		<exec executable="phpdoc">
+			<arg value="--sourcecode" />
+			<arg value="-d" />
+			<arg path="${source}" />
+			<arg value="-t" />
+			<arg path="${basedir}/build/docs" />
+			<arg value="--output" />
+			<arg value="HTML:frames:DOM/earthli" />
+			<arg value="--title" />
+			<arg value="EasyCreator Documentation" />
+		</exec>
+	</target>
+
+	<target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+		<exec executable="phpcb">
+			<arg value="--log" />
+			<arg path="${basedir}/build/logs" />
+			<arg value="--source" />
+			<arg path="${source}" />
+			<arg value="--output" />
+			<arg path="${basedir}/build/code-browser" />
+		</exec>
+	</target>
+	<target name="build" depends="clean,phpcs,phpdoc,phpcb" />
+</project>
