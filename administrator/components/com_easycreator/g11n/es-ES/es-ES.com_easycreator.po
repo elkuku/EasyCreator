@@ -1,27 +1,31 @@
-# @version SVN: $Id: de-DE.com_easycreator.po 1409 2010-11-04 17:29:01Z elkuku $
+# @version SVN: $Id$
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Nikolai Plath <info@nik-it.de>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2010-10-28 20:29-0500\n"
-"Last-Translator: Nikolai Plath <info@nik-it.de>\n"
-"Language-Team: ecr_langtest <info@nik-it.de>\n"
+"PO-Revision-Date: 2011-07-20 18:07+0000\n"
+"Last-Translator: elkuku <test1@nik-it.de>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/opentranslators/team/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:170
 #: administrator/components/com_easycreator/helpers/html.php:348
 #, php-format
 msgid "The class file for your Joomla version %s has not been build yet."
-msgstr "El archivo de clase para su versión de Joomla! %s no se ha creado todavía."
+msgstr ""
+"El archivo de clase para su versión de Joomla! %s no se ha creado todavía."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:188
 #: administrator/components/com_easycreator/controllers/ajax.php:479
 #: administrator/components/com_easycreator/controllers/ajax.php:509
@@ -38,19 +42,16 @@ msgstr "El archivo de clase para su versión de Joomla! %s no se ha creado todav
 msgid "File not found"
 msgstr "Archivo no encontrado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:201
 #, php-format
 msgid "Class %s not found"
 msgstr "Clase %s no encontrado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:353
 #: administrator/components/com_easycreator/controllers/stuffer.php:93
 msgid "Unable to load part"
 msgstr "No se puede cargar parte"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:360
 msgid "Function not found"
 msgstr "Función que no se encuentra"
@@ -71,23 +72,19 @@ msgstr ""
 msgid "No languages found"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:484
 msgid "File loaded"
 msgstr "Archivo cargado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:517
 #, php-format
 msgid "The file %s is empty"
 msgstr "El archivo %s está vacío"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:555
 msgid "Invalid file"
 msgstr "Archivo no válido"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:582
 #: administrator/components/com_easycreator/controllers/templates.php:54
 #: administrator/components/com_easycreator/helpers/language.php:474
@@ -99,24 +96,20 @@ msgstr "El archivo se ha guardado"
 msgid "Wrong base folder"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:624
 msgid "The folder already exists"
 msgstr "La carpeta ya existe"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:631
 msgid "Unable to create folder"
 msgstr "No se puede crear la carpeta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:644
 #: administrator/components/com_easycreator/helpers/html.php:1102
 #: administrator/components/com_easycreator/helpers/html.php:1121
 msgid "New folder"
 msgstr "Nueva carpeta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:644
 #: administrator/components/com_easycreator/controllers/ajax.php:698
 msgid "Create"
@@ -126,24 +119,20 @@ msgstr "Crear"
 msgid "This is a folder"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:675
 msgid "The file already exists"
 msgstr "El archivo ya existe"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:685
 msgid "Unable to create file"
 msgstr "No se puede crear archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:698
 #: administrator/components/com_easycreator/helpers/html.php:1103
 #: administrator/components/com_easycreator/helpers/html.php:1122
 msgid "New file"
 msgstr "Nuevo archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:715
 #: administrator/components/com_easycreator/controllers/ajax.php:765
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:260
@@ -151,22 +140,18 @@ msgstr "Nuevo archivo"
 msgid "Empty"
 msgstr "VACÍO"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:724
 msgid "Folder does not exist"
 msgstr "Carpeta no existe"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:731
 msgid "Unable to delete folder"
 msgstr "No se puede eliminar carpeta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:744
 msgid "Delete folder"
 msgstr "Eliminar carpeta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:744
 #: administrator/components/com_easycreator/controllers/ajax.php:794
 #: administrator/components/com_easycreator/helpers/html.php:1105
@@ -181,28 +166,23 @@ msgstr "Eliminar carpeta"
 msgid "Delete"
 msgstr "Borrar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:774
 msgid "File does not exist"
 msgstr "El archivo no existe"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:781
 #: administrator/components/com_easycreator/helpers/project.php:893
 msgid "Unable to delete file"
 msgstr "No se puede eliminar el archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:794
 msgid "Delete file"
 msgstr "Eliminar archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:839
 msgid "Rename folder"
 msgstr "Cambiar nombre de carpeta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:839
 #: administrator/components/com_easycreator/controllers/ajax.php:883
 #: administrator/components/com_easycreator/helpers/html.php:1104
@@ -210,7 +190,6 @@ msgstr "Cambiar nombre de carpeta"
 msgid "Rename"
 msgstr "Cambiar el nombre"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ajax.php:883
 msgid "Rename file"
 msgstr "Cambiar el nombre de archivo"
@@ -246,7 +225,6 @@ msgstr ""
 msgid "Unable to create tests directory"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/codeeye.php:119
 msgid "The tests directory has been created"
 msgstr "El directorio de pruebas se ha creado"
@@ -309,7 +287,6 @@ msgstr ""
 msgid "See also: %s"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:558
 #: administrator/components/com_easycreator/helpers/html.php:76
 #: administrator/components/com_easycreator/helpers/projecthelper.php:410
@@ -318,7 +295,6 @@ msgstr ""
 msgid "Package"
 msgstr "Paquete"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:559
 #: administrator/components/com_easycreator/helpers/html.php:725
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:44
@@ -328,12 +304,10 @@ msgstr "Paquete"
 msgid "Version"
 msgstr "Versión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:560
 msgid "Recommended"
 msgstr "Recomendado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:561
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:108
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:112
@@ -346,47 +320,38 @@ msgstr "Info"
 msgid "Unsupported Joomla! version"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/config.php:78
 msgid "Configuration has been saved"
 msgstr "Configuración se ha guardado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/languages.php:157
 msgid "The file has been created"
 msgstr "El archivo ha sido creado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/languages.php:190
 msgid "The BOM has been removed"
 msgstr "El BOM se ha eliminado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/languages.php:194
 msgid "Unable to remove the BOM"
 msgstr "No se puede eliminar el BOM"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/logfiles.php:53
 msgid "The logfiles have been deleted"
 msgstr "Los archivos de registro se han eliminado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/logfiles.php:58
 msgid "The logfiles could not be deleted"
 msgstr "Los archivos de registro no se pueden borrar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/starter.php:59
 msgid "An error happened while creating your project"
 msgstr "Un error ocurrió mientras la creación de su proyecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/starter.php:85
 msgid "Your project has been created"
 msgstr "Su proyecto ha sido creado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/starter.php:117
 msgid "Your project has been registered"
 msgstr "Su proyecto ha sido registrado"
@@ -453,12 +418,10 @@ msgstr ""
 msgid "invalid file"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/stuffer.php:294
 msgid "File has been deleted"
 msgstr "El archivo ha sido borrado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/stuffer.php:303
 msgid "Unable to deleted the file"
 msgstr "No se eliminó el archivo"
@@ -476,17 +439,14 @@ msgstr ""
 msgid "Could not create XML"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/stuffer.php:486
 msgid "The XML file has been saved"
 msgstr "El archivo XML se ha guardado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/stuffer.php:490
 msgid "Could not save XML file"
 msgstr "No se pudo guardar el archivo xml"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/stuffer.php:523
 msgid "The Settings have been updated"
 msgstr "Los ajustes se han actualizado"
@@ -509,7 +469,6 @@ msgstr ""
 msgid "No templates selected"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/templates.php:108
 msgid "Templates have been exported."
 msgstr "Plantillas han sido exportadas."
@@ -518,7 +477,6 @@ msgstr "Plantillas han sido exportadas."
 msgid "Templates have been installed."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/controllers/ziper.php:80
 msgid "The file has been deleted"
 msgstr "El archivo ha sido eliminado"
@@ -569,7 +527,6 @@ msgstr ""
 msgid "Required method %s not found"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/builder.php:638
 msgid "Custom options"
 msgstr "Personalizar opciones"
@@ -579,7 +536,6 @@ msgstr "Personalizar opciones"
 msgid "Action %s not defined"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/builder.php:708
 #: administrator/components/com_easycreator/helpers/builder.php:709
 #, php-format
@@ -590,12 +546,10 @@ msgstr "El tipo de proyecto %s no está definido aún"
 msgid "No manifest file found"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/debug.php:81
 msgid "JDump not found"
 msgstr "JDump no se encuentra"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/debug.php:170
 msgid "DebugTools not found"
 msgstr "Debugtools no se encuentra"
@@ -629,12 +583,10 @@ msgstr ""
 msgid "Unable to find install package"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/easytemplatehelper.php:175
 msgid "This is not an EasyCreator Extension Template"
 msgstr "Esto no es una extensión easycreator plantilla"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/easytemplatehelper.php:188
 #, php-format
 msgid "The template %s is already installed"
@@ -661,35 +613,29 @@ msgstr ""
 msgid "Empty content"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/file.php:44
 msgid "The file must exist for save"
 msgstr "El archivo debe existir para guardar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/file.php:47
 #, php-format
 msgid "The file %s could NOT be saved at PATH: %s"
 msgstr "El archivo %s no pudo ser guardado en la ruta %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/file.php:88
 #, php-format
 msgid "Unable to copy file %s"
 msgstr "No se puede copiar el archivo %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/file.php:111
 msgid "The file does not exist"
 msgstr "El archivo no existe"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/file.php:114
 #, php-format
 msgid "The file %s could not be deleted at path: %s"
 msgstr "El archivo %s no puede ser borrado en la ruta %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:56
 #: administrator/components/com_easycreator/helpers/html.php:866
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:38
@@ -697,7 +643,6 @@ msgstr "El archivo %s no puede ser borrado en la ruta %s"
 msgid "Project"
 msgstr "Proyecto"
 
-# ## fuzzy
 #. --Draw h1 header
 #: administrator/components/com_easycreator/helpers/html.php:64
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:100
@@ -706,20 +651,17 @@ msgstr "Proyecto"
 msgid "Languages"
 msgstr "Idiomas"
 
-# ## fuzzy
 #. --Draw h1 header
 #: administrator/components/com_easycreator/helpers/html.php:70
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:84
 msgid "CodeEye"
 msgstr "CodeEyes"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:84
 #: administrator/components/com_easycreator/views/config/tmpl/default.php:31
 msgid "Configuration"
 msgstr "Configuración"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:89
 #: administrator/components/com_easycreator/helpers/projecthelper.php:411
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:358
@@ -727,19 +669,16 @@ msgstr "Configuración"
 msgid "Templates"
 msgstr "Plantillas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:94
 #: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:30
 msgid "Logfiles"
 msgstr "Logfiles"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:99
 #: administrator/components/com_easycreator/views/help/tmpl/default.php:19
 msgid "Help"
 msgstr "Ayuda"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:104
 msgid "Sandbox"
 msgstr "Arenero"
@@ -753,17 +692,14 @@ msgstr ""
 msgid "More..."
 msgstr "Más..."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:178
 msgid "Click for more options"
 msgstr "Haga clic para más opciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:249
 msgid "Save versioned"
 msgstr "Guardar versionados"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:265
 msgid "Continue editing"
 msgstr "Seguir editando"
@@ -772,54 +708,45 @@ msgstr "Seguir editando"
 msgid "Invalid path"
 msgstr "Ruta no válida"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:329
 #: administrator/components/com_easycreator/helpers/language.php:1040
 msgid "Create language file"
 msgstr "Crear archivo de idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:341
 msgid "Found a BOM in languagefile"
 msgstr "Encontrado un BOM en el archivo de idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:347
 msgid "Create class list file"
 msgstr "Crear el archivo lista de clases"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:454
 msgid "Log file contents"
 msgstr "Guardar contenido de los archivos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:455
 msgid "Profile"
 msgstr "Perfil"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:468
 msgid "Activate logging"
 msgstr "Activar el registro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:517
 msgid "Please set a compression type"
 msgstr "Por favor, establece un tipo de compresión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:519
 msgid "You can set a default compression type in configuration"
-msgstr "Puede establecer un tipo de compresión por defecto en la configuración"
+msgstr ""
+"Puede establecer un tipo de compresión por defecto en la configuración"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:621
 #: administrator/components/com_easycreator/helpers/html.php:633
 msgid "Select a file"
 msgstr "Seleccione un archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:631
 #: administrator/components/com_easycreator/helpers/html.php:954
 #: administrator/components/com_easycreator/helpers/html.php:968
@@ -832,12 +759,10 @@ msgstr "Seleccione un archivo"
 msgid "Save"
 msgstr "Guardar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:708
 msgid "Your extension so far"
 msgstr "Su extensión hasta el momento"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:711
 #: administrator/components/com_easycreator/helpers/table.php:410
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:120
@@ -847,7 +772,6 @@ msgstr "Su extensión hasta el momento"
 msgid "Type"
 msgstr "Tipo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:712
 #: administrator/components/com_easycreator/helpers/projecthelper.php:411
 msgid "Template"
@@ -857,7 +781,6 @@ msgstr "Plantilla"
 msgid "JVersion"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:724
 #: administrator/components/com_easycreator/helpers/html.php:923
 #: administrator/components/com_easycreator/helpers/table.php:408
@@ -875,7 +798,6 @@ msgstr ""
 msgid "Name"
 msgstr "Nombre"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:726
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:57
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:85
@@ -884,26 +806,22 @@ msgstr "Nombre"
 msgid "Description"
 msgstr "Descripción"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:730
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:127
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:21
 msgid "Author"
 msgstr "Autor"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:731
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:80
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:26
 msgid "Author e-mail"
 msgstr "Autor e-mail"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:732
 msgid "Author URL"
 msgstr "Autor URL"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:733
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:94
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:36
@@ -914,14 +832,12 @@ msgstr "Licencia"
 msgid "Copyright (C)"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:736
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:61
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_autocode.php:17
 msgid "List postfix"
 msgstr "Postfijo de listas"
 
-# ## fuzzy
 #. foreach
 #: administrator/components/com_easycreator/helpers/html.php:799
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:66
@@ -929,29 +845,24 @@ msgstr "Postfijo de listas"
 msgid "Back"
 msgstr "Atrás"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:805
 msgid "Next"
 msgstr "Adelante"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:870
 msgid "New Project"
 msgstr "Nuevo proyecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:874
 msgid "Register Project"
 msgstr "Registrar proyecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:901
 #: administrator/components/com_easycreator/helpers/html.php:907
 #: administrator/components/com_easycreator/views/languages/view.html.php:724
 msgid "Scope"
 msgstr "Alcance"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:910
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:81
 #: administrator/components/com_easycreator/views/languages/view.html.php:180
@@ -960,21 +871,18 @@ msgstr "Alcance"
 msgid "Select"
 msgstr "Seleccionar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:911
 #: administrator/components/com_easycreator/helpers/table.php:39
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:51
 msgid "Admin"
 msgstr "Administración"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:912
 #: administrator/components/com_easycreator/helpers/table.php:45
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:51
 msgid "Site"
 msgstr "Sitio"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:1109
 #: administrator/components/com_easycreator/views/languages/view.html.php:178
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:63
@@ -982,7 +890,6 @@ msgstr "Sitio"
 msgid "File"
 msgstr "Archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:1128
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:27
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:28
@@ -991,23 +898,19 @@ msgstr "Archivo"
 msgid "Folder"
 msgstr "Carpeta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:1284
 msgid "Edit"
 msgstr "Editar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:1288
 msgid "New"
 msgstr "Nuevo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/html.php:1308
 #, php-format
 msgid "Undefined format: %s"
 msgstr "Indefinido formato: %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/jmethodlister.php:445
 msgid "Path is not a folder"
 msgstr "La ruta no es una carpeta"
@@ -1018,20 +921,17 @@ msgstr "La ruta no es una carpeta"
 msgid "Backtrace"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/language.php:152
 #, php-format
 msgid "The file %s could not be found"
 msgstr "El archivo %s no se pudo encontrar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/language.php:305
 #: administrator/components/com_easycreator/helpers/language.php:318
 #, php-format
 msgid "Version No. %s"
 msgstr "Versión no. %s"
 
-# ## fuzzy
 #. PHP
 #: administrator/components/com_easycreator/helpers/language.php:306
 #: administrator/components/com_easycreator/helpers/language.php:317
@@ -1064,7 +964,6 @@ msgstr ""
 msgid "Can not save version"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/language.php:715
 #: administrator/components/com_easycreator/helpers/reflection.php:628
 #, php-format
@@ -1092,7 +991,6 @@ msgstr "Se utiliza en el archivo"
 msgid "Language files analysis"
 msgstr "Analysys de los archivos de idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/language.php:809
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:72
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:70
@@ -1100,14 +998,12 @@ msgstr "Analysys de los archivos de idioma"
 msgid "Treat the first %s lines as comment"
 msgstr "Tratar a los primeros %s líneas como comentario"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/language.php:824
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:78
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:76
 msgid "Fold"
 msgstr "Plegar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/language.php:923
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:176
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:186
@@ -1170,29 +1066,24 @@ msgstr "No se ha comprobdo para BOM"
 msgid "No BOM"
 msgstr "Ningún BOM"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/logger.php:146
 msgid "File Contents"
 msgstr "Contenido del archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/logger.php:190
 #: administrator/components/com_easycreator/helpers/logger.php:204
 msgid "Error"
 msgstr "Error"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/logger.php:194
 msgid "Query"
 msgstr "Query"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/logger.php:242
 #, php-format
 msgid "The file %s could not be written to path %s"
 msgstr "El archivo %s no ha podido escribir en la ruta %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/manifest.php:880
 #: administrator/components/com_easycreator/helpers/manifest.php:995
 #, php-format
@@ -1220,7 +1111,6 @@ msgstr ""
 msgid "Can not load xml file %s"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/project.php:337
 #: administrator/components/com_easycreator/helpers/project.php:990
 msgid "Unable to write file"
@@ -1279,29 +1169,24 @@ msgstr ""
 msgid "Components"
 msgstr "Componentes"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projecthelper.php:406
 msgid "Component"
 msgstr "Componente"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projecthelper.php:407
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:30
 msgid "Modules"
 msgstr "Módulos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projecthelper.php:407
 msgid "Module"
 msgstr "Módulo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projecthelper.php:408
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:53
 msgid "Plugins"
 msgstr "Plugins"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projecthelper.php:408
 msgid "Plugin"
 msgstr "Plugin"
@@ -1360,7 +1245,6 @@ msgid_plural "%d Templates"
 msgstr[0] ""
 msgstr[1] ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projecthelper.php:586
 msgid "Class not found"
 msgstr "Clase no encontrada"
@@ -1370,7 +1254,6 @@ msgstr "Clase no encontrada"
 msgid "Could not load XML file"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:396
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:443
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:513
@@ -1382,7 +1265,6 @@ msgstr ""
 msgid "Files"
 msgstr "Archivos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:397
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:444
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:514
@@ -1390,7 +1272,6 @@ msgstr "Archivos"
 msgid "Code lines"
 msgstr "Código líneas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:398
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:445
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:515
@@ -1403,42 +1284,35 @@ msgstr "Código líneas"
 msgid "Size"
 msgstr "Tamaño"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:421
 #, php-format
 msgid "Code analysis %s"
 msgstr "Análisis de código para %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:489
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:559
 msgid "code"
 msgstr "Código"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:490
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:560
 msgid "blanks"
 msgstr "Espacios en blanco"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:491
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:561
 msgid "comments"
 msgstr "Comentarios"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:495
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:565
 msgid "Comment to Code ratio"
 msgstr "Relación de Comentario a código"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:405
 msgid "Add row"
 msgstr "Añadir fila"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:409
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:149
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:83
@@ -1449,12 +1323,10 @@ msgstr "Añadir fila"
 msgid "Label"
 msgstr "Etiqueta"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:411
 msgid "Length/Set"
 msgstr "Longitud / conjunto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:412
 msgid "Attributes"
 msgstr "Atributos"
@@ -1463,27 +1335,22 @@ msgstr "Atributos"
 msgid "Null"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:414
 msgid "Default"
 msgstr "Defecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:415
 msgid "Extra"
 msgstr "Extra"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:416
 msgid "Comment"
 msgstr "Comentario"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/table.php:422
 msgid "Predefined fields"
 msgstr "campos predefinidos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/ziper.php:932
 #: administrator/components/com_easycreator/install/install.easycreator.php:175
 #, php-format
@@ -1503,7 +1370,6 @@ msgstr ""
 msgid "Please make sure your version of PHP was built with bz2 support."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/helpers/ziper.php:1194
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:96
 #: administrator/components/com_easycreator/views/ziper/view.html.php:191
@@ -1514,7 +1380,6 @@ msgstr "Descargar"
 msgid "No download available"
 msgstr "Sin descargas disponibles"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/install/install.easycreator.php:47
 msgid "Install manifest not found"
 msgstr "Instalación no encontró manifiesto"
@@ -1523,10 +1388,13 @@ msgstr "Instalación no encontró manifiesto"
 msgid "EasyCreator is a developer tool."
 msgstr ""
 
-msgid "It tries to speed up the developing process of custom Joomla! extensions."
+msgid ""
+"It tries to speed up the developing process of custom Joomla! extensions."
 msgstr ""
 
-msgid "You can create a \"frame\" for your extension and an installable zip package with just a few \"clicks\""
+msgid ""
+"You can create a \"frame\" for your extension and an installable zip package"
+" with just a few \"clicks\""
 msgstr ""
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:80
@@ -1537,18 +1405,23 @@ msgstr ""
 #: administrator/components/com_easycreator/install/install.easycreator.php:86
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:56
 msgid "Please use this extension only in local development environments."
-msgstr "Por favor, utilice esta extensión sólo en entornos de desarrollo local."
+msgstr ""
+"Por favor, utilice esta extensión sólo en entornos de desarrollo local."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:89
-msgid "See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>"
-msgstr "Ver: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org / Configuración de la estación de trabajo de Joomla! para desarrollo</a>"
+msgid ""
+"See: <a "
+"href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting"
+" up your workstation for Joomla! development</a>"
+msgstr ""
+"Ver: <a "
+"href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org"
+" / Configuración de la estación de trabajo de Joomla! para desarrollo</a>"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/install/install.easycreator.php:108
 msgid "Checking MD5 sums..."
 msgstr "Comprobación de sumas MD5 ..."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/install/install.easycreator.php:114
 msgid "There have been errors"
 msgstr "Ha habido errores!"
@@ -1562,7 +1435,6 @@ msgstr ""
 msgid "MD5 check failed on file: %s"
 msgstr ""
 
-# ## fuzzy
 #. Draws an input box for a name field
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:70
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:89
@@ -1585,7 +1457,6 @@ msgstr ""
 msgid "Table"
 msgstr "Tabla"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:72
 #: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:66
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:61
@@ -1593,7 +1464,6 @@ msgstr "Tabla"
 msgid "Choose"
 msgstr "Elegir"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:148
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:82
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:88
@@ -1645,7 +1515,9 @@ msgstr "Campos de tabla definidos por el usuario"
 #: administrator/components/com_easycreator/templates/component/mvc_9/options.php:43
 #: administrator/components/com_easycreator/templates/component/mvc_9_16/options.php:43
 #, php-format
-msgid "Please define the fields for the table %s that will be created for your component."
+msgid ""
+"Please define the fields for the table %s that will be created for your "
+"component."
 msgstr ""
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:61
@@ -1695,23 +1567,21 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:53
 msgid "Title"
 msgstr "Título"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:61
 msgid "Published"
 msgstr "Publicado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:65
 msgid "Ordering"
 msgstr "Ordenar"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:36
-msgid "This will map an existing table and create an admin interface and menu link"
+msgid ""
+"This will map an existing table and create an admin interface and menu link"
 msgstr ""
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:76
@@ -1786,17 +1656,14 @@ msgstr ""
 msgid "A simple, empty, view"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:21
 msgid "First Things First"
 msgstr "Lo primero es lo primero"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:23
 msgid "Check your environment"
 msgstr "Comprobar las variables de su entorno"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:28
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:59
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:122
@@ -1806,7 +1673,6 @@ msgstr "Comprobar las variables de su entorno"
 msgid "Console"
 msgstr "Consola"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:58
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:121
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:91
@@ -1823,7 +1689,6 @@ msgstr ""
 msgid "Perform only"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:65
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:61
 #: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:61
@@ -1832,7 +1697,6 @@ msgstr ""
 msgid "Options"
 msgstr "Opciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:83
 msgid "Generate documentation"
 msgstr "Generar la documentación"
@@ -1876,7 +1740,6 @@ msgstr ""
 msgid "Or click on an individual file on the left side"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:244
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:315
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:722
@@ -1885,34 +1748,35 @@ msgstr ""
 msgid "Lines"
 msgstr "Líneas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:246
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:318
 msgid "View Source"
 msgstr "Ver código fuente"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:548
 msgid "Properties"
 msgstr "Propiedades"
 
-# ## fuzzy
 #. $constants = $theClass->getConstants();
 #. print_r($constants);
 #. Dokumentarischen Kommentar ausgeben
-#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(), 1));
-#.
+#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
+#. 1));
+#. 
 #. // Ausgeben, welche Interfaces von der Klasse implementiert werden
-#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(), 1));
-#.
+#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
+#. 1));
+#. 
 #. // Klassenkonstanten ausgeben
 #. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#.
+#. 
 #. // Klasseneigenschaften ausgeben
-#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(), 1));
-#.
+#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
+#. 1));
+#. 
 #. // Klassenmethoden ausgeben
-#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo '</pre>';
+#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
+#. '</pre>';
 #. #echo $theClass->getDocComment();
 #. echo '<pre>';
 #. printf(
@@ -1936,7 +1800,6 @@ msgstr "Propiedades"
 msgid "Methods"
 msgstr "Métodos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:728
 msgid "Source code"
 msgstr "Código fuente"
@@ -1970,7 +1833,6 @@ msgstr ""
 msgid "Color scheme"
 msgstr ""
 
-# ## fuzzy
 #. foreach
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:104
 msgid "Generate statistics"
@@ -1986,17 +1848,14 @@ msgstr ""
 msgid "No files found"
 msgstr "No se encontraron archivos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:205
 msgid "Copy bootstrap.php to Joomla root"
 msgstr "Copia Bootstrap.php a Joomla! raíz"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:207
 msgid "Bootstrap file not found"
 msgstr "No se encuentra el archivo bootstrap"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:218
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:263
 msgid "Create Test directory"
@@ -2007,7 +1866,6 @@ msgstr "Crear directorio de prueba"
 msgid "No tests defined yet"
 msgstr "No existen pruebas aún"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:230
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:275
 #, php-format
@@ -2054,7 +1912,6 @@ msgstr ""
 msgid "Create automatic documentation for your project with PHPDocumentor."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:316
 msgid "Statistics"
 msgstr "Estadísticas"
@@ -2081,54 +1938,44 @@ msgstr ""
 msgid "Unsupported Joomla! version %s"
 msgstr ""
 
-# ## fuzzy
 #. -- Parameters have not been set
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:16
 msgid "Configuration settings"
 msgstr "Ajustes de configuración"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:17
 #, php-format
 msgid "Please set your personal information in %s"
 msgstr "Por favor escriba su información personal en %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:24
 msgid "EasyCreator Information"
 msgstr "Easycreator información"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:36
 msgid "Documentation"
 msgstr "Documentación (Inglés)"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:41
 msgid "Forum"
 msgstr "Foro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:47
 msgid "Bugtracker"
 msgstr "Rastreador de errores"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:53
 msgid "Feature requests"
 msgstr "Pedido de funciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:59
 msgid "Version check"
 msgstr "Verificar su versión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:64
 msgid "Latest version"
 msgstr "La última versión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:69
 msgid "Incubator"
 msgstr "Incubadora"
@@ -2137,12 +1984,10 @@ msgstr "Incubadora"
 msgid "SVN"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:83
 msgid "Support EasyCreator by adding it to your stack at Ohloh"
 msgstr "Apoya EasyCreator añadiendolo a su pila en Ohloh"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:57
 msgid "Registered Projects"
 msgstr "Proyectos registrados"
@@ -2154,7 +1999,6 @@ msgid_plural "%d "
 msgstr[0] ""
 msgstr[1] ""
 
-# ## fuzzy
 #. --Draw h1 header
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:92
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:63
@@ -2170,35 +2014,35 @@ msgstr "No hay proyectos encontrado"
 msgid "None found"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:126
 msgid "Create your first project"
 msgstr "Crea su primer proyecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:44
 msgid "This extension is not compatible with MS internet explorer R"
 msgstr "Esta extensión no es compatible con MS Internet Explorer (R)"
 
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:59
 #, php-format
-msgid "See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! development</a>"
+msgid ""
+"See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! "
+"development</a>"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:62
-msgid "You may suppress this message in the configuration settings if you're shure"
+msgid ""
+"You may suppress this message in the configuration settings if you're shure"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:72
 msgid "No local API copy specified. you may do this in configuration."
-msgstr "No API copia local especificado. usted puede hacer esto en la configuración"
+msgstr ""
+"No API copia local especificado. usted puede hacer esto en la configuración"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:101
 msgid "By Package"
 msgstr "Por paquete"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:145
 msgid "By Name"
 msgstr "Por nombre"
@@ -2243,30 +2087,25 @@ msgstr ""
 msgid "Convert to language file keys to the case of your code"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:62
 msgid "Convert code and language file"
 msgstr "Convertir el código y el archivo de idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:67
 msgid "Convert language file"
 msgstr "Convertir archivo de idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:81
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:158
 msgid "Original"
 msgstr "Original"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:83
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:161
 #, php-format
 msgid "Fixed for %s"
 msgstr "Fijado para %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:153
 #, php-format
 msgid "Language file: %s"
@@ -2282,36 +2121,30 @@ msgstr "Ningún archivo de idioma encontrado en el alcance"
 msgid "No languages defined"
 msgstr "No lenguajes definidos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:267
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:266
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:125
 msgid "Translate"
 msgstr "Traducir"
 
-# ## fuzzy
 #. foreach
 #: administrator/components/com_easycreator/views/languages/tmpl/orderdefault.php:86
 msgid "Add Comment"
 msgstr "Agregar un comentario"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:16
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:19
 msgid "Please choose a language"
 msgstr "Seleccione un idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:27
 msgid "Default language"
 msgstr "Lenguaje por defecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:30
 msgid "Translated language"
 msgstr "Lenguaje Traducido"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:33
 msgid "Corrected language"
 msgstr "Idioma Corregido"
@@ -2321,12 +2154,10 @@ msgstr "Idioma Corregido"
 msgid "Key"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:48
 msgid "Value"
 msgstr "Valor"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:44
 msgid "PHP XML file analysis"
 msgstr "PHP XML análisis de archivos"
@@ -2335,7 +2166,6 @@ msgstr "PHP XML análisis de archivos"
 msgid "PHP, XML and JavaScript file analysis"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:64
 msgid "Menu analysis"
 msgstr "Menú análisis"
@@ -2344,36 +2174,30 @@ msgstr "Menú análisis"
 msgid "Filter"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:102
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:104
 msgid "Translated"
 msgstr "Traducido"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:106
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:182
 msgid "Not translated"
 msgstr "No traducido"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:110
 msgid "Translated in core"
 msgstr "Traducido en el núcleo"
 
-# ## fuzzy
 #. -- No default translation available
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:39
 msgid "Unable to translate without default translation"
 msgstr "No se puede traducir sin traducción por defecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:40
 #, php-format
 msgid "Please translate %s first"
 msgstr "Por favor, traducir %s primero"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:81
 msgid "Loading Google Translation API"
 msgstr "Cargando api traducción de Google"
@@ -2382,17 +2206,14 @@ msgstr "Cargando api traducción de Google"
 msgid "Translate [s]"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:145
 msgid "Copy"
 msgstr "Copiar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:153
 msgid "Google translate"
 msgstr "Traductor Google"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:15
 #: administrator/components/com_easycreator/views/languages/view.html.php:671
 msgid "Versions"
@@ -2402,33 +2223,27 @@ msgstr "Versiones"
 msgid "No versions found"
 msgstr "No hay versiones encontradas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:46
 msgid "Date"
 msgstr "Fecha"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:47
 msgid "Actions"
 msgstr "Acciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:58
 msgid "Show"
 msgstr "Mostrar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:207
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:28
 msgid "Errors"
 msgstr "Errores"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:208
 msgid "Please select the errors you wish to correct"
 msgstr "Por favor, seleccione los errores que desea corregir"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:645
 msgid "Setup"
 msgstr "Disposición"
@@ -2437,7 +2252,6 @@ msgstr "Disposición"
 msgid "Setup your language files"
 msgstr "Configure sus archivos de idioma"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:650
 msgid "Files and menus"
 msgstr "Archivos y menús"
@@ -2446,38 +2260,46 @@ msgstr "Archivos y menús"
 msgid "Searches inside the source files and menus for translatable strings"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:655
 msgid "Translations"
 msgstr "Traducciones"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:657
-msgid "Manage translations in ini files and inspect your php / xml files for JText strings to translate."
-msgstr "Administrar traducciones en archivos ini e inspeccione su php / xml para cadenas JText de traducir."
+msgid ""
+"Manage translations in ini files and inspect your php / xml files for JText "
+"strings to translate."
+msgstr ""
+"Administrar traducciones en archivos ini e inspeccione su php / xml para "
+"cadenas JText de traducir."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:661
 msgid "Default file order"
 msgstr "Orden del archivo por defecto"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:662
-msgid "Change the order of your default language file and add comments to create a structure."
-msgstr "Cambiar el orden de su idioma por defecto de archivos y agregar comentarios a crear una estructura."
+msgid ""
+"Change the order of your default language file and add comments to create a "
+"structure."
+msgstr ""
+"Cambiar el orden de su idioma por defecto de archivos y agregar comentarios "
+"a crear una estructura."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:666
 msgid "Translation order"
 msgstr "Orden de traducción"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:667
-msgid "Change the order of your translated language files according to your default file."
-msgstr "Cambiar el orden de su lengua traducida archivos de acuerdo a su archivo por defecto."
+msgid ""
+"Change the order of your translated language files according to your default"
+" file."
+msgstr ""
+"Cambiar el orden de su lengua traducida archivos de acuerdo a su archivo por"
+" defecto."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:672
 msgid "Compare saved versions of your language files."
 msgstr "Comparar versiones que ha guardado los archivos de su lengua."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:676
 msgid "Convert"
 msgstr "Convertir"
@@ -2490,32 +2312,32 @@ msgstr ""
 msgid "g11n is an experimental language handler."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:756
 msgid "Do NOT show"
 msgstr "No mostrar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:795
 #: administrator/components/com_easycreator/views/languages/view.html.php:797
 msgid "Load core language"
 msgstr "Cargar archivos principales del lenguaje"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:798
-msgid "Also load the core language file to check for translations (displayed in orange)"
-msgstr "También carga el lenguaje core para comprobar la traducción (que se muestra en naranja)"
+msgid ""
+"Also load the core language file to check for translations (displayed in "
+"orange)"
+msgstr ""
+"También carga el lenguaje core para comprobar la traducción (que se muestra "
+"en naranja)"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:813
 msgid "Cut"
 msgstr "Cortar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:839
 msgid "Drag and drop elements to rearrange. Add new comments."
-msgstr "Arrastrar y soltar elementos para reorganizar. Añadir nuevos comentarios."
+msgstr ""
+"Arrastrar y soltar elementos para reorganizar. Añadir nuevos comentarios."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/languages/view.html.php:905
 msgid "Language"
 msgstr "Idioma"
@@ -2524,17 +2346,14 @@ msgstr "Idioma"
 msgid "No logfiles found"
 msgstr "No se encontraron archivos de registro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:39
 msgid "Clear log"
 msgstr "Borrar registro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:30
 msgid "Show Joomla core projects"
 msgstr "Mostrar Joomla! proyectos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:32
 msgid "Unregistered Projects"
 msgstr "Proyectos no registrados"
@@ -2543,8 +2362,8 @@ msgstr "Proyectos no registrados"
 msgid "s"
 msgstr ""
 
-# ## fuzzy
-#. registerTable('$this->ecr_project', '$table->name', 'res-$table->name');\">";
+#. registerTable('$this->ecr_project', '$table->name',
+#. 'res-$table->name');\">";
 #. foreach
 #: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:90
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:341
@@ -2552,13 +2371,11 @@ msgstr ""
 msgid "Register"
 msgstr "Registro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:57
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:22
 msgid "Extension type"
 msgstr "Extensión tipo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:60
 msgid "Choose a component type from a predefined template"
 msgstr "Elija un tipo de componente de una plantilla predefinida"
@@ -2567,44 +2384,40 @@ msgstr "Elija un tipo de componente de una plantilla predefinida"
 msgid "Joomla 1.6 extension templates can not be build on Joomla 1.5"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:108
 msgid "Click to view files"
 msgstr "Haz clic aquí para ver los archivos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:135
 msgid "PHP version"
 msgstr "PHP versión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:151
 msgid "External infos"
 msgstr "Infos externos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:25
 msgid "Name for your baby"
 msgstr "Nombre para su bebé"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:29
-msgid "Please choose a name following the standard naming conventions. Use UPPER and lower case"
-msgstr "Por favor, elija un nombre según las convenciones de nomenclatura estándar. Usa mayúsculas y minúsculas"
+msgid ""
+"Please choose a name following the standard naming conventions. Use UPPER "
+"and lower case"
+msgstr ""
+"Por favor, elija un nombre según las convenciones de nomenclatura estándar. "
+"Usa mayúsculas y minúsculas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:39
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:47
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:63
 msgid "Required"
 msgstr "Necesario"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:69
 msgid "Your Credits"
 msgstr "Sus créditos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:73
 msgid "Author name"
 msgstr "Nombre del autor"
@@ -2613,29 +2426,24 @@ msgstr "Nombre del autor"
 msgid "Author url"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:102
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:41
 msgid "Copyright"
 msgstr "Derechos de autor"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:75
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:89
 msgid "Build options"
 msgstr "Generar opciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:83
 msgid "More options"
 msgstr "Más opciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:90
 msgid "Create CHANGELOG.php"
 msgstr "Crear CHANGELOG.php"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:99
 msgid "Youre done"
 msgstr "¡Ya está!"
@@ -2644,23 +2452,19 @@ msgstr "¡Ya está!"
 msgid "Just click on create it below to finish your component"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:114
 msgid "Create it"
 msgstr "Crealo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:19
 msgid "Attention"
 msgstr "Atención"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:21
 #, php-format
 msgid "The project %s will be deleted"
 msgstr "El proyecto %s será eliminado."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:28
 #, php-format
 msgid "Delete %s project file"
@@ -2671,30 +2475,26 @@ msgstr "Eliminar el archivo de proyecto %s"
 msgid "Delete the whole %s project including files and database"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:41
 msgid "Add element"
 msgstr "Añadir elemento"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:46
 msgid "File tree"
 msgstr "Árbol de archivos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:46
 msgid "Left click files to edit."
 msgstr "Haga clic con la izquierda en archivos para editar."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:51
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:46
 msgid "Right click files and folders for options."
-msgstr "Haga clic con la derecha en los archivos y carpetas para las opciones."
+msgstr ""
+"Haga clic con la derecha en los archivos y carpetas para las opciones."
 
-# ## fuzzy
 #. foreach
 #. foreach
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:234
@@ -2702,18 +2502,15 @@ msgstr "Haga clic con la derecha en los archivos y carpetas para las opciones."
 msgid "Select an element"
 msgstr "Seleccione un elemento"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:22
 msgid "Install and Uninstall PHP"
 msgstr "Instalar y desinstalar php"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:48
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:50
 msgid "Create install file"
 msgstr "Crear archivo de instalación"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:53
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:55
 msgid "Create uninstall file"
@@ -2728,13 +2525,11 @@ msgstr ""
 msgid "Install SQL analysis"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:18
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:18
 msgid "Update"
 msgstr "Actualización"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:21
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:19
 msgid "Method"
@@ -2746,40 +2541,33 @@ msgstr "Método"
 msgid "This will perform an upgrade on installing your extension"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:28
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:22
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:43
 msgid "Upgrade"
 msgstr "Upgrade"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:30
 msgid "New group"
 msgstr "Grupo nuevo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:40
 msgid "Add group"
 msgstr "Añadir grupo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:48
 msgid "New parameter"
 msgstr "Nuevo parámetro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:56
 msgid "paramGroup"
 msgstr "Grupo"
 
-# ## fuzzy
 #. foreach
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:67
 msgid "Add parameter"
 msgstr "Añadir parámetro"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:89
 msgid "Please select a XML file"
 msgstr "Por favor, seleccione un archivo XML"
@@ -2792,12 +2580,10 @@ msgstr "No hay parámetros definidos"
 msgid "Infos on parameters (external)"
 msgstr "Info sobre los parámetros (externo)"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:17
 msgid "Credits"
 msgstr "Créditos"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:31
 msgid "Autor-URL"
 msgstr "Autor-URL"
@@ -2806,7 +2592,6 @@ msgstr "Autor-URL"
 msgid "Extension name"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:43
 msgid "Component scope"
 msgstr "Componente ámbito de aplicación"
@@ -2851,40 +2636,36 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:70
 #, php-format
-msgid "* Note that those language file formats\\n needs a special language handler called \"g11n\" - What ?\\nPlease refer to <a href=\"%s\">Wiki.Joomla-Nafu.de</a> for more information."
+msgid ""
+"* Note that those language file formats\\n needs a special language handler "
+"called \"g11n\" - What ?\\nPlease refer to <a href=\"%s\">Wiki.Joomla-"
+"Nafu.de</a> for more information."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:22
 msgid "Menu"
 msgstr "Menú"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:28
 msgid "Text"
 msgstr "Texto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:31
 msgid "Link"
 msgstr "Enlace"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:37
 msgid "Image"
 msgstr "Imagen"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:50
 msgid "Submenu"
 msgstr "Submenú"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:66
 msgid "Add Submenu"
 msgstr "Añadir submenú"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:19
 msgid "Add extensions"
 msgstr "Añadir extensiones"
@@ -2893,7 +2674,6 @@ msgstr "Añadir extensiones"
 msgid "No module projects found"
 msgstr "No hay proyectos módulo encontrado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:45
 msgid "Add Module"
 msgstr "Añadir módulo"
@@ -2902,23 +2682,25 @@ msgstr "Añadir módulo"
 msgid "No plugin projects found"
 msgstr "No hay proyectos plugin encontrado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:68
 msgid "Add Plugin"
 msgstr "Añadir plugin"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:93
 msgid "Package installer ?"
 msgstr "Paquete de instalación?"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:95
 #, php-format
-msgid "Packages require a special install script which should be named <strong>%s</strong>"
+msgid ""
+"Packages require a special install script which should be named "
+"<strong>%s</strong>"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:97
-msgid "EasyCreator can do this if you go to Files -> Add element -> Various -> Package installer"
+msgid ""
+"EasyCreator can do this if you go to Files -> Add element -> Various -> "
+"Package installer"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:19
@@ -2941,36 +2723,30 @@ msgstr ""
 msgid "Joomla! version"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:45
 msgid "Compression"
 msgstr "Compresión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:58
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:52
 msgid "Create index.html files"
 msgstr "Crear archivos index.html"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:64
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:60
 msgid "Create MD5 checksum file"
 msgstr "Crear archivo de control MD5"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:68
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:66
 msgid "EasyCreator Options"
 msgstr "EasyCreator opciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:76
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:75
 msgid "Include EasyCreator Project file"
 msgstr "Incluya proyecto EasyCreator archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:82
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:84
 msgid "Remove EasyCreator AutoCode"
@@ -3037,20 +2813,22 @@ msgstr ""
 msgid "CREATE Table"
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:110
 msgid "Building"
 msgstr "Crear"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:111
-msgid "Shows options for building your project like credits, files and folders to copy, languages and admin menu."
-msgstr "Muestra las opciones para la construcción de su proyecto como los créditos, los archivos y carpetas para copiar, idiomas y menú de administración."
+msgid ""
+"Shows options for building your project like credits, files and folders to "
+"copy, languages and admin menu."
+msgstr ""
+"Muestra las opciones para la construcción de su proyecto como los créditos, "
+"los archivos y carpetas para copiar, idiomas y menú de administración."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:116
 msgid "Shows all the files belonging to your project"
 msgstr "Muestra todos los archivos pertenecientes a su proyecto"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:120
 msgid "Installing"
 msgstr "Instalación"
@@ -3059,7 +2837,6 @@ msgstr "Instalación"
 msgid "Create and modify install and uninstall files for your project."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:125
 msgid "Parameters"
 msgstr "Parámetros"
@@ -3068,7 +2845,6 @@ msgstr "Parámetros"
 msgid "Modify your project parameters stored in XML files."
 msgstr "Modificar los parámetros del proyecto almacenados en archivos XML."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:130
 msgid "DataDesigner"
 msgstr "DataDesigner"
@@ -3077,7 +2853,6 @@ msgstr "DataDesigner"
 msgid "Automated source code and db creation for your project."
 msgstr ""
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:135
 msgid "Remove Project"
 msgstr "Borrar el proyecto"
@@ -3086,77 +2861,63 @@ msgstr "Borrar el proyecto"
 msgid "This will your delete your project."
 msgstr "Esto elimina su proyecto."
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:21
 msgid "Export templates"
 msgstr "Exportar plantillas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:22
 msgid "Select the templates to export"
 msgstr "Seleccione las plantillas para exportar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:35
 #: administrator/components/com_easycreator/views/templates/view.html.php:161
 msgid "Export"
 msgstr "Exportación"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:44
 msgid "Exports"
 msgstr "Exportaciones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:51
 #: administrator/components/com_easycreator/views/ziper/view.html.php:125
 msgid "Archive is empty"
 msgstr "Archivo está vacío"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:64
 #: administrator/components/com_easycreator/views/ziper/view.html.php:159
 msgid "Modified"
 msgstr "Modificado"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:66
 #: administrator/components/com_easycreator/views/ziper/view.html.php:161
 msgid "Action"
 msgstr "Acción"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:19
 msgid "Install templates"
 msgstr "Instalar plantillas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:20
 msgid "Select a template package to import"
 msgstr "Seleccione un paquete de plantillas para importar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:25
 msgid "Package File"
 msgstr "El archivo de paquetes"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:28
 msgid "Upload and install package"
 msgstr "Cargar e instalar el paquete"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:51
 #: administrator/components/com_easycreator/views/templates/view.html.php:39
 msgid "Extension templates"
 msgstr "Plantillas de extensiones"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:92
 msgid "Extension templates parts"
 msgstr "Piezas de plantillas de extensiónes"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:135
 msgid "Standard files"
 msgstr "Archivos estandard"
@@ -3165,7 +2926,6 @@ msgstr "Archivos estandard"
 msgid "Manage EasyCreator Extension Templates"
 msgstr "Extensión de Gestión de Plantillas EasyCreator"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/templates/view.html.php:156
 msgid "Install"
 msgstr "Instalar"
@@ -3178,23 +2938,19 @@ msgstr "Instala Extensión EasyCreator Plantillas"
 msgid "Exports EasyCreator Extension Templates"
 msgstr "Las exportaciones de Extensión EasyCreator Plantillas"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:34
 #, php-format
 msgid "Create %s"
 msgstr "Crear %s"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:18
 msgid "Packing format options"
 msgstr "Opciones de formato de compresión"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:17
 msgid "File name"
 msgstr "Nombre de archivo"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:18
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:23
 msgid "Custom name format"
@@ -3204,34 +2960,28 @@ msgstr "Personalizar el formato de nombre"
 msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
 msgstr "Uso: <br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
 msgid "Customize"
 msgstr "Personalizar"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:22
 msgid "Your ZIPfile has been created sucessfully"
 msgstr "Su paquete se ha creado con éxito"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:27
 msgid "Your ZIPfile has NOT been created"
 msgstr "Su archivo zip no ha sido creada"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:45
 msgid "Log File"
 msgstr "Archivo de registro"
 
-# ## fuzzy
 #. try
 #. -- Draw h1 header
 #: administrator/components/com_easycreator/views/ziper/view.html.php:53
 msgid "Component ZIPer"
 msgstr "Componente ZIPer"
 
-# ## fuzzy
 #: administrator/components/com_easycreator/views/ziper/view.html.php:119
 msgid "Archive"
 msgstr "Archivo"
@@ -3240,255 +2990,4 @@ msgstr "Archivo"
 msgid "No ZIP files found"
 msgstr ""
 
-#~ msgid "Backend"
-#~ msgstr "Backend"
 
-#~ msgid "Frontend"
-#~ msgstr "Frontend"
-
-#~ msgid "The project %s has been removed"
-#~ msgstr "El proyecto %s ha sido eliminado"
-
-#~ msgid "DESTINATION"
-#~ msgstr "Destino"
-
-#~ msgid "NONE_FOUND"
-#~ msgstr "Ninguno encontrado"
-
-#~ msgid "OPTIONAL"
-#~ msgstr "Opcional"
-
-#~ msgid "PLEASE GOTO"
-#~ msgstr "Por favor vaya a"
-
-#~ msgid "PLEASE SELECT A PROJECT"
-#~ msgstr "Por favor, seleccione un proyecto"
-
-#~ msgid "TYPES"
-#~ msgstr "Tipos"
-
-#~ msgid "VERBOSE"
-#~ msgstr "Verboso"
-
-#~ msgid "ZIP FILES"
-#~ msgstr "Archivos Zip"
-
-#~ msgid "PLEASE SELECT A VERSION"
-#~ msgstr "Por favor, seleccione una versión"
-
-#~ msgid "YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY"
-#~ msgstr "Su componente %s se ha creado con éxito!"
-
-#~ msgid "YOU MUST PROVIDE A NAME"
-#~ msgstr "Usted debe proporcionar un nombre"
-
-#~ msgid "YOU MUST PROVIDE A VERSION"
-#~ msgstr "Usted debe proporcionar una versión"
-
-#~ msgid "TRANSLATION COULD NOT BE SAVED"
-#~ msgstr "La traducción no se podrían guardar"
-
-#~ msgid "TRANSLATION SAVED"
-#~ msgstr "Traducción guardado"
-
-#~ msgid "TREAT THE FIRST"
-#~ msgstr "Tratar a los primeros"
-
-#~ msgid "LINES AS COMMENT"
-#~ msgstr "líneas como comentario"
-
-#~ msgid "ERROR INSERT A DESCRIPTION FOR THE ELEMENT"
-#~ msgstr "Error! Por favor, introduzca un texto de comentario"
-
-#~ msgid "UNABLE TO CREATE LANGUAGE FILE"
-#~ msgstr "No se puede crear archivo de idioma"
-
-#~ msgid "UNABLE TO COPY FILE"
-#~ msgstr "No se puede copiar archivo"
-
-#~ msgid "THE FILE %S HAS BEEN SAVED"
-#~ msgstr "El archivo %s se ha guardado"
-
-#~ msgid "THE FILE %S COULD NOT BE FOUND IN PATH %S"
-#~ msgstr "El archivo %s no se ha encontrado en la ruta %s"
-
-#~ msgid "THE FILE %S HAS BEEN DELETED"
-#~ msgstr "El archivo %s ha sido eliminado"
-
-#~ msgid "DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE"
-#~ msgstr "Elimine el proyecto %s incluyendo el archivo y base de datos"
-
-#~ msgid "CHILDREN"
-#~ msgstr "Hijos"
-
-#~ msgid "YOUR COMPONENT SO FAR"
-#~ msgstr "Su componente hasta ahora"
-
-#~ msgid "JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT"
-#~ msgstr "Basta con hacer clic en &quot;Create it&quot; para finalizar el componente."
-
-#~ msgid "UNABLE TO LOAD THE PROJECT %S"
-#~ msgstr "No se puede cargar el proyecto %s"
-
-#~ msgid "EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'."
-#~ msgstr "EasyCreator es una herramienta de desarrollo. <br />Trata acelerar el proceso de desarrollo de componentes personalizados, módulos, plugins y plantillas. <br />Se puede crear un 'marco' para su extensión y un paquete instalable con sólo unos pocos 'clics'."
-
-#~ msgid "Little care has been taken about security."
-#~ msgstr "Poco cuidado se ha tenido sobre la seguridad."
-
-#~ msgid "OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG."
-#~ msgstr "O si es curioso puede mirar el registro."
-
-#~ msgid "ZIPFILE"
-#~ msgstr "Archivo, tipo ZIP"
-
-#~ msgid "PLEASE SELECT A TEMPLATE"
-#~ msgstr "Por favor, seleccione una plantilla"
-
-#~ msgid "THE FILE COULD NOT BE SAVE"
-#~ msgstr "El archivo no se pudo guardar"
-
-#~ msgid "YOUR %S HAS NOT BEEN ADDED"
-#~ msgstr "Su %s no se ha agregado"
-
-#~ msgid "YOUR %S HAS BEEN ADDED"
-#~ msgstr "Su %s ha sido añadido"
-
-
-#~ msgid "FILES AND DIRS TO COPY"
-#~ msgstr "Archivos y directorios para copiar"
-
-#~ msgid "DESC PROJECT INFO"
-#~ msgstr "Muestra información acerca de su proyecto (experimental)"
-
-#~ msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
-#~ msgstr "Elija el tipo de ayuda que necesita (desde principiantes a expertos)"
-
-#~ msgid "UNABLE TO UPDATE THE PROJECT %S"
-#~ msgstr "No se puede actualizar el proyecto %s"
-
-#~ msgid "PLEASE REVIEW YOUR INPUT"
-#~ msgstr "Por favor, revise sus entradas"
-
-#~ msgid "LOADING"
-#~ msgstr "Cargando"
-
-
-#~ msgid "TRANSLATION COULD NOT BE DELETED"
-#~ msgstr "La traducción no puede ser eliminado"
-
-#~ msgid "LOGGING"
-#~ msgstr "Logging"
-
-#~ msgid "KEY NOT FOUND"
-#~ msgstr "Clave no se encuentra"
-
-#~ msgid "No zip files found"
-#~ msgstr "No se encontraron archivos zip"
-
-#~ msgid "A SIMPLE COMPONENT"
-#~ msgstr "Un componente simple"
-
-#~ msgid "A COMPONENT USING A MODEL"
-#~ msgstr "Un componente con un modelo"
-
-#~ msgid "A COMPONENT USING THE TABLE CLASS"
-#~ msgstr "Un componente utilizando la clase de tabla"
-
-#~ msgid "A COMPONENT WITH ADMIN INTERFACE"
-#~ msgstr "Un componente con interfaz de administración"
-
-#~ msgid "A COMPONENT WITH PAGINATION"
-#~ msgstr "Un componente con paginación"
-
-#~ msgid "A COMPONENT WITH WYSIWYG EDITOR"
-#~ msgstr "Un componente con editor WYSIWYG"
-
-#~ msgid "SO MANY EMPTY PAGES ON_THE WIKI ?"
-#~ msgstr "Tatas páginas en blanco en el wiki?"
-
-#~ msgid "FAILED TO UPDATE THE SETTINGS"
-#~ msgstr "No se pudo actualizar la configuración"
-
-#~ msgid "YOU MUST PROVIDE A LIST POSTFIX"
-#~ msgstr "Usted debe proveer un list postfijo"
-
-#~ msgid "MD5 CHECK FAILED ON_FILE: %S"
-#~ msgstr "MD5 check fallado en el archivo: %s"
-
-#~ msgid "EASYCREATOR HELPS CREATING EXTENSIONS FOR JOOMLA"
-#~ msgstr "EasyCreator ayuda a la creación de extensiones para Joomla!"
-
-#~ msgid "THIS SCRIPT REQUIRES AT LEAST PHP VERSION %S"
-#~ msgstr "Este script requiere al menos la versión %s de php"
-
-
-
-#~ msgid "EMPTY FILE NAME"
-#~ msgstr "nombre del archivo vacío"
-
-#~ msgid "EMPTY VALUE"
-#~ msgstr "valor vacío"
-
-#~ msgid "COPYRIGHT C"
-#~ msgstr "Copyright (C)"
-
-#~ msgid "BOM"
-#~ msgstr "BOM"
-
-#~ msgid "ECR__NULL"
-#~ msgstr "nulo"
-
-#~ msgid "DETAILS"
-#~ msgstr "Detalles"
-
-#~ msgid "THIS WILL PERFORM AN UPGRADE ON_INSTALLING YOUR EXTENSION"
-#~ msgstr "Se realizará una actualización sobre la instalación de su extensión"
-
-#~ msgid "EXTENSION"
-#~ msgstr "Extensión"
-
-#~ msgid "UNINSTALL"
-#~ msgstr "Desinstalar"
-
-#~ msgid "REMOVED"
-#~ msgstr "Eliminado"
-
-#~ msgid "GROUP"
-#~ msgstr "Grupo"
-
-#~ msgid "INSTALLED"
-#~ msgstr "Instalado"
-
-#~ msgid "STATUS"
-#~ msgstr "Estado"
-
-#~ msgid "CLIENT"
-#~ msgstr "Cliente"
-
-#~ msgid "TRANSLATING"
-#~ msgstr "Traduciendo ..."
-
-#~ msgid "PLEASE SELECT A PACKAGE TO UPLOAD"
-#~ msgstr "Por favor, seleccione un paquete para cargar"
-
-#~ msgid "PLEASE ADD AT LEAST ONE FIELD"
-#~ msgstr "Por favor, añada al menos un campo"
-
-#~ msgid "THIS IS NOT A NUMBER"
-#~ msgstr "Esto no es un número"
-
-#~ msgid "EXISTING LIBRARIES: %S_SELECT"
-#~ msgstr "bibliotecas existentes: %s"
-
-#~ msgid "JOOMLA 1.6 EXTENSION TEMPLATES CAN NOT BE BUILD ON_JOOMLA 1.5"
-#~ msgstr "Plantillas de extensiones de Joomla! 1.6 no se pueden crear en Joomla! 1.5"
-
-#~ msgid "ECR_TRANSLATE_ACC_S"
-#~ msgstr "Traducir [s]"
-
-#~ msgid "ECR_TRANSLATE"
-#~ msgstr "Traducir"
-
-#~ msgid "ECR_NOT_FOUND"
-#~ msgstr "No se ha encontrado"
