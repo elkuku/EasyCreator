@@ -1,577 +1,313 @@
 # @version SVN: $Id$
-# Language pl-PL translations for PACKAGE package.
-# Copyright (C) 2010 Free Software Foundation, Inc.
-# root <EMAIL@ADDRESS>, 2010.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: wp-polyglots@lists.automattic.com\n"
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-08 03:00 -500\n"
-"PO-Revision-Date: 2010-12-08 10:20-0500\n"
-"Last-Translator: root <EMAIL@ADDRESS>\n"
-"Language-Team: Language pl-PL\n"
+"PO-Revision-Date: 2011-10-02 22:04+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/opentranslators/team/pl_PL/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: g11n\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: administrator/components/com_easycreator/config.xml:group
+#: administrator/components/com_easycreator/config.xmlgroup
 msgid "Personal"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:group
+#: administrator/components/com_easycreator/config.xmlgroup
 msgid "Package creation"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:group
+#: administrator/components/com_easycreator/config.xmlgroup
 msgid "Logging"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:group
+#: administrator/components/com_easycreator/config.xmlgroup
 msgid "Various"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:group
+#: administrator/components/com_easycreator/config.xmlgroup
 msgid "Debug"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:param-default
+#: administrator/components/com_easycreator/config.xmlparam-default
 msgid "Personal information"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:param-default
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmlparam-default
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Package formats"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:param-default
+#: administrator/components/com_easycreator/config.xmlparam-default
 msgid "Custom file name"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:param-default
+#: administrator/components/com_easycreator/config.xmlparam-default
 msgid "Language"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Author"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Author e-mail"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Author URL"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "License"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Copyright"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "zip"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "tar.gz"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Custom name default"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Custom name"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Logger"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Profiler"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Log file contents"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Help Type"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Editor type"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Editor font size"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Local API copy"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Livesite warning"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Save versions"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Use Google translation API"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Check for UTF8"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Check for BOM"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Debugger"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
-#: administrator/components/com_easycreator/easycreator.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
+#: administrator/components/com_easycreator/easycreator.xmllabel
 msgid "Debugger Type"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:label
+#: administrator/components/com_easycreator/config.xmllabel
 msgid "Debug language"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "ZIP format"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Ziped Tarball"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Should we write some logfiles"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Profile time and memory"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Log the contents / the code of the files been written to disk"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
-msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
+#: administrator/components/com_easycreator/config.xmldescription
+msgid ""
+"Choose the type of help you need (from beginner to expert). Messages will be"
+" displayed all over the place in light green boxes - you may also switch "
+"them off here."
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
-msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-msgstr "Jaki wczytać edytor (zobacz dokumentację (j. ang.) na stronie http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+#: administrator/components/com_easycreator/config.xmldescription
+msgid ""
+"Which EditArea type shall we load (please see docu on developers site "
+"http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "The default font size for the code editor in pixel"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
-msgid "If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety"
+#: administrator/components/com_easycreator/config.xmldescription
+msgid ""
+"If a IP other then 127.0.0.1 is detected a warning message will be displayed"
+" for your own safety"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
-msgid "When modifying your files, always save a backup version. These will be named *.rx"
+#: administrator/components/com_easycreator/config.xmldescription
+msgid ""
+"When modifying your files, always save a backup version. These will be named"
+" *.rx"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Should we use the Google Translation API for helping in translations ?"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Should languages files be checked for UTF-8"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Should languages files be checked for a BOM"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Shall we use the Debug mode ?"
-msgstr "Czy użyć trybu Debugowania ?"
+msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Which debugger to use"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:description
+#: administrator/components/com_easycreator/config.xmldescription
 msgid "Shall we debug our special language files ?"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "Off"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "On"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "No"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "Yes"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "All"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "Some"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "None"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "edit_area_full.js"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "edit_area_compressor.php"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "edit_area_compressor.php?plugins"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "edit_area_full.gz"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "edit_area_loader.js"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "EasyDebug"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "JDump"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "DebugTools"
 msgstr ""
 
-#: administrator/components/com_easycreator/config.xml:opt
+#: administrator/components/com_easycreator/config.xmlopt
 msgid "Krumo"
 msgstr ""
 
-#: administrator/components/com_easycreator/easycreator.xml:description
+#: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla"
 msgstr ""
 
-#~ msgid "ZIP"
-#~ msgstr "ZIP"
 
-#~ msgid "Backend"
-#~ msgstr "Zaplecze"
-
-#~ msgid "Frontend"
-#~ msgstr "Frontend"
-
-#~ msgid "The project %s has been removed"
-#~ msgstr "Projekt %s został przeniesiony"
-
-#~ msgid "DESTINATION"
-#~ msgstr "Przeznaczenie"
-
-#~ msgid "NONE_FOUND"
-#~ msgstr "Nic nie znaleziono"
-
-#~ msgid "OPTIONAL"
-#~ msgstr "Opcjonalnie"
-
-#~ msgid "PLEASE GOTO"
-#~ msgstr "Idź do"
-
-#~ msgid "PLEASE SELECT A PROJECT"
-#~ msgstr "Proszę wybrać projekt"
-
-#~ msgid "SHOW FILE CONTENTS"
-#~ msgstr "Pokaż zawartość pliku"
-
-#~ msgid "TYPES"
-#~ msgstr "Typ"
-
-#~ msgid "VERBOSE"
-#~ msgstr "Verbose"
-
-#~ msgid "ZIP FILES"
-#~ msgstr "Archiwa ZIP"
-
-#~ msgid "PLEASE SELECT A VERSION"
-#~ msgstr "Proszę wybrać wersję"
-
-#~ msgid "YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY"
-#~ msgstr "Twój komponent %s został utworzony!"
-
-#~ msgid "YOU MUST PROVIDE A NAME"
-#~ msgstr "Musisz podać nazwę"
-
-#~ msgid "YOU MUST PROVIDE A VERSION"
-#~ msgstr "Musisz podać wersję"
-
-#~ msgid "TRANSLATION COULD NOT BE SAVED"
-#~ msgstr "Nie idzie zapisać tłumaczenia"
-
-#~ msgid "TRANSLATION SAVED"
-#~ msgstr "Tłumaczenie zapisane"
-
-#~ msgid "TRANSLATOR"
-#~ msgstr "Tłumacz"
-
-#~ msgid "FRONTEND SANDBOX"
-#~ msgstr "Frontend sandbox"
-
-#~ msgid "TREAT THE FIRST"
-#~ msgstr "Potraktuj pierwsze"
-
-#~ msgid "LINES AS COMMENT"
-#~ msgstr "linie jako komentarz"
-
-#~ msgid "ANALYSIS INI"
-#~ msgstr "Analiza ini"
-
-#~ msgid "ANALYSIS PHP XML"
-#~ msgstr "Analiza PHP XML"
-
-#~ msgid "ERROR INSERT A DESCRIPTION FOR THE ELEMENT"
-#~ msgstr "Błąd! proszę wpisać tekst komentarza"
-
-#~ msgid "UNABLE TO CREATE LANGUAGE FILE"
-#~ msgstr "Nie idzie utworzyć pliku językowego"
-
-#~ msgid "UNABLE TO CREATE TABLE"
-#~ msgstr "Nie idzie utworzyć tabeli"
-
-#~ msgid "UNABLE TO COPY FILE"
-#~ msgstr "Nie idzie skopiować pliku"
-
-#~ msgid "THE FILE %S HAS BEEN SAVED"
-#~ msgstr "Plik %s został zapisany"
-
-#~ msgid "THE FILE %S COULD NOT BE FOUND IN PATH %S"
-#~ msgstr "Plik %s nie może być znaleziony w scieżce %s"
-
-#~ msgid "THE FILE %S HAS BEEN DELETED"
-#~ msgstr "Plik %s został usunięty"
-
-#~ msgid "DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE"
-#~ msgstr "Usuń cały projekt %s łącznie z plikami i bazą danych"
-
-#~ msgid "THE WERE ERRORS"
-#~ msgstr "Wystąpiły błędy !"
-
-#~ msgid "PLEASE CHOOSE A FILE"
-#~ msgstr "Proszę wybrać plik"
-
-#~ msgid "BAD EXTENSION"
-#~ msgstr "Złe rozszerzenie"
-
-#~ msgid "UNDEFINED TYPE"
-#~ msgstr "Niezdefiniowany typ"
-
-#~ msgid "PLEASE SELECT A FILE"
-#~ msgstr "Proszę zaznaczyć plik"
-
-#~ msgid "PLEASE PROVIDE A NAME"
-#~ msgstr "proszę podać nazwę"
-
-#~ msgid "LONG DESCRIPTION"
-#~ msgstr "Długi opis"
-
-#~ msgid "READMORE"
-#~ msgstr "Czytaj więcej"
-
-#~ msgid "PROJECT INFO"
-#~ msgstr "Informacje o projekcie"
-
-#~ msgid "PROJECT FILES LINE COUNT"
-#~ msgstr "Liczba wierszy projektu"
-
-#~ msgid "NO. FILES"
-#~ msgstr "Ilość plików"
-
-#~ msgid "NO. LINES"
-#~ msgstr "Ilość wierszy"
-
-#~ msgid "SALARY"
-#~ msgstr "Sprzedaż"
-
-#~ msgid "RECALC"
-#~ msgstr "Przelicz"
-
-#~ msgid "FILES AND DIRS TO COPY"
-#~ msgstr "Pliki i foldery do skopiowania"
-
-#~ msgid "NO ZIPFILES FOUND"
-#~ msgstr "Nie znaleziono plików ZIP"
-
-#~ msgid "STD FILES"
-#~ msgstr "Standardowe pliki"
-
-#~ msgid "CHILDREN"
-#~ msgstr "Podrzędne"
-
-#~ msgid "ADD LANGUAGE"
-#~ msgstr "Dodaj język"
-
-#~ msgid "ADD COPY"
-#~ msgstr "Dodaj kopię"
-
-#~ msgid "FILES TO COPY"
-#~ msgstr "Pliki do skopiowania"
-
-#~ msgid "STANDARD CREDIT FILE"
-#~ msgstr "Standard credit file"
-
-#~ msgid "YOUR COMPONENT SO FAR"
-#~ msgstr "Postęp tworzenia komponentu"
-
-#~ msgid "COMMA SEPARATED LIST OF LANGUAGES"
-#~ msgstr "Lista języków rozdzielana przecinkiem"
-
-#~ msgid "JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT"
-#~ msgstr "Poprostu kliknij &quot; Utwórz go.. &quot; poniżej aby ukończyć swój komponent."
-
-#~ msgid "OR MAYBE YOU WOULD LIKE TO GO"
-#~ msgstr "Or maybe you would like to go"
-
-#~ msgid "UNABLE TO LOAD THE PROJECT %S"
-#~ msgstr "Nie idzie wczytać projektu %s"
-
-#~ msgid "ALWAYS SAVE A VERSION"
-#~ msgstr "Zawsze zapisuj wersje"
-
-#~ msgid "SAVE VERSION DESC"
-#~ msgstr "Czy powinniśmy wykonać kopię wersji?"
-
-#~ msgid "DO NOT SAVE VERSIONS"
-#~ msgstr "Nie zapisuj wersji"
-
-#~ msgid "SAVE VERSIONS"
-#~ msgstr "Zapisz wersje"
-
-#~ msgid "DO YOU HAVE THE LATEST VERSION ?"
-#~ msgstr "Czy masz najnowszę wersję?"
-
-#~ msgid "CHECK YOUR VERSION"
-#~ msgstr "Sprawdź swoją wersję"
-
-#~ msgid "CONTACT EASY-JOOMLA.ORG NOW TO CHECK IF YOUR VERSION IS UP TO DATE."
-#~ msgstr "Odwiedź easy-joomla.org *TERAZ* aby sprawdzić czy Twoja wersja jest aktualna."
-
-#~ msgid "YOUR COMPONENT %S HAS BEEN REGISTERED SUCCESFULLY"
-#~ msgstr "Twój komponent %s został poprawnie zarejestrowany"
-
-#~ msgid "YOU CAN NOW"
-#~ msgstr "Możesz teraz"
-
-#~ msgid "BUILD"
-#~ msgstr "Zbudować"
-
-#~ msgid "EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'."
-#~ msgstr "EasyCreator to narzędzie deweloperskie,<br />które próbuje przyspieszyć proces tworzenia własnych komponentów, modułów, dodatków i szablonów.<br />Możesz utworzyć 'ramkę' dla swojego rozszerzenia oraz instalowalny pakiet zip w kilku prostych 'kliknięciach'."
-
-#~ msgid "YOU HAVE %S REGISTERED PROJECTS"
-#~ msgstr "Masz %s zarejestrowanych projektów"
-
-#~ msgid "THE FILE HAS ALSO BEEN ARCHIVED FOR LATER ACCESS."
-#~ msgstr "Plik został zarchiwizowany dla późniejszego dostępu."
-
-#~ msgid "OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG."
-#~ msgstr "Jeśli chcesz sprawdzić przyczyny, zobacz log."
-
-#~ msgid "EDITOR TYPE"
-#~ msgstr "Typ edytora"
-
-#~ msgid "DEBUGGER"
-#~ msgstr "Debuger"
-
-#~ msgid "ZIPFILE"
-#~ msgstr "Plik ZIP"
-
-#~ msgid "PLEASE SELECT A TEMPLATE"
-#~ msgstr "Proszę zaznaczyć szablon"
-
-#~ msgid "CHOOSE A TEMPLATE"
-#~ msgstr "Wybierz szablon"
-
-#~ msgid "COM_NAME"
-#~ msgstr "Com_nazwa"
-
-#~ msgid "LANGUAGE DIRECTORIES"
-#~ msgstr "Katalogi języków"
-
-#~ msgid "COMPONENT TYPE"
-#~ msgstr "Typ komponentu"
-
-#~ msgid "INSTALL XML FILE"
-#~ msgstr "Zainstaluj plik XML"
-
-#~ msgid "FILES AND FOLDERS"
-#~ msgstr "Pliki i foldery"
-
-#~ msgid "THE DEFAULT LANGUAGE IS"
-#~ msgstr "Domyślnym językiem jest"
-
-#~ msgid "PLEASE SELECT A TYPE"
-#~ msgstr "Proszę wybrać typ"
-
-#~ msgid "PLEASE SELECT A SCOPE"
-#~ msgstr "Proszę wybrać zakres"
-
-#~ msgid "UNABLE TO SAVE THE FILE %S"
-#~ msgstr "Nie idzie zapisać pliku %s"
-
-#~ msgid "THE FILE COULD NOT BE SAVE"
-#~ msgstr "Plik nie może być zapisany"
-
-#~ msgid "YOUR %S HAS NOT BEEN ADDED"
-#~ msgstr "Twój %s nie został dodany"
-
-#~ msgid "YOUR %S HAS BEEN ADDED"
-#~ msgstr "Twój %s został dodany"
-
-#~ msgid "Little care has been taken about security."
-#~ msgstr "Little care has been taken about security."

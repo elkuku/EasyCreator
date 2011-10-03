@@ -1,20 +1,23 @@
 # @version SVN: $Id$
-# Language pl-PL translations for PACKAGE package.
-# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # root <EMAIL@ADDRESS>, 2010.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 23:45-0500\n"
-"PO-Revision-Date: 2010-12-08 10:35-0500\n"
-"Last-Translator: root <EMAIL@ADDRESS>\n"
-"Language-Team: Language pl-PL\n"
+"PO-Revision-Date: 2011-10-02 22:05+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/opentranslators/team/pl_PL/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: administrator/components/com_easycreator/assets/js/addelement.js:39
 msgid "Please review your input"
@@ -77,9 +80,8 @@ msgid "Please enter a description for the element"
 msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:36
-#, fuzzy
 msgid "The element has been added"
-msgstr "Projekt %s został przeniesiony"
+msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/menu.js:40
 msgid "Text"
@@ -140,281 +142,4 @@ msgstr ""
 msgid "Undefined Joomla! version: %s"
 msgstr ""
 
-#~ msgid "ZIP"
-#~ msgstr "ZIP"
 
-#~ msgid "Backend"
-#~ msgstr "Zaplecze"
-
-#~ msgid "Frontend"
-#~ msgstr "Frontend"
-
-#~ msgid "DESTINATION"
-#~ msgstr "Przeznaczenie"
-
-#~ msgid "NONE_FOUND"
-#~ msgstr "Nic nie znaleziono"
-
-#~ msgid "OPTIONAL"
-#~ msgstr "Opcjonalnie"
-
-#~ msgid "PLEASE GOTO"
-#~ msgstr "Idź do"
-
-#~ msgid "PLEASE SELECT A PROJECT"
-#~ msgstr "Proszę wybrać projekt"
-
-#~ msgid "SHOW FILE CONTENTS"
-#~ msgstr "Pokaż zawartość pliku"
-
-#~ msgid "TYPES"
-#~ msgstr "Typ"
-
-#~ msgid "VERBOSE"
-#~ msgstr "Verbose"
-
-#~ msgid "ZIP FILES"
-#~ msgstr "Archiwa ZIP"
-
-#~ msgid "PLEASE SELECT A VERSION"
-#~ msgstr "Proszę wybrać wersję"
-
-#~ msgid "YOUR COMPONENT %S HAS BEEN CREATED SUCCESFULLY"
-#~ msgstr "Twój komponent %s został utworzony!"
-
-#~ msgid "YOU MUST PROVIDE A NAME"
-#~ msgstr "Musisz podać nazwę"
-
-#~ msgid "YOU MUST PROVIDE A VERSION"
-#~ msgstr "Musisz podać wersję"
-
-#~ msgid "TRANSLATION COULD NOT BE SAVED"
-#~ msgstr "Nie idzie zapisać tłumaczenia"
-
-#~ msgid "TRANSLATION SAVED"
-#~ msgstr "Tłumaczenie zapisane"
-
-#~ msgid "TRANSLATOR"
-#~ msgstr "Tłumacz"
-
-#~ msgid "FRONTEND SANDBOX"
-#~ msgstr "Frontend sandbox"
-
-#~ msgid "TREAT THE FIRST"
-#~ msgstr "Potraktuj pierwsze"
-
-#~ msgid "LINES AS COMMENT"
-#~ msgstr "linie jako komentarz"
-
-#~ msgid "ANALYSIS INI"
-#~ msgstr "Analiza ini"
-
-#~ msgid "ANALYSIS PHP XML"
-#~ msgstr "Analiza PHP XML"
-
-#~ msgid "ERROR INSERT A DESCRIPTION FOR THE ELEMENT"
-#~ msgstr "Błąd! proszę wpisać tekst komentarza"
-
-#~ msgid "UNABLE TO CREATE LANGUAGE FILE"
-#~ msgstr "Nie idzie utworzyć pliku językowego"
-
-#~ msgid "UNABLE TO CREATE TABLE"
-#~ msgstr "Nie idzie utworzyć tabeli"
-
-#~ msgid "UNABLE TO COPY FILE"
-#~ msgstr "Nie idzie skopiować pliku"
-
-#~ msgid "THE FILE %S HAS BEEN SAVED"
-#~ msgstr "Plik %s został zapisany"
-
-#~ msgid "THE FILE %S COULD NOT BE FOUND IN PATH %S"
-#~ msgstr "Plik %s nie może być znaleziony w scieżce %s"
-
-#~ msgid "THE FILE %S HAS BEEN DELETED"
-#~ msgstr "Plik %s został usunięty"
-
-#~ msgid "DELETE THE WHOLE %S PROJECT INCLUDING FILE AND DATABASE"
-#~ msgstr "Usuń cały projekt %s łącznie z plikami i bazą danych"
-
-#~ msgid "THE WERE ERRORS"
-#~ msgstr "Wystąpiły błędy !"
-
-#~ msgid "PLEASE CHOOSE A FILE"
-#~ msgstr "Proszę wybrać plik"
-
-#~ msgid "BAD EXTENSION"
-#~ msgstr "Złe rozszerzenie"
-
-#~ msgid "UNDEFINED TYPE"
-#~ msgstr "Niezdefiniowany typ"
-
-#~ msgid "PLEASE SELECT A FILE"
-#~ msgstr "Proszę zaznaczyć plik"
-
-#~ msgid "PLEASE PROVIDE A NAME"
-#~ msgstr "proszę podać nazwę"
-
-#~ msgid "LONG DESCRIPTION"
-#~ msgstr "Długi opis"
-
-#~ msgid "READMORE"
-#~ msgstr "Czytaj więcej"
-
-#~ msgid "PROJECT INFO"
-#~ msgstr "Informacje o projekcie"
-
-#~ msgid "PROJECT FILES LINE COUNT"
-#~ msgstr "Liczba wierszy projektu"
-
-#~ msgid "NO. FILES"
-#~ msgstr "Ilość plików"
-
-#~ msgid "NO. LINES"
-#~ msgstr "Ilość wierszy"
-
-#~ msgid "SALARY"
-#~ msgstr "Sprzedaż"
-
-#~ msgid "RECALC"
-#~ msgstr "Przelicz"
-
-#~ msgid "FILES AND DIRS TO COPY"
-#~ msgstr "Pliki i foldery do skopiowania"
-
-#~ msgid "NO ZIPFILES FOUND"
-#~ msgstr "Nie znaleziono plików ZIP"
-
-#~ msgid "STD FILES"
-#~ msgstr "Standardowe pliki"
-
-#~ msgid "CHILDREN"
-#~ msgstr "Podrzędne"
-
-#~ msgid "ADD LANGUAGE"
-#~ msgstr "Dodaj język"
-
-#~ msgid "ADD COPY"
-#~ msgstr "Dodaj kopię"
-
-#~ msgid "FILES TO COPY"
-#~ msgstr "Pliki do skopiowania"
-
-#~ msgid "STANDARD CREDIT FILE"
-#~ msgstr "Standard credit file"
-
-#~ msgid "YOUR COMPONENT SO FAR"
-#~ msgstr "Postęp tworzenia komponentu"
-
-#~ msgid "COMMA SEPARATED LIST OF LANGUAGES"
-#~ msgstr "Lista języków rozdzielana przecinkiem"
-
-#~ msgid "JUST CLICK ON_CREATE IT BELOW TO FINISH YOUR COMPONENT"
-#~ msgstr "Poprostu kliknij &quot; Utwórz go.. &quot; poniżej aby ukończyć swój komponent."
-
-#~ msgid "OR MAYBE YOU WOULD LIKE TO GO"
-#~ msgstr "Or maybe you would like to go"
-
-#~ msgid "UNABLE TO LOAD THE PROJECT %S"
-#~ msgstr "Nie idzie wczytać projektu %s"
-
-#~ msgid "ALWAYS SAVE A VERSION"
-#~ msgstr "Zawsze zapisuj wersje"
-
-#~ msgid "SAVE VERSION DESC"
-#~ msgstr "Czy powinniśmy wykonać kopię wersji?"
-
-#~ msgid "DO NOT SAVE VERSIONS"
-#~ msgstr "Nie zapisuj wersji"
-
-#~ msgid "SAVE VERSIONS"
-#~ msgstr "Zapisz wersje"
-
-#~ msgid "DO YOU HAVE THE LATEST VERSION ?"
-#~ msgstr "Czy masz najnowszę wersję?"
-
-#~ msgid "CHECK YOUR VERSION"
-#~ msgstr "Sprawdź swoją wersję"
-
-#~ msgid "CONTACT EASY-JOOMLA.ORG NOW TO CHECK IF YOUR VERSION IS UP TO DATE."
-#~ msgstr "Odwiedź easy-joomla.org *TERAZ* aby sprawdzić czy Twoja wersja jest aktualna."
-
-#~ msgid "YOUR COMPONENT %S HAS BEEN REGISTERED SUCCESFULLY"
-#~ msgstr "Twój komponent %s został poprawnie zarejestrowany"
-
-#~ msgid "YOU CAN NOW"
-#~ msgstr "Możesz teraz"
-
-#~ msgid "BUILD"
-#~ msgstr "Zbudować"
-
-#~ msgid "EasyCreator is a developer tool.<br />It trys to speed up the developing process of custom components, modules, plugin and templates.<br />You can create a 'frame' for your extension and an installable zip package with just a few 'clicks'."
-#~ msgstr "EasyCreator to narzędzie deweloperskie,<br />które próbuje przyspieszyć proces tworzenia własnych komponentów, modułów, dodatków i szablonów.<br />Możesz utworzyć 'ramkę' dla swojego rozszerzenia oraz instalowalny pakiet zip w kilku prostych 'kliknięciach'."
-
-#~ msgid "YOU HAVE %S REGISTERED PROJECTS"
-#~ msgstr "Masz %s zarejestrowanych projektów"
-
-#~ msgid "THE FILE HAS ALSO BEEN ARCHIVED FOR LATER ACCESS."
-#~ msgstr "Plik został zarchiwizowany dla późniejszego dostępu."
-
-#~ msgid "OR IF YOU COURIOUS, HAVE A LOOK AT THE LOG."
-#~ msgstr "Jeśli chcesz sprawdzić przyczyny, zobacz log."
-
-#~ msgid "EDITOR TYPE"
-#~ msgstr "Typ edytora"
-
-#~ msgid "Which EditArea type shall we load (please see docu on developers site http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-#~ msgstr "Jaki wczytać edytor (zobacz dokumentację (j. ang.) na stronie http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-
-#~ msgid "DEBUGGER"
-#~ msgstr "Debuger"
-
-#~ msgid "Shall we use the Debug mode ?"
-#~ msgstr "Czy użyć trybu Debugowania ?"
-
-#~ msgid "ZIPFILE"
-#~ msgstr "Plik ZIP"
-
-#~ msgid "PLEASE SELECT A TEMPLATE"
-#~ msgstr "Proszę zaznaczyć szablon"
-
-#~ msgid "CHOOSE A TEMPLATE"
-#~ msgstr "Wybierz szablon"
-
-#~ msgid "COM_NAME"
-#~ msgstr "Com_nazwa"
-
-#~ msgid "LANGUAGE DIRECTORIES"
-#~ msgstr "Katalogi języków"
-
-#~ msgid "COMPONENT TYPE"
-#~ msgstr "Typ komponentu"
-
-#~ msgid "INSTALL XML FILE"
-#~ msgstr "Zainstaluj plik XML"
-
-#~ msgid "FILES AND FOLDERS"
-#~ msgstr "Pliki i foldery"
-
-#~ msgid "THE DEFAULT LANGUAGE IS"
-#~ msgstr "Domyślnym językiem jest"
-
-#~ msgid "PLEASE SELECT A TYPE"
-#~ msgstr "Proszę wybrać typ"
-
-#~ msgid "PLEASE SELECT A SCOPE"
-#~ msgstr "Proszę wybrać zakres"
-
-#~ msgid "UNABLE TO SAVE THE FILE %S"
-#~ msgstr "Nie idzie zapisać pliku %s"
-
-#~ msgid "THE FILE COULD NOT BE SAVE"
-#~ msgstr "Plik nie może być zapisany"
-
-#~ msgid "YOUR %S HAS NOT BEEN ADDED"
-#~ msgstr "Twój %s nie został dodany"
-
-#~ msgid "YOUR %S HAS BEEN ADDED"
-#~ msgstr "Twój %s został dodany"
-
-#~ msgid "Little care has been taken about security."
-#~ msgstr "Little care has been taken about security."
