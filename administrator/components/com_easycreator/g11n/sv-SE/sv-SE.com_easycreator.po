@@ -3,15 +3,17 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # 
-# Tess Neale <tess@prothemer.com>, 2011.
+# Translators:
+# Joel Hansen <johaswe@gmail.com>, 2011.
 #   <linus.pettersson@gmail.com>, 2011.
+# Tess Neale <tess@prothemer.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2011-08-28 16:34+0000\n"
-"Last-Translator: tessneale <tess@prothemer.com>\n"
+"PO-Revision-Date: 2011-09-28 12:38+0000\n"
+"Last-Translator: johaswe <johaswe@gmail.com>\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.net/projects/p/opentranslators/team/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +25,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html.php:348
 #, php-format
 msgid "The class file for your Joomla version %s has not been build yet."
-msgstr ""
+msgstr "Klass-filen för din Joomla-version %s har inte blivit byggd ännu."
 
 #: administrator/components/com_easycreator/controllers/ajax.php:188
 #: administrator/components/com_easycreator/controllers/ajax.php:479
@@ -49,22 +51,22 @@ msgstr "Klassen %s kunde inte hittas"
 #: administrator/components/com_easycreator/controllers/ajax.php:353
 #: administrator/components/com_easycreator/controllers/stuffer.php:93
 msgid "Unable to load part"
-msgstr ""
+msgstr "Kunde inte ladda en del"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:360
 msgid "Function not found"
-msgstr ""
+msgstr "Funktionen hittades inte"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:383
 #: administrator/components/com_easycreator/controllers/ajax.php:434
 #: administrator/components/com_easycreator/helpers/language.php:1480
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:168
 msgid "No scope given"
-msgstr ""
+msgstr "Ingen omfattning har angivits"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:386
 msgid "Empty translation"
-msgstr ""
+msgstr "Tom översättning"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:394
 #: administrator/components/com_easycreator/controllers/ajax.php:439
@@ -73,7 +75,7 @@ msgstr "Inga språk hittades"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:484
 msgid "File loaded"
-msgstr ""
+msgstr "Fil inläst"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:517
 #, php-format
@@ -82,7 +84,7 @@ msgstr "Filen %s är tom"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:555
 msgid "Invalid file"
-msgstr ""
+msgstr "Ogiltig fil"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:582
 #: administrator/components/com_easycreator/controllers/templates.php:54
@@ -93,7 +95,7 @@ msgstr "Filen har sparats"
 #: administrator/components/com_easycreator/controllers/ajax.php:615
 #: administrator/components/com_easycreator/controllers/ajax.php:816
 msgid "Wrong base folder"
-msgstr ""
+msgstr "Fel bas-mapp"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:624
 msgid "The folder already exists"
@@ -116,15 +118,15 @@ msgstr "Skapa"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:668
 msgid "This is a folder"
-msgstr ""
+msgstr "Detta är en mapp"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:675
 msgid "The file already exists"
-msgstr ""
+msgstr "Filen finns redan"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:685
 msgid "Unable to create file"
-msgstr ""
+msgstr "Det går inte att skapa filen"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:698
 #: administrator/components/com_easycreator/helpers/html.php:1103
@@ -167,31 +169,31 @@ msgstr "Ta bort"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:774
 msgid "File does not exist"
-msgstr ""
+msgstr "Filen finns inte"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:781
 #: administrator/components/com_easycreator/helpers/project.php:893
 msgid "Unable to delete file"
-msgstr ""
+msgstr "Kan inte ta bort fil"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:794
 msgid "Delete file"
-msgstr ""
+msgstr "Radera fil"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:839
 msgid "Rename folder"
-msgstr ""
+msgstr "Byt namn på mapp"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:839
 #: administrator/components/com_easycreator/controllers/ajax.php:883
 #: administrator/components/com_easycreator/helpers/html.php:1104
 #: administrator/components/com_easycreator/helpers/html.php:1123
 msgid "Rename"
-msgstr ""
+msgstr "Byt namn"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:883
 msgid "Rename file"
-msgstr ""
+msgstr "Byt namn på fil"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:1138
 #: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:339
@@ -200,67 +202,67 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:258
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:274
 msgid "Select..."
-msgstr ""
+msgstr "Välj..."
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:48
 msgid "The file bootstrap.php has been copied to your Joomla root"
-msgstr ""
+msgstr "Filen bootstrap.php har kopierats till din Joomla rot"
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:52
 #: administrator/components/com_easycreator/helpers/easytemplatehelper.php:212
 #, php-format
 msgid "Can not copy file %s"
-msgstr ""
+msgstr "Kan inte kopiera filen %s"
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:100
 msgid "No project selected"
-msgstr ""
+msgstr "Inget projekt har valts"
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:107
 msgid "Invalid project"
-msgstr ""
+msgstr "Ogiltigt projekt"
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:114
 msgid "Unable to create tests directory"
-msgstr ""
+msgstr "Kan inte skapa test-katalog"
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:119
 msgid "The tests directory has been created"
-msgstr ""
+msgstr "Test-katalogen har skapats"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:168
 msgid "Only PHP files are allowed"
-msgstr ""
+msgstr "Endast PHP-filer är tillåtna"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:184
 #: administrator/components/com_easycreator/helpers/reflection.php:338
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:529
 msgid "No classes found"
-msgstr ""
+msgstr "Inga klasser hittades"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:320
 msgid "Folder not found"
-msgstr ""
+msgstr "Mappen hittades inte"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:422
 msgid "No path set"
-msgstr ""
+msgstr "Ingen sökväg har angetts"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:506
 msgid "Something went wrong..."
-msgstr ""
+msgstr "Något gick fel..."
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:514
 msgid "Documentation has been created"
-msgstr ""
+msgstr "Dokumentation har skapats"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:516
 msgid "View Documentation"
-msgstr ""
+msgstr "Visa dokumentation"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:518
 msgid "View Errors"
-msgstr ""
+msgstr "Visa fel"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:539
 #: administrator/components/com_easycreator/helpers/languagehelper.php:151
@@ -270,21 +272,21 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:36
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:55
 msgid "Not found"
-msgstr ""
+msgstr "Hittades inte"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:543
 msgid "No PEAR packages found - Please check your Paths"
-msgstr ""
+msgstr "Inga PEAR-paket funna - Kontrollera dina sökvägar"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:544
 #, php-format
 msgid "For more information see: %s"
-msgstr ""
+msgstr "För mer information se: %s"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:552
 #, php-format
 msgid "See also: %s"
-msgstr ""
+msgstr "Se också: %s"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:558
 #: administrator/components/com_easycreator/helpers/html.php:76
@@ -292,7 +294,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:105
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:21
 msgid "Package"
-msgstr ""
+msgstr "Paket"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:559
 #: administrator/components/com_easycreator/helpers/html.php:725
@@ -301,7 +303,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:46
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:51
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:560
 msgid "Recommended"
