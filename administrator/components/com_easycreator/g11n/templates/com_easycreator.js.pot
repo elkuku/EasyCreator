@@ -1,6 +1,6 @@
-# @version SVN: $Id$
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
