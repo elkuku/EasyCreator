@@ -1,0 +1,18 @@
+[main]
+host = https://www.transifex.net
+lang_map = ar: ar-AR, da_DK: da-DK, de_DE: de-DE, es_ES: es-ES, fr_FR: fr-FR, nl_NL: nl-NL, pl_PL: pl-PL, pt_BR: pt-BR, sv_SE: sv-SE, hu_HU: hu-HU, id_ID: id-ID, zh_CN: zh-CN
+
+[easycreator.com_easycreatorpot]
+file_filter = administrator/components/com_easycreator/g11n/<lang>/<lang>.com_easycreator.po
+host = http://www.transifex.net
+source_lang = en
+
+[easycreator.com_easycreatorconfigpot]
+file_filter = administrator/components/com_easycreator/g11n/<lang>/<lang>.com_easycreator.config.po
+host = http://www.transifex.net
+source_lang = en
+
+[easycreator.com_easycreatorjspot]
+file_filter = administrator/components/com_easycreator/g11n/<lang>/<lang>.com_easycreator.js.po
+host = http://www.transifex.net
+source_lang = en
