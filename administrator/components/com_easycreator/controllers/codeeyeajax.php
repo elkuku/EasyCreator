@@ -433,16 +433,12 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $standard = JRequest::getVar('sniff_standard');
 
         if($standard)
-        {
-            $sniffer->setStandard($standard);
-        }
+        $sniffer->setStandard($standard);
 
         $format = JRequest::getVar('sniff_format');
 
         if($format)
-        {
-            $sniffer->setFormat($format);
-        }
+        $sniffer->setFormat($format);
 
         $verbose = JRequest::getCmd('sniff_verbose');
         $sniffer->verboseLevel =($verbose == 'true') ? '-v' : '';
@@ -465,6 +461,86 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response['console'] = htmlentities($results);
         $response['status'] = 1;
+
+        if($file
+        && 'xml' == $format)
+        {
+            $xml = JFactory::getXML($results, false);
+
+            $errors = array();
+
+            foreach ($xml->file->error as $error)
+            {
+                $line = (int)$error->attributes()->line;
+
+                if( ! isset($errors[$line]))
+                $errors[$line] = array();
+
+                $errors[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
+            }//foreach
+
+            $warnings = array();
+
+            foreach ($xml->file->warning as $error)
+            {
+                $line = (int)$error->attributes()->line;
+
+                if( ! isset($warnings[$line]))
+                $warnings[$line] = array();
+
+                $warnings[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
+            }//foreach
+
+            $highlight = '';
+            $highlight .= '<pre>';
+
+            $contents = file($fullPath);
+
+            foreach ($contents as $i => $line)
+            {
+                $lNo = $i + 1;
+
+                $msg = '';
+
+                $class = '';
+
+                if(isset($warnings[$lNo]))
+                {
+                    $class = 'warning';
+
+                    $msg .= implode("\n", $warnings[$lNo]);
+
+//                     $highlight .= '<b style="color: orange" class="hasTip" title="'.$msg.'"> WWW </b>';
+                }
+
+                if(isset($errors[$lNo]))
+                {
+                    $class = 'error';
+
+                    $msg .= implode("\n", $errors[$lNo]);
+
+//                     $highlight .= '<b style="color: red" class="hasTip" title="'.$msg.'"> EEE </b>';
+                }
+
+
+//                 else
+//                 {
+// //                     $highlight .= ' ___ ';
+//                 }
+                $highlight .= '<div class="'.$class.'">';
+                $highlight .= str_pad($lNo, 4, ' ', STR_PAD_LEFT).' '.htmlentities($line);
+
+                if($msg)
+                $highlight .= '     <small>'.$msg.'</small>';
+
+                $highlight .= '</div>';
+
+            }//foreach
+
+            $highlight .= '</pre>';
+
+            $response['text'] = $highlight.$response['text'];
+        }
 
         echo json_encode($response);
     }//function
@@ -620,6 +696,10 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
 <h3>Installed PEAR Packages</h3>
 
+
+
+
+
 <?php echo sprintf(jgettext('See also: %s')
 , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
 <table class="adminlist">
@@ -680,6 +760,10 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 	</tbody>
 
 </table>
+
+
+
+
 
 <?php
         }

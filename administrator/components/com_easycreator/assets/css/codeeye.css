@@ -33,3 +33,11 @@ ul.colorChooser {
    list-style: none;
    padding-left: 0;
 }
+
+div#ecr_codeeye_output div.error {
+	background-color: #ff6666;
+}
+
+div#ecr_codeeye_output div.warning {
+	background-color: orange;
+}
