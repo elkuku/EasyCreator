@@ -15,8 +15,4 @@ title="See more information on Transifex.net">Top translations: easycreator » c
 
 ## Stats
 
-<script type="text/javascript" src="http://www.ohloh.net/p/360057/widgets/project_basic_stats.js"></script>
-
-<script type="text/javascript" src="http://www.ohloh.net/p/360057/widgets/project_users.js?style=red"></script>
-
-<script type="text/javascript" src="http://www.ohloh.net/p/360057/widgets/project_languages.js"></script>
+<a href="http://elkuku.github.com/EasyCreator/">elkuku/EasyCreator</a>
