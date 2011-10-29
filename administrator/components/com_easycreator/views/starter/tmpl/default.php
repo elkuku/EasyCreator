@@ -11,14 +11,11 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('easytemplatehelper');
-
 //-- Add css
 ecrStylesheet('php_file_tree');
 
 $comTypes = EasyProjectHelper::getProjectTypes();
-$templateList = EasyTemplateHelper::getTemplateList();
-$jVersions = array('15', '16');
+$jVersions = array('15', '17');
 
 ?>
 <div class="white_box">
@@ -48,9 +45,9 @@ foreach ($jVersions as $v) : ?>
         <div class="ecr_floatbox_title img icon-12-<?php echo $extType; ?>">
             <?php echo $description; ?>
         </div>
-        <?php if(isset($templateList[$extType])): ?>
+        <?php if(isset($this->templateList[$extType])): ?>
             <?php
-            foreach($templateList[$extType] as $template):
+            foreach($this->templateList[$extType] as $template):
                 $link =($template->authorUrl)
                 ? '<a href="'.$template->authorUrl.'" class="external">'.jgettext('Description').'</a>'
                 : '';

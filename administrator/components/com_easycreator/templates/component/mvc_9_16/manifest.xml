@@ -5,7 +5,7 @@
 	<name>Categories</name>
 	<description>A component using Joomla! categories - WIP !</description>
 	<version>1.2</version>
-	<jVersion>1.6</jVersion>
+	<jVersion>1.7</jVersion>
 	<phpVersion>5</phpVersion>
 	<dbTables>Custom table</dbTables>
 	<author></author>

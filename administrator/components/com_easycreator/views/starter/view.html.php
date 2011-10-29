@@ -35,10 +35,13 @@ class EasyCreatorViewStarter extends JView
         $task = JRequest::getCmd('task');
 
         ecrLoadHelper('builder');
+
         $this->EasyBuilder = new EasyBuilder;
 
         ecrStylesheet('wizard');
         ecrScript('wizard');
+
+        ecrLoadHelper('easytemplatehelper');
 
         //--JS for changing loader pic
         $img_base = JURI::root().'administrator/components/com_easycreator/assets/images';
@@ -48,12 +51,21 @@ class EasyCreatorViewStarter extends JView
 
         $params = JComponentHelper::getParams('com_easycreator');
 
+        $this->templateList = EasyTemplateHelper::getTemplateList();
+
+        $tplType = JRequest::getCmd('tpl_type');
+        $tplFolder = JRequest::getCmd('tpl_name');
+
+        $desc = isset($this->templateList[$tplType][$tplFolder])
+        ? $this->templateList[$tplType][$tplFolder]->description
+        : '';
+
         $project = EasyProjectHelper::newProject('empty');
 
         $project->type = JRequest::getCmd('tpl_type', '', 'post');
         $project->tplName = JRequest::getCmd('tpl_name', '', 'post');
         $project->version = JRequest::getVar('version', '1.0', 'post');
-        $project->description = JRequest::getVar('description', '', 'post');
+        $project->description = JRequest::getVar('description', $desc, 'post');
         $project->listPostfix = JRequest::getCmd('list_postfix', 'List', 'post');
         $project->JCompat = JRequest::getVar('jcompat', '', 'post');
 
@@ -76,18 +88,32 @@ class EasyCreatorViewStarter extends JView
 
         $this->assignRef('project', $project);
 
-        if($task != 'starter'
-        && $task != 'wizard'
-        && $task)
-        {
-            $this->setLayout($task);
-        }
-
-        $this->setUpInfoLinks();
+        if($task && method_exists($this, $task))
+        $this->$task();
 
         parent::display($tpl);
 
         ecrHTML::easyFormEnd();
+    }//function
+
+    private function starter()
+    {
+        $this->setUpInfoLinks();
+    }//function
+
+    private function wizard()
+    {
+        $this->setUpInfoLinks();
+    }//function
+
+    private function wizard2()
+    {
+        $this->setLayout('wizard2');
+    }//function
+
+    private function wizard3()
+    {
+        $this->setLayout('wizard3');
     }//function
 
     private function setUpInfoLinks()
@@ -95,32 +121,37 @@ class EasyCreatorViewStarter extends JView
         $docBase = 'http://docs.joomla.org/';
 
         $this->infoLinks = array(
-      'component' => array(
+        'component' => array(
             'Category:Components'
-            => $docBase.'Category:Components'
-            )
-            , 'module' => array(
-              'Category:Modules' => $docBase.'Category:Modules'
-              , 'Creating a Hello World Module'
-              => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
-              )
-              , 'plugin' => array(
-              'Category:Plugins' => $docBase.'Category:Plugins'
-              , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
-              , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
-              , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
-              , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
-              , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
-              )
-              , 'template' => array(
-              'Category:Templates' => $docBase.'Category:Templates'
-              , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
-              , 'How to override the output from the Joomla! core'
-              => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
-              , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
-              )
-              , 'library' => array()
-              , 'package' => array()
-              );
+        => $docBase.'Category:Components'
+        )
+
+        , 'module' => array(
+          'Category:Modules' => $docBase.'Category:Modules'
+        , 'Creating a Hello World Module'
+        => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
+        )
+
+        , 'plugin' => array(
+          'Category:Plugins' => $docBase.'Category:Plugins'
+        , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
+        , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
+        , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
+        , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
+        , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
+        )
+
+        , 'template' => array(
+          'Category:Templates' => $docBase.'Category:Templates'
+        , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
+        , 'How to override the output from the Joomla! core'
+        => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
+        , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
+        )
+
+        , 'library' => array()
+
+        , 'package' => array()
+        );
     }//function
 }//class

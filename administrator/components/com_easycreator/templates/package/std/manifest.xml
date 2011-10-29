@@ -5,7 +5,7 @@
   <name>Standard package</name>
   <description>A package containing various extension types</description>
   <version>1.0</version>
-  <jVersion>1.6</jVersion>
+  <jVersion>1.7</jVersion>
   <phpVersion>5</phpVersion>
   <author></author>
   <authorUrl></authorUrl>

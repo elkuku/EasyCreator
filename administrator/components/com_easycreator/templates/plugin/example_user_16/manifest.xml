@@ -5,7 +5,7 @@
   <name>Example User</name>
   <description>The user example taken from the Joomla! core</description>
   <version>1.0</version>
-  <jVersion>1.6</jVersion>
+  <jVersion>1.7</jVersion>
   <phpVersion>5</phpVersion>
   <author>Joomla! core</author>
   <authorUrl></authorUrl>

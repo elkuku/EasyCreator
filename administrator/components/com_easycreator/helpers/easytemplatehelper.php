@@ -25,9 +25,7 @@ class EasyTemplateHelper
         static $list = array();
 
         if(count($list))
-        {
-            return $list;
-        }
+        return $list;
 
         $types = JFolder::folders(ECRPATH_EXTENSIONTEMPLATES);
 
@@ -36,20 +34,18 @@ class EasyTemplateHelper
             if($tplType == 'parts'
             || $tplType == 'std'
             || $tplType == 'autocodes')
-            {
-                continue;
-            }
+            continue;
 
             $templates = JFolder::folders(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType);
 
             foreach($templates as $tplName)
             {
-                if( ! $info = self::getTemplateInfo($tplType, $tplName))
-                {
-                    continue;
-                }
+                $info = self::getTemplateInfo($tplType, $tplName);
 
-                $list[$tplType][] = $info;
+                if( ! $info)
+                continue;
+
+                $list[$tplType][$info->folder] = $info;
             }//foreach
         }//foreach
 
@@ -67,13 +63,12 @@ class EasyTemplateHelper
     public static function getTemplateInfo($tplType, $tplName)
     {
         if( ! JFile::exists(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml'))
-        {
-            return false;
-        }
+        return false;
 
         $xml = EasyProjectHelper::getXML(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml');
 
         $info = new stdClass;
+
         $info->folder = $tplName;
         $info->name = (string)$xml->name;
         $info->description = jgettext((string)$xml->description);
@@ -121,9 +116,7 @@ class EasyTemplateHelper
                     $path = str_replace(ECRPATH_EXTENSIONTEMPLATES.DS, '', $path);
 
                     if( ! JFolder::exists(dirname($tempDir.DS.$path)))
-                    {
-                        JFolder::create(dirname($tempDir.DS.$path));
-                    }
+                    JFolder::create(dirname($tempDir.DS.$path));
 
                     if( ! JFile::copy(ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path))
                     throw new Exception(sprintf(jgettext('Unable to copy the file %s to %s')

@@ -5,7 +5,7 @@
   <name>Frontend Plain</name>
   <description>A plain frontend module.</description>
   <version>1.0</version>
-  <jVersion>1.6</jVersion>
+  <jVersion>1.7</jVersion>
   <phpVersion>5</phpVersion>
   <author></author>
   <authorUrl></authorUrl>
