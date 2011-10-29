@@ -11,19 +11,19 @@
 /*
  This is our SQL INSERT query (for manual install)
 
- ** J! 1.5
- INSERT INTO `#__components`
- (`name`, `link`, `menuid`, `parent`, `admin_menu_link`
- , `admin_menu_alt`, `option`, `ordering`
- , `admin_menu_img`, `iscore`, `params`, `enabled`)
- VALUES
- ('EasyCreator', 'option=com_easycreator', 0, 0, 'option=com_easycreator'
- , 'EasyCreator', 'com_easycreator', 0
- , 'components/com_easycreator/assets/images/ico/icon-16-easycreator.png', 0, '', 1);
+** J! <= 1.5
+INSERT INTO `#__components`
+(`name`, `link`, `menuid`, `parent`, `admin_menu_link`
+, `admin_menu_alt`, `option`, `ordering`
+, `admin_menu_img`, `iscore`, `params`, `enabled`)
+VALUES
+('EasyCreator', 'option=com_easycreator', 0, 0, 'option=com_easycreator'
+, 'EasyCreator', 'com_easycreator', 0
+, 'components/com_easycreator/assets/images/ico/icon-16-easycreator.png', 0, '', 1);
 
- ** J! 1.6 ff
- Use the new 'Discover' feature from the Joomla! installer - works great =;)
- */
+** J! >= 1.6
+Use the new 'Discover' feature from the Joomla! installer - works great =;)
+*/
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
@@ -83,18 +83,29 @@ ecrLoadHelper('languagehelper');
 
 //-- Load the special Language
 
+//-- 1) Check if g11n is installed as a PEAR package - see: http://elkuku.github.com/pear/
+// @todo: check for installed g11n PEAR package to remove the "shut-up"
+@require_once 'elkuku/g11n/language.php';
+
 try
 {
-    if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')//@todo remove JFolder::exists when dropping 1.5 support
-    || ! jimport('g11n.language'))
+    if( ! class_exists('g11n'))
     {
-        //-- Load dummy language handler -> english only !
-        ecrLoadHelper('g11n_dummy');
+        //-- 2) Check the libraries folder
 
-        ecrScript('g11n_dummy');
-        ecrScript('php2js');
+        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')//@todo remove JFolder::exists when dropping 1.5 support
+        || ! jimport('g11n.language'))
+        {
+            //-- 3) Load a dummy language handler -> english only !
+
+            ecrLoadHelper('g11n_dummy');
+
+            ecrScript('g11n_dummy');
+            ecrScript('php2js');
+        }
     }
-    else
+
+    if(class_exists('g11n'))
     {
         //TEMP@@debug
         if(ECR_DEV_MODE && ECR_DEBUG_LANG)
@@ -125,19 +136,22 @@ JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
  */
 switch(ECR_JVERSION)
 {
-    case '1.8': //-- Get prepared =;)
-        JError::raiseNotice(0, sprintf(jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s')
+    case '2.5': //-- Get prepared
+    case '1.8': //-- Get prepared
+        JError::raiseNotice(0, sprintf(
+        jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s')
         , ECR_VERSION, ECR_JVERSION));
-    break;
+        break;
 
-    case '1.5':
-    case '1.6':
     case '1.7':
-        //-- We're all OK =;)
-    break;
+    case '1.6':
+    case '1.5':
+        //-- We're all OK
+        break;
 
     default:
-        JError::raiseWarning(0, sprintf(jgettext('EasyCreator version %s may not work well with your Joomla! version %s')
+        JError::raiseWarning(0, sprintf(
+        jgettext('EasyCreator version %s may not work well with your Joomla! version %s')
         , ECR_VERSION, ECR_JVERSION));
     break;
 }//switch
@@ -185,7 +199,7 @@ else
 
 $controller = EasyCreatorHelper::getController();
 
-if(JRequest::getCmd('tmpl') == 'component')
+if('component' == JRequest::getCmd('tmpl'))
 {
     //-- Perform the Request task only - raw view
     $controller->execute(JRequest::getCmd('task'));
@@ -211,7 +225,7 @@ else
     JDEBUG ? $profiler->mark('com_easycreator finished') : null;
 }
 
-//-- Re-set error_reporting
+//-- Restore error_reporting
 error_reporting($prevErrorReporting);
 
 //-- Redirect if set by the controller
