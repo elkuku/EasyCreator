@@ -1,7 +1,6 @@
 /**
 * JavaScript routines for Krumo
 *
-* @version $Id$
 * @link http://sourceforge.net/projects/krumo
 */
 
@@ -13,13 +12,13 @@
 function krumo() {
 	}
 
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 /**
 * Add a CSS class to an HTML element
 *
-* @param HtmlElement el 
-* @param string className 
+* @param HtmlElement el
+* @param string className
 * @return void
 */
 krumo.reclass = function(el, className) {
@@ -28,13 +27,13 @@ krumo.reclass = function(el, className) {
 		}
 	}
 
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 /**
 * Remove a CSS class to an HTML element
 *
-* @param HtmlElement el 
-* @param string className 
+* @param HtmlElement el
+* @param string className
 * @return void
 */
 krumo.unclass = function(el, className) {
@@ -43,12 +42,12 @@ krumo.unclass = function(el, className) {
 		}
 	}
 
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 /**
 * Toggle the nodes connected to an HTML element
 *
-* @param HtmlElement el 
+* @param HtmlElement el
 * @return void
 */
 krumo.toggle = function(el) {
@@ -70,29 +69,29 @@ krumo.toggle = function(el) {
 		}
 	}
 
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 /**
 * Hover over an HTML element
 *
-* @param HtmlElement el 
+* @param HtmlElement el
 * @return void
 */
 krumo.over = function(el) {
 	krumo.reclass(el, 'krumo-hover');
 	}
 
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 /**
 * Hover out an HTML element
 *
-* @param HtmlElement el 
+* @param HtmlElement el
 * @return void
 */
 
 krumo.out = function(el) {
 	krumo.unclass(el, 'krumo-hover');
 	}
-	
+
 /////////////////////////////////////////////////////////////////////////////

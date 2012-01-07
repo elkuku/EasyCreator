@@ -23,8 +23,6 @@
 // | Authors: John Griffin <jgriffin316@netscape.net>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id$
-//
 
 require_once 'PEAR.php';
 

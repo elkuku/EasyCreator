@@ -1,8 +1,7 @@
-# @version SVN: $Id$
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Steven Zeegers <steven.zeegers@gmail.com>, 2011.
 msgid ""
@@ -914,7 +913,7 @@ msgid "Path is not a folder"
 msgstr ""
 
 #. render it
-#. 
+#.
 #: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:96
 msgid "Backtrace"
 msgstr ""
@@ -1756,18 +1755,18 @@ msgstr ""
 #. Dokumentarischen Kommentar ausgeben
 #. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
 #. 1));
-#. 
+#.
 #. // Ausgeben, welche Interfaces von der Klasse implementiert werden
 #. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
 #. 1));
-#. 
+#.
 #. // Klassenkonstanten ausgeben
 #. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#. 
+#.
 #. // Klasseneigenschaften ausgeben
 #. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
 #. 1));
-#. 
+#.
 #. // Klassenmethoden ausgeben
 #. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
 #. '</pre>';

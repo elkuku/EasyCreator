@@ -1,7 +1,6 @@
-# @version SVN: $Id$
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# 
+#
 # Translators:
 # Manoel iikozen <iikozen@yahoo.com>, 2011.
 msgid ""

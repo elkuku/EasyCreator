@@ -1,7 +1,6 @@
-# @version SVN: $Id$
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# 
+#
 # Translators:
 # Nikolai Plath <info@nik-it.de>, 2010.
 msgid ""

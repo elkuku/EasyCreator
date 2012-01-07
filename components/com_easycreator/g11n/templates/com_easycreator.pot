@@ -1,5 +1,4 @@
 # Language template for EasyCreator package site.
-# @version SVN $Id$
 # Copyright (C) YEAR NiK(C)
 # This file is distributed under the same license as the EasyCreator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.

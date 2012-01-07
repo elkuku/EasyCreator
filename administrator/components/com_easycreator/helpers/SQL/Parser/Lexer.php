@@ -24,8 +24,6 @@
 // |          Jason Pell <jasonpell@hotmail.com>                          |
 // +----------------------------------------------------------------------+
 //
-// $Id$
-//
 
 include dirname(__FILE__) . '/ctype.php';
 

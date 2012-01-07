@@ -1,7 +1,6 @@
-# @version SVN: $Id$
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# 
+#
 # Translators:
 #   <bvp@gmx.de>, 2011.
 # Nikolai Plath <test@joomla.org>, 2010.

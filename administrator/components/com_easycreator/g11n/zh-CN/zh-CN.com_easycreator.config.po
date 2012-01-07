@@ -1,7 +1,6 @@
-# @version SVN: $Id$
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# 
+#
 # Translators:
 # root <EMAIL@ADDRESS>, 2010.
 msgid ""

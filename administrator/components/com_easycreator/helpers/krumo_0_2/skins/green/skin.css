@@ -1,7 +1,6 @@
 /**
 * Krumo "Green" Skin
 *
-* @version $Id$
 * @author Kaloyan K. Tsvetkov <mrasnika@users.sourceforge.net>
 */
 
@@ -42,10 +41,10 @@ div.krumo-element {
 
 	line-height: 24px;
 	display:block;
-	
+
 	clear:both;
 	white-space:nowrap;
-	
+
 	border-top: solid 1px white;
 	background: #D7F4CA;
 	padding-left: 10px;

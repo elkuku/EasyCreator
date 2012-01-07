@@ -6,10 +6,9 @@
  * This is the changelog for LanguageChecker.<br>
  * <b>Please</b> be patient =;)
  *
- * @version    $Id$
  * @package    LanguageChecker
  * @subpackage Documentation
- * @author     Nikolai Plath {@link http://easy-joomla.org}
+ * @author     Nikolai Plath
  * @author     Created on 12-Sep-2010
  */
 

@@ -39,7 +39,6 @@
  * @copyright 2002-2004 Brent Cook
  *            2005 Erich Enke
  * @license   http://www.gnu.org/licenses/lgpl.html GNU Lesser GPL 3
- * @version   CVS: $Id$
  * @link      http://pear.php.net/package/SQL_Parser
  * @since     File available since Release 0.1.0
  */

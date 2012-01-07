@@ -1,5 +1,4 @@
 # Language fr-FR translations for EasyCreator package.
-# @version SVN $Id$
 # Copyright (C) 2010 NiK(C)
 # This file is distributed under the same license as the EasyCreator package.
 # root <EMAIL@ADDRESS>, 2010.
