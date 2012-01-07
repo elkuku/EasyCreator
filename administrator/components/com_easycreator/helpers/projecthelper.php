@@ -40,7 +40,7 @@ class EasyProjectHelper
 
             case '1.6':
             case '1.7':
-	        case '2.5':
+            case '2.5':
                 $projectTypes += array(
                 'lib' => 'library'
                 , 'pkg' => 'package');
@@ -172,7 +172,7 @@ class EasyProjectHelper
 
             case '1.6':
             case '1.7':
-	        case '2.5':
+            case '2.5':
                 if('library' == $project->type
                 || 'package' == $project->type)
                 {
@@ -502,26 +502,26 @@ class EasyProjectHelper
         return $types;
     }//function
 
-	/**
-	 * Get a list of known project scopes.
-	 *
-	 * @return array
-	 */
-	public static function getProjectScopes()
-	{
-		$scopes = array(
-			'component' => ''
-		, 'module' => 'admin,site'
-		, 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
-		, 'template' => 'admin,site');
+    /**
+     * Get a list of known project scopes.
+     *
+     * @return array
+     */
+    public static function getProjectScopes()
+    {
+        $scopes = array(
+            'component' => ''
+        , 'module' => 'admin,site'
+        , 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
+        , 'template' => 'admin,site');
 
-		if('1.5' != ECR_JVERSION)
-		{
-			$scopes['library'] = '';
-		}
+        if('1.5' != ECR_JVERSION)
+        {
+            $scopes['library'] = '';
+        }
 
-		return $scopes;
-	}
+        return $scopes;
+    }//function
 
     /**
      * Format a filename for a package file.

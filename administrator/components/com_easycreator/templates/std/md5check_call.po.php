@@ -18,13 +18,13 @@
         echo '<br />'.jgettext('Checking MD5 sums...');
 
         $md5Result = checkMD5File($md5Path, $paths);
-        
+
         echo sprintf(jgettext('%d files checked...'), $md5Result[0]);
 
         if(count($md5Result) > 1)
         {
             array_shift($md5Result);
-            
+
             echo '<strong style="color: red;">'.jgettext('There have been errors').'</strong>';
             echo '<ul style="color: red;">';
             echo '<li>';

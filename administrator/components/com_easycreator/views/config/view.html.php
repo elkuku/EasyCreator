@@ -43,7 +43,7 @@ class EasyCreatorViewConfig extends JView
                 break;
             case '1.6':
             case '1.7':
-	        case '2.5':
+            case '2.5':
                 try
                 {
                     $this->form = $this->get('Form');

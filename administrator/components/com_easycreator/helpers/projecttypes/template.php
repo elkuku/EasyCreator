@@ -266,7 +266,7 @@ class EasyProjectTemplate extends EasyProject
 
                     case '1.6':
                     case '1.7':
-	                case '2.5':
+                    case '2.5':
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     default:
@@ -285,7 +285,7 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('atomic', 'beez_20', 'beez5', 'rhuk_milkyway', 'system');
                         break;
                     case '1.7':
-	                case '2.5':
+                    case '2.5':
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;
                     default:

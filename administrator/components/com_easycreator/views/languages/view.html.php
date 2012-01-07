@@ -68,7 +68,6 @@ class EasyCreatorViewLanguages extends JView
                     }
                 }
 
-
                 if( ! count($this->project->langs))
                 {
                     $this->easyLanguage = false;
@@ -126,9 +125,7 @@ class EasyCreatorViewLanguages extends JView
     {
         if('ini' != $this->project->langFormat)
         {
-
             $this->g11nInfo = $this->getG11nInfo();
-
 
             $this->setLayout('g11n');
         }
@@ -148,36 +145,31 @@ class EasyCreatorViewLanguages extends JView
         $info->id = $this->project->dbId;
         $info->extension = $this->project->comName;
 
-        switch ($this->project->type)
+        switch($this->project->type)
         {
             case 'component':
-        $comName = $this->project->comName;
-            ;
+                $comName = $this->project->comName;
             break;
 
             case 'plugin':
-        $comName = 'plg_content_'.$this->project->comName;
-            ;
+                $comName = 'plg_content_'.$this->project->comName;
             break;
 
             case 'template':
-        $comName = 'tpl_'.$this->project->comName;
-            ;
+                $comName = 'tpl_'.$this->project->comName;
             break;
 
             default:
                 echo 'undefined type: '.$this->project->type;
-        $comName = $this->project->comName;                ;
+            $comName = $this->project->comName;
             break;
-        }
+        }//switch
+
         $info->exists = g11nExtensionHelper::isExtension($comName, $info->scope);
 
         $info->templateLink =($info->exists)
         ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
         : '';
-
-
-
 
         $cachedFiles = G11nHelper::getCachedFiles();// $this->get('CachedFiles');
 
@@ -276,16 +268,9 @@ class EasyCreatorViewLanguages extends JView
                 }//foreach
             }//foreach
         }//foreach
-        //             }//foreach
-
-        //                 $info->scope = $scope;
-
-
-
-//         var_dump($this->project);
 
         return $info;
-    }
+    }//function
 
     /**
      * Convert language files View.
@@ -835,7 +820,7 @@ class EasyCreatorViewLanguages extends JView
         )
         , array('title' => 'JALHOO'
         , 'description' => jgettext('JALHOO is an experimental language handler.')
-        , 'icon' =>'ecr_language'
+        , 'icon' => 'ecr_language'
         , 'tasks' => array('jalhoo')
         )
         );
@@ -996,11 +981,10 @@ class EasyCreatorViewLanguages extends JView
 
         $this->languages = g11nHelper::getLanguages();// $this->get('languages');
 
-
         $this->g11nInfo = $this->getG11nInfo();
 
         $this->setLayout('g11nupdate');
-    }
+    }//function
 
     /**
      * Display the bar View.

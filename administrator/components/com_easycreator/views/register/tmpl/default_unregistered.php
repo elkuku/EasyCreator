@@ -14,17 +14,6 @@ defined('_JEXEC') || die('=;)');
 $projectTypes = EasyProjectHelper::getProjectTypes();
 $projectScopes = EasyProjectHelper::getProjectScopes();
 
-$projectScopes = array(
-'component' => ''
-, 'module' => 'admin,site'
-, 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
-, 'template' => 'admin,site');
-
-if('1.6' == ECR_JVERSION)
-{
-}
-$projectScopes['library'] = '';
-
 $task = JRequest::getCmd('task');
 $showCore =(JRequest::getCmd('show_core') == 'show_core') ? true : false;
 $checked =($showCore) ? ' checked="checked"' : '';

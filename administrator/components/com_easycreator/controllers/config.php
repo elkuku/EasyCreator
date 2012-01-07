@@ -60,7 +60,7 @@ class EasyCreatorControllerConfig extends JController
                     break;
                 case '1.6':
                 case '1.7':
-	            case '2.5':
+                case '2.5':
                     $component = JComponentHelper::getComponent('com_easycreator');
                     $table = JTable::getInstance('extension');
                     $table->load($component->id);

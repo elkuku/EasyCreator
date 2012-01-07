@@ -256,10 +256,10 @@ class EasyProjectModule extends EasyProject
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
                         , 'mod_title', 'mod_toolbar', 'mod_unread');
 
-	                case '2.5':
-		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-		                , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-		                , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
+                    case '2.5':
+                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
 
                     default:
                         JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
@@ -284,12 +284,13 @@ class EasyProjectModule extends EasyProject
                         , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
                         , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper');
 
-	                case '2.5':
-		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
-		                , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-		                , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
-		                , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-		                , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper', 'mod_finder');
+                    case '2.5':
+                        return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
+                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
+                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
+                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
+                        , 'mod_finder');
 
                     default:
                         JError::raiseWarning(0, __METHOD__.' - Unknown J! version');

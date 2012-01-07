@@ -116,7 +116,7 @@ try
 }
 catch(Exception $e)
 {
-	JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
     return;
 }//try

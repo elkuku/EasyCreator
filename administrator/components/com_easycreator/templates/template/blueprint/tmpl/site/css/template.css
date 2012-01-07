@@ -52,378 +52,378 @@ body { /* ist der ganze Bildschirm */
    /*** Joomla! specific content elements ***/
    /*****************************************/
 div.offline {
-   
+
 }
 
 span.pathway {
-   
+
 }
 
 /* headers */
 div.componentheading {
-   
+
 }
 
 h1 {
-   
+
 }
 
 h2,.contentheading {
-   
+
 }
 
 table.contentpaneopen h3 {
-   
+
 }
 
 h4 {
-   
+
 }
 
 h3,.componentheading,table.moduletable th,legend {
-   
+
 }
 
 /* small text */
 .small {
-   
+
 }
 
 .modifydate {
-   
+
 }
 
 .createdate {
-   
+
 }
 
 a.readon {
-   
+
 }
 
 /* form validation */
 .invalid {
-   
+
 }
 
 label.invalid {
-   
+
 }
 
 /** overlib **/
 .ol-foreground {
-   
+
 }
 
 .ol-background {
-   
+
 }
 
 .ol-textfont {
-   
+
 }
 
 .ol-captionfont {
-   
+
 }
 
 .ol-captionfont a {
-   
+
 }
 
 .ol-closefont {
-   
+
 }
 
 /* menu links */
 a.mainlevel:link,a.mainlevel:visited {
-   
+
 }
 
 a.mainlevel:hover {
-   
+
 }
 
 /* spacers */
 span.article_separator {
-   
+
 }
 
 .article_column {
-   
+
 }
 
 .column_separator {
-   
+
 }
 
 td.buttonheading {
-   
+
 }
 
 td.buttonheading img {
-   
+
 }
 
 .clr {
-   
+
 }
 
 td.greyline {
-   
+
 }
 
 div#maindivider {
-   
+
 }
 
 table.blog span.article_separator {
-   
+
 }
 
 /* edit button */
 .contentpaneopen_edit {
-   
+
 }
 
 /* table of contents */
 table.contenttoc {
-   
+
 }
 
 table.contenttoc td {
-   
+
 }
 
 /* content tables */
 td.sectiontableheader {
-   
+
 }
 
 tr.sectiontableentry0 td,tr.sectiontableentry1 td,tr.sectiontableentry2 td
    {
-   
+
 }
 
 td.sectiontableentry0,td.sectiontableentry1,td.sectiontableentry2 {
-   
+
 }
 
 /* content styles */
 table.contentpaneopen,table.contentpane {
-   
+
 }
 
 table.contentpaneopen li {
-   
+
 }
 
 table.contentpaneopen fieldset {
-   
+
 }
 
 table.contentpaneopen h3 {
-   
+
 }
 
 table.contentpaneopen h4 {
-   
+
 }
 
 .highlight {
-   
+
 }
 
 /* module control elements */
 table.user1user2 div.moduletable {
-   
+
 }
 
 div.moduletable,div.module {
-   
+
 }
 
 div.module_menu h3 {
-   
+
 }
 
 div.module_menu {
-   
+
 }
 
 div.module_menu div div div {
-   
+
 }
 
 div.module_menu div div div div {
-   
+
 }
 
 div.module_menu ul {
-   
+
 }
 
 div.module_menu ul li a:link,div.module_menu ul li a:visited {
-   
+
 }
 
 #leftcolumn div.module {
-   
+
 }
 
 #leftcolumn div.module table {
-   
+
 }
 
 /* forms */
 table.adminform textarea {
-   
+
 }
 
 div.search input {
-   
+
 }
 
 form#form-login fieldset {
-   
+
 }
 
 form#form-login ul {
-   
+
 }
 
 form#com-form-login fieldset {
-   
+
 }
 
 form#com-form-login ul {
-   
+
 }
 
 /* thumbnails */
 div.mosimage {
-   
+
 }
 
 div.mosimage_caption {
-   
+
 }
 
 div.caption {
-   
+
 }
 
 div.caption img {
-   
+
 }
 
 div.caption p {
-   
+
 }
 
 /* Parameter Table */
 table.paramlist {
-   
+
 }
 
 table.paramlist td.paramlist_key {
-   
+
 }
 
 table.paramlist td.paramlist_value {
-   
+
 }
 
 div.message {
-   
+
 }
 
 /* Banners module */ /* Default skyscraper style */
 .bannergroup {
-   
+
 }
 
 .banneritem img {
-   
+
 }
 
 /* Text advert style */
 .banneritem_text {
-   
+
 }
 
 .bannerfooter_text {
-   
+
 }
 
 /* System Messages */ /* see system general.css */
 .pagination span {
-   
+
 }
 
 .pagination a {
-   
+
 }
 
 /* Polls */
 .pollstableborder td {
-   
+
 }
 
 /* WebLinks */
 span.description {
-   
+
 }
 
 /* Frontend Editing*/
 fieldset {
-   
+
 }
 
 legend {
-   
+
 }
 
 td.key {
-   
+
 }
 
 /* Tooltips */
 .tool-tip {
-   
+
 }
 
 .tool-title {
-   
+
 }
 
 .tool-text {
-   
+
 }
 
 /* System Standard Messages */
 #system-message {
-   
+
 }
 
 #system-message dd.message ul {
-   
+
 }
 
 /* System Error Messages */
 #system-message dd.error ul {
-   
+
 }
 
 /* System Notice Messages */
 #system-message dd.notice ul {
-   
+
 }
 
 #syndicate {
-   
+
 }
 
 #power_by {
-   
+
 }

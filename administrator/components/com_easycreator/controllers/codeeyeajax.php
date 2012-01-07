@@ -31,7 +31,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response = new JsonResponse;
 
-
         $folder = JRequest::getString('folder');
         $test = JRequest::getString('test');
         $time_stamp = JRequest::getCmd('time_stamp');
@@ -468,7 +467,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $errors = array();
 
-            foreach ($xml->file->error as $error)
+            foreach($xml->file->error as $error)
             {
                 $line = (int)$error->attributes()->line;
 
@@ -480,7 +479,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $warnings = array();
 
-            foreach ($xml->file->warning as $error)
+            foreach($xml->file->warning as $error)
             {
                 $line = (int)$error->attributes()->line;
 
@@ -495,7 +494,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $contents = file($fullPath);
 
-            foreach ($contents as $i => $line)
+            foreach($contents as $i => $line)
             {
                 $lNo = $i + 1;
 
@@ -508,8 +507,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                     $class = 'warning';
 
                     $msg .= implode("\n", $warnings[$lNo]);
-
-//                     $highlight .= '<b style="color: orange" class="hasTip" title="'.$msg.'"> WWW </b>';
                 }
 
                 if(isset($errors[$lNo]))
@@ -517,15 +514,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                     $class = 'error';
 
                     $msg .= implode("\n", $errors[$lNo]);
-
-//                     $highlight .= '<b style="color: red" class="hasTip" title="'.$msg.'"> EEE </b>';
                 }
 
-
-//                 else
-//                 {
-// //                     $highlight .= ' ___ ';
-//                 }
                 $highlight .= '<div class="'.$class.'">';
                 $highlight .= str_pad($lNo, 4, ' ', STR_PAD_LEFT).' '.htmlentities($line);
 
@@ -533,7 +523,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                 $highlight .= '     <small>'.$msg.'</small>';
 
                 $highlight .= '</div>';
-
             }//foreach
 
             $highlight .= '</pre>';
@@ -703,60 +692,60 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
 <table class="adminlist">
 
-	<thead>
-		<tr>
-			<th><?php echo jgettext('Package'); ?></th>
-			<th><?php echo jgettext('Version'); ?></th>
-			<th><?php echo jgettext('Recommended'); ?></th>
-			<th><?php echo jgettext('Info'); ?></th>
-		</tr>
-	</thead>
+    <thead>
+        <tr>
+            <th><?php echo jgettext('Package'); ?></th>
+            <th><?php echo jgettext('Version'); ?></th>
+            <th><?php echo jgettext('Recommended'); ?></th>
+            <th><?php echo jgettext('Info'); ?></th>
+        </tr>
+    </thead>
 
-	<tbody>
-		<tr class="row0">
-			<td>PHP_CodeSniffer</td>
-			<td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
-			? $pearPackages['PHP_CodeSniffer']
-			: $notFound; ?>
-			</td>
-			<td>1.2.0</td>
-			<td><a href="http://pear.php.net/package/PHP_CodeSniffer"
-				class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
-				CSS files and detects violations of a defined set of coding
-				standards.</td>
-		</tr>
+    <tbody>
+        <tr class="row0">
+            <td>PHP_CodeSniffer</td>
+            <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
+            ? $pearPackages['PHP_CodeSniffer']
+            : $notFound; ?>
+            </td>
+            <td>1.2.0</td>
+            <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
+                class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
+                CSS files and detects violations of a defined set of coding
+                standards.</td>
+        </tr>
 
-		<tr class="row1">
-			<td>phpcpd</td>
-			<td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
-			<td>1.1.1</td>
-			<td><a href="http://github.com/sebastianbergmann/phpcpd"
-				class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
-				code.</td>
-		</tr>
+        <tr class="row1">
+            <td>phpcpd</td>
+            <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
+            <td>1.1.1</td>
+            <td><a href="http://github.com/sebastianbergmann/phpcpd"
+                class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
+                code.</td>
+        </tr>
 
-		<tr class="row0">
-			<td>PhpDocumentor</td>
-			<td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
-			? $pearPackages['PhpDocumentor']
-			: $notFound; ?>
-			</td>
-			<td>1.4.3</td>
-			<td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
-				is the world standard auto-documentation tool for PHP.</td>
-		</tr>
+        <tr class="row0">
+            <td>PhpDocumentor</td>
+            <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
+            ? $pearPackages['PhpDocumentor']
+            : $notFound; ?>
+            </td>
+            <td>1.4.3</td>
+            <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
+                is the world standard auto-documentation tool for PHP.</td>
+        </tr>
 
-		<tr class="row1">
-			<td>PhpUnit</td>
-			<td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
-			<td>3.4.0</td>
-			<td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
-				provides both a framework that makes the writing of tests easy as
-				well as the functionality to easily run the tests and analyse their
-				results.</td>
-		</tr>
+        <tr class="row1">
+            <td>PhpUnit</td>
+            <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
+            <td>3.4.0</td>
+            <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
+                provides both a framework that makes the writing of tests easy as
+                well as the functionality to easily run the tests and analyse their
+                results.</td>
+        </tr>
 
-	</tbody>
+    </tbody>
 
 </table>
 

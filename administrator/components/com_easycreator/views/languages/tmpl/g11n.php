@@ -55,7 +55,7 @@ ecrStylesheet('g11n');
         endif;
         ?>
 		<tr class="<?php echo "row$k"; ?>">
-			<?php if(0&&$checkDrawn) : ?>
+			<?php if(0 && $checkDrawn) : ?>
 				<td colspan="3">&nbsp;</td>
 			<?php else : ?>
 			<?php $checkDrawn = true;?>

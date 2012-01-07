@@ -298,7 +298,7 @@ class EasyCreatorControllerLanguages extends JController
 
             $project = EasyProjectHelper::getProject();
 
-            switch ($project->type)
+            switch($project->type)
             {
                 case 'template':
                     $comName = 'tpl_'.$project->comName;
@@ -307,7 +307,7 @@ class EasyCreatorControllerLanguages extends JController
                 default:
                     $comName = $project->comName;
                 break;
-            }
+            }//switch
 
             $scope = JRequest::getCmd('scope');
             $lang = JRequest::getCmd('langTag');
@@ -336,7 +336,7 @@ class EasyCreatorControllerLanguages extends JController
 
             $scope = JRequest::getCmd('scope');
 
-            switch ($project->type)
+            switch($project->type)
             {
                 case 'template':
                     $comName = 'tpl_'.$project->comName;
@@ -345,7 +345,7 @@ class EasyCreatorControllerLanguages extends JController
                 default:
                     $comName = $project->comName;
                 break;
-            }
+            }//switch
 
             $msg = G11nHelper::createTemplate($comName, $scope);
 

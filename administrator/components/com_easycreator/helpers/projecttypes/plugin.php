@@ -258,7 +258,7 @@ class EasyProjectPlugin extends EasyProject
 
             case '1.6':
             case '1.7':
-	        case '2.5':
+            case '2.5':
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
@@ -388,49 +388,49 @@ class EasyProjectPlugin extends EasyProject
                 }//switch
                 break;
 
-	        case '2.5':
-		        switch($scope)
-		        {
-			        case 'authentication':
-				        $projects = array('gmail', 'joomla', 'ldap');
-				        break;
-			        case 'captcha':
-				        $projects = array('recaptcha');
-				        break;
-			        case 'content':
-				        $projects = array('emailcloak', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
-				        , 'pagenavigation', 'vote', 'finder');
-				        break;
-			        case 'editors':
-				        $projects = array('none', 'tinymce', 'codemirror');
-				        break;
-			        case 'editors-xtd':
-				        $projects = array('article', 'image', 'pagebreak', 'readmore');
-				        break;
-			        case 'extension':
-				        $projects = array('joomla');
-				        break;
-			        case 'finder':
-				        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
-				        break;
-			        case 'quickicon':
-				        $projects = array('extensionupdate', 'joomlaupdate');
-				        break;
-			        case 'search':
-				        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
-				        break;
-			        case 'system':
-				        $projects = array('cache', 'debug', 'finder', 'highlight', 'languagefilter', 'languagecode'
-				        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
-				        break;
-			        case 'user':
-				        $projects = array('contactcreator', 'joomla', 'profile');
-				        break;
-			        default :
-				        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
-				        break;
-		        }//switch
-		        break;
+            case '2.5':
+                switch($scope)
+                {
+                    case 'authentication':
+                        $projects = array('gmail', 'joomla', 'ldap');
+                        break;
+                    case 'captcha':
+                        $projects = array('recaptcha');
+                        break;
+                    case 'content':
+                        $projects = array('emailcloak', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
+                        , 'pagenavigation', 'vote', 'finder');
+                        break;
+                    case 'editors':
+                        $projects = array('none', 'tinymce', 'codemirror');
+                        break;
+                    case 'editors-xtd':
+                        $projects = array('article', 'image', 'pagebreak', 'readmore');
+                        break;
+                    case 'extension':
+                        $projects = array('joomla');
+                        break;
+                    case 'finder':
+                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+                        break;
+                    case 'quickicon':
+                        $projects = array('extensionupdate', 'joomlaupdate');
+                        break;
+                    case 'search':
+                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+                        break;
+                    case 'system':
+                        $projects = array('cache', 'debug', 'finder', 'highlight', 'languagefilter', 'languagecode'
+                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
+                        break;
+                    case 'user':
+                        $projects = array('contactcreator', 'joomla', 'profile');
+                        break;
+                    default :
+                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        break;
+                }//switch
+                break;
 
             default:
                 JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
