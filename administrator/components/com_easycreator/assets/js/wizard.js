@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -28,15 +27,15 @@ function getExtensionTemplateInfo(extType, folder, e)
 
         return;
     }
-    
+
     var htmlId = extType + '_' + folder;
-    
+
     $('btn_' + htmlId).className = 'ecr_button ajax_loading16';
 
     url = ecrAJAXLink + '&controller=starter&task=ajGetExtensionTemplateInfo';
     url += '&extType=' + extType;
     url += '&folder=' + folder;
-    
+
     new Request({
         url: url,
 
@@ -58,13 +57,13 @@ function getExtensionTemplateInfo(extType, folder, e)
             }
 
             $(htmlId + '_files').innerHTML = resp.text;
-            
+
             e.toggle();
-            
+
             $('btn_' + htmlId).className = 'ecr_button img icon-16-add';
         }
     }).send();
-    
+
 }//function
 
 function changeJVersion(version)

@@ -1,5 +1,4 @@
 /**
- * @version $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -44,10 +43,10 @@ paramTypes['usergroup']  = ['class', 'multiple', 'size'];
 
 /*
  * So geht's ;)
- * 
+ *
  * for (var name in paramTypes) { //--alert("My " + name + "'s name is " +
  * paramTypes[name]); paramTypes[name].each(function(item) { alert(item); }); }
- * 
+ *
  */
 
 if(FBPresent) console.log (paramTypes);
@@ -69,7 +68,7 @@ function addGroup(name)
 {
     html = "<div id='div-group-"+name+"'><h1>"+name+"</h1></div>";
     $('divParameters').innerHTML += html;
-    
+
     new Element('option', { text: name }).inject($('addParamGroup'));
 }//function
 
@@ -81,16 +80,16 @@ function newParameter()
     if( ctrlName == '' )
     {
         $('addParamMessage').innerHTML = '<div style="color: red;">'+jgettext('You must provide a name') + '</div>';
-        
+
         var div = $('addParamMessage').setStyles({
             display:'block',
             opacity: 0
         });
-        
+
         new Fx.Tween(div, $extend({property: 'opacity'}), {duration: 1500} ).start(1);
         $('addParamName').focus();
         div_new_parameter.slideIn();
-        
+
         return;
     }
     else
@@ -107,15 +106,15 @@ function newParameter()
 function startParam(groupName, attribs, children)
 {
     if(FBPresent)    console.log('start...',groupName, attribs, children);
-    
+
     tName = 'div_'+attribs.name;
-    
+
     if( attribs.type == 'spacer' )
     {
         tName += 'spc'+jscnt_spacers;
         jscnt_spacers ++;
     }
-    
+
     html = "";
 // html += NL+"<div class='ecr_toggle' id='"+tName+"-toggler'
 // onclick='paramSliders["+sliderCount+"].toggle();'>";
@@ -204,9 +203,9 @@ function startParam(groupName, attribs, children)
     html += "</table>"+NL;
     //html += "</div>";
     html += "</td></tr></table>";
-    
+
 //    html += '</div>'
-    
+
     // --add the whole thingy to the page.. TODO other option ???
     $("div-group-"+groupName).innerHTML += html;
     // tName+"-slider
@@ -215,8 +214,8 @@ function startParam(groupName, attribs, children)
 // sliderCount ++;
     // --show or hide panels
     switchType(attribs.name, attribs.type);
-    
-    
+
+
 // new Accordion(
 // $('div_'+attribs.name+'-toggler')
 // , $('div_'+attribs.name+'-slider')
@@ -234,8 +233,8 @@ function startParam(groupName, attribs, children)
 // , alwaysHide:true
 // , show: 1
 // });
-    
-    
+
+
 // if(FBPresent) console.log(html);
 }//function
 
@@ -248,7 +247,7 @@ if(FBPresent)console.log('add option: ', groupName, ctrlName, value, data);
     num += 1;
     // --write index to hidden form field
     $(ctrlName+'-options').value = num;
-    
+
     optionName = "params["+groupName+"]["+ctrlName+"][children]["+num+"]";
 
     html = '';
@@ -268,7 +267,7 @@ if(FBPresent)console.log('add option: ', groupName, ctrlName, value, data);
 function switchType(ctrlName, type)
 {
     if(FBPresent)console.log('switchType:'+ctrlName+'---'+type);
-    
+
     switch (type)
     {
         case 'spacer':
@@ -277,7 +276,7 @@ function switchType(ctrlName, type)
             $('namefield_'+ctrlName).disabled="disabled";
     // $(ctrlName+'-name').innerHTML = "@spacer";
         break;
-        
+
         case 'calendar':
         case 'category':
         case 'editors':
@@ -323,7 +322,7 @@ function switchType(ctrlName, type)
     optionalFields.each(function(item) {
         $(ctrlName+"-optional-"+item).setStyles({ display:'none' })
     });
-    
+
     paramTypes[type].each(function(item) {
         $(ctrlName+"-optional-"+item).setStyles({ display:'table-row' });
     });
@@ -346,16 +345,16 @@ function fadeOut(ctrl)
 if(FBPresent)console.log('fadeOut',ctrl);
 /*
  * not working...gave up ;( - HELP !! :D
- */    
+ */
 // ;(
     var div = $(ctrl);
-    
+
     div.setStyles({
         display:'none'
 // opacity: 0
     });
 // new Fx.Style(div, 'opacity', {duration: 1000} ).start(1);
-    
+
 }//function
 
 function drawTypeSelector(groupName, ctrlName, selected)
@@ -365,7 +364,7 @@ function drawTypeSelector(groupName, ctrlName, selected)
     html +=    NL+"<select name='params["+groupName+"]["+ctrlName+"][type]'"+js+">";
 
 // for(type in paramTypes)
-    for( var xtype in paramTypes ) 
+    for( var xtype in paramTypes )
         {
         sSelected = '';
         if( xtype == selected )
@@ -377,7 +376,7 @@ function drawTypeSelector(groupName, ctrlName, selected)
     }// for
 
     html +=    "</select>";
-    
+
     // console.log(html);
     return html;
 }//function

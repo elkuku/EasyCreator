@@ -1,7 +1,6 @@
 <?php
 // @codingStandardsIgnoreStart
 /**
- * @version SVN $Id$
  * Taken from the Joomla! trunk on:
  * @version databasequery.php 14571 2010-02-04 07:07:47Z eddieajau
  * @copyright  Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.

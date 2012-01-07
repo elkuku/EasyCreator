@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -10,7 +9,7 @@
 var ecr_act_field;
 
 /**
- * 
+ *
  * @param folder
  * @param file
  * @return
@@ -27,7 +26,7 @@ function setPath(folder, file)
 
 /**
  * Run a PHPUnit test.
- * 
+ *
  * @param folder
  * @param test
  * @param timeStamp
@@ -94,7 +93,7 @@ function doPHPUnit(folder, test, timeStamp, id)
             $('ecr_title_file').className = '';
 
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -107,7 +106,7 @@ function doPHPUnit(folder, test, timeStamp, id)
 
 /**
  * Run a Selenium test.
- * 
+ *
  * @param folder
  * @param test
  * @param timeStamp
@@ -137,7 +136,7 @@ function doSelenium(folder, test, timeStamp, id)
             $('ecr_title_file').className = '';
 
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -148,9 +147,9 @@ function doSelenium(folder, test, timeStamp, id)
     }).send();
 
 }//function
-    
+
 /**
- * 
+ *
  * @param project
  * @return
  */
@@ -175,7 +174,7 @@ function doPHPCPD(ecr_project)
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -188,7 +187,7 @@ function doPHPCPD(ecr_project)
 }//function
 
 /**
- * 
+ *
  * @param dirs
  * @param files
  * @return
@@ -213,7 +212,7 @@ function doPHPDoc(dirs, files)
     if($('phpdoc_converter').value) {
         url += '&converter='+$('phpdoc_converter').value;
     }
-    
+
     url += '&target_dir='+$('target_dir').value.replace('\\', '/');
 
     dirs = dirs.replace('\\', '/');
@@ -234,7 +233,7 @@ function doPHPDoc(dirs, files)
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -247,7 +246,7 @@ function doPHPDoc(dirs, files)
 }//function
 
 /**
- * 
+ *
  * @return
  */
 function sniffFolder()
@@ -258,12 +257,12 @@ function sniffFolder()
         alert('Please select a folder.');
         return false;
     }
-    
+
     loadSniff(folder);
 }//function
 
 /**
- * 
+ *
  * @param folder
  * @param file
  * @return
@@ -310,7 +309,7 @@ function loadSniff(folder, file)
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -341,7 +340,7 @@ function create_skeleton(folder, file)
             $('ecr_title_file').className = '';
 
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
                 $('test_tree').innerHTML = resp.text;
@@ -352,7 +351,7 @@ function create_skeleton(folder, file)
 
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
-            
+
             var url = ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir';
             url += '&ecr_project=' + $('ecr_project').value;
 
@@ -365,7 +364,7 @@ function create_skeleton(folder, file)
                     'onComplete' : function(response)
                     {
                         var resp = JSON.decode(response);
-                        
+
                         if( ! resp.status) {
                             //-- Error
                             $('test_tree').innerHTML = resp.text;
@@ -394,7 +393,7 @@ function draw_test_dir(testDir)
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -407,7 +406,7 @@ function draw_test_dir(testDir)
 }//function
 
 /**
- * 
+ *
  * @return
  */
 function checkEnvironment()
@@ -425,7 +424,7 @@ function checkEnvironment()
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response, true);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -444,7 +443,7 @@ function gitStatus()
 {
     url = ecrAJAXLink+'&controller=codeeyeajax';
     url += '&task=gitStatus';
-    
+
     new Request({
         url: url,
         'onRequest' : function()
@@ -455,7 +454,7 @@ function gitStatus()
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }
@@ -473,7 +472,7 @@ function phploc(dir)
     url = ecrAJAXLink+'&controller=codeeyeajax';
     url += '&task=phploc';
     url += '&dir='+dir;
-    
+
     new Request({
         url: url,
         'onRequest' : function()
@@ -484,7 +483,7 @@ function phploc(dir)
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }

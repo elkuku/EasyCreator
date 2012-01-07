@@ -1,6 +1,5 @@
 <?php
 /**
- * @version $Id$
  * @package    EasyCreator
  * @subpackage Templates
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}

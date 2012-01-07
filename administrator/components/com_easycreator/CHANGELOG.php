@@ -6,8 +6,6 @@
  * This is the changelog for EasyCreator.<br>
  * <b>Please</b> be patient =;)
  *
- * @version SVN: $Id$
- * $HeadURL$
  * @package    EasyCreator
  * @subpackage Documentation
  * @author     Nikolai Plath {@link http://www.nik-it.de NiK-IT.de}
@@ -54,7 +52,7 @@ ______________________________________________
 
 23-Aug-2011 Nikolai Plath
  # Fixed "add elements" not working on Windows in J! 1.7 - Thanks Apfelkuchen
- 
+
 12-Aug-2011 Nikolai Plath
  + Added interface for PHPLOC
 

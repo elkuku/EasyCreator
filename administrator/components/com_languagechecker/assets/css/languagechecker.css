@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    LanguageChecker
  * @subpackage CSS
  * @author     Nikolai Plath {@link http://easy-joomla.org}
@@ -46,7 +45,7 @@ div.easyAppFooter {
 div.easyAppFooter div.a {
 	font-size: 1.3em;
 }
- 
+
  div.easyAppFooter em {
 	font-size: 10px;
 	color: silver;

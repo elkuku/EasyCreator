@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -8,7 +7,7 @@
  */
 
 var ecrTranslator = new Class({
-    
+
     /**
      * Copy the original to the translated field
      */
@@ -18,10 +17,10 @@ var ecrTranslator = new Class({
         $('translation').value = s;
         $('translation').focus();
     },// function
-    
+
     /**
      * Delete a translation
-     * 
+     *
      * @param string link AJAX link
      * @param integer fieldId Id of the parent.document element which will be deleted
      */
@@ -45,9 +44,9 @@ var ecrTranslator = new Class({
                 }
 
                 doc = window.parent.document;
-                
+
                 doc.getElementById('trfield_' + fieldId).innerHTML='<strong style="color: red">' + jgettext('Empty') + '</strong>';
-                
+
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
@@ -66,9 +65,9 @@ var ecrTranslator = new Class({
             }
         }).send();
     },//function
-    
+
     /**
-     * 
+     *
      */
     stripQuotes : function(s)
     {
@@ -76,12 +75,12 @@ var ecrTranslator = new Class({
         {
             s = s.substr(1);
         }
-    
+
         if(s.substr(s.length - 1) == '"')
         {
             s = s.substr(0, s.length - 1);
         }
-    
+
         return s;
     },// function
 
@@ -115,7 +114,7 @@ var ecrTranslator = new Class({
             url: link + '&task=translate' + '&translation=' + encodeURIComponent($('translation').value),
         //    method : 'post',
 //            data : 'translation=' + encodeURIComponent($('translation').value),
-        
+
             onRequest : function() {
                 title = $('ajResult');
                 title.innerHTML = jgettext('Saving...');
@@ -129,7 +128,7 @@ var ecrTranslator = new Class({
                 title = $('ajResult');
                 title.innerHTML = resp.text;
                 title.removeClass('ajax_loading16-red');
-                
+
                 if(resp.status)
                 {
                     //-- Error
@@ -153,7 +152,7 @@ var ecrTranslator = new Class({
                         if(adIds)
                         {
                             adIds = adIds.split(',');
-                            
+
                             for (var i = 0; i < adIds.length; ++i)
                             {
                                 doc.getElementById('trfield_' + adIds[i]).style.display='inline';
@@ -165,7 +164,7 @@ var ecrTranslator = new Class({
                         alert('Undefined ret type: ' + retType);
                     break;
                 }//switch
-                
+
                 switch(ECR_JVERSION)
                 {
                     case '1.5':

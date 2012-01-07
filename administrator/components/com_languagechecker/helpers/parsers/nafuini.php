@@ -3,7 +3,6 @@
 
 
 /**
- * @version SVN: $Id$
  * @package    JALHOO
  * @subpackage Parser formats
  * @author     Nikolai Plath {@link http://easy-joomla.org}

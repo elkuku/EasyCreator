@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Views
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -13,6 +12,7 @@
 defined('_JEXEC') || die('=;)');
 
 $projectTypes = EasyProjectHelper::getProjectTypes();
+$projectScopes = EasyProjectHelper::getProjectScopes();
 
 $projectScopes = array(
 'component' => ''
@@ -22,8 +22,8 @@ $projectScopes = array(
 
 if('1.6' == ECR_JVERSION)
 {
-    $projectScopes['library'] = '';
 }
+$projectScopes['library'] = '';
 
 $task = JRequest::getCmd('task');
 $showCore =(JRequest::getCmd('show_core') == 'show_core') ? true : false;

@@ -1,7 +1,6 @@
 <?php
 // @codingStandardsIgnoreStart
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Helpers
  * @author     Nikolai Plath {@link http://www.nik-it.de}

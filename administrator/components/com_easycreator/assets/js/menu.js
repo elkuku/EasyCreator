@@ -1,5 +1,4 @@
 /**
- * @version $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -29,19 +28,19 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     var ni = $('divSubmenu');
     var numi = $('totalSubmenu');
     var num = ($('totalSubmenu').value - 1) + 2;
-    
+
     numi.value = num;
-    
+
     var divIdName = 'submenu'+num+'Div';
-    
+
     var newdiv = document.createElement('li');
-    
+
     newdiv.setAttribute('class', 'menu');
 
     html = '';
 
     html += '<input type="hidden" name="submenu['+num+'][menuid]" value="'+menuid+'" />';
-    
+
     if (parent)
     {
         html += "<input type=\"hidden\" name=\"submenu[" + num
@@ -75,9 +74,9 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     newdiv.innerHTML = html;
 
     ni.appendChild(newdiv);
-    
+
     drawPicChooser(num, image);
-    
+
     return newdiv;
 }//function
 
@@ -89,7 +88,7 @@ function chgMenuPic(num)
     }
 
     selection = $('opt-' + num).value;
-    
+
     switch (selection)
     {
         case '':
@@ -97,12 +96,12 @@ function chgMenuPic(num)
             $('img-' + num).readOnly = true;
             $('prev-' + num).setAttribute('class', '');
             break;
-    
+
         case 'user_defined':
             $('img-' + num).readOnly = false;
             $('prev-' + num).setAttribute('class', '');
             break;
-    
+
         default:
             $('img-' + num).value = selection;
             $('img-' + num).readOnly = true;
@@ -118,11 +117,11 @@ function drawPicChooser(num, selectedImage)
             + "\" onchange=\"chgMenuPic(" + num + ");\">";
     html += '<option value=\"\">' + jgettext('Select...') + '</option>';
     found = false;
-    
+
     for ( var i = 0; i <= stdMenuImgs.length - 1; i++)
     {
         selected = '';
-        
+
         if (selectedImage == stdMenuImgs[i])
         {
             selected = ' selected=\"selected\"';
@@ -133,7 +132,7 @@ function drawPicChooser(num, selectedImage)
     }
 
     selected = '';
-    
+
     if (selectedImage != '' && found == false)
     {
         selected = ' selected=\"selected\"';

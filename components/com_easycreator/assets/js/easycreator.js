@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Frontend-JavaScript
  * @author     Nikolai Plath {@link http://www.nik-it.de}

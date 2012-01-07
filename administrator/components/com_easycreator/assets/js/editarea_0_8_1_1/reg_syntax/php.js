@@ -1,5 +1,4 @@
 /**
- * @version $Id$
  * @modified by elkuku to integrate in EasyCreator
  */
 

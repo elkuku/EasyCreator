@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Installer
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
@@ -18,7 +17,7 @@ define('ECR_XML_LOCATION', $this->parent->getPath('manifest'));
 
 /**
  * Main installer.
- * 
+ *
  * @deprecated @todo remove when J! 1.5 is dropped.
  *
  * @return boolean

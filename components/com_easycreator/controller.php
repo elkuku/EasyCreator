@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Frontend-Controller
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}

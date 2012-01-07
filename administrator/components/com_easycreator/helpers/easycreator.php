@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Helpers
  * @author     Nikolai Plath {@link http://nik-it.de}

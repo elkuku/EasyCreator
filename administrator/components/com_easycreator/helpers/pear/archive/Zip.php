@@ -28,7 +28,6 @@
 
 /**
  * "Adapted" by Nikolai Plath to integrate with Joomla! CMS
- * @version $Id$
  */
 
 //-- No direct access

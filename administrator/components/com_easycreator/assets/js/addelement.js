@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -37,7 +36,7 @@ function addNewElement(fields)
     if (!valid)
     {
         $('addElementMessage').innerHTML = '<div style="color: red;">' + jgettext('Please review your input') + '</div>';
-        
+
         var div = $('addElementMessage').setStyles(
         {
             display : 'block',
@@ -162,9 +161,9 @@ function addPackageElement(type, client, name, title, position, ordering)
             return;
             break;
     }//switch
-    
+
     var newdiv = document.createElement('div');
-    
+
     newdiv.setAttribute("id", divIdName);
 
     text = '';

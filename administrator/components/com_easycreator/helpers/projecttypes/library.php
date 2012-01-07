@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage ProjectTypes
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -186,10 +185,12 @@ class EasyProjectLibrary extends EasyProject
     {
         $folders = array();
 
+	    /*
         if(defined('JPATH_PLATFORM'))
         {
             $folders = JFolder::folders(JPATH_PLATFORM.'/libraries');
         }
+	    */
 
         $folders = array_merge($folders, JFolder::folders(JPATH_LIBRARIES));
 
@@ -211,6 +212,10 @@ class EasyProjectLibrary extends EasyProject
             case '1.7':
                 return array('joomla', 'phpmailer', 'phputf8', 'simplepie');
                 break;
+
+	        case '2.5':
+		        return array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
+		        break;
 
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');

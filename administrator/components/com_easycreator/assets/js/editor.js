@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package EasyCreator
  * @subpackage Javascript
  * @author Nikolai Plath {@link http://www.nik-it.de}
@@ -21,7 +20,7 @@ function save_file() {
     var box = $('ecr_status_msg');
     var title = $('ecr_title_file');
 
-    switch(ECR_JVERSION) 
+    switch(ECR_JVERSION)
     {
 	    case '1.5':
 	        var fx = box.effects( {

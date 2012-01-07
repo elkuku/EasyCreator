@@ -1,5 +1,4 @@
 /**
- * @version $Id$
  * @modified by elkuku to fit EasyCreator
  * @package EasyCreator
  * @subpackage Javascript
@@ -28,7 +27,7 @@ function str_replace(search, replace, subject, count) {
     // *     returns 1: 'Kevin.van.Zonneveld'
     // *     example 2: str_replace(['{name}', 'l'], ['hello', 'm'], '{name}, lars');
     // *     returns 2: 'hemmo, mars'
- 
+
     var i = 0, j = 0, temp = '', repl = '', sl = 0, fl = 0,
             f = [].concat(search),
             r = [].concat(replace),
@@ -38,7 +37,7 @@ function str_replace(search, replace, subject, count) {
     if (count) {
         this.window[count] = 0;
     }
- 
+
     for (i=0, sl=s.length; i < sl; i++) {
         if (s[i] === '') {
             continue;
@@ -76,7 +75,7 @@ var php2js = {
 
 		    var whitespace, l = 0, i = 0;
 		    str += '';
-		    
+
 		    if (!charlist) {
 		        // default list
 		        whitespace = " \n\r\t\f\x0b\xa0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000";
@@ -85,7 +84,7 @@ var php2js = {
 		        charlist += '';
 		        whitespace = charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '$1');
 		    }
-		    
+
 		    l = str.length;
 		    for (i = 0; i < l; i++) {
 		        if (whitespace.indexOf(str.charAt(i)) === -1) {
@@ -93,7 +92,7 @@ var php2js = {
 		            break;
 		        }
 		    }
-		    
+
 		    l = str.length;
 		    for (i = l - 1; i >= 0; i--) {
 		        if (whitespace.indexOf(str.charAt(i)) === -1) {
@@ -101,13 +100,13 @@ var php2js = {
 		            break;
 		        }
 		    }
-		    
+
 		    return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
 		},//function
 
         sprintf : function () {
         // Return a formatted string
-        // 
+        //
         // version: 1008.1718
         // discuss at: http://phpjs.org/functions/sprintf
         // + original by: Ash Searle (http://hexmen.com/blog/)

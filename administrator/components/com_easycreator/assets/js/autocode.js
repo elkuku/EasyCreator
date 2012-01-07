@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -48,7 +47,7 @@ function loadAutoCode(ecr_project, action, group, element, scope, part)
             dDiv.className = '';
         }
     }).send();
-    
+
     return false;
 }//function
 
@@ -130,7 +129,7 @@ function loadPart(ecr_project, action, type, element, scope)
             dDiv.className = '';
         }
     }).send();
-    
+
     return false;
 }//function
 

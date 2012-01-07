@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package EasyCreator
  * @subpackage Javascript
  * @author Nikolai Plath {@link http://www.nik-it.de}
@@ -7,7 +6,7 @@
  * @license GNU/GPL, see JROOT/LICENSE.php
  */
 
-function showVersion(number) 
+function showVersion(number)
 {
     document.adminForm.selected_version.value = number;
     submitform('show_versions');

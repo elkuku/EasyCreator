@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Controllers
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -61,6 +60,7 @@ class EasyCreatorControllerConfig extends JController
                     break;
                 case '1.6':
                 case '1.7':
+	            case '2.5':
                     $component = JComponentHelper::getComponent('com_easycreator');
                     $table = JTable::getInstance('extension');
                     $table->load($component->id);

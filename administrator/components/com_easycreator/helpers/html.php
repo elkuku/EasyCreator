@@ -2,7 +2,6 @@
 // @codingStandardsIgnoreStart
 
 /**
- * @version $Id$
  * @package    EasyCreator
  * @subpackage Helpers
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}

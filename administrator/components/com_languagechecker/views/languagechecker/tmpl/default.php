@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    LanguageChecker
  * @subpackage Views
  * @author     Nikolai Plath {@link http://easy-joomla.org}

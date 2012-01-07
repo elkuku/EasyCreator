@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package EasyCreator
  * @subpackage Javascript
  * @author Nikolai Plath {@link http://www.nik-it.de}
@@ -16,7 +15,7 @@ function deleteZipFile(path, file) {
     var box = $('ajaxMessage');
     var debug = $('ajaxDebug');
 
-    switch(ECR_JVERSION) 
+    switch(ECR_JVERSION)
     {
         case '1.5':
             var fx = box.effects( {
@@ -48,7 +47,7 @@ function deleteZipFile(path, file) {
             if (resp.status) {
                 box.style.color = 'red';
                 debug = resp.debug;
-                
+
                 return;
             } else {
                 $('row' + file).setStyle('display', 'none');

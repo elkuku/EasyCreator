@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage CSS
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
@@ -278,7 +277,7 @@ div.ecr_error {
     background-color: #FFFFCC;
 }
 
-div#toolbar-box { 
+div#toolbar-box {
     /* let's kill the standard Joomla! toolbar box ;)
      * otherwise displays an ugly empty div with some J! images..
      * TODO: any cleaner method ?

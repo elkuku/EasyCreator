@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Helpers
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -41,6 +40,7 @@ class EasyProjectHelper
 
             case '1.6':
             case '1.7':
+	        case '2.5':
                 $projectTypes += array(
                 'lib' => 'library'
                 , 'pkg' => 'package');
@@ -172,6 +172,7 @@ class EasyProjectHelper
 
             case '1.6':
             case '1.7':
+	        case '2.5':
                 if('library' == $project->type
                 || 'package' == $project->type)
                 {
@@ -450,7 +451,7 @@ class EasyProjectHelper
             return $types;
         }
 
-        //-- We don't like these roject types - for now..
+        //-- We don't like these project types - for now..
         $unwanted = array('language', 'file');
 
         //-- Defined for translation
@@ -500,6 +501,27 @@ class EasyProjectHelper
 
         return $types;
     }//function
+
+	/**
+	 * Get a list of known project scopes.
+	 *
+	 * @return array
+	 */
+	public static function getProjectScopes()
+	{
+		$scopes = array(
+			'component' => ''
+		, 'module' => 'admin,site'
+		, 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
+		, 'template' => 'admin,site');
+
+		if('1.5' != ECR_JVERSION)
+		{
+			$scopes['library'] = '';
+		}
+
+		return $scopes;
+	}
 
     /**
      * Format a filename for a package file.
@@ -801,7 +823,7 @@ class EasyProjectHelper
      *
      * @param string $key Separated by dots (.) - scope.group.name.element
      *
-     * @return mixed [object EasyAutoCode on success | boolean false on error]
+     * @return EasyAutoCode [object EasyAutoCode on success | boolean false on error]
      */
     public static function getAutoCode($key)
     {

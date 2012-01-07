@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -13,7 +12,7 @@
 function create_class_list()
 {
     var xref = location.href.substring(0, location.href.indexOf('index.php'));
-    
+
     xref += 'components/com_easycreator/helpers/jmethodlister.php';
 
     new Request({
@@ -28,7 +27,7 @@ function create_class_list()
             else
             {
                 var resp = JSON.decode(response);
-                
+
                 if(resp.status)
                 {
                     //-- Error happened
@@ -75,17 +74,17 @@ function changeFrame(className, methodName, packageName)
     {
         packageName = $('packageName').value;
     }
-    
+
     $('linkDisplay').className = 'ajax_loading16';
 
     if($('out_link').value == 'source')
     {
         $('jhelpDisplay').setStyle('display', 'none');
         $('jsourceDisplay').setStyle('display', 'block');
-       
+
         link = 'index.php?option=com_easycreator&controller=ajax&tmpl=component&format=raw&task=show_source';
         link += '&class='+className+'&method='+methodName;
-        
+
         new Request({
             url: link,
             'onComplete' : function(request)
@@ -93,7 +92,7 @@ function changeFrame(className, methodName, packageName)
 
                 $('jsourceDisplay').innerHTML = request;
                 $('linkDisplay').className = '';
-                
+
                 JTooltips2 = new Tips($$('.hasTip'),
                 {
                     maxTitleChars : 50,
@@ -101,7 +100,7 @@ function changeFrame(className, methodName, packageName)
                 });
             }
         }).send();
-    } 
+    }
     else
     {
         $('jhelpDisplay').setStyle('display', 'block');
@@ -130,7 +129,7 @@ function changeOutFormat(name, link)
 function parseLink(string, className, methodName, packageName)
 {
     s = string;
-    
+
     if(string.indexOf('http://api.joomla.org') === 0)
     {
         if(packageName == 'Base')
@@ -156,7 +155,7 @@ function parseLink(string, className, methodName, packageName)
 
     sRep = (packageName) ? '[package]' : '[package]/';
     s = str_replace(sRep, packageName, s);
-    
+
     if (s.lastIndexOf('/') == s.length - 1)
     {
         s = s.substring(0, s.length - 1);

@@ -1,6 +1,5 @@
 <?php
 /**
- * @version $Id$
  * @package    EasyCreator
  * @subpackage Helpers
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
@@ -500,9 +499,9 @@ class EasyELanguage
         $pos = 1;
         $found = false;
 
-        if(ECR_JVERSION == '1.6')
+        if(ECR_JVERSION != '1.5')
         {
-            //-- For J 1.6 we quote all translations
+            //-- For J > 1.5 we quote all translations
             $translation = '"'.$translation.'"';
         }
 

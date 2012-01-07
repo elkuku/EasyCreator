@@ -1,5 +1,4 @@
 /**
- * @version $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -11,7 +10,7 @@ var lastId;
 
 /**
  * Loads a log file.
- * 
+ *
  * @param string name
  * @param string id
  * @return void

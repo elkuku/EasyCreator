@@ -2,7 +2,6 @@
 /**
  * THIS FILE WILL BE CALLED DIRECTLY !!
  *
- * @version $Id$
  *
  * @description scans the directory /libraries/joomla/* and lists all
  * the found classes and their methods whith path and line numbers.

@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -11,9 +10,9 @@ function switchProject()
 {
     frm = document.adminForm;
     frm.controller.value = 'stuffer';
-    
+
     $('ecr_stat_project').className = 'ajax_loading16';
-    
+
     if (frm.file_name != undefined)
     {
         frm.file_name.value = '';
@@ -34,7 +33,7 @@ function switchProject()
         submitform('register');
         return;
     }
-    
+
     var project = $('ecr_project').value;
 
     if(project)
@@ -130,7 +129,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
         cl = $('ecr_title_file').className;
      //   $('ecr_title_file').innerHTML = jgettext('Loading...');
         $('ecr_title_file').className = cl + ' ajax_loading16';
-        
+
         if (FBPresent)
         {
             console.log('set lastId(' + lastId + ') to: ' + link_id);
@@ -145,7 +144,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
             'onComplete' : function(response)
             {
                 var resp = JSON.decode(response, true);
-                
+
                 if( ! resp.status) {
                     //-- Error
                     $('ecr_title_file').innerHTML = resp.text;
@@ -159,7 +158,7 @@ function ecr_loadFile(task, file_path, file_name, link_id)
                     editAreaLoader.setSelectionRange('ecr_code_area', 0, 0);
                     $('ecr_title_file').innerHTML = file_name;
                 }
-                
+
                 if (lastId != undefined)
                 {
                     $(lastId).setStyle('color', 'black');
@@ -281,12 +280,12 @@ function checkVersion()
     method: 'post',
     url: 'http://joomla.org',
     data: { 'do' : '1' },
-    onRequest: function() 
-    { 
+    onRequest: function()
+    {
         $('ecr_versionCheck').innerHTML = jgettext('Checking...');
     },
-    onComplete: function(response) { 
-        $('ecr_versionCheck').innerHTML = response; 
+    onComplete: function(response) {
+        $('ecr_versionCheck').innerHTML = response;
         }
 }).send();
 
@@ -296,10 +295,10 @@ function xcheckVersion()
 {
     var urlBase = 'http://inkubator.der-beta-server.de/releases';
     //var urlBase = 'http://helios.nik/jejo_web/releases';
-    
+
     url = urlBase + '/easycreator.html';
     url += '?myVersion='+ECR_VERSION;
-    
+
     url = 'http://joomla.org';
 //    url += '&format=raw';
 //    alert(url);
@@ -316,36 +315,36 @@ function xcheckVersion()
 //            console.log(resp);
             $('ecr_versionCheck').innerHTML = '<b style="color: red;">'
                 +jgettext('Server error')+'</b>'+url;
-            
+
             return;
         },
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if('undefined' == resp.status) {
                 //-- Error
                 msg = '? bad coder error..';
-                
+
                 return;
             }
-            
+
             var cssClass = '';
             var msg = '';
             var alt = '';
-            
+
             switch (resp.status)
             {
                 case -1 :
                     cssClass = 'img outdated';
                     msg = phpjs.sprintf(jgettext('The Latest EasyCreator version is: %s'), resp.version);
                 break;
-                
+
                 case 0 :
                     cssClass = 'img actual';
                     alt = jgettext('Your version is up-to-date')
                 break;
-                
+
                 default :
                     msg = jgettext('Unknown version - maybe SVN ?');
                 break;

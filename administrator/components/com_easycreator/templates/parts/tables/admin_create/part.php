@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage	Parts
  * @author hidabe -- pls add your credits =;)

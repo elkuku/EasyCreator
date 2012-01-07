@@ -1,3 +1,2 @@
 /**
- * @version SVN: $Id$
  **/

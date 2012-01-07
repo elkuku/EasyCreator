@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage ProjectTypes
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -204,6 +203,7 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 return $this->comName.'.xml';
                 break;
 
@@ -237,9 +237,12 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 break;
 
             default:
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+
                 break;
         }//switch
 
@@ -288,6 +291,7 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -352,8 +356,17 @@ class EasyProjectComponent extends EasyProject
                 );
                 break;
 
+            case '2.5':
+                $projects = array(
+                    'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
+                , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
+                , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
+                , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks', 'com_finder'
+                );
+                break;
+
             default:
-                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -384,9 +397,10 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 $db = JFactory::getDbo();
 
-                $query	= $db->getQuery(true);
+                $query = $db->getQuery(true);
 
                 $query->from('#__menu AS m');
                 $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
@@ -434,12 +448,13 @@ class EasyProjectComponent extends EasyProject
 
                     case '1.6':
                     case '1.7':
+                    case '2.5':
                         $menu['level'] = 2;
                         $menu['parent'] = $mId;
                         break;
 
                     default:
-                        JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return false;
                         break;
@@ -563,6 +578,7 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 $query = $db->getQuery(true);
 
                 $query->from('#__menu AS m');
@@ -611,7 +627,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(100, __METHOD__.' - Unknown JVersion');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -623,7 +639,7 @@ class EasyProjectComponent extends EasyProject
     /**
      * Method to remove admin menu references to a component
      *
-     * @param   object  $component	Component table object
+     * @param   object  $component Component table object
      *
      * @return  boolean  True if successful
      */
@@ -723,7 +739,8 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
-                $table	= JTable::getInstance('menu');
+            case '2.5':
+                $table = JTable::getInstance('menu');
 
                 $data = array();
                 $data['menutype'] = 'main';

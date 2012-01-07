@@ -1,5 +1,4 @@
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Javascript
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -8,14 +7,14 @@
  */
 
 /**
- * 
+ *
  */
 //function registerTable(ecr_project, name, id)
 //{
 //    url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=stuffer';
 //    url += '&table_name='+name;
 //    url += '&ecr_project='+ecr_project;
-//    
+//
 //    if(FBPresent) console.log('adding table'+name);
 //
 //    A = new Request({
@@ -49,19 +48,19 @@ function checkTableEditForm(theForm)
     {
         id = "fields[" + i + "][type]";
         elm = theForm.elements[id];
-        
+
         if (elm.value == 'VARCHAR' || elm.value == 'CHAR' || elm.value == 'BIT' || elm.value == 'VARBINARY' || elm.value == 'BINARY')
         {
             elm2 = theForm.elements["fields[" + i + "][length]"];
             val = parseInt(elm2.value);
             elm3 = theForm.elements["fields[" + i + "][name]"];
-            
+
             if (isNaN(val) && elm3.value != "")
             {
                 elm2.select();
                 alert(jgettext('This is not a number'));
                 elm2.focus();
-                
+
                 return false;
             }
         }
@@ -75,11 +74,11 @@ function checkTableEditForm(theForm)
             }
         }
     }
-    
+
     if (atLeastOneField == 0)
     {
         alert(jgettext('Please add at least one field'));
-    
+
         return false;
     }
 
@@ -93,7 +92,7 @@ function checkTableEditForm(theForm)
 function newRow(elName)
 {
     var div = new Element('div', {'class': 'ecr_dbRow'});
-    
+
     var size = '12';
 
     //-- Name / Field --- @todo change ?
@@ -101,23 +100,23 @@ function newRow(elName)
     var fieldNameInput = new Element('input',
             {'type':'text', 'name':'fields['+obCount+'][name]', 'size':size}).injectInside(fieldName);
     fieldName.injectInside(div);
-    
+
     //-- Label
     var fieldDisplay = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldDisplayInput = new Element('input',
             {'type':'text', 'name':'fields['+obCount+'][label]', 'size':size}).injectInside(fieldDisplay);
     fieldDisplay.injectInside(div);
-    
+
     //-- Type
     selectTypes = dbGetSelectTypes();
     selectTypes.injectInside(div);
-    
+
     //-- Length / Set
     var fieldLength = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldLengthInput = new Element('input',
             {'type':'text', 'name':'fields['+obCount+'][length]', 'size':size}).injectInside(fieldLength);
     fieldLength.injectInside(div);
-    
+
     //-- Attributes
     var fieldAttribs = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldAttribsSelect = new Element('select',
@@ -150,7 +149,7 @@ function newRow(elName)
     var fieldLengthInput = new Element('input',
             {'type':'text', 'name':'fields['+obCount+'][default]', 'size':size}).injectInside(fieldLength);
     fieldLength.injectInside(div);
-    
+
     //-- Extra
     var fieldExtra = new Element('div', {'class': 'ecr_dbRowCell'});
     var fieldExtraSelect = new Element('select',
@@ -172,7 +171,7 @@ function newRow(elName)
     var cl = new Element('div', {'styles': {'clear':'both'}}).injectInside(div);
 
     div.injectInside($(elName));
-    
+
     obCount ++;
 }//function
 
@@ -187,14 +186,14 @@ function addField()
     s += '<option value="int">INT</option>';
     s += '<option value="varchar">VARCHAR</option>';
     s += '</select>';
-    
+
     var div = new Element('div');
     div.innerHTML = add_field_name+s;
     $('addField').adopt(div);
 }//function
 
 /**
- * 
+ *
  * @param tableName
  * @return
  */
@@ -206,14 +205,14 @@ function addRelation(tableName)
 }//function
 
 /**
- * 
+ *
  * @param selected
  * @return
  */
 function dbGetSelectTypes(selected)
 {
     var names = [
-        'VARCHAR' 
+        'VARCHAR'
         ,'TINYINT'
         ,'TEXT'
         ,'DATE'
@@ -245,14 +244,14 @@ function dbGetSelectTypes(selected)
 
     var div = new Element('div', { 'class': 'ecr_dbRowCell'});
     var select = new Element('select', { 'name': 'fields['+obCount+'][type]'}).injectInside(div);
-    
+
     for (var i = 0; i < names.length; i ++)
     {
         var option = new Element('option', {'value': names[i]});
         option.appendText(names[i]);
         option.injectInside(select);
     }//for
-    
+
     return div;
 }//function
 
@@ -275,7 +274,7 @@ function getTableFieldSelector(tableName, fieldName)
         'onComplete' : function(response)
         {
             var resp = JSON.decode(response);
-            
+
             if( ! resp.status) {
                 //-- Error
             }

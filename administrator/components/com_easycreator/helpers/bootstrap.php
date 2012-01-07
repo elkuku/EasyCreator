@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  *
  * This file is used to run unit tests.
  * It must be placed in the Joomla! root directory.

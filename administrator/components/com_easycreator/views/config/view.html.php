@@ -1,6 +1,5 @@
 <?php
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Views
  * @author     Nikolai Plath {@link http://www.nik-it.de}
@@ -44,6 +43,7 @@ class EasyCreatorViewConfig extends JView
                 break;
             case '1.6':
             case '1.7':
+	        case '2.5':
                 try
                 {
                     $this->form = $this->get('Form');

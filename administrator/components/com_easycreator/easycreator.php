@@ -1,6 +1,5 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * @version SVN: $Id$
  * @package    EasyCreator
  * @subpackage Base
  * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
@@ -11,7 +10,7 @@
 /*
  This is our SQL INSERT query (for manual install)
 
-** J! <= 1.5
+** J! 1.5
 INSERT INTO `#__components`
 (`name`, `link`, `menuid`, `parent`, `admin_menu_link`
 , `admin_menu_alt`, `option`, `ordering`
@@ -24,9 +23,6 @@ VALUES
 ** J! >= 1.6
 Use the new 'Discover' feature from the Joomla! installer - works great =;)
 */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 //-- Dev mode - internal use =;)
 define('ECR_DEV_MODE', 1);//@@DEBUG
@@ -85,7 +81,7 @@ ecrLoadHelper('languagehelper');
 
 //-- 1) Check if g11n is installed as a PEAR package - see: http://elkuku.github.com/pear/
 // @todo: check for installed g11n PEAR package to remove the "shut-up"
-@require_once 'elkuku/g11n/language.php';
+//@require_once 'elkuku/g11n/language.php';
 
 try
 {
@@ -120,7 +116,7 @@ try
 }
 catch(Exception $e)
 {
-    JError::raiseWarning(0, $e->getMessage());
+	JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
     return;
 }//try
@@ -136,13 +132,13 @@ JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
  */
 switch(ECR_JVERSION)
 {
-    case '2.5': //-- Get prepared
-    case '1.8': //-- Get prepared
-        JError::raiseNotice(0, sprintf(
+    case '3.0': //-- Get prepared
+        JFactory::getApplication()->enqueueMessage(sprintf(
         jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s')
-        , ECR_VERSION, ECR_JVERSION));
+        , ECR_VERSION, ECR_JVERSION), 'warning');
         break;
 
+    case '2.5':
     case '1.7':
     case '1.6':
     case '1.5':
@@ -150,9 +146,9 @@ switch(ECR_JVERSION)
         break;
 
     default:
-        JError::raiseWarning(0, sprintf(
+        JFactory::getApplication()->enqueueMessage(sprintf(
         jgettext('EasyCreator version %s may not work well with your Joomla! version %s')
-        , ECR_VERSION, ECR_JVERSION));
+        , ECR_VERSION, ECR_JVERSION), 'warning');
     break;
 }//switch
 
@@ -191,7 +187,7 @@ else
     $MTVersion = JFactory::getApplication()->get('MooToolsVersion');
 
     if( ! $MTVersion)
-    JError::raiseWarning(0, jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'));
+    JFactory::getApplication()->enqueueMessage(jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'), 'error');
 
     //-- J! 1.6 stuff not present in J! 1.5
     ecrLoadHelper('databasequery');
