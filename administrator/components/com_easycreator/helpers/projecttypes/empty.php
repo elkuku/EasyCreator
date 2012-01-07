@@ -264,7 +264,7 @@ class EasyProjectEmpty extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(100, 'EasyProjectModule::getCoreProjects Unknown scope');
+                JFactory::getApplication()->enqueueMessage('EasyProjectModule::getCoreProjects Unknown scope', 'error');
 
                 return array();
                 break;

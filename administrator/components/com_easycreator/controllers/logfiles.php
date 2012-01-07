@@ -54,7 +54,7 @@ class EasyCreatorControllerLogfiles extends JController
             }
             else
             {
-                JError::raiseWarning(100, jgettext('The logfiles could not be deleted'));
+	            JFactory::getApplication()->enqueueMessage(jgettext('The logfiles could not be deleted'), 'error');
                 JRequest::setVar('view', 'logfiles');
             }
         }

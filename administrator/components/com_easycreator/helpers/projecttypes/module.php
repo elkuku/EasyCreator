@@ -192,7 +192,7 @@ class EasyProjectModule extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+	            ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -262,7 +262,7 @@ class EasyProjectModule extends EasyProject
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
 
                     default:
-                        JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+	                    ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
@@ -293,14 +293,14 @@ class EasyProjectModule extends EasyProject
                         , 'mod_finder');
 
                     default:
-                        JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+	                    ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
                 break;
 
             default:
-                JError::raiseWarning(0, __METHOD__.' - Unknown scope');
+	            ecrHTML::displayMessage(__METHOD__.' - Unknown scope');
 
                 return array();
         }//switch

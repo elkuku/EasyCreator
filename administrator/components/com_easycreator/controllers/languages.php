@@ -318,7 +318,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            JError::raiseWarning(0, $e->getMessage());
+            JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
         }//try
 
         JRequest::setVar('task', 'g11nUpdate');
@@ -353,7 +353,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            JError::raiseWarning(0, $e->getMessage());
+	        JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
         }//try
 
         JRequest::setVar('task', 'g11nUpdate');

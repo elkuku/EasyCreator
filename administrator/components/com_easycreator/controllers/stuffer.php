@@ -364,7 +364,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! count($requestParams))
         {
-            JError::raiseWarning(100, 'No params ?');
+	        JFactory::getApplication()->enqueueMessage('No params ?', 'error');
             parent::display();
 
             return;
@@ -385,9 +385,11 @@ class EasyCreatorControllerStuffer extends JController
                 break;
 
             default:
-                JError::raiseWarning(100, sprintf(jgettext('The type %s is not supported yet.. remember - this is a beta')
-                , $fileName));
-                JError::raiseWarning(100, jgettext('But you can copy + paste the code below to your params section..'));
+                JFactory::getApplication()->enqueueMessage(sprintf(
+                    jgettext('The type %s is not supported yet.. remember - this is a beta')
+                    , $fileName), 'error');
+                JFactory::getApplication()->enqueueMessage(
+                    jgettext('But you can copy + paste the code below to your params section..'), 'error');
                 break;
         }//switch
 
@@ -395,7 +397,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! $xml instanceof SimpleXMLElement)
         {
-            JError::raiseWarning(100, jgettext('Could not create XML'));
+            JFactory::getApplication()->enqueueMessage(100, jgettext('Could not create XML'), 'error');
 
             return false;
         }
@@ -455,8 +457,8 @@ class EasyCreatorControllerStuffer extends JController
                         {
                             if( ! array_key_exists($v, $paramTypes))
                             {
-                                JError::raiseWarning(100
-                                , 'EasyCreatorControllerStuffer::save_params undefined type: '.$v);
+                                JFactory::getApplication()->enqueueMessage(
+                                    'EasyCreatorControllerStuffer::save_params undefined type: '.$v, 'error');
 
                                 $paramElem->addAttribute($k, $v);
                             }
@@ -493,7 +495,7 @@ class EasyCreatorControllerStuffer extends JController
             }
             else
             {
-                JError::raiseWarning(100, jgettext('Could not save XML file'));
+                JFactory::getApplication()->enqueueMessage(jgettext('Could not save XML file'), 'error');
 
                 return false;
             }
@@ -585,8 +587,8 @@ class EasyCreatorControllerStuffer extends JController
         }
         else
         {
-            JError::raiseWarning(100, sprintf(
-            jgettext('The Project %s could not be removed'), $project->name));
+	        JFactory::getApplication()->enqueueMessage(sprintf(
+            jgettext('The Project %s could not be removed'), $project->name), 'error');
 
             JRequest::setVar('view', 'stuffer');
             JRequest::setVar('task', 'stuffer');

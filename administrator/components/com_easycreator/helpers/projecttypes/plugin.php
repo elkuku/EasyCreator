@@ -262,7 +262,7 @@ class EasyProjectPlugin extends EasyProject
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
-                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+	            ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
