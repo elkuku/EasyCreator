@@ -49,7 +49,7 @@ class ECRLanguageConverter
         }
         else
         {
-            JError::raiseWarning(100, jgettext('Invalid options for lanuage converter'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('Invalid options for lanuage converter'), 'error');
 
             $this->options = new JObject;
         }

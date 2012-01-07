@@ -1215,9 +1215,11 @@ class EasyZIPer extends JObject
 
                     if( ! extension_loaded('bz2'))
                     {
-                        JError::raiseWarning(100, jgettext('The extension "bz2" couldn\'t be found.'));
-                        JError::raiseWarning(100
-                        , jgettext('Please make sure your version of PHP was built with bz2 support.'));
+                        JFactory::getApplication()->enqueueMessage(
+                            jgettext('The extension "bz2" couldn\'t be found.'), 'error');
+                        JFactory::getApplication()->enqueueMessage(
+                            jgettext('Please make sure your version of PHP was built with bz2 support.'), 'error');
+
                         $this->logger->log('PHP extension bz2 not found', 'PHP ERROR');
                     }
                     else
@@ -1251,7 +1253,7 @@ class EasyZIPer extends JObject
                     break;
 
                 default:
-                    JError::raiseWarning(100, 'undefined packing type '.$ext);
+                    JFactory::getApplication()->enqueueMessage('undefined packing type '.$ext, 'error');
 
                 return false;
                 break;

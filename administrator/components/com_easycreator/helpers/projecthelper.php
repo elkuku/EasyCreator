@@ -126,7 +126,8 @@ class EasyProjectHelper
     {
         if( ! ecrLoadHelper('projecttypes.'.$type))
         {
-            JError::raiseWarning(100, sprintf('No helper found for project type %s', $type));
+	        JFactory::getApplication()->enqueueMessage(
+		        sprintf('No helper found for project type %s', $type), 'error');
 
             return false;
         }
@@ -135,7 +136,8 @@ class EasyProjectHelper
 
         if( ! class_exists($className))
         {
-            JError::raiseWarning(100, sprintf('Required class [%s] not found', $className));
+	        JFactory::getApplication()->enqueueMessage(
+		        sprintf('Required class [%s] not found', $className), 'error');
 
             return false;
         }
@@ -235,7 +237,7 @@ class EasyProjectHelper
             if( ! JFile::exists($fileName))
             {
                 /*
-                 JError::raiseWarning(100, 'File not found '.$fileName);
+                 JXXError::raiseWarning(100, 'File not found '.$fileName);
                 ecrHTML::displayMessage('Unable to load XML file '.$fileName, 'error');
                 */
                 return false;
@@ -322,7 +324,7 @@ class EasyProjectHelper
     {
         if( ! JFile::exists($path))
         {
-            JError::raiseWarning(100, sprintf(jgettext('File not found %s'), $path));
+	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('File not found %s'), $path), 'error');
 
             return false;
         }
@@ -332,7 +334,7 @@ class EasyProjectHelper
 
         if( ! $manifest instanceof SimpleXMLElement)
         {
-            JError::raiseWarning(100, sprintf(jgettext('Invalid manifest file %s'), $path));
+	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Invalid manifest file %s'), $path), 'error');
             unset($manifest);
 
             return false;
@@ -569,7 +571,7 @@ class EasyProjectHelper
                 break;
 
             default:
-                JError::raiseWarning(0, 'UNKNOWN TYPE: '.$type);
+	            JFactory::getApplication()->enqueueMessage('UNKNOWN TYPE: '.$type, 'error');
 
             return array();
             break;
@@ -840,14 +842,14 @@ class EasyProjectHelper
 
         if( ! count($parts))
         {
-            JError::raiseWarning(100, 'Expecting a key separated by dots (.)');
+	        JFactory::getApplication()->enqueueMessage('Expecting a key separated by dots (.)', 'error');
 
             return false;
         }
 
         if(count($parts) < 4)
         {
-            JError::raiseWarning(100, 'Autocode key must have 4 (four) parts');
+	        JFactory::getApplication()->enqueueMessage('Autocode key must have 4 (four) parts', 'error');
 
             return false;
         }
@@ -856,14 +858,15 @@ class EasyProjectHelper
 
         if( ! JFolder::exists($path))
         {
-            JError::raiseWarning(100, sprintf('Autocode key %s not found in path %s ', $key, $path));
+	        JFactory::getApplication()->enqueueMessage(
+		        sprintf('Autocode key %s not found in path %s ', $key, $path), 'error');
 
             return false;
         }
 
         if( ! JFile::exists($path.DS.'autocode.php'))
         {
-            JError::raiseWarning(100, sprintf('autocode.php not found for %s', $key));
+	        JFactory::getApplication()->enqueueMessage(sprintf('autocode.php not found for %s', $key), 'error');
 
             return false;
         }
@@ -874,7 +877,8 @@ class EasyProjectHelper
 
         if( ! class_exists($className))
         {
-            JError::raiseWarning(100, sprintf('Required Autocode class %s not found', $className));
+	        JFactory::getApplication()->enqueueMessage(
+		        sprintf('Required Autocode class %s not found', $className), 'error');
 
             return false;
         }
@@ -915,16 +919,16 @@ class EasyProjectHelper
         if(empty($xml))
         {
             //-- There was an error
-            JError::raiseWarning(100, jgettext('Could not load XML file'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('Could not load XML file'), 'error');
 
             if($isFile)
             {
-                JError::raiseWarning(100, $data);
+	            JFactory::getApplication()->enqueueMessage($data, 'error');
             }
 
             foreach(libxml_get_errors() as $error)
             {
-                JError::raiseWarning(100, 'XML: '.$error->message);
+	            JFactory::getApplication()->enqueueMessage('XML: '.$error->message, 'error');
             }//foreach
         }
 

@@ -187,7 +187,7 @@ class EasyLogger
      * Log a database query.
      *
      * @param string $query The query
-     * @param string $error Error happened during execution
+     * @param boolean $error Error happened during execution
      *
      * @return void
      */
@@ -259,8 +259,9 @@ class EasyLogger
 
         if( ! JFile::write(ECRPATH_LOGS.DS.$this->fileName, $log))
         {
-            JError::raiseWarning(100, sprintf(jgettext('The file %s could not be written to path %s')
-            , $this->fileName, ECRPATH_LOGS));
+            JFactory::getApplication()->enqueueMessage(
+                sprintf(jgettext('The file %s could not be written to path %s'), $this->fileName, ECRPATH_LOGS)
+                , 'error');
 
             return false;
         }

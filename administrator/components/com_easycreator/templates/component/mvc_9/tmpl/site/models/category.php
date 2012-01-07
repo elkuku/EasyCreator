@@ -164,7 +164,8 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Make sure we have a category
             if( ! $this->_category)
             {
-                JError::raiseWarning(100, JText::_('Invalid category'));
+	            JFactory::getApplication()->enqueueMessage(
+		            JText::_('Invalid category'), 'error');
 
                 return false;
             }
@@ -172,7 +173,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Make sure the category is published
             if( ! $this->_category->published)
             {
-                JError::raiseError(404, JText::_('Resource Not Found'));
+	            JFactory::getApplication()->enqueueMessage(JText::_('Resource Not Found'), 'error');
 
                 return false;
             }
@@ -180,7 +181,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Check whether category access level allows access
             if($this->_category->access > $user->get('aid', 0))
             {
-                JError::raiseError(403, JText::_('ALERTNOTAUTH'));
+	            JFactory::getApplication()->enqueueMessage(JText::_('ALERTNOTAUTH'), 'error');
 
                 return false;
             }

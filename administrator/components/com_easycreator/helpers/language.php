@@ -97,7 +97,7 @@ class EasyELanguage
 
         if( ! array_key_exists('en-GB', $languages))
         {
-            JError::raiseWarning(100, 'Default language en-GB is not present');
+	        JFactory::getApplication()->enqueueMessage('Default language en-GB is not present', 'error');
 
             return array();
         }
@@ -148,7 +148,8 @@ class EasyELanguage
 
         if( ! JFile::exists($fileName))
         {
-            JError::raiseWarning(100, sprintf(jgettext('The file %s could not be found'), $fileName));
+	        JFactory::getApplication()->enqueueMessage(
+		        sprintf(jgettext('The file %s could not be found'), $fileName), 'error');
 
             return $versions;
         }
@@ -465,12 +466,12 @@ class EasyELanguage
 
         if( ! JFile::write($fileName, $fileContents))
         {
-            JError::raiseWarning(100, sprintf(jgettext('Unable to write file %s'), $fileName));
+	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Unable to write file %s'), $fileName), 'error');
 
             return false;
         }
 
-        JError::raiseNotice(100, jgettext('The file has been saved'));
+	    JFactory::getApplication()->enqueueMessage(jgettext('The file has been saved'));
 
         return true;
     }//function

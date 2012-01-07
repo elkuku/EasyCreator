@@ -99,8 +99,6 @@ class EasyTableHelper
                 {
                     ecrHTML::displayMessage('File read error', 'error');
 
-//                    JError::raiseWarning(100, 'read error');
-
                     return $tables;
                 }
 
@@ -715,7 +713,7 @@ class EasyTableField
         }
         else if( ! is_null($field))
         {
-            JError::raiseWarning(100, 'Invalid option in '.get_class($this).' constructor');
+	        JFactory::getApplication()->enqueueMessage(__METHOD__.': Invalid option', 'error');
         }
     }//function
 }//class

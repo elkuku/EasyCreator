@@ -130,7 +130,7 @@ class EasyAutoCode
     {
         if( ! isset($this->codes[$key]))
         {
-            JError::raiseWarning(100, sprintf(jgettext('AutoCode %s not found'), $key));
+	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('AutoCode %s not found'), $key), 'error');
 
             return $string;
         }
@@ -147,7 +147,7 @@ class EasyAutoCode
                 //-- End tag found
                 if( ! $started)
                 {
-                    JError::raiseWarning(100, sprintf(jgettext('Match mismatch on %s'), $key));
+	                JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Match mismatch on %s'), $key), 'error');
 
                     return $string;
                 }
@@ -329,7 +329,7 @@ class EasyAutoCode
 
         if( ! JFile::exists($fileName))
         {
-            JError::raiseWarning(100, sprintf('Element %s not found', $name));
+	        JFactory::getApplication()->enqueueMessage(sprintf('Element %s not found', $name), 'error');
 
             $elements[$name] = false;
 
@@ -342,7 +342,7 @@ class EasyAutoCode
 
         if( ! class_exists($className))
         {
-            JError::raiseWarning(100, sprintf('Required class %s not found', $className));
+	        JFactory::getApplication()->enqueueMessage(sprintf('Required class %s not found', $className), 'error');
 
             return false;
         }

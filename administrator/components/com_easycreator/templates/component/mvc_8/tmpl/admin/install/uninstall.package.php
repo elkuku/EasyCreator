@@ -70,7 +70,8 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
 
             if( ! $db->query())
             {
-                JError::raiseWarning(100, JText::_('Module').' '.JText::_('Uninstall').': '.$db->stderr(true));
+	            JFactory::getApplication()->enqueueMessage(
+		            JText::_('Module').' '.JText::_('Uninstall').': '.$db->stderr(true), 'error');
                 $retval = false;
             }
         }
@@ -81,7 +82,8 @@ if(is_a($modules, 'JSimpleXMLElement') && count($modules->children()))
 
         if( ! $db->query())
         {
-            JError::raiseWarning(100, JText::_('Plugin').' '.JText::_('Uninstall').': '.$db->stderr(true));
+	        JFactory::getApplication()->enqueueMessage(
+		        JText::_('Plugin').' '.JText::_('Uninstall').': '.$db->stderr(true), 'error');
             $retval = false;
         }
 
@@ -163,7 +165,8 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
 
         if( ! $db->query())
         {
-            JError::raiseWarning(100, JText::_('Plugin').' '.JText::_('Uninstall').': '.$db->stderr(true));
+	        JFactory::getApplication()->enqueueMessage(
+		        JText::_('Plugin').' '.JText::_('Uninstall').': '.$db->stderr(true), 'error');
             $retval = false;
         }
 

@@ -279,21 +279,21 @@ abstract class EasyProject extends JObject
 
         if( ! $this->writeProjectXml())
         {
-            JError::raiseWarning(100, jgettext('Can not update EasyCreator manifest'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Can not update EasyCreator manifest'), 'error');
 
             return false;
         }
 
         if( ! $this->writeJoomlaManifest())
         {
-            JError::raiseWarning(100, jgettext('Can not update Joomla! manifest'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Can not update Joomla! manifest'), 'error');
 
             return false;
         }
 
         if( ! $this->updateAdminMenu())
         {
-            JError::raiseWarning(100, jgettext('Can not update Admin menu'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
             return false;
         }
@@ -324,7 +324,8 @@ abstract class EasyProject extends JObject
 
         if( ! $manifest)
         {
-            JError::raiseWarning(100, sprintf(jgettext('Can not load xml file %s'), $installXML));
+            JFactory::getApplication()->enqueueMessage(
+                sprintf(jgettext('Can not load xml file %s'), $installXML), 'error');
 
             return false;
         }
@@ -370,8 +371,9 @@ abstract class EasyProject extends JObject
         //--Write XML file to disc
         if( ! JFile::write(JPATH_ROOT.DS.$installXML, $output))
         {
-            JError::raiseWarning(100, jgettext('Unable to write file'));
-            JError::raiseWarning(100, JPATH_ROOT.DS.$installXML);
+            JFactory::getApplication()->enqueueMessage(
+                jgettext('Unable to write file'), 'error');
+            JFactory::getApplication()->enqueueMessage(JPATH_ROOT.DS.$installXML, 'error');
 
             return false;
         }
@@ -635,7 +637,7 @@ abstract class EasyProject extends JObject
 
         if( ! JFile::exists($fileName))
         {
-            JError::raiseWarning(100, jgettext('Project manifest not found'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Project manifest not found'), 'error');
 
             return false;
         }
@@ -645,7 +647,7 @@ abstract class EasyProject extends JObject
         if( ! $manifest instanceof SimpleXMLElement
         || $manifest->getName() != 'easyproject')
         {
-            JError::raiseWarning(100, jgettext('Invalid project manifest'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Invalid project manifest'), 'error');
 
             return false;
         }
@@ -950,7 +952,7 @@ abstract class EasyProject extends JObject
         if( ! isset($options->pathSource)
         || ! $options->pathSource)
         {
-            JError::raiseWarning(100, jgettext('Invalid options'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Invalid options'), 'error');
             $logger->log('Invalid options');
 
             return false;
@@ -998,7 +1000,8 @@ abstract class EasyProject extends JObject
                 }
                 else
                 {
-                    JError::raiseWarning(100, sprintf(jgettext('Autocode key %s not found'), $ACName));
+                    JFactory::getApplication()->enqueueMessage(
+                        sprintf(jgettext('Autocode key %s not found'), $ACName), 'error');
 
                     return false;
                 }
@@ -1020,7 +1023,7 @@ abstract class EasyProject extends JObject
 
             if( ! JFile::write($basePathDest.DS.$fName, $fileContents))
             {
-                JError::raiseWarning(100, jgettext('Unable to write file'));
+                JFactory::getApplication()->enqueueMessage(jgettext('Unable to write file'), 'error');
 
                 return false;
             }

@@ -59,7 +59,7 @@ class EasyFile
     {
         if( ! JFile::exists($fileName))
         {
-            JError::raiseWarning(100, jgettext('File not found'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('File not found'), 'error');
 
             return false;
         }
@@ -84,7 +84,7 @@ class EasyFile
 
         if( ! JFile::copy($fileName, $versionedFileName))
         {
-            JError::raiseWarning(100, sprintf(jgettext('Unable to copy file %s'), $fileName));
+	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Unable to copy file %s'), $fileName), 'error');
 
             return false;
         }

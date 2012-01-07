@@ -60,6 +60,7 @@ class JoomlaManifest extends JObject
         {
             case '1.6':
             case '1.7':
+            case '2.5':
                 $rootTag = 'extension';
                 break;
 
@@ -67,7 +68,8 @@ class JoomlaManifest extends JObject
                 $rootTag = 'install';
                 break;
             default:
-                JError::raiseWarning(0, __METHOD__.'Unknown JCompat: '.$this->project->JCompat);
+                JFactory::getApplication()->enqueueMessage(
+                    __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
                 break;
         }//switch
 
@@ -997,7 +999,8 @@ class JoomlaManifest extends JObject
 
             if( ! $xml = EasyProjectHelper::getXML($f))
             {
-                JError::raiseWarning(100, sprintf(jgettext('Unable to load the xml file %s'), $f));
+	            JFactory::getApplication()->enqueueMessage(
+		            sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
                 unset($xml);
 
                 return false;
@@ -1110,7 +1113,8 @@ class JoomlaManifest extends JObject
 
             if( ! $xml = EasyProjectHelper::getXML($f))
             {
-                JError::raiseWarning(100, sprintf(jgettext('Unable to load the xml file %s'), $f));
+	            JFactory::getApplication()->enqueueMessage(
+		            sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
                 unset ($xml);
 
                 return false;
