@@ -248,6 +248,7 @@ class EasyCreatorViewStuffer extends JView
 
                 case '1.6':
                 case '1.7':
+                case '2.5':
                     $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
                     break;
 

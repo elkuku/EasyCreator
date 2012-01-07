@@ -1,9 +1,9 @@
 <?php
 /**
- * @package		EasyCreator
- * @subpackage	Templates
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
- * @author		Created on 09-May-2009
+ * @package        EasyCreator
+ * @subpackage    Templates
+ * @author        Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author        Created on 09-May-2009
  */
 
 //-- No direct access
@@ -31,6 +31,10 @@ class EasyTemplateOptions
 
             case '1.7':
                 $this->reservedNames = array('joomla', 'phpmailer', 'phputf8', 'simplepie');
+                break;
+
+            case '2.5':
+                $this->reservedNames = array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
                 break;
 
             default:

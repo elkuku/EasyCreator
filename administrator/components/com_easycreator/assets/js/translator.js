@@ -55,6 +55,7 @@ var ecrTranslator = new Class({
 
                     case '1.6':
                     case '1.7':
+                    case '2.5':
                         parent.SqueezeBox.close();
                     break;
 
@@ -173,6 +174,7 @@ var ecrTranslator = new Class({
 
                     case '1.6':
                     case '1.7':
+                    case '2.5':
                         parent.SqueezeBox.close();
                     break;
 

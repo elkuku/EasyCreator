@@ -22,19 +22,20 @@ function save_file() {
 
     switch(ECR_JVERSION)
     {
-	    case '1.5':
-	        var fx = box.effects( {
-	            duration : 1000,
-	            transition : Fx.Transitions.Quart.easeOut
-	        });
-	        break;
-	    case '1.6':
-	    case '1.7':
-	        var fx = new Fx.Morph(box, {});
-	        break;
-	    default:
-	        alert('Undefined JVersion '.ECR_JVERSION);
-	        break;
+        case '1.5':
+            var fx = box.effects( {
+                duration : 1000,
+                transition : Fx.Transitions.Quart.easeOut
+            });
+            break;
+        case '1.6':
+        case '1.7':
+        case '2.5':
+            var fx = new Fx.Morph(box, {});
+            break;
+        default:
+            alert('Undefined JVersion '.ECR_JVERSION);
+            break;
     }// switch
 
     new Request({
