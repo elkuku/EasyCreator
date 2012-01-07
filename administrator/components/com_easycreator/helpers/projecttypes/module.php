@@ -224,7 +224,7 @@ class EasyProjectModule extends EasyProject
                 return JFolder::folders(JPATH_SITE.DS.'modules');
                 break;
             default:
-                JError::raiseWarning(100, __METHOD__.' - Unknown scope');
+	            JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
 
                 return array();
                 break;

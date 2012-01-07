@@ -51,7 +51,7 @@ class EasyTemplateOptions
     {
         if( ! $ecr_folder_name = JRequest::getCmd('ecr_folder_name'))
         {
-            JError::raiseWarning(100, jgettext('No folder given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No folder given'), 'error');
 
             return false;
         }

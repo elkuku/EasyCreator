@@ -48,7 +48,7 @@ class AutoCodeAdminFormsEditElementField
                 }
                 else
                 {
-                    JError::raiseNotice(100, 'Unknown inputType: '.$field->inputType);
+	                JFactory::getApplication()->enqueueMessage('Unknown inputType: '.$field->inputType, 'error');
                 }
             }
 

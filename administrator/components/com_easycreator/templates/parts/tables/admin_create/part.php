@@ -197,7 +197,7 @@ class PartTablesAdmin_create
 
         if( ! $db->query())
         {
-            JError::raiseWarning(100, $db->getError());
+	        JFactory::getApplication()->enqueueMessage($db->getError(), 'error');
             $logger->logQuery($query, $db->getError());
 
             return false;

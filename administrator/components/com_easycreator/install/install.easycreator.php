@@ -28,8 +28,8 @@ function com_install()
 
     if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
     {
-        JError::raiseWarning(0, sprintf('This script requires at least PHP version %s'
-        , $PHPMinVersion));//@Do_NOT_Translate
+	    JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
+        , $PHPMinVersion), 'error');//@Do_NOT_Translate
 
         return false;
     }
@@ -62,14 +62,14 @@ function com_install()
 
         if( ! $xml = simplexml_load_file(ECR_XML_LOCATION))
         {
-            JError::raiseWarning(0, jgettext('Install manifest not found'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('Install manifest not found'), 'error');
 
             return false;
         }
     }
     catch(Exception $e)
     {
-        JError::raiseWarning(0, $e->getMessage());
+	    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
         return false;
     }//try

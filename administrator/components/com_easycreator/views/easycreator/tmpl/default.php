@@ -13,7 +13,8 @@ defined('_JEXEC') || die('=;)');
 if( ! JComponentHelper::getParams('com_easycreator')->get('cred_author')) :
     //-- Parameters have not been set
     $link = '<a href="index.php?option=com_easycreator&controller=config">'.jgettext('Configuration settings').'</a>';
-    JError::raiseNotice(100, sprintf(jgettext('Please set your personal information in %s'), $link));
+    JFactory::getApplication()->enqueueMessage(
+        sprintf(jgettext('Please set your personal information in %s'), $link), 'warning');
 endif;
 //<a class="modal" href="http://joomla.org">@TEST</a>
 //<div onclick="checkVersion();">Check</div>

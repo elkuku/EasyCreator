@@ -32,8 +32,8 @@ class Com_EasyCreatorInstallerScript
 
         if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
         {
-            JError::raiseWarning(0, sprintf('This script requires at least PHP version %s'
-            , $PHPMinVersion));//@Do_NOT_Translate
+	        JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
+            , $PHPMinVersion), 'error');//@Do_NOT_Translate
 
             return false;
         }

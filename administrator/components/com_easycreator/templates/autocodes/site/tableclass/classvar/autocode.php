@@ -192,7 +192,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
 
         if( ! $table_name)
         {
-            JError::raiseWarning(100, jgettext('No table given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }

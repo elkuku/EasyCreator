@@ -665,11 +665,11 @@ class EasyProjectComponent extends EasyProject
         //-- Check for error
         if($error = $db->getErrorMsg() || empty($ids))
         {
-            JError::raiseWarning('', jgettext('There was a problem updating the admin menu'));
+            JFactory::getApplication()->enqueueMessage(jgettext('There was a problem updating the admin menu'), 'error');
 
             if($error && $error != 1)
             {
-                JError::raiseWarning(100, $error);
+	            JFactory::getApplication()->enqueueMessage($error, 'error');
             }
 
             return false;

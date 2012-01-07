@@ -146,7 +146,7 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
 
         if( ! $table_name)
         {
-            JError::raiseWarning(100, jgettext('No table given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -164,7 +164,7 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
 
         if( ! count($fields))
         {
-            JError::raiseWarning(100, 'No table fields found');
+	        JFactory::getApplication()->enqueueMessage('No table fields found', 'error');
 
             return false;
         }

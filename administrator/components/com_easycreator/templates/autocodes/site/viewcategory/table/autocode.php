@@ -50,7 +50,7 @@ class AutoCodeSiteViewCategoryTable extends EasyAutoCode
      */
     public function edit(EasyAutoCode $AutoCode)
     {
-        JError::raiseWarning(0, get_class($this).'::edit not finished');
+	    JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'warning');
         /* Array with required fields */
         $requireds = array();
 
@@ -190,14 +190,14 @@ class AutoCodeSiteViewCategoryTable extends EasyAutoCode
      */
     public function insert(EasyProject $project, $options, EasyLogger $logger)
     {
-        JError::raiseWarning(0, get_class($this).'::insert not finished');
+	    JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'error');
 
         $table_name = JRequest::getCmd('element');
         $element_scope = JRequest::getCmd('element_scope');
 
         if( ! $table_name)
         {
-            JError::raiseWarning(100, jgettext('No table given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -214,7 +214,7 @@ class AutoCodeSiteViewCategoryTable extends EasyAutoCode
 
         if( ! count($fields))
         {
-            JError::raiseWarning(100, 'No table fields found');
+	        JFactory::getApplication()->enqueueMessage('No table fields found', 'error');
 
             return false;
         }

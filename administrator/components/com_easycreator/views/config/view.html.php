@@ -59,7 +59,7 @@ class EasyCreatorViewConfig extends JView
                 break;
 
             default:
-                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+	            ecrHTML::displayMessage(__METHOD__.' - Unknown J! version', 'error');
 
                 ecrHTML::easyFormEnd();
 

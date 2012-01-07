@@ -87,7 +87,7 @@ class LanguageCheckerViewLanguageChecker extends JView
         {
             $m =(JDEBUG) ? nl2br($e) : $e->getMessage();
 
-            JError::raiseWarning(0, $m);
+	        JFactory::getApplication()->enqueueMessage($m, 'error');
         }//try
 
         $this->checks = new JObject();
@@ -142,7 +142,7 @@ class LanguageCheckerViewLanguageChecker extends JView
         {
             $m =(JDEBUG) ? nl2br($e) : $e->getMessage();
 
-            JError::raiseWarning(0, $m);
+	        JFactory::getApplication()->enqueueMessage($m, 'error');
         }//try
 
         parent::display($tpl);

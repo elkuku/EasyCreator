@@ -40,7 +40,8 @@ class EasyCreatorViewEasyCreator extends JView
 
         if($browser->getBrowser() == 'msie')
         {
-            JError::raiseWarning(0, jgettext('This extension is not compatible with MS internet explorer R'));
+            JFactory::getApplication()->enqueueMessage(
+                jgettext('This extension is not compatible with MS internet explorer R'), 'warning');
         }
 
         //-- Check if we are on localhost - otherwise display a warning
@@ -51,14 +52,14 @@ class EasyCreatorViewEasyCreator extends JView
             if($ip && $ip != '127.0.0.1')
             {
                 $link = 'http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development';
-                JError::raiseNotice(100
-                , jgettext('Please use this extension only in local development environments.'));
-                JError::raiseNotice(100
-                , sprintf(
-                jgettext("See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! development</a>")
-                , $link));
-                JError::raiseNotice(100
-                , jgettext('You may suppress this message in the configuration settings if you\'re shure'));
+	            JFactory::getApplication()->enqueueMessage(
+                    jgettext('Please use this extension only in local development environments.'), 'warning');
+	            JFactory::getApplication()->enqueueMessage(
+                    sprintf(
+                    jgettext("See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! development</a>")
+                    , $link), 'warning');
+	            JFactory::getApplication()->enqueueMessage(
+                    jgettext('You may suppress this message in the configuration settings if you\'re shure'), 'warning');
             }
         }
 

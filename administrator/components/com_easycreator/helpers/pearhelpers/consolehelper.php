@@ -44,7 +44,7 @@ class EasyPearConsole extends JObject
 
         if( ! class_exists('System'))
         {
-            JError::raiseWarning(100, 'PEAR not found');
+            JFactory::getApplication()->enqueueMessage('PEAR not found', 'error');
 
             return false;
         }

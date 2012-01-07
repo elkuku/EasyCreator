@@ -57,7 +57,7 @@ class JLanguageCheckerParserIni {
             $strings[$key] = $t;
         }//foreach
 
-        if( ! $strings) JError::raiseWarning(0, 'No strings found :(');
+        if( ! $strings) JFactory::getApplication()->enqueueMessage('No strings found :(', 'error');
 
         $fileInfo->strings = $strings;
 

@@ -217,7 +217,7 @@ class LanguageCheckerHelper
         }
         catch(Exception $e)
         {
-            JError::raiseWarning(0, $e->getMessage());
+	        JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
         }//try
 
         foreach($files as $fileName)
@@ -465,21 +465,17 @@ class LanguageCheckerHelper
 
         if(true)//! JLoader::import('helpers.parsers.'.$this->langFormatIn, JPATH_COMPONENT))
         {
-//            #  JError::raiseWarning(0, 'Unknown parser: '.$this->langFormatIn);
-
             try
             {
                 $parser = JALHOO::getParser('language', $this->langFormatIn);
                 $langFilePath = JALHoOExtensionHelper::getExtensionLanguagePath($this->component);
-//                echo $parser;
             }
             catch(Exception $e)
             {
-                JError::raiseWarning(0, $e->getMessage());
+	            JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
                 return;
             }//try
-//            #            return;
         }
         else//
         {
@@ -487,7 +483,7 @@ class LanguageCheckerHelper
 
             if( ! class_exists($className))
             {
-                JError::raiseWarning(0, 'Required class not found: '.$className);
+	            JFactory::getApplication()->enqueueMessage('Required class not found: '.$className, 'error');
 
                 return;
             }

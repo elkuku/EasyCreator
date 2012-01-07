@@ -433,7 +433,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             default:
-                JError::raiseWarning(0, __METHOD__.' - Unknown J! version');
+	            JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown J! version', 'error');
 
                 return array();
         }//switch

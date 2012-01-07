@@ -60,7 +60,7 @@ class EasyProjectLibrary extends EasyProject
      */
     public function getLanguageScopes()
     {
-        JError::raiseWarning(0, __METHOD__.' unfinished');
+	    JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
         $scopes = array();
         $scopes[] =($this->scope) == 'admin' ? 'admin' : 'site';
 
