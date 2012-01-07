@@ -4,7 +4,7 @@
 # Translators:
 #   <bvp@gmx.de>, 2011.
 # Nikolai Plath <test@joomla.org>, 2010.
-#   <test1@nik-it.de>, 2011.
+
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"

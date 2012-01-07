@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Views
- * @author     Nikolai Plath {@link http://nik-it.de}
+ * @author     Nikolai Plath
  * @author     Created on 15-Aug-2011
  * @license    GNU/GPL
  */

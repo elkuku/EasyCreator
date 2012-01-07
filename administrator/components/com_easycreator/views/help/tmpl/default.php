@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Help
- * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Nikolai Plath (elkuku)
  * @author     Created on 07-Mar-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
@@ -61,7 +61,7 @@ defined('_JEXEC') || die('=;)');
             <li><strong>Chinese</strong> baijianpeng <a href="http://www.joomlagate.com" class="external">www.joomlagate.com</a></li>
         </ul>
     </li>
-    <li>Who's missing?... ah, me - Nikolai Plath (aka elkuku) - <a href="http://www.nik-it.de" class="external">NiK-IT.de</a> - responsible for the <strong>rest</strong> <tt style="color: green;">=;)</tt></li>
+    <li>Who's missing?... ah, me - Nikolai Plath (aka elkuku) - <a href="https://github.com/elkuku" class="external">github.com/elkuku</a> - responsible for the <strong>rest</strong> <tt style="color: green;">=;)</tt></li>
 </ul>
 
 </div>

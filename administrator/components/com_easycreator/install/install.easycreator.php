@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Installer
- * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Nikolai Plath (elkuku)
  * @author     Created on 30-Sep-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */

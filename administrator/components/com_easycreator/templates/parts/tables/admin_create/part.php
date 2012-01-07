@@ -3,7 +3,7 @@
  * @package    EasyCreator
  * @subpackage	Parts
  * @author hidabe -- pls add your credits =;)
- * @author		Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author		Nikolai Plath (elkuku)
  * @author		Created on 20-Apr-2009
  */
 

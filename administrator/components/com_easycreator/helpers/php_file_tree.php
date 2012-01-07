@@ -10,7 +10,7 @@
  * @documentation {@link http://abeautifulsite.net/notebook.php?article=21}
  *
  * @version Let's call this one... version 2 =;)
- * @author    Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author    Nikolai Plath (elkuku)
  */
 
 //-- No direct access

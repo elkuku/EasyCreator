@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Frontend
- * @author     Nikolai Plath (elkuku) {@link http://www.nik-it.de NiK-IT.de}
+ * @author     Nikolai Plath (elkuku)
  * @author     Created on 24-Sep-2008
  */
 
