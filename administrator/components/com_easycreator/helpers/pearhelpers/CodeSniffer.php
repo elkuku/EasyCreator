@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Helpers
- * @author		Nikolai Plath {@link http://www.nik-it.de}
+ * @author		Nikolai Plath
  * @author		Created on 10.09.2009
 
  * Usage: phpcs [-nwlsvi] [--report=<report>] [--report-file=<reportfile>]

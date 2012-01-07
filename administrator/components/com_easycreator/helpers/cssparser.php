@@ -3,7 +3,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Helpers
- * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Nikolai Plath
  * @author     Created on 04-Sep-2009
  */
 

@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage	AutoCodes
- * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Nikolai Plath
  * @author     Created on 22-Mar-2010
  */
 

@@ -1,7 +1,7 @@
 /**
  * @package    EasyCreator
  * @subpackage Frontend-JavaScript
- * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Nikolai Plath
  * @author     Created on 24-Sep-2008
  */
 

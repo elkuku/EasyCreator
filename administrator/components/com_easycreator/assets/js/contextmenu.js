@@ -4,7 +4,7 @@
  * @package EasyCreator
  * @subpackage Javascript
  * @author webtoolkit {@link http://www.webtoolkit.info/}
- * @author Nikolai Plath {@link http://www.nik-it.de}
+ * @author Nikolai Plath
  * @author Created on 03-Mar-2008
  * @license GNU/GPL, see JROOT/LICENSE.php
  */

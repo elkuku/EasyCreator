@@ -2,7 +2,7 @@
 /**
  * @package    EasyCreator
  * @subpackage ProjectTypes
- * @author     Nikolai Plath {@link http://www.nik-it.de}
+ * @author     Nikolai Plath
  * @author     Created on 29-Mar-2010
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
