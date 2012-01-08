@@ -7,7 +7,7 @@ jimport('joomla.application.component.model');
  * _ECR_COM_NAME_ Categories Model.
  *
  * @package _ECR_COM_NAME_
- * @subpackage	Models
+ * @subpackage Models
  */
 class _ECR_COM_NAME_ModelCategories extends JModel
 {
@@ -74,21 +74,20 @@ class _ECR_COM_NAME_ModelCategories extends JModel
      */
     public function _buildQuery()
     {
-        $user =& JFactory::getUser();
-        $aid = $user->get('aid', 0);
-
-        //-- Query to retrieve all categories that belong under the _ECR_COM_NAME_ section
+        //-- Query to retrieve all categories that belong to the _ECR_COM_NAME_ extension.
         //-- and that are published.
-        $query = 'SELECT cc.*, COUNT(a.id) AS numitems,'
-        .' cc.id as slug'
-        .' FROM #__categories AS cc'
-        .' LEFT JOIN #___ECR_COM_TBL_NAME_ AS a ON a.catid = cc.id'
-//        .' WHERE a.published = 1'
-        .' WHERE extension = \'_ECR_COM_COM_NAME_\''
-        .' AND cc.published = 1'
-//        .' AND cc.access <= '.(int)$aid
-        .' GROUP BY cc.id'
-        .' ORDER BY cc.ordering';
+
+        $db = $this->_db;
+
+        $query = $db->getQuery(true);
+
+        $query->from($db->quoteName('#__categories').' AS cc')
+            ->select('cc.*, COUNT(a.id) AS numitems')
+            ->select('cc.id as slug')
+            ->join('left', $db->quoteName('#___ECR_COM_TBL_NAME_').' AS a ON a.catid = cc.id')
+            ->where('extension = '.$db->quote('_ECR_COM_COM_NAME_'))
+            ->where('cc.published = 1')
+            ->group('cc.id');
 
         return $query;
     }//function

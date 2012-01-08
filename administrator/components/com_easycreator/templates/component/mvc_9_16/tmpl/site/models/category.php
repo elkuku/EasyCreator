@@ -58,7 +58,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
 
         //-- Get the pagination request variables
         $this->setState('limit', $app->getUserStateFromRequest('_ECR_COM_COM_NAME_.limit'
-        , 'limit', $config->getValue('config.list_limit'), 'int'));
+        , 'limit', $config->get('config.list_limit'), 'int'));
 
         $this->setState('limitstart', JRequest::getVar('limitstart', 0, '', 'int'));
 
@@ -168,7 +168,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Make sure we have a category
             if( ! $this->_category)
             {
-	            JFactory::getApplication()->enqueueMessage(JText::_('Invalid category'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::_('Invalid category'), 'error');
 
                 return false;
             }
@@ -176,7 +176,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Make sure the category is published
             if( ! $this->_category->published)
             {
-	            JFactory::getApplication()->enqueueMessage(JText::_('Resource Not Found'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::_('Resource Not Found'), 'error');
 
                 return false;
             }
@@ -196,19 +196,18 @@ class _ECR_COM_NAME_ModelCategory extends JModel
     /**
      * Method to load category data if it doesn't exist.
      *
-     * @access	private
-     * @return	boolean	True on success
+     * @return boolean True on success
      */
     private function loadCategory()
     {
         if(empty($this->_category))
         {
             // current category info
-            $query = 'SELECT c.*, '
-                .' c.id as slug '
-                .' FROM #__categories AS c'
-                .' WHERE c.id = '.(int)$this->_id
-                .' AND c.extension = "_ECR_COM_COM_NAME_"';
+            $query = $this->_db->getQuery(true)
+                ->from($this->_db->quoteName('#__categories').' AS c')
+                ->select('c.*, c.id as slug')
+                ->where('c.id = '.(int)$this->_id)
+                ->where('c.extension = '.$this->_db->quote('_ECR_COM_COM_NAME_'));
 
             $this->_db->setQuery($query, 0, 1);
             $this->_category = $this->_db->loadObject();
@@ -231,11 +230,11 @@ class _ECR_COM_NAME_ModelCategory extends JModel
         $filter_order_dir = JFilterInput::clean($filter_order_dir, 'word');
 
         // We need to get a list of all weblinks in the given category
-        $query = 'SELECT *'
-            .' FROM #___ECR_COM_TBL_NAME_'
-            .' WHERE catid = '.(int)$this->_id
-//            .' AND published = 1'
-            .' ORDER BY '.$filter_order.' '.$filter_order_dir;
+        $query = $this->_db->getQuery(true)
+            ->from($this->_db->quoteName('#___ECR_COM_TBL_NAME_'))
+            ->select('*')
+            ->where('catid = '.(int)$this->_id)
+            ->order($filter_order.' '.$filter_order_dir);
 
         return $query;
     }//function

@@ -23,8 +23,6 @@ class _ECR_COM_NAME_ViewCategories extends JView
     public function display($tpl = null)
     {
         $categories	= $this->get('data');
-        $total = $this->get('total');
-        $state = $this->get('state');
 
         //-- Get the page/component configuration
         $params = JComponentHelper::getParams('_ECR_COM_COM_NAME_');
@@ -35,9 +33,7 @@ class _ECR_COM_NAME_ViewCategories extends JView
         //-- right from the menu item itself
         if(is_object($menu))
         {
-            $menu_params = new JParameter($menu->params);
-
-            if( ! $menu_params->get('page_title'))
+            if( ! $menu->params->get('page_title'))
             {
                 $params->set('page_title', JText::_('_ECR_COM_NAME_'));
             }
