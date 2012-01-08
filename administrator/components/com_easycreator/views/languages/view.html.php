@@ -612,8 +612,8 @@ class EasyCreatorViewLanguages extends JView
 
         $c = '';
         $checked =($this->buildOpts->get('markFuzzy')) ? 'checked="checked"' : '';
-        $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy" name="buildOpts[markFuzzy]" onchange="submitform();" />';
-        $c .= '<label for="chkMarkFuzzy">Mark fuzzy</label>';
+	    $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy" name="buildOpts[markFuzzy]" onchange="submitform();" />';
+	    $c .= '<label for="chkMarkFuzzy">Mark fuzzy</label>';
 
         $this->checks->markFuzzy = $c;
 

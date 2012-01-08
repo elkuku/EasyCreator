@@ -206,7 +206,9 @@ foreach(EasyProjectHelper::getPartsGroups() as $group)
 
     foreach(EasyProjectHelper::getParts($group) as $part)
     {
-        if($easyPart = EasyProjectHelper::getPart($group, $part, '', ''))
+	    $easyPart = EasyProjectHelper::getPart($group, $part, '', '');
+
+        if($easyPart)
         {
             $toolTip = $group.'::'.$part;
             $title = $part;

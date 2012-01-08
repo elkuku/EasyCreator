@@ -353,7 +353,9 @@ class EasyCreatorViewStuffer extends JView
     }//function
 
     /**
-     * draws a list of related links
+     * Draws a list of related links.
+     *
+     * @return string
      */
     public function drawDocLinks()
     {

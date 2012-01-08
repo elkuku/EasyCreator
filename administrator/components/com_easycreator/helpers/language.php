@@ -1292,7 +1292,9 @@ case 'etc':
 
             case 'xml':
                 //--Search XML files
-                if($xmlDoc = EasyProjectHelper::getXML($fileName))
+	            $xmlDoc = EasyProjectHelper::getXML($fileName);
+
+                if($xmlDoc)
                 {
                     if((string)$xmlDoc->description)
                     {

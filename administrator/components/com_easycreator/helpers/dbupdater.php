@@ -61,7 +61,13 @@ class dbUpdater
         $this->project = $project;
     }//function
 
-    private function log($message)
+    /**
+     * Log a message.
+     *
+     * @param string $message Message to log.
+     *
+     * @return mixed
+     */private function log($message)
     {
         if( ! $this->logger)
         return;
@@ -69,7 +75,14 @@ class dbUpdater
         $this->logger->log($message);
     }//function
 
-    private function logFile($path, $contents)
+    /**
+     * Log a file write including contents.
+     *
+     * @param string $path     Path of the written file.
+     * @param string $contents File contents.
+     *
+     * @return mixed
+     */private function logFile($path, $contents)
     {
         if( ! $this->logger)
         return;
@@ -80,9 +93,9 @@ class dbUpdater
     /**
      * Make some properties public accessible.
      *
-     * @param string $what
+     * @param string $what What do you want ?
      *
-     * @return mixed
+     * @return mixed depends on $what :P
      */
     public function __get($what)
     {
@@ -95,6 +108,7 @@ class dbUpdater
     /**
      *
      * Enter description here ...
+     * @return bool
      */
     public function buildFromECRBuildDir()
     {
@@ -173,6 +187,11 @@ class dbUpdater
         return true;
     }//function
 
+    /**
+     * Parse the update files.
+     *
+     * @return array
+     */
     public function parseFiles()
     {
         if( ! $this->fileList)
@@ -358,7 +377,14 @@ class dbUpdater
         return $parsedQueries;
     }//function
 
-    private function setAdapter($adapter)
+    /**
+     * Set a database adapter.
+     *
+     * @param $adapter Adapter name.
+     *
+     * @return bool
+     * @throws Exception
+     */private function setAdapter($adapter)
     {
         if( ! ecrLoadHelper('dbadapters.'.$adapter))
         throw new Exception(__METHOD__.': Invalid adapter '.$adapter);
@@ -377,7 +403,11 @@ class dbUpdater
         return true;
     }//function
 
-    private function findInstallFile($path)
+    /**
+     * @param $path Path to install files.
+     *
+     * @return bool|string
+     */private function findInstallFile($path)
     {
         $files = JFolder::files($path);
 

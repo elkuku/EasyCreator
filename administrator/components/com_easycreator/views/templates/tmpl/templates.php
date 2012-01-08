@@ -99,7 +99,9 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 						<ul>
 <?php
                         foreach(EasyProjectHelper::getParts($group) as $part):
-                            if($easyPart = EasyProjectHelper::getPart($group, $part, '', '')):
+	                        $easyPart = EasyProjectHelper::getPart($group, $part, '', '');
+
+                            if($easyPart):
                                 $toolTip = $group.'::'.$part;
                                 $title = $part;
                                 if(method_exists($easyPart, 'info')):

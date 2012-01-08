@@ -24,7 +24,7 @@ class EasyCreatorControllerCodeEye extends JController
      * Standard display method.
      *
      * @param boolean $cachable If it is cachable
-     * @param boolean $urlparams Desc
+     * @param array|boolean $urlparams Desc
      *
      * @return void
      */

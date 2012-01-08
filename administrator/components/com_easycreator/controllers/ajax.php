@@ -260,6 +260,7 @@ class EasyCreatorControllerAjax extends JController
             //-- No method given - output the whole class
             echo "<h1>$rClass</h1>";
 
+	        /* @var ReflectionMethod $method */
             foreach($methods as $method)
             {
                 if($method->getDeclaringClass()->name != $rClass)
@@ -888,16 +889,16 @@ class EasyCreatorControllerAjax extends JController
         $this->processForm('rename_file', $ecr_project, 'file', 'rename', true);
     }//function
 
-    /**
-     * Displays a form for right click menu actions (add/edit/delete..).
-     *
-     * @param string $title The title
-     * @param string $icon The icon
-     * @param string $text The text
-     * @param integer $hasInput If it has an input field
-     *
-     * @return void
-     */
+	/**
+	 * Displays a form for right click menu actions (add/edit/delete..).
+	 *
+	 * @param string   $title    The title
+	 * @param string   $icon     The icon
+	 * @param string   $text     The text
+	 * @param bool|int $hasInput If it has an input field
+	 *
+	 * @return void
+	 */
     public function actForm($title, $icon, $text, $hasInput = true)
     {
         $inputType =($hasInput) ? 'text' : 'hidden';

@@ -76,7 +76,7 @@ class JFormFieldList extends EcrFormField
             , trim($attr), 'value', 'text', $this->value, $this->id);
         }
 
-        return implode($html);
+        return implode("\n", $html);
     }//function
 
     /**

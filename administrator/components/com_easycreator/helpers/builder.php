@@ -30,6 +30,9 @@ class EasyBuilder extends JObject
 
     private $_buildManifest = null;
 
+    /**
+     * @var EasyLogger
+     */
     private $logger = null;
 
     private $testMode = false;
@@ -226,7 +229,7 @@ class EasyBuilder extends JObject
 
             default:
                 JFactory::getApplication()->enqueueMessage(
-	                'Undefined type EasyBuilder::build : '.$this->project->type, 'error');
+                    'Undefined type EasyBuilder::build : '.$this->project->type, 'error');
 
                 return false;
                 break;

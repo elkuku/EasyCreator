@@ -5,8 +5,9 @@
  *  Require the base controller.
  */
 require_once JPATH_COMPONENT.DS.'controller.php';
+$controller = JRequest::getCmd('controller');
 
-if($controller = JRequest::getCmd('controller'))
+if($controller)
 {
     $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
 

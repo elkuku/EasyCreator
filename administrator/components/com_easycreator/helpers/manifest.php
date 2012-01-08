@@ -1164,7 +1164,9 @@ class JoomlaManifest extends JObject
         //-- DOMImplementation throws strict errors :(
         ini_set('error_reporting', 0);
 
-        if($dtd = $this->project->getDTD(JVERSION))
+	    $dtd = $this->project->getDTD(JVERSION);
+
+        if($dtd)
         {
             $doctype = DOMImplementation::createDocumentType($dtd['type'], $dtd['public'], $dtd['uri']);
             $document = DOMImplementation::createDocument('', '', $doctype);

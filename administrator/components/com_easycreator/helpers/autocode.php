@@ -69,16 +69,18 @@ class EasyAutoCode
         return $this->key;
     }//function
 
-    /**
-     * To be overridden.
-     *
-     * Subsequent classes will define text strings to be inserted.
-     *
-     * @param string $type Code type
-     * @param EasyTableField $field The field
-     *
-     * @return void
-     */
+	/**
+	 * To be overridden.
+	 *
+	 * Subsequent classes will define text strings to be inserted.
+	 *
+	 * @param string     $type Code type
+	 * @param \EasyTable $table
+	 *
+	 * @internal param \EasyTableField $field The field
+	 *
+	 * @return void
+	 */
     public function getCode($type, EasyTable $table)
     {
     }//function

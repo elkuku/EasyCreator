@@ -132,13 +132,11 @@ class EasyCreatorViewTemplates extends JView
         $this->setLayout('export');
     }//function
 
-    /**
-     * Displays the submenu.
-     *
-     * @param string $task The actual task
-     *
-     * @return string html
-     */
+	/**
+	 * Displays the submenu.
+	 *
+	 * @return string html
+	 */
     private function displayBar()
     {
         $subTasks = array(

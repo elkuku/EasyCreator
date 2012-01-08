@@ -85,7 +85,7 @@ class EasyProjectHelper
         $type = substr($name, 0, 3);
 
         if($type == 'ecr')
-        return; //-- Internal - new, register
+        return ''; //-- Internal - new, register
 
         if( ! array_key_exists($type, $projectTypes))
         throw new Exception(sprintf('Invalid project type: %s ', $type));

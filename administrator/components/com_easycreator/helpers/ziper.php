@@ -34,6 +34,9 @@ class EasyZIPer extends JObject
 
     private $buildopts = array();
 
+	/**
+	 * @var EasyLogger
+	 */
     private $logger = null;
 
     private $profiler = null;
@@ -1296,7 +1299,7 @@ class EasyZIPer extends JObject
     /**
      * Dislays the download links for created packages.
      *
-     * @return void
+     * @return array
      */
     public function getDownloadLinks()
     {

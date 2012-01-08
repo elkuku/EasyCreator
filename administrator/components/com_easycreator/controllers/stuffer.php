@@ -23,12 +23,14 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Standard display method.
      *
-     * @param boolean $cachable If true, the view output will be cached
-     * @param array $urlparams An array of safe url parameters and their variable types,
-     * for valid values see {@link JFilterInput::clean()}.
+     * @param boolean    $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {
+     *
+     * @link JFilterInput::clean()}.
      *
      * @return void
-     * @see JController::display()
+     * @see  JController::display()
      */
     public function display($cachable = false, $urlparams = false)
     {
@@ -799,6 +801,12 @@ class EasyCreatorControllerStuffer extends JController
         parent::display();
     }//function
 
+    /**
+     * Process the SQL install file.
+     *
+     * @param EasyProject $project The project.
+     * @param string      $path The path to the project root.
+     */
     private function processSQLInstall(EasyProject $project, $path)
     {
         $db = JFactory::getDbo();
@@ -847,6 +855,12 @@ class EasyCreatorControllerStuffer extends JController
         }
     }//function
 
+    /**
+     * Process the SQL uninstall file.
+     *
+     * @param EasyProject $project The project
+     * @param string      $path    Path to the project root.
+     */
     private function processSQLUnInstall(EasyProject $project, $path)
     {
         //-- Init buildopts
@@ -892,7 +906,14 @@ class EasyCreatorControllerStuffer extends JController
         }
     }//function
 
-    private function processSQLUpdate(EasyProject $project, $path)
+    /**
+     * Process a SQL update file.
+     *
+     * @param EasyProject $project The project.
+     * @param string      $path    Path to the project root.
+     *
+     * @return mixed
+     */private function processSQLUpdate(EasyProject $project, $path)
     {
         ecrLoadHelper('dbupdater');
 

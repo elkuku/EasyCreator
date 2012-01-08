@@ -795,7 +795,10 @@ EOF;
         echo ecrHTML::displayResultFieldRow(jgettext('JVersion'), 'JCompat', 'jcompat', $project, $formFieldNames);
 
         echo '<div style="background-color: #fff; border: 1px solid gray; padding-left: 0.5em;">';
-        if( $info = easyTemplateHelper::getTemplateInfo($project->type, $project->tplName))
+
+        $info = easyTemplateHelper::getTemplateInfo($project->type, $project->tplName);
+
+        if($info)
         {
             echo $info->description;
         }

@@ -269,5 +269,7 @@ class EasyProjectEmpty extends EasyProject
                 return array();
                 break;
         }//switch
+
+	    return array();
     }//function
 }//class

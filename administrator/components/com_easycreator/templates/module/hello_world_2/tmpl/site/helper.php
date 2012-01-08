@@ -13,10 +13,10 @@ class Mod_ECR_COM_NAME_Helper
      *
      * @return array
      */
-    public function getItems($userCount)
+    public static function getItems($userCount)
     {
         //-- Get a reference to the database
-        $db = &JFactory::getDBO();
+        $db = JFactory::getDBO();
 
         //-- Get a list of all users
         $query = 'SELECT a.name FROM `#__users` AS a';

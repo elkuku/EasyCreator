@@ -113,7 +113,9 @@ if( ! class_exists('JDatabaseQuery'))
         /**
          * Clear data from the query or a specific clause of the query.
          *
-         * @param	string	Optionally, the name of the clause to clear, or nothing to clear the whole query.
+         * @param string Optionally, the name of the clause to clear, or nothing to clear the whole query.
+         *
+         * @return \JDatabaseQuery
          */
         public function clear($clause = null)
         {
@@ -177,6 +179,8 @@ if( ! class_exists('JDatabaseQuery'))
 
         /**
          * @param	mixed	A string or an array of field names
+         *
+         * @return \JDatabaseQuery
          */
         public function select($columns)
         {
@@ -192,6 +196,8 @@ if( ! class_exists('JDatabaseQuery'))
 
         /**
          * @param	mixed	A string or an array of field names
+         *
+         * @return \JDatabaseQuery
          */
         public function delete()
         {

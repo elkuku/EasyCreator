@@ -74,7 +74,7 @@ class JFormFieldRadio extends EcrFormField
         // End the radio field output.
         $html[] = '</fieldset>';
 
-        return implode($html);
+        return implode("\n", $html);
     }//function
 
     /**

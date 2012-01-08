@@ -629,20 +629,22 @@ class EasyProjectComponent extends EasyProject
             default:
                 ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
-                return false;
+                return;
                 break;
         }//switch
 
         return;
     }//function
 
-    /**
-     * Method to remove admin menu references to a component
-     *
-     * @param   object  $component Component table object
-     *
-     * @return  boolean  True if successful
-     */
+	/**
+	 * Method to remove admin menu references to a component
+	 *
+	 * @param $row
+	 *
+	 * @internal param object $component Component table object
+	 *
+	 * @return  boolean  True if successful
+	 */
     protected function removeAdminMenus($row)
     {
         //-- Initialise Variables
@@ -663,7 +665,9 @@ class EasyProjectComponent extends EasyProject
         $ids = $db->loadResultArray();
 
         //-- Check for error
-        if($error = $db->getErrorMsg() || empty($ids))
+	    $error = $db->getErrorMsg();
+
+        if($error || empty($ids))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('There was a problem updating the admin menu'), 'error');
 
@@ -800,6 +804,7 @@ class EasyProjectComponent extends EasyProject
      * For Joomla! 1.5 only !
      *
      * @param array $item Item to remove
+     * @return bool
      */
     private function removeAdminMenu($item)
     {

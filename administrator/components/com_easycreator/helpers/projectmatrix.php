@@ -287,7 +287,7 @@ class EasyProjectMatrix extends JFolder
     /**
      * Gets the comment to code ratio of a given file.
      *
-     * @param string $buffer File contents
+     * @param array $buffer File contents
      * @param string $ext Extension e.g. php or js
      *
      * @return array indexed array with [code], [blanks] and [comments] as key, line counts as values

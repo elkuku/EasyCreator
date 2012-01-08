@@ -10,7 +10,9 @@ JHTML::stylesheet('default.css', 'administrator/components/_ECR_COM_COM_NAME_/as
 require_once JPATH_COMPONENT.DS.'controller.php';
 
 //-- Require specific controller if requested
-if($controller = JRequest::getCmd('controller'))
+$controller = JRequest::getCmd('controller');
+
+if($controller)
 {
     $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
 

@@ -735,7 +735,9 @@ function reflect($path, $file)
 //#					printf("---> Dokumentation:\n %s\n", var_export($cMethod->getDocComment(), 1));
 
                     // Statische Variablen ausgeben, falls welche existieren
-                    if ($statics = $cMethod->getStaticVariables()) {
+	                $statics = $cMethod->getStaticVariables();
+                    if($statics)
+                    {
                        printf("---> Statische Variablen: %s\n", var_export($statics, 1));
                     }
 
