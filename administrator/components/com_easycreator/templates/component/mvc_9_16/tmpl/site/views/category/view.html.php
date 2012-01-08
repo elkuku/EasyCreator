@@ -75,9 +75,7 @@ class _ECR_COM_NAME_ViewCategory extends JView
         //-- right from the menu item itself
         if(is_object($menu))
         {
-            $menu_params = new JParameter($menu->params);
-
-            if( ! $menu_params->get('page_title'))
+            if( ! $menu->params->get('page_title'))
             {
                 $params->set('page_title', $category->title);
             }
