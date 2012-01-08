@@ -47,8 +47,8 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
 
     function publish()
     {
-        $cid		= JRequest::getVar('cid', array(), '', 'array');
-        $this->publish	= ($this->getTask() == 'publish' ? 1 : 0);
+        $cid = JRequest::getVar('cid', array(), '', 'array');
+        $this->publish = ($this->getTask() == 'publish' ? 1 : 0);
 
         JArrayHelper::toInteger($cid);
 
@@ -75,8 +75,8 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
 
     function save()
     {
-        $post	= JRequest::get('post');
-        $cid	= JRequest::getVar('cid', array(0), 'post', 'array');
+        $post = JRequest::get('post');
+        $cid = JRequest::getVar('cid', array(0), 'post', 'array');
         #_ECR_SMAT_DESCRIPTION_CONTROLLER1_
         $post['id'] = (int)$cid[0];
 

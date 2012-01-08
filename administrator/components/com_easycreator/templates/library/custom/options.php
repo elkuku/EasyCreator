@@ -98,14 +98,15 @@ class EasyTemplateOptions
 
         if( ! $ecr_folder_name)
         {
-            JError::raiseWarning(100, jgettext('No folder given'));
+            JFactory::getApplication()->enqueueMessage(jgettext('No folder given'), 'error');
 
             return false;
         }
 
         if(in_array($ecr_folder_name, $this->reservedNames))
         {
-            JError::raiseWarning(100, sprintf(jgettext('%s is a reserved name'), $ecr_folder_name));
+            JFactory::getApplication()->enqueueMessage(
+                sprintf(jgettext('%s is a reserved name'), $ecr_folder_name), 'error');
 
             return false;
         }

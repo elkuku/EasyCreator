@@ -108,17 +108,17 @@ class PartTablesAdmin_map
 
         if( ! count($fields) || ! count($fields[$table_name]))
         {
-            JError::raiseWarning(100, jgettext('No table fields found'));
+            JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
         }
 
         ?>
 <table>
-	<tr>
-		<th colspan="2"><?php echo jgettext('Include')?></th>
-		<th><?php echo jgettext('Editable'); ?></th>
-		<th><?php echo jgettext('Type'); ?></th>
-	</tr>
-	<?php
+    <tr>
+        <th colspan="2"><?php echo jgettext('Include')?></th>
+        <th><?php echo jgettext('Editable'); ?></th>
+        <th><?php echo jgettext('Type'); ?></th>
+    </tr>
+    <?php
     foreach($fields[$table_name] as $key => $value)
     {
         switch($value)
@@ -139,32 +139,32 @@ class PartTablesAdmin_map
 
         $javascript = $javascript1.$javascript2;
         ?>
-	<tr>
-		<td><input type="checkbox" onchange="<?php echo $javascript; ?>"
-			name="table_fields[]" checked="checked"
-			id="tblfield_<?php echo $key; ?>"
-			value="<?php echo $key; ?>">
-			</td>
-		<td><label for="tblfield_<?php echo $key; ?>">
-		 <?php echo $key.'<br />('.$value.')'; ?>
-		</label></td>
-		<td><input type="checkbox" onchange="<?php echo $javascript2; ?>"
-			name="table_fields_edits[]" checked="checked"
-			id="tblfield_edit_<?php echo $key; ?>"
-			value="<?php echo $key; ?>"></td>
-		<td><select name="table_fields_types[<?php echo $key; ?>]"
-			id="tblfield_type_<?php echo $key; ?>">
-			<option>text</option>
-			<option>text area</option>
-			<option>radio bool</option>
-			<option>html</option>
-		</select></td>
-	</tr>
-	<?php
+    <tr>
+        <td><input type="checkbox" onchange="<?php echo $javascript; ?>"
+            name="table_fields[]" checked="checked"
+            id="tblfield_<?php echo $key; ?>"
+            value="<?php echo $key; ?>">
+            </td>
+        <td><label for="tblfield_<?php echo $key; ?>">
+         <?php echo $key.'<br />('.$value.')'; ?>
+        </label></td>
+        <td><input type="checkbox" onchange="<?php echo $javascript2; ?>"
+            name="table_fields_edits[]" checked="checked"
+            id="tblfield_edit_<?php echo $key; ?>"
+            value="<?php echo $key; ?>"></td>
+        <td><select name="table_fields_types[<?php echo $key; ?>]"
+            id="tblfield_type_<?php echo $key; ?>">
+            <option>text</option>
+            <option>text area</option>
+            <option>radio bool</option>
+            <option>html</option>
+        </select></td>
+    </tr>
+    <?php
     }//foreach
     ?>
 </table>
-	<?php
+    <?php
     }//function
 
     /**
@@ -188,7 +188,7 @@ class PartTablesAdmin_map
 
         if( ! $table_name)
         {
-            JError::raiseWarning(100, jgettext('No table given'));
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -254,15 +254,15 @@ class PartTablesAdmin_map
             if( ! in_array($key, $req_table_fields))
             continue;
 
-            $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '	<th>'.NL;
-            $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= "		<?php echo JHTML::_('grid.sort', '"
+            $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <th>'.NL;
+            $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= "        <?php echo JHTML::_('grid.sort', '"
             .$key."', '".$key."', \$this->lists['order_Dir'], \$this->lists['order']);?>".NL;
 
-            $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '	</th>'.NL;
+            $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    </th>'.NL;
 
-            $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '	<td>'.NL;
-            $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '		<?php echo $row->'.$key.'; ?>'.NL;
-            $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '	</td>'.NL;
+            $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '    <td>'.NL;
+            $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '        <?php echo $row->'.$key.'; ?>'.NL;
+            $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '    </td>'.NL;
 
             if(in_array($key, $req_table_fields_edits))
             {
@@ -274,11 +274,11 @@ class PartTablesAdmin_map
 
             $i ++;
         }//foreach
-        $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '	<?php $coloumnCount += '.$i.'; ?>'.NL;
+        $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 
-        $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '	<?php '.NL;
-        $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '	<?php '.NL;
-        $substitutes['##ECR_VIEW2_TMPL1_OPTION2##'] .= '	<?php '.NL;
+        $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php '.NL;
+        $substitutes['##ECR_VIEW1_TMPL1_TDS##'] .= '    <?php '.NL;
+        $substitutes['##ECR_VIEW2_TMPL1_OPTION2##'] .= '    <?php '.NL;
 
         foreach($substitutes as $key => $value)
         {
@@ -316,7 +316,7 @@ class PartTablesAdmin_map
 
             if( ! $project->addSubmenuEntry($element_name, $link))
             {
-                JError::raiseWarning(100, jgettext('Unable to create menu link'));
+	            JFactory::getApplication()->enqueueMessage(jgettext('Unable to create menu link'), 'error');
 
                 return false;
             }

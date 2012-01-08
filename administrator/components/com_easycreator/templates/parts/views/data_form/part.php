@@ -167,7 +167,7 @@ class PartViewsData_form extends EasyPart
         if( ! $table_name)
         {
             $table_name = $element_name;
-            JError::raiseWarning(100, jgettext('No table given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -299,7 +299,7 @@ $key = '##ECR_OPTIONS##';
 
         if( ! JFolder::exists($basePath))
         {
-            JError::raiseWarning(100, jgettext('View not found'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('View not found'), 'error');
 
             return false;
         }
@@ -345,7 +345,7 @@ $key = '##ECR_OPTIONS##';
         if( ! count($fields)
             || ! count($fields[$table_name]))
         {
-            JError::raiseWarning(100, jgettext('No table fields found'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
         }
 
         ?>

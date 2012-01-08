@@ -157,14 +157,14 @@ class PartViewsData_list extends EasyPart
 
         if( ! $table_name)
         {
-            JError::raiseWarning(100, jgettext('No table given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
 
         if( ! $scope = JRequest::getCmd('scope'))
         {
-            JError::raiseWarning(100, jgettext('No scope given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No scope given'), 'error');
 
             return false;
         }
@@ -174,7 +174,7 @@ class PartViewsData_list extends EasyPart
 
         if( ! JFolder::exists($basePath))
         {
-            JError::raiseWarning(100, jgettext('View not found'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('View not found'), 'error');
 
             return false;
         }
@@ -242,7 +242,7 @@ class PartViewsData_list extends EasyPart
 
         if( ! $table_name)
         {
-            JError::raiseWarning(100, jgettext('No table given'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -335,7 +335,7 @@ class PartViewsData_list extends EasyPart
 
         if( ! count($fields) || ! count($fields[$table_name]))
         {
-            JError::raiseWarning(100, jgettext('No table fields found'));
+	        JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
         }
 
         ?>

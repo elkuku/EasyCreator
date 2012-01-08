@@ -3,7 +3,7 @@
 
 if( ! isset($this->error))
 {
-    $this->error = JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
+    $this->error = JFactory::getApplication()->enqueueMessage(JText::_('JERROR_ALERTNOAUTHOR'), 'error');
     $this->debug = false;
 }
 ?>
