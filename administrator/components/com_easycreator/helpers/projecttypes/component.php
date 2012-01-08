@@ -424,7 +424,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-	            ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -669,7 +669,7 @@ class EasyProjectComponent extends EasyProject
 
             if($error && $error != 1)
             {
-	            JFactory::getApplication()->enqueueMessage($error, 'error');
+                JFactory::getApplication()->enqueueMessage($error, 'error');
             }
 
             return false;

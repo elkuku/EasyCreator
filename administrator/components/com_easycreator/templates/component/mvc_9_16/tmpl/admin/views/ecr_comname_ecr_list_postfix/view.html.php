@@ -32,7 +32,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
 
         if(count($errors))
         {
-	        JFactory::getApplication()->enqueueMessage(implode('<br />', $errors), 'error');
+            JFactory::getApplication()->enqueueMessage(implode('<br />', $errors), 'error');
 
             return false;
         }

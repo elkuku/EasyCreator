@@ -28,7 +28,7 @@ function com_install()
 
     if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
     {
-	    JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
+        JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
         , $PHPMinVersion), 'error');//@Do_NOT_Translate
 
         return false;
@@ -43,15 +43,15 @@ function com_install()
             JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR.'/components/com_easycreator');
 ?>
 <div style="padding: 0.3em; background-color: #ffc;">
-	<h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
-	<h3 style="color: red;">
-		If you like EasyCreator in your language, just install the g11n language library :
-	</h3>
-	<h3 style="color: red;">
-		<a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
-			Download lib_g11n
-		</a>
-	</h3>
+    <h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
+    <h3 style="color: red;">
+        If you like EasyCreator in your language, just install the g11n language library :
+    </h3>
+    <h3 style="color: red;">
+        <a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
+            Download lib_g11n
+        </a>
+    </h3>
 </div>
 <?php
         }
@@ -62,14 +62,14 @@ function com_install()
 
         if( ! $xml = simplexml_load_file(ECR_XML_LOCATION))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('Install manifest not found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('Install manifest not found'), 'error');
 
             return false;
         }
     }
     catch(Exception $e)
     {
-	    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+        JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
         return false;
     }//try

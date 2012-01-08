@@ -198,7 +198,7 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }

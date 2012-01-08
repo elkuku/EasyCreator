@@ -32,7 +32,7 @@ class Com_EasyCreatorInstallerScript
 
         if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
         {
-	        JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
+            JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
             , $PHPMinVersion), 'error');//@Do_NOT_Translate
 
             return false;
@@ -47,7 +47,7 @@ class Com_EasyCreatorInstallerScript
     public function install($parent)
     {
         // $parent is the class calling this method
-        //	$parent->getParent()->setRedirectURL('index.php?option=_ECR_COM_COM_NAME_');
+        //    $parent->getParent()->setRedirectURL('index.php?option=_ECR_COM_COM_NAME_');
         //echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__INSTALL_TEXT').'</p>';
     }//function
 

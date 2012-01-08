@@ -46,7 +46,7 @@ class AutoCodeAdminViewformTableElementRow
                 }
                 else
                 {
-	                JFactory::getApplication()->enqueueMessage('Unknown inputType: '.$field->inputType, 'error');
+                    JFactory::getApplication()->enqueueMessage('Unknown inputType: '.$field->inputType, 'error');
                 }
             }
 

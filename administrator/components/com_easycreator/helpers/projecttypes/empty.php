@@ -183,7 +183,7 @@ class EasyProjectEmpty extends EasyProject
      */
     public function getAllProjects($scope)
     {
-	    JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
+        JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
 
         switch($scope)
         {
@@ -196,7 +196,7 @@ class EasyProjectEmpty extends EasyProject
                 break;
 
             default:
-	            JFactory::getApplication()->enqueueMessage('EasyProjectModule::getCoreProjects Unknown scope', 'error');
+                JFactory::getApplication()->enqueueMessage('EasyProjectModule::getCoreProjects Unknown scope', 'error');
 
                 return array();
                 break;
@@ -212,7 +212,7 @@ class EasyProjectEmpty extends EasyProject
      */
     public function getCoreProjects($scope)
     {
-	    JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
+        JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
 
         switch($scope)
         {

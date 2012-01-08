@@ -44,7 +44,7 @@ class EasyTemplateOptions
 
         $fields = array();
 
-        $field = new EasyTableField();
+        $field = new EasyTableField;
         $field->name = 'catid';
         $field->label = 'Category id';
         $field->type = 'INT';
@@ -54,7 +54,7 @@ class EasyTemplateOptions
         $field->comment = 'Category ID';
         $fields[] = $field;
 
-        $field = new EasyTableField();
+        $field = new EasyTableField;
         $field->name = 'checked_out';
         $field->label = 'Checked out';
         $field->type = 'INT';
@@ -100,7 +100,7 @@ class EasyTemplateOptions
 
         if( ! is_array($fields))
         {
-	        JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
+            JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
 
             return false;
         }
@@ -130,13 +130,13 @@ class EasyTemplateOptions
             $table->addField($field);
         }//for
 
-        $relation = new EasyTableRelation();
+        $relation = new EasyTableRelation;
         $relation->type = 'LEFT JOIN';
         $relation->field = 'catid';
         $relation->onTable = 'categories';
         $relation->onField = 'id';
 
-        $alias = new EasyTableRelationAlias();
+        $alias = new EasyTableRelationAlias;
         $alias->alias = 'category';
         $alias->aliasField = 'title';
 

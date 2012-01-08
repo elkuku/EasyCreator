@@ -477,7 +477,7 @@ class EasyFolder
         // Is the path a folder?
         if( ! is_dir($path))
         {
-	        JFactory::getApplication()->enqueueMessage('JFolder::folder: '.jgettext('Path is not a folder').'Path: '.$path, 'error');
+            JFactory::getApplication()->enqueueMessage('JFolder::folder: '.jgettext('Path is not a folder').'Path: '.$path, 'error');
 
             return false;
         }

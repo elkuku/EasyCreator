@@ -458,7 +458,7 @@ class EasyCreatorViewLanguages extends JView
         {
             $m =(JDEBUG) ? nl2br($e) : $e->getMessage();
 
-	        JFactory::getApplication()->enqueueMessage($m, 'error');
+            JFactory::getApplication()->enqueueMessage($m, 'error');
         }//try
 
         $this->checks = new JObject;
@@ -509,7 +509,7 @@ class EasyCreatorViewLanguages extends JView
         {
             $m =(JDEBUG) ? nl2br($e) : $e->getMessage();
 
-	        JFactory::getApplication()->enqueueMessage($m, 'error');
+            JFactory::getApplication()->enqueueMessage($m, 'error');
         }//try
 
         $this->buildLists();

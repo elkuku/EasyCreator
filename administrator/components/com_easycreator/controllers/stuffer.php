@@ -364,7 +364,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! count($requestParams))
         {
-	        JFactory::getApplication()->enqueueMessage('No params ?', 'error');
+            JFactory::getApplication()->enqueueMessage('No params ?', 'error');
             parent::display();
 
             return;
@@ -587,7 +587,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         else
         {
-	        JFactory::getApplication()->enqueueMessage(sprintf(
+            JFactory::getApplication()->enqueueMessage(sprintf(
             jgettext('The Project %s could not be removed'), $project->name), 'error');
 
             JRequest::setVar('view', 'stuffer');

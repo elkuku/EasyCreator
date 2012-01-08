@@ -197,7 +197,7 @@ class PartTablesAdmin_create
 
         if( ! $db->query())
         {
-	        JFactory::getApplication()->enqueueMessage($db->getError(), 'error');
+            JFactory::getApplication()->enqueueMessage($db->getError(), 'error');
             $logger->logQuery($query, $db->getError());
 
             return false;
@@ -214,7 +214,7 @@ class PartTablesAdmin_create
      * @param string $var Variable name
      * @param string $type Data type
      * @param string $def Default value
-     * @param string $adds Additional comments
+     * @param array $adds Additional comments
      *
      * @return string
      */

@@ -56,7 +56,7 @@ class EasyCreatorControllerStarter extends JController
         {
             //-- Error
             ecrHTML::displayMessage('An error happened while creating your project', 'error');
-	        JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
             $EasyBuilder->printErrors();
 
             ecrHTML::easyFormEnd();
@@ -103,7 +103,7 @@ class EasyCreatorControllerStarter extends JController
         if( ! $project = $EasyBuilder->registerProject($type, $name, $scope))
         {
             //-- Error
-	        JFactory::getApplication()->enqueueMessage('Can not register project'));
+            JFactory::getApplication()->enqueueMessage('Can not register project'));
 
             $EasyBuilder->printErrors();
 

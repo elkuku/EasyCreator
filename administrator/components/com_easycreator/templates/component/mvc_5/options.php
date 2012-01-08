@@ -72,7 +72,7 @@ class EasyTemplateOptions
 
         if( ! is_array($fields))
         {
-	        JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
+            JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
 
             return false;
         }

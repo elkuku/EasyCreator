@@ -169,7 +169,7 @@ class PartTablesSimple extends EasyPart
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }

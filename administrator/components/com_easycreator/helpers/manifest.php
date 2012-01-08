@@ -999,8 +999,8 @@ class JoomlaManifest extends JObject
 
             if( ! $xml = EasyProjectHelper::getXML($f))
             {
-	            JFactory::getApplication()->enqueueMessage(
-		            sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
+                JFactory::getApplication()->enqueueMessage(
+                    sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
                 unset($xml);
 
                 return false;
@@ -1113,8 +1113,8 @@ class JoomlaManifest extends JObject
 
             if( ! $xml = EasyProjectHelper::getXML($f))
             {
-	            JFactory::getApplication()->enqueueMessage(
-		            sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
+                JFactory::getApplication()->enqueueMessage(
+                    sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
                 unset ($xml);
 
                 return false;

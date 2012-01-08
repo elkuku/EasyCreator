@@ -48,7 +48,7 @@ function saveorder()
 
             if( ! $row->store())
             {
-	            JFactory::getApplication()->enqueueMessage($db->getError(), 'error');
+                JFactory::getApplication()->enqueueMessage($db->getError(), 'error');
             }
         }
     }

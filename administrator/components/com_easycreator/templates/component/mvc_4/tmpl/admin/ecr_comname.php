@@ -26,7 +26,7 @@ if($controller = JRequest::getCmd('controller'))
 
 //-- Create the controller
 $classname = '_ECR_COM_NAME__ECR_LIST_POSTFIX_Controller'.$controller;
-$controller = new $classname();
+$controller = new $classname;
 
 //-- Perform the Request task
 $controller->execute(JRequest::getCmd('task'));

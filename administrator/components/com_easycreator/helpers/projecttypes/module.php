@@ -192,7 +192,7 @@ class EasyProjectModule extends EasyProject
                 break;
 
             default:
-	            ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -224,7 +224,7 @@ class EasyProjectModule extends EasyProject
                 return JFolder::folders(JPATH_SITE.DS.'modules');
                 break;
             default:
-	            JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
+                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
 
                 return array();
                 break;
@@ -262,7 +262,7 @@ class EasyProjectModule extends EasyProject
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
 
                     default:
-	                    ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
@@ -293,14 +293,14 @@ class EasyProjectModule extends EasyProject
                         , 'mod_finder');
 
                     default:
-	                    ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
                 break;
 
             default:
-	            ecrHTML::displayMessage(__METHOD__.' - Unknown scope');
+                ecrHTML::displayMessage(__METHOD__.' - Unknown scope');
 
                 return array();
         }//switch

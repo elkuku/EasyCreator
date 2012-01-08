@@ -1,9 +1,9 @@
 <?php
 /**
- * @package		EasyCreator
- * @subpackage	AutoCodes
- * @author		Nikolai Plath (elkuku)
- * @author		Created on 07-Mar-2010
+ * @package    EasyCreator
+ * @subpackage AutoCodes
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 07-Mar-2010
  */
 
 //-- No direct access
@@ -192,7 +192,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }

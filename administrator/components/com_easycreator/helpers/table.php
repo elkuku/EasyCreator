@@ -713,7 +713,7 @@ class EasyTableField
         }
         else if( ! is_null($field))
         {
-	        JFactory::getApplication()->enqueueMessage(__METHOD__.': Invalid option', 'error');
+            JFactory::getApplication()->enqueueMessage(__METHOD__.': Invalid option', 'error');
         }
     }//function
 }//class

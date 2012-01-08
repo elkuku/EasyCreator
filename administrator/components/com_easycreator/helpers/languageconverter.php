@@ -49,7 +49,7 @@ class ECRLanguageConverter
         }
         else
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('Invalid options for lanuage converter'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('Invalid options for lanuage converter'), 'error');
 
             $this->options = new JObject;
         }
@@ -419,7 +419,7 @@ class ECRLanguageConverter
         }
 
         $dwDiff = new Diff($codeOrig, $codeNew);
-        $dwFormatter = new TableDiffFormatter();
+        $dwFormatter = new TableDiffFormatter;
 
         //-- Small hack to display the whole file - :|
         if($showAll)

@@ -147,7 +147,7 @@ class AutoCodeAdminFormsEdit extends EasyAutoCode
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -165,7 +165,7 @@ class AutoCodeAdminFormsEdit extends EasyAutoCode
 
         if( ! count($fields))
         {
-	        JFactory::getApplication()->enqueueMessage('No table fields found', 'error');
+            JFactory::getApplication()->enqueueMessage('No table fields found', 'error');
 
             return false;
         }

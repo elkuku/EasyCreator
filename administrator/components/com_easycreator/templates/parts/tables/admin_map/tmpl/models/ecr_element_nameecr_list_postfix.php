@@ -61,8 +61,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_ 
         $this->_query = ' SELECT *'
         . ' FROM #___ECR_TABLE_NAME_'
         . $where
-        . $orderby
-        ;
+        . $orderby;
 
         return $this->_query;
     }

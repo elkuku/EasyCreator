@@ -62,8 +62,7 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_s extends JModel
         $this->_query = ' SELECT *'
         . ' FROM #___ECR_TABLE_NAME_'
         . $where
-        . $orderby
-        ;
+        . $orderby;
 
         return $this->_query;
     }

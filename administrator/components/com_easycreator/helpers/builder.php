@@ -213,7 +213,7 @@ class EasyBuilder extends JObject
 
                 if( ! $this->project->scope)
                 {
-	                JFactory::getApplication()->enqueueMessage(__METHOD__.': Missing scope for library', 'error');
+                    JFactory::getApplication()->enqueueMessage(__METHOD__.': Missing scope for library', 'error');
 
                     return false;
                 }
@@ -225,7 +225,8 @@ class EasyBuilder extends JObject
                 break;
 
             default:
-	            JFactory::getApplication()->enqueueMessage('Undefined type EasyBuilder::build : '.$this->project->type, 'error');
+                JFactory::getApplication()->enqueueMessage(
+	                'Undefined type EasyBuilder::build : '.$this->project->type, 'error');
 
                 return false;
                 break;
@@ -734,7 +735,7 @@ class EasyBuilder extends JObject
 
         if( ! array_key_exists($type, $projectTypes))
         {
-	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('The project type %s is not defined yet'), $type), 'error');
+            JFactory::getApplication()->enqueueMessage(sprintf(jgettext('The project type %s is not defined yet'), $type), 'error');
             $this->setError(sprintf(jgettext('The project type %s is not defined yet'), $type));
 
             return false;
@@ -746,7 +747,7 @@ class EasyBuilder extends JObject
 
         if( ! $xmlPath = EasyProjectHelper::findManifest($project))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No manifest file found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No manifest file found'), 'error');
 
             $this->setError(jgettext('No manifest file found'));
 

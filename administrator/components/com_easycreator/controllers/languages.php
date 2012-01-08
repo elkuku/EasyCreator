@@ -353,7 +353,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-	        JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+            JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
         }//try
 
         JRequest::setVar('task', 'g11nUpdate');

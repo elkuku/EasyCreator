@@ -127,7 +127,7 @@ class EasyProjectTemplate extends EasyProject
                 break;
 
             default:
-	            ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -272,7 +272,7 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     default:
-	                    ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                         break;
                 }//switch
                 break;
@@ -291,13 +291,13 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;
                     default:
-	                    ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
                         break;
                 }//switch
                 break;
 
             default:
-	            ecrHTML::displayMessage(__METHOD__.' - Unknown scope: '.$scope);
+                ecrHTML::displayMessage(__METHOD__.' - Unknown scope: '.$scope);
 
                 return array();
                 break;

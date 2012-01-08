@@ -53,10 +53,10 @@ class PartViewsData_form extends EasyPart
         $this->keys['##ECR_OPTIONS##'] = '__ECR_KEY__';
         /*
 //#        $this->keys['##ECR_VIEW1_TMPL1_TDS##'] = '##ECR_KEY##';
-//    	$this->patterns['##ECR_VIEW1_TMPL1_THS##'] = '    <th>'.NL
-//    	   ."        <?php echo JHTML::_('grid.sort', '##ECR_KEY##',
+//        $this->patterns['##ECR_VIEW1_TMPL1_THS##'] = '    <th>'.NL
+//           ."        <?php echo JHTML::_('grid.sort', '##ECR_KEY##',
 // *  '##ECR_KEY##', \$this->lists['order_Dir'], \$this->lists['order']);?>".NL
-//    	   .'    </th>'.NL;
+//           .'    </th>'.NL;
 //        $this->patterns['##ECR_VIEW1_TMPL1_TDS##'] = '    <td>'.NL
 //            .'        <php echo $row->##ECR_KEY##; ?>'.NL
 //            .'    </td>'.NL;
@@ -167,7 +167,7 @@ class PartViewsData_form extends EasyPart
         if( ! $table_name)
         {
             $table_name = $element_name;
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -215,8 +215,8 @@ class PartViewsData_form extends EasyPart
 
 $acFields[] = $f;
 
-//        	$acOptions[$field] = array();
-//        	$acOptions[$field]['type'] = $req_table_fields_types[$field];
+//            $acOptions[$field] = array();
+//            $acOptions[$field]['type'] = $req_table_fields_types[$field];
         }//foreach
 
 //        foreach($tableFields as $key => $value)
@@ -225,7 +225,7 @@ $acFields[] = $f;
 //
 //            foreach($this->patterns as $pKey => $pReplacement)
 //            {
-//            	$substitutes[$pKey] .= str_replace('##ECR_KEY##', $key, $pReplacement);
+//                $substitutes[$pKey] .= str_replace('##ECR_KEY##', $key, $pReplacement);
 //            }//foreach
 //            $i ++;
 //        }//foreach
@@ -299,7 +299,7 @@ $key = '##ECR_OPTIONS##';
 
         if( ! JFolder::exists($basePath))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('View not found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('View not found'), 'error');
 
             return false;
         }
@@ -345,7 +345,7 @@ $key = '##ECR_OPTIONS##';
         if( ! count($fields)
             || ! count($fields[$table_name]))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
         }
 
         ?>

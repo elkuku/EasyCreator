@@ -63,6 +63,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
     function remove()
     {
         $model = $this->getModel('_ECR_ELEMENT_NAME_');
+
         if( ! $model->delete())
         {
             $msg = JText::_('Error: One or More Records Could not be Deleted');

@@ -78,8 +78,8 @@ class _ECR_COM_NAME_ModelCategory extends JModel
     /**
      * Method to set the category id
      *
-     * @access	public
-     * @param	int	Category ID number
+     * @access    public
+     * @param    int    Category ID number
      */
     function setId($id)
     {
@@ -164,8 +164,8 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Make sure we have a category
             if( ! $this->_category)
             {
-	            JFactory::getApplication()->enqueueMessage(
-		            JText::_('Invalid category'), 'error');
+                JFactory::getApplication()->enqueueMessage(
+                    JText::_('Invalid category'), 'error');
 
                 return false;
             }
@@ -173,7 +173,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Make sure the category is published
             if( ! $this->_category->published)
             {
-	            JFactory::getApplication()->enqueueMessage(JText::_('Resource Not Found'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::_('Resource Not Found'), 'error');
 
                 return false;
             }
@@ -181,7 +181,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
             //-- Check whether category access level allows access
             if($this->_category->access > $user->get('aid', 0))
             {
-	            JFactory::getApplication()->enqueueMessage(JText::_('ALERTNOTAUTH'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::_('ALERTNOTAUTH'), 'error');
 
                 return false;
             }
@@ -193,8 +193,8 @@ class _ECR_COM_NAME_ModelCategory extends JModel
     /**
      * Method to load category data if it doesn't exist.
      *
-     * @access	private
-     * @return	boolean	True on success
+     * @access    private
+     * @return    boolean    True on success
      */
     private function _loadCategory()
     {
@@ -231,7 +231,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
         $query = 'SELECT *'
             .' FROM #___ECR_COM_TBL_NAME_'
             .' WHERE catid = '.(int)$this->_id
-//			.' AND published = 1'
+//            .' AND published = 1'
             .' ORDER BY '.$filter_order.' '.$filter_order_dir;
 
         return $query;

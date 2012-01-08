@@ -7,7 +7,7 @@
 
 ##*HEADER*##
 
-$status = new JObject();
+$status = new JObject;
 $status->modules = array();
 $status->plugins = array();
 

@@ -302,6 +302,5 @@ class G11nHelper
         JFile::write($templatePath, $contents);
 
         JFactory::getApplication()->enqueueMessage(jgettext('Your template has been created'));
-        ;
-    }
+    }//function
 }//class

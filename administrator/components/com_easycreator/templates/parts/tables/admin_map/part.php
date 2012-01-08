@@ -316,7 +316,7 @@ class PartTablesAdmin_map
 
             if( ! $project->addSubmenuEntry($element_name, $link))
             {
-	            JFactory::getApplication()->enqueueMessage(jgettext('Unable to create menu link'), 'error');
+                JFactory::getApplication()->enqueueMessage(jgettext('Unable to create menu link'), 'error');
 
                 return false;
             }

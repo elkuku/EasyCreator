@@ -97,7 +97,7 @@ class EasyELanguage
 
         if( ! array_key_exists('en-GB', $languages))
         {
-	        JFactory::getApplication()->enqueueMessage('Default language en-GB is not present', 'error');
+            JFactory::getApplication()->enqueueMessage('Default language en-GB is not present', 'error');
 
             return array();
         }
@@ -148,8 +148,8 @@ class EasyELanguage
 
         if( ! JFile::exists($fileName))
         {
-	        JFactory::getApplication()->enqueueMessage(
-		        sprintf(jgettext('The file %s could not be found'), $fileName), 'error');
+            JFactory::getApplication()->enqueueMessage(
+                sprintf(jgettext('The file %s could not be found'), $fileName), 'error');
 
             return $versions;
         }
@@ -296,7 +296,7 @@ class EasyELanguage
         }
 
         $dwDiff = new Diff($fileRev, $fileOrig);
-        $dwFormatter = new TableDiffFormatter();
+        $dwFormatter = new TableDiffFormatter;
 
         ?>
 
@@ -466,12 +466,12 @@ class EasyELanguage
 
         if( ! JFile::write($fileName, $fileContents))
         {
-	        JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Unable to write file %s'), $fileName), 'error');
+            JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Unable to write file %s'), $fileName), 'error');
 
             return false;
         }
 
-	    JFactory::getApplication()->enqueueMessage(jgettext('The file has been saved'));
+        JFactory::getApplication()->enqueueMessage(jgettext('The file has been saved'));
 
         return true;
     }//function
