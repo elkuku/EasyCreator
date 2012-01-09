@@ -114,6 +114,7 @@ class EasyProjectComponent extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 if($scope == 'menu')
                 $scope = 'sys';
 

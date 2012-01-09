@@ -102,6 +102,7 @@ class EasyProjectLibrary extends EasyProject
         {
             case '1.6':
             case '1.7':
+            case '2.5':
                 break;
 
             default:
@@ -177,8 +178,6 @@ class EasyProjectLibrary extends EasyProject
     /**
      * Discover all projects.
      *
-     * @param string $scope The scope - admin or site.
-     *
      * @return array
      */
     public function getAllProjects()
@@ -199,8 +198,6 @@ class EasyProjectLibrary extends EasyProject
 
     /**
      * Get a list of known core projects.
-     *
-     * @param string $scope The scope - admin or site.
      *
      * @return array
      */

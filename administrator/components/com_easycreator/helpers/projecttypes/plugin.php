@@ -117,6 +117,7 @@ class EasyProjectPlugin extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 break;
 
             default:
@@ -161,6 +162,7 @@ class EasyProjectPlugin extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
@@ -207,6 +209,7 @@ class EasyProjectPlugin extends EasyProject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');

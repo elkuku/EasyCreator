@@ -103,6 +103,7 @@ class EasyProjectEmpty extends EasyProject
                 break;
 
             case '1.6':
+            case '2.5':
                 break;
 
             default:
