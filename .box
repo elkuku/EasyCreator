@@ -1,8 +1,0 @@
-shared_writable_dirs:
-    - cache
-    - images
- 
-php_extensions:
-    - mysqli
-    - xml
-    - zlib
