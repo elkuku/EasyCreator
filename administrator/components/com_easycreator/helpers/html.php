@@ -228,6 +228,12 @@ $stdJS .= "$('file_name').value='';";
     <?php
     }//function
 
+    /**
+     * @static
+     * @param $subTasks
+     * @param array $rightTasks
+     * @return string
+     */
     public static function getSubBar($subTasks, $rightTasks = array())
     {
         $task = JRequest::getCmd('task');
@@ -300,6 +306,7 @@ $stdJS .= "$('file_name').value='';";
     /**
      * draws a checkbox
      * select if a backup version should be saved
+     * @return string
      */
     public static function chkVersioned()
     {
@@ -382,7 +389,12 @@ $stdJS .= "$('file_name').value='';";
         echo NL.'</a>';
     }//function
 
-    public static function drawButtonCreateLanguageFile($lang, $scope)
+    /**
+     * @static
+     *
+     * @param $lang
+     * @param $scope
+     */public static function drawButtonCreateLanguageFile($lang, $scope)
     {
         $button = '<span class="ecr_button img icon-16-add" ';
         $button .= 'onclick="document.adminForm.lngcreate_lang.value=\''.$lang.'\'; ';
@@ -391,7 +403,11 @@ $stdJS .= "$('file_name').value='';";
         echo $button;
     }//function
 
-    public static function drawButtonRemoveBOM($fileName)
+    /**
+     * @static
+     *
+     * @param $fileName
+     */public static function drawButtonRemoveBOM($fileName)
     {
         $tPath = substr($fileName, strlen(JPATH_ROOT));
         $link = 'See: <a href="http://www.w3.org/International/questions/qa-utf8-bom" '
@@ -417,7 +433,9 @@ $stdJS .= "$('file_name').value='';";
     public static function footer()
     {
         $version = '';
-        $version .='<strong style="color: green;">'.ECR_VERSION.'</strong>';
+        $version .='<strong style="color: green;">'
+            .ecrHTML::getVersionFromCHANGELOG('')
+            .ECR_VERSION.'</strong>';
         $version .=(strpos($version,'SVN')) ? ' <span style="color:red;">Rev. # '
         .ecrHTML::getVersionFromCHANGELOG('com_easycreator').'</span>' : '';
         ?>
@@ -458,8 +476,9 @@ countries.</em></small>
     /**
      * Draws a h1 tag with title and project name.
      *
-     * @param string $title
-     * @param object $project EasyProject
+     * @param string                   $title
+     * @param \EasyProject|null|object $project EasyProject
+     * @param string                   $class
      */
     public static function header($title, EasyProject $project = null, $class = '')
     {
@@ -495,6 +514,8 @@ countries.</em></small>
 
     /**
      * This will write the 'closing' tags for our form
+     *
+     * @param bool $closeDiv
      */
     public static function easyFormEnd($closeDiv = true)
     {
@@ -550,7 +571,39 @@ countries.</em></small>
     }//function
 
     /**
+     * Draw database options.
+     *
+     * @static
+     *
+     * @param \EasyProject $project
+     *
+     * @internal param array $projectParams
+     *
+     * @return string
+     */
+    public static function drawDbOptions(EasyProject $project)
+    {
+        $formats = JFolder::files(JPATH_COMPONENT.'/helpers/dbadapters/format');
+
+        $options = array();
+
+        foreach($formats as $format)
+        {
+            $f = JFile::stripExt($format);
+
+            $checked =(in_array($f, $project->dbTypes)) ? ' checked="checked"' : '';
+
+            $options[] = '<input type="checkbox" name="dbtypes[]"'.$checked.' value="'.$f.'" id="dbopt_'.$f.'" />';
+            $options[] = '<label for="dbopt_'.$f.'">'.ucfirst($f).'</label>';
+        }//foreach
+
+        return implode(NL, $options);
+    }
+
+    /**
      * Display options for packing format
+     *
+     * @param array $projectParams
      */
     public static function drawPackOpts($projectParams = array())
     {
@@ -591,10 +644,8 @@ countries.</em></small>
         {
             $checked =($opts[$name]) ? ' checked="checked"' : '';
 
-//             echo NL.'<div align="left">';
             echo NL.'   <input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
             echo NL.'   <label for="'.$name.'">'.$ext.'</label>';
-//             echo NL.'</div>';
         }//foreach
     }//function
 
@@ -610,6 +661,8 @@ countries.</em></small>
      * form        - name
      * textarea    - name
      * syntax    - for highlighting
+     *
+     * @param array $cfg
      */
     public static function loadEditArea($cfg)
     {
@@ -721,9 +774,11 @@ EOF;
 
     /**
      * Extract strings from svn:property Id
+     * OR a .git/hooks/pre-commit generated version file
      *
-     * @param string $path full path to CHANGELOG.php
+     * @param      $appName
      * @param bool $revOnly true to return revision number only
+     *
      * @return string/bol propertystring or FALSE
      * like:
      * @ version $I d: CHANGELOG.php 362 2007-12-14 22:22:19Z elkuku $
@@ -731,6 +786,23 @@ EOF;
      */
     public static function getVersionFromCHANGELOG($appName, $revOnly = false)
     {
+        //-- Check if we have a .git/hooks/pre-commit generated version file
+        $path = JPATH_COMPONENT.'/version.txt';
+
+        if(file_exists($path))
+        {
+            $contents = file_get_contents($path);
+
+            $parts = explode('-', $contents);
+
+            if( ! isset($parts[1]))
+                return $contents;
+
+            //-- If the second part is '0' we have a tagged version
+            return ('0' != $parts[1]) ? $contents : $parts[0];
+        }
+
+        //-- Check for a SVN id in changelog
         // TODO change to getVersionFromFile
 
         $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.'CHANGELOG.php';
@@ -778,8 +850,8 @@ EOF;
      * Wizard
      * Displays the project information introduced so far.
      *
-     * @param JObject $project
-     * @param array $formFieldNames fields already displayed
+     * @param \EasyProject|\JObject $project
+     * @param array                 $formFieldNames fields already displayed
      */
     public static function displayResult(EasyProject $project, $formFieldNames = array())
     {
@@ -829,11 +901,13 @@ EOF;
      * Wizard form
      * displays a table row with a hidden formfield if not included in $formFieldNames
      *
-     * @param string $title
-     * @param string $property
-     * @param string $formFieldName
-     * @param object $project
-     * @param array $formFieldNames fields not to display
+     * @param string              $title
+     * @param string              $property
+     * @param string              $formFieldName
+     * @param \EasyProject|object $project
+     * @param array               $formFieldNames fields not to display
+     *
+     * @return string
      */
     private static function displayResultFieldRow($title, $property, $formFieldName, EasyProject $project, $formFieldNames)
     {
@@ -952,7 +1026,13 @@ EOF;
         echo NL.'</select></span>';
     }//function
 
-    public static function drawSelectScope($scope = '')
+    /**
+     * @static
+     *
+     * @param string $scope
+     *
+     * @return string
+     */public static function drawSelectScope($scope = '')
     {
         if($scope)
         {
@@ -974,7 +1054,14 @@ EOF;
         return 'element_scope';
     }//function
 
-    public static function drawSelectName($name = '', $title = '')
+    /**
+     * @static
+     *
+     * @param string $name
+     * @param string $title
+     *
+     * @return string
+     */public static function drawSelectName($name = '', $title = '')
     {
         if( ! $title)
         {
@@ -1090,7 +1177,13 @@ EOF;
     }
     }//function
 
-    public static function printTrace($trace = null)
+    /**
+     * @static
+     *
+     * @param null $trace
+     *
+     * @return string
+     */public static function printTrace($trace = null)
     {
         if( ! function_exists('debug_backtrace'))
         return '';
@@ -1242,7 +1335,14 @@ EOF;
     <?php
     }//function
 
-    private static function contextMenuEntry($ajaxLink, $title, $task, $icon)
+    /**
+     * @static
+     *
+     * @param $ajaxLink
+     * @param $title
+     * @param $task
+     * @param $icon
+     */private static function contextMenuEntry($ajaxLink, $title, $task, $icon)
     {
         ?>
 <li><a class="modal" onclick="SimpleContextMenu._hide();"
@@ -1330,6 +1430,9 @@ class EasyTemplateInfo
     public $title = '';
     public $description = '';
 
+    /**
+     * @return string
+     */
     function info()
     {
         $ret = '';
@@ -1341,7 +1444,12 @@ class EasyTemplateInfo
         return $ret;
     }//function
 
-    public function format($format, $type = 'new')
+    /**
+     * @param        $format
+     * @param string $type
+     *
+     * @return string
+     */public function format($format, $type = 'new')
     {
         $ret = '';
         $ret .= '<span class="img icon-16-'.$type.'">';
@@ -1379,7 +1487,11 @@ class EasyTemplateInfo
         return $ret;
     }//function
 
-    public static function error($message)
+    /**
+     * @static
+     *
+     * @param $message
+     */public function error($message)
     {
         echo $message.' in '.get_parent_class($this);
 
