@@ -350,7 +350,7 @@ class EasyELanguage
      *
      * @param integer $bytes Ammount of bytes
      *
-     * @deprecated use ecrHTML::byte_convert()
+     * @deprecated use EcrHtml::byte_convert()
      *
      * @return string
      */
@@ -1342,7 +1342,7 @@ case 'etc':
                 break;
 
             default :
-                ecrHTML::displayMessage('Unknown file extension: '.JFile::getExt($fileName), 'error');
+                EcrHtml::displayMessage('Unknown file extension: '.JFile::getExt($fileName), 'error');
                 break;
         }//switch
 
@@ -1466,7 +1466,7 @@ case 'etc':
         else
         {
             //--FileNotFound
-            //            #         ecrHTML::drawButtonCreateLanguageFile($lang, $this->_scope);
+            //            #         EcrHtml::drawButtonCreateLanguageFile($lang, $this->_scope);
 
             return false;
         }

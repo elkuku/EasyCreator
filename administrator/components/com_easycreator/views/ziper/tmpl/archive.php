@@ -20,7 +20,7 @@ echo '<div class="img icon-16-server path">'.$path.'</div>';
 
 if( ! JFolder::exists($path))
 {
-    ecrHTML::displayMessage(jgettext('Archive is empty'), 'warning');
+    EcrHtml::displayMessage(jgettext('Archive is empty'), 'warning');
 
     return;
 }
@@ -73,7 +73,7 @@ foreach($folders as $folder) :
         class="<?php echo 'row'.$k; ?>">
             <td><a href="<?php echo $href; ?>"><?php echo $file; ?></a></td>
             <td nowrap="nowrap"><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
-            <td><?php echo ecrHTML::byte_convert($info[7]); ?></td>
+            <td><?php echo EcrHtml::byte_convert($info[7]); ?></td>
             <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
             <td width="2%">
                 <div style="padding-left: 20px; height: 14px;"

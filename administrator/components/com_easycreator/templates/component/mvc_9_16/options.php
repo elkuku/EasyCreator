@@ -28,6 +28,11 @@ class EasyTemplateOptions
         ecrLoadHelper('table');
         ecrScript('dbtables');
 
+        if( ! in_array('mysql', $project->dbTypes))
+        {
+            $project->dbTypes = array_merge(array('mysql'), $project->dbTypes);
+        }
+
         $html = '';
         $html .= '
 <script>
@@ -37,10 +42,16 @@ class EasyTemplateOptions
 	var obCountOrig = 3;
 </script>
 ';
-        $html .= '<strong>'.jgettext('User defined table fields').'</strong>';
-        $html .= '<br /><strong>'
-        .sprintf(jgettext('Please define the fields for the table %s that will be created for your component.')
-        , $project->name).'</strong>';
+        $html .= '<h3>'.jgettext('Database support').'</h3>';
+        $html .= EcrHtml::drawDbOptions($project);
+
+        $html .= '<h3>'.jgettext('User defined table fields').'</h3>';
+        $html .= '<strong>'
+        .sprintf(
+                jgettext('Please define the fields for the table %s that will be created for your component.')
+                , '"'.strtolower($project->name).'"'
+            )
+        .'</strong>';
 
         $fields = array();
 

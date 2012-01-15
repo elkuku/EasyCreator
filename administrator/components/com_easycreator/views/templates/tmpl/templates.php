@@ -27,7 +27,7 @@ JHTML::_('behavior.modal');
 $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
 $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
-ecrHTML::initFileTree();
+EcrHtml::initFileTree();
 $fileTree = new phpFileTree;
 
 $js = '';
@@ -163,7 +163,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
         </div>
 		</td>
 		<td>
-			<?php ecrHTML::prepareFileEdit(); ?>
+			<?php EcrHtml::prepareFileEdit(); ?>
 		</td>
 	</tr>
 </table>
@@ -174,4 +174,4 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 <input type="hidden" name="old_controller" value="templates" />
 
 <?php
-echo ecrHTML::contextMenu();
+echo EcrHtml::contextMenu();

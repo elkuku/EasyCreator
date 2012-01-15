@@ -53,9 +53,9 @@ class EasyCreatorViewCodeEye extends JView
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return;
         }//try
@@ -79,14 +79,14 @@ class EasyCreatorViewCodeEye extends JView
         }
 
         //--Draw h1 header
-        ecrHTML::header(jgettext('CodeEye'), $this->project, 'xeyes');
+        EcrHtml::header(jgettext('CodeEye'), $this->project, 'xeyes');
 
         //--Draw the submenu
         echo $this->displayBar();
 
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 
     /**
@@ -222,7 +222,7 @@ class EasyCreatorViewCodeEye extends JView
                     $btn = '&nbsp;<span class="ecr_button img icon-16-add" onclick="submitbutton(\'copy_bootstrap\');">'
                     .jgettext('Copy bootstrap.php to Joomla root').'</span>';
 
-                    ecrHTML::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
+                    EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
 
                     return;
                 }
@@ -235,7 +235,7 @@ class EasyCreatorViewCodeEye extends JView
                     .' onclick="submitbutton(\'create_test_dir_unit\');">'
                     .jgettext('Create Test directory').'</span>';
 
-                    ecrHTML::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
+                    EcrHtml::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
 
                     return;
                 }
@@ -245,7 +245,7 @@ class EasyCreatorViewCodeEye extends JView
                 break;
 
             default:
-                ecrHTML::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
+                EcrHtml::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
                 break;
         }//switch
     }//function
@@ -267,7 +267,7 @@ class EasyCreatorViewCodeEye extends JView
                 //                {
 //                    $btn = '&nbsp;<span class="ecr_button img icon-16-add" onclick="submitbutton(\'copy_bootstrap\');">'
 //.jgettext('Copy bootstrap.php to Joomla root').'</span>';
-//                    ecrHTML::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
+//                    EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
                 //
                 //                    return;
                 //                }
@@ -280,7 +280,7 @@ class EasyCreatorViewCodeEye extends JView
                     .' onclick="submitbutton(\'create_test_dir_selenium\');">'
                     .jgettext('Create Test directory').'</span>';
 
-                    ecrHTML::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
+                    EcrHtml::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
 
                     return;
                 }
@@ -290,7 +290,7 @@ class EasyCreatorViewCodeEye extends JView
                 break;
 
             default:
-                ecrHTML::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
+                EcrHtml::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
                 break;
         }//switch
     }//function
@@ -355,6 +355,6 @@ class EasyCreatorViewCodeEye extends JView
         )
         );
 
-        return ecrHTML::getSubBar($subTasks);
+        return EcrHtml::getSubBar($subTasks);
     }//function
 }//class

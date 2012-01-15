@@ -11,7 +11,7 @@
 defined('_JEXEC') || die('=;)');
 
 if( ! count($this->logFiles)):
-    ecrHTML::displayMessage(jgettext('No logfiles found'), 'notice');
+    EcrHtml::displayMessage(jgettext('No logfiles found'), 'notice');
 
     return;
 endif;

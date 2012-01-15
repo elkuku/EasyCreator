@@ -15,14 +15,14 @@ echo '<h1>'.jgettext('Versions').'</h1>';
 
 if( ! $this->sel_language)
 {
-    ecrHTML::displayMessage(jgettext('Please choose a language'));
+    EcrHtml::displayMessage(jgettext('Please choose a language'));
 
     return;
 }
 
 if( ! count($this->versions))
 {
-    ecrHTML::displayMessage(jgettext('No versions found'), 'notice');
+    EcrHtml::displayMessage(jgettext('No versions found'), 'notice');
 
     return;
 }

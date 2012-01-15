@@ -22,5 +22,5 @@ if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Build folder').'::'
 <div class="path"><?php echo $buildPath.DS.$this->project->version; ?></div>
 <?php
 if( ! JFolder::exists($buildPath.DS.$this->project->version)) :
-    ecrHTML::displayMessage(jgettext('The folder does not exist'), 'warning');
+    EcrHtml::displayMessage(jgettext('The folder does not exist'), 'warning');
 endif;

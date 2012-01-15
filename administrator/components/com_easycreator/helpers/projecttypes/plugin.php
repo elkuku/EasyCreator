@@ -71,6 +71,16 @@ class EasyProjectPlugin extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
+    }//function
+
+    /**
      * Gets the paths to language files.
      *
      * @return array
@@ -167,7 +177,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage('Unsupported JVersion', 'error');
+                EcrHtml::displayMessage('Unsupported JVersion', 'error');
 
                 return false;
                 break;
@@ -221,7 +231,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage('Unsupported JVersion in EasyProjectComponent::getId()');
+                EcrHtml::displayMessage('Unsupported JVersion in EasyProjectComponent::getId()');
 
                 return false;
                 break;
@@ -265,7 +275,7 @@ class EasyProjectPlugin extends EasyProject
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -315,7 +325,7 @@ class EasyProjectPlugin extends EasyProject
                         $projects = array('blogger', 'joomla');
                         break;
                     default :
-                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
 
                         return array();
                 }//switch
@@ -351,7 +361,7 @@ class EasyProjectPlugin extends EasyProject
                         $projects = array('example', 'contactcreator', 'joomla', 'profile');
                         break;
                     default :
-                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
 
                         return array();
                 }//switch
@@ -386,7 +396,7 @@ class EasyProjectPlugin extends EasyProject
                         $projects = array('contactcreator', 'joomla', 'profile');
                         break;
                     default :
-                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
                 }//switch
                 break;
@@ -430,7 +440,7 @@ class EasyProjectPlugin extends EasyProject
                         $projects = array('contactcreator', 'joomla', 'profile');
                         break;
                     default :
-                        ecrHTML::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
                 }//switch
                 break;

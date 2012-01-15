@@ -46,7 +46,7 @@ class EasyCreatorViewLanguages extends JView
             $this->project = EasyProjectHelper::getProject();
 
             //--Draw h1 header
-            ecrHTML::header(jgettext('Languages'), $this->project, 'ecr_languages');
+            EcrHtml::header(jgettext('Languages'), $this->project, 'ecr_languages');
 
             if('ini' != $this->project->langFormat)
             {
@@ -97,23 +97,23 @@ class EasyCreatorViewLanguages extends JView
             else if($task)
             {
                 echo 'UNDEFINED: '.$task.'<br />';
-                ecrHTML::easyFormEnd();
+                EcrHtml::easyFormEnd();
 
                 return;
             }
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return;
         }//try
 
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 
     /**
@@ -827,7 +827,7 @@ class EasyCreatorViewLanguages extends JView
 
         //@todo - unify..
         $html = '';
-        $html .= ecrHTML::getSubBar($subTasks);
+        $html .= EcrHtml::getSubBar($subTasks);
 
         $html .= '<div style="clear: both; height: 1em;"></div>';
 
@@ -930,7 +930,7 @@ class EasyCreatorViewLanguages extends JView
 
                     $html .= '</select>';
                     $html .= '</div>';
-                    $html .= ecrHTML::chkVersioned();
+                    $html .= EcrHtml::chkVersioned();
                     $html .= '&nbsp;&nbsp;<span class="ecr_button img icon-16-save"'
                     .' onclick="submitbutton(\'save_lang_corrected\');" style="display: inline !important;">';
                     $html .= jgettext('Save');
@@ -940,7 +940,7 @@ class EasyCreatorViewLanguages extends JView
 
             case 'langcorrectdeforder':
             case 'save_deflang_corrected':
-                $html .= ecrHTML::chkVersioned();
+                $html .= EcrHtml::chkVersioned();
                 $html .= '<span class="ecr_button img icon-16-save"';
                 $html .= 'onclick="submitbutton(\'save_deflang_corrected\');">'.jgettext('Save').'</span>';
                 $html .= '<br /><br /><div class="explanation">'
@@ -1021,7 +1021,7 @@ class EasyCreatorViewLanguages extends JView
 
         //@todo - unify..
         $html = '';
-        $html .= ecrHTML::getSubBar($subTasks);
+        $html .= EcrHtml::getSubBar($subTasks);
 
         return $html;
     }//function

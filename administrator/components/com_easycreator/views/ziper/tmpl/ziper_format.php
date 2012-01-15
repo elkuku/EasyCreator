@@ -15,7 +15,7 @@ $chk_upgrade =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 ?>
 
 <strong><?php echo jgettext('Packing format options'); ?>:</strong>
-<?php ecrHTML::drawPackOpts($this->project->buildOpts); ?>
+<?php EcrHtml::drawPackOpts($this->project->buildOpts); ?>
 <br />
 <strong class="img icon-16-joomla">
     <?php echo jgettext('Joomla! version'); ?>
@@ -94,4 +94,4 @@ value="upgrade" />
 
 <br />
 <strong><?php echo jgettext('Build options'); ?>:</strong>
-<?php ecrHTML::drawLoggingOptions();
+<?php EcrHtml::drawLoggingOptions();

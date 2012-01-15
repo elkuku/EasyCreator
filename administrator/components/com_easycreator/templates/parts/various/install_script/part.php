@@ -43,7 +43,7 @@ class PartVariousInstall_Script
 
         if('1.5' == $project->JCompat)
         {
-            ecrHTML::displayMessage(jgettext('Install scripts are avilable from Joomla! 1.6 + projects'), 'error');
+            EcrHtml::displayMessage(jgettext('Install scripts are avilable from Joomla! 1.6 + projects'), 'error');
 
             return false;
         }
@@ -54,14 +54,14 @@ class PartVariousInstall_Script
 
         if(JFile::exists($basePathDest.DS.'install'.DS.'script.php'))
         {
-            ecrHTML::displayMessage(jgettext('This project already has an install file - consider removing it'), 'error');
+            EcrHtml::displayMessage(jgettext('This project already has an install file - consider removing it'), 'error');
 
             return false;
         }
 
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
-        ecrHTML::drawSubmitParts();
+        EcrHtml::drawSubmitParts();
     }//function
 
     /**

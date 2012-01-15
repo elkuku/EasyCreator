@@ -46,8 +46,6 @@ if(ECR_DEV_MODE)
     //-- Setup debugger
     if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug'))
     {
-        ecrLoadHelper('debug');
-
         //-- Set debugging ON
         define('ECR_DEBUG', 1);
     }
@@ -73,7 +71,6 @@ else
 
 //-- Load helpers
 ecrLoadHelper('easycreator');
-ecrLoadHelper('html');
 ecrLoadHelper('projecthelper');
 ecrLoadHelper('languagehelper');
 
@@ -203,7 +200,7 @@ if('component' == JRequest::getCmd('tmpl'))
 else
 {
     //-- Display the menu
-    ecrHTML::easyMenu();
+    EcrHtml::easyMenu();
 
     //-- Perform the Request task
     $controller->execute(JRequest::getCmd('task'));
@@ -216,7 +213,7 @@ else
     }
 
     //-- Display the footer
-    ecrHTML::footer();
+    EcrHtml::footer();
 
     JDEBUG ? $profiler->mark('com_easycreator finished') : null;
 }
@@ -225,4 +222,5 @@ else
 error_reporting($prevErrorReporting);
 
 //-- Redirect if set by the controller
-$controller->redirect();//-- We don't do this very often =;)
+//-- We don't do this very often =;)
+$controller->redirect();

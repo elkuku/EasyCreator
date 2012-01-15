@@ -68,6 +68,16 @@ class EasyProjectLibrary extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        return JPATH_LIBRARIES.'/'.$this->comName;
+    }//function
+
+    /**
      * Gets the paths to language files.
      *
      * @return array
@@ -106,7 +116,7 @@ class EasyProjectLibrary extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
             break;
         }//switch
 
@@ -215,7 +225,7 @@ class EasyProjectLibrary extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
             break;
         }//switch
 

@@ -44,15 +44,15 @@ class EasyCreatorViewZiper extends JView
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return;
         }//try
 
         //-- Draw h1 header
-        ecrHTML::header(jgettext('Component ZIPer'), $this->project, 'ecr_archive');
+        EcrHtml::header(jgettext('Component ZIPer'), $this->project, 'ecr_archive');
 
         if(in_array($this->task, get_class_methods($this)))
         {
@@ -65,7 +65,7 @@ class EasyCreatorViewZiper extends JView
 
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 
     /**
@@ -101,7 +101,7 @@ class EasyCreatorViewZiper extends JView
 
         $this->buildopts = JRequest::getVar('buildopts', array());
 
-        $ziper = new EasyZIPer;
+        $ziper = new EcrZiper;
 
         $result->result = $ziper->create($this->project);
         $result->errors = $ziper->getErrors();
@@ -146,6 +146,6 @@ class EasyCreatorViewZiper extends JView
         )
         );
 
-        return ecrHTML::getSubBar($subTasks);
+        return EcrHtml::getSubBar($subTasks);
     }//function
 }//class

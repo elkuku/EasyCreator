@@ -45,7 +45,7 @@ foreach($exportTypes as $exportType) :
     $exportFiles = JFolder::files(ECRPATH_EXPORTS.DS.$exportType, 'gz$');
 
     if( ! count($exportFiles)) :
-        ecrHTML::displayMessage(jgettext('Archive is empty'));
+        EcrHtml::displayMessage(jgettext('Archive is empty'));
     else:
 
         $base_href = str_replace(JPATH_ROOT.DS, '', ECRPATH_EXPORTS.DS.$exportType);
@@ -85,7 +85,7 @@ foreach($exportTypes as $exportType) :
             <tr id="row<?php echo $fileName; ?>" class="<?php echo 'row'.$k; ?>">
                 <td><?php echo $fileName; ?></td>
                 <td><?php echo $date->toFormat(); ?></td>
-                <td><?php echo ecrHTML::byte_convert($fsize); ?></td>
+                <td><?php echo EcrHtml::byte_convert($fsize); ?></td>
                 <td width="2%">
                     <a href="<?php echo $href; ?>"
                     style="padding-left: 20px;"

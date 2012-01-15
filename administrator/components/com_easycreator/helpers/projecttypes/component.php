@@ -134,7 +134,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return array();
                 break;
@@ -190,6 +190,16 @@ class EasyProjectComponent extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        return JPATH_ADMINISTRATOR.DS.'components'.DS.$this->comName;
+    }//function
+
+    /**
      * Get a Joomla! manifest XML file name.
      *
      * @return string
@@ -209,7 +219,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return array();
                 break;
@@ -242,7 +252,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 break;
         }//switch
@@ -302,7 +312,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -367,7 +377,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -425,7 +435,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -455,7 +465,7 @@ class EasyProjectComponent extends EasyProject
                         break;
 
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return false;
                         break;
@@ -628,7 +638,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return;
                 break;
@@ -782,7 +792,7 @@ class EasyProjectComponent extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
+                EcrHtml::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
 
                 return false;
                 break;
@@ -792,7 +802,7 @@ class EasyProjectComponent extends EasyProject
 
         if( ! $db->query())
         {
-            ecrHTML::displayMessage($db->stderr(true));
+            EcrHtml::displayMessage($db->stderr(true));
 
             return false;
         }
@@ -821,7 +831,7 @@ class EasyProjectComponent extends EasyProject
 
         if( ! $db->query())
         {
-            ecrHTML::displayMessage($db->getErrorMsg(), 'error');
+            EcrHtml::displayMessage($db->getErrorMsg(), 'error');
 
             return false;
         }

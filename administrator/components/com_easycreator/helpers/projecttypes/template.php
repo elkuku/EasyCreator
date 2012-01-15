@@ -76,6 +76,18 @@ class EasyProjectTemplate extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        $scope =('admin' == $this->scope) ? JPATH_ADMINISTRATOR : JPATH_SITE;
+
+        return $scope.'/templates/'.$this->comName;
+    }//function
+
+    /**
      * Gets the paths to language files.
      *
      * @return array
@@ -127,7 +139,7 @@ class EasyProjectTemplate extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -209,7 +221,7 @@ class EasyProjectTemplate extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -273,7 +285,7 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                         break;
                 }//switch
                 break;
@@ -292,13 +304,13 @@ class EasyProjectTemplate extends EasyProject
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                         break;
                 }//switch
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown scope: '.$scope);
+                EcrHtml::displayMessage(__METHOD__.' - Unknown scope: '.$scope);
 
                 return array();
                 break;

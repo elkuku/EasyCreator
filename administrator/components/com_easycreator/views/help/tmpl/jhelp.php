@@ -19,7 +19,7 @@ ecrScript('php2js');
 
 if( ! JFile::exists($pathHelp.DS.$fName.'.php')):
     //-- Class list not found
-    ecrHTML::drawButtonCreateClassList();
+    EcrHtml::drawButtonCreateClassList();
     echo '<div id="jsonDebug"></div>';
 
     return;
@@ -76,7 +76,7 @@ else
 $cList = getJoomlaClasses();
 $packages = getJoomlaPackages();
 
-ecrHTML::initFileTree();
+EcrHtml::initFileTree();
 
 $fileTree = new phpFileTree('', '', " onclick=\"changeFrame('[folder]', '[file]');\"");
 $fileTree->setDir($pathHelp);
@@ -103,8 +103,8 @@ $fileTree->showExtension = false;
         natcasesort($packages);
 
         foreach($packages as $pName):
-            echo ecrHTML::idt('+').'<li class="pft-directory"><div>'.$pName.'</div>';
-            echo ecrHTML::idt('+').'<ul>';
+            echo EcrHtml::idt('+').'<li class="pft-directory"><div>'.$pName.'</div>';
+            echo EcrHtml::idt('+').'<ul>';
 
             foreach($cList as $cName => $cl):
 
@@ -112,26 +112,26 @@ $fileTree->showExtension = false;
                     continue;
                 endif;
 
-                echo ecrHTML::idt('+').'<li class="pft-directory"><div>'.$cName.'</div>';
-                echo ecrHTML::idt('+').'<ul>';
+                echo EcrHtml::idt('+').'<li class="pft-directory"><div>'.$cName.'</div>';
+                echo EcrHtml::idt('+').'<ul>';
                 $ms = $cl[2];
                 natcasesort($ms);
-                echo ecrHTML::idt()
+                echo EcrHtml::idt()
                 .'<li class="pft-file ext-joo" onclick="changeFrame('
                 ."'$cName', 'NULL', '$cl[0]'".');" style="font-weight: bold;">'.$cName.'</li>';
 
                 foreach($ms as $m):
-                    echo ecrHTML::idt()
+                    echo EcrHtml::idt()
                     .'<li class="pft-file ext-joo" onclick="changeFrame('
                     ."'$cName', '$m', '$cl[0]'".');">'.$m.'</li>';
                 endforeach;
 
-                echo ecrHTML::idt('-').'</ul>';
-                echo ecrHTML::idt('-').'</li>';
+                echo EcrHtml::idt('-').'</ul>';
+                echo EcrHtml::idt('-').'</li>';
             endforeach;
 
-            echo ecrHTML::idt('-').'</ul>';
-            echo ecrHTML::idt('-').'</li>';
+            echo EcrHtml::idt('-').'</ul>';
+            echo EcrHtml::idt('-').'</li>';
         endforeach;
 ?>
          </ul>
@@ -149,36 +149,36 @@ $fileTree->showExtension = false;
             $t = substr($cName, 1, 1);
             if($t != $ltr):
                 if($ltr):
-                    echo ecrHTML::idt('-').'</ul>';
-                    echo ecrHTML::idt('-').'</li>';
+                    echo EcrHtml::idt('-').'</ul>';
+                    echo EcrHtml::idt('-').'</li>';
                 endif;
 
                 $title =(substr($cName, 0, 1) == 'J') ? 'J____'.strtoupper($t) : $cName;
-                echo ecrHTML::idt('+').'<li class="pft-directory"><div>'.$title.'</div>';
-                echo ecrHTML::idt('+').'<ul>';
+                echo EcrHtml::idt('+').'<li class="pft-directory"><div>'.$title.'</div>';
+                echo EcrHtml::idt('+').'<ul>';
                 $ltr = $t;
             endif;
 
-            echo ecrHTML::idt('+').'<li class="pft-directory"><div>'.$cName.'</div>';
-            echo ecrHTML::idt('+').'<ul>';
+            echo EcrHtml::idt('+').'<li class="pft-directory"><div>'.$cName.'</div>';
+            echo EcrHtml::idt('+').'<ul>';
             $ms = $cl[2];
             natcasesort($ms);
-            echo ecrHTML::idt()
+            echo EcrHtml::idt()
             .'<li class="pft-file ext-joo" onclick="changeFrame('
             ."'$cName', 'NULL', '$cl[0]'".');" style="font-weight: bold;">'.$cName.'</li>';
 
             foreach($ms as $m):
-                echo ecrHTML::idt()
+                echo EcrHtml::idt()
                 .'<li class="pft-file ext-joo" onclick="changeFrame('
                 ."'$cName', '$m', '$cl[0]'".');">'.$m.'</li>';
             endforeach;
 
-            echo ecrHTML::idt('-').'</ul>';
-            echo ecrHTML::idt('-').'</li>';
+            echo EcrHtml::idt('-').'</ul>';
+            echo EcrHtml::idt('-').'</li>';
         endforeach;
 
-        echo ecrHTML::idt('-').'</ul>';
-        echo ecrHTML::idt('-').'</li>';
+        echo EcrHtml::idt('-').'</ul>';
+        echo EcrHtml::idt('-').'</li>';
         ?>
 
          </ul>

@@ -42,12 +42,12 @@ class PartModelsSimple
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope('scope');
-        $requireds[] = ecrHTML::drawSelectName('element_name');
+        $requireds[] = EcrHtml::drawSelectScope('scope');
+        $requireds[] = EcrHtml::drawSelectName('element_name');
 
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**

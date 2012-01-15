@@ -33,6 +33,6 @@ class EasyCreatorViewLogfiles extends JView
 
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 }//class

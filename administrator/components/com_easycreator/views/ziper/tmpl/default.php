@@ -10,6 +10,6 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrHTML::displayMessage('Wrong call :(', 'error');
+EcrHtml::displayMessage('Wrong call :(', 'error');
 
 var_dump($_REQUEST);

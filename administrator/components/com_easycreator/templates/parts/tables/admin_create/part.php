@@ -66,11 +66,11 @@ class PartTablesAdmin_create
 	</tr>
 </table>
         <?php
-        ecrHTML::drawSelectName();
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawSelectName();
+        EcrHtml::drawLoggingOptions();
 
         $requireds = array('element_name');
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**

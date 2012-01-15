@@ -35,7 +35,7 @@ class EasyCreatorViewTemplates extends JView
 
         $task = JRequest::getCmd('task');
 
-        ecrHTML::header(jgettext('Extension templates'), null, 'wizard');
+        EcrHtml::header(jgettext('Extension templates'), null, 'wizard');
 
         echo $this->displayBar();
 
@@ -55,7 +55,7 @@ class EasyCreatorViewTemplates extends JView
             //-- We end our form first, cause another one follows
             echo '<input type="hidden" name="com_type" /><input type="hidden" name="template" />';//:(
 
-            ecrHTML::easyFormEnd(false);
+            EcrHtml::easyFormEnd(false);
 
             parent::display($tpl);
         }
@@ -63,7 +63,7 @@ class EasyCreatorViewTemplates extends JView
         {
             parent::display($tpl);
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
         }
     }//function
 
@@ -157,6 +157,6 @@ class EasyCreatorViewTemplates extends JView
         )
         );
 
-        return ecrHTML::getSubBar($subTasks);
+        return EcrHtml::getSubBar($subTasks);
     }//function
 }//class

@@ -22,7 +22,7 @@ endif;
 
 $timeStamp = date('Ymd_his');
 
-ecrHTML::initFileTree();
+EcrHtml::initFileTree();
 
 $jsFile = '';
 $jsFile .= " onclick=\"doPHPUnit('[link]', '[file]', '$timeStamp', '[id]');\"";

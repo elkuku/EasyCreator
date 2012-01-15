@@ -44,11 +44,11 @@ class EasyCreatorControllerCodeEye extends JController
     {
         if(JFile::copy(JPATH_COMPONENT.DS.'helpers'.DS.'bootstrap.php', JPATH_ROOT.DS.'bootstrap.php'))
         {
-            ecrHTML::displayMessage(jgettext('The file bootstrap.php has been copied to your Joomla root'));
+            EcrHtml::displayMessage(jgettext('The file bootstrap.php has been copied to your Joomla root'));
         }
         else
         {
-            ecrHTML::displayMessage(sprintf(jgettext('Can not copy file %s'), 'bootstrap.php'), 'error');
+            EcrHtml::displayMessage(sprintf(jgettext('Can not copy file %s'), 'bootstrap.php'), 'error');
         }
 
         JRequest::setVar('view', 'codeeye');
@@ -96,25 +96,25 @@ class EasyCreatorControllerCodeEye extends JController
 
         if( ! $ecr_project)
         {
-            ecrHTML::displayMessage(jgettext('No project selected'), 'error');
+            EcrHtml::displayMessage(jgettext('No project selected'), 'error');
 
             return;
         }
 
         if( ! JFolder::exists(JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project))
         {
-            ecrHTML::displayMessage(jgettext('Invalid project'), 'error');
+            EcrHtml::displayMessage(jgettext('Invalid project'), 'error');
 
             return;
         }
 
         if( ! JFolder::create(JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project.DS.'tests'.DS.$type))
         {
-            ecrHTML::displayMessage(jgettext('Unable to create tests directory'), 'error');
+            EcrHtml::displayMessage(jgettext('Unable to create tests directory'), 'error');
 
             return;
         }
 
-        ecrHTML::displayMessage(jgettext('The tests directory has been created'));
+        EcrHtml::displayMessage(jgettext('The tests directory has been created'));
     }//function
 }//class

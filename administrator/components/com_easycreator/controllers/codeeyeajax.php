@@ -20,7 +20,7 @@ jimport('joomla.application.component.controller');
  */
 class EasyCreatorControllerCodeEyeAjax extends JController
 {
-	protected $testsBase;
+    protected $testsBase;
 
     /**
      * Executes a PHPUnit test.
@@ -469,7 +469,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $errors = array();
 
-	        /* @var $error SimpleXMLElement */
+            /* @var $error SimpleXMLElement */
             foreach($xml->file->error as $error)
             {
                 $line = (int)$error->attributes()->line;

@@ -17,7 +17,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package EasyCreator
  */
-final class ecrHTML
+final class EcrHtml
 {
     public $indent = 0;
 
@@ -30,7 +30,7 @@ final class ecrHTML
          *  //--We start our form HERE ! this is for the whole app !    //
          * //                                                          //
          */
-        ecrHTML::easyFormStart();
+        EcrHtml::easyFormStart();
 
         $task = JRequest::getCmd('task');
         $ecr_project = JRequest::getCmd('ecr_project');
@@ -432,7 +432,7 @@ $stdJS .= "$('file_name').value='';";
      */
     public static function footer()
     {
-        $version ='<strong style="color: green;">'.ecrHTML::getVersionFromCHANGELOG('com_easycreator').'</strong>';
+        $version ='<strong style="color: green;">'.EcrHtml::getVersionFromCHANGELOG('com_easycreator').'</strong>';
         ?>
 <div class="ecrFooter">
 <span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
@@ -578,7 +578,7 @@ countries.</em></small>
      */
     public static function drawDbOptions(EasyProject $project)
     {
-        $formats = JFolder::files(JPATH_COMPONENT.'/helpers/dbadapters/format');
+        $formats = JFolder::files(JPATH_COMPONENT.'/helpers/SQL/format');
 
         $options = array();
 
@@ -629,7 +629,7 @@ countries.</em></small>
         && ! $opts['archive_tgz']
         && ! $opts['archive_bz2'])
         {
-            ecrHTML::displayMessage(jgettext('Please set a compression type'), 'notice');
+            EcrHtml::displayMessage(jgettext('Please set a compression type'), 'notice');
             echo '<div style="float: right;">'
             .JHTML::tooltip(jgettext('You can set a default compression type in configuration'))
             .'</div>';
@@ -727,7 +727,7 @@ EOF;
         //-- Load EditArea code editor
         $editAreaVersion = '0_8_1_1';
 
-        ecrHTML::loadEditArea(array(
+        EcrHtml::loadEditArea(array(
         'path'        => '/administrator/components/com_easycreator/assets/js/editarea_'.$editAreaVersion,
         'type'        => $editarea_type,
         'syntax'    => '',
@@ -857,9 +857,9 @@ EOF;
 <h3><?php echo jgettext('Your extension so far'); ?></h3>
 
         <?php
-        echo ecrHTML::displayResultFieldRow(jgettext('Type'), 'type', 'tpl_type', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('Template'), 'tplName', 'tpl_name', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('JVersion'), 'JCompat', 'jcompat', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Type'), 'type', 'tpl_type', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Template'), 'tplName', 'tpl_name', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('JVersion'), 'JCompat', 'jcompat', $project, $formFieldNames);
 
         echo '<div style="background-color: #fff; border: 1px solid gray; padding-left: 0.5em;">';
 
@@ -873,19 +873,19 @@ EOF;
         echo '</div>';
 
         echo '<div class=extension" style="background-color: #ffff99; padding: 1em; font-size: 1.2em;">';
-        echo ecrHTML::displayResultFieldRow(jgettext('Name'), 'name', 'com_name', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('Version'), 'version', 'version', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('Description'), 'description', 'description', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Name'), 'name', 'com_name', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Version'), 'version', 'version', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Description'), 'description', 'description', $project, $formFieldNames);
         echo '</div>';
 
         echo '<div class="credits" style="background-color: #ffc;">';
-        echo ecrHTML::displayResultFieldRow(jgettext('Author'), 'author', 'author', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('Author e-mail'), 'authorEmail', 'authorEmail', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('Author URL'), 'authorUrl', 'authorUrl', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('License'), 'license', 'license', $project, $formFieldNames);
-        echo ecrHTML::displayResultFieldRow(jgettext('Copyright (C)'), 'copyright', 'copyright', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Author'), 'author', 'author', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Author e-mail'), 'authorEmail', 'authorEmail', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Author URL'), 'authorUrl', 'authorUrl', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('License'), 'license', 'license', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('Copyright (C)'), 'copyright', 'copyright', $project, $formFieldNames);
 
-        echo ecrHTML::displayResultFieldRow(jgettext('List postfix'), 'listPostfix', 'list_postfix', $project, $formFieldNames);
+        echo EcrHtml::displayResultFieldRow(jgettext('List postfix'), 'listPostfix', 'list_postfix', $project, $formFieldNames);
 
         echo '</div>';
         ?></div>

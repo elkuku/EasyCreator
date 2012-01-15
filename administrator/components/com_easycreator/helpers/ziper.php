@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -7,17 +7,14 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
- * EasyZIPer.
+ * EcrZIPer.
  *
  * @package    EasyCreator
  * @subpackage Helpers
  *
  */
-class EasyZIPer extends JObject
+class EcrZiper extends JObject
 {
     private $build_dir = '';
 
@@ -34,9 +31,9 @@ class EasyZIPer extends JObject
 
     private $buildopts = array();
 
-	/**
-	 * @var EasyLogger
-	 */
+    /**
+     * @var EasyLogger
+     */
     private $logger = null;
 
     private $profiler = null;
@@ -868,7 +865,7 @@ class EasyZIPer extends JObject
                 continue;
             }//try
 
-            $ziper = new EasyZIPer;
+            $ziper = new EcrZiper;
             $result = $ziper->create($project);
             $files = $ziper->getCreatedFiles();
 
@@ -999,7 +996,7 @@ class EasyZIPer extends JObject
                     else
                     {
                         $this->logger->log('File: '.$srcFileName, 'copy failed');
-                        $this->setError(sprintf(jgettext('Failed to copy file %s to %s'), $test, $tmp_dest.DS.$srcFileName));
+                        $this->setError(sprintf(jgettext('Failed to copy file %s to %s'), $srcPath.'/'.$srcFileName, $tmp_dest.DS.$srcFileName));
                     }
                 }
 
@@ -1070,6 +1067,13 @@ class EasyZIPer extends JObject
         return true;
     }//function
 
+    /**
+     * Tiny compression for MD5 files.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
     private function compressPath($path)
     {
         static $previous = '';

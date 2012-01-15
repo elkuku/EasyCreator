@@ -27,7 +27,7 @@ $easyStandards = JFolder::folders(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer')
 
 $formats = array('full', 'xml', 'checkstyle', 'csv', 'emacs', 'source', 'summary');
 
-ecrHTML::initFileTree();
+EcrHtml::initFileTree();
 
 $fileTree = drawFileTree($this->project);
 ?>

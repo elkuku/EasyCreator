@@ -816,7 +816,7 @@ class JoomlaManifest extends JObject
                         break;
 
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' : Undefined JVersion', 'error');
+                        EcrHtml::displayMessage(__METHOD__.' : Undefined JVersion', 'error');
                         break;
                 }//switch
             }
@@ -928,7 +928,7 @@ class JoomlaManifest extends JObject
             }
             catch(Exception $e)
             {
-                ecrHTML::displayMessage($e);
+                EcrHtml::displayMessage($e);
 
                 return false;
             }//try
@@ -1061,7 +1061,7 @@ class JoomlaManifest extends JObject
             }
             catch(Exception $e)
             {
-                ecrHTML::displayMessage($e);
+                EcrHtml::displayMessage($e);
 
                 return false;
             }//try

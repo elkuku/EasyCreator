@@ -60,7 +60,7 @@ myEffect.start();
                 (<?php echo number_format($matrix->projectData[$ext]['perc_files'], 2); ?>%)
             </td>
             <td class="preCell" style="background-color: #e5ff33;">
-                <?php echo ecrHTML::byte_convert($matrix->projectData[$ext]['size']); ?>
+                <?php echo EcrHtml::byte_convert($matrix->projectData[$ext]['size']); ?>
             </td>
             <td class="preCell" style="background-color: #e5ff33;">
                 (<?php echo number_format($matrix->projectData[$ext]['perc_size'], 2); ?>%)
@@ -108,7 +108,7 @@ myEffect.start();
              (<?php echo number_format($matrix->projectData['images']['perc_files'], 2); ?>%)
         </td>
         <td class="preCell" style="background-color: #e5ff33;">
-            <?php echo ecrHTML::byte_convert($matrix->projectData['images']['size']); ?>
+            <?php echo EcrHtml::byte_convert($matrix->projectData['images']['size']); ?>
         </td>
         <td class="preCell" style="background-color: #e5ff33;">
              (<?php echo number_format($matrix->projectData['images']['perc_size'], 2); ?>%)
@@ -120,7 +120,7 @@ myEffect.start();
         <th><?php echo jgettext('TOTAL'); ?></th>
         <th class="preCell" style="background-color: #ffffb2;"><?php echo number_format($matrix->totalFiles); ?></th>
         <td>&nbsp;</td>
-        <th class="preCell" style="background-color: #e5ff33;"><?php echo ecrHTML::byte_convert($matrix->totalSize); ?></th>
+        <th class="preCell" style="background-color: #e5ff33;"><?php echo EcrHtml::byte_convert($matrix->totalSize); ?></th>
         <td>&nbsp;</td>
         <th class="preCell" style="background-color: #e5ff99;"><?php echo number_format($matrix->totalLines); ?></th>
         <td colspan="7">&nbsp;</td>

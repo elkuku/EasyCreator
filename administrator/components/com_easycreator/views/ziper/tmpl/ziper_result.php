@@ -34,7 +34,7 @@ return;
     <?php endif; ?>
 
 <?php else:
-    ecrHTML::displayMessage(jgettext('Your ZIPfile has NOT been created'), 'error');
+    EcrHtml::displayMessage(jgettext('Your ZIPfile has NOT been created'), 'error');
     echo '<h2>'.jgettext('Errors').'</h2>';
     echo '<ul><li>'.implode('</li><li>', $errors).'</li></ul>';
 endif; ?>

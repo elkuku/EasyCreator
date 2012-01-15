@@ -51,7 +51,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
             parent::display();
 
@@ -97,7 +97,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
             parent::display();
 
@@ -176,17 +176,17 @@ class EasyCreatorControllerLanguages extends JController
 
         if( ! $fileName)
         {
-            ecrHTML::displayMessage('No filename set', 'error');
+            EcrHtml::displayMessage('No filename set', 'error');
         }
         else
         {
             if(EasyELanguage::removeBOM_utf8($fileName))
             {
-                ecrHTML::displayMessage(jgettext('The BOM has been removed'));
+                EcrHtml::displayMessage(jgettext('The BOM has been removed'));
             }
             else
             {
-                ecrHTML::displayMessage(jgettext('Unable to remove the BOM'), 'error');
+                EcrHtml::displayMessage(jgettext('Unable to remove the BOM'), 'error');
             }
         }
 
@@ -217,7 +217,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
             parent::display();
 

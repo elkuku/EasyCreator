@@ -75,7 +75,7 @@ class dbAdapterMySQL extends dbAdapter
                 .$this->quote($name).NL;
                 break;
 default :
-                ecrHTML::displayMessage(__METHOD__.': Unknown type '.$type);
+                EcrHtml::displayMessage(__METHOD__.': Unknown type '.$type);
 
                 return '';
                 break;
@@ -113,7 +113,7 @@ default :
                     break;
 
                 default:
-                    ecrHTML::displayMessage('Unknown field type '.$c['type'], 'error');
+                    EcrHtml::displayMessage('Unknown field type '.$c['type'], 'error');
                     break;
             }//switch
         }//foreach

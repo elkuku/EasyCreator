@@ -93,8 +93,8 @@ class PartViewsData_form extends EasyPart
         $db = JFactory::getDBO();
         $tables = $db->getTableList();
 
-        $requireds[] = ecrHTML::drawSelectName($tableName);
-        $requireds[] = ecrHTML::drawSelectScope($this->_scope);
+        $requireds[] = EcrHtml::drawSelectName($tableName);
+        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
 
         if( ! $tableName)
         {
@@ -132,9 +132,9 @@ class PartViewsData_form extends EasyPart
 //        echo '<label for="create_menu_link">'.jgettext('Create a menu link').'</label><br />';
         echo '<hr />';
 
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**
@@ -269,11 +269,11 @@ $key = '##ECR_OPTIONS##';
      */
     public function edit($AutoCode)
     {
-        ecrHTML::drawSelectScope($this->_scope);
+        EcrHtml::drawSelectScope($this->_scope);
         echo '<input type="hidden" name="element" value="'.$this->_element.'" />';
 
         /* Draws an input box for a name field */
-        ecrHTML::drawSelectName($this->_element, jgettext('Table'));
+        EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 
         $ecr_project = JRequest::getCmd('ecr_project');
         $element_name = JRequest::getCmd('element');
@@ -308,7 +308,7 @@ $key = '##ECR_OPTIONS##';
 
         $this->show_tablefields($table_name, $AutoCode->fields[$key]);
 
-        ecrHTML::drawSubmitParts();
+        EcrHtml::drawSubmitParts();
     }//function
 
     /**

@@ -66,7 +66,7 @@ class PartTablesSimple extends EasyPart
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope($this->_scope);
+        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
 
         if( ! $this->_element)
         {
@@ -94,7 +94,7 @@ class PartTablesSimple extends EasyPart
         }
 
         /* Draws an input box for a name field */
-        $requireds[] = ecrHTML::drawSelectName($this->_element, jgettext('Table'));
+        $requireds[] = EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 
         echo '<strong>Var Scope:</strong><br />';
 
@@ -111,10 +111,10 @@ class PartTablesSimple extends EasyPart
          */
 
         /* Displays options for logging */
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
         /* Draws the submit button */
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**
@@ -131,11 +131,11 @@ class PartTablesSimple extends EasyPart
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope($this->_scope);
+        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
         echo '<input type="hidden" name="element" value="'.$this->_element.'" />';
 
         /* Draws an input box for a name field */
-        $requireds[] = ecrHTML::drawSelectName($this->_element, jgettext('Table'));
+        $requireds[] = EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 
         echo '<strong>Var Scope:</strong><br />';
 
@@ -147,7 +147,7 @@ class PartTablesSimple extends EasyPart
         }//foreach
 
         /* Draws the submit button */
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**

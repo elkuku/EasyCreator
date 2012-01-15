@@ -124,7 +124,7 @@ ecrScript('wizard2');
 </script>
 
 <div class="ecr_floatbox" style="width: 40%;">
-    <?php ecrHTML::displayResult($this->project, $formFieldNames); ?>
+    <?php EcrHtml::displayResult($this->project, $formFieldNames); ?>
 </div>
 
 <div style="clear: both; height: 1em;"></div>

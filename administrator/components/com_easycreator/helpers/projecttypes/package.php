@@ -47,6 +47,18 @@ class EasyProjectPackage extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        //-- varies =;)
+
+        return '';
+    }//function
+
+    /**
      * Get a Joomla! manifest XML file name.
      *
      * @return string File name.

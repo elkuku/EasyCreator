@@ -95,7 +95,7 @@ class EasyCreatorControllerAutoCode extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
             return;
         }//try

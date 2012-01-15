@@ -127,16 +127,17 @@ abstract class EasyProject extends JObject
 
     public abstract function findCopies();
 
-    public function getLanguageScopes() {}//function
-    public function getLanguagePaths() {}//function
-    public function getLanguageFileName() {}//function
-    public function getJoomlaManifestPath() {}//function
-    public function getJoomlaManifestName() {}//function
-    public function getDTD($jVersion) {}//function
-    public function getEcrXmlFileName() {}//function
-    public function getId() {}//function
+    public function getLanguageScopes() {}
+    public function getLanguagePaths() {}
+    public function getLanguageFileName() {}
+    public function getJoomlaManifestPath() {}
+    public function getJoomlaManifestName() {}
+    public function getDTD($jVersion) {}
+    public function getEcrXmlFileName() {}
+    public function getId() {}
+    abstract public function getExtensionPath();
 
-    protected function updateAdminMenu() { return true; }//function
+    protected function updateAdminMenu() { return true; }
 
     // @codingStandardsIgnoreEnd
 
@@ -901,7 +902,7 @@ abstract class EasyProject extends JObject
     {
         if( ! $this->dbId)
         {
-            echo ecrHTML::displayMessage(jgettext('Invalid Project'), 'error');
+            echo EcrHtml::displayMessage(jgettext('Invalid Project'), 'error');
 
             return false;
         }
@@ -920,7 +921,7 @@ abstract class EasyProject extends JObject
             //-- Uninstall the extension
             if( ! $installer->uninstall($this->type, $this->dbId, $clientId))
             {
-                echo ecrHTML::displayMessage(jgettext('JInstaller: Unable to remove project'), 'error');
+                echo EcrHtml::displayMessage(jgettext('JInstaller: Unable to remove project'), 'error');
 
                 return false;
             }
@@ -931,15 +932,15 @@ abstract class EasyProject extends JObject
 
         if( ! JFile::exists(ECRPATH_SCRIPTS.DS.$fileName))
         {
-            echo ecrHTML::displayMessage(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName), 'error');
+            echo EcrHtml::displayMessage(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName), 'error');
 
             return false;
         }
 
         if( ! JFile::delete(ECRPATH_SCRIPTS.DS.$fileName))
         {
-            echo ecrHTML::displayMessage(jgettext('Unable to delete file'), 'error');
-            echo ecrHTML::displayMessage(ECRPATH_SCRIPTS.DS.$fileName, 'error');
+            echo EcrHtml::displayMessage(jgettext('Unable to delete file'), 'error');
+            echo EcrHtml::displayMessage(ECRPATH_SCRIPTS.DS.$fileName, 'error');
 
             return false;
         }

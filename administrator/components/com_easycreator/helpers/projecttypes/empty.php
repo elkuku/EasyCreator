@@ -50,6 +50,16 @@ class EasyProjectEmpty extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        return '';
+    }//function
+
+    /**
      * Gets the language scopes for the extension type.
      *
      * @return array Indexed array.
@@ -233,7 +243,7 @@ class EasyProjectEmpty extends EasyProject
                         break;
 
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                        EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
 
@@ -258,7 +268,7 @@ class EasyProjectEmpty extends EasyProject
                         , 'mod_wrapper');
                         break;
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unknown J! version');
+                        EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
                         break;
                 }//switch
 

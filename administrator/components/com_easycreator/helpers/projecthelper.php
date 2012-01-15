@@ -47,7 +47,7 @@ class EasyProjectHelper
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
             break;
         }//switch
 
@@ -183,7 +183,7 @@ class EasyProjectHelper
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
+                EcrHtml::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
 
             return false;
             break;
@@ -238,7 +238,7 @@ class EasyProjectHelper
             {
                 /*
                  JXXError::raiseWarning(100, 'File not found '.$fileName);
-                ecrHTML::displayMessage('Unable to load XML file '.$fileName, 'error');
+                EcrHtml::displayMessage('Unable to load XML file '.$fileName, 'error');
                 */
                 return false;
             }
@@ -259,7 +259,7 @@ class EasyProjectHelper
         }//foreach
 
         //-- None of the xml files found were valid install files
-        ecrHTML::displayMessage(sprintf(jgettext('Manifest not found for type: %s - name: %s'), $project->type, $fileName), 'error');
+        EcrHtml::displayMessage(sprintf(jgettext('Manifest not found for type: %s - name: %s'), $project->type, $fileName), 'error');
 
         return false;
     }//function
@@ -347,7 +347,7 @@ class EasyProjectHelper
         && $manifest->getName() != 'extension'//J! 1.6
         )
         {
-            ecrHTML::displayMessage(sprintf('Invalid install manifest at %s', $path), 'error');
+            EcrHtml::displayMessage(sprintf('Invalid install manifest at %s', $path), 'error');
 
             unset($manifest);
 
@@ -535,7 +535,7 @@ class EasyProjectHelper
      */
     public static function formatFileName(EasyProject $project, $format)
     {
-        $svnRev = ecrHTML::getVersionFromCHANGELOG($project->comName, true);
+        $svnRev = EcrHtml::getVersionFromCHANGELOG($project->comName, true);
 
         $dateTime = preg_match('%\*DATETIME(.*?)\*%', $format, $matches);
 
@@ -657,7 +657,7 @@ class EasyProjectHelper
 
         if( ! JFile::exists($fileName))
         {
-            ecrHTML::displayMessage(array(jgettext('File not found'), $fileName), 'error');
+            EcrHtml::displayMessage(array(jgettext('File not found'), $fileName), 'error');
 
             return null;
         }
@@ -668,7 +668,7 @@ class EasyProjectHelper
 
         if( ! class_exists($className))
         {
-            ecrHTML::displayMessage(array(jgettext('Class not found'), $className), 'error');
+            EcrHtml::displayMessage(array(jgettext('Class not found'), $className), 'error');
 
             return null;
         }
@@ -719,7 +719,7 @@ class EasyProjectHelper
 
         if( ! JFolder::exists($base))
         {
-            ecrHTML::displayMessage(array(sprintf(jgettext('Project %s not found'), $project->comName)), 'error');
+            EcrHtml::displayMessage(array(sprintf(jgettext('Project %s not found'), $project->comName)), 'error');
 
             return $installFiles;
         }

@@ -14,7 +14,7 @@ echo 'BUUU ?';
 
 if( ! $this->easyLanguage)
 {
-    ecrHTML::displayMessage(jgettext('No languages defined'), 'error');
+    EcrHtml::displayMessage(jgettext('No languages defined'), 'error');
 
     return;
 }
@@ -267,6 +267,6 @@ function displayField($lang, $key, $value)
     }
     else
     {
-        echo ecrHTML::cleanHTML($value);
+        echo EcrHtml::cleanHTML($value);
     }
 }//function

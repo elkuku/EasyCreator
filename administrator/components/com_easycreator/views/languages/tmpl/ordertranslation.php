@@ -12,7 +12,7 @@ defined('_JEXEC') || die('=;)');
 
 if( ! $this->sel_language)
 {
-    ecrHTML::displayMessage(jgettext('Please choose a language'));
+    EcrHtml::displayMessage(jgettext('Please choose a language'));
 
     return;
 }
@@ -107,7 +107,7 @@ function drawTable($langFile, $title, $cutAfter, $displayFormField)
  */
 function displayCuttedTT($string, $cutAfter)
 {
-    $ret = ecrHTML::cleanHTML(substr($string, 0, $cutAfter));
+    $ret = EcrHtml::cleanHTML(substr($string, 0, $cutAfter));
 
     if(strlen($string) > strlen($ret))
     {

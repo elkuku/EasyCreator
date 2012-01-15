@@ -56,9 +56,9 @@ class EasyCreatorViewStuffer extends JView
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return;
         }//try
@@ -74,7 +74,7 @@ class EasyCreatorViewStuffer extends JView
         && $tmpl != 'component')
         {
             //--Draw h1 header
-            ecrHTML::header(jgettext('Configure'), $this->project, 'ecr_config');
+            EcrHtml::header(jgettext('Configure'), $this->project, 'ecr_config');
 
             //--Draw the submenu if task is not for a raw view
             echo $this->displayBar($task);
@@ -106,7 +106,7 @@ class EasyCreatorViewStuffer extends JView
 
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 
     /**
@@ -161,7 +161,7 @@ class EasyCreatorViewStuffer extends JView
             , 'task' => 'save_config');
         }
 
-        return ecrHTML::getSubBar($subtasks, $rightTasks);
+        return EcrHtml::getSubBar($subtasks, $rightTasks);
     }//function
 
     /**
@@ -265,7 +265,7 @@ class EasyCreatorViewStuffer extends JView
                     break;
 
                 default:
-                    ecrHTML::displayMessage(__METHOD__.' - Undefined J! version', 'error');
+                    EcrHtml::displayMessage(__METHOD__.' - Undefined J! version', 'error');
 
                 return false;
                 break;

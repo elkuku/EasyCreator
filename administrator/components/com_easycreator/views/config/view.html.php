@@ -50,18 +50,18 @@ class EasyCreatorViewConfig extends JView
                 }
                 catch(Exception $e)
                 {
-                    ecrHTML::displayMessage($e);
+                    EcrHtml::displayMessage($e);
 
-                    ecrHTML::easyFormEnd();
+                    EcrHtml::easyFormEnd();
 
                     return;
                 }//try
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown J! version', 'error');
+                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version', 'error');
 
-                ecrHTML::easyFormEnd();
+                EcrHtml::easyFormEnd();
 
                 return;
                 break;
@@ -69,6 +69,6 @@ class EasyCreatorViewConfig extends JView
 
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 }//class

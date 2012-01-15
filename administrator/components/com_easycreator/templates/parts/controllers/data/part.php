@@ -47,12 +47,12 @@ class PartControllersData
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope(JRequest::getCmd('scope'));
-        $requireds[] = ecrHTML::drawSelectName(JRequest::getCmd('element'));
+        $requireds[] = EcrHtml::drawSelectScope(JRequest::getCmd('scope'));
+        $requireds[] = EcrHtml::drawSelectName(JRequest::getCmd('element'));
 
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**
@@ -74,11 +74,11 @@ class PartControllersData
         /* Array with required fields */
 //        $requireds = array();
 //
-//        $requireds[] = ecrHTML::drawSelectScope($this->_scope);
+//        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
 //        echo '<input type="hidden" name="element" value="'.$this->_element.'" />';
 //
 //        /* Draws an input box for a name field */
-//        $requireds[] = ecrHTML::drawSelectName($this->_element, jgettext('Table'));
+//        $requireds[] = EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 //
 //        echo '<strong>Var Scope:</strong><br />';
 //        foreach($this->_varScopes as $vScope)
@@ -89,7 +89,7 @@ class PartControllersData
 //        }//foreach
 //
 //        /* Draws the submit button */
-//        ecrHTML::drawSubmitParts($requireds);
+//        EcrHtml::drawSubmitParts($requireds);
 //
     }//function
 

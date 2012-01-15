@@ -87,7 +87,7 @@ function submitbutton(command)
                 <label for="create_changelog"><?php echo jgettext('Create CHANGELOG.php'); ?></label>
             </div>
             <div class="ecr_table-cell">
-                    <?php ecrHTML::drawLoggingOptions(); ?>
+                    <?php EcrHtml::drawLoggingOptions(); ?>
             </div>
         </div>
     </div>
@@ -108,7 +108,7 @@ function submitbutton(command)
     </div>
 </div>
 <div class="ecr_floatbox" style="width: 20%;">
-    <?php ecrHTML::displayResult($this->project); ?>
+    <?php EcrHtml::displayResult($this->project); ?>
 </div>
 
 <div style="clear: both; height: 1em;"></div>

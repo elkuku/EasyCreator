@@ -47,6 +47,6 @@ class EasyCreatorViewHelp extends JView
         }//switch
 
         parent::display($tpl);
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 }//class

@@ -34,7 +34,7 @@ function ecrLoadHelper($name)
 
     if( ! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
     {
-        ecrHTML::displayMessage(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
+        EcrHtml::displayMessage(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
 
         $helpers[$name] = false;
 
@@ -73,3 +73,35 @@ function ecrScript($name)
     .'/'.EasyCreatorHelper::getAdminComponentUrlPath()
     .'/assets/js/'.$name.'.js');
 }//function
+
+spl_autoload_register('easy_creator_loader', true, true);
+
+function easy_creator_loader($className)
+{
+    if(0 !== strpos($className, 'Ecr'))
+        return;
+
+    $base = JPATH_COMPONENT_ADMINISTRATOR.'/helpers';
+
+    $file = strtolower(substr($className, 3)).'.php';
+
+    $path = $base.'/'.$file;
+
+    if(file_exists($path))
+    {
+        include $path;
+
+        return;
+    }
+
+    $parts = preg_split('/(?<=[a-z])(?=[A-Z])/x',substr($className, 4));
+
+    $path = $base.'/'.strtolower(implode('/', $parts)).'.php';
+
+    if(file_exists($path))
+    {
+        include $path;
+
+        return;
+    }
+}

@@ -10,5 +10,5 @@
 
 <div class="ecr_floatbox">
     <div class="infoHeader img icon-24-database"><?= jgettext('Database support') ?></div>
-    <?php echo ecrHTML::drawDbOptions($this->project); ?>
+    <?php echo EcrHtml::drawDbOptions($this->project); ?>
 </div>

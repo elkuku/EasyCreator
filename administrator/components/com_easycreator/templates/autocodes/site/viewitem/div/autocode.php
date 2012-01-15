@@ -53,12 +53,12 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope($this->scope);
+        $requireds[] = EcrHtml::drawSelectScope($this->scope);
 
         echo '<input type="hidden" name="element" value="'.$this->element.'" />';
 
         /* Draws an input box for a name field */
-        $requireds[] = ecrHTML::drawSelectName($this->element, jgettext('Table'));
+        $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
 
         $tableFields = EasyTableHelper::getTableFields($this->element);
 
@@ -127,7 +127,7 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
         echo '</table>';
 
         /* Draws the submit button */
-        ecrHTML::drawSubmitAutoCode($requireds);
+        EcrHtml::drawSubmitAutoCode($requireds);
     }//function
 
     /**

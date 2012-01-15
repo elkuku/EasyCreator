@@ -73,6 +73,18 @@ class EasyProjectModule extends EasyProject
     }//function
 
     /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
+    public function getExtensionPath()
+    {
+        $scope =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+
+        return $scope.'/modules/'.$this->comName;
+    }//function
+
+    /**
      * Gets the paths to language files.
      *
      * @return array
@@ -194,7 +206,7 @@ class EasyProjectModule extends EasyProject
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -264,7 +276,7 @@ class EasyProjectModule extends EasyProject
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
 
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
@@ -295,14 +307,14 @@ class EasyProjectModule extends EasyProject
                         , 'mod_finder');
 
                     default:
-                        ecrHTML::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
                 break;
 
             default:
-                ecrHTML::displayMessage(__METHOD__.' - Unknown scope');
+                EcrHtml::displayMessage(__METHOD__.' - Unknown scope');
 
                 return array();
         }//switch

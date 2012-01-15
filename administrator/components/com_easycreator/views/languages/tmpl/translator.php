@@ -35,7 +35,7 @@ $langTag = substr($this->trans_lang, 0, 2);
 if($this->trans_lang != 'en-GB' && ! $this->trans_default)
 {
     //-- No default translation available
-    ecrHTML::displayMessage(array(jgettext('Unable to translate without default translation')
+    EcrHtml::displayMessage(array(jgettext('Unable to translate without default translation')
     , sprintf(jgettext('Please translate %s first'), 'en-GB')), 'error');
 
     return;

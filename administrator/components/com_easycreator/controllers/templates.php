@@ -20,18 +20,18 @@ jimport('joomla.application.component.controller');
  */
 class EasyCreatorControllerTemplates extends JController
 {
-	/**
-	 * Standard display method.
-	 *
-	 * @param boolean    $cachable  If true, the view output will be cached
-	 * @param array|bool $urlparams An array of safe url parameters and their variable types,
-	 *                              for valid values see {
-	 *
-	 * @link JFilterInput::clean()}.
-	 *
-	 * @return void
-	 * @see  JController::display()
-	 */
+    /**
+     * Standard display method.
+     *
+     * @param boolean    $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {
+     *
+     * @link JFilterInput::clean()}.
+     *
+     * @return void
+     * @see  JController::display()
+     */
     public function display($cachable = false, $urlparams = false)
     {
         JRequest::setVar('view', 'templates');
@@ -52,11 +52,11 @@ class EasyCreatorControllerTemplates extends JController
 
             EasyFile::saveFile();
 
-            ecrHTML::displayMessage(jgettext('The file has been saved'));
+            EcrHtml::displayMessage(jgettext('The file has been saved'));
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -81,7 +81,7 @@ class EasyCreatorControllerTemplates extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -106,11 +106,11 @@ class EasyCreatorControllerTemplates extends JController
 
             EasyTemplateHelper::exportTemplates($exports);
 
-            ecrHTML::displayMessage(jgettext('Templates have been exported.'));
+            EcrHtml::displayMessage(jgettext('Templates have been exported.'));
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -132,13 +132,13 @@ class EasyCreatorControllerTemplates extends JController
         {
             EasyTemplateHelper::installTemplates();
 
-            ecrHTML::displayMessage(jgettext('Templates have been installed.'));
+            EcrHtml::displayMessage(jgettext('Templates have been installed.'));
 
             JRequest::setVar('task', 'templates');
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
             JRequest::setVar('task', 'tplinstall');
         }//try

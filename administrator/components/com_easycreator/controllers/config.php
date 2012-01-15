@@ -20,18 +20,18 @@ jimport('joomla.application.component.controller');
  */
 class EasyCreatorControllerConfig extends JController
 {
-	/**
-	 * Standard display method.
-	 *
-	 * @param boolean    $cachable  If true, the view output will be cached
-	 * @param array|bool $urlparams An array of safe url parameters and their variable types,
-	 *                              for valid values see {
-	 *
-	 * @link JFilterInput::clean()}.
-	 *
-	 * @return void
-	 * @see  JController::display()
-	 */
+    /**
+     * Standard display method.
+     *
+     * @param boolean    $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {
+     *
+     * @link JFilterInput::clean()}.
+     *
+     * @return void
+     * @see  JController::display()
+     */
     public function display($cachable = false, $urlparams = false)
     {
         if(class_exists('g11n'))
@@ -89,9 +89,9 @@ class EasyCreatorControllerConfig extends JController
         }
         catch(Exception $e)
         {
-            ecrHTML::displayMessage($e);
+            EcrHtml::displayMessage($e);
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
         }//try
     }//function
 }//class

@@ -55,7 +55,7 @@ $started = true;
 
             $dfString = '<span style="color: blue;">'.$lang->key.'</span>';
             $dfString .= '<strong style="color: red;"> = </strong>';
-            $dfString .= ecrHTML::cleanHTML($lang->value);
+            $dfString .= EcrHtml::cleanHTML($lang->value);
         }
         else
        {

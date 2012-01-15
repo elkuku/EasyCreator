@@ -102,7 +102,7 @@ class dbUpdater
         if(in_array($what, array('versions', 'tmpPath')))
         return $this->$what;
 
-        ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+        EcrHtml::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
     }//function
 
     /**
@@ -117,9 +117,7 @@ class dbUpdater
 
         $dbType = 'mysql';
 
-        ecrLoadHelper('updater');
-
-        $updater = new extensionUpdater($this->project, $this->logger);
+        $updater = new EcrUpdater($this->project, $this->logger);
 
         if( ! $updater->hasUpdates)
         {
@@ -255,7 +253,7 @@ class dbUpdater
             }
             catch(Exception $e)
             {
-                ecrHTML::displayMessage($e);
+                EcrHtml::displayMessage($e);
 
                 $this->log('Exception: '.$e->getMessage());
             }//try

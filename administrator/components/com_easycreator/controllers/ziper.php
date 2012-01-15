@@ -22,18 +22,18 @@ class EasyCreatorControllerZIPer extends JController
 {
     private $response = array('status' => 0, 'message' => '', 'debug' => '');
 
-	/**
-	 * Standard display method.
-	 *
-	 * @param boolean    $cachable  If true, the view output will be cached
-	 * @param array|bool $urlparams An array of safe url parameters and their variable types,
-	 *                              for valid values see {
-	 *
-	 * @link JFilterInput::clean()}.
-	 *
-	 * @return void
-	 * @see  JController::display()
-	 */
+    /**
+     * Standard display method.
+     *
+     * @param boolean    $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {
+     *
+     * @link JFilterInput::clean()}.
+     *
+     * @return void
+     * @see  JController::display()
+     */
     public function display($cachable = false, $urlparams = false)
     {
         $ecr_project = JRequest::getCmd('ecr_project');
@@ -41,7 +41,7 @@ class EasyCreatorControllerZIPer extends JController
         if( ! $ecr_project)
         {
             //---NO PROJECT SELECTED - ABORT
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return;
         }

@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  * EasyCreator's tiny debugger.
  *
  */
-class ecrDebugger
+class EcrDebugger
 {
     public $log = array();
 
@@ -77,7 +77,7 @@ class ecrDebugger
                 //--Test if JDump is installed
                 if( ! file_exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_dump'.DS.'helper.php'))
                 {
-                    ecrHTML::displayMessage(jgettext('JDump not found'), 'error');
+                    EcrHtml::displayMessage(jgettext('JDump not found'), 'error');
                 }
                 else
                 {
@@ -151,6 +151,12 @@ class ecrDebugger
                                 echo '<h3><tt>$_REQUEST</tt></h3>';
                                 Var_Dump::display($_REQUEST);
                                 break;
+                            case 'all' :
+                                echo '<h3><tt>$_REQUEST</tt></h3>';
+                                Var_Dump::display($_REQUEST);
+                                echo '<h3><tt>$_SESSION</tt></h3>';
+                                Var_Dump::display($_SESSION);
+                                break;
                                 // @codingStandardsIgnoreEnd
                         }//switch
                         echo '</div>';
@@ -166,7 +172,7 @@ class ecrDebugger
                 break;
 
             case 'debugtools':
-                ecrHTML::displayMessage(jgettext('DebugTools not found'), 'error');
+                EcrHtml::displayMessage(jgettext('DebugTools not found'), 'error');
                 break;
 
             case 'krumo' :
@@ -183,12 +189,17 @@ class ecrDebugger
                     case 'request':
                         krumo::request();
                         break;
+                    case 'all':
+                        krumo::get();
+                        krumo::post();
+                        krumo::session();
+                        break;
                 }//switch
 
                 break;
 
             default:
-                ecrHTML::displayMessage(jgettext('No debugger set'), 'error');
+                EcrHtml::displayMessage(jgettext('No debugger set'), 'error');
                 break;
         }//switch
     }//function

@@ -76,8 +76,8 @@ class PartViewsData_list extends EasyPart
         $db = JFactory::getDBO();
         $tables = $db->getTableList();
 
-        $requireds[] = ecrHTML::drawSelectName($tableName);
-        $requireds[] = ecrHTML::drawSelectScope($this->_scope);
+        $requireds[] = EcrHtml::drawSelectName($tableName);
+        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
 
         if( ! $tableName)
         {
@@ -117,9 +117,9 @@ class PartViewsData_list extends EasyPart
         echo '<label for="create_menu_link">'.jgettext('Create a menu link').'</label><br />';
         echo '<hr />';
 
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**
@@ -134,11 +134,11 @@ class PartViewsData_list extends EasyPart
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope($this->_scope);
+        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
         echo '<input type="hidden" name="element" value="'.$this->_element.'" />';
 
         /* Draws an input box for a name field */
-        $requireds[] = ecrHTML::drawSelectName($this->_element, jgettext('Table'));
+        $requireds[] = EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 //        JLoader::import('helpers.autocode', JPATH_COMPONENT);
 //        $AutoCode = new EasyAutoCode;
 
@@ -210,7 +210,7 @@ class PartViewsData_list extends EasyPart
 
         $this->show_tablefields($table_name, $selecteds);
 
-        ecrHTML::drawSubmitParts();
+        EcrHtml::drawSubmitParts();
     }//function
 
     /**

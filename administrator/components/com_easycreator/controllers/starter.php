@@ -20,18 +20,18 @@ jimport('joomla.application.component.controller');
  */
 class EasyCreatorControllerStarter extends JController
 {
-	/**
-	 * Standard display method.
-	 *
-	 * @param boolean    $cachable  If true, the view output will be cached
-	 * @param array|bool $urlparams An array of safe url parameters and their variable types,
-	 *                              for valid values see {
-	 *
-	 * @link JFilterInput::clean()}.
-	 *
-	 * @return void
-	 * @see  JController::display()
-	 */
+    /**
+     * Standard display method.
+     *
+     * @param boolean    $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {
+     *
+     * @link JFilterInput::clean()}.
+     *
+     * @return void
+     * @see  JController::display()
+     */
     public function display($cachable = false, $urlparams = false)
     {
         JRequest::setVar('view', 'starter');
@@ -57,11 +57,11 @@ class EasyCreatorControllerStarter extends JController
         if( ! $newProject = $EasyBuilder->build($type, $name, $comName))
         {
             //-- Error
-            ecrHTML::displayMessage('An error happened while creating your project', 'error');
+            EcrHtml::displayMessage('An error happened while creating your project', 'error');
             JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
             $EasyBuilder->printErrors();
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return false;
         }
@@ -75,7 +75,7 @@ class EasyCreatorControllerStarter extends JController
 
             $EasyBuilder->printErrors();
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return true;
         }
@@ -109,7 +109,7 @@ class EasyCreatorControllerStarter extends JController
 
             $EasyBuilder->printErrors();
 
-            ecrHTML::easyFormEnd();
+            EcrHtml::easyFormEnd();
 
             return false;
         }

@@ -37,7 +37,7 @@ class dbAdapter
             return '';
         }
 
-        ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+        EcrHtml::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
     }//function
 
     public function setQuery($query)

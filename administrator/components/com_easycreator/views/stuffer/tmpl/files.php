@@ -11,14 +11,14 @@
 defined('_JEXEC') || die('=;)');
 
 if( ! count($this->project->copies)):
-    ecrHTML::displayMessage(jgettext('No files found'), 'error');
+    EcrHtml::displayMessage(jgettext('No files found'), 'error');
 
     return;
 endif;
 
 JHTML::_('behavior.modal', 'a.modal');
 
-ecrHTML::initFileTree();
+EcrHtml::initFileTree();
 
 //-- Create a cache instance.
 $cache = JFactory::getCache('EasyCreator_'.$this->ecr_project);
@@ -75,7 +75,7 @@ $fileTree = $cache->call('drawFileTree', $this->project);
             var div_new_element = new Fx.Slide('div_new_element');
             div_new_element.hide();
         </script>
-        <?php ecrHTML::prepareFileEdit(); ?>
+        <?php EcrHtml::prepareFileEdit(); ?>
         </td>
     </tr>
 </table>
@@ -84,7 +84,7 @@ $fileTree = $cache->call('drawFileTree', $this->project);
 
 <?php
 
-ecrHTML::contextMenu();
+EcrHtml::contextMenu();
 
 /**
  *

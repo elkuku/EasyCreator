@@ -31,6 +31,6 @@ class EasyCreatorViewRegister extends JView
     {
         parent::display($tpl);
 
-        ecrHTML::easyFormEnd();
+        EcrHtml::easyFormEnd();
     }//function
 }//class

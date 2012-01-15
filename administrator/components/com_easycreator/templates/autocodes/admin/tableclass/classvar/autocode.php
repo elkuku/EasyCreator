@@ -58,7 +58,7 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope($this->scope);
+        $requireds[] = EcrHtml::drawSelectScope($this->scope);
 
         if( ! $this->element)
         {
@@ -85,7 +85,7 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
         }
 
         /* Draws an input box for a name field */
-        $requireds[] = ecrHTML::drawSelectName($this->element, jgettext('Table'));
+        $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
 
         echo '<strong>Var Scope:</strong><br />';
 
@@ -102,10 +102,10 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
          */
 
         /* Displays options for logging */
-        ecrHTML::drawLoggingOptions();
+        EcrHtml::drawLoggingOptions();
 
         /* Draws the submit button */
-        ecrHTML::drawSubmitParts($requireds);
+        EcrHtml::drawSubmitParts($requireds);
     }//function
 
     /**
@@ -122,12 +122,12 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = ecrHTML::drawSelectScope($this->scope);
+        $requireds[] = EcrHtml::drawSelectScope($this->scope);
 
         echo '<input type="hidden" name="element" value="'.$this->element.'" />';
 
         /* Draws an input box for a name field */
-        $requireds[] = ecrHTML::drawSelectName($this->element, jgettext('Table'));
+        $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
 
         echo '<strong>Var Scope:</strong><br />';
 
@@ -176,7 +176,7 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
         echo '</table>';
 
         /* Draws the submit button */
-        ecrHTML::drawSubmitAutoCode($requireds);
+        EcrHtml::drawSubmitAutoCode($requireds);
     }//function
 
     /**

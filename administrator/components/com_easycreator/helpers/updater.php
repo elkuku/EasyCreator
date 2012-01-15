@@ -16,7 +16,7 @@ defined('_JEXEC') || die('=;)');
  * @status First draft =;)
  *
  */
-class extensionUpdater
+class EcrUpdater
 {
     /**
      * @var EasyProject
@@ -47,7 +47,7 @@ class extensionUpdater
             return $this->$what;
         }
 
-        ecrHTML::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+        EcrHtml::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
     }//function
 
     private function log($message)
@@ -80,7 +80,7 @@ class extensionUpdater
 
         if( ! JFolder::create($tmpPath))
         {
-            ecrHTML::displayMessage('Unable to create temp folder for update', 'error');
+            EcrHtml::displayMessage('Unable to create temp folder for update', 'error');
             $this->log('Can not create the temp folder '.$tmpPath);
 
             return false;
@@ -116,7 +116,7 @@ class extensionUpdater
 
             if( ! JArchive::extract($source, $destination))
             {
-                ecrHTML::displayMessage(sprintf('Unable to extract the package %s to %s'
+                EcrHtml::displayMessage(sprintf('Unable to extract the package %s to %s'
                 , $source, $destination), 'error');
 
                 return false;

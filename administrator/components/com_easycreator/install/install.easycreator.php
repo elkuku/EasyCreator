@@ -112,7 +112,7 @@ function com_install()
     <?php
     ##ECR_MD5CHECK##
 
-    ecrHTML::footer();
+    EcrHtml::footer();
 
     return true;
 }//function
