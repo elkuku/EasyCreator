@@ -178,4 +178,15 @@ class Xml2SqlFormatSQLite extends Xml2SqlFormatter
 		return 'DELETE FROM '.$tableName.";\n";
 	}
 
+    /**
+     * (non-PHPdoc)
+     * @see Xml2SqlFormatter::formatTruncate()
+     */
+    public function formatDropTable(SimpleXMLElement $tableStructure)
+    {
+        $tableName = str_replace($this->options->get('prefix'), '#__', (string)$tableStructure->attributes()->name);
+
+        return 'DROP TABLE '.$tableName.";\n";
+    }
+
 }//class

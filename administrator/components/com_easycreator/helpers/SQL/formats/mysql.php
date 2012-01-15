@@ -183,4 +183,15 @@ class Xml2SqlFormatMySQL extends Xml2SqlFormatter
 		return 'TRUNCATE TABLE '.$tableName.";\n";
 	}
 
+    /**
+     * (non-PHPdoc)
+     * @see Xml2SqlFormatter::formatTruncate()
+     */
+    public function formatDropTable(SimpleXMLElement $tableStructure)
+    {
+        $tableName = str_replace($this->options->get('prefix'), '#__', (string)$tableStructure->attributes()->name);
+
+        return 'DROP TABLE '.$tableName.";\n";
+    }
+
 }//class

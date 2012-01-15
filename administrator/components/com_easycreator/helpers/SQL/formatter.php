@@ -46,6 +46,15 @@ abstract class Xml2SqlFormatter
 	abstract public function formatTruncate(SimpleXMLElement $tableStructure);
 
     /**
+     * Format a SQL DROP TABLE statement
+     *
+     * @param SimpleXMLElement $tableStructure
+     *
+     * @return string
+     */
+    abstract public function formatDropTable(SimpleXMLElement $tableStructure);
+
+    /**
      * Quote a string.
      *
      * @param string $string The string to quote
