@@ -31,7 +31,10 @@ $chk_upgrade =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 <input type="radio" id="jversion16" name="jcompat" value="1.6"
 <?php echo ($this->project->JCompat == '1.6') ? ' checked="checked"' : ''; ?>
 />
-<label for="jversion16" class="img32b icon-joomla-compat-16">&nbsp;</label>
+<label for="jversion16" class="img32b icon-joomla-compat-16">
+    <span class="img32b icon-joomla-compat-17"></span>
+    <span class="img32b icon-joomla-compat-25"></span>
+</label>
 </p>
 
 <strong><?php echo jgettext('Options'); ?>:</strong>

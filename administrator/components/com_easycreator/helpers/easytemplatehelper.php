@@ -98,8 +98,6 @@ class EasyTemplateHelper
      */
     public static function exportTemplates($exports)
     {
-        ecrLoadHelper('archive');
-
         $tempDir = JFactory::getConfig()->getValue('config.tmp_path').DS.uniqid('templateexport');
 
         $files = array();
@@ -144,7 +142,7 @@ class EasyTemplateHelper
 
         $fileName = 'ecr_extension_templates'.date('Ymd_His').'.tar.gz';
 
-        $result = EasyArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
+        $result = EcrArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
 
         //--This means error
         if( ! $result->listContent())

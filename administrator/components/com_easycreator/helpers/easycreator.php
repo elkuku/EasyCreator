@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...
  *
  */
-class EasyCreatorHelper
+class EcrEasycreator
 {
     /**
      * Get a specific controller.

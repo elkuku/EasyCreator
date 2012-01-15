@@ -56,7 +56,7 @@ function ecrLoadHelper($name)
 function ecrStylesheet($name)
 {
     return JFactory::getDocument()->addStylesheet(JURI::root(true)
-    .'/'.EasyCreatorHelper::getAdminComponentUrlPath()
+    .'/'.EcrEasycreator::getAdminComponentUrlPath()
     .'/assets/css/'.$name.'.css');
 }//function
 
@@ -70,13 +70,19 @@ function ecrStylesheet($name)
 function ecrScript($name)
 {
     return JFactory::getDocument()->addScript(JURI::root(true)
-    .'/'.EasyCreatorHelper::getAdminComponentUrlPath()
+    .'/'.EcrEasycreator::getAdminComponentUrlPath()
     .'/assets/js/'.$name.'.js');
 }//function
 
 spl_autoload_register('easy_creator_loader', true, true);
 
-function easy_creator_loader($className)
+/**
+ * Autoloader.
+ *
+ * @param $className
+ *
+ * @return mixed
+ */function easy_creator_loader($className)
 {
     if(0 !== strpos($className, 'Ecr'))
         return;

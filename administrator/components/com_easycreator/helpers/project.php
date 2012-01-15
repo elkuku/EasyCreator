@@ -83,6 +83,8 @@ abstract class EasyProject extends JObject
 
     public $dbTypes = array();
 
+    public $type;
+
     private $_substitutes = array();
 
     /** Package elements */

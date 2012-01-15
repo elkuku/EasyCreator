@@ -20,9 +20,8 @@ if('package' == $this->project->type
     return;
 }
 
-JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() {
-updateName('".$this->ecr_project."');
-});");
+JFactory::getDocument()->addScriptDeclaration(
+    "window.addEvent('domready', function() { updateName('{$this->ecr_project}'); });");
 
 echo $this->loadTemplate('result');
 

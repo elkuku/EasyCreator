@@ -87,11 +87,11 @@ class EasyTemplateOptions
     /**
      * Process custom options.
      *
-     * @param EasyBuilder $easyBuilder The EasyBuilder
+     * @param EcrBuilder $builder The Builder class.
      *
      * @return boolean True on sucess.
      */
-    public function processOptions(EasyBuilder $easyBuilder)
+    public function processOptions(EcrBuilder $builder)
     {
         ecrLoadHelper('table');
         ecrLoadHelper('autocode');
@@ -105,13 +105,13 @@ class EasyTemplateOptions
             return false;
         }
 
-        $tableName = strtolower($easyBuilder->project->name);
+        $tableName = strtolower($builder->project->name);
 
-        $easyBuilder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
+        $builder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
 
         //-- Add the core categories table
         $table = new EasyTable('categories', true);
-        $easyBuilder->project->addTable($table);
+        $builder->project->addTable($table);
 
         //-- Prepare extension table
         $table = new EasyTable($tableName);
@@ -144,7 +144,7 @@ class EasyTemplateOptions
 
         $table->addRelation($relation);
 
-        $easyBuilder->project->addTable($table);
+        $builder->project->addTable($table);
 
         $codes = array();
 
@@ -161,7 +161,7 @@ class EasyTemplateOptions
 
         $c = EasyProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);
         $c->elements = array('var');
-        $c->options['varscope'] =($easyBuilder->project->phpVersion == '4') ? 'var' : 'protected';
+        $c->options['varscope'] =($builder->project->phpVersion == '4') ? 'var' : 'protected';
         $codes[] = $c;
 
         $c = EasyProjectHelper::getAutoCode('admin.viewlist.table.'.$tableName);
@@ -194,17 +194,17 @@ class EasyTemplateOptions
 
                 $code = $autoCode->enclose($code, $key);
 
-                $easyBuilder->addSubstitute($autoCode->getFormattedKey($key), $code);
+                $builder->addSubstitute($autoCode->getFormattedKey($key), $code);
 
                 $autoCode->fields[$key] = $table->getFields();
                 $autoCode->codes[$key] = $code;
                 $autoCode->tables[$key] = $table;
             }//foreach
 
-            $easyBuilder->project->addAutoCode($autoCode);
+            $builder->project->addAutoCode($autoCode);
         }//foreach
 
-        $easyBuilder->addSubstitute('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
+        $builder->addSubstitute('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
 
         return true;
     }//function

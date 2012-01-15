@@ -43,11 +43,11 @@ class EasyTemplateOptions
     /**
      * Process custom options.
      *
-     * @param EasyBuilder $easyBuilder The EasyBuilder
+     * @param EcrBuilder $builder The Builder class.
      *
      * @return boolean True on sucess.
      */
-    public function processOptions(EasyBuilder $easyBuilder)
+    public function processOptions(EcrBuilder $builder)
     {
         if( ! $ecr_folder_name = JRequest::getCmd('ecr_folder_name'))
         {
@@ -56,8 +56,8 @@ class EasyTemplateOptions
             return false;
         }
 
-        $easyBuilder->setScope($ecr_folder_name);
-        $easyBuilder->addSubstitute('_ECR_COM_SCOPE_', ucfirst($ecr_folder_name));
+        $builder->setScope($ecr_folder_name);
+        $builder->addSubstitute('_ECR_COM_SCOPE_', ucfirst($ecr_folder_name));
 
         return true;
     }//function

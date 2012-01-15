@@ -46,20 +46,18 @@ class EasyCreatorControllerStarter extends JController
      */
     public function starterstart()
     {
-        ecrLoadHelper('builder');
-
-        $EasyBuilder = new EasyBuilder;
+        $builder = new EcrBuilder;
 
         $type = JRequest::getCmd('tpl_type');
         $name = JRequest::getCmd('tpl_name');
         $comName = JRequest::getCmd('com_name');
 
-        if( ! $newProject = $EasyBuilder->build($type, $name, $comName))
+        if( ! $newProject = $builder->build($type, $name, $comName))
         {
             //-- Error
             EcrHtml::displayMessage('An error happened while creating your project', 'error');
             JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
-            $EasyBuilder->printErrors();
+            $builder->printErrors();
 
             EcrHtml::easyFormEnd();
 
@@ -71,9 +69,9 @@ class EasyCreatorControllerStarter extends JController
             //-- Exiting in test mode
             echo '<h2>Exiting in test mode...</h2>';
 
-            echo $EasyBuilder->printLog();
+            echo $builder->printLog();
 
-            $EasyBuilder->printErrors();
+            $builder->printErrors();
 
             EcrHtml::easyFormEnd();
 
@@ -94,20 +92,18 @@ class EasyCreatorControllerStarter extends JController
      */
     public function register_project()
     {
-        ecrLoadHelper('builder');
-
-        $EasyBuilder = new EasyBuilder;
+        $builder = new EcrBuilder;
 
         $type = JRequest::getCmd('ecr_project_type');
         $name = JRequest::getCmd('ecr_project_name');
         $scope = JRequest::getCmd('ecr_project_scope');
 
-        if( ! $project = $EasyBuilder->registerProject($type, $name, $scope))
+        if( ! $project = $builder->registerProject($type, $name, $scope))
         {
             //-- Error
             JFactory::getApplication()->enqueueMessage('Can not register project', 'error');
 
-            $EasyBuilder->printErrors();
+            $builder->printErrors();
 
             EcrHtml::easyFormEnd();
 

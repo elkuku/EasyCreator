@@ -70,7 +70,6 @@ else
 }
 
 //-- Load helpers
-ecrLoadHelper('easycreator');
 ecrLoadHelper('projecthelper');
 ecrLoadHelper('languagehelper');
 
@@ -190,7 +189,7 @@ else
     ecrLoadHelper('databasequery');
 }
 
-$controller = EasyCreatorHelper::getController();
+$controller = EcrEasycreator::getController();
 
 if('component' == JRequest::getCmd('tmpl'))
 {

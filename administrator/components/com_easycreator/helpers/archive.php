@@ -15,7 +15,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package    EasyCreator
  */
-class EasyArchive
+class EcrArchive
 {
     /**
      * Creates a tgz archive.

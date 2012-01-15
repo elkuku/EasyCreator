@@ -15,7 +15,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package    EasyCreator
  */
-class EasyBuilder extends JObject
+class EcrBuilder extends JObject
 {
     /**
      * @var EasyProject
@@ -229,7 +229,7 @@ class EasyBuilder extends JObject
 
             default:
                 JFactory::getApplication()->enqueueMessage(
-                    'Undefined type EasyBuilder::build : '.$this->project->type, 'error');
+                    __METHOD__.' - Undefined type : '.$this->project->type, 'error');
 
                 return false;
                 break;

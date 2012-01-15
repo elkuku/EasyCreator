@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-$requireds = $this->EasyBuilder->customOptions('requireds');
+$requireds = $this->builder->customOptions('requireds');
 ?>
 <script type="text/javascript">
 function submitbutton(command)
@@ -72,7 +72,7 @@ function submitbutton(command)
 	</div>
 
     <div class="ecr_custom_options">
-        <?php $this->EasyBuilder->customOptions('display', $this->project); ?>
+        <?php $this->builder->customOptions('display', $this->project); ?>
     </div>
 
     <div class="ecr_wiz_desc">

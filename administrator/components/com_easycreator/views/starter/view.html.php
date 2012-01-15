@@ -23,6 +23,13 @@ class EasyCreatorViewStarter extends JView
     protected $infoLinks = array();
 
     /**
+     * @var EcrBuilder
+     */
+    protected $builder;
+
+    protected $templateList;
+
+    /**
      * Standard display method.
      *
      * @param string $tpl The name of the template file to parse;
@@ -33,9 +40,7 @@ class EasyCreatorViewStarter extends JView
     {
         $task = JRequest::getCmd('task');
 
-        ecrLoadHelper('builder');
-
-        $this->EasyBuilder = new EasyBuilder;
+        $this->builder = new EcrBuilder;
 
         ecrStylesheet('wizard');
         ecrScript('wizard');

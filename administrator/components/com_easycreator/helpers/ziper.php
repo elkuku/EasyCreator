@@ -1139,8 +1139,6 @@ class EcrZiper extends JObject
      */
     private function createArchive()
     {
-        ecrLoadHelper('archive');
-
         $zipTypes = array(
         'zip' => 'zip'
         , 'tgz' => 'tar.gz'
@@ -1203,7 +1201,7 @@ class EcrZiper extends JObject
                     //-- Translate win path to unix path - for PEAR..
                     $p = str_replace('\\', '/', $this->temp_dir);
 
-                    if( ! EasyArchive::createZip($zipDir.DS.$fileName.'.zip', $files, $p))
+                    if( ! EcrArchive::createZip($zipDir.DS.$fileName.'.zip', $files, $p))
                     {
                         $this->logger->log('ERROR Packing routine for '.$ext, 'ERROR packing routine');
 
@@ -1234,7 +1232,7 @@ class EcrZiper extends JObject
                         //-- Translate win path to unix path - for PEAR..
                         $p = str_replace('\\', '/', $this->temp_dir);
 
-                        $result = $archive = EasyArchive::createTgz($zipDir.DS.$fileName.'.'.$ext, $files, 'bz2', $p);
+                        $result = $archive = EcrArchive::createTgz($zipDir.DS.$fileName.'.'.$ext, $files, 'bz2', $p);
 
                         if( ! $result->listContent())
                         {
@@ -1247,7 +1245,7 @@ class EcrZiper extends JObject
                     break;
 
                 case 'tar.gz':
-                    $result = $archive = EasyArchive::createTgz($zipDir
+                    $result = $archive = EcrArchive::createTgz($zipDir
                     .DS.$fileName.'.'.$ext, $files, 'gz', $this->temp_dir);
 
                     if( ! $result->listContent())
