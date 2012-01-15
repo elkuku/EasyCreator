@@ -94,7 +94,7 @@ function easy_creator_loader($className)
         return;
     }
 
-    $parts = preg_split('/(?<=[a-z])(?=[A-Z])/x',substr($className, 4));
+    $parts = preg_split('/(?<=[a-z])(?=[A-Z])/x',substr($className, 3));
 
     $path = $base.'/'.strtolower(implode('/', $parts)).'.php';
 
