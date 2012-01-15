@@ -21,6 +21,15 @@ jimport('joomla.application.component.view');
 class EasyCreatorViewStuffer extends JView
 {
     /**
+     * @var EasyProject
+     */
+    protected $project;
+
+    /**
+     * @var string
+     */
+    protected $ecr_project;
+    /**
      * Standard display method.
      *
      * @param string $tpl The name of the template file to parse;
@@ -56,6 +65,9 @@ class EasyCreatorViewStuffer extends JView
 
         $task = JRequest::getCmd('task', 'stuffer');
         $tmpl = JRequest::getCmd('tmpl');
+
+        //-- We are loosing the controller name when coming from other tasks - config :(
+        JRequest::setVar('controller', 'stuffer');
 
         if($task != 'display_snip'
         && $task != 'aj_reflection'
