@@ -31,14 +31,14 @@ catch(Exception $e)
 
 
 //--Global functions
-require_once JPATH_COMPONENT_ADMINISTRATOR.DS.'functions.php';
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/functions.php';
 
 //-- Load helpers
 ecrLoadHelper('project');
 ecrLoadHelper('projecthelper');
 
 //-- Global constants
-require_once JPATH_COMPONENT_ADMINISTRATOR.DS.'defines.php';
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/defines.php';
 
 $document = JFactory::getDocument();
 
