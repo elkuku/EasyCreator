@@ -26,7 +26,8 @@ $js[] = "var definedProjects = {";
 $komma1 = false;
 
 foreach($extProps as $eName => $eProps) :
-    if( ! isset($this->projectList[$eName])) continue;
+    if( ! isset($this->projectList[$eName]))
+    continue;
 
     if($komma1) $js[] = '  , ';
     $komma1 = true;
@@ -123,6 +124,7 @@ if($this->project->type == 'component'):
     echo $this->loadTemplate('install');
     echo $this->loadTemplate('package');
     echo $this->loadTemplate('autocode');
+    echo $this->loadTemplate('dbtypes');
 endif;
 
 echo $this->loadTemplate('language');

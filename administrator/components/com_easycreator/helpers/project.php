@@ -81,6 +81,8 @@ abstract class EasyProject extends JObject
 
     public $buildOpts = array();
 
+    public $dbTypes = array();
+
     private $_substitutes = array();
 
     /** Package elements */
@@ -90,7 +92,7 @@ abstract class EasyProject extends JObject
 
     private $basePath = '';
 
-    /** Special : g11n Languiage handling */
+    /** Special : g11n Language handling */
     public $langFormat = 'ini';
 
     /** Flag to identify a *somewhat* invalid project */
@@ -190,6 +192,7 @@ abstract class EasyProject extends JObject
     {
         $buildVars = JRequest::getVar('buildvars', array());
         $buildOpts = JRequest::getVar('buildopts', array());
+        $this->dbTypes = JRequest::getVar('dbtypes', array());
 
         //--Package modules
         $this->modules = array();
@@ -223,7 +226,7 @@ abstract class EasyProject extends JObject
         }//foreach
 
         $packageElements = (string)JRequest::getVar('package_elements');
-        $packageElements = explode(',', $packageElements);
+        $packageElements =($packageElements) ? explode(',', $packageElements) : array();
 
         if(count($packageElements))
         {
@@ -412,6 +415,9 @@ abstract class EasyProject extends JObject
         $xml->addChild('extensionPrefix', $this->extensionPrefix);
         $xml->addChild('langFormat', $this->langFormat);
         $xml->addChild('zipPath', $this->zipPath);
+
+        //-- Database types
+        $xml->addChild('dbTypes', implode(',', $this->dbTypes));
 
         //-- Package Modules
         if(count($this->modules))
@@ -659,6 +665,13 @@ abstract class EasyProject extends JObject
         $this->JCompat = ((string)$manifest->JCompat) ? (string)$manifest->JCompat : '1.5';
         $this->langFormat = (string)$manifest->langFormat;
         $this->zipPath = (string)$manifest->zipPath;
+
+        $dbTypes = (string)$manifest->dbTypes;
+
+        if('' != $dbTypes)
+        {
+            $this->dbTypes = explode(',', $dbTypes);
+        }
 
         $this->extensionPrefix = (string)$manifest->extensionPrefix;
 
@@ -1095,7 +1108,7 @@ abstract class EasyProject extends JObject
         }
         catch(Exception $e)
         {
-            $this->logger->log('Unable to load the project '.$s.' - '.$e->getMessage(), 'ERROR');
+            $this->logger->log('Unable to load the project '.$ecr_project.' - '.$e->getMessage(), 'ERROR');
 
             return false;
         }//try
@@ -1167,6 +1180,11 @@ abstract class EasyProject extends JObject
         return ECRPATH_BUILDS.'/'.$this->comName;
     }//function
 
+    /**
+     * Convert to a string.
+     *
+     * @return string
+     */
     public function __toString()
     {
         return $this->comName;

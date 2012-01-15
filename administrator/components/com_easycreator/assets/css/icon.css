@@ -51,6 +51,10 @@
     background-image: url(../images/ico/icon-32-delete.png);
 }
 
+.icon-24-database {
+    background-image: url(../images/ico/icon-24-database.png);
+}
+
 .icon-24-debug {
     background-image: url(../images/ico/icon-24-bug.png);
 }

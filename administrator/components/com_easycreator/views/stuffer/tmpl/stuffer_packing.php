@@ -1,14 +1,11 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * @package
- * @subpackage
+ * @package    EasyCreator
+ * @subpackage Views.Stuffer
  * @author     Nikolai Plath
- * @author     Created on 26.05.2010
+ * @author     Created on 26-May-2010
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 $buildOpts = $this->project->buildOpts;
 ?>

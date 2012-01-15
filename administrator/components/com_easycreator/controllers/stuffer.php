@@ -280,7 +280,6 @@ class EasyCreatorControllerStuffer extends JController
      */
     public function delete_file()
     {
-        $ecr_project = JRequest::getVar('ecr_project', NULL);
         $file_path = JRequest::getVar('file_path', NULL);
         $file_name = JRequest::getVar('file_name', NULL);
 
@@ -530,7 +529,8 @@ class EasyCreatorControllerStuffer extends JController
 
             $project->updateProjectFromRequest();
 
-            $project = EasyProjectHelper::getProject('', true);//-- Reload the project
+            //-- Reload the project
+            $project = EasyProjectHelper::getProject('', true);
 
             JFactory::getApplication()->enqueueMessage(jgettext('The Settings have been updated'));
         }
@@ -811,7 +811,9 @@ class EasyCreatorControllerStuffer extends JController
     {
         $db = JFactory::getDbo();
 
-        $string = '';
+        $prefix = $db->getPrefix();
+
+        $tableList = array();
 
         foreach($project->tables as $table)
         {
@@ -824,35 +826,61 @@ class EasyCreatorControllerStuffer extends JController
                 continue;
             }
 
-            $sS = $db->getTableCreate($db->getPrefix().$table->name);
-
-            foreach($sS as $x => $s)
-            {
-                $s = str_replace($db->getPrefix(), '#__', $s);
-                $string .= $s.';'.NL.NL;
-            }//foreach
+            $tableList[] = $prefix.$table;
         }//foreach
 
-        $encoding = 'utf8';
+        ecrLoadHelper('SQL.mysqlexporter');
 
-        $fullPath = $path.'/sql/install.'.$encoding.'.sql';
+        $exporter = new JDatabaseExporterMySQL;
 
-        $msg =(JFile::exists($fullPath))
-        ? jgettext('Install sql file updated')
-        : jgettext('Install sql file created');
+        $xmlString = (string)$exporter->setDbo($db)->from($tableList);
 
-        if( ! JFile::write($fullPath, $string))
+        $fullPath = $path.'/sql/tables.xml';
+
+        JFile::write($fullPath, $xmlString);
+
+        $xml = JFactory::getXML($fullPath);
+
+        ecrLoadHelper('SQL.formatter');
+
+        foreach($project->dbTypes as $dbType)
         {
-            ecrHTML::displayMessage(jgettext('Can not create file at '.$fullPath), 'error');
+            ecrLoadHelper('SQL.formats.'.$dbType);
 
-            $this->logger->log($fullPath, 'Can not create file');
-        }
-        else
-        {
-            ecrHTML::displayMessage($msg);
+            $className = 'Xml2SqlFormat'.$dbType;
 
-            $this->logger->logFileWrite('DB', $fullPath, $string);
-        }
+            $formatter = new $className;
+
+            $sql = array();
+
+            foreach($xml->database->table_structure as $tableStructure)
+            {
+                $sql[] = $formatter->formatCreate($tableStructure);
+            }
+
+            $string = implode("\n", $sql);
+
+            $encoding = 'utf8';
+
+            $fullPath = $path.'/sql/'.$dbType.'/install.'.$encoding.'.sql';
+
+            $msg =(JFile::exists($fullPath))
+            ? sprintf(jgettext('%s Install sql file updated'), $dbType)
+            : sprintf(jgettext('%s Install sql file created'), $dbType);
+
+            if( ! JFile::write($fullPath, $string))
+            {
+                ecrHTML::displayMessage(jgettext('Can not create file at '.$fullPath), 'error');
+
+                $this->logger->log($fullPath, 'Can not create file');
+            }
+            else
+            {
+                ecrHTML::displayMessage($msg);
+
+                $this->logger->logFileWrite('DB', $fullPath, $string);
+            }
+        }//foreach
     }//function
 
     /**
