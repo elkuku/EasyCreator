@@ -782,7 +782,7 @@ EOF;
     public static function getVersionFromCHANGELOG($appName, $revOnly = false)
     {
         //-- Check if we have a .git/hooks/pre-commit generated version file
-        $path = JPATH_COMPONENT.'/version.txt';
+        $path = JPATH_ADMINISTRATOR.'/components/'.$appName.'/version.txt';
 
         if(file_exists($path))
         {
