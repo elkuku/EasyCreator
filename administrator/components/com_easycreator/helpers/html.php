@@ -432,12 +432,7 @@ $stdJS .= "$('file_name').value='';";
      */
     public static function footer()
     {
-        $version = '';
-        $version .='<strong style="color: green;">'
-            .ecrHTML::getVersionFromCHANGELOG('')
-            .ECR_VERSION.'</strong>';
-        $version .=(strpos($version,'SVN')) ? ' <span style="color:red;">Rev. # '
-        .ecrHTML::getVersionFromCHANGELOG('com_easycreator').'</span>' : '';
+        $version ='<strong style="color: green;">'.ecrHTML::getVersionFromCHANGELOG('com_easycreator').'</strong>';
         ?>
 <div class="ecrFooter">
 <span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
