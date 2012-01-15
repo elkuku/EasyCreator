@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Frontend
@@ -6,13 +6,10 @@
  * @author     Created on 24-Sep-2008
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 jimport('g11n.language');
 jimport('joomla.filesystem.file');
 
-$debug = false;
+$debug = true;
 
 try
 {
@@ -22,11 +19,11 @@ try
     g11n::setDebug($debug);
 
     //-- Get our special language file
-    g11n::loadLanguage('', '', 'nafuini');
+    g11n::loadLanguage();
 }
 catch(Exception $e)
 {
-	JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 }//try
 
 
@@ -63,9 +60,7 @@ $controller->execute(JRequest::getVar('task'));
 
 easyHTML::end();
 
-($debug) ? g11n::debugPrintTranslateds(true) : null;
 ($debug) ? g11n::debugPrintTranslateds() : null;
-($debug) ? var_dump(g11n::getStrings()) : null;
 
 //-- Redirect if set by the controller
 $controller->redirect();

@@ -58,7 +58,7 @@ class easyHTML
 
         if( ! isset($projects['component']))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No projects found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No projects found'), 'error');
 
             return;
         }
