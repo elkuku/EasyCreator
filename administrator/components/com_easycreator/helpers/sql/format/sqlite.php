@@ -4,7 +4,7 @@
  *
  * @link http://www.sqlite.org/datatype3.html
  */
-class Xml2SqlFormatSQLite extends Xml2SqlFormatter
+class EcrSqlFormatSQLite extends EcrSqlFormat
 {
     protected $quoteString = '';
 

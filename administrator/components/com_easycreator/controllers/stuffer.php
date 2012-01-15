@@ -819,19 +819,15 @@ class EasyCreatorControllerStuffer extends JController
      */
     private function processSQLInstall(EasyProject $project, $installPath)
     {
-        $xmlPath = $this->createDbExport($project);
+        $xmlPath = $this->createDbExport($project, $installPath);
 
         $xml = JFactory::getXML($xmlPath);
 
-        ecrLoadHelper('SQL.formatter');
-
         foreach($project->dbTypes as $dbType)
         {
-            ecrLoadHelper('SQL.format.'.$dbType);
+            $className = 'EcrSqlFormat'.ucfirst($dbType);
 
-            $className = 'Xml2SqlFormat'.$dbType;
-
-            /* @var Xml2SqlFormatter $formatter */
+            /* @var EcrSqlFormat $formatter */
             $formatter = new $className;
 
             $sql = array();
@@ -874,9 +870,7 @@ class EasyCreatorControllerStuffer extends JController
      */
     private function processSQLUnInstall(EasyProject $project, $installPath)
     {
-        ecrLoadHelper('SQL.formatter');
-
-        $xmlPath = $this->createDbExport($project);
+        $xmlPath = $this->createDbExport($project, $installPath);
 
         $xml = JFactory::getXML($xmlPath);
 
@@ -885,11 +879,9 @@ class EasyCreatorControllerStuffer extends JController
 
         foreach($project->dbTypes as $dbType)
         {
-            ecrLoadHelper('SQL.formats.'.$dbType);
+            $className = 'EcrSqlFormat'.ucfirst($dbType);
 
-            $className = 'Xml2SqlFormat'.$dbType;
-
-            /* @var Xml2SqlFormatter $formatter */
+            /* @var EcrSqlFormat $formatter */
             $formatter = new $className;
 
             $sql = array();
@@ -924,7 +916,16 @@ class EasyCreatorControllerStuffer extends JController
         }//foreach
     }//function
 
-    private function createDbExport(EasyProject $project)
+    /**
+     * Create the XML database export file.
+     *
+     * @param EasyProject $project
+     * @param string $installPath
+     *
+     * @return string
+     * @throws Exception
+     */
+    private function createDbExport(EasyProject $project, $installPath)
     {
         $db = JFactory::getDbo();
 
@@ -946,13 +947,11 @@ class EasyCreatorControllerStuffer extends JController
             $tableList[] = $prefix.$table;
         }//foreach
 
-        ecrLoadHelper('SQL.mysqlexporter');
-
-        $exporter = new JDatabaseExporterMySQL;
+        $exporter = new EcrSqlMysqlexporter;
 
         $xmlString = (string)$exporter->setDbo($db)->from($tableList);
 
-        $fullPath = $project->getExtensionPath().'/install/sql/tables.xml';
+        $fullPath = $installPath.'/sql/tables.xml';
 
         if( ! JFile::write($fullPath, $xmlString))
         {

@@ -26,7 +26,7 @@ class dbAdapterMySQL extends dbAdapter
     public function parseCreate()
     {
         //-- Invoke the PEAR parser
-        ecrLoadHelper('SQL.Parser');
+//        ecrLoadHelper('SQL.Parser');
 
         $parser = new SQL_Parser($this->query->processed, 'MySQL');
 

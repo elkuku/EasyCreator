@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 if('1.5' == $this->project->JCompat)
 return;
 
-ecrLoadHelper('SQL.Parser');
+//ecrLoadHelper('SQL.Parser');
 ecrLoadHelper('dbupdater');
 
 try

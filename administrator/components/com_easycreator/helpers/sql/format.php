@@ -1,5 +1,8 @@
 <?php
-abstract class Xml2SqlFormatter
+/**
+ *
+ */
+abstract class EcrSqlFormat
 {
     /**
      * @var JRegistry

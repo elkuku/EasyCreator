@@ -578,7 +578,7 @@ countries.</em></small>
      */
     public static function drawDbOptions(EasyProject $project)
     {
-        $formats = JFolder::files(JPATH_COMPONENT.'/helpers/SQL/format');
+        $formats = JFolder::files(JPATH_COMPONENT.'/helpers/sql/format');
 
         $options = array();
 
