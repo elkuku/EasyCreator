@@ -3,10 +3,10 @@
  * @package    EasyCreator
  * @subpackage Helpers
  *
- * @author Ian McLennan
- * @former package    IansTools - by Ian McLennan
- * @former subpackage ManifestMaker
- * @license    GNU/GPL, see JROOT/LICENSE.php
+ * @author  Ian McLennan
+ * @former  package    IansTools - by Ian McLennan
+ * @former  subpackage ManifestMaker
+ * @license GNU/GPL, see JROOT/LICENSE.php
  */
 
 //-- No direct access
@@ -22,6 +22,9 @@ defined('_JEXEC') || die('=;)');
  */
 class JoomlaManifest extends JObject
 {
+    /**
+     * @var SimpleXMLElement
+     */
     private $manifest = null;
 
     /**
@@ -56,6 +59,8 @@ class JoomlaManifest extends JObject
 
         $this->project = $project;
 
+        $rootTag = '';
+
         switch($this->project->JCompat)
         {
             case '1.6':
@@ -82,40 +87,39 @@ class JoomlaManifest extends JObject
             return false;
         }
 
-        $steps = array(
-        'setUp'
-        , 'processCredits'
-        , 'processInstall'
-        , 'processUpdates'
-        , 'processSite'
-        , 'processAdmin'
-        , 'processMedia'
-        , 'processPackageModules'
-        , 'processPackagePlugins'
-        , 'processPackageElements'
-        , 'processParameters'
-        );
-
-        foreach($steps as $step)
+        try
         {
-            if( ! $this->$step())
-            {
-                $this->setError($step.' failed');
+            $this->setUp()
+            ->processCredits()
+            ->processInstall()
+            ->processUpdates()
+            ->processSite()
+            ->processAdmin()
+            ->processMedia()
+            ->processPackageModules()
+            ->processPackagePlugins()
+            ->processPackageElements()
+            ->processParameters()
+            ;
+        }
+        catch(Exception $e)
+        {
+            EcrHtml::displayMessage($e);
 
-                return false;
-            }
-        }//foreach
+            return false;
+        }
 
         if($this->project->isNew)
         {
             //--New project
-            $path = JPath::clean($this->project->basepath.DS.$this->project->getJoomlaManifestName());
+            $path = JPath::clean($this->project->basepath
+                .'/'.$this->project->getJoomlaManifestName());
         }
         else
         {
             //--Building project
-            $path = JPath::clean($this->project->basepath.DS
-            .JFile::getName(EasyProjectHelper::findManifest($this->project)));
+            $path = JPath::clean($this->project->basepath
+                .'/'.JFile::getName(EasyProjectHelper::findManifest($this->project)));
         }
 
         $xml = $this->formatXML();
@@ -133,7 +137,7 @@ class JoomlaManifest extends JObject
     /**
      * Setup the manifest building process.
      *
-     * @return boolean
+     * @return JoomlaManifest
      */
     private function setUp()
     {
@@ -178,14 +182,11 @@ class JoomlaManifest extends JObject
                 $this->manifest->addChild('packagename', strtolower($this->project->name));
                 break;
             default :
-                $this->setError('JoomlaManifest::setUp unknown project type: '.$this->project->type);
-
-                return false;
-
+                throw new Exception(__METHOD__.' - unknown project type: '.$this->project->type);
                 break;
         }//switch
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -220,7 +221,7 @@ class JoomlaManifest extends JObject
             $this->manifest->name = ucfirst($this->project->scope).' - '.$this->project->name;
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -233,8 +234,8 @@ class JoomlaManifest extends JObject
         if($this->project->type != 'component')
         {
             //-- Only components have install files
-            //-- @todo change for 1.6 ?
-            return true;
+            //-- @todo change for 1.6 + ?
+            return $this;
         }
 
         $installFiles = EasyProjectHelper::findInstallFiles($this->project);
@@ -291,11 +292,7 @@ class JoomlaManifest extends JObject
         if(count($installFiles['php']))
         {
             if(count($installFiles['php']) > 2)
-            {
-                $this->setError('Too many PHP install/uninstall files ('.count($installFiles['php']).')');
-
-                return false;
-            }
+                throw new Exception(__METHOD__.' - Too many PHP install/uninstall files ('.count($installFiles['php']).')');
 
             foreach($installFiles['php'] as $file)
             {
@@ -307,24 +304,19 @@ class JoomlaManifest extends JObject
                     //-- Install
                     $this->manifest->installfile = $dir.$file->name;
                 }
-
                 else if(strpos($file->name, 'uninstall') === 0)
                 {
                     //-- Uninstall
                     $this->manifest->uninstallfile = $dir.$file->name;
                 }
-
                 else if(strpos($file->name, 'script') === 0)
                 {
                     //-- J 1.6 script file
                     $this->manifest->scriptfile = $dir.$file->name;
                 }
-
                 else
                 {
-                    $this->setError('Unsupported php file: '.$file->name);
-
-                    return false;
+                    throw new Exception(__METHOD__.' - Unsupported php file: '.$file->name);
                 }
             }//foreach
         }
@@ -357,31 +349,35 @@ class JoomlaManifest extends JObject
 
                 else
                 {
-                    $this->setError('Unsupported sql file: '.$file->name);
-
-                    return false;
+                    throw new Exception(__METHOD__.' - Unsupported sql file: '.$file->name);
                 }
 
-                if(strpos($file->name, 'nonutf')
-                || strpos($file->name, 'compat'))
+                $parts = explode('/', $dir);
+                array_pop($parts);
+                $driver = array_pop($parts);
+
+                $sFile->addAttribute('driver', $driver);
+
+                if(false == strpos($file->name, 'nonutf')
+                && false == strpos($file->name, 'compat'))
                 {
-                    $sFile->addAttribute('driver', 'mysql');
-                }
-                else
-                {
-                    $sFile->addAttribute('driver', 'mysql');
                     $sFile->addAttribute('charset', 'utf8');
                 }
             }//foreach
         }
 
-        return true;
+        return $this;
     }//function
 
+    /**
+     * Process Updates.
+     *
+     * @return bool
+     */
     private function processUpdates()
     {
         if( ! count($this->project->updateServers))
-        return true;
+        return $this;
 
         //-- Update site
         $updateServers = $this->manifest->addChild('updateservers');
@@ -395,7 +391,7 @@ class JoomlaManifest extends JObject
             $sElement->addAttribute('priority', $server->priority);
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -408,14 +404,14 @@ class JoomlaManifest extends JObject
         $baseFolders = JFolder::folders($this->project->basepath);
 
         if( ! in_array('media', $baseFolders))
-        return true;
+        return $this;
 
         $folders = JFolder::folders($this->project->basepath.DS.'media');
         $files = JFolder::files($this->project->basepath.DS.'media');
 
         if( ! count($folders)
         && ! count($files))
-        return true;
+        return $this;
 
         $mediaElement = $this->manifest->addChild('media');
         $mediaElement->addAttribute('destination', $this->project->comName);
@@ -431,7 +427,7 @@ class JoomlaManifest extends JObject
             $mediaElement->addChild('filename', $file);
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -497,7 +493,7 @@ class JoomlaManifest extends JObject
             }//foreach
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -513,7 +509,7 @@ class JoomlaManifest extends JObject
 
         if( ! in_array('admin', $folders))
         {
-            return true;
+            return $this;
         }
 
         if($this->project->type == 'component')
@@ -682,7 +678,7 @@ class JoomlaManifest extends JObject
             }//foreach
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -693,30 +689,21 @@ class JoomlaManifest extends JObject
     private function processPackageElements()
     {
         if($this->project->type != 'package')
-        return true;
+        return $this;
 
         $filesElement = $this->manifest->addChild('files');
 
         foreach($this->project->elements as $element => $path)
         {
             //--Get the project
-            try
-            {
-                $project = EasyProjectHelper::getProject($element);
-            }
-            catch(Exception $e)
-            {
-                $this->setError($e->getMessage());
-
-                return false;
-            }//try
+            $project = EasyProjectHelper::getProject($element);
 
             $fileElement = $filesElement->addChild('file', $path);
             $fileElement->addAttribute('type', $project->type);
             $fileElement->addAttribute('id', $element);
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -730,7 +717,7 @@ class JoomlaManifest extends JObject
         {
             //-- No parameters for new projects
             if('template' != $this->project->type)
-            return true;
+            return $this;
 
             //-- Except for templates :(
             $path = $this->project->buildPath;
@@ -740,7 +727,7 @@ class JoomlaManifest extends JObject
             $fileName = $path.'/templateDetails.xml';
 
             if( ! JFile::exists($fileName))
-            return true;
+            return $this;
 
             $refXml = EasyProjectHelper::getXML($fileName);
 
@@ -753,7 +740,7 @@ class JoomlaManifest extends JObject
             $positions = $this->manifest->addChild('positions');
             $this->appendXML($positions, $refXml->positions);
 
-            return true;
+            return $this;
         }
 
         //-- Search if there is a config.xml
@@ -766,7 +753,7 @@ class JoomlaManifest extends JObject
             if( ! $cfgXml
             || ! $cfgXml->params)
             {
-                return true;
+                return $this;
             }
 
             $paramsElement = $this->manifest->addChild('params');
@@ -821,7 +808,7 @@ class JoomlaManifest extends JObject
                 }//switch
             }
 
-            return true;
+            return $this;
 
             //            //-- Try the install manifest.xml
             //            $params = new JParameter('', JPath::clean(JPATH_ROOT.DS
@@ -872,7 +859,7 @@ class JoomlaManifest extends JObject
             //            }//foreach
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -911,9 +898,7 @@ class JoomlaManifest extends JObject
     private function processPackageModules()
     {
         if( ! count($this->project->modules))
-        {
-            return true;
-        }
+            return $this;
 
         $modulesElement = $this->manifest->addChild('modules');
 
@@ -922,16 +907,7 @@ class JoomlaManifest extends JObject
             $s = str_replace('mod_', 'mod_'.$module->scope.'_', $module->name);
 
             //--Get the project
-            try
-            {
-                $project = EasyProjectHelper::getProject($s);
-            }
-            catch(Exception $e)
-            {
-                EcrHtml::displayMessage($e);
-
-                return false;
-            }//try
+            $project = EasyProjectHelper::getProject($s);
 
             $modElement = $modulesElement->addChild('module');
             $modElement->addAttribute('module', $module->name);
@@ -995,19 +971,16 @@ class JoomlaManifest extends JObject
 
             $paramsElement = $modElement->addChild('params');
 
-            $f = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
+            $path = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
 
-            if( ! $xml = EasyProjectHelper::getXML($f))
-            {
-                JFactory::getApplication()->enqueueMessage(
-                    sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
-                unset($xml);
+            $xml = EasyProjectHelper::getXML($path);
 
-                return false;
-            }
+            if( ! $xml)
+                throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $path));
 
             if(isset($xml->params->param))
             {
+                /* @var SimpleXMLElement $param */
                 foreach($xml->params->param as $param)
                 {
                     $paramElement = $paramsElement->addChild('param');
@@ -1033,7 +1006,7 @@ class JoomlaManifest extends JObject
             }
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -1047,7 +1020,7 @@ class JoomlaManifest extends JObject
     {
         if( ! count($this->project->plugins))
         {
-            return true;
+            return $this;
         }
 
         $pluginsElement = $this->manifest->addChild('plugins');
@@ -1055,16 +1028,7 @@ class JoomlaManifest extends JObject
         foreach($this->project->plugins as $item)
         {
             //--Get the project
-            try
-            {
-                $project = EasyProjectHelper::getProject('plg_'.$item->scope.'_'.$item->name);
-            }
-            catch(Exception $e)
-            {
-                EcrHtml::displayMessage($e);
-
-                return false;
-            }//try
+            $project = EasyProjectHelper::getProject('plg_'.$item->scope.'_'.$item->name);
 
             $f = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
 
@@ -1111,14 +1075,10 @@ class JoomlaManifest extends JObject
                 }//foreach
             }
 
-            if( ! $xml = EasyProjectHelper::getXML($f))
-            {
-                JFactory::getApplication()->enqueueMessage(
-                    sprintf(jgettext('Unable to load the xml file %s'), $f), 'error');
-                unset ($xml);
+            $xml = EasyProjectHelper::getXML($f);
 
-                return false;
-            }
+            if(false == $xml)
+            throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $f));
 
             $paramsElement = $plgElement->addChild('params');
 
@@ -1149,7 +1109,7 @@ class JoomlaManifest extends JObject
             }
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
