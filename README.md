@@ -5,7 +5,7 @@ Documentation can be found on [joomla-nafu.de](http://wiki.joomla-nafu.de/joomla
 have Fun,
 `=;)`
 
-## Help translating
+## Help Translating
 Head over to: https://opentranslators.transifex.net/projects/p/easycreator/
 
 <a target="_blank" style="text-decoration:none; color:black; font-size:66%" href="https://opentranslators.transifex.net/projects/p/easycreator/resource/com_easycreatorpot/" 
