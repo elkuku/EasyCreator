@@ -8,11 +8,11 @@ have Fun,
 ## Help Translating
 Head over to: https://opentranslators.transifex.net/projects/p/easycreator/
 
-<a target="_blank" style="text-decoration:none; color:black; font-size:66%" href="https://opentranslators.transifex.net/projects/p/easycreator/resource/com_easycreatorpot/" 
+<a target="_blank" style="text-decoration:none; color:black; font-size:66%" href="https://opentranslators.transifex.net/projects/p/easycreator/resource/com_easycreatorpot/"
 title="See more information on Transifex.net">Top translations: easycreator » com_easycreatorpot</a><br/>
 <img border="0" src="https://opentranslators.transifex.net/projects/p/easycreator/resource/com_easycreatorpot/chart/image_png"/><br/>
 <a target="_blank" href="https://opentranslators.transifex.net/"><img border="0" src="https://sw.transifex.net/9/static/charts/images/tx-logo-micro.png"/></a>
 
-## Stats
+## Statistics
 
 <a href="http://elkuku.github.com/EasyCreator/">elkuku/EasyCreator</a>
