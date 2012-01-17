@@ -9,10 +9,14 @@
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
+/* @var EasyCreatorViewStuffer $this */
 ?>
 
 <div class="ecr_floatbox">
     <div class="infoHeader img icon-24-easycreator">AutoCode</div>
-    <strong><?php echo jgettext('List postfix'); ?></strong>
-    <?php echo $this->project->listPostfix; ?>
+    <h4><?= jgettext('List postfix') ?></h4>
+    <?= $this->project->listPostfix ?>
+    <h4><?= jgettext('File header template') ?></h4>
+
+    <?= EcrHtml::drawHeaderOptions($this->project->headerType) ?>
 </div>

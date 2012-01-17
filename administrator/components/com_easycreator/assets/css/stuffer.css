@@ -21,8 +21,8 @@ label.creditsLabel {
     margin-bottom: 0.3em;
 }
 
-x {
-    margin: 0;
+.ecr_floatbox h4 {
+    margin: 0.2em;
 }
 
 ul.sortable {

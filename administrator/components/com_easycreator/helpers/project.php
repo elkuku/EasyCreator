@@ -101,6 +101,11 @@ abstract class EcrProject extends JObject
     public $isValid = true;
 
     /**
+     * @var string
+     */
+    public $headerType;
+
+    /**
      * Constructor.
      *
      * @param string $name Project name.
@@ -194,6 +199,7 @@ abstract class EcrProject extends JObject
         $buildVars = JRequest::getVar('buildvars', array());
         $buildOpts = JRequest::getVar('buildopts', array());
         $this->dbTypes = JRequest::getVar('dbtypes', array());
+        $this->headerType = JRequest::getCmd('headerType');
 
         //--Package modules
         $this->modules = array();
@@ -419,6 +425,8 @@ abstract class EcrProject extends JObject
 
         //-- Database types
         $xml->addChild('dbTypes', implode(',', $this->dbTypes));
+
+        $xml->addChild('headerType', $this->headerType);
 
         //-- Package Modules
         if(count($this->modules))
@@ -666,6 +674,7 @@ abstract class EcrProject extends JObject
         $this->JCompat = ((string)$manifest->JCompat) ? (string)$manifest->JCompat : '1.5';
         $this->langFormat = (string)$manifest->langFormat;
         $this->zipPath = (string)$manifest->zipPath;
+        $this->headerType = (string)$manifest->headerType;
 
         $dbTypes = (string)$manifest->dbTypes;
 

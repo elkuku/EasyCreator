@@ -62,22 +62,22 @@ function submitbutton(command)
         <a class="ecr_button img icon-16-2leftarrow"
         onclick="submitbutton('wizard2');"
         title="<?php echo jgettext('Back'); ?>">
-		    <?php echo jgettext('Back'); ?>
-		</a>
+            <?php echo jgettext('Back'); ?>
+        </a>
     </div>
 
-	<div class="wizard-header">
-    	<span id="wizard-loader-back" class="img32 icon-32-wizard"></span>
-        <span class="wiz_step">3 / 3</span><?php echo jgettext('Build options'); ?>
-	</div>
+    <div class="wizard-header">
+        <span id="wizard-loader-back" class="img32 icon-32-wizard"></span>
+        <span class="wiz_step">3 / 3</span><?= jgettext('Build options') ?>
+    </div>
 
     <div class="ecr_custom_options">
         <?php $this->builder->customOptions('display', $this->project); ?>
     </div>
 
     <div class="ecr_wiz_desc">
-        <p style="font-weight: bold;"><?php echo jgettext('Youre done'); ?></p>
-        <?php echo jgettext('Just click on create it below to finish your component'); ?>
+        <p style="font-weight: bold;"><?= jgettext('Youre done') ?></p>
+        <?= jgettext('Just click on create it below to finish your component') ?>
     </div>
 
     <div class="ecr_table">
@@ -85,9 +85,11 @@ function submitbutton(command)
             <div class="ecr_table-cell">
                 <input type="checkbox" name="create_changelog" id="create_changelog" checked="checked" />
                 <label for="create_changelog"><?php echo jgettext('Create CHANGELOG.php'); ?></label>
+                <h3><?= jgettext('File header template') ?></h3>
+                <?= EcrHtml::drawHeaderOptions() ?>
             </div>
             <div class="ecr_table-cell">
-                    <?php EcrHtml::drawLoggingOptions(); ?>
+                    <?= EcrHtml::drawLoggingOptions() ?>
             </div>
         </div>
     </div>

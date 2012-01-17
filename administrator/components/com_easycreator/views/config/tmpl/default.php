@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -6,9 +6,6 @@
  * @author     Created on 12-Oct-2009
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//--No direct access
-defined('_JEXEC') || die('=;)');
 
 ecrStylesheet('config');
 

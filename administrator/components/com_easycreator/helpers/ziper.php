@@ -39,13 +39,6 @@ class EcrZiper extends JObject
     private $profiler = null;
 
     /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-    }//function
-
-    /**
      * Create the package.
      *
      * @param EcrProject $project The project
@@ -55,8 +48,6 @@ class EcrZiper extends JObject
     public function create(EcrProject $project)
     {
         $this->project = $project;
-
-        //$this->build_dir = substr(JPATH_COMPONENT_ADMINISTRATOR, strlen(JPATH_SITE) + 1).DS.'builds';
 
         $this->build_dir = $this->project->getZipPath();
 
@@ -79,7 +70,7 @@ class EcrZiper extends JObject
         , 'copyMedia'
         , 'copyPackageModules'
         , 'copyPackagePlugins'
-        , 'copyPackageElements' // 1.6
+        , 'copyPackageElements' // 1.6 +
         , 'processInstall'
         , 'cleanProject'
         , 'deleteManifest'

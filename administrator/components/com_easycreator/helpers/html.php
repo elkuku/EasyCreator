@@ -535,7 +535,7 @@ countries.</em></small>
     {
         $buildopts = array(
           'files' => jgettext('Log file contents')
-        , 'profile'    => jgettext('Profile')
+        , 'profile' => jgettext('Profile')
         );
 
         //--Get component parameters
@@ -552,7 +552,8 @@ countries.</em></small>
 
         $style =($params->get('logging')) ? '' : ' style="display: none;"';
         echo NL.'   <div id="div_buildopts"'.$style.'>';
-        foreach( $buildopts as $name=>$titel )
+
+        foreach($buildopts as $name => $titel)
         {
             //--Get component parameters
             $checked =($params->get($name)) ? ' checked="checked"' : '';
@@ -561,8 +562,35 @@ countries.</em></small>
             echo NL.'<input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
             echo NL.'<label for="'.$name.'">'.$titel.'</label><br />';
         }//foreach
+
         echo NL.'   </div>';
         echo NL.'</div>';
+    }//function
+
+    /**
+     * Draw a file header template selector.
+     *
+     * @static
+     * @param string $selected
+     * @return string
+     */
+    public static function drawHeaderOptions($selected = 'git')
+    {
+        $html = array();
+
+        foreach(new DirectoryIterator(ECRPATH_EXTENSIONTEMPLATES.'/std/header') as $fileInfo)
+        {
+            if($fileInfo->isDot())
+                continue;
+
+            $name = $fileInfo->getFilename();
+            $checked =($name == $selected) ? ' checked="checked"' : '';
+            $html[] = '<input type="radio" name="headerType"'
+             .'value="'.$name.'" id="headerType'.$name.'"'.$checked.'>'
+                .'<label for="headerType'.$name.'">'.$name.'</label>';
+        }//foreach
+
+        return implode(NL, $html);
     }//function
 
     /**

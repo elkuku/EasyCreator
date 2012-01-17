@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -7,13 +7,10 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
  * Creates Joomla! extensions from EasyCreator extension templates.
  *
- * @package    EasyCreator
+ * @package EasyCreator
  */
 class EcrBuilder extends JObject
 {
@@ -28,6 +25,9 @@ class EcrBuilder extends JObject
 
     private $_buildDir = '';
 
+    /**
+     * @var SimpleXMLElement
+     */
     private $_buildManifest = null;
 
     /**
@@ -280,6 +280,7 @@ class EcrBuilder extends JObject
             $this->addSubstitute('_ECR_UPPER_LIST_POSTFIX_', strtoupper($this->project->listPostfix));
 
             //-- Menu
+            /* @var SimpleXMLElement $buildMenuElement */
             $buildMenuElement = $this->_buildManifest->menu;
 
             if($buildMenuElement instanceof SimpleXmlElement)
@@ -300,6 +301,7 @@ class EcrBuilder extends JObject
                 if($buildSubMenuElement instanceof SimpleXmlElement
                 && count($buildSubMenuElement->menu))
                 {
+                    /* @var SimpleXMLElement $subElement */
                     foreach($buildSubMenuElement->menu as $subElement)
                     {
                         $m = array();
@@ -336,7 +338,7 @@ class EcrBuilder extends JObject
     private function createBuildDir()
     {
         //-- Create build directory
-        $this->_buildDir = JFactory::getConfig()->getValue('config.tmp_path').DS.uniqid($this->project->comName.'_');
+        $this->_buildDir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName.'_');
 
         //-- Clean the path @since J 1.7
         $this->_buildDir = JPath::clean($this->_buildDir);
@@ -518,9 +520,9 @@ class EcrBuilder extends JObject
             $this->project->name = ucfirst($this->project->scope).' - '.$this->project->name;
         }
 
-        $pXml = $this->project->writeProjectXml($this->testMode);
+        $xmlContents = $this->project->writeProjectXml($this->testMode);
 
-        if($pXml === false)
+        if($xmlContents === false)
         {
             $this->logger->log('', 'Unable to create EasyCreator manifest');
 
@@ -529,7 +531,7 @@ class EcrBuilder extends JObject
         else
         {
             $this->logger->log('EasyCreator manifest created');
-            $this->logger->logFileWrite('', 'ECR'.DS.'EasyCreatorManifest.xml', $pXml);
+            $this->logger->logFileWrite('', 'ECR'.DS.'EasyCreatorManifest.xml', $xmlContents);
         }
 
         return true;
@@ -788,9 +790,11 @@ class EcrBuilder extends JObject
     {
         $types = array('', 'js', 'css');
 
+        $format = JRequest::getCmd('optHeader', 'git');
+
         foreach($types as $type)
         {
-            $path = ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'header'.$type.'.txt';
+            $path = ECRPATH_EXTENSIONTEMPLATES.'/std/header/'.$format.'/header'.$type.'.txt';
 
             if( ! JFile::exists($path))
             continue;
