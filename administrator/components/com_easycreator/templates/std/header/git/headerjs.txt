@@ -1,0 +1,7 @@
+/**
+ * @package    _ECR_COM_NAME_
+ * @subpackage JavaScript
+ * @author     ECR_AUTHOR {@link AUTHORURL}
+ * @author     Created on _ECR_ACT_DATE_
+ * @license    GNU/GPL
+ */

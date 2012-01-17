@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+/**
+ * @package    _ECR_COM_NAME_
+ * @subpackage CSS
+ * @author     ECR_AUTHOR {@link AUTHORURL}
+ * @author     Created on _ECR_ACT_DATE_
+ * @license    GNU/GPL
+ */
