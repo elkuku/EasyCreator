@@ -31,7 +31,7 @@ class EcrBuilder extends JObject
     private $_buildManifest = null;
 
     /**
-     * @var EasyLogger
+     * @var EcrLogger
      */
     private $logger = null;
 
@@ -57,14 +57,10 @@ class EcrBuilder extends JObject
     public function build($type, $template, $name)
     {
         //-- Setup logging
-        ecrLoadHelper('logger');
-
-        $logName = date('ymd_Hi').'_building.log';
-
         $buildOpts = JRequest::getVar('buildopts', array());
         $buildOpts['fileName'] = date('ymd_Hi').'_building.log';
 
-        $this->logger = easyLogger::getInstance('ecr', $buildOpts);
+        $this->logger = EcrLogger::getInstance('ecr', $buildOpts);
 
         $this->_buildBase = JPath::clean(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template);
         $this->logger->log('buildBase set to: '.$this->_buildBase);
@@ -728,11 +724,9 @@ class EcrBuilder extends JObject
             }
         }//foreach
 
-        ecrLoadHelper('logger');
-
         $options['fileName'] = date('ymd_Hi').'_register.log';
 
-        $this->logger = easyLogger::getInstance('ecr', $options);
+        $this->logger = EcrLogger::getInstance('ecr', $options);
 
         $projectTypes = EcrProjectHelper::getProjectTypes();
 

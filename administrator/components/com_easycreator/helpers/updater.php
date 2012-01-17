@@ -29,7 +29,7 @@ class EcrUpdater
 
     private $logger = null;
 
-    public function __construct(EcrProject $project, EasyLogger $logger = null)
+    public function __construct(EcrProject $project, EcrLogger $logger = null)
     {
         if($project instanceof EcrProject)
         {

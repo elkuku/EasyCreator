@@ -952,12 +952,12 @@ abstract class EcrProject extends JObject
      * Insert a part to the project.
      *
      * @param array $options Options for inserting
-     * @param EasyLogger $logger The logger
+     * @param EcrLogger $logger The logger
      * @param boolean $overwrite Overwrite existing files
      *
      * @return boolean
      */
-    public function insertPart($options, EasyLogger $logger, $overwrite = false)
+    public function insertPart($options, EcrLogger $logger, $overwrite = false)
     {
         $element_scope = JRequest::getVar('element_scope');
         $element_name = JRequest::getVar('element_name', null);

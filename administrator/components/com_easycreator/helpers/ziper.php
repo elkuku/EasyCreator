@@ -32,7 +32,7 @@ class EcrZiper extends JObject
     private $buildopts = array();
 
     /**
-     * @var EasyLogger
+     * @var EcrLogger
      */
     private $logger = null;
 
@@ -65,11 +65,9 @@ class EcrZiper extends JObject
         $this->initBuildOpts($buildopts);
 
         //-- Setup logging
-        ecrLoadHelper('logger');
-
         $buildOpts['fileName'] = date('ymd_Hi').'_packing.log';
 
-        $this->logger = easyLogger::getInstance('ecr', $buildopts);
+        $this->logger = EcrLogger::getInstance('ecr', $buildopts);
 
         $this->logger->log('Start building');
         $this->logger->log('Build dir:<br />'.$this->build_dir);

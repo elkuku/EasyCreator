@@ -38,7 +38,7 @@ class dbUpdater
     public function __construct(EcrProject $project, $adapter = 'mysql')
     {
         if(class_exists('easyLogger'))
-        $this->logger = easyLogger::getInstance('ecr');
+        $this->logger = EcrLogger::getInstance('ecr');
 
         if( ! $this->setAdapter($adapter))
         return false;

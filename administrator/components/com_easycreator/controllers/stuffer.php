@@ -21,7 +21,7 @@ jimport('joomla.application.component.controller');
 class EasyCreatorControllerStuffer extends JController
 {
     /**
-     * @var EasyLogger
+     * @var EcrLogger
      */
     private $logger;
 
@@ -109,12 +109,10 @@ class EasyCreatorControllerStuffer extends JController
         }
 
         //--Setup logging
-        ecrLoadHelper('logger');
-
         $buildOpts = JRequest::getVar('buildopts', array());
         $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
-        $logger = easyLogger::getInstance('ecr', $buildOpts);
+        $logger = EcrLogger::getInstance('ecr', $buildOpts);
 
         $options = new stdClass;
         $options->ecr_project = $ecr_project;
@@ -240,12 +238,10 @@ class EasyCreatorControllerStuffer extends JController
             , $ecr_project, $group, $part));
 
             //--Setup logging
-            ecrLoadHelper('logger');
-
             $buildOpts = JRequest::getVar('buildopts', array());
             $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
-            $logger = easyLogger::getInstance('ecr', $buildOpts);
+            $logger = EcrLogger::getInstance('ecr', $buildOpts);
 
             $options = new stdClass;
             $options->ecr_project = $ecr_project;
@@ -719,8 +715,6 @@ class EasyCreatorControllerStuffer extends JController
 
         try
         {
-            ecrLoadHelper('logger');
-
             //--Get the project
             $project = EcrProjectHelper::getProject();
 
@@ -731,7 +725,7 @@ class EasyCreatorControllerStuffer extends JController
 
             //-- Setup logging
             $buildopts['fileName'] = date('ymd_Hi').'_'.$type1.'_'.$type2.'.log';
-            $this->logger = easyLogger::getInstance('ecr', $buildopts);
+            $this->logger = EcrLogger::getInstance('ecr', $buildopts);
 
             $this->logger->log('Start: '.$type1.' - '.$type2);
 

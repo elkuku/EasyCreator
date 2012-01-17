@@ -142,11 +142,11 @@ class PartViewsData_form extends EasyPart
      *
      * @param EcrProject $EasyProject The project.
      * @param array $options Insert options.
-     * @param EasyLogger $logger The EasyLogger.
+     * @param EcrLogger $logger The EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $EasyProject, $options, EasyLogger $logger)
+    public function insert(EcrProject $EasyProject, $options, EcrLogger $logger)
     {
         ecrLoadHelper('autocode');
 

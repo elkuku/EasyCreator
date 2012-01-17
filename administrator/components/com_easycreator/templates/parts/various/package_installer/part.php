@@ -64,11 +64,11 @@ class PartVariousPackage_installer
      *
      * @param EcrProject $project The project.
      * @param array $options Insert options.
-     * @param EasyLogger $logger The EasyLogger.
+     * @param EcrLogger $logger The EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $project, $options, EasyLogger $logger)
+    public function insert(EcrProject $project, $options, EcrLogger $logger)
     {
         $project->addSubstitute('_ECR_SUBPACKAGE_', 'Installer');
 

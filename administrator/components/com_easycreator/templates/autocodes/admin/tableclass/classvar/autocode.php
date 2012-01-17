@@ -184,11 +184,11 @@ class AutoCodeAdminTableclassClassvar extends EasyAutoCode
      *
      * @param EcrProject $project EcrProject - The project.
      * @param array $options Insert options.
-     * @param EasyLogger $logger EasyLogger.
+     * @param EcrLogger $logger EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $project, $options, EasyLogger $logger)
+    public function insert(EcrProject $project, $options, EcrLogger $logger)
     {
         ecrLoadHelper('autocode');
 

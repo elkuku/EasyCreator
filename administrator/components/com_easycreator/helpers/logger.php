@@ -15,7 +15,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package EasyCreator
  */
-class EasyLogger
+class EcrLogger
 {
     private $fileName = '';
 
@@ -40,7 +40,7 @@ class EasyLogger
      * @param string $name Custom name for the instance
      * @param array $options Log options
      *
-     * @return EasyLogger
+     * @return EcrLogger
      *
      * @throws EcrLogException
      */
@@ -58,7 +58,7 @@ class EasyLogger
         if( ! touch(ECRPATH_LOGS.DS.$fileName))
         throw new EcrLogException('Can not create log file '.$fileName);
 
-        $instances[$name] = new EasyLogger($fileName, $options);
+        $instances[$name] = new EcrLogger($fileName, $options);
 
         return $instances[$name];
     }//function
@@ -91,7 +91,7 @@ class EasyLogger
                 ecrLoadHelper('profiler');
             }
 
-            $this->profiler = easyProfiler::getInstance('EasyLogger');
+            $this->profiler = easyProfiler::getInstance('EcrLogger');
         }
     }//function
 

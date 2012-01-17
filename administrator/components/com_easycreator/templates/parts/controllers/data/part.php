@@ -98,7 +98,7 @@ class PartControllersData
      *
      * @param EcrProject $project EcrProject - The project.
      * @param array $options Insert options.
-     * @param object $logger EasyLogger.
+     * @param object $logger EcrLogger.
      *
      * @return boolean
      */
