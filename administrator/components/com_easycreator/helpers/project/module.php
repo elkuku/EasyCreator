@@ -11,23 +11,23 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * EasyCreator project type template.
+ * EasyCreator project type module.
  */
-class EasyProjectTemplate extends EasyProject
+class EcrProjectModule extends EcrProject
 {
     /**
      * Project type.
      *
      * @var string
      */
-    public $type = 'template';
+    public $type = 'module';
 
     /**
      * Project prefix.
      *
      * @var string
      */
-    public $prefix = 'tpl_';
+    public $prefix = 'mod_';
 
     /**
      * Find all files and folders belonging to the project.
@@ -39,18 +39,20 @@ class EasyProjectTemplate extends EasyProject
         if($this->copies)
         return $this->copies;
 
+        $this->copies = array();
+
         if($this->scope == 'admin')
         {
-            if(JFolder::exists(JPATH_ADMINISTRATOR.DS.'templates'.DS.$this->comName))
+            if(JFolder::exists(JPATH_ADMINISTRATOR.DS.'modules'.DS.$this->comName))
             {
-                $this->copies[] = JPATH_ADMINISTRATOR.DS.'templates'.DS.$this->comName;
+                $this->copies[] = JPATH_ADMINISTRATOR.DS.'modules'.DS.$this->comName;
             }
         }
         else
         {
-            if(JFolder::exists(JPATH_SITE.DS.'templates'.DS.$this->comName))
+            if(JFolder::exists(JPATH_SITE.DS.'modules'.DS.$this->comName))
             {
-                $this->copies[] = JPATH_SITE.DS.'templates'.DS.$this->comName;
+                $this->copies[] = JPATH_SITE.DS.'modules'.DS.$this->comName;
             }
         }
 
@@ -65,12 +67,7 @@ class EasyProjectTemplate extends EasyProject
     public function getLanguageScopes()
     {
         $scopes = array();
-        $scopes[] = 'admin';
-
-        if($this->scope != 'admin')
-        {
-            $scopes[] = 'site';
-        }
+        $scopes[] =($this->scope) == 'admin' ? 'admin' : 'site';
 
         return $scopes;
     }//function
@@ -82,9 +79,9 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getExtensionPath()
     {
-        $scope =('admin' == $this->scope) ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        $scope =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
 
-        return $scope.'/templates/'.$this->comName;
+        return $scope.'/modules/'.$this->comName;
     }//function
 
     /**
@@ -108,15 +105,13 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getLanguageFileName()
     {
-        return 'tpl_'.$this->comName.'.ini';
+        return $this->comName.'.ini';
     }//function
 
     /**
      * Gets the DTD for the extension type.
      *
      * @param string $jVersion Joomla! version
-     *
-     * @todo DTDs for J! 1.6
      *
      * @return mixed [array index array on success | false if not found]
      */
@@ -128,10 +123,10 @@ class EasyProjectTemplate extends EasyProject
         {
             case '1.5':
                 $dtd = array(
-                 'type' => 'install'
-                 , 'public' => '-//Joomla! 1.5//DTD template 1.0//EN'
-                 , 'uri' => 'http://joomla.org/xml/dtd/1.5/template-install.dtd');
-                 break;
+                'type' => 'install'
+                , 'public' => '-//Joomla! 1.5//DTD module 1.0//EN'
+                , 'uri' => 'http://joomla.org/xml/dtd/1.5/module-install.dtd');
+                break;
 
             case '1.6':
             case '1.7':
@@ -139,7 +134,6 @@ class EasyProjectTemplate extends EasyProject
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -163,7 +157,7 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getFileName()
     {
-        return 'tpl_'.$this->scope.'_'.$this->comName;
+        return str_replace('mod_', 'mod_'.$this->scope.'_', $this->comName);
     }//function
 
     /**
@@ -174,7 +168,7 @@ class EasyProjectTemplate extends EasyProject
     public function getJoomlaManifestPath()
     {
         $path =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
-        $path .= DS.'templates'.DS.$this->comName;
+        $path .= DS.'modules'.DS.$this->comName;
 
         return $path;
     }//function
@@ -182,11 +176,11 @@ class EasyProjectTemplate extends EasyProject
     /**
      * Get a Joomla! manifest XML file name.
      *
-     * @return mixed [string file name | boolean false on error]
+     * @return string File name.
      */
     public function getJoomlaManifestName()
     {
-        return 'templateDetails.xml';
+        return $this->comName.'.xml';
     }//function
 
     /**
@@ -196,42 +190,34 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getId()
     {
-        $db = JFactory::getDbo();
+        $db = JFactory::getDBO();
+        $clId =($this->scope == 'admin') ? 1 : 0;
 
         switch(ECR_JVERSION)
         {
             case '1.5':
                 $query = new JDatabaseQuery;
-
-                $query->from('#__components AS c');
-                $query->select('c.id');
-                $query->where('c.option = '.$db->quote($this->comName));
-                $query->where('c.parent = 0');
                 break;
 
             case '1.6':
             case '1.7':
             case '2.5':
                 $query = $db->getQuery(true);
-
-                $query->from('#__extensions AS e');
-                $query->select('e.extension_id');
-                $query->where('e.element = '.$db->quote($this->comName));
-                $query->where('e.type = '.$db->quote('template'));
                 break;
 
             default:
                 EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
-
-                return false;
                 break;
         }//switch
 
-        $db->setQuery($query);
+        $query->from('#__modules AS m');
+        $query->select('m.id');
+        $query->where('m.module = '.$db->quote($this->comName));
+        $query->where('m.client_id = '.(int)$clId);
 
-        $id = $db->loadResult();
+        $db->setQuery((string)$query);
 
-        return $id;
+        return $db->loadResult();
     }//function
 
     /**
@@ -243,20 +229,20 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getAllProjects($scope)
     {
-        $projects = array();
-
         switch($scope)
         {
             case 'admin':
-                $projects = JFolder::folders(JPATH_ADMINISTRATOR.DS.'templates');
+                return JFolder::folders(JPATH_ADMINISTRATOR.DS.'modules');
                 break;
-
             case 'site':
-                $projects = JFolder::folders(JPATH_SITE.DS.'templates');
+                return JFolder::folders(JPATH_SITE.DS.'modules');
+                break;
+            default:
+                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
+
+                return array();
                 break;
         }//switch
-
-        return $projects;
     }//function
 
     /**
@@ -268,54 +254,69 @@ class EasyProjectTemplate extends EasyProject
      */
     public function getCoreProjects($scope)
     {
-        $projects = array();
-
         switch($scope)
         {
             case 'admin':
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
-                        $projects = array('khepri', 'system');
-                        break;
+                        return array('mod_custom', 'mod_feed', 'mod_footer', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_stats', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_unread');
 
                     case '1.6':
                     case '1.7':
+                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_unread');
+
                     case '2.5':
-                        $projects = array('bluestork', 'hathor', 'system');
-                        break;
+                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
+
                     default:
                         EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
-                        break;
-                }//switch
-                break;
 
+                        return array();
+                }//switch
             case 'site':
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
-                        $projects = array('beez', 'ja_purity', 'rhuk_milkyway', 'system');
-                        break;
+                        return array('mod_archive', 'mod_banners', 'mod_breadcrumbs', 'mod_custom'
+                        , 'mod_feed', 'mod_footer', 'mod_latestnews', 'mod_login', 'mod_mainmenu'
+                        , 'mod_mostread', 'mod_newsflash', 'mod_poll', 'mod_random_image'
+                        , 'mod_related_items', 'mod_search', 'mod_sections', 'mod_stats'
+                        , 'mod_syndicate', 'mod_whosonline', 'mod_wrapper');
+
                     case '1.6':
-                        $projects = array('atomic', 'beez_20', 'beez5', 'rhuk_milkyway', 'system');
-                        break;
                     case '1.7':
+                        return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
+                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
+                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
+                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper');
+
                     case '2.5':
-                        $projects = array('atomic', 'beez_20', 'beez5', 'system');
-                        break;
+                        return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
+                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
+                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
+                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
+                        , 'mod_finder');
+
                     default:
                         EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
-                        break;
+
+                        return array();
                 }//switch
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown scope: '.$scope);
+                EcrHtml::displayMessage(__METHOD__.' - Unknown scope');
 
                 return array();
-                break;
         }//switch
-
-        return $projects;
     }//function
 }//class

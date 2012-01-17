@@ -19,11 +19,11 @@ class EcrLanguageHelper
     /**
      * Discover the languages for a project.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      *
      * @return array
      */
-    public static function discoverLanguages(EasyProject $project)
+    public static function discoverLanguages(EcrProject $project)
     {
         static $languages = array();
 
@@ -86,13 +86,13 @@ class EcrLanguageHelper
     /**
      * Check a language file for common problems.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      * @param string $lang Language tag e.g. en-GB
      * @param string $scope Scope e.g. admin site
      *
      * @return void
      */
-    public static function checkFile(EasyProject $project, $lang, $scope)
+    public static function checkFile(EcrProject $project, $lang, $scope)
     {
         ecrLoadHelper('language');
 

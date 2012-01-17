@@ -170,13 +170,13 @@ class PartTablesAdmin_map
     /**
      * Inserts the part into the project.
      *
-     * @param EasyProject $project The project.
+     * @param EcrProject $project The project.
      * @param array $options Insert options.
      * @param EasyLogger $logger The EasyLogger.
      *
      * @return boolean
      */
-    public function insert(EasyProject $project, $options, EasyLogger $logger)
+    public function insert(EcrProject $project, $options, EasyLogger $logger)
     {
         ecrLoadHelper('table');
 

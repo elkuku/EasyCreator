@@ -88,10 +88,10 @@ EcrHtml::contextMenu();
 
 /**
  *
- * @param EasyProject $project The project
+ * @param EcrProject $project The project
  * @return unknown_type
  */
-function drawFileTree(EasyProject $project)
+function drawFileTree(EcrProject $project)
 {
     $ret = '';
 

@@ -28,7 +28,7 @@ class JoomlaManifest extends JObject
     private $manifest = null;
 
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     private $project = null;
 
@@ -44,11 +44,11 @@ class JoomlaManifest extends JObject
     /**
      * Method to create the manifest file.
      *
-     * @param EasyProject $project The project.
+     * @param EcrProject $project The project.
      *
      * @return boolean true on success
      */
-    public function create(EasyProject $project)
+    public function create(EcrProject $project)
     {
         if( ! $project->type)
         {

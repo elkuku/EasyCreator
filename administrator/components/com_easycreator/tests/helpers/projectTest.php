@@ -6,10 +6,10 @@
  * @author		Created on 21.10.2009
  */
 
-class EasyProjectTest extends PHPUnit_Framework_TestCase
+class EcrProjectTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     private $project;
 

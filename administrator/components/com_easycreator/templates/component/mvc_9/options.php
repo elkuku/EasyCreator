@@ -19,11 +19,11 @@ class EasyTemplateOptions
     /**
      * Displays available options with input fields.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      *
      * @return string HTML
      */
-    public function displayOptions(EasyProject $project)
+    public function displayOptions(EcrProject $project)
     {
         ecrLoadHelper('table');
         ecrScript('dbtables');

@@ -782,47 +782,47 @@ class EasyCreatorViewLanguages extends JView
         $this->sel_language = $sel_language;
 
         $subTasks = array(
-        array('title' => jgettext('Setup')
-        , 'description' => jgettext('Setup your language files')
-        , 'icon' => 'apply'
-        , 'task' => 'languages'
-        )
-        , array('title' => jgettext('Files and menus')
-        , 'description' => jgettext('Searches inside the source files and menus for translatable strings')
-        , 'icon' => 'ecr_language'
-        , 'task' => 'searchfiles'
-        )
-        , array('title' => jgettext('Translations')
-        , 'description' =>
-        jgettext('Manage translations in ini files and inspect your php / xml files for JText strings to translate.')
-        , 'icon' => 'ecr_language'
-        , 'task' => 'translations'
-        )
-        , array('title' => jgettext('Default file order')
-        , 'description' => jgettext('Change the order of your default language file and add comments to create a structure.')
-        , 'icon' => 'text'
-        , 'task' => 'langcorrectdeforder'
-        )
-        , array('title' => jgettext('Translation order')
-        , 'description' => jgettext('Change the order of your translated language files according to your default file.')
-        , 'icon' => 'text'
-        , 'task' => 'langcorrectorder'
-        )
-        , array('title' => jgettext('Versions')
-        , 'description' => jgettext('Compare saved versions of your language files.')
-        , 'icon' => 'sig'
-        , 'task' => 'show_versions'
-        )
-        , array('title' => jgettext('Convert')
-        , 'description' => jgettext('Convert your language files and your code simultaneously.')
-        , 'icon' => 'rename'
-        , 'task' => 'convert'
-        )
-        , array('title' => 'JALHOO'
-        , 'description' => jgettext('JALHOO is an experimental language handler.')
-        , 'icon' => 'ecr_language'
-        , 'tasks' => array('jalhoo')
-        )
+            array('title' => jgettext('Setup')
+            , 'description' => jgettext('Setup your language files')
+            , 'icon' => 'apply'
+            , 'task' => 'languages'
+            )
+            , array('title' => jgettext('Files and menus')
+            , 'description' => jgettext('Searches inside the source files and menus for translatable strings')
+            , 'icon' => 'ecr_language'
+            , 'task' => 'searchfiles'
+            )
+            , array('title' => jgettext('Translations')
+            , 'description' =>
+            jgettext('Manage translations in ini files and inspect your php / xml files for JText strings to translate.')
+            , 'icon' => 'ecr_language'
+            , 'task' => 'translations'
+            )
+            , array('title' => jgettext('Default file order')
+            , 'description' => jgettext('Change the order of your default language file and add comments to create a structure.')
+            , 'icon' => 'text'
+            , 'task' => 'langcorrectdeforder'
+            )
+            , array('title' => jgettext('Translation order')
+            , 'description' => jgettext('Change the order of your translated language files according to your default file.')
+            , 'icon' => 'text'
+            , 'task' => 'langcorrectorder'
+            )
+            , array('title' => jgettext('Versions')
+            , 'description' => jgettext('Compare saved versions of your language files.')
+            , 'icon' => 'sig'
+            , 'task' => 'show_versions'
+            )
+            , array('title' => jgettext('Convert')
+            , 'description' => jgettext('Convert your language files and your code simultaneously.')
+            , 'icon' => 'rename'
+            , 'task' => 'convert'
+            )
+            , array('title' => 'JALHOO'
+            , 'description' => jgettext('JALHOO is an experimental language handler.')
+            , 'icon' => 'ecr_language'
+            , 'task' => 'jalhoo'
+            )
         );
 
         //@todo - unify..

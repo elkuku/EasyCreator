@@ -49,11 +49,11 @@ class EasyTableHelper
     /**
      * Auto discover tables.
      *
-     * @param EasyProject $project The Project.
+     * @param EcrProject $project The Project.
      *
      * @return array
      */
-    public function discoverTables(EasyProject $project)
+    public function discoverTables(EcrProject $project)
     {
         $db = JFactory::getDBO();
         $dbTables = $db->getTableList();

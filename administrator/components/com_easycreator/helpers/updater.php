@@ -19,7 +19,7 @@ defined('_JEXEC') || die('=;)');
 class EcrUpdater
 {
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     private $project = null;
 
@@ -29,9 +29,9 @@ class EcrUpdater
 
     private $logger = null;
 
-    public function __construct(EasyProject $project, EasyLogger $logger = null)
+    public function __construct(EcrProject $project, EasyLogger $logger = null)
     {
-        if($project instanceof EasyProject)
+        if($project instanceof EcrProject)
         {
             $this->project = $project;
             $this->logger = $logger;

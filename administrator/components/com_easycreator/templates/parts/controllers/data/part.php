@@ -67,7 +67,7 @@ class PartControllersData
         echo 'Nothing to edit..';
 
         return;
-//#        $AutoCode = $EasyProject->autoCodes[$this->key];
+//#        $AutoCode = $EcrProject->autoCodes[$this->key];
 //
 // #       $var_scope = $AutoCode->options['varScope'];
 
@@ -96,16 +96,16 @@ class PartControllersData
     /**
      * Inserts the part into the project.
      *
-     * @param object $easyProject EasyProject - The project.
+     * @param EcrProject $project EcrProject - The project.
      * @param array $options Insert options.
      * @param object $logger EasyLogger.
      *
      * @return boolean
      */
-    public function insert($easyProject, $options, $logger)
+    public function insert(EcrProject $project, $options, $logger)
     {
-        $easyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Controllers');
+        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Controllers');
 
-        return $easyProject->insertPart($options, $logger);
+        return $project->insertPart($options, $logger);
     }//function
 }//class

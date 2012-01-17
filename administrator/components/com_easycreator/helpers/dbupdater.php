@@ -21,7 +21,7 @@ class dbUpdater
     private $versions = array();
 
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     private $project = null;
 
@@ -32,10 +32,10 @@ class dbUpdater
     /**
      * Constructor.
      *
-     * @param EasyProject $project
+     * @param EcrProject $project
      * @param string $adapter
      */
-    public function __construct(EasyProject $project, $adapter = 'mysql')
+    public function __construct(EcrProject $project, $adapter = 'mysql')
     {
         if(class_exists('easyLogger'))
         $this->logger = easyLogger::getInstance('ecr');

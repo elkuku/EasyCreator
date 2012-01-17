@@ -216,17 +216,17 @@ class PartViewsData_list extends EasyPart
     /**
      * Inserts the part into the project.
      *
-     * @param EasyProject $EasyProject The project.
+     * @param EcrProject $EcrProject The project.
      * @param array $options Insert options.
      * @param EasyLogger $logger The EasyLogger.
      *
      * @return boolean
      */
-    public function insert(EasyProject $EasyProject, $options, EasyLogger $logger)
+    public function insert(EcrProject $EcrProject, $options, EasyLogger $logger)
     {
         ecrLoadHelper('autocode');
 
-        $EasyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
+        $EcrProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
 
         $element_name = JRequest::getCmd('element');
         $element_scope = JRequest::getCmd('element_scope');
@@ -262,9 +262,9 @@ class PartViewsData_list extends EasyPart
         /*
          * Add substitutes
          */
-        $EasyProject->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
-        $EasyProject->addSubstitute('_ECR_LOWER_ELEMENT_NAME_', strtolower($element_name));
-        $EasyProject->addSubstitute('_ECR_TABLE_NAME_', $table_name);
+        $EcrProject->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
+        $EcrProject->addSubstitute('_ECR_LOWER_ELEMENT_NAME_', strtolower($element_name));
+        $EcrProject->addSubstitute('_ECR_TABLE_NAME_', $table_name);
 
         /*
          * Add manual substitutes
@@ -303,12 +303,12 @@ class PartViewsData_list extends EasyPart
         {
             $AutoCode->fields[$key] = $req_table_fields;//array();//$autoCodeFields;
             $AutoCode->codes[$key] = $AutoCode->enclose($value, $key, true);
-            $EasyProject->addSubstitute($key, $AutoCode->enclose($value, $key, true));
+            $EcrProject->addSubstitute($key, $AutoCode->enclose($value, $key, true));
         }//foreach
 
-        $EasyProject->addAutoCode($AutoCode, $this->key);
+        $EcrProject->addAutoCode($AutoCode, $this->key);
 
-        return $EasyProject->insertPart($options, $logger);
+        return $EcrProject->insertPart($options, $logger);
     }//function
 
     /**

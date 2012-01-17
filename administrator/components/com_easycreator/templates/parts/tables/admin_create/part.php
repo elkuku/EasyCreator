@@ -76,13 +76,13 @@ class PartTablesAdmin_create
     /**
      * Inserts the part into the project.
      *
-     * @param EasyProject $easyProject The project.
+     * @param EcrProject $easyProject The project.
      * @param array $options Insert options.
      * @param EasyLogger $logger The EasyLogger.
      *
      * @return boolean
      */
-    public function insert(EasyProject $easyProject, $options, EasyLogger $logger)
+    public function insert(EcrProject $easyProject, $options, EasyLogger $logger)
     {
         $element_name = JRequest::getCmd('element_name');
 

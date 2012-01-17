@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Project definitions.
  */
-abstract class EasyProject extends JObject
+abstract class EcrProject extends JObject
 {
     public $legacy = false;//removed in 1.6
 

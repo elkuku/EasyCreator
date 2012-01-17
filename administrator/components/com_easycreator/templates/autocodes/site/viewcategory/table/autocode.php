@@ -182,13 +182,13 @@ class AutoCodeSiteViewCategoryTable extends EasyAutoCode
     /**
      * Inserts the AutoCode into the project.
      *
-     * @param EasyProject $project The project.
+     * @param EcrProject $project The project.
      * @param array $options Insert options.
      * @param EasyLogger $logger The EasyLogger.
      *
      * @return boolean
      */
-    public function insert(EasyProject $project, $options, EasyLogger $logger)
+    public function insert(EcrProject $project, $options, EasyLogger $logger)
     {
 	    JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'error');
 

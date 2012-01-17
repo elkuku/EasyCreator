@@ -25,7 +25,7 @@ class EcrZiper extends JObject
     private $createdFiles = array();
 
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     private $project;
 
@@ -48,11 +48,11 @@ class EcrZiper extends JObject
     /**
      * Create the package.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      *
      * @return bool true on success
      */
-    public function create(EasyProject $project)
+    public function create(EcrProject $project)
     {
         $this->project = $project;
 

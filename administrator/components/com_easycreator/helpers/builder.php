@@ -18,7 +18,7 @@ defined('_JEXEC') || die('=;)');
 class EcrBuilder extends JObject
 {
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     public $project = null;
 
@@ -52,7 +52,7 @@ class EcrBuilder extends JObject
      * @param string $template Name of the extension template
      * @param string $name Babys name
      *
-     * @return EasyProject on success | false on error.
+     * @return EcrProject on success | false on error.
      */
     public function build($type, $template, $name)
     {
@@ -614,11 +614,11 @@ class EcrBuilder extends JObject
      * Process custom otions.
      *
      * @param string $action The action to perform
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      *
      * @return mixed [array custom options | boolean false on error]
      */
-    public function customOptions($action = 'display', EasyProject $project = null)
+    public function customOptions($action = 'display', EcrProject $project = null)
     {
         static $templateOptions = null;
 
@@ -711,7 +711,7 @@ class EcrBuilder extends JObject
      * @param string $name Project name
      * @param string $scope Project scope e.g. admin, site
      *
-     * @return EasyProject on success | false on error
+     * @return EcrProject on success | false on error
      */
     public function registerProject($type, $name, $scope = '')
     {

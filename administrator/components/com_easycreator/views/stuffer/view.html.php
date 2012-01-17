@@ -21,7 +21,7 @@ jimport('joomla.application.component.view');
 class EasyCreatorViewStuffer extends JView
 {
     /**
-     * @var EasyProject
+     * @var EcrProject
      */
     protected $project;
 

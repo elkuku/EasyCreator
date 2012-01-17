@@ -53,7 +53,7 @@ final class EcrHtml
         $tasks = array();
         $rightTasks = array();
 
-        if($project instanceof EasyProject
+        if($project instanceof EcrProject
         && $project->isValid)
         {
             //-- Left bar
@@ -472,10 +472,10 @@ countries.</em></small>
      * Draws a h1 tag with title and project name.
      *
      * @param string                   $title
-     * @param \EasyProject|null|object $project EasyProject
+     * @param \EcrProject|null|object $project EcrProject
      * @param string                   $class
      */
-    public static function header($title, EasyProject $project = null, $class = '')
+    public static function header($title, EcrProject $project = null, $class = '')
     {
         $pName =($project) ? $project->name : '';
         $pType =($project) ? ucfirst($project->type) : '';
@@ -570,13 +570,13 @@ countries.</em></small>
      *
      * @static
      *
-     * @param \EasyProject $project
+     * @param \EcrProject $project
      *
      * @internal param array $projectParams
      *
      * @return string
      */
-    public static function drawDbOptions(EasyProject $project)
+    public static function drawDbOptions(EcrProject $project)
     {
         $formats = JFolder::files(JPATH_COMPONENT.'/helpers/sql/format');
 
@@ -845,10 +845,10 @@ EOF;
      * Wizard
      * Displays the project information introduced so far.
      *
-     * @param \EasyProject|\JObject $project
+     * @param \EcrProject|\JObject $project
      * @param array                 $formFieldNames fields already displayed
      */
-    public static function displayResult(EasyProject $project, $formFieldNames = array())
+    public static function displayResult(EcrProject $project, $formFieldNames = array())
     {
         ecrLoadHelper('easytemplatehelper');
 
@@ -899,12 +899,12 @@ EOF;
      * @param string              $title
      * @param string              $property
      * @param string              $formFieldName
-     * @param \EasyProject|object $project
+     * @param \EcrProject|object $project
      * @param array               $formFieldNames fields not to display
      *
      * @return string
      */
-    private static function displayResultFieldRow($title, $property, $formFieldName, EasyProject $project, $formFieldNames)
+    private static function displayResultFieldRow($title, $property, $formFieldName, EcrProject $project, $formFieldNames)
     {
         if( ! $project->$property)
         {

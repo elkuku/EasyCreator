@@ -35,9 +35,9 @@ class ECRLanguageConverter
      * Constructor.
      *
      * @param JObject $options Converting options
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      */
-    public function __construct(JObject $options, EasyProject $project)
+    public function __construct(JObject $options, EcrProject $project)
     {
         $this->cleanRegEx = "/JText::_\(\s*\'(.*)\'\s*\)|JText::_\(\s*\"(.*)\"\s*\)"
             ."|JText::sprintf\(\s*\"(.*)\"|JText::sprintf\(\s*\'(.*)\'"

@@ -80,11 +80,11 @@ $fileTree = new phpFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFold
 /**
  * Draws a file tree for the project.
  *
- * @param EasyProject $project The project
+ * @param EcrProject $project The project
  *
  * @return string
  */
-function drawFileTree(EasyProject $project)
+function drawFileTree(EcrProject $project)
 {
     $ret = '';
 

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * EasyCreator project type plugin.
  */
-class EasyProjectPlugin extends EasyProject
+class EcrProjectPlugin extends EcrProject
 {
     /**
      * Project type.
@@ -231,7 +231,7 @@ class EasyProjectPlugin extends EasyProject
                 break;
 
             default:
-                EcrHtml::displayMessage('Unsupported JVersion in EasyProjectComponent::getId()');
+                EcrHtml::displayMessage('Unsupported JVersion in EcrProjectComponent::getId()');
 
                 return false;
                 break;

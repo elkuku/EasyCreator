@@ -10,10 +10,10 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('project');
+//ecrLoadHelper('project');
 
 /**
- * EasyProject Helper.
+ * EcrProject Helper.
  *
  * @package    EasyCreator
  */
@@ -60,7 +60,7 @@ class EcrProjectHelper
      * @param string $name Project name.
      * @param boolean $reload Reload the project.
      *
-     * @return EasyProject [EasyProject project on success | boolean false on error]
+     * @return EcrProject [EcrProject project on success | boolean false on error]
      */
     public static function getProject($name = '', $reload = false)
     {
@@ -90,13 +90,13 @@ class EcrProjectHelper
         if( ! array_key_exists($type, $projectTypes))
         throw new Exception(sprintf('Invalid project type: %s ', $type));
 
-        if( ! ecrLoadHelper('projecttypes.'.$projectTypes[$type]))
-        throw new Exception(sprintf('No helper found for project type %s', $projectTypes[$type]));
+//        if( ! ecrLoadHelper('projecttypes.'.$projectTypes[$type]))
+//        throw new Exception(sprintf('No helper found for project type %s', $projectTypes[$type]));
 
-        $className = 'EasyProject'.ucfirst($projectTypes[$type]);
+        $className = 'EcrProject'.ucfirst($projectTypes[$type]);
 
-        if( ! class_exists($className))
-        throw new Exception(sprintf('Required class [%s] not found', $className));
+//        if( ! class_exists($className))
+//        throw new Exception(sprintf('Required class [%s] not found', $className));
 
         $project = new $className($name);
 
@@ -120,10 +120,11 @@ class EcrProjectHelper
      *
      * @param string $type Project type (component, plugin, etc.)
      *
-     * @return EasyProject | boolean false on error
+     * @return EcrProject | boolean false on error
      */
     public static function newProject($type)
     {
+        /*
         if( ! ecrLoadHelper('projecttypes.'.$type))
         {
             JFactory::getApplication()->enqueueMessage(
@@ -131,9 +132,11 @@ class EcrProjectHelper
 
             return false;
         }
+        */
 
-        $className = 'EasyProject'.ucfirst($type);
+        $className = 'EcrProject'.ucfirst($type);
 
+        /*
         if( ! class_exists($className))
         {
             JFactory::getApplication()->enqueueMessage(
@@ -141,6 +144,7 @@ class EcrProjectHelper
 
             return false;
         }
+        */
 
         $project = new $className;
 
@@ -150,11 +154,11 @@ class EcrProjectHelper
     /**
      * Findes the Joomla! install xml file for a given extension.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      *
      * @return mixed [boolean false on error | string path on success]
      */
-    public static function findManifest(EasyProject $project)
+    public static function findManifest(EcrProject $project)
     {
         $path = $project->getJoomlaManifestPath();
 
@@ -528,12 +532,12 @@ class EcrProjectHelper
     /**
      * Format a filename for a package file.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      * @param string $format The format to use
      *
      * @return string
      */
-    public static function formatFileName(EasyProject $project, $format)
+    public static function formatFileName(EcrProject $project, $format)
     {
         $svnRev = EcrHtml::getVersionFromCHANGELOG($project->comName, true);
 
@@ -681,11 +685,11 @@ class EcrProjectHelper
     /**
      * Finds PHP and SQL install files.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      *
      * @return array Object array
      */
-    public static function findInstallFiles(EasyProject $project)
+    public static function findInstallFiles(EcrProject $project)
     {
         $installFiles = array();
         $installFiles['php'] = array();

@@ -55,12 +55,12 @@ class EasyELanguage
     /**
      * Constructor.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      * @param string $scope Scope e.g. admin or site
      * @param array $hideLangs Do not show these languages
      * @param boolean $showCore Set true to also show the core language
      */
-    public function __construct(EasyProject $project, $scope, $hideLangs, $showCore = false)
+    public function __construct(EcrProject $project, $scope, $hideLangs, $showCore = false)
     {
         $this->_hideLangs = $hideLangs;
         $this->_languages = $this->setLangs($project->langs);
@@ -1532,12 +1532,12 @@ case 'etc':
      *
      * @param string $lang Language code eg. en-GB
      * @param string $scope Eg. admin
-     * @param EasyProject $project The EasyProject
+     * @param EcrProject $project The EcrProject
      * @param boolean $core True if it is a core project
      *
      * @return string full path to file
      */
-    public static function getFileName($lang, $scope, EasyProject $project, $core = false)
+    public static function getFileName($lang, $scope, EcrProject $project, $core = false)
     {
         if($core)
         {

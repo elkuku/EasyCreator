@@ -52,13 +52,13 @@ class PartControllersSimple
     /**
      * Inserts the part into the project.
      *
-     * @param EasyProject $easyProject The project.
+     * @param EcrProject $easyProject The project.
      * @param array $options Insert options.
      * @param EasyLogger $easyLogger The EasyLogger.
      *
      * @return boolean
      */
-    public function insert(EasyProject $easyProject, $options, EasyLogger $easyLogger)
+    public function insert(EcrProject $easyProject, $options, EasyLogger $easyLogger)
     {
         $easyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Controllers');
 

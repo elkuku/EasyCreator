@@ -814,10 +814,10 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Process the SQL install file.
      *
-     * @param EasyProject $project The project.
+     * @param EcrProject $project The project.
      * @param             $installPath
      */
-    private function processSQLInstall(EasyProject $project, $installPath)
+    private function processSQLInstall(EcrProject $project, $installPath)
     {
         $xmlPath = $this->createDbExport($project, $installPath);
 
@@ -865,10 +865,10 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Process the SQL uninstall file.
      *
-     * @param EasyProject $project The project
+     * @param EcrProject $project The project
      * @param string      $installPath    Path to the project root.
      */
-    private function processSQLUnInstall(EasyProject $project, $installPath)
+    private function processSQLUnInstall(EcrProject $project, $installPath)
     {
         $xmlPath = $this->createDbExport($project, $installPath);
 
@@ -919,13 +919,13 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Create the XML database export file.
      *
-     * @param EasyProject $project
+     * @param EcrProject $project
      * @param string $installPath
      *
      * @return string
      * @throws Exception
      */
-    private function createDbExport(EasyProject $project, $installPath)
+    private function createDbExport(EcrProject $project, $installPath)
     {
         $db = JFactory::getDbo();
 
@@ -964,11 +964,11 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Process a SQL update file.
      *
-     * @param EasyProject $project The project.
+     * @param EcrProject $project The project.
      * @param string      $installPath    Path to the project root.
      *
      * @return mixed
-     */private function processSQLUpdate(EasyProject $project, $installPath)
+     */private function processSQLUpdate(EcrProject $project, $installPath)
     {
         ecrLoadHelper('dbupdater');
 
