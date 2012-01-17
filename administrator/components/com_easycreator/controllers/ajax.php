@@ -194,7 +194,6 @@ class EasyCreatorControllerAjax extends JController
                     return;
                 }
 
-                ecrLoadHelper('reflection');
                 fakeClasses(JFile::getName($cList[$rClass][1]));
 
                 require_once $path;

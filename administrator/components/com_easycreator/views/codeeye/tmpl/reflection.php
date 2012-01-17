@@ -104,13 +104,11 @@ function reflectFile(file_path, file_nameame)
 
 function aj_drawProject(EasyProject $project)
 {
-    ecrLoadHelper('reflection');
-
     echo '<h1>'.$project->name.'</h1>';
     echo '<h3>'.$project->comName.'</h2>';
     echo '<h3>credits..</h2>';
 
-    $reflection = new easyReflection;
+    $reflection = new EcrReflection;
 
     switch($project->type)
     {
@@ -153,13 +151,11 @@ function aj_drawProject(EasyProject $project)
 
 function drawProject(EasyProject $project)
 {
-    ecrLoadHelper('reflection');
-
     echo '<h1>'.$project->name.'</h1>';
     echo '<h3>'.$project->comName.'</h2>';
     echo '<h3>credits..</h2>';
 
-    $reflection = new easyReflection;
+    $reflection = new EcrReflection;
 
     switch($project->type)
     {
@@ -358,7 +354,7 @@ function displayReflectedFiles($reflections, $type, EasyProject $project)
                             foreach($templates as $template)
                             {
                                 echo $template.'<br />';
-                                $templateVars = easyReflection::inspectTemplate($cPath.DS.'tmpl'.DS.$template);
+                                $templateVars = EcrReflection::inspectTemplate($cPath.DS.'tmpl'.DS.$template);
 
                                 if(count($templateVars))
                                 {
@@ -482,9 +478,7 @@ function reflect($path, $file)
     $fullPathFileName = JPATH_ROOT.DS.$path.DS.$file;
     $ecr_project = JRequest::getCmd('ecr_project');
 
-    ecrLoadHelper('reflection');
-
-    $reflection = new easyReflection;
+    $reflection = new EcrReflection;
 
 //#	$reflection->printDeclaredClasses();
 
