@@ -76,7 +76,7 @@ foreach($allTables as $k => $table)
     $tables[] = $table;
 }//foreach
 
-$autocodeList = EasyProjectHelper::getAutoCodeList();
+$autocodeList = EcrProjectHelper::getAutoCodeList();
 ?>
 
 <input type="hidden" name="table_name" id="table_name" />

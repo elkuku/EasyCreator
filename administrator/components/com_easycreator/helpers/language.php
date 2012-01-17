@@ -1151,7 +1151,7 @@ case 'etc':
 
         if($type != 'js')
         {
-            $manifest = EasyProjectHelper::findManifest($this->project);
+            $manifest = EcrProjectHelper::findManifest($this->project);
 
             if($manifest && ! in_array(JPATH_ROOT.DS.$manifest, $this->_fileList))
             {
@@ -1292,7 +1292,7 @@ case 'etc':
 
             case 'xml':
                 //--Search XML files
-	            $xmlDoc = EasyProjectHelper::getXML($fileName);
+	            $xmlDoc = EcrProjectHelper::getXML($fileName);
 
                 if($xmlDoc)
                 {
@@ -1480,7 +1480,7 @@ case 'etc':
      */
     public static function createFileFromRequest()
     {
-        $project = EasyProjectHelper::getProject();
+        $project = EcrProjectHelper::getProject();
 
         if( ! $scope = JRequest::getCmd('lng_scope'))
         throw new Exception(jgettext('No scope given'));

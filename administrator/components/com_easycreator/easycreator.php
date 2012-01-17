@@ -70,7 +70,7 @@ else
 }
 
 //-- Load helpers
-ecrLoadHelper('projecthelper');
+//ecrLoadHelper('projecthelper');
 ecrLoadHelper('languagehelper');
 
 //-- Load the special Language
@@ -120,7 +120,7 @@ catch(Exception $e)
 /**
  * EasyCreator Version
  */
-define('ECR_VERSION', EasyProjectHelper::parseXMLInstallFile(
+define('ECR_VERSION', EcrProjectHelper::parseXMLInstallFile(
 JPATH_COMPONENT_ADMINISTRATOR.DS.'easycreator.xml')->version);
 
 /**

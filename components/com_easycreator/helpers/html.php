@@ -53,7 +53,7 @@ class easyHTML
         JLoader::import('helpers.projecthelper', JPATH_COMPONENT_ADMINISTRATOR);
 
         //--Get existing projects
-        $projects = EasyProjectHelper::getProjectList();
+        $projects = EcrProjectHelper::getProjectList();
         $selectedProject = JRequest::getVar('ebc_project');
 
         if( ! isset($projects['component']))

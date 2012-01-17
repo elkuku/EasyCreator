@@ -33,7 +33,7 @@ class EasyCreatorControllerAutoCode extends JController
 
         $key = "$scope.$group.$part.$element";
 
-        $AutoCode = EasyProjectHelper::getAutoCode($key);
+        $AutoCode = EcrProjectHelper::getAutoCode($key);
 
         if( ! $AutoCode)
         {
@@ -91,7 +91,7 @@ class EasyCreatorControllerAutoCode extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -107,7 +107,7 @@ class EasyCreatorControllerAutoCode extends JController
 
         $key = "$scope.$group.$part.$element";
 
-        $AutoCode = EasyProjectHelper::getAutoCode($key);
+        $AutoCode = EcrProjectHelper::getAutoCode($key);
 
         if( ! $AutoCode)
         {

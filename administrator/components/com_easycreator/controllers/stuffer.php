@@ -77,7 +77,7 @@ class EasyCreatorControllerStuffer extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -92,7 +92,7 @@ class EasyCreatorControllerStuffer extends JController
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('file', '');
 
-        if( ! $ePart = EasyProjectHelper::getPart($group, $part, $element, $scope))
+        if( ! $ePart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
             EcrHtml::displayMessage(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
             parent::display();
@@ -164,7 +164,7 @@ class EasyCreatorControllerStuffer extends JController
             if( ! $tableName = JRequest::getCmd('table_name'))
             throw new Exception(jgettext('No table given'));
 
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             if( ! array_key_exists($tableName, $project->tables))
             throw new Exception(jgettext('Invalid Table'));
@@ -227,13 +227,13 @@ class EasyCreatorControllerStuffer extends JController
 
         try
         {
-            if( ! $AutoCode = EasyProjectHelper::getAutoCode($key))
+            if( ! $AutoCode = EcrProjectHelper::getAutoCode($key))
             throw new Exception(jgettext('Unable to load Autocode').sprintf(' [group, part] [%s, %s]', $group, $part));
 
             if( ! method_exists($AutoCode, 'insert'))
             throw new Exception(sprintf(jgettext('Insert method not found in Autocode %s'), $key));
 
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             if( ! $project->prepareAddPart($ecr_project))
             throw new Exception(sprintf(jgettext('Unable to prepare project [project, group, part] [%s, %s, %s]')
@@ -532,12 +532,12 @@ class EasyCreatorControllerStuffer extends JController
 
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             $project->updateProjectFromRequest();
 
             //-- Reload the project
-            $project = EasyProjectHelper::getProject('', true);
+            $project = EcrProjectHelper::getProject('', true);
 
             JFactory::getApplication()->enqueueMessage(jgettext('The Settings have been updated'));
         }
@@ -578,7 +578,7 @@ class EasyCreatorControllerStuffer extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -628,7 +628,7 @@ class EasyCreatorControllerStuffer extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -722,7 +722,7 @@ class EasyCreatorControllerStuffer extends JController
             ecrLoadHelper('logger');
 
             //--Get the project
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             $installPath = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName.DS.'install';
 

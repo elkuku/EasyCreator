@@ -119,7 +119,7 @@ class JoomlaManifest extends JObject
         {
             //--Building project
             $path = JPath::clean($this->project->basepath
-                .'/'.JFile::getName(EasyProjectHelper::findManifest($this->project)));
+                .'/'.JFile::getName(EcrProjectHelper::findManifest($this->project)));
         }
 
         $xml = $this->formatXML();
@@ -238,7 +238,7 @@ class JoomlaManifest extends JObject
             return $this;
         }
 
-        $installFiles = EasyProjectHelper::findInstallFiles($this->project);
+        $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         //-- PHP install scripts
 
@@ -696,7 +696,7 @@ class JoomlaManifest extends JObject
         foreach($this->project->elements as $element => $path)
         {
             //--Get the project
-            $project = EasyProjectHelper::getProject($element);
+            $project = EcrProjectHelper::getProject($element);
 
             $fileElement = $filesElement->addChild('file', $path);
             $fileElement->addAttribute('type', $project->type);
@@ -729,7 +729,7 @@ class JoomlaManifest extends JObject
             if( ! JFile::exists($fileName))
             return $this;
 
-            $refXml = EasyProjectHelper::getXML($fileName);
+            $refXml = EcrProjectHelper::getXML($fileName);
 
             $params = $this->manifest->addChild('params');
             $this->appendXML($params, $refXml->params);
@@ -744,11 +744,11 @@ class JoomlaManifest extends JObject
         }
 
         //-- Search if there is a config.xml
-        $fileName = EasyProjectHelper::findConfigXML($this->project->type, $this->project->comName);
+        $fileName = EcrProjectHelper::findConfigXML($this->project->type, $this->project->comName);
 
         if($fileName)
         {
-            $cfgXml = EasyProjectHelper::getXML($fileName);
+            $cfgXml = EcrProjectHelper::getXML($fileName);
 
             if( ! $cfgXml
             || ! $cfgXml->params)
@@ -780,9 +780,9 @@ class JoomlaManifest extends JObject
                 }//foreach
             }//foreach
         }
-        else if(JFile::exists(JPath::clean(JPATH_ROOT.DS.EasyProjectHelper::findManifest($this->project))))
+        else if(JFile::exists(JPath::clean(JPATH_ROOT.DS.EcrProjectHelper::findManifest($this->project))))
         {
-            $refXml = EasyProjectHelper::getXML(JPath::clean(JPATH_ROOT.DS.EasyProjectHelper::findManifest($this->project)));
+            $refXml = EcrProjectHelper::getXML(JPath::clean(JPATH_ROOT.DS.EcrProjectHelper::findManifest($this->project)));
 
             $params = $this->manifest->addChild('params');
             $this->appendXML($params, $refXml->params);
@@ -812,7 +812,7 @@ class JoomlaManifest extends JObject
 
             //            //-- Try the install manifest.xml
             //            $params = new JParameter('', JPath::clean(JPATH_ROOT.DS
-            //            .EasyProjectHelper::findManifest($this->project)));
+            //            .EcrProjectHelper::findManifest($this->project)));
             //
             //            if( ! $params->getNumParams()) return true;
             //
@@ -907,7 +907,7 @@ class JoomlaManifest extends JObject
             $s = str_replace('mod_', 'mod_'.$module->scope.'_', $module->name);
 
             //--Get the project
-            $project = EasyProjectHelper::getProject($s);
+            $project = EcrProjectHelper::getProject($s);
 
             $modElement = $modulesElement->addChild('module');
             $modElement->addAttribute('module', $module->name);
@@ -971,9 +971,9 @@ class JoomlaManifest extends JObject
 
             $paramsElement = $modElement->addChild('params');
 
-            $path = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
+            $path = JPATH_ROOT.DS.EcrProjectHelper::findManifest($project);
 
-            $xml = EasyProjectHelper::getXML($path);
+            $xml = EcrProjectHelper::getXML($path);
 
             if( ! $xml)
                 throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $path));
@@ -1028,9 +1028,9 @@ class JoomlaManifest extends JObject
         foreach($this->project->plugins as $item)
         {
             //--Get the project
-            $project = EasyProjectHelper::getProject('plg_'.$item->scope.'_'.$item->name);
+            $project = EcrProjectHelper::getProject('plg_'.$item->scope.'_'.$item->name);
 
-            $f = JPATH_ROOT.DS.EasyProjectHelper::findManifest($project);
+            $f = JPATH_ROOT.DS.EcrProjectHelper::findManifest($project);
 
             $plgElement = $pluginsElement->addChild('plugin');
             $plgElement->addAttribute('plugin', $item->name);
@@ -1075,7 +1075,7 @@ class JoomlaManifest extends JObject
                 }//foreach
             }
 
-            $xml = EasyProjectHelper::getXML($f);
+            $xml = EcrProjectHelper::getXML($f);
 
             if(false == $xml)
             throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $f));

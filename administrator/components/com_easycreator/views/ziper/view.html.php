@@ -40,7 +40,7 @@ class EasyCreatorViewZiper extends JView
         //--Get the project
         try
         {
-            $this->project = EasyProjectHelper::getProject();
+            $this->project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {

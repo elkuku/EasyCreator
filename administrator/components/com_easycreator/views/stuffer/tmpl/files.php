@@ -200,13 +200,13 @@ function drawFileTree(EasyProject $project)
         </script>
 <div id="addElementMessage"></div>
 <div id="addPartPartsList" style="float: left;"><?php
-foreach(EasyProjectHelper::getPartsGroups() as $group)
+foreach(EcrProjectHelper::getPartsGroups() as $group)
 {
     echo '<strong style="color: blue;">'.ucfirst($group).'</strong><br />';
 
-    foreach(EasyProjectHelper::getParts($group) as $part)
+    foreach(EcrProjectHelper::getParts($group) as $part)
     {
-	    $easyPart = EasyProjectHelper::getPart($group, $part, '', '');
+	    $easyPart = EcrProjectHelper::getPart($group, $part, '', '');
 
         if($easyPart)
         {

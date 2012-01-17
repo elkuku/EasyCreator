@@ -101,7 +101,7 @@ class EasyTemplateOptions
         /*
          * Admin
          */
-        $c = EasyProjectHelper::getAutoCode('admin.sql.insert.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.sql.insert.'.$tableName);
         $c->elements = array('field');
         $codes[] = $c;
 //        $e = new stdClass();
@@ -113,7 +113,7 @@ class EasyTemplateOptions
 //        $e->indent = '  ';
 //        $elements[] = $e;
 
-        $c = EasyProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);
         $c->elements = array('var');
         $c->options['varscope'] =($builder->project->phpVersion == '4') ? 'var' : 'protected';
         $codes[] = $c;
@@ -126,7 +126,7 @@ class EasyTemplateOptions
 //        $e->indent = '';
 //        $elements[] = $e;
 
-        $c = EasyProjectHelper::getAutoCode('admin.viewlist.table.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.viewlist.table.'.$tableName);
         $c->elements = array('header', 'cell');
         $codes[] = $c;
 //        $e = new stdClass();
@@ -138,7 +138,7 @@ class EasyTemplateOptions
 //        $e->options = array();
 //        $elements[] = $e;
 
-        $c = EasyProjectHelper::getAutoCode('admin.viewform.table.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.viewform.table.'.$tableName);
         $c->elements = array('row');
         $codes[] = $c;
 //        $e = new stdClass();
@@ -153,7 +153,7 @@ class EasyTemplateOptions
         /*
          * Site
          */
-        $c = EasyProjectHelper::getAutoCode('site.viewitem.div.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('site.viewitem.div.'.$tableName);
         $c->elements = array('divrow');
         $codes[] = $c;
 //        $e = new stdClass();
@@ -182,7 +182,7 @@ class EasyTemplateOptions
                 $autoCode->codes[$key] = $code;
                 $autoCode->tables[$key] = $table;
             }//foreach
-//            $autoCode = EasyProjectHelper::getAutoCode($element->autoCodeName);
+//            $autoCode = EcrProjectHelper::getAutoCode($element->autoCodeName);
 //
 //            if( ! $autoCode)
 //            {

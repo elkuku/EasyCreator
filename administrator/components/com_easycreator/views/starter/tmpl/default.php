@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 //-- Add css
 ecrStylesheet('php_file_tree');
 
-$comTypes = EasyProjectHelper::getProjectTypes();
+$comTypes = EcrProjectHelper::getProjectTypes();
 $jVersions = array('15', '17');
 
 ?>
@@ -39,7 +39,7 @@ foreach ($jVersions as $v) : ?>
 
 </div>
 <div style="clear: both; height: 1em;"></div>
-<?php foreach(EasyProjectHelper::getProjectTypes() as $extType => $description): ?>
+<?php foreach(EcrProjectHelper::getProjectTypes() as $extType => $description): ?>
     <div class="ecr_floatbox" style="width: 250px;">
         <div class="ecr_floatbox_title img icon-12-<?php echo $extType; ?>">
             <?php echo $description; ?>

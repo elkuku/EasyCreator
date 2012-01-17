@@ -45,7 +45,7 @@ class EasyCreatorViewStuffer extends JView
         //--Get the project
         try
         {
-            $this->project = EasyProjectHelper::getProject();
+            $this->project = EcrProjectHelper::getProject();
 
             if('package' == $this->project->type
             && ! $this->project->creationDate)
@@ -171,8 +171,8 @@ class EasyCreatorViewStuffer extends JView
      */
     private function stuffer()
     {
-        $this->projectList = EasyProjectHelper::getProjectList();
-        $this->installFiles = EasyProjectHelper::findInstallFiles($this->project);
+        $this->projectList = EcrProjectHelper::getProjectList();
+        $this->installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         $this->setLayout('stuffer');
     }//function
@@ -203,7 +203,7 @@ class EasyCreatorViewStuffer extends JView
      */
     private function install()
     {
-        $this->installFiles = EasyProjectHelper::findInstallFiles($this->project);
+        $this->installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         $this->setLayout('install');
     }//function

@@ -92,14 +92,14 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 				</div>
 				<ul>
 				<?php
-                foreach(EasyProjectHelper::getPartsGroups() as $group):
+                foreach(EcrProjectHelper::getPartsGroups() as $group):
                     $js = " onmousedown=\"setAction('', '".$path.DS."parts', '".$group."');\"";
                     ?>
 					<li class="pft-directory"><?php echo '<div'.$js.'>'.jgettext($group).'</div>'; ?>
 						<ul>
 <?php
-                        foreach(EasyProjectHelper::getParts($group) as $part):
-	                        $easyPart = EasyProjectHelper::getPart($group, $part, '', '');
+                        foreach(EcrProjectHelper::getParts($group) as $part):
+	                        $easyPart = EcrProjectHelper::getPart($group, $part, '', '');
 
                             if($easyPart):
                                 $toolTip = $group.'::'.$part;

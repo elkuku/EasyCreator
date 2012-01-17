@@ -47,7 +47,7 @@ class EasyCreatorControllerLanguages extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -93,7 +93,7 @@ class EasyCreatorControllerLanguages extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -213,7 +213,7 @@ class EasyCreatorControllerLanguages extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -296,7 +296,7 @@ class EasyCreatorControllerLanguages extends JController
         {
             ecrLoadHelper('g11n');
 
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             switch($project->type)
             {
@@ -332,7 +332,7 @@ class EasyCreatorControllerLanguages extends JController
         {
             ecrLoadHelper('g11n');
 
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             $scope = JRequest::getCmd('scope');
 

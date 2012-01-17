@@ -43,7 +43,7 @@ class EasyCreatorViewLanguages extends JView
 
         try
         {
-            $this->project = EasyProjectHelper::getProject();
+            $this->project = EcrProjectHelper::getProject();
 
             //--Draw h1 header
             EcrHtml::header(jgettext('Languages'), $this->project, 'ecr_languages');

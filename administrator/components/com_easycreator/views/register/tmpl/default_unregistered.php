@@ -11,8 +11,8 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-$projectTypes = EasyProjectHelper::getProjectTypes();
-$projectScopes = EasyProjectHelper::getProjectScopes();
+$projectTypes = EcrProjectHelper::getProjectTypes();
+$projectScopes = EcrProjectHelper::getProjectScopes();
 
 $task = JRequest::getCmd('task');
 $showCore =(JRequest::getCmd('show_core') == 'show_core') ? true : false;
@@ -43,7 +43,7 @@ foreach($projectScopes as $comType => $projectScope)
 
     foreach($scopes as $scope)
     {
-        $unregisteredProjects = EasyProjectHelper::getUnregisteredProjects($comType, $scope, $showCore);
+        $unregisteredProjects = EcrProjectHelper::getUnregisteredProjects($comType, $scope, $showCore);
 
         if($comType != 'component' && $scope)
         {

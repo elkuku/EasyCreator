@@ -12,8 +12,8 @@ defined('_JEXEC') || die('=;)');
 
 $projectCount = 0;
 
-$projects = EasyProjectHelper::getProjectList();
-$projectTypes = EasyProjectHelper::getProjectTypes();
+$projects = EcrProjectHelper::getProjectList();
+$projectTypes = EcrProjectHelper::getProjectTypes();
 
 $toolImgBase = '&lt;span class=\'img icon-16-%s\' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;';
 

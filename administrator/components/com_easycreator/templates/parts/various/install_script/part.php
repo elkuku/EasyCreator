@@ -39,7 +39,7 @@ class PartVariousInstall_Script
      */
     public function getOptions()
     {
-        $project = EasyProjectHelper::getProject();
+        $project = EcrProjectHelper::getProject();
 
         if('1.5' == $project->JCompat)
         {

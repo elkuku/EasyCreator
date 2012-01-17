@@ -40,7 +40,7 @@ final class EcrHtml
         {
             try
             {
-                $project = EasyProjectHelper::getProject();
+                $project = EcrProjectHelper::getProject();
             }
             catch(Exception $e)
             {
@@ -953,8 +953,8 @@ EOF;
      */
     public static function drawProjectSelector()
     {
-        $projects = EasyProjectHelper::getProjectList();
-        $projectTypes = EasyProjectHelper::getProjectTypes();
+        $projects = EcrProjectHelper::getProjectList();
+        $projectTypes = EcrProjectHelper::getProjectTypes();
         $ecr_project = JRequest::getCmd('ecr_project');
 
         $class = '';
@@ -973,7 +973,7 @@ EOF;
         {
             try
            {
-                $project = EasyProjectHelper::getProject();
+                $project = EcrProjectHelper::getProject();
 
                 $class = 'img3 icon-12-'.$project->type;
             }

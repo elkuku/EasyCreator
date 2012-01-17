@@ -17,7 +17,7 @@ ecrLoadHelper('project');
  *
  * @package    EasyCreator
  */
-class EasyProjectHelper
+class EcrProjectHelper
 {
     /**
      * Gets known project types.
@@ -375,7 +375,7 @@ class EasyProjectHelper
 
             foreach($xmlfiles as $fileName)
             {
-                $xml = EasyProjectHelper::getXML($fileName);
+                $xml = EcrProjectHelper::getXML($fileName);
 
                 if( ! $xml)
                 continue;

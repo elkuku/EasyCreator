@@ -46,7 +46,7 @@ class EasyCreatorViewCodeEye extends JView
         //--Get the project
         try
         {
-            $this->project = EasyProjectHelper::getProject();
+            $this->project = EcrProjectHelper::getProject();
 
             if( ! count($this->project->copies))
             throw new Exception(jgettext('No files found'));

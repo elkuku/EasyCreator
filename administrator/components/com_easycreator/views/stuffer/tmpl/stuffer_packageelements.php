@@ -13,8 +13,8 @@ defined('_JEXEC') || die('=;)');
 if('package' != $this->project->type)
 return;
 
-$projects = EasyProjectHelper::getProjectList();
-$projectTypes = EasyProjectHelper::getProjectTypes();
+$projects = EcrProjectHelper::getProjectList();
+$projectTypes = EcrProjectHelper::getProjectTypes();
 
 ?>
 

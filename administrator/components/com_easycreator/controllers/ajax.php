@@ -39,7 +39,7 @@ class EasyCreatorControllerAjax extends JController
         $element = JRequest::getCmd('element');
         $scope = JRequest::getCmd('scope');
 
-        if( ! $EasyPart = EasyProjectHelper::getPart($group, $part, $element, $scope))
+        if( ! $EasyPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
             return;
         }
@@ -83,7 +83,7 @@ class EasyCreatorControllerAjax extends JController
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -99,7 +99,7 @@ class EasyCreatorControllerAjax extends JController
         $element = JRequest::getCmd('element');
         $scope = JRequest::getCmd('scope');
 
-        if( ! $EasyPart = EasyProjectHelper::getPart($group, $part, $element, $scope, true))
+        if( ! $EasyPart = EcrProjectHelper::getPart($group, $part, $element, $scope, true))
         {
             echo '<h4 style="color: red;">PART not found</h4>';
 
@@ -353,7 +353,7 @@ class EasyCreatorControllerAjax extends JController
 
         $partTask = JRequest::getCmd('part_task');
 
-        if( ! $easyPart = EasyProjectHelper::getPart($group, $part, $element, $scope))
+        if( ! $easyPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
             EcrHtml::displayMessage(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
 
@@ -393,7 +393,7 @@ class EasyCreatorControllerAjax extends JController
             //-- Strip line breaks
             $translation = str_replace("\n", '<br />', $translation);
 
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             if( ! count($project->langs))
             throw new Exception(jgettext('No languages found'));
@@ -438,7 +438,7 @@ class EasyCreatorControllerAjax extends JController
             if( ! $scope = JRequest::getCmd('scope'))
             throw new Exception(jgettext('No scope given'));
 
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
 
             if( ! count($project->langs))
             throw new Exception(jgettext('No languages found'));
@@ -1097,7 +1097,7 @@ body {
         //--Get the project
         try
         {
-            $project = EasyProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
         {
@@ -1108,7 +1108,7 @@ body {
             return;
         }//try
 
-        echo EasyProjectHelper::formatFileName($project, JRequest::getVar('cst_format', 'post'));
+        echo EcrProjectHelper::formatFileName($project, JRequest::getVar('cst_format', 'post'));
     }//function
 
     /**

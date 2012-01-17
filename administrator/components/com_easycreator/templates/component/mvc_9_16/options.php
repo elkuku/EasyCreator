@@ -175,39 +175,39 @@ class EasyTemplateOptions
         /*
          * Admin
          */
-        $c = EasyProjectHelper::getAutoCode('admin.sql.insert.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.sql.insert.'.$tableName);
         $c->elements = array('field');
         $codes[] = $c;
 
-        $c = EasyProjectHelper::getAutoCode('admin.models.model.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.models.model.'.$tableName);
         $c->elements = array('buildquery16');
         $codes[] = $c;
 
-        $c = EasyProjectHelper::getAutoCode('admin.forms.edit.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.forms.edit.'.$tableName);
         $c->elements = array('field');
         $codes[] = $c;
 
-        $c = EasyProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);
         $c->elements = array('var');
         $c->options['varscope'] =($builder->project->phpVersion == '4') ? 'var' : 'protected';
         $codes[] = $c;
 
-        $c = EasyProjectHelper::getAutoCode('admin.viewlist.table.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.viewlist.table.'.$tableName);
         $c->elements = array('header', 'cell');
         $codes[] = $c;
 
-        $c = EasyProjectHelper::getAutoCode('admin.viewform.table.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('admin.viewform.table.'.$tableName);
         $c->elements = array('row');
         $codes[] = $c;
 
         /*
          * Site
          */
-        $c = EasyProjectHelper::getAutoCode('site.viewitem.div.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('site.viewitem.div.'.$tableName);
         $c->elements = array('divrow');
         $codes[] = $c;
 
-        $c = EasyProjectHelper::getAutoCode('site.viewcategory.table.'.$tableName);
+        $c = EcrProjectHelper::getAutoCode('site.viewcategory.table.'.$tableName);
         $c->elements = array('header', 'cell');
         $codes[] = $c;
 

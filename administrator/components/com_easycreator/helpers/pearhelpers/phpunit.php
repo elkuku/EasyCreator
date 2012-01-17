@@ -148,7 +148,7 @@ class EasyPHPUnit extends EasyPearConsole
             return 'file size is 0..';
         }
 
-        $xmlObject = EasyProjectHelper::getXML($fileName);
+        $xmlObject = EcrProjectHelper::getXML($fileName);
 
         if( ! $xmlObject instanceof SimpleXMLElement)
         {

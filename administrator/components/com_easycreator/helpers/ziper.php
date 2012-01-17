@@ -301,7 +301,7 @@ class EcrZiper extends JObject
      */
     private function _isManifest($file)
     {
-        $xml = EasyProjectHelper::getXML($file);
+        $xml = EcrProjectHelper::getXML($file);
 
         //-- If we can not load the xml file return null
         if( ! $xml)
@@ -530,7 +530,7 @@ class EcrZiper extends JObject
             return true;
         }
 
-        $installFiles = EasyProjectHelper::findInstallFiles($this->project);
+        $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         if( ! count($installFiles['php']))
         return true;
@@ -677,7 +677,7 @@ class EcrZiper extends JObject
             //--Get the project
             try
             {
-                $modProject = EasyProjectHelper::getProject($s);
+                $modProject = EcrProjectHelper::getProject($s);
             }
             catch(Exception $e)
             {
@@ -744,7 +744,7 @@ class EcrZiper extends JObject
             //--Get the project
             try
             {
-                $plgProject = EasyProjectHelper::getProject($plgFolderName);
+                $plgProject = EcrProjectHelper::getProject($plgFolderName);
             }
             catch(Exception $e)
             {
@@ -856,7 +856,7 @@ class EcrZiper extends JObject
             //--Get the project
             try
             {
-                $project = EasyProjectHelper::getProject($element);
+                $project = EcrProjectHelper::getProject($element);
             }
             catch(Exception $e)
             {
@@ -1181,7 +1181,7 @@ class EcrZiper extends JObject
             $hrefBase = 'file://'.$this->project->getZipPath().'/'.$this->project->version;
         }
 
-        $customFileName = EasyProjectHelper::formatFileName($this->project, JRequest::getVar('cst_format'));
+        $customFileName = EcrProjectHelper::formatFileName($this->project, JRequest::getVar('cst_format'));
 
         $fileName = $this->project->getFileName().$customFileName;
 

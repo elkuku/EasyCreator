@@ -69,7 +69,7 @@ class EcrBuilder extends JObject
         $this->_buildBase = JPath::clean(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template);
         $this->logger->log('buildBase set to: '.$this->_buildBase);
 
-        $projectTypes = EasyProjectHelper::getProjectTypesTags();
+        $projectTypes = EcrProjectHelper::getProjectTypesTags();
 
         if( ! in_array($type, $projectTypes))
         {
@@ -89,7 +89,7 @@ class EcrBuilder extends JObject
             }
         }//foreach
 
-        $this->project = EasyProjectHelper::newProject($type);
+        $this->project = EcrProjectHelper::newProject($type);
 
         $this->project->name = $name;
         $this->project->type = $type;
@@ -170,7 +170,7 @@ class EcrBuilder extends JObject
             return false;
         }
 
-        $this->_buildManifest = EasyProjectHelper::getXML($this->_buildBase.DS.'manifest.xml');
+        $this->_buildManifest = EcrProjectHelper::getXML($this->_buildBase.DS.'manifest.xml');
         $this->logger->log('Build manifest loaded');
 
         return true;
@@ -734,7 +734,7 @@ class EcrBuilder extends JObject
 
         $this->logger = easyLogger::getInstance('ecr', $options);
 
-        $projectTypes = EasyProjectHelper::getProjectTypes();
+        $projectTypes = EcrProjectHelper::getProjectTypes();
 
         if( ! array_key_exists($type, $projectTypes))
         {
@@ -744,11 +744,11 @@ class EcrBuilder extends JObject
             return false;
         }
 
-        $project = EasyProjectHelper::newProject($type);
+        $project = EcrProjectHelper::newProject($type);
         $project->comName = $name;
         $project->scope = $scope;
 
-        if( ! $xmlPath = EasyProjectHelper::findManifest($project))
+        if( ! $xmlPath = EcrProjectHelper::findManifest($project))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('No manifest file found'), 'error');
 
@@ -757,7 +757,7 @@ class EcrBuilder extends JObject
             return false;
         }
 
-        $data = EasyProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$xmlPath);
+        $data = EcrProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$xmlPath);
 
         $project->name = $data->name;
 

@@ -93,7 +93,7 @@ class EasyCreatorViewTemplates extends JView
         $this->com_type = JRequest::getVar('com_type');
         $this->template = JRequest::getVar('template');
 
-        $this->comTypes = easyProjectHelper::getProjectTypes();
+        $this->comTypes = EcrProjectHelper::getProjectTypes();
 
         $cache = JFactory::getCache();
         $cache->setCaching(1);

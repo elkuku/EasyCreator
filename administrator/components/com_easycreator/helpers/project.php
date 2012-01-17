@@ -150,7 +150,7 @@ abstract class EasyProject extends JObject
      */
     private function readJoomlaXml()
     {
-        $fileName = EasyProjectHelper::findManifest($this);
+        $fileName = EcrProjectHelper::findManifest($this);
 
         if( ! $fileName)
         {
@@ -159,7 +159,7 @@ abstract class EasyProject extends JObject
             return false;
         }
 
-        $data = EasyProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$fileName);
+        $data = EcrProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$fileName);
 
         if( ! $data)
         return false;
@@ -314,7 +314,7 @@ abstract class EasyProject extends JObject
      */
     private function writeJoomlaManifest()
     {
-        $installXML = EasyProjectHelper::findManifest($this);
+        $installXML = EcrProjectHelper::findManifest($this);
 
         $xmlBuildVars = array(
         'version'
@@ -326,7 +326,7 @@ abstract class EasyProject extends JObject
         , 'copyright'
         );
 
-        $manifest = EasyProjectHelper::getXML(JPATH_ROOT.DS.$installXML);
+        $manifest = EcrProjectHelper::getXML(JPATH_ROOT.DS.$installXML);
 
         if( ! $manifest)
         {
@@ -409,7 +409,7 @@ abstract class EasyProject extends JObject
         $type = 'type="'.$this->type.'" ';
         $scope = 'scope="'.$this->scope.'" ';
 
-        $xml = EasyProjectHelper::getXML("<easyproject $type $scope".' version="'.ECR_VERSION.'"'
+        $xml = EcrProjectHelper::getXML("<easyproject $type $scope".' version="'.ECR_VERSION.'"'
         .' tpl="'.$this->fromTpl.'" />', false);
 
         $xml->addChild('name', $this->name);
@@ -651,7 +651,7 @@ abstract class EasyProject extends JObject
             return false;
         }
 
-        $manifest = EasyProjectHelper::getXML($fileName);
+        $manifest = EcrProjectHelper::getXML($fileName);
 
         if( ! $manifest instanceof SimpleXMLElement
         || $manifest->getName() != 'easyproject')
@@ -787,7 +787,7 @@ abstract class EasyProject extends JObject
 
                 $key = "$scope.$group.$name.$element";
 
-                $EasyAutoCode = EasyProjectHelper::getAutoCode($key);
+                $EasyAutoCode = EcrProjectHelper::getAutoCode($key);
 
                 if( ! $EasyAutoCode)
                 {
@@ -1086,7 +1086,7 @@ abstract class EasyProject extends JObject
     {
         try
         {
-            $project = EasyProjectHelper::getProject($ecr_project);
+            $project = EcrProjectHelper::getProject($ecr_project);
 
             $this->addSubstitute('_ECR_COM_NAME_', $project->name);
             $this->addSubstitute('_ECR_COM_COM_NAME_', $project->comName);

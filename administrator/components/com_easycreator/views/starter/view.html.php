@@ -64,7 +64,7 @@ class EasyCreatorViewStarter extends JView
         ? $this->templateList[$tplType][$tplFolder]->description
         : '';
 
-        $project = EasyProjectHelper::newProject('empty');
+        $project = EcrProjectHelper::newProject('empty');
 
         $project->type = JRequest::getCmd('tpl_type', '', 'post');
         $project->tplName = JRequest::getCmd('tpl_name', '', 'post');
