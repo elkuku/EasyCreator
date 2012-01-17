@@ -69,10 +69,6 @@ else
     define('ECR_DEBUG', 0);
 }
 
-//-- Load helpers
-//ecrLoadHelper('projecthelper');
-ecrLoadHelper('languagehelper');
-
 //-- Load the special Language
 
 //-- 1) Check if g11n is installed as a PEAR package - see: http://elkuku.github.com/pear/

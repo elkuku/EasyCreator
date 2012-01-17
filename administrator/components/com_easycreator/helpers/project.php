@@ -107,8 +107,6 @@ abstract class EasyProject extends JObject
      */
     public function __construct($name = '')
     {
-        ecrLoadHelper('languagehelper');
-
         if( ! $name
         || ! $this->readProjectXml($name))
         {
@@ -116,7 +114,7 @@ abstract class EasyProject extends JObject
         }
 
         $this->findCopies();
-        $this->langs = EasyLanguageHelper::discoverLanguages($this);
+        $this->langs = EcrLanguageHelper::discoverLanguages($this);
 
         if($this->type == 'component')
         $this->readMenu();

@@ -32,7 +32,6 @@ require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/functions.php';
 
 //-- Load helpers
 ecrLoadHelper('project');
-ecrLoadHelper('projecthelper');
 
 //-- Global constants
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/defines.php';

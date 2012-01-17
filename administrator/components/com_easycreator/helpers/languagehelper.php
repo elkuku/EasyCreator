@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...
  *
  */
-class EasyLanguageHelper
+class EcrLanguageHelper
 {
     /**
      * Discover the languages for a project.

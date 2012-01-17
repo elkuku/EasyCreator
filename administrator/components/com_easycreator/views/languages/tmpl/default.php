@@ -50,7 +50,7 @@ $scopes = $this->project->getLanguagePaths();
         	</td>
   	        <?php foreach($scopes as $scope => $path) : ?>
                 <td>
-                    <?php EasyLanguageHelper::checkFile($this->project, $tag, $scope); ?>
+                    <?php EcrLanguageHelper::checkFile($this->project, $tag, $scope); ?>
                 </td>
             <?php endforeach;
             $k = 1 - $k; ?>

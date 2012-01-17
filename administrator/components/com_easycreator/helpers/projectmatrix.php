@@ -184,7 +184,7 @@ class EasyProjectMatrix extends JFolder
          */
         $langPaths = $this->project->getLanguagePaths();
 
-        $languages = EasyLanguageHelper::discoverLanguages($this->project);
+        $languages = EcrLanguageHelper::discoverLanguages($this->project);
 
         foreach($languages as $tag => $scopes)
         {
