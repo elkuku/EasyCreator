@@ -4,6 +4,8 @@
  * @subpackage Paramelements
  * @author     Nikolai Plath
  * @author     Created on 08-Dec-2008
+ *
+ * @TODO Remove when J 1.5 support is dropped
  */
 
 //-- No direct access

@@ -7,6 +7,8 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  * @package    EasyCreator
  * @subpackage Helpers
+ *
+ * @TODO Remove when J 1.5 support is dropped
  */
 
 defined('JPATH_BASE') or die;

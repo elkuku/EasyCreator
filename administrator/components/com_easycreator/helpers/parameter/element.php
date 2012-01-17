@@ -5,6 +5,8 @@
  * @author     Nikolai Plath
  * @author     Created on 18-Oct-2009
  * @license    GNU/GPL, see JROOT/LICENSE.php
+ *
+ * @TODO Remove when J 1.5 support is dropped
  */
 
 //-- No direct access
