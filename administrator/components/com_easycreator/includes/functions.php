@@ -49,15 +49,21 @@ function ecrLoadHelper($name)
 /**
  * Adds a CSS stylesheet filename from standard CSS directory to the document.
  *
- * @param string $name Name of the style sheet
+ * Multiple file names may be passed as arguments.
  *
  * @return boolean
  */
-function ecrStylesheet($name)
+function ecrStylesheet()
 {
-    return JFactory::getDocument()->addStylesheet(JURI::root(true)
-    .'/'.EcrEasycreator::getAdminComponentUrlPath()
-    .'/assets/css/'.$name.'.css');
+    $args = func_get_args();
+
+    $document = JFactory::getDocument();
+    $path = EcrEasycreator::getAdminComponentUrlPath();
+
+    foreach($args as $name)
+    {
+        $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.js');
+    }
 }//function
 
 /**
