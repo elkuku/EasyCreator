@@ -30,9 +30,6 @@ catch(Exception $e)
 //--Global functions
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/functions.php';
 
-//-- Load helpers
-ecrLoadHelper('project');
-
 //-- Global constants
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/defines.php';
 

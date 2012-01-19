@@ -10,8 +10,6 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-//ecrLoadHelper('project');
-
 /**
  * EcrProject Helper.
  *
