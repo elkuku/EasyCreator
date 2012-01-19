@@ -118,7 +118,7 @@ class EcrProjectHelper
     {
         $className = 'EcrProject'.ucfirst($type);
 
-        return $className;
+        return new $className;
     }//function
 
     /**
