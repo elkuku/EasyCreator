@@ -25,11 +25,11 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
      * Get the AutoCode to insert.
      *
      * @param string $type AutoCode type
-     * @param EasyTable $table A EasyTable object
+     * @param EcrTable $table A EcrTable object
      *
      * @return string
      */
-    public function getCode($type, EasyTable $table)
+    public function getCode($type, EcrTable $table)
     {
         $element = $this->getElement($type, dirname(__FILE__));
 
@@ -60,7 +60,7 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
         /* Draws an input box for a name field */
         $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
 
-        $tableFields = EasyTableHelper::getTableFields($this->element);
+        $tableFields = EcrTableHelper::getTableColumns($this->element);
 
         $element = 'divrow';
 
@@ -151,7 +151,7 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
             return false;
         }
 
-        $fields = EasyTableHelper::getTableFields($table_name);
+        $fields = EcrTableHelper::getTableColumns($table_name);
 
         $reqFields = JRequest::getVar('field');
 
@@ -180,7 +180,7 @@ class AutoCodeSiteViewItemDiv extends EasyAutoCode
             }
             else
             {
-                $fieldHeader = new EasyTableField;
+                $fieldHeader = new EcrTableField;
                 $fieldHeader->name = $name;
                 $fieldHeader->label = $name;
             }

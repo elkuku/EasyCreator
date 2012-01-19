@@ -75,13 +75,13 @@ class EasyAutoCode
 	 * Subsequent classes will define text strings to be inserted.
 	 *
 	 * @param string     $type Code type
-	 * @param \EasyTable $table
+	 * @param \EcrTable $table
 	 *
-	 * @internal param \EasyTableField $field The field
+	 * @internal param \EcrTableField $field The field
 	 *
 	 * @return void
 	 */
-    public function getCode($type, EasyTable $table)
+    public function getCode($type, EcrTable $table)
     {
     }//function
 

@@ -16,19 +16,19 @@ defined('_JEXEC') || die('=;)');
 class AutoCodeAdminFormsEditElementField
 {
     /**
-     * @var EasyTableField $field
+     * @var EcrTableField $field
      */
     private $field;
 
     /**
      * Gets the HTML code.
      *
-     * @param EasyTable $table A EasyTable object
+     * @param EcrTable $table A EcrTable object
      * @param string $indent Indentation string
      *
      * @return string HTML
      */
-    public function getCode(EasyTable $table, $indent = '')
+    public function getCode(EcrTable $table, $indent = '')
     {
         $a = array();
 

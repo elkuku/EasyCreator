@@ -25,7 +25,6 @@ class EasyTemplateOptions
      */
     public function displayOptions(EcrProject $project)
     {
-        ecrLoadHelper('table');
         ecrScript('dbtables');
 
         $html = '';
@@ -44,7 +43,7 @@ class EasyTemplateOptions
 
         $fields = array();
 
-        $field = new EasyTableField;
+        $field = new EcrTableField;
         $field->name = 'catid';
         $field->label = 'Category id';
         $field->type = 'INT';
@@ -54,7 +53,7 @@ class EasyTemplateOptions
         $field->comment = 'Category ID';
         $fields[] = $field;
 
-        $field = new EasyTableField;
+        $field = new EcrTableField;
         $field->name = 'checked_out';
         $field->label = 'Checked out';
         $field->type = 'INT';
@@ -64,11 +63,11 @@ class EasyTemplateOptions
         $field->null = 'NOT_NULL';
         $fields[] = $field;
 
-        $html .= EasyTableHelper::drawStdInsertRow();
+        $html .= EcrTableHelper::drawStdInsertRow();
 
         foreach($fields as $count => $field)
         {
-            $html .= EasyTableHelper::drawPredefinedRow($field, $count + 1);
+            $html .= EcrTableHelper::drawPredefinedRow($field, $count + 1);
         }//foreach
 
         return $html;
@@ -93,7 +92,6 @@ class EasyTemplateOptions
      */
     public function processOptions(EcrBuilder $builder)
     {
-        ecrLoadHelper('table');
         ecrLoadHelper('autocode');
 
         $fields = JRequest::getVar('fields');
@@ -110,11 +108,11 @@ class EasyTemplateOptions
         $builder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
 
         //-- Add the core categories table
-        $table = new EasyTable('categories', true);
+        $table = new EcrTable('categories', true);
         $builder->project->addTable($table);
 
         //-- Prepare extension table
-        $table = new EasyTable($tableName);
+        $table = new EcrTable($tableName);
 
         $tableFields = array();
 
@@ -126,17 +124,17 @@ class EasyTemplateOptions
                 $fields[$i]['inputType'] = 'category';
             }
 
-            $field = new EasyTableField($fields[$i]);
+            $field = new EcrTableField($fields[$i]);
             $table->addField($field);
         }//for
 
-        $relation = new EasyTableRelation;
+        $relation = new EcrTableRelation;
         $relation->type = 'LEFT JOIN';
         $relation->field = 'catid';
         $relation->onTable = 'categories';
         $relation->onField = 'id';
 
-        $alias = new EasyTableRelationAlias;
+        $alias = new EcrTableRelationalias;
         $alias->alias = 'category';
         $alias->aliasField = 'title';
 

@@ -18,12 +18,12 @@ class AutoCodeAdminModelsModelElementBuildquery16
     /**
      * Get the AutoCode to insert.
      *
-     * @param EasyTable $table A EasyTable object
+     * @param EcrTable $table A EcrTable object
      * @param string $indent The string to indent with
      *
      * @return string
      */
-    public function getCode(EasyTable $table, $indent = '')
+    public function getCode(EcrTable $table, $indent = '')
     {
         $ret = '';
         $fields = array();

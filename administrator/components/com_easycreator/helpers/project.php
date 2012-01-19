@@ -646,8 +646,6 @@ abstract class EcrProject extends JObject
      */
     private function readProjectXml($projectName)
     {
-        ecrLoadHelper('table');
-
         $fileName = ECRPATH_SCRIPTS.DS.$projectName.'.xml';
 
         if( ! JFile::exists($fileName))
@@ -737,7 +735,7 @@ abstract class EcrProject extends JObject
         {
             foreach($manifest->tables->table as $e)
             {
-                $table = new EasyTable($e->name, $e->foreign);
+                $table = new EcrTable($e->name, $e->foreign);
 
                 $t = new stdClass;
                 $t->name = (string)$e->name;
@@ -746,7 +744,7 @@ abstract class EcrProject extends JObject
                 {
                     foreach($e->relations->relation as $r)
                     {
-                        $relation = new EasyTableRelation;
+                        $relation = new EcrTableRelation;
                         $relation->type = (string)$r->type;
                         $relation->field = (string)$r->field;
                         $relation->onTable = (string)$r->onTable;
@@ -756,7 +754,7 @@ abstract class EcrProject extends JObject
                         {
                             foreach($r->aliases->alias as $elAlias)
                             {
-                                $alias = new EasyTableRelationAlias;
+                                $alias = new EcrTableRelationalias;
                                 $alias->alias = (string)$elAlias->name;
                                 $alias->aliasField = (string)$elAlias->field;
 
@@ -783,7 +781,6 @@ abstract class EcrProject extends JObject
         if(isset($manifest->autoCodes->autoCode))
         {
             ecrLoadHelper('autocode');
-            ecrLoadHelper('table');
 
             foreach($manifest->autoCodes->autoCode as $code)
             {
@@ -822,7 +819,7 @@ abstract class EcrProject extends JObject
                         {
                             foreach($fieldsElement->field as $field)
                             {
-                                $f = new EasyTableField($field);
+                                $f = new EcrTableField($field);
 
                                 $k = '';
 
@@ -1065,11 +1062,11 @@ abstract class EcrProject extends JObject
     /**
      * Adds a table to the project.
      *
-     * @param EasyTable $table Table name
+     * @param EcrTable $table Table name
      *
      * @return boolean
      */
-    public function addTable(EasyTable $table)
+    public function addTable(EcrTable $table)
     {
         if( ! in_array($table->name, $this->tables))
         {

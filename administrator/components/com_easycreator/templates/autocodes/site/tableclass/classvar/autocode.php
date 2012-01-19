@@ -26,11 +26,11 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
      * Get the AutoCode to insert.
      *
      * @param string $type AutoCode type
-     * @param EasyTableField $field A EasyTableField object
+     * @param EcrTableField $field A EcrTableField object
      *
      * @return string
      */
-    public function getCode($type, EasyTable $table)
+    public function getCode($type, EcrTable $table)
     {
         $element = $this->getElement($type, dirname(__FILE__));
 
@@ -132,7 +132,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
             .' id="vscope-'.$vScope.'"'.$checked.'> <label for="vscope-'.$vScope.'">'.$vScope.'</label><br />';
         }//foreach
 
-        $tableFields = EasyTableHelper::getTableFields($this->element);
+        $tableFields = EcrTableHelper::getTableColumns($this->element);
 
         $acFields = $AutoCode->fields[$AutoCode->getKey().'.var'];
 
@@ -219,7 +219,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
                 }
                 else
                 {
-                    $field = new EasyTableField;
+                    $field = new EcrTableField;
                     $field->name = $name;
                     $field->label = $name;
                     $field->type = $type;
@@ -229,7 +229,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
 
                 $adds = array($field->label);
 
-                $table_vars .= EasyTableHelper::formatTableVar($name, $type, $adds, $var_scope);
+                $table_vars .= EcrTableHelper::formatTableVar($name, $type, $adds, $var_scope);
             }//foreach
         }
 

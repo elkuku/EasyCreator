@@ -18,17 +18,17 @@ class AutoCodeAdminTableclassClassvarElementVar
     /**
      * Gets the HTML code.
      *
-     * @param EasyTable $table A EasyTable object
+     * @param EcrTable $table A EcrTable object
      *
      * @return string HTML
      */
-    public function getCode(EasyTable $table)
+    public function getCode(EcrTable $table)
     {
         $ret = '';
 
         foreach($table->getFields() as $field)
         {
-            $ret .= EasyTableHelper::formatTableVar($field->name, $field->type, array($field->label));
+            $ret .= EcrTableHelper::formatTableVar($field->name, $field->type, array($field->label));
             $ret .= NL;
         }//foreach
 

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,23 +7,14 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-ecrScript('dbtables');
-ecrScript('parts');
-ecrScript('autocode');
-ecrScript('util');
+ecrScript('dbtables', 'parts', 'autocode', 'util');
 
 ecrStylesheet('stuffer');
-
-
-ecrLoadHelper('table');
 
 echo '<h2 style="color: red; float: right;">W I P !';
 echo '</h2>';
 
-$tableHelper = new EasyTableHelper;
+$tableHelper = new EcrTableHelper;
 
 $db = JFactory::getDBO();
 

@@ -25,7 +25,6 @@ class EasyTemplateOptions
      */
     public function displayOptions(EcrProject $project)
     {
-        ecrLoadHelper('table');
         ecrScript('dbtables');
 
         $html = '';
@@ -41,7 +40,7 @@ class EasyTemplateOptions
         .sprintf(jgettext('Please define the fields for the table %s that will be created for your component.')
         , $project->name).'</strong>';
 
-        $html .= EasyTableHelper::drawStdInsertRow();
+        $html .= EcrTableHelper::drawStdInsertRow();
 
         return $html;
     }//function
@@ -65,7 +64,6 @@ class EasyTemplateOptions
      */
     public function processOptions(EcrBuilder $builder)
     {
-        ecrLoadHelper('table');
         ecrLoadHelper('autocode');
 
         $fields = JRequest::getVar('fields');
@@ -82,15 +80,15 @@ class EasyTemplateOptions
         $builder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
 
         //-- Prepare extension table
-        $table = new EasyTable($tableName);
+        $table = new EcrTable($tableName);
 
         $tableFields = array();
 
         for($i = 0; $i < count($fields); $i ++)
         {
-            $field = new EasyTableField($fields[$i]);
+            $field = new EcrTableField($fields[$i]);
             $table->addField($field);
-//            #$tableFields[] = new EasyTableField($fields[$i]);
+//            #$tableFields[] = new EcrTableField($fields[$i]);
         }//for
 
         $builder->project->addTable($table);

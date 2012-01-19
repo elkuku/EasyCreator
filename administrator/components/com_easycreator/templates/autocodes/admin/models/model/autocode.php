@@ -25,11 +25,11 @@ class AutoCodeAdminModelsModel extends EasyAutoCode
      * Get the AutoCode to insert.
      *
      * @param string $type AutoCode type
-     * @param EasyTable $table A EasyTable object
+     * @param EcrTable $table A EcrTable object
      *
      * @return string
      */
-    public function getCode($type, EasyTable $table)
+    public function getCode($type, EcrTable $table)
     {
         $element = $this->getElement($type, dirname(__FILE__));
 

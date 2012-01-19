@@ -25,11 +25,11 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
      * Get the AutoCode to insert.
      *
      * @param string $type AutoCode type
-     * @param EasyTable $table A EasyTable object
+     * @param EcrTable $table A EcrTable object
      *
      * @return string
      */
-    public function getCode($type, EasyTable $table)
+    public function getCode($type, EcrTable $table)
     {
         $element = $this->getElement($type, dirname(__FILE__));
 
@@ -60,7 +60,7 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
         /* Draws an input box for a name field */
         $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
 
-        $tableFields = EasyTableHelper::getTableFields($this->element);
+        $tableFields = EcrTableHelper::getTableColumns($this->element);
 
         $elements = array('header', 'cell');
 
@@ -199,9 +199,9 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
             return false;
         }
 
-        $table = new EasyTable($table_name);
+        $table = new EcrTable($table_name);
 
-        $fields = EasyTableHelper::getTableFields($table_name);
+        $fields = EcrTableHelper::getTableColumns($table_name);
 
         $reqFields = JRequest::getVar('field');
 
@@ -230,7 +230,7 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
             }
             else
             {
-                $fieldHeader = new EasyTableField;
+                $fieldHeader = new EcrTableField;
                 $fieldHeader->name = $name;
                 $fieldHeader->label = $name;
             }
@@ -241,7 +241,7 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
             }
             else
             {
-                $fieldCell = new EasyTableField;
+                $fieldCell = new EcrTableField;
                 $fieldCell->name = $name;
             }
 

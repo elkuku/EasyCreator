@@ -63,15 +63,21 @@ function ecrStylesheet($name)
 /**
  * Adds a Javascript file from standard Javascript directory to the document.
  *
- * @param string $name Name of the script
+ * Multiple file names may be passed as arguments.
  *
  * @return boolean
  */
-function ecrScript($name)
+function ecrScript()
 {
-    return JFactory::getDocument()->addScript(JURI::root(true)
-    .'/'.EcrEasycreator::getAdminComponentUrlPath()
-    .'/assets/js/'.$name.'.js');
+    $args = func_get_args();
+
+    $document = JFactory::getDocument();
+    $path = EcrEasycreator::getAdminComponentUrlPath();
+
+    foreach($args as $name)
+    {
+        $document->addScript(JURI::root(true).'/'.$path.'/assets/js/'.$name.'.js');
+    }
 }//function
 
 spl_autoload_register('easy_creator_loader', true, true);

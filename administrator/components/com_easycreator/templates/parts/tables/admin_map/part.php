@@ -178,8 +178,6 @@ class PartTablesAdmin_map
      */
     public function insert(EcrProject $project, $options, EcrLogger $logger)
     {
-        ecrLoadHelper('table');
-
         $element_name = JRequest::getCmd('element_name');
         $table_name = JRequest::getCmd('table_name');
         $req_table_fields = JRequest::getVar('table_fields', array());
@@ -209,7 +207,7 @@ class PartTablesAdmin_map
                 if( ! in_array($key, $req_table_fields))
                 continue;
 
-                $table_vars .= EasyTableHelper::formatTableVar($key, $value);
+                $table_vars .= EcrTableHelper::formatTableVar($key, $value);
             }//foreach
         }
 

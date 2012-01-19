@@ -150,8 +150,7 @@ ecrStylesheet('toolbar');
 ecrStylesheet('icon');
 
 //-- Add JavaScript
-ecrScript('global_vars');
-ecrScript('easycreator');
+ecrScript('global_vars', 'easycreator');
 
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
