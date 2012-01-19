@@ -70,8 +70,7 @@ class EasyCreatorControllerLanguages extends JController
 
         if(count($project->langs))
         {
-            ecrLoadHelper('language');
-            $easyLanguage = new EasyELanguage($project, $scope, $hideLangs);
+            $easyLanguage = new EcrLanguage($project, $scope, $hideLangs);
             $sel_language = JRequest::getVar('sel_language', '');
             $langfile = JRequest::getVar('langfile', array(), 'post', 'array', JREQUEST_ALLOWRAW);
             $easyLanguage->saveFile($sel_language, $langfile);
@@ -120,8 +119,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         else
         {
-            ecrLoadHelper('language');
-            $easyLanguage = new EasyELanguage($project, $scope, $hideLangs);
+            $easyLanguage = new EcrLanguage($project, $scope, $hideLangs);
             $langfile = JRequest::getVar('langfile', array(), 'post', 'array', JREQUEST_ALLOWRAW);
             $easyLanguage->saveFile('en-GB', $langfile);
         }
@@ -139,15 +137,13 @@ class EasyCreatorControllerLanguages extends JController
      */
     public function create_langfile()
     {
-        ecrLoadHelper('language');
-
         $ecr_project = JRequest::getCmd('ecr_project');
         $oldTask = JRequest::getCmd('old_task', 'languages');
         $type = '';
 
         try
         {
-            EasyELanguage::createFileFromRequest();
+            EcrLanguage::createFileFromRequest();
 
             $msg = jgettext('The file has been created');
         }
@@ -170,8 +166,6 @@ class EasyCreatorControllerLanguages extends JController
      */
     public function remove_bom()
     {
-        ecrLoadHelper('language');
-
         $fileName = JRequest::getVar('file');
 
         if( ! $fileName)
@@ -180,7 +174,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         else
         {
-            if(EasyELanguage::removeBOM_utf8($fileName))
+            if(EcrLanguage::removeBOM_utf8($fileName))
             {
                 EcrHtml::displayMessage(jgettext('The BOM has been removed'));
             }

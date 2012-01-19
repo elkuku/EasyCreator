@@ -11,13 +11,13 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * EasyELanguage helper class.
+ * EcrLanguage helper class.
  *
  * @package    EasyCreator
  * @subpackage Helpers
  *
  */
-class EasyELanguage
+class EcrLanguage
 {
     private $_languages = '';
 

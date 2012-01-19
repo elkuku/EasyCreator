@@ -379,8 +379,6 @@ class EasyCreatorControllerAjax extends JController
 
         try
         {
-            ecrLoadHelper('language');
-
             if( ! $scope = JRequest::getCmd('scope'))
             throw new Exception(jgettext('No scope given'));
 
@@ -395,7 +393,7 @@ class EasyCreatorControllerAjax extends JController
             if( ! count($project->langs))
             throw new Exception(jgettext('No languages found'));
 
-            $easyLanguage = new EasyELanguage($project, $scope, array());
+            $easyLanguage = new EcrLanguage($project, $scope, array());
 
             $easyLanguage->saveTranslation(JRequest::getCmd('trans_lang'), JRequest::getString('trans_key'), $translation);
         }
@@ -430,8 +428,6 @@ class EasyCreatorControllerAjax extends JController
 
         try
         {
-            ecrLoadHelper('language');
-
             if( ! $scope = JRequest::getCmd('scope'))
             throw new Exception(jgettext('No scope given'));
 
@@ -440,7 +436,7 @@ class EasyCreatorControllerAjax extends JController
             if( ! count($project->langs))
             throw new Exception(jgettext('No languages found'));
 
-            $easyLanguage = new EasyELanguage($project, $scope, array());
+            $easyLanguage = new EcrLanguage($project, $scope, array());
 
             $trans_lang = JRequest::getCmd('trans_lang');
             $trans_key = JRequest::getString('trans_key');

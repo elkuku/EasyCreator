@@ -74,8 +74,7 @@ class EasyCreatorViewLanguages extends JView
                 }
                 else
                 {
-                    ecrLoadHelper('language');
-                    $this->easyLanguage = new EasyELanguage($this->project, $this->scope, $this->hideLangs, $this->_showCore);
+                    $this->easyLanguage = new EcrLanguage($this->project, $this->scope, $this->hideLangs, $this->_showCore);
 
                     if(JRequest::getCmd('tmpl') != 'component')
                     {

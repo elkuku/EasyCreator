@@ -94,10 +94,7 @@ class EcrLanguageHelper
      */
     public static function checkFile(EcrProject $project, $lang, $scope)
     {
-        ecrLoadHelper('language');
-
-        $subPath = 'language'.DS.$lang;
-        $fileName = EasyELanguage::getFileName($lang, $scope, $project, false);
+        $fileName = EcrLanguage::getFileName($lang, $scope, $project, false);
 
         //-- Get component parameters
         $params = JComponentHelper::getParams('com_easycreator');
