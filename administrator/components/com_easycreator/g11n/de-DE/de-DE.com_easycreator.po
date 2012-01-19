@@ -2972,8 +2972,8 @@ msgid "Custom name format"
 msgstr "Benutzerdefiniertes Format"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
-msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
-msgstr "Verwendung:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
+msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
+msgstr "Verwendung:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
 msgid "Customize"

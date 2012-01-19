@@ -53,9 +53,10 @@
   <params>
     <param name="cred_license" type="text" label="License" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" />
     <param name="archive_tgz" type="checkbox" label="tar.gz" default="on_" />
-    <param name="custom_name_1" type="text" label="Custom name default" default="_*VERSION*_*SVNREV*_*DATETIMEYmd_Hi*" />
+    <param name="custom_name_1" type="text" label="Custom name default" default="_*VERSION*_*VCSREV*_*DATETIMEYmd_Hi*" />
     <param name="custom_name_2" type="text" label="Custom name" default="_*VERSION*_*DATETIMEYmd_Hi*" />
     <param name="custom_name_3" type="text" label="Custom name" default="_*VERSION*" />
+    <param name="custom_name_4" type="text" label="Custom name" default="_*VCSREV*" />
     <param name="logging" type="radio" label="Logger" default="1" />
     <param name="profile" type="radio" label="Profiler" default="1" />
     <param name="files" type="radio" label="Log file contents" default="1" />

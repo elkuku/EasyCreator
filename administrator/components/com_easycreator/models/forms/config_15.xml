@@ -7,19 +7,19 @@
         <param name="cred_license" type="text" size="30" label="License" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL"/>
         <param name="cred_copyright" type="text" size="30" label="Copyright" />
     </params>
-    
+
     <params group="Package creation">
         <param name="zipPath" type="text" size="40" label="Build directory" description="The folder where your final package ends up. The folders extension_name and version will be added automatically.&lt;br /&gt;If left blank the default folder will be used." default="" />
 
         <param name="@spacer" type="easyspacer" default="Package formats" />
         <param name="archive_zip" type="checkbox" label="zip" description="ZIP format" />
         <param name="archive_tgz" type="checkbox" label="tar.gz" description="Ziped Tarball" default="on_"/>
-        <!-- 
+        <!--
         <param name="archive_bz" type="checkbox" label="bz2" description="BZ2 format" />
          -->
 
         <param name="@spacer" type="easyspacer" default="Custom file name" />
-        <param name="custom_name_1" type="text" size="40" label="Custom name default" default="_*VERSION*_*SVNREV*_*DATETIMEYmd_Hi*" />
+        <param name="custom_name_1" type="text" size="40" label="Custom name default" default="_*VERSION*_*VCSREV*_*DATETIMEYmd_Hi*" />
         <param name="custom_name_2" type="text" size="40" label="Custom name" default="_*VERSION*_*DATETIMEYmd_Hi*" />
         <param name="custom_name_3" type="text" size="40" label="Custom name" default="_*VERSION*" />
     </params>
@@ -40,7 +40,7 @@
     </params>
 
     <params group="Various">
-        <param name="versionCheck" type="radio" default="0" label="Check EasyCreator version" 
+        <param name="versionCheck" type="radio" default="0" label="Check EasyCreator version"
             description="Automatically check for the latest EasyCreator version.">
             <option value="0">No</option>
             <option value="1">Yes</option>

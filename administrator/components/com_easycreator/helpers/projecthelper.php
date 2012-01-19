@@ -539,7 +539,7 @@ class EcrProjectHelper
      */
     public static function formatFileName(EcrProject $project, $format)
     {
-        $svnRev = EcrHtml::getVersionFromCHANGELOG($project->comName, true);
+        $vcsRev = EcrHtml::getVersionFromCHANGELOG($project->comName, true);
 
         $dateTime = preg_match('%\*DATETIME(.*?)\*%', $format, $matches);
 
@@ -548,7 +548,7 @@ class EcrProjectHelper
             $format = str_replace($matches[0], date($matches[1]), $format);
         }
 
-        $format = str_replace('*SVNREV*', $svnRev, $format);
+        $format = str_replace('*VCSREV*', $vcsRev, $format);
         $format = str_replace('*VERSION*', $project->version, $format);
 
         return $format;

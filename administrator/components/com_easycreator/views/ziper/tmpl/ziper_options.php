@@ -21,7 +21,7 @@ font-size: 1.3em; font-family: monospace;">
 </div>
 <strong><?php echo jgettext('Custom name format'); ?></strong>
 <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Custom name format').'::'
-    .jgettext('Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*')); ?>
+    .jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*')); ?>
 <br />
 <input type="radio" name="opt_format" id="opt_format_1" class="custom_opt"
 checked="checked"
@@ -38,6 +38,11 @@ checked="checked"
  onclick="$('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"
  value="<?php echo $params->get('custom_name_3'); ?>" />
  <label for="opt_format_3"><tt><?php echo $params->get('custom_name_3'); ?></tt></label>
+<br />
+<input type="radio" name="opt_format" id="opt_format_4" class="custom_opt"
+       onclick="$('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"
+       value="<?php echo $params->get('custom_name_4'); ?>" />
+<label for="opt_format_4"><tt><?php echo $params->get('custom_name_4'); ?></tt></label>
  <br />
  <br />
 <?php echo jgettext('Customize'); ?>&nbsp;<div id="ajMessage" style="display: inline;"></div>

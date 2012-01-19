@@ -819,10 +819,10 @@ EOF;
             $parts = explode('-', $contents);
 
             if( ! isset($parts[1]))
-                return $contents;
+                return trim($contents);
 
             //-- If the second part is '0' we have a tagged version
-            return ('0' != $parts[1]) ? $contents : $parts[0];
+            return ('0' != $parts[1]) ? trim($contents) : $parts[0];
         }
 
         //-- Check for a SVN id in changelog
