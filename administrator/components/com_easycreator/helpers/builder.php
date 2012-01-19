@@ -482,10 +482,7 @@ class EcrBuilder extends JObject
      */
     private function createJoomlaManifest()
     {
-        ecrLoadHelper('manifest');
-
-        //@todo: JVersion
-        $manifest = new JoomlaManifest;
+        $manifest = new EcrManifest;
 
         $this->project->isNew = true;
         $this->project->basepath = $this->_buildDir;

@@ -20,7 +20,7 @@ defined('_JEXEC') || die('=;)');
  * @package EasyCreator
  * @former-package IansTools
  */
-class JoomlaManifest extends JObject
+class EcrManifest extends JObject
 {
     /**
      * @var SimpleXMLElement
@@ -52,7 +52,7 @@ class JoomlaManifest extends JObject
     {
         if( ! $project->type)
         {
-            $this->setError('JoomlaManifest::create - Invalid project given');
+            $this->setError(__METHOD__.' - Invalid project given');
 
             return false;
         }
@@ -137,7 +137,7 @@ class JoomlaManifest extends JObject
     /**
      * Setup the manifest building process.
      *
-     * @return JoomlaManifest
+     * @return EcrManifest
      */
     private function setUp()
     {

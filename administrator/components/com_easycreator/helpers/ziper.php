@@ -323,9 +323,7 @@ class EcrZiper extends JObject
     {
         $this->logger->log('Starting manifest');
 
-        ecrLoadHelper('manifest');
-
-        $manifest = new JoomlaManifest;
+        $manifest = new EcrManifest;
 
         $this->project->basepath = $this->temp_dir;
         $this->project->creationDate = date('d-M-Y');
