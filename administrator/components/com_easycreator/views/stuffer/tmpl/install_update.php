@@ -13,11 +13,9 @@ defined('_JEXEC') || die('=;)');
 if('1.5' == $this->project->JCompat)
 return;
 
-ecrLoadHelper('dbupdater');
-
 try
 {
-    $updater = new dbUpdater($this->project);
+    $updater = new EcrDbUpdater($this->project);
 }
 catch (Exception $e)
 {

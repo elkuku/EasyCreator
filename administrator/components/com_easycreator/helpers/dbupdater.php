@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  * Database updater.
  *
  */
-class dbUpdater
+class EcrDbUpdater
 {
     private $fileList = array();
 

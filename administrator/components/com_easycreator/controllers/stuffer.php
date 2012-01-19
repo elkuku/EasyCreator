@@ -964,11 +964,9 @@ class EasyCreatorControllerStuffer extends JController
      * @return mixed
      */private function processSQLUpdate(EcrProject $project, $installPath)
     {
-        ecrLoadHelper('dbupdater');
-
         $dbType = 'mysql';
 
-        $updater = new dbUpdater($project, $dbType, $this->logger);
+        $updater = new EcrDbUpdater($project, $dbType, $this->logger);
 
         if($updater->versions)
         {
