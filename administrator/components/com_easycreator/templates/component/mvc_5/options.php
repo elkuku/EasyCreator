@@ -64,8 +64,6 @@ class EasyTemplateOptions
      */
     public function processOptions(EcrBuilder $builder)
     {
-        ecrLoadHelper('autocode');
-
         $fields = JRequest::getVar('fields');
 
         if( ! is_array($fields))

@@ -161,8 +161,6 @@ class PartTablesSimple extends EasyPart
      */
     public function insert(EcrProject $project, $options, EcrLogger $logger)
     {
-        ecrLoadHelper('autocode');
-
         $table_name = JRequest::getCmd('element');
         $var_scope = JRequest::getCmd('var_scope');
         $element_scope = JRequest::getCmd('element_scope');
@@ -190,7 +188,7 @@ class PartTablesSimple extends EasyPart
             }//foreach
         }
 
-        $AutoCode = new EasyAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
         $AutoCode->options['varScope'] = $var_scope;

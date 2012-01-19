@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Adds AutoCode to the project.
  */
-class EasyAutoCode
+class EcrAutoCode
 {
     public $group = '';
 

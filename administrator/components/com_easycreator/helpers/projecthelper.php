@@ -817,16 +817,14 @@ class EcrProjectHelper
     }//function
 
     /**
-     * Gets an EasyAutoCode.
+     * Gets an EcrAutoCode.
      *
      * @param string $key Separated by dots (.) - scope.group.name.element
      *
-     * @return EasyAutoCode [object EasyAutoCode on success | boolean false on error]
+     * @return EcrAutoCode [object EcrAutoCode on success | boolean false on error]
      */
     public static function getAutoCode($key)
     {
-        ecrLoadHelper('autocode');
-
         static $AutoCodes = array();
 
         if(array_key_exists($key, $AutoCodes))

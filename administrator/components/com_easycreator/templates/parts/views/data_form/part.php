@@ -148,8 +148,6 @@ class PartViewsData_form extends EasyPart
      */
     public function insert(EcrProject $EasyProject, $options, EcrLogger $logger)
     {
-        ecrLoadHelper('autocode');
-
         $this->_options = $options;
 
         $EasyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Views');
@@ -232,7 +230,7 @@ $acFields[] = $f;
 
  /*       $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 */
-        $AutoCode = new EasyAutoCode($this->group, $this->name, $table_name, $this->_scope);
+        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $this->_scope);
 //        $AutoCode->group = $this->group;
 //        $AutoCode->name = $this->name;
 //

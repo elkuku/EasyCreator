@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class AutoCodeAdminModelsModel extends EasyAutoCode
+class AutoCodeAdminModelsModel extends EcrAutoCode
 {
     protected $tags = array('start' => '/*', 'end' => '*/');
 

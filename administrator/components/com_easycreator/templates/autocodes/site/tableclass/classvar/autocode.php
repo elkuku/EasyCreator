@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class AutoCodeSiteTableclassClassvar extends EasyAutoCode
+class AutoCodeSiteTableclassClassvar extends EcrAutoCode
 {
     private $varScopes = array(
     'var'
@@ -25,8 +25,8 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
     /**
      * Get the AutoCode to insert.
      *
-     * @param string $type AutoCode type
-     * @param EcrTableField $field A EcrTableField object
+     * @param string    $type AutoCode type
+     * @param EcrTable $table
      *
      * @return string
      */
@@ -105,11 +105,11 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
     /**
      * Open the part for edit.
      *
-     * @param EasyAutoCode $AutoCode TheAutocode
+     * @param EcrAutoCode $AutoCode TheAutocode
      *
      * @return void
      */
-    public function edit(EasyAutoCode $AutoCode)
+    public function edit(EcrAutoCode $AutoCode)
     {
         $var_scope = $AutoCode->options['varscope'];
 
@@ -184,8 +184,6 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
      */
     public function insert(EcrProject $project, $options, EcrLogger $logger)
     {
-        ecrLoadHelper('autocode');
-
         $table_name = JRequest::getCmd('element');
         $var_scope = JRequest::getCmd('var_scope');
         $element_scope = JRequest::getCmd('element_scope');
@@ -233,7 +231,7 @@ class AutoCodeSiteTableclassClassvar extends EasyAutoCode
             }//foreach
         }
 
-        $AutoCode = new EasyAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
         $AutoCode->options['varscope'] = $var_scope;

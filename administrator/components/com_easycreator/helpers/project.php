@@ -780,8 +780,6 @@ abstract class EcrProject extends JObject
          */
         if(isset($manifest->autoCodes->autoCode))
         {
-            ecrLoadHelper('autocode');
-
             foreach($manifest->autoCodes->autoCode as $code)
             {
                 $group = (string)$code->attributes()->group;
@@ -888,11 +886,11 @@ abstract class EcrProject extends JObject
     /**
      * Adds AutoCode to the project.
      *
-     * @param EasyAutoCode $autoCode The AutoCode
+     * @param EcrAutoCode $autoCode The AutoCode
      *
      * @return void
      */
-    public function addAutoCode(EasyAutoCode $autoCode)
+    public function addAutoCode(EcrAutoCode $autoCode)
     {
         $this->autoCodes[$autoCode->getKey()] = $autoCode;
     }//function

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class description.
  *
  */
-class AutoCodeAdminViewlistTable extends EasyAutoCode
+class AutoCodeAdminViewlistTable extends EcrAutoCode
 {
     protected $tags = array('start' => '<!--', 'end' => '-->');
 
@@ -44,11 +44,11 @@ class AutoCodeAdminViewlistTable extends EasyAutoCode
     /**
      * Open the AutoCode for edit.
      *
-     * @param EasyAutoCode $AutoCode The AutoCode
+     * @param EcrAutoCode $AutoCode The AutoCode
      *
      * @return void
      */
-    public function edit(EasyAutoCode $AutoCode)
+    public function edit(EcrAutoCode $AutoCode)
     {
         /* Array with required fields */
         $requireds = array();

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class AutoCodeSiteViewCategoryTable extends EasyAutoCode
+class AutoCodeSiteViewCategoryTable extends EcrAutoCode
 {
     protected $tags = array('start' => '<!--', 'end' => '-->');
 
@@ -44,11 +44,11 @@ class AutoCodeSiteViewCategoryTable extends EasyAutoCode
     /**
      * Open the AutoCode for edit.
      *
-     * @param EasyAutoCode $AutoCode The AutoCode
+     * @param EcrAutoCode $AutoCode The AutoCode
      *
      * @return void
      */
-    public function edit(EasyAutoCode $AutoCode)
+    public function edit(EcrAutoCode $AutoCode)
     {
 	    JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'warning');
         /* Array with required fields */

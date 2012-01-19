@@ -140,7 +140,7 @@ class PartViewsData_list extends EasyPart
         /* Draws an input box for a name field */
         $requireds[] = EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 //        JLoader::import('helpers.autocode', JPATH_COMPONENT);
-//        $AutoCode = new EasyAutoCode;
+//        $AutoCode = new EcrAutoCode;
 
         $ecr_project = JRequest::getCmd('ecr_project');
         $element_name = JRequest::getCmd('element');
@@ -157,14 +157,14 @@ class PartViewsData_list extends EasyPart
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
 
         if( ! $scope = JRequest::getCmd('scope'))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No scope given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No scope given'), 'error');
 
             return false;
         }
@@ -174,7 +174,7 @@ class PartViewsData_list extends EasyPart
 
         if( ! JFolder::exists($basePath))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('View not found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('View not found'), 'error');
 
             return false;
         }
@@ -224,8 +224,6 @@ class PartViewsData_list extends EasyPart
      */
     public function insert(EcrProject $EcrProject, $options, EcrLogger $logger)
     {
-        ecrLoadHelper('autocode');
-
         $EcrProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
 
         $element_name = JRequest::getCmd('element');
@@ -242,7 +240,7 @@ class PartViewsData_list extends EasyPart
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -295,7 +293,7 @@ class PartViewsData_list extends EasyPart
 
         $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 
-        $AutoCode = new EasyAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
 
@@ -335,7 +333,7 @@ class PartViewsData_list extends EasyPart
 
         if( ! count($fields) || ! count($fields[$table_name]))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table fields found'), 'error');
         }
 
         ?>
@@ -359,14 +357,14 @@ class PartViewsData_list extends EasyPart
             $checked =(in_array($key, $selecteds)) ? ' checked="checked"' : '';
             ?>
 <input type="checkbox" name="table_fields[]"
-	id="tblfield_<?php echo $key; ?>"
-	value="<?php echo $key; ?>"
-	<?php echo $checked; ?>>
+    id="tblfield_<?php echo $key; ?>"
+    value="<?php echo $key; ?>"
+    <?php echo $checked; ?>>
 <label for="tblfield_<?php echo $key; ?>">
 <?php echo $key.' ('.$value.')'; ?>
 </label>
 <br />
-	<?php
+    <?php
         }//foreach
     }//function
 }//class
