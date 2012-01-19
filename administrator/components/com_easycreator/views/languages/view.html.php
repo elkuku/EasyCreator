@@ -132,11 +132,9 @@ class EasyCreatorViewLanguages extends JView
 
     private function getG11nInfo()
     {
-        ecrLoadHelper('g11n');
-
         $info = new stdClass;
 
-        $this->languages = g11nHelper::getLanguages();// $this->get('languages');
+        $this->languages = Ecrg11nHelper::getLanguages();// $this->get('languages');
 
         $baseLink = '';
 
@@ -170,7 +168,7 @@ class EasyCreatorViewLanguages extends JView
         ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
         : '';
 
-        $cachedFiles = G11nHelper::getCachedFiles();// $this->get('CachedFiles');
+        $cachedFiles = Ecrg11nHelper::getCachedFiles();// $this->get('CachedFiles');
 
         $this->scopes = array('admin' => JPATH_ADMINISTRATOR, 'site' => JPATH_SITE);
 
@@ -284,9 +282,7 @@ class EasyCreatorViewLanguages extends JView
 
         $this->options = JArrayHelper::toObject($options, 'JObject');
 
-        ecrLoadHelper('languageconverter');
-
-        $this->converter = new ECRLanguageConverter($this->options, $this->project);
+        $this->converter = new EcrLanguageConverter($this->options, $this->project);
 
         $files = array();
 
@@ -976,9 +972,7 @@ class EasyCreatorViewLanguages extends JView
 
     private function g11nUpdate()
     {
-        ecrLoadHelper('g11n');
-
-        $this->languages = g11nHelper::getLanguages();// $this->get('languages');
+        $this->languages = Ecrg11nHelper::getLanguages();// $this->get('languages');
 
         $this->g11nInfo = $this->getG11nInfo();
 

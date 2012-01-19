@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * The g11n Helper Class.
  */
-class G11nHelper
+class Ecrg11nHelper
 {
     public static function getCachedFiles()
     {

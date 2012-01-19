@@ -445,7 +445,7 @@ class EcrLanguage
      *
      * @return boolean
      */
-    protected function saveFile($lang, $fileContents)
+    public function saveFile($lang, $fileContents)
     {
         $fileName = $this->getFileName($lang, $this->_scope, $this->project);
 
@@ -612,7 +612,7 @@ class EcrLanguage
     /**
      * Reads the strings from language files.
      *
-     * @param string $core If it is a core file
+     * @param bool|string $core If it is a core file
      *
      * @return void
      */

@@ -197,8 +197,6 @@ class EasyCreatorControllerLanguages extends JController
      */
     public function do_convert()
     {
-        ecrLoadHelper('languageconverter');
-
         JRequest::setVar('task', 'convert');
 
         $options = JArrayHelper::toObject(JRequest::getVar('options', array()), 'JObject');
@@ -219,7 +217,7 @@ class EasyCreatorControllerLanguages extends JController
 
         $languages = JFactory::getLanguage()->getKnownLanguages();
 
-        $converter = new ECRLanguageConverter($options, $project);
+        $converter = new EcrLanguageConverter($options, $project);
 
         $selLanguage = JRequest::getCmd('sel_language');
         $selectedFile = JRequest::getVar('selected_file');
@@ -287,8 +285,6 @@ class EasyCreatorControllerLanguages extends JController
     {
         try
         {
-            ecrLoadHelper('g11n');
-
             $project = EcrProjectHelper::getProject();
 
             switch($project->type)
@@ -305,7 +301,7 @@ class EasyCreatorControllerLanguages extends JController
             $scope = JRequest::getCmd('scope');
             $lang = JRequest::getCmd('langTag');
 
-            $msg = G11nHelper::updateLanguage($comName, $scope, $lang);
+            $msg = Ecrg11nHelper::updateLanguage($comName, $scope, $lang);
 
             JFactory::getApplication()->enqueueMessage($msg);
         }
@@ -323,8 +319,6 @@ class EasyCreatorControllerLanguages extends JController
     {
         try
         {
-            ecrLoadHelper('g11n');
-
             $project = EcrProjectHelper::getProject();
 
             $scope = JRequest::getCmd('scope');
@@ -340,7 +334,7 @@ class EasyCreatorControllerLanguages extends JController
                 break;
             }//switch
 
-            $msg = G11nHelper::createTemplate($comName, $scope);
+            $msg = Ecrg11nHelper::createTemplate($comName, $scope);
 
             JFactory::getApplication()->enqueueMessage($msg);
         }

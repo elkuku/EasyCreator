@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  * Temporary class to convert language ini and php files from Joomla! 1.5 to 1.6.
  *
  */
-class ECRLanguageConverter
+class EcrLanguageConverter
 {
     private $forbiddenKeys = array('null', 'yes', 'no', 'true', 'false', 'on', 'off', 'none');
 
