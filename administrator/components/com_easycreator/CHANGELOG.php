@@ -1,7 +1,7 @@
 <?php
 // @codingStandardsIgnoreStart
 /**
- * CHANGELOG.-
+ * CHANGELOG.--
  *
  * This is the changelog for EasyCreator.<br>
  * <b>Please</b> be patient =;)
