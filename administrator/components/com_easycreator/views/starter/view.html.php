@@ -45,8 +45,6 @@ class EasyCreatorViewStarter extends JView
         ecrStylesheet('wizard');
         ecrScript('wizard');
 
-        ecrLoadHelper('easytemplatehelper');
-
         //--JS for changing loader pic
         $img_base = JURI::root().'administrator/components/com_easycreator/assets/images';
 
@@ -55,7 +53,7 @@ class EasyCreatorViewStarter extends JView
 
         $params = JComponentHelper::getParams('com_easycreator');
 
-        $this->templateList = EasyTemplateHelper::getTemplateList();
+        $this->templateList = EcrTemplateHelper::getTemplateList();
 
         $tplType = JRequest::getCmd('tpl_type');
         $tplFolder = JRequest::getCmd('tpl_name');

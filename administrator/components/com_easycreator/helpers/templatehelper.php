@@ -12,7 +12,7 @@
  *
  * @package    EasyCreator
  */
-class EasyTemplateHelper
+class EcrTemplateHelper
 {
     /**
      * Gets a list of installed templates.
@@ -232,7 +232,7 @@ class EasyTemplateHelper
         $tmp_dest = JFactory::getConfig()->getValue('config.tmp_path').DS.$userfile['name'];
 
         //-- Move uploaded file
-        $uploaded = JFile::upload($tmp_src, $tmp_dest);
+        JFile::upload($tmp_src, $tmp_dest);
 
         //-- Unpack the downloaded package file
         $package = JInstallerHelper::unpack($tmp_dest);

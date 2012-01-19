@@ -31,8 +31,6 @@ class EasyCreatorViewTemplates extends JView
      */
     public function display($tpl = null)
     {
-        ecrLoadHelper('easytemplatehelper');
-
         $task = JRequest::getCmd('task');
 
         EcrHtml::header(jgettext('Extension templates'), null, 'wizard');
@@ -101,7 +99,7 @@ class EasyCreatorViewTemplates extends JView
         if($profiling)
         $this->profiler->mark('start get templates');
 
-        $this->templates  = EasyTemplateHelper::getTemplateList();
+        $this->templates  = EcrTemplateHelper::getTemplateList();
 
         if($profiling)
         $this->profiler->mark('end get cached templates');

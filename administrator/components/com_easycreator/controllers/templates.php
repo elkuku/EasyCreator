@@ -94,14 +94,12 @@ class EasyCreatorControllerTemplates extends JController
      */
     public function do_export()
     {
-        ecrLoadHelper('easytemplatehelper');
-
         try
         {
             if( ! $exports = (array)JRequest::getVar('exports'))
             throw new Exception(jgettext('No templates selected'));
 
-            EasyTemplateHelper::exportTemplates($exports);
+            EcrTemplateHelper::exportTemplates($exports);
 
             EcrHtml::displayMessage(jgettext('Templates have been exported.'));
         }
@@ -123,11 +121,9 @@ class EasyCreatorControllerTemplates extends JController
      */
     public function do_install()
     {
-        ecrLoadHelper('easytemplatehelper');
-
         try
         {
-            EasyTemplateHelper::installTemplates();
+            EcrTemplateHelper::installTemplates();
 
             EcrHtml::displayMessage(jgettext('Templates have been installed.'));
 

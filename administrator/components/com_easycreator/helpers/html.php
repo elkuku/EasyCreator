@@ -878,8 +878,6 @@ EOF;
      */
     public static function displayResult(EcrProject $project, $formFieldNames = array())
     {
-        ecrLoadHelper('easytemplatehelper');
-
         ?>
 <div class="ecr_result">
 <h3><?php echo jgettext('Your extension so far'); ?></h3>
@@ -891,7 +889,7 @@ EOF;
 
         echo '<div style="background-color: #fff; border: 1px solid gray; padding-left: 0.5em;">';
 
-        $info = easyTemplateHelper::getTemplateInfo($project->type, $project->tplName);
+        $info = EcrTemplateHelper::getTemplateInfo($project->type, $project->tplName);
 
         if($info)
         {
