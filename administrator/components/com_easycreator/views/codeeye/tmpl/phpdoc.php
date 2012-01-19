@@ -10,9 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.phpdoc');
-
-$phpDoc = new EasyPHPDoc;
+$phpDoc = new EcrPearHelperPhpdoc;
 
 if( ! $phpDoc->checkEnv()):
     echo 'Environment check failed.. cannot continue :(';

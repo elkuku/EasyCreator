@@ -7,14 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-ecrLoadHelper('pearhelpers.consolehelper');
-
 /**
  * Selenium test Helper.
  *
  * @package    EasyCreator
  */
-class EasySeleniumTest extends EasyPearConsole
+class EcrPearHelperSelenium extends EcrPearHelperConsole
 {
     public $logPath = '';
 

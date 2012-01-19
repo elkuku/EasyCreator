@@ -29,8 +29,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function phpunit()
     {
-        ecrLoadHelper('pearhelpers.phpunit');
-
         $response = new JsonResponse;
 
         $folder = JRequest::getString('folder');
@@ -57,7 +55,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
-        $phpUnit = new EasyPHPUnit;
+        $phpUnit = new EcrPearHelperPhpunit;
 
         ob_start();
         $results = $phpUnit->test($arguments);
@@ -87,8 +85,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function selenium()
     {
-        ecrLoadHelper('pearhelpers.selenium');
-
         $response = new JsonResponse;
 
         $folder = JRequest::getString('folder');
@@ -115,7 +111,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
-        $seleniumTest = new EasySeleniumTest;
+        $seleniumTest = new EcrPearHelperSelenium;
 
         ob_start();
         $results = $seleniumTest->test($arguments);
@@ -144,8 +140,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function create_skeleton()
     {
-        ecrLoadHelper('pearhelpers.phpunit');
-
         $folder = JRequest::getString('folder');
         $file = JRequest::getString('file');
         $ecr_project = JRequest::getCmd('ecr_project');
@@ -192,7 +186,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                     $arguments[] = '--bootstrap '.JPATH_ROOT.DS.'bootstrap.php';
                     $arguments[] = '--skeleton-test '.$class.' '.$path;
 
-                    $phpUnit = new EasyPHPUnit;
+                    $phpUnit = new EcrPearHelperPhpunit;
 
                     ob_start();
                     $results = $phpUnit->skeleton($arguments);
@@ -301,8 +295,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function gitStatus()
     {
-        ecrLoadHelper('pearhelpers.CodeSniffer');
-
         $path = JRequest::getVar('path');
         $file = JRequest::getVar('file');
 
@@ -312,7 +304,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         ob_start();
 
-        $console = new EasyPearConsole;
+        $console = new EcrPearHelperConsole;
 
         $goToPath = 'cd /home/elkuku/git/testinggg &&';
 
@@ -334,8 +326,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
     public function phploc()
     {
-        ecrLoadHelper('pearhelpers.phploc');
-
         $dir = JRequest::getString('dir');
 
         $response = new JsonResponse;
@@ -352,7 +342,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         ob_start();
 
-        $counter = new EasyPHPLOC;
+        $counter = new EcrPearHelperPhploc;
 
         $results = $counter->count($dir);
 
@@ -372,8 +362,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function load_sniff()
     {
-        ecrLoadHelper('pearhelpers.CodeSniffer');
-
         $path = JRequest::getVar('path');
         $file = JRequest::getVar('file');
 
@@ -428,7 +416,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         ob_start();
 
-        $sniffer = new EasyCodeSniffer;
+        $sniffer = new EcrPearHelperCodesniffer;
 
         $standard = JRequest::getVar('sniff_standard');
 
@@ -543,8 +531,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function phpcpd()
     {
-        ecrLoadHelper('pearhelpers.phpcpd');
-
         $path = JRequest::getVar('path');
 
         $arguments = array();
@@ -565,7 +551,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         }
 
         ob_start();
-        $phpcpd = new EasyPHPCPD;
+        $phpcpd = new EcrPearHelperPhpcpd;
 
         $results = $phpcpd->detect($arguments, $path);
 
@@ -585,8 +571,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function phpdoc()
     {
-        ecrLoadHelper('pearhelpers.phpdoc');
-
         $response = array();
 
         $parseDirs = JRequest::getVar('parse_dirs');
@@ -595,7 +579,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $converter = JRequest::getVar('converter');
         $options = JRequest::getVar('options');
 
-        $phpDoc = new EasyPHPDoc;
+        $phpDoc = new EcrPearHelperPhpdoc;
 
         if($converter)
         {
@@ -665,11 +649,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function check_environment()
     {
-        ecrLoadHelper('pearhelpers.consolehelper');
-
         $response = array();
 
-        $pearConsole = new EasyPearConsole;
+        $pearConsole = new EcrPearHelperConsole;
 
         ob_start();
         $pearPackages = $pearConsole->getPackages();

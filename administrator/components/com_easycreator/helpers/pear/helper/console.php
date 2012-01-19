@@ -11,7 +11,7 @@
  *
  * @package    EasyCreator
  */
-class EasyPearConsole extends JObject
+class EcrPearHelperConsole extends JObject
 {
     public $cliBase = '';
 

@@ -10,9 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.phpcpd');
-
-$phpcpd = new EasyPHPCPD;
+$phpcpd = new EcrPearHelperPhpcpd;
 
 if( ! $phpcpd->checkEnv()):
     echo 'Env check failed.. cannot continue :(';

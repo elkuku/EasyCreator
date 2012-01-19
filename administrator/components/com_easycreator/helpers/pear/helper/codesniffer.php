@@ -42,14 +42,12 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.consolehelper');
-
 /**
  * PHP Code Sniffer helper.
  *
  * @package EasyCreator
  */
-class EasyCodeSniffer extends EasyPearConsole
+class EcrPearHelperCodesniffer extends EcrPearHelperConsole
 {
     public $standard = 'PEAR';
 

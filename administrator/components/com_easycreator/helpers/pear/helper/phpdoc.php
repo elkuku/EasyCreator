@@ -6,14 +6,12 @@
  * @author		Created on 30-Sep-2009
  */
 
-ecrLoadHelper('pearhelpers.consolehelper');
-
 /**
  * PHPDocumentor Helper.
  *
  * @package    EasyCreator
  */
-class EasyPHPDoc extends EasyPearConsole
+class EcrPearHelperPhpdoc extends EcrPearHelperConsole
 {
     /**
      * title of generated documentation, default is 'Generated Documentation'

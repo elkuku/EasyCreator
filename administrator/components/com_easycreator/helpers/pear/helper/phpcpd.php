@@ -9,14 +9,12 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.consolehelper');
-
 /**
  * PHP Copy & Paste detector helper.
  *
  * @package EasyCreator
  */
-class EasyPHPCPD extends EasyPearConsole
+class EcrPearHelperPhpcpd extends EcrPearHelperConsole
 {
     /**
      * Runs the duplicated code detection.

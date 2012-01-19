@@ -10,9 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.phpunit');
-
-$phpUnit = new EasyPHPUnit;
+$phpUnit = new EcrPearHelperPhpunit;
 
 if( ! $phpUnit->checkEnv()):
     echo 'Env check failed.. cannot continue :(';

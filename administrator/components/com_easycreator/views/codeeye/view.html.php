@@ -37,8 +37,6 @@ class EasyCreatorViewCodeEye extends JView
      */
     public function display($tpl = null)
     {
-        ecrLoadHelper('pearhelpers.consolehelper');
-
         //-- Add javascript
         ecrScript('codeeye');
 

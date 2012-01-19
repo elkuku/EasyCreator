@@ -81,14 +81,12 @@
 
  */
 
-ecrLoadHelper('pearhelpers.consolehelper');
-
 /**
  * PHPUnit Helper.
  *
  * @package    EasyCreator
  */
-class EasyPHPUnit extends EasyPearConsole
+class EcrPearHelperPhpunit extends EcrPearHelperConsole
 {
     public $logPath = '';
 

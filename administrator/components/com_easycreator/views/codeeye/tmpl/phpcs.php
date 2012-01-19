@@ -10,9 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.CodeSniffer');
-
-$sniffer = new EasyCodeSniffer;
+$sniffer = new EcrPearHelperCodesniffer;
 
 if( ! $sniffer->checkEnv()):
     echo 'Env check failed.. cannot continue :(';

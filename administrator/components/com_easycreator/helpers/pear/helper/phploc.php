@@ -9,14 +9,12 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('pearhelpers.consolehelper');
-
 /**
  * PHP count lines of code.
  *
  * @package EasyCreator
  */
-class EasyPHPLOC extends EasyPearConsole
+class EcrPearHelperPhploc extends EcrPearHelperConsole
 {
     /**
      * Count the lines.
