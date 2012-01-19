@@ -259,7 +259,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function draw_test_dir()
     {
-        ecrLoadHelper('php_file_tree');
         $ecr_project = JRequest::getCmd('ecr_project');
         $this->testsBase = 'administrator'.DS.'components'.DS.$ecr_project.DS.'tests';
 
@@ -269,7 +268,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $jsFolder = '';
 
-        $fileTree = new phpFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFolder);
+        $fileTree = new EcrFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFolder);
 
         $arguments = array();
         $response = array();

@@ -57,7 +57,7 @@ define ('ARCHIVE_TAR_END_BLOCK', pack("a512", ''));
 * @license  http://www.opensource.org/licenses/bsd-license.php New BSD License
 * @package  Archive_Tar
 */
-class Archive_Tar extends PEAR
+class EcrPearArchiveTar extends PEAR
 {
     /**
     * @var string Name of the Tar
@@ -96,8 +96,8 @@ class Archive_Tar extends PEAR
 
     // {{{ constructor
     /**
-    * Archive_Tar Class constructor. This flavour of the constructor only
-    * declare a new Archive_Tar object, identifying it by the name of the
+    * EcrPearArchiveTar Class constructor. This flavour of the constructor only
+    * declare a new EcrPearArchiveTar object, identifying it by the name of the
     * tar file.
     * If the compress argument is set the tar will be read or created as a
     * gzip or bz2 compressed TAR file.
@@ -109,7 +109,7 @@ class Archive_Tar extends PEAR
     *                   boolean value 'true' means 'gz'.
     * @access public
     */
-    function Archive_Tar($p_tarname, $p_compress = null)
+    function EcrPearArchiveTar($p_tarname, $p_compress = null)
     {
         $this->PEAR();
         $this->_compress = false;

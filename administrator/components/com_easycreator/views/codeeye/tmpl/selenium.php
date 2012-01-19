@@ -27,7 +27,7 @@ $jsFile .= " onclick=\"doSelenium('[link]', '[file]', '$timeStamp', '[id]');\"";
 
 $jsFolder = '';
 
-$fileTree = new phpFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFolder);
+$fileTree = new EcrFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFolder);
 ?>
 
 <div class="ecr_floatbox">
@@ -97,7 +97,7 @@ function drawFileTree($project)
 
     $jsFolder = '';
 //    #$jsFolder .= " onmousedown=\"setPath('[link]/[file]');\"";
-    $fileTree = new phpFileTree('', '', $javascript, $jsFolder);
+    $fileTree = new EcrFileTree('', '', $javascript, $jsFolder);
 
     foreach($project->copies as $dir)
     {
@@ -145,7 +145,7 @@ function drawFileTree($project)
 
             if( ! isset($fileTree))
             {
-                $fileTree = new phpFileTree($dir, "javascript:", $javascript);
+                $fileTree = new EcrFileTree($dir, "javascript:", $javascript);
             }
             else
             {

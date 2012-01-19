@@ -116,31 +116,9 @@ class EcrProjectHelper
      */
     public static function newProject($type)
     {
-        /*
-        if( ! ecrLoadHelper('projecttypes.'.$type))
-        {
-            JFactory::getApplication()->enqueueMessage(
-                sprintf('No helper found for project type %s', $type), 'error');
-
-            return false;
-        }
-        */
-
         $className = 'EcrProject'.ucfirst($type);
 
-        /*
-        if( ! class_exists($className))
-        {
-            JFactory::getApplication()->enqueueMessage(
-                sprintf('Required class [%s] not found', $className), 'error');
-
-            return false;
-        }
-        */
-
-        $project = new $className;
-
-        return $project;
+        return $className;
     }//function
 
     /**

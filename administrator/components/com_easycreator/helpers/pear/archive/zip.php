@@ -105,10 +105,10 @@ define( 'ARCHIVE_ZIP_PARAM_POST_ADD', 'callback_post_add' );
  *
  * @author   Vincent Blavet <vincent@blavet.net>
  * @version  $Revision: 1.2 $
- * @package  Archive_Zip
+ * @package  EcrPearArchiveZip
  * @category Archive
  */
-class Archive_Zip
+class EcrPearArchiveZip
 {
     /**
      * The filename of the zip archive.
@@ -136,14 +136,14 @@ class Archive_Zip
 
     // {{{ constructor
     /**
-    * Archive_Zip Class constructor. This flavour of the constructor only
-    * declare a new Archive_Zip object, identifying it by the name of the
+    * EcrPearArchiveZip Class constructor. This flavour of the constructor only
+    * declare a new EcrPearArchiveZip object, identifying it by the name of the
     * zip file.
     *
     * @param    string  $p_zipname  The name of the zip archive to create
     * @access public
     */
-    function Archive_Zip($p_zipname)
+    function EcrPearArchiveZip($p_zipname)
     {
 
         // ----- Check the zlib
@@ -584,7 +584,7 @@ class Archive_Zip
     * any warning.
     *
     * @access public
-    * @param  mixed  $p_archive  It can be a valid Archive_Zip object or
+    * @param  mixed  $p_archive  It can be a valid EcrPearArchiveZip object or
     *                            the filename of a valid zip archive.
     * @return integer 1 on success, 0 on failure.
     */
@@ -592,7 +592,7 @@ class Archive_Zip
     {
         $this->_errorReset();
 
-        // ----- Look if the $p_archive is a Archive_Zip object
+        // ----- Look if the $p_archive is a EcrPearArchiveZip object
         if (   (is_object($p_archive))
         && (strtolower(get_class($p_archive)) == 'archive_zip')) {
             $v_result = $this->_duplicate($p_archive->_zipname);
@@ -626,12 +626,12 @@ class Archive_Zip
     // {{{ merge()
     /**
     *  This method merge a valid zip archive at the end of the
-    *  archive identified by the Archive_Zip object.
+    *  archive identified by the EcrPearArchiveZip object.
     *  If the archive ($this) does not exist, the merge becomes a duplicate.
     *  If the archive to add does not exist, the merge is a success.
     *
     * @access public
-    * @param mixed $p_archive_to_add  It can be a valid Archive_Zip object or
+    * @param mixed $p_archive_to_add  It can be a valid EcrPearArchiveZip object or
     *                                 the filename of a valid zip archive.
     * @return integer 1 on success, 0 on failure.
     */
@@ -645,7 +645,7 @@ class Archive_Zip
             return(0);
         }
 
-        // ----- Look if the $p_archive_to_add is a Archive_Zip object
+        // ----- Look if the $p_archive_to_add is a EcrPearArchiveZip object
         if (   (is_object($p_archive_to_add))
         && (strtolower(get_class($p_archive_to_add)) == 'archive_zip')) {
             $v_result = $this->_merge($p_archive_to_add);
@@ -654,7 +654,7 @@ class Archive_Zip
         // ----- Look if the $p_archive_to_add is a string (so a filename)
         else if (is_string($p_archive_to_add)) {
             // ----- Create a temporary archive
-            $v_object_archive = new Archive_Zip($p_archive_to_add);
+            $v_object_archive = new EcrPearArchiveZip($p_archive_to_add);
 
             // ----- Merge the archive
             $v_result = $this->_merge($v_object_archive);
@@ -767,7 +767,7 @@ class Archive_Zip
     //   false on error, the error code is set.
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_checkFormat()
+    * EcrPearArchiveZip::_checkFormat()
     *
     * { Description }
     *
@@ -817,7 +817,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_create()
+    * EcrPearArchiveZip::_create()
     *
     * { Description }
     *
@@ -856,7 +856,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_add()
+    * EcrPearArchiveZip::_add()
     *
     * { Description }
     *
@@ -903,7 +903,7 @@ class Archive_Zip
             $this->_errorLog(ARCHIVE_ZIP_ERR_READ_OPEN_FAIL,
                        'Unable to open temporary file \''
                        .$v_zip_temp_name.'\' in binary write mode');
-                       return Archive_Zip::errorCode();
+                       return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Copy the files from the archive to the temporary file
@@ -1024,7 +1024,7 @@ class Archive_Zip
     // Parameters :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_openFd()
+    * EcrPearArchiveZip::_openFd()
     *
     * { Description }
     *
@@ -1038,7 +1038,7 @@ class Archive_Zip
         {
             $this->_errorLog(ARCHIVE_ZIP_ERR_READ_OPEN_FAIL,
                        'Zip file \''.$this->_zipname.'\' already open');
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Open the zip file
@@ -1047,7 +1047,7 @@ class Archive_Zip
             $this->_errorLog(ARCHIVE_ZIP_ERR_READ_OPEN_FAIL,
                        'Unable to open archive \''.$this->_zipname
             .'\' in '.$p_mode.' mode');
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Return
@@ -1061,7 +1061,7 @@ class Archive_Zip
     // Parameters :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_closeFd()
+    * EcrPearArchiveZip::_closeFd()
     *
     * { Description }
     *
@@ -1093,7 +1093,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_addList()
+    * EcrPearArchiveZip::_addList()
     *
     * { Description }
     *
@@ -1166,7 +1166,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_addFileList()
+    * EcrPearArchiveZip::_addFileList()
     *
     * { Description }
     *
@@ -1198,7 +1198,7 @@ class Archive_Zip
             {
                 $this->_errorLog(ARCHIVE_ZIP_ERR_MISSING_FILE,
                          "File '$p_filename' does not exists");
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Look if it is a file or a dir with no all pathnre move
@@ -1276,7 +1276,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_addFile()
+    * EcrPearArchiveZip::_addFile()
     *
     * { Description }
     *
@@ -1291,7 +1291,7 @@ class Archive_Zip
             $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_PARAMETER, "Invalid file list parameter (invalid or empty list)");
 
             // ----- Return
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Calculate the stored filename
@@ -1349,7 +1349,7 @@ class Archive_Zip
          $this->_errorLog(-5, "Stored file name is too long (max. 255) : '$v_stored_filename'");
 
          // ----- Return
-         return Archive_Zip::errorCode();
+         return EcrPearArchiveZip::errorCode();
          }
          */
 
@@ -1420,7 +1420,7 @@ class Archive_Zip
                 if (($v_file = @fopen($p_filename, "rb")) == 0) {
                     $this->_errorLog(ARCHIVE_ZIP_ERR_READ_OPEN_FAIL
                     , "Unable to open file '$p_filename' in binary read mode");
-                    return Archive_Zip::errorCode();
+                    return EcrPearArchiveZip::errorCode();
                 }
 
                 if ($p_params['no_compression']) {
@@ -1508,7 +1508,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_writeFileHeader()
+    * EcrPearArchiveZip::_writeFileHeader()
     *
     * { Description }
     *
@@ -1561,7 +1561,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-    * Archive_Zip::_writeCentralFileHeader()
+    * EcrPearArchiveZip::_writeCentralFileHeader()
     *
     * { Description }
     *
@@ -1617,7 +1617,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_writeCentralHeader()
+     * EcrPearArchiveZip::_writeCentralHeader()
      *
      * { Description }
      *
@@ -1651,7 +1651,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_list()
+     * EcrPearArchiveZip::_list()
      *
      * { Description }
      *
@@ -1668,7 +1668,7 @@ class Archive_Zip
             , 'Unable to open archive \''.$this->_zipname.'\' in binary read mode');
 
             // ----- Return
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Read the central directory informations
@@ -1686,7 +1686,7 @@ class Archive_Zip
             $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
 
             // ----- Return
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Read each entry
@@ -1732,7 +1732,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_convertHeader2FileInfo()
+     * EcrPearArchiveZip::_convertHeader2FileInfo()
      *
      * { Description }
      *
@@ -1774,7 +1774,7 @@ class Archive_Zip
     //   1 on success,0 or less on error (see error code list)
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_extractByRule()
+     * EcrPearArchiveZip::_extractByRule()
      *
      * { Description }
      *
@@ -1838,7 +1838,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_ARCHIVE_ZIP,
                          'Invalid archive size');
 
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Read the file header
@@ -1942,7 +1942,7 @@ class Archive_Zip
                     $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_ARCHIVE_ZIP, 'Invalid archive size');
 
                     // ----- Return
-                    return Archive_Zip::errorCode();
+                    return EcrPearArchiveZip::errorCode();
                 }
 
                 // ----- Look for extraction as string
@@ -2009,7 +2009,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_extractFile()
+     * EcrPearArchiveZip::_extractFile()
      *
      * { Description }
      *
@@ -2244,7 +2244,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_extractFileAsString()
+     * EcrPearArchiveZip::_extractFileAsString()
      *
      * { Description }
      *
@@ -2306,7 +2306,7 @@ class Archive_Zip
     // Return Values :
     // ---------------------------------------------------------------------------
     /**
-     * Archive_Zip::_readFileHeader()
+     * EcrPearArchiveZip::_readFileHeader()
      *
      * { Description }
      *
@@ -2326,7 +2326,7 @@ class Archive_Zip
             $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT, 'Invalid archive structure');
 
             // ----- Return
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Read the first 42 bytes of the header
@@ -2342,7 +2342,7 @@ class Archive_Zip
             $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT, "Invalid block size : ".strlen($v_binary_data));
 
             // ----- Return
-            return Archive_Zip::errorCode();
+            return EcrPearArchiveZip::errorCode();
         }
 
         // ----- Extract the values
@@ -2414,7 +2414,7 @@ class Archive_Zip
         // Return Values :
         // ---------------------------------------------------------------------------
         /**
-         * Archive_Zip::_readCentralFileHeader()
+         * EcrPearArchiveZip::_readCentralFileHeader()
          *
          * { Description }
          *
@@ -2434,7 +2434,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT, 'Invalid archive structure');
 
                 // ----- Return
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Read the first 42 bytes of the header
@@ -2450,7 +2450,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT, "Invalid block size : ".strlen($v_binary_data));
 
                 // ----- Return
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Extract the values
@@ -2523,7 +2523,7 @@ class Archive_Zip
         // Return Values :
         // ---------------------------------------------------------------------------
         /**
-         * Archive_Zip::_readEndCentralDir()
+         * EcrPearArchiveZip::_readEndCentralDir()
          *
          * { Description }
          *
@@ -2539,7 +2539,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                        'Unable to go to the end of the archive \''
                        .$this->_zipname.'\'');
-                       return Archive_Zip::errorCode();
+                       return EcrPearArchiveZip::errorCode();
             }
 
             // ----- First try : look if this is an archive with no commentaries
@@ -2552,7 +2552,7 @@ class Archive_Zip
                     $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                          'Unable to seek back to the middle of the archive \''
                          .$this->_zipname.'\'');
-                         return Archive_Zip::errorCode();
+                         return EcrPearArchiveZip::errorCode();
                 }
 
                 // ----- Read for bytes
@@ -2577,7 +2577,7 @@ class Archive_Zip
                     $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                          'Unable to seek back to the middle of the archive \''
                          .$this->_zipname.'\'');
-                         return Archive_Zip::errorCode();
+                         return EcrPearArchiveZip::errorCode();
                 }
 
                 // ----- Read byte per byte in order to find the signature
@@ -2603,7 +2603,7 @@ class Archive_Zip
                 if ($v_pos == $v_size) {
                     $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                          "Unable to find End of Central Dir Record signature");
-                    return Archive_Zip::errorCode();
+                    return EcrPearArchiveZip::errorCode();
                 }
             }
 
@@ -2615,7 +2615,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                        "Invalid End of Central Dir Record size : "
                        .strlen($v_binary_data));
-                       return Archive_Zip::errorCode();
+                       return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Extract the values
@@ -2625,7 +2625,7 @@ class Archive_Zip
             if (($v_pos + $v_data['comment_size'] + 18) != $v_size) {
                 $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                        "Fail to find the right signature");
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Get comment
@@ -2653,7 +2653,7 @@ class Archive_Zip
         // Return Values :
         // ---------------------------------------------------------------------------
         /**
-         * Archive_Zip::_deleteByRule()
+         * EcrPearArchiveZip::_deleteByRule()
          *
          * { Description }
          *
@@ -2691,7 +2691,7 @@ class Archive_Zip
 
                 $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_ARCHIVE_ZIP,
                        'Invalid archive size');
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Read each entry
@@ -2806,7 +2806,7 @@ class Archive_Zip
                 .'.tmp';
 
                 // ----- Creates a temporary zip archive
-                $v_temp_zip = new Archive_Zip($v_zip_temp_name);
+                $v_temp_zip = new EcrPearArchiveZip($v_zip_temp_name);
 
                 // ----- Open the temporary zip file in write mode
                 if (($v_result = $v_temp_zip->_openFd('wb')) != 1) {
@@ -2828,7 +2828,7 @@ class Archive_Zip
 
                         $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_ARCHIVE_ZIP,
                                  'Invalid archive size');
-                        return Archive_Zip::errorCode();
+                        return EcrPearArchiveZip::errorCode();
                     }
 
                     // ----- Read the file header
@@ -2941,7 +2941,7 @@ class Archive_Zip
         //   -1 : Unable to create directory
         // ---------------------------------------------------------------------------
         /**
-        * Archive_Zip::_dirCheck()
+        * EcrPearArchiveZip::_dirCheck()
         *
         * { Description }
         *
@@ -2978,7 +2978,7 @@ class Archive_Zip
             if (!@mkdir($p_dir, 0777)) {
                 $this->_errorLog(ARCHIVE_ZIP_ERR_DIR_CREATE_FAIL,
                        "Unable to create directory '$p_dir'");
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Return
@@ -2994,7 +2994,7 @@ class Archive_Zip
         // Return Values :
         // ---------------------------------------------------------------------------
         /**
-        * Archive_Zip::_merge()
+        * EcrPearArchiveZip::_merge()
         *
         * { Description }
         *
@@ -3060,7 +3060,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_READ_OPEN_FAIL,
                        'Unable to open temporary file \''
                        .$v_zip_temp_name.'\' in binary write mode');
-                       return Archive_Zip::errorCode();
+                       return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Copy the files from the archive to the temporary file
@@ -3172,7 +3172,7 @@ class Archive_Zip
         // Return Values :
         // ---------------------------------------------------------------------------
         /**
-         * Archive_Zip::_duplicate()
+         * EcrPearArchiveZip::_duplicate()
          *
          * { Description }
          *
@@ -3202,7 +3202,7 @@ class Archive_Zip
                 $this->_errorLog(ARCHIVE_ZIP_ERR_READ_OPEN_FAIL,
                        'Unable to open archive file \''
                        .$p_archive_filename.'\' in binary write mode');
-                       return Archive_Zip::errorCode();
+                       return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Copy the files from the archive to the temporary file
@@ -3228,7 +3228,7 @@ class Archive_Zip
         // ---------------------------------------------------------------------------
 
         /**
-         * Archive_Zip::_check_parameters()
+         * EcrPearArchiveZip::_check_parameters()
          *
          * { Description }
          *
@@ -3242,7 +3242,7 @@ class Archive_Zip
             if (!is_array($p_params)) {
                 $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_PARAMETER,
                          'Unsupported parameter, waiting for an array');
-                return Archive_Zip::errorCode();
+                return EcrPearArchiveZip::errorCode();
             }
 
             // ----- Check that all the params are valid
@@ -3251,7 +3251,7 @@ class Archive_Zip
                     $this->_errorLog(ARCHIVE_ZIP_ERR_INVALID_PARAMETER,
                              'Unsupported parameter with key \''.$v_key.'\'');
 
-                    return Archive_Zip::errorCode();
+                    return EcrPearArchiveZip::errorCode();
                 }
             }
 
@@ -3273,7 +3273,7 @@ class Archive_Zip
                                  "Callback '".$p_params[$v_key]
                         ."()' is not an existing function for "
                         ."parameter '".$v_key."'");
-                        return Archive_Zip::errorCode();
+                        return EcrPearArchiveZip::errorCode();
                     }
                 }
             }
@@ -3288,7 +3288,7 @@ class Archive_Zip
         // Parameters :
         // ---------------------------------------------------------------------------
         /**
-        * Archive_Zip::_errorLog()
+        * EcrPearArchiveZip::_errorLog()
         *
         * { Description }
         *
@@ -3308,7 +3308,7 @@ class Archive_Zip
         // Parameters :
         // ---------------------------------------------------------------------------
         /**
-        * Archive_Zip::_errorReset()
+        * EcrPearArchiveZip::_errorReset()
         *
         * { Description }
         *

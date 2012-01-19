@@ -398,7 +398,7 @@ function drawFileTree(EcrProject $project)
     $javascript .= " onclick=\"reflectFile('[folder]', '[file]', '[id]');\"";
 
     $jsFolder = '';
-    $fileTree = new phpFileTree('', '', $javascript, $jsFolder);
+    $fileTree = new EcrFileTree('', '', $javascript, $jsFolder);
 
     foreach($project->copies as $dir)
     {
@@ -441,7 +441,7 @@ function drawFileTree(EcrProject $project)
 
             if( ! isset($fileTree))
             {
-                $fileTree = new phpFileTree($dir, "javascript:", $javascript);
+                $fileTree = new EcrFileTree($dir, "javascript:", $javascript);
             }
             else
           {

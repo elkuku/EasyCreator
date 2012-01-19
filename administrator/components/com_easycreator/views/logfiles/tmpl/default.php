@@ -16,15 +16,13 @@ if( ! count($this->logFiles)):
     return;
 endif;
 
-ecrLoadHelper('php_file_tree');
-
 //--Add css
 ecrStylesheet('php_file_tree');
 
 //--Add javascript
 ecrScript('php_file_tree', 'log');
 
-$fileTree = new phpFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);
+$fileTree = new EcrFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);
 ?>
 
 <h1 style="display: inline;"><span class="img32c icon-32-menus"></span><?php echo jgettext('Logfiles'); ?></h1>

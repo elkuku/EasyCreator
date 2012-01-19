@@ -21,7 +21,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package EasyCreator
  */
-class phpFileTree
+class EcrFileTree
 {
     /**
      * @var integer
@@ -49,12 +49,12 @@ class phpFileTree
     /**
      * Constructor.
      *
-     * @param string $directory The directory to draw the tree for
-     * @param string $href Link pattern
-     * @param string $jsFile JS pattern for files
-     * @param string $jsFolder JS pattern for folders
-     * @param boolean $extensionsOnly Positiv filter for extensions
-     * @param boolean $reverse Reverse order
+     * @param string     $directory The directory to draw the tree for
+     * @param string     $href Link pattern
+     * @param string     $jsFile JS pattern for files
+     * @param string     $jsFolder JS pattern for folders
+     * @param array|bool $extensionsOnly Positiv filter for extensions
+     * @param boolean    $reverse Reverse order
      */
     public function __construct($directory = '', $href = '', $jsFile = '', $jsFolder = ''
     , $extensionsOnly = array(), $reverse = false)

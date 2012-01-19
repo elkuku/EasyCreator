@@ -69,18 +69,18 @@ class EcrAutoCode
         return $this->key;
     }//function
 
-	/**
-	 * To be overridden.
-	 *
-	 * Subsequent classes will define text strings to be inserted.
-	 *
-	 * @param string     $type Code type
-	 * @param \EcrTable $table
-	 *
-	 * @internal param \EcrTableField $field The field
-	 *
-	 * @return void
-	 */
+    /**
+     * To be overridden.
+     *
+     * Subsequent classes will define text strings to be inserted.
+     *
+     * @param string     $type Code type
+     * @param \EcrTable $table
+     *
+     * @internal param \EcrTableField $field The field
+     *
+     * @return void
+     */
     public function getCode($type, EcrTable $table)
     {
     }//function

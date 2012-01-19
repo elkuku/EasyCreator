@@ -126,10 +126,8 @@ class EasyCreatorControllerStarter extends JController
      */
     public function ajGetExtensionTemplateInfo()
     {
-        ecrLoadHelper('php_file_tree');
-
         $jsFile = '';
-        $fileTree = new phpFileTree('', '', $jsFile, '');
+        $fileTree = new EcrFileTree('', '', $jsFile, '');
 
         $extType = JRequest::getCmd('extType');
         $folder = JRequest::getCmd('folder');

@@ -22,13 +22,11 @@ class EcrArchive
      * @param string $compress The compression for the archive
      * @param string $removePath Path to remove within the archive
      *
-     * @return Archive_Tar
+     * @return EcrPearArchiveTar
      */
     public static function createTgz($archive, $files, $compress = 'tar', $removePath = '')
     {
-        ecrLoadHelper('pear.archive.Tar');
-
-        $tar = new Archive_Tar($archive, $compress);
+        $tar = new EcrPearArchiveTar($archive, $compress);
         $tar->setErrorHandling(PEAR_ERROR_PRINT);
         $tar->createModify($files, '', $removePath);
 
@@ -42,13 +40,11 @@ class EcrArchive
      * @param array $files Files to include in the archive
      * @param string $removePath Path to remove within the archive
      *
-     * @return Archive_Zip
+     * @return EcrPearArchiveZip
      */
     public static function createZip($fileName, $files, $removePath = '')
     {
-        ecrLoadHelper('pear.archive.Zip');
-
-        $archive = new Archive_Zip($fileName);
+        $archive = new EcrPearArchiveZip($fileName);
 
         return $archive->create($files, array('remove_path' => $removePath));
     }//function

@@ -733,8 +733,6 @@ EOF;
      */
     public static function initFileTree()
     {
-        ecrLoadHelper('php_file_tree');
-
         //-- Add css
         ecrStylesheet('php_file_tree');
 

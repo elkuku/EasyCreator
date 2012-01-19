@@ -77,7 +77,7 @@ $packages = getJoomlaPackages();
 
 EcrHtml::initFileTree();
 
-$fileTree = new phpFileTree('', '', " onclick=\"changeFrame('[folder]', '[file]');\"");
+$fileTree = new EcrFileTree('', '', " onclick=\"changeFrame('[folder]', '[file]');\"");
 $fileTree->setDir($pathHelp);
 $fileTree->showExtension = false;
 

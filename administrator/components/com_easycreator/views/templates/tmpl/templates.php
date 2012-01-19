@@ -27,7 +27,7 @@ $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
 $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
 EcrHtml::initFileTree();
-$fileTree = new phpFileTree;
+$fileTree = new EcrFileTree;
 
 $js = '';
 $js .= " onmousedown=\"setAction(event, '[folder]', '[file]', '[id]');\"";
