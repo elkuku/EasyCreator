@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...
  *
  */
-class EasyProjectMatrix extends JFolder
+class EcrProjectMatrix extends JFolder
 {
     public $totalFiles = 0;
 

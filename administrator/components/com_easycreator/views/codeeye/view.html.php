@@ -22,6 +22,12 @@ class EasyCreatorViewCodeEye extends JView
 {
     protected $project = null;
 
+
+    /**
+     * @var EcrProjectMatrix
+     */
+    protected $projectMatrix;
+
     /**
      * Standard display method.
      *
@@ -125,9 +131,7 @@ class EasyCreatorViewCodeEye extends JView
      */
     protected function stats()
     {
-        ecrLoadHelper('projectmatrix');
-
-        $this->projectMatrix = new EasyProjectMatrix($this->project);
+        $this->projectMatrix = new EcrProjectMatrix($this->project);
 
         $this->setLayout('stats');
     }//function

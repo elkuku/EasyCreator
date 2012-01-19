@@ -23,6 +23,11 @@ class EasyCreatorViewCodeEye extends JView
     protected $project = null;
 
     /**
+     * @var EcrProjectMatrix
+     */
+    protected $matrix;
+
+    /**
      * Standard display method.
      *
      * @param string $tpl The name of the template file to parse;
@@ -48,9 +53,7 @@ class EasyCreatorViewCodeEye extends JView
             return;
         }//try
 
-        ecrLoadHelper('projectmatrix');
-
-        $this->matrix = new EasyProjectMatrix($project, 'pcharts');
+        $this->matrix = new EcrProjectMatrix($project, 'pcharts');
 
         $response['status'] = 1;
 
