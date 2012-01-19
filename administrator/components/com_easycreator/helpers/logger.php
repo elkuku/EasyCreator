@@ -85,13 +85,8 @@ class EcrLogger
                 //-- Load profiler for J! 1.5
                 ecrLoadHelper('profiler_15');
             }
-            else
-            {
-                //-- Load profiler for J! 1.6 +
-                ecrLoadHelper('profiler');
-            }
 
-            $this->profiler = easyProfiler::getInstance('EcrLogger');
+            $this->profiler = EcrProfiler::getInstance('EcrLogger');
         }
     }//function
 

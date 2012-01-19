@@ -16,7 +16,7 @@ jimport('joomla.error.profiler');
  * Enter description here ...
  *
  */
-class easyProfiler extends JProfiler
+class EcrProfiler extends JProfiler
 {
     /**
      * @var float
@@ -39,7 +39,7 @@ class easyProfiler extends JProfiler
      * @param string $prefix Prefix used to distinguish profiler objects.
      *
      * @access public
-     * @return easyProfiler  The Profiler object.
+     * @return EcrProfiler  The Profiler object.
      */
     public function getInstance($prefix = '')
     {
@@ -52,7 +52,7 @@ class easyProfiler extends JProfiler
 
         if(empty($instances[$prefix]))
         {
-            $instances[$prefix] = new easyProfiler($prefix);
+            $instances[$prefix] = new EcrProfiler($prefix);
         }
 
         return $instances[$prefix];

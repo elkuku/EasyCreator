@@ -13,11 +13,11 @@ defined('_JEXEC') || die('=;)');
 jimport('joomla.error.profiler');
 
 /**
- * EasyProfiler.
+ * EcrProfiler.
  *
  * @package EasyCreator
  */
-class EasyProfiler extends JProfiler
+class EcrProfiler extends JProfiler
 {
     /**
      * Returns a reference to the global Profiler object.
@@ -25,11 +25,11 @@ class EasyProfiler extends JProfiler
      *  Only creating it if it doesn't already exist.
      *
      * This method must be invoked as:
-     *         <pre>  $profiler = EasyProfiler::getInstance( $prefix );</pre>
+     *         <pre>  $profiler = EcrProfiler::getInstance($prefix);</pre>
      *
      * @param string $prefix Prefix used to distinguish profiler objects.
      *
-     * @return EasyProfiler The Profiler object.
+     * @return EcrProfiler The Profiler object.
      */
     public static function getInstance($prefix = '')
     {
@@ -42,7 +42,7 @@ class EasyProfiler extends JProfiler
 
         if(empty($instances[$prefix]))
         {
-            $instances[$prefix] = new EasyProfiler($prefix);
+            $instances[$prefix] = new EcrProfiler($prefix);
         }
 
         return $instances[$prefix];
