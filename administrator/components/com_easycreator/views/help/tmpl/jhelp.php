@@ -14,8 +14,7 @@ $pathHelp = JPATH_COMPONENT.DS.'helpers'.DS.'jclasslists';
 $fName = 'jclasslist_'.str_replace('.', '_', JVERSION);
 
 //-- Add javascript
-ecrScript('jhelp');
-ecrScript('php2js');
+ecrScript('jhelp', 'php2js');
 
 if( ! JFile::exists($pathHelp.DS.$fName.'.php')):
     //-- Class list not found

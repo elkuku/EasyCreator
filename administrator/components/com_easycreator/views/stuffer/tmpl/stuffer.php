@@ -8,8 +8,7 @@
  */
 
 //--Add CSS
-ecrStylesheet('menu');
-ecrStylesheet('stuffer');
+ecrStylesheet('menu', 'stuffer');
 
 $extProps['module'] = array('name' => 'comName', 'client' => 'scope', 'position' => 'position', 'ordering' => 'ordering');
 $extProps['plugin'] = array('name' => 'comName', 'client' => 'scope', 'order' => 'ordering');
@@ -95,8 +94,7 @@ if($this->project->type == 'component'):
 
 JFactory::getDocument()->addScriptDeclaration(implode(NL, $js));
 
-ecrScript('addelement');
-ecrScript('menu');
+ecrScript('addelement', 'menu');
 
 ?>
 <!-- just for js.. -->

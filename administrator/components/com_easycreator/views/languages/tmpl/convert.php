@@ -10,8 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrStylesheet('diff');
-ecrStylesheet('languages');
+ecrStylesheet('diff', 'languages');
 
 $fixForJVersion = '1.6';
 $languageTags = $this->converter->getKnownLanguageTags();

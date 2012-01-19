@@ -22,8 +22,7 @@ ecrLoadHelper('php_file_tree');
 ecrStylesheet('php_file_tree');
 
 //--Add javascript
-ecrScript('php_file_tree');
-ecrScript('log');
+ecrScript('php_file_tree', 'log');
 
 $fileTree = new phpFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);
 ?>

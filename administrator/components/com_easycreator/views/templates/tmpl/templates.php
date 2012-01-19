@@ -17,8 +17,7 @@ defined('_JEXEC') || die('=;)');
 ecrStylesheet('contextmenu');
 
 //--Add javascript
-ecrScript('contextmenu');
-ecrScript('templates');
+ecrScript('contextmenu', 'templates');
 
 JHTML::_('behavior.modal');
 

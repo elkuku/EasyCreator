@@ -11,11 +11,9 @@
 defined('_JEXEC') || die ('=;)');
 
 //--Add CSS
-ecrStylesheet('icon');
-ecrStylesheet('translator');
+ecrStylesheet('icon', 'translator');
 
-ecrScript('php2js');
-ecrScript('translator');
+ecrScript('php2js', 'translator');
 
 $useGoogle = JComponentHelper::getParams('com_easycreator')->get('use_google_trans_api');
 

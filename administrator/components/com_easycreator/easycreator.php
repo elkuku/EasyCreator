@@ -88,8 +88,7 @@ try
 
             ecrLoadHelper('g11n_dummy');
 
-            ecrScript('g11n_dummy');
-            ecrScript('php2js');
+            ecrScript('g11n_dummy', 'php2js');
         }
     }
 
@@ -145,9 +144,7 @@ switch(ECR_JVERSION)
 }//switch
 
 //-- Add CSS
-ecrStylesheet('default');
-ecrStylesheet('toolbar');
-ecrStylesheet('icon');
+ecrStylesheet('default', 'toolbar', 'icon');
 
 //-- Add JavaScript
 ecrScript('global_vars', 'easycreator');
