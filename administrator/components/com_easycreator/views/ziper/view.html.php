@@ -95,8 +95,6 @@ class EasyCreatorViewZiper extends JView
      */
     private function ziperzip()
     {
-        ecrLoadHelper('ziper');
-
         $result = new stdClass;
 
         $this->buildopts = JRequest::getVar('buildopts', array());
