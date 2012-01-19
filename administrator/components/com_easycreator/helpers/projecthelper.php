@@ -92,14 +92,12 @@ class EcrProjectHelper
 
         $project = new $className($name);
 
-        if( ! $project->dbId)
+        if( ! $project->dbId
+        && 'package' != $project->type)
         {
-            if('package' != $project->type)
-            {
-                //-- All projects *except packages* must be installed in the database
-                //return $project;
-                throw new Exception(sprintf(jgettext('Project %s not found'), $name));
-            }
+            //-- All projects *except packages* must be installed in the database
+            //return $project;
+            throw new Exception(sprintf(jgettext('Project %s not found'), $name));
         }
 
         $projects[$name] = $project;
