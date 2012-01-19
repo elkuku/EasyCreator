@@ -48,9 +48,9 @@ class EasyCreatorControllerAjax extends JController
         {
             $info = $EasyPart->info();
 
-            if( ! get_class($info) == 'EasyPart')
+            if( ! get_class($info) == 'EcrPart')
             {
-                echo 'Part info must be a EasyPart class.. not : ';
+                echo 'Part info must be a EcrPart class.. not : ';
                 echo get_class($info);
 
                 return;
@@ -125,9 +125,9 @@ class EasyCreatorControllerAjax extends JController
         {
             $info = $EasyPart->info();
 
-            if( ! get_class($info) == 'EasyPart')
+            if( ! get_class($info) == 'EcrPart')
             {
-                echo 'Part info must be a EasyPart class.. not : ';
+                echo 'Part info must be a EcrPart class.. not : ';
                 echo get_class($info);
 
                 return;
@@ -343,8 +343,6 @@ class EasyCreatorControllerAjax extends JController
      */
     public function part_task()
     {
-        ecrLoadHelper('EasyPart');
-
         $group = JRequest::getCmd('group');
         $part = JRequest::getCmd('part');
         $element = JRequest::getCmd('element');

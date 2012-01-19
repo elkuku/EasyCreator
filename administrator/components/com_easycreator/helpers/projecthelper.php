@@ -640,12 +640,10 @@ class EcrProjectHelper
      * @param string $scope The scope e.g. admin, site etc.
      * @param boolean $edit Open the part to edit
      *
-     * @return EasyPart on success | null on error
+     * @return EcrPart on success | null on error
      */
     public static function getPart($group, $part, $element, $scope, $edit = false)
     {
-        ecrLoadHelper('EasyPart');
-
         $subDir =($edit) ? DS.'data' : '';
 
         $path = ECRPATH_PARTS.$subDir.DS.$group.DS.$part;

@@ -46,9 +46,9 @@ class EasyCreatorControllerAutoCode extends JController
         {
             $info = $AutoCode->info();
 
-            if( ! get_class($info) == 'EasyPart')
+            if( ! get_class($info) == 'EcrPart')
             {
-                echo 'Part info must be a EasyPart class.. not : ';
+                echo 'Part info must be a EcrPart class.. not : ';
 
                 echo get_class($info);
 

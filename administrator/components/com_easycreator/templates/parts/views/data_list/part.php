@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class PartViewsData_list extends EasyPart
+class PartViewsData_list extends EcrPart
 {
     public $group = 'views';
 

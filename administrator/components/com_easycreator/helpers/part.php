@@ -8,10 +8,10 @@
  */
 
 /**
- * Base class for EasyParts.
+ * Base class for EcrParts.
  *
  */
-class EasyPart extends JObject
+class EcrPart extends JObject
 {
     public $group = '';
 

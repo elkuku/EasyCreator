@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doc comment.
  *
  */
-class PartTablesSimple extends EasyPart
+class PartTablesSimple extends EcrPart
 {
     public $group = 'tables';
 
