@@ -61,6 +61,10 @@ else if(file_exists($J__ROOT.DS.'includes'.DS.'version.php'))
 {
     include_once $J__ROOT.DS.'includes'.DS.'version.php';
 }
+else if(file_exists(JPATH_LIBRARIES.'/cms/version/version.php'))
+{
+    include_once JPATH_LIBRARIES.'/cms/version/version.php';
+}
 else
 {
     echo $J__ROOT.DS.'includes'.DS.'version.php';
@@ -73,7 +77,6 @@ require_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'observable.php';
 require_once JPATH_LIBRARIES.DS.'joomla'.DS.'event'.DS.'event.php';
 require_once JPATH_LIBRARIES.DS.'joomla'.DS.'document'.DS.'renderer.php';
 require_once JPATH_LIBRARIES.DS.'joomla'.DS.'registry'.DS.'registry.php';
-require_once JPATH_LIBRARIES.DS.'joomla'.DS.'environment'.DS.'request.php';
 
 require_once JPATH_LIBRARIES.DS.'phpmailer'.DS.'phpmailer.php';
 
@@ -126,10 +129,56 @@ switch($v->RELEASE)
         , 'JAdapterInstance', 'JFormField', 'JUpdateAdapter');
         break;
 
+    case '2.5':
+        //include_once JPATH_LIBRARIES.DS.'loader.php';
+        //include_once JPATH_LIBRARIES.DS.'cms'.DS.'loader.php';
+
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'database.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'query.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'table.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'tablenested.php';
+
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'base'.DS.'adapterinstance.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'application'.DS.'component'.DS.'model.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'application'.DS.'component'.DS.'modelform.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'form'.DS.'helper.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'form'.DS.'field.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'updater'.DS.'updateadapter.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'log'.DS.'log.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'log'.DS.'entry.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'utilities'.DS.'date.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'application'.DS.'cli.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'application'.DS.'daemon.php';
+
+        //-- M$ - really :(
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'database'.DS.'sqlsrv.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'database'.DS.'database'.DS.'sqlsrvquery.php';
+
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'string'.DS.'string.php';
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'github'.DS.'object.php';
+
+        include_once JPATH_LIBRARIES.DS.'joomla'.DS.'http'.DS.'http.php';
+
+        //-- juhuuu
+//        include_once JPATH_LIBRARIES.DS.'phputf8'.DS.'ucfirst.php';
+
+        $prevIncluded = $prevIncluded + array('JDatabaseQuery', 'JTable', 'JTableNested'
+        , 'JAdapterInstance', 'JFormField', 'JUpdateAdapter', 'JLog', 'JLogEntry', 'JDate'
+        , 'JApplicationDaemon', 'JApplicationCli', 'JDatabaseSQLSrv', 'JDatabase', 'JDatabaseQuerySQLSrv'
+        , 'JString', 'JGithubObject', 'JHttp');
+
+        break;
+
         default:
         die('Unsupported Joomla! version: '.$v->RELEASE);
         break;
 }//switch
+
+/*
+ * Post includes...
+ */
+require_once JPATH_LIBRARIES.DS.'joomla'.DS.'environment'.DS.'request.php';
+
 
 $folders = EasyFolder::folders($basePath);
 array_unshift($folders, '');//add 'base folder'
@@ -205,6 +254,12 @@ for($i = 0; $i < count($folders); $i++)
             //-- Not needed
             if(strpos($file, 'garbagecron.php'))
             continue;
+
+            if(strpos($file, 'stringnormalize.php'))
+                continue;
+
+            if(strpos($file, 'utilities'.DS.'string.php'))
+                continue;
 
             /*
              * INCLUDE THE FILE
@@ -355,6 +410,7 @@ echo json_encode($response);
 // @codingStandardsIgnoreStart
 
 function jimport() {}
+function utf8_ucfirst(){}
 
 /**
  * Enter description here ...
@@ -379,14 +435,14 @@ class EasyFolder
     /**
      * Utility function to read the files in a folder.
      *
-     * @param string $path The path of the folder to read.
-     * @param string $filter A filter for file names.
-     * @param mixed $recurse True to recursively search into sub-folders, or an
+     * @param string       $path The path of the folder to read.
+     * @param string       $filter A filter for file names.
+     * @param mixed        $recurse True to recursively search into sub-folders, or an
      * integer to specify the maximum depth.
-     * @param boolean $fullpath True to return the full path to the file.
-     * @param array $stripPath Array with names of files which should not be shown in
+     * @param boolean      $fullpath True to return the full path to the file.
+     * @param array|string $stripPath Array with names of files which should not be shown in
      * the result.
-     * @param array $exclude Exclude filter
+     * @param array        $exclude Exclude filter
      *
      * @return array Files in the given folder.
      */
