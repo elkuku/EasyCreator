@@ -62,7 +62,7 @@ function ecrStylesheet()
 
     foreach($args as $name)
     {
-        $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.js');
+        $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.css');
     }
 }//function
 
