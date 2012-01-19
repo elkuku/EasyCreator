@@ -33,8 +33,8 @@ class EcrTableField
     public $comment;
 
     /*
-* Display options
-*/
+     * Display options
+     */
     public $display = true;
 
     public $width;

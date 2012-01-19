@@ -250,8 +250,6 @@ class EcrTableHelper
         //        $engine = $db->loadResult();
         //        echo 'B'.$engine;
 
-
-
         foreach($table->getFields() as $field)
         {
             if($field->key == 'PRI')
