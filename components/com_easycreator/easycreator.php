@@ -6,31 +6,43 @@
  * @author     Created on 24-Sep-2008
  */
 
-jimport('g11n.language');
 jimport('joomla.filesystem.file');
-
-$debug = true;
-
-try
-{
-    //TEMP@@debug
-//    g11n::cleanStorage();//@@DEBUG
-
-    g11n::setDebug($debug);
-
-    //-- Get our special language file
-    g11n::loadLanguage();
-}
-catch(Exception $e)
-{
-    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
-}//try
 
 //--Global functions
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/functions.php';
 
 //-- Global constants
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/defines.php';
+
+$debug = false;
+
+if( ! class_exists('g11n'))
+{
+    jimport('g11n.language');
+
+    if( ! class_exists('g11n'))
+    {
+        ecrLoadHelper('g11n_dummy');
+    }
+}
+
+try
+{
+    if(class_exists('g11n'))
+    {
+        //TEMP@@debug
+        //    g11n::cleanStorage();//@@DEBUG
+
+        g11n::setDebug($debug);
+
+        //-- Get our special language file
+        g11n::loadLanguage();
+    }
+}
+catch(Exception $e)
+{
+    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+}//try
 
 $document = JFactory::getDocument();
 
@@ -55,7 +67,7 @@ $controller->execute(JRequest::getVar('task'));
 
 easyHTML::end();
 
-($debug) ? g11n::debugPrintTranslateds() : null;
+($debug && class_exists('g11n')) ? g11n::debugPrintTranslateds() : null;
 
 //-- Redirect if set by the controller
 $controller->redirect();
