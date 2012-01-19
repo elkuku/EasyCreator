@@ -579,9 +579,7 @@ class EasyCreatorControllerAjax extends JController
 
         try
         {
-            ecrLoadHelper('file');
-
-            EasyFile::saveFile();
+            EcrFile::saveFile();
 
             $this->response['text'] = jgettext('The file has been saved');
         }

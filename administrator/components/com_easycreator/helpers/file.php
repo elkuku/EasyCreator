@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -7,13 +7,10 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
  * Provides operation on files.
  */
-class EasyFile
+class EcrFile extends JFile
 {
     /**
      * Save a file.
@@ -39,10 +36,10 @@ class EasyFile
         /*
          * as for now.. the file must exist for save !
          */
-        if( ! JFile::exists($file_path.DS.$file_name))
+        if( ! self::exists($file_path.DS.$file_name))
         throw new Exception(jgettext('The file must exist for save'));
 
-        if( ! JFile::write($file_path.DS.$file_name, $insertstring))
+        if( ! self::write($file_path.DS.$file_name, $insertstring))
         throw new Exception(sprintf(jgettext('The file %s could NOT be saved at PATH: %s'), $file_name, $file_path));
 
         return true;
@@ -57,7 +54,7 @@ class EasyFile
      */
     public static function saveVersion($fileName)
     {
-        if( ! JFile::exists($fileName))
+        if( ! self::exists($fileName))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('File not found'), 'error');
 
@@ -72,7 +69,7 @@ class EasyFile
         {
             $versionedFileName = $fileName.'.r'.$r;
 
-            if( ! JFile::exists($versionedFileName))
+            if( ! self::exists($versionedFileName))
             {
                 $found = true;
             }
@@ -82,7 +79,7 @@ class EasyFile
             }
         }//while
 
-        if( ! JFile::copy($fileName, $versionedFileName))
+        if( ! self::copy($fileName, $versionedFileName))
         {
             JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Unable to copy file %s'), $fileName), 'error');
 
@@ -106,10 +103,10 @@ class EasyFile
 
         $file_path = JPath::clean(JPATH_ROOT.DS.$file_path);
 
-        if( ! JFile::exists($file_path.DS.$file_name))
+        if( ! self::exists($file_path.DS.$file_name))
         throw new Exception(jgettext('The file does not exist'));
 
-        if( ! JFile::delete($file_path.DS.$file_name))
+        if( ! self::delete($file_path.DS.$file_name))
         throw new Exception(sprintf(jgettext('The file %s could not be deleted at path: %s'), $file_name, $file_path));
 
         return true;

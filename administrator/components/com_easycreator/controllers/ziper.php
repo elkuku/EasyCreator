@@ -70,13 +70,11 @@ class EasyCreatorControllerZIPer extends JController
      */
     public function delete()
     {
-        ecrLoadHelper('file');
-
         ob_start();
 
         try
         {
-            EasyFile::deleteFile();
+            EcrFile::deleteFile();
 
             $this->response['message'] = jgettext('The file has been deleted');
         }

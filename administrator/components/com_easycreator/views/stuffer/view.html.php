@@ -189,10 +189,8 @@ class EasyCreatorViewStuffer extends JView
      */
     private function files()
     {
-        ecrLoadHelper('file');
-        $this->easyFile = new EasyFile;
-
         ecrScript('addelement');
+
         $this->setLayout('files');
     }//function
 

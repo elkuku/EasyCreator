@@ -447,8 +447,6 @@ class EasyELanguage
      */
     protected function saveFile($lang, $fileContents)
     {
-        ecrLoadHelper('file');
-
         $fileName = $this->getFileName($lang, $this->_scope, $this->project);
 
         //--Save a version ?
@@ -456,7 +454,7 @@ class EasyELanguage
 
         if($saveVersion)
         {
-            if( ! EasyFile::saveVersion($fileName))
+            if( ! EcrFile::saveVersion($fileName))
             {
                 return false;
             }
@@ -487,8 +485,6 @@ class EasyELanguage
      */
     public function saveTranslation($lang, $key, $translation)
     {
-        ecrLoadHelper('file');
-
         $fileName = $this->getFileName($lang, $this->_scope, $this->project);
 
         $origFile = $this->parseFile($fileName);
@@ -537,7 +533,7 @@ class EasyELanguage
             $resultFile[] = $key.'='.$translation;
         }
 
-        if( ! EasyFile::saveVersion($fileName))
+        if( ! EcrFile::saveVersion($fileName))
         throw new Exception(sprintf(jgettext('Unable to save backup version for file %s'), $fileName));
 
         $contents = implode(NL, $resultFile);
@@ -559,8 +555,6 @@ class EasyELanguage
      */
     public function deleteTranslation($lang, $key)
     {
-        ecrLoadHelper('file');
-
         $fileName = $this->getFileName($lang, $this->_scope, $this->project);
 
         $origFile = $this->parseFile($fileName);
@@ -601,7 +595,7 @@ class EasyELanguage
         //-- Save a version ?
         if(JRequest::getInt('save_version', '1'))
         {
-            if( ! EasyFile::saveVersion($fileName))
+            if( ! EcrFile::saveVersion($fileName))
             {
                 throw new Exception(jgettext('Can not save version'));
             }

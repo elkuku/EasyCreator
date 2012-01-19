@@ -48,9 +48,7 @@ class EasyCreatorControllerTemplates extends JController
     {
         try
         {
-            ecrLoadHelper('file');
-
-            EasyFile::saveFile();
+            EcrFile::saveFile();
 
             EcrHtml::displayMessage(jgettext('The file has been saved'));
         }
@@ -74,8 +72,7 @@ class EasyCreatorControllerTemplates extends JController
     {
         try
         {
-            ecrLoadHelper('file');
-            EasyFile::deleteFile();
+            EcrFile::deleteFile();
 
             JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'));
         }

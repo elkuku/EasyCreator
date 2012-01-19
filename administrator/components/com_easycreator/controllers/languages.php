@@ -204,7 +204,6 @@ class EasyCreatorControllerLanguages extends JController
     public function do_convert()
     {
         ecrLoadHelper('languageconverter');
-        ecrLoadHelper('file');
 
         JRequest::setVar('task', 'convert');
 
@@ -258,7 +257,7 @@ class EasyCreatorControllerLanguages extends JController
 
                 $newFileContents = implode("\n", $newLines);
 
-                EasyFile::saveVersion($fileName);
+                EcrFile::saveVersion($fileName);
                 JFile::write($fileName, $newFileContents);
             }//foreach
         }//foreach
@@ -282,7 +281,7 @@ class EasyCreatorControllerLanguages extends JController
 
             if($newCode != $origCode)
             {
-                EasyFile::saveVersion(JPATH_ROOT.DS.$selectedFile);
+                EcrFile::saveVersion(JPATH_ROOT.DS.$selectedFile);
                 JFile::write(JPATH_ROOT.DS.$selectedFile, $newCode);
             }
         }
