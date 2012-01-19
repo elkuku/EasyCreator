@@ -13,7 +13,7 @@ defined('JPATH_BASE') || die('=;)');
 /**
  * Wrapper class for php SimpleXMLElement.
  */
-class EasyXMLElement extends SimpleXMLElement
+class EcrXMLElement extends SimpleXMLElement
 {
     /**
      * Return a well-formed XML string based on SimpleXML element.

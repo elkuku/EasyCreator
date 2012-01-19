@@ -88,13 +88,7 @@ class EcrProjectHelper
         if( ! array_key_exists($type, $projectTypes))
         throw new Exception(sprintf('Invalid project type: %s ', $type));
 
-//        if( ! ecrLoadHelper('projecttypes.'.$projectTypes[$type]))
-//        throw new Exception(sprintf('No helper found for project type %s', $projectTypes[$type]));
-
         $className = 'EcrProject'.ucfirst($projectTypes[$type]);
-
-//        if( ! class_exists($className))
-//        throw new Exception(sprintf('Required class [%s] not found', $className));
 
         $project = new $className($name);
 
@@ -902,20 +896,18 @@ class EcrProjectHelper
      */
     public static function getXML($data, $isFile = true)
     {
-        ecrLoadHelper('xmlelement');
-
         // Disable libxml errors and allow to fetch error information as needed
         libxml_use_internal_errors(true);
 
         if($isFile)
         {
             //-- Try to load the xml file
-            $xml = simplexml_load_file($data, 'EasyXMLElement');
+            $xml = simplexml_load_file($data, 'EcrXMLElement');
         }
         else
         {
             //-- Try to load the xml string
-            $xml = simplexml_load_string($data, 'EasyXMLElement');
+            $xml = simplexml_load_string($data, 'EcrXMLElement');
         }
 
         if(empty($xml))

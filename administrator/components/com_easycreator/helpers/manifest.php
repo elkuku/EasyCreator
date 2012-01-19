@@ -78,9 +78,9 @@ class EcrManifest extends JObject
                 break;
         }//switch
 
-        $this->manifest = new EasyXMLElement('<?xml version="1.0" encoding="utf-8" ?><'.$rootTag.' />');
+        $this->manifest = new EcrXMLElement('<?xml version="1.0" encoding="utf-8" ?><'.$rootTag.' />');
 
-        if( ! $this->manifest instanceof EasyXMLElement)
+        if( ! $this->manifest instanceof EcrXMLElement)
         {
             $this->setError('Could not create XML builder');
 
