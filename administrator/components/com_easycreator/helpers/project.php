@@ -141,6 +141,10 @@ abstract class EcrProject extends JObject
     public function getEcrXmlFileName() {}
     public function getId() {}
     abstract public function getExtensionPath();
+    abstract public function getAllProjects($scope);
+    abstract public function getCoreProjects($scope);
+    protected function readMenu(){}
+
 
     protected function updateAdminMenu() { return true; }
 

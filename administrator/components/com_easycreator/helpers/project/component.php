@@ -328,9 +328,11 @@ class EcrProjectComponent extends EcrProject
     /**
      * Discover all projects.
      *
+     * @param $scope
+     *
      * @return array
      */
-    public function getAllProjects()
+    public function getAllProjects($scope)
     {
         return JFolder::folders(JPATH_ADMINISTRATOR.DS.'components');
     }//function
@@ -647,15 +649,15 @@ class EcrProjectComponent extends EcrProject
         return;
     }//function
 
-	/**
-	 * Method to remove admin menu references to a component
-	 *
-	 * @param $row
-	 *
-	 * @internal param object $component Component table object
-	 *
-	 * @return  boolean  True if successful
-	 */
+    /**
+     * Method to remove admin menu references to a component
+     *
+     * @param $row
+     *
+     * @internal param object $component Component table object
+     *
+     * @return  boolean  True if successful
+     */
     protected function removeAdminMenus($row)
     {
         //-- Initialise Variables
@@ -676,7 +678,7 @@ class EcrProjectComponent extends EcrProject
         $ids = $db->loadResultArray();
 
         //-- Check for error
-	    $error = $db->getErrorMsg();
+        $error = $db->getErrorMsg();
 
         if($error || empty($ids))
         {

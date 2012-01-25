@@ -188,9 +188,11 @@ class EcrProjectLibrary extends EcrProject
     /**
      * Discover all projects.
      *
+     * @param $scope
+     *
      * @return array
      */
-    public function getAllProjects()
+    public function getAllProjects($scope)
     {
         $folders = array();
 
@@ -209,9 +211,11 @@ class EcrProjectLibrary extends EcrProject
     /**
      * Get a list of known core projects.
      *
+     * @param $scope
+     *
      * @return array
      */
-    public function getCoreProjects()
+    public function getCoreProjects($scope)
     {
         switch(ECR_JVERSION)
         {
