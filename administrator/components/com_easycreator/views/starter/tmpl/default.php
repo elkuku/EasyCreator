@@ -11,7 +11,7 @@
 ecrStylesheet('php_file_tree');
 
 $comTypes = EcrProjectHelper::getProjectTypes();
-$jVersions = array('15', '17');
+$jVersions = array('15', '25');
 
 ?>
 <div class="white_box">

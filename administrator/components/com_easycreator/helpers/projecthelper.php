@@ -509,7 +509,7 @@ class EcrProjectHelper
     {
         $vcsRev = EcrHtml::getVersionFromCHANGELOG($project->comName, true);
 
-        $dateTime = preg_match('%\*DATETIME(.*?)\*%', $format, $matches);
+        preg_match('%\*DATETIME(.*?)\*%', $format, $matches);
 
         if($matches && isset($matches[1]))
         {
@@ -549,6 +549,7 @@ class EcrProjectHelper
             break;
         }//switch
 
+        /* @var EcrProject $project */
         $project = self::newProject($type);
 
         if($showCore)

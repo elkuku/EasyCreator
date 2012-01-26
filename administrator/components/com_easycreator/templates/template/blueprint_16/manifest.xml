@@ -5,7 +5,7 @@
 	<name>Blueprint</name>
 	<description>This is a simple blueprint template.</description>
 	<version>1.0</version>
-	<jVersion>1.7</jVersion>
+	<jVersion>2.5</jVersion>
 	<phpVersion>5</phpVersion>
 	<author>Joomla! Nafu</author>
 	<authorUrl>http://wiki.joomla-nafu.de</authorUrl>

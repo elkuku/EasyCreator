@@ -5,7 +5,7 @@
   <name>Example System</name>
   <description>Empty system plugin</description>
   <version>1.0</version>
-  <jVersion>1.7</jVersion>
+  <jVersion>2.5</jVersion>
   <phpVersion>5</phpVersion>
   <author></author>
   <authorUrl>http://docs.joomla.org/Reference:System_Events_for_Plugin_System</authorUrl>

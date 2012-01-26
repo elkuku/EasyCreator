@@ -5,7 +5,7 @@
   <name>Example Search</name>
   <description>The search example taken from the Joomla! core</description>
   <version>1.0</version>
-  <jVersion>1.7</jVersion>
+  <jVersion>2.5</jVersion>
   <phpVersion>5</phpVersion>
   <author>Joomla! core</author>
   <authorUrl></authorUrl>

@@ -99,4 +99,32 @@ class EcrProjectPackage extends EcrProject
     {
         return array();
     }//function
+
+    /**
+     * Discover all projects.
+     *
+     * @param string $scope The scope - admin or site.
+     *
+     * @return array
+     */
+    public function getAllProjects($scope)
+    {
+        return array();
+        switch($scope)
+        {
+            case 'admin':
+                return JFolder::folders(JPATH_ADMINISTRATOR.DS.'modules');
+                break;
+            case 'site':
+                return JFolder::folders(JPATH_SITE.DS.'modules');
+                break;
+            default:
+                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
+
+                return array();
+                break;
+        }//switch
+    }//function
+
+
 }//class
