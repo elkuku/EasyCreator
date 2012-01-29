@@ -26,9 +26,12 @@ defined('_JEXEC') || die('=;)');
 <label for="jversion15" class="img32b icon-joomla-compat-15"></label>
 
 <input type="radio" id="jversion16" name="jcompat" value="1.6"
-<?php echo ($this->project->JCompat == '1.6') ? ' checked="checked"' : ''; ?>
+<?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5'))) ? ' checked="checked"' : ''; ?>
 />
-<label for="jversion16" class="img32b icon-joomla-compat-16"><span class="img32b icon-joomla-compat-17"></span></label>
+<label for="jversion16" class="img32b icon-joomla-compat-16">
+	<span class="img32b icon-joomla-compat-17"></span>
+	<span class="img32b icon-joomla-compat-25"></span>
+</label>
 
 <br /><br />
 
