@@ -419,7 +419,7 @@ class EcrProjectComponent extends EcrProject
                 $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
                 $query->select('m.id, e.extension_id');
                 $query->where('m.parent_id = 1');
-                $query->where("m.client_id = 1");
+                $query->where('m.client_id = 1');
                 $query->where('e.element = '.$db->quote($this->comName));
 
                 $db->setQuery($query);

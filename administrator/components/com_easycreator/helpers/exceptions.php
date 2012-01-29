@@ -10,3 +10,5 @@
 // @codingStandardsIgnoreStart
 
 class EcrLogException extends Exception {};
+
+class EcrBuilderException extends Exception {};

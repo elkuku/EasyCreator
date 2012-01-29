@@ -414,11 +414,13 @@ abstract class EcrProject extends JObject
      */
     public function writeProjectXml($testMode = false)
     {
-        $type = 'type="'.$this->type.'" ';
-        $scope = 'scope="'.$this->scope.'" ';
-
-        $xml = EcrProjectHelper::getXML("<easyproject $type $scope".' version="'.ECR_VERSION.'"'
-        .' tpl="'.$this->fromTpl.'" />', false);
+        $xml = EcrProjectHelper::getXML('<easyproject'
+            .' type="'.$this->type.'"'
+            .' scope="'.$this->scope.'"'
+            .' version="'.ECR_VERSION.'"'
+            .' tpl="'.$this->fromTpl
+            .'" />'
+            , false);
 
         $xml->addChild('name', $this->name);
         $xml->addChild('comname', $this->comName);
