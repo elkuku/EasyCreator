@@ -91,6 +91,9 @@ class EcrBuilder extends JObject
         $this->project->type = $type;
         $this->project->fromTpl = $template;
 
+        $this->project->dbTypes = JRequest::getVar('dbtypes', array(), 'array');
+        $this->project->headerType = JRequest::getCmd('headerType');
+
         if( ! $this->customOptions('process'))
         {
             $this->logger->log('Custom options failed');
@@ -101,30 +104,27 @@ class EcrBuilder extends JObject
             return false;
         }
 
-        $steps = array(
-        'setUp'
-        , 'setUpProject'
-        , 'readHeader'
-        , 'createBuildDir'
-        , 'copyFiles'
-        , 'processMoreOptions'
-        , 'createJoomlaManifest'
-        , 'install'
-        , 'createEasyCreatorManifest'
-        );
-
-        foreach($steps as $step)
+        try
         {
-            if( ! $this->$step())
-            {
-                $this->logger->log($step.' failed');
-                $this->logger->writeLog();
+            $this->setUp()
+                ->setUpProject()
+                ->readHeader()
+                ->createBuildDir()
+                ->copyFiles()
+                ->processMoreOptions()
+                ->createJoomlaManifest()
+                ->install()
+                ->createEasyCreatorManifest();
+        }
+        catch(EcrBuilderException $e)
+        {
+            $this->logger->log('ERROR', $e->getMessage());
+            $this->logger->writeLog();
 
-                $this->setError($step.' failed');
+            $this->setError('ERROR: '.$e->getMessage());
 
-                return false;
-            }
-        }//foreach
+            return false;
+        }//try
 
         $this->logger->log('FINISHED');
         $this->logger->writeLog();
@@ -135,47 +135,33 @@ class EcrBuilder extends JObject
     /**
      * Setup the builder.
      *
-     * @return boolean false on errors
+     * @return EcrBuilder
      */
     private function setUp()
     {
         if( ! JFile::exists($this->_buildBase.DS.'manifest.xml'))
-        {
-            $this->logger->log($this->_buildBase.DS.'manifest.xml', 'Failed to open manifest.xml');
-            $this->setError('Failed to open manifest.xml.');
-
-            return false;
-        }
+            throw new EcrBuilderException('Failed to open: '.$this->_buildBase.DS.'manifest.xml');
 
         if( ! JFolder::exists($this->_buildBase.DS.'tmpl'))
-        {
-            $this->logger->log($this->_buildBase.DS.'tmpl', 'Template must be in folder named tmpl', 'error');
-            $this->setError('Template must be in folder named tmpl');
-
-            return false;
-        }
+            throw new EcrBuilderException('Template must be in folder named tmpl - '
+                .$this->_buildBase.DS.'tmpl');
 
         $folders = JFolder::folders($this->_buildBase.DS.'tmpl');
 
-        if( ! in_array('site', $folders)
-        && ! in_array('admin', $folders))
-        {
-            $this->logger->log($this->_buildBase.DS.'tmpl', 'Template must contain folders named admin or site');
-            $this->setError('Template must contain folders named admin or site');
-
-            return false;
-        }
+        if( ! in_array('site', $folders) && ! in_array('admin', $folders))
+            throw new EcrBuilderException('Template must contain folders named admin or site');
 
         $this->_buildManifest = EcrProjectHelper::getXML($this->_buildBase.DS.'manifest.xml');
+
         $this->logger->log('Build manifest loaded');
 
-        return true;
+        return $this;
     }//function
 
     /**
      * Setup the project.
      *
-     * @return boolean
+     * @return EcrBuilder
      */
     private function setUpProject()
     {
@@ -211,11 +197,7 @@ class EcrBuilder extends JObject
                 $this->project->comName = strtolower($this->project->name);
 
                 if( ! $this->project->scope)
-                {
-                    JFactory::getApplication()->enqueueMessage(__METHOD__.': Missing scope for library', 'error');
-
-                    return false;
-                }
+                    throw new EcrBuilderException(__METHOD__.': Missing scope for library');
                 break;
 
             case 'package':
@@ -224,10 +206,7 @@ class EcrBuilder extends JObject
                 break;
 
             default:
-                JFactory::getApplication()->enqueueMessage(
-                    __METHOD__.' - Undefined type : '.$this->project->type, 'error');
-
-                return false;
+                throw new EcrBuilderException(__METHOD__.' - Undefined type : '.$this->project->type);
                 break;
         }//switch
 
@@ -251,11 +230,13 @@ class EcrBuilder extends JObject
         if('template' == $this->project->type
         || 'template' == $this->project->type)
         {
-            $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_', strtoupper($this->project->prefix.$this->project->comName));
+            $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_'
+                , strtoupper($this->project->prefix.$this->project->comName));
         }
         else
         {
-            $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_', strtoupper($this->project->comName));
+            $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_'
+                , strtoupper($this->project->comName));
         }
 
         $this->addSubstitute('_ECR_COM_TBL_NAME_', strtolower($this->project->name));
@@ -315,7 +296,7 @@ class EcrBuilder extends JObject
             }
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -333,7 +314,7 @@ class EcrBuilder extends JObject
     /**
      * Create the build directory.
      *
-     * @return boolean true on success
+     * @return EcrBuilder
      */
     private function createBuildDir()
     {
@@ -344,12 +325,7 @@ class EcrBuilder extends JObject
         $this->_buildDir = JPath::clean($this->_buildDir);
 
         if( ! JFolder::create($this->_buildDir))
-        {
-            $this->logger->log($this->_buildDir, 'ERROR creating TempDir');
-            $this->setError('Failed to create build directory');
-
-            return false;
-        }
+            throw new EcrBuilderException('Failed to create build directory: '.$this->_buildDir);
 
         $this->logger->log('TempDir created at: '.$this->_buildDir);
         $this->logger->log('Building: '.$this->project->name.'<br />'
@@ -357,13 +333,13 @@ class EcrBuilder extends JObject
 
         $this->project->buildPath = $this->_buildDir;
 
-        return true;
+        return $this;
     }//function
 
     /**
      * Copy the files.
      *
-     * @return boolean true on success
+     * @return EcrBuilder
      */
     private function copyFiles()
     {
@@ -398,34 +374,30 @@ class EcrBuilder extends JObject
                 $path = str_replace('_ecr_list_postfix', strtolower($this->project->listPostfix), $path);
 
                 if( ! JFile::write($path, $fContents))
-                {
-                    $this->logger->log($path, 'JFile::write error');
-                    $this->setError(sprintf(jgettext('Can not write the file at %s'), $path));
-
-                    return false;
-                }
+                    throw new EcrBuilderException(sprintf(jgettext('Can not write the file at %s'), $path));
 
                 $this->logger->logFileWrite($fileName, $path, $fContents);
             }//foreach
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
      * Process additional options.
      *
-     * @return boolean true on success
+     * @return EcrBuilder
      */
     private function processMoreOptions()
     {
         if( ! JRequest::getVar('create_changelog'))
         {
             //-- No changelog requested
-            return true;
+            return $this;
         }
 
-        $changelog = $this->_substitute(JFile::read(ECRPATH_PARTS.DS.'various'.DS.'changelog'.DS.'tmpl'.DS.'CHANGELOG.php'));
+        $changelog = $this->_substitute(
+            JFile::read(ECRPATH_PARTS.DS.'various'.DS.'changelog'.DS.'tmpl'.DS.'CHANGELOG.php'));
 
         switch($this->project->type)
         {
@@ -452,10 +424,7 @@ class EcrBuilder extends JObject
         }
         else
         {
-            $this->logger->log($this->_buildDir, 'No suiteable path found for CHANGELOG');
-            $this->setError('Cannot create CHANGELOG');
-
-            return true;
+            throw new EcrBuilderException('No suiteable path found for CHANGELOG in '.$this->_buildDir);
         }
 
         //@todo other options ?
@@ -466,19 +435,16 @@ class EcrBuilder extends JObject
         }
         else
         {
-            $this->logger->log($path, 'Cannot create CHANGELOG');
-            $this->setError('Cannot create CHANGELOG');
-
-            return false;
+            throw new EcrBuilderException('Cannot create CHANGELOG');
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
      * Create the Joomla! manifest.
      *
-     * @return boolean true on success
+     * @return EcrBuilder
      */
     private function createJoomlaManifest()
     {
@@ -494,13 +460,11 @@ class EcrBuilder extends JObject
         }
         else
         {
-            $this->logger->log('Error creating manifest file: '
+            throw new EcrBuilderException('Error creating manifest file: '
             .implode("\n", $manifest->getErrors()), 'Error creating manifest file');
-
-            return false;
         }
 
-        return true;
+        return $this;
     }//function
 
     /**
@@ -519,25 +483,19 @@ class EcrBuilder extends JObject
 
         $xmlContents = $this->project->writeProjectXml($this->testMode);
 
-        if($xmlContents === false)
-        {
-            $this->logger->log('', 'Unable to create EasyCreator manifest');
+        if(false == $xmlContents)
+            throw new EcrBuilderException('Unable to create EasyCreator manifest');
 
-            return false;
-        }
-        else
-        {
-            $this->logger->log('EasyCreator manifest created');
-            $this->logger->logFileWrite('', 'ECR'.DS.'EasyCreatorManifest.xml', $xmlContents);
-        }
+        $this->logger->log('EasyCreator manifest created');
+        $this->logger->logFileWrite('', 'ECR'.DS.'EasyCreatorManifest.xml', $xmlContents);
 
-        return true;
+        return $this;
     }//function
 
     /**
      * Installs an extension with the standard Joomla! installer.
      *
-     * @return boolean true on success
+     * @return EcrBuilder
      */
     private function install()
     {
@@ -546,7 +504,7 @@ class EcrBuilder extends JObject
             //-- Exiting in test mode
             $this->logger->log('TEST MODE - not installing');
 
-            return true;
+            return $this;
         }
 
         if($this->project->type == 'package')
@@ -555,19 +513,14 @@ class EcrBuilder extends JObject
             $src = $this->_buildDir.DS.$this->project->getJoomlaManifestName();
             $dest = $this->project->getJoomlaManifestPath().DS.$this->project->getJoomlaManifestName();
 
-            if(JFile::copy($src, $dest))
-            {
-                $this->logger->log(sprintf('Package manifest xml has been copied from %s to %s', $src, $dest));
+            if( ! JFile::copy($src, $dest))
+                throw new EcrBuilderException(
+                    sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
 
-                return true;
-            }
-            else
-            {
-                $this->logger->log(sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
-                $this->setError(jgettext('Can not copy package manifest'));
+            $this->logger->log(
+                sprintf('Package manifest xml has been copied from %s to %s', $src, $dest));
 
-                return false;
-            }
+            return $this;
         }
 
         jimport('joomla.installer.installer');
@@ -577,24 +530,13 @@ class EcrBuilder extends JObject
 
         //-- Did you give us a valid package ?
         if( ! $type = JInstallerHelper::detectType($this->_buildDir))
-        {
-            $this->setError(jgettext('Path does not have a valid package'));
-
-            return false;
-        }
+            throw new EcrBuilderException(jgettext('Path does not have a valid package'));
 
         //-- Get an installer instance
         $installer = JInstaller::getInstance();
 
         //-- Install the package
-        $result = true;
-
-        if( ! $installer->install($this->_buildDir))
-        {
-            //-- There was an error installing the package
-            $this->setError(sprintf(jgettext('An error happened while installing your %s'), jgettext($type)));
-            $result = false;
-        }
+        $result = $installer->install($this->_buildDir);
 
         $this->logger->log('Installer Message: '.$installer->message);
         $this->logger->log('Extension Message: '.$installer->get('extension.message'));
@@ -602,7 +544,11 @@ class EcrBuilder extends JObject
         //-- Clean up the install directory. If we are not debugging.
         ECR_DEBUG ? null : JInstallerHelper::cleanupInstall('', $this->_buildDir);
 
-        return $result;
+        //-- There was an error installing the package
+        if( ! $result)
+            throw new EcrBuilderException(sprintf(jgettext('An error happened while installing your %s'), jgettext($type)));
+
+        return $this;
     }//function
 
     /**
@@ -635,7 +581,7 @@ class EcrBuilder extends JObject
                 return false;
             }
 
-            require_once $template_path.DS.'options.php';
+            include_once $template_path.DS.'options.php';
 
             if( ! class_exists('EasyTemplateOptions'))
             {
@@ -781,7 +727,7 @@ class EcrBuilder extends JObject
     /**
      * Read the header file.
      *
-     * @return boolen true on success
+     * @return EcrBuilder
      */
     private function readHeader()
     {
@@ -804,7 +750,7 @@ class EcrBuilder extends JObject
             $this->addSubstitute('##*HEADER'.strtoupper($type).'*##', $header);
         }//foreach
 
-        return true;
+        return $this;
     }//function
 
     /**
