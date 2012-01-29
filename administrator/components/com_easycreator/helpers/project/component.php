@@ -520,8 +520,12 @@ class EcrProjectComponent extends EcrProject
         $item = array();
 
         $item['menuid'] = 0;
-        $item['text'] = $text;//-- J1.5
-        $item['alias'] = $text;//-- J1.6
+
+        //-- J1.5
+        $item['text'] = $text;
+
+        //-- J1.6
+        $item['alias'] = $text;
         $item['link'] = $link;
         $item['img'] = $image;
         $item['parent'] = $this->menu['menuid'];
@@ -608,7 +612,7 @@ class EcrProjectComponent extends EcrProject
                 if( ! $dbRow)
                 return;
 
-                $this->menu['text'] = $dbRow->title;//...
+                $this->menu['text'] = $dbRow->title;
                 $this->menu['link'] = $dbRow->link;
                 $this->menu['img'] = $dbRow->img;
                 $this->menu['menuid'] = $dbRow->id;
@@ -632,7 +636,7 @@ class EcrProjectComponent extends EcrProject
                     $this->submenu[$i]['text'] = $submenu->title;
                     $this->submenu[$i]['link'] = $submenu->link;
                     $this->submenu[$i]['img'] = $submenu->img;
-                    $this->submenu[$i]['ordering'] = 0;//$submenu->ordering;
+                    $this->submenu[$i]['ordering'] = 0;
                     $this->submenu[$i]['menuid'] = $submenu->id;
 
                     $i ++;
@@ -786,7 +790,7 @@ class EcrProjectComponent extends EcrProject
 
                 $parent_id = $table->id;
 
-                // Rebuild the whole tree
+                //-- Rebuild the whole tree
                 $table->rebuild();
 
                 return $parent_id;

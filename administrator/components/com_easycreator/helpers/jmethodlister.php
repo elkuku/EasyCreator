@@ -214,7 +214,7 @@ for($i = 0; $i < count($folders); $i++)
 
         if($file == 'xxxxx')
         {
-            //--custom class list - files included before
+            //-- Custom class list - files included before
             $foundClasses = $prevIncluded;
         }
         else
@@ -267,7 +267,7 @@ for($i = 0; $i < count($folders); $i++)
             include_once $file;
             $foundClasses = array_diff(get_declared_classes(), $allClasses);
 
-            //--Exeptions from the rules..
+            //-- Exeptions from the rules..
             if( ! count($foundClasses))
             {
                 $fileName = $file;
@@ -449,10 +449,10 @@ class EasyFolder
     public static function files($path, $filter = '.', $recurse = false, $fullpath = false
     , $stripPath = '', $exclude = array('.svn', 'CVS'))
     {
-        // Initialize variables
+        //-- Initialize variables
         $arr = array();
 
-        // Is the path a folder?
+        //-- Is the path a folder?
         if( ! is_dir($path))
         {
             echo 'EasyFolder::files: Path is not a folder: '.$path;
@@ -460,7 +460,7 @@ class EasyFolder
             return false;
         }
 
-        // read the source directory
+        //-- Read the source directory
         $handle = opendir($path);
 
         while(($file = readdir($handle)) !== false)
@@ -527,10 +527,10 @@ class EasyFolder
     public static function folders($path, $filter = '.', $recurse = false
     , $fullpath = false, $exclude = array('.svn', 'CVS'))
     {
-        // Initialize variables
+        //-- Initialize variables
         $arr = array();
 
-        // Is the path a folder?
+        //-- Is the path a folder?
         if( ! is_dir($path))
         {
             JFactory::getApplication()->enqueueMessage('JFolder::folder: '.jgettext('Path is not a folder').'Path: '.$path, 'error');
@@ -538,7 +538,7 @@ class EasyFolder
             return false;
         }
 
-        // read the source directory
+        //-- Read the source directory
         $handle = opendir($path);
 
         while(($file = readdir($handle)) !== false)
@@ -552,7 +552,7 @@ class EasyFolder
 
                 if($isDir)
                 {
-                    // Removes filtered directories
+                    //-- Removes filtered directories
                     if(preg_match("/$filter/", $file))
                     {
                         if($fullpath)

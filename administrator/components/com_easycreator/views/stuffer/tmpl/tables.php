@@ -47,7 +47,7 @@ foreach($allTables as $k => $table)
     $db->setQuery(sprintf($infoQuery, $dbName, $dbPrefix.$table->name));
     $status = $db->loadAssocList();
 
-    $db->setQuery(sprintf($columnQuery, $dbPrefix.$table->name));//, $dbPrefix.$table->name));
+    $db->setQuery(sprintf($columnQuery, $dbPrefix.$table->name));
     $fields = $db->loadAssocList();
 
     $table->status =(isset($status[0])) ? $status[0] : array();
@@ -93,7 +93,7 @@ foreach($tables as $table) :
         {
             if($relation->onTable)
             {
-                //$plumbs .= "$('#table_".$table->name."').plumb({target: 'table_".$relation->onTable."'});".NL;
+                //-- C $plumbs .= "$('#table_".$table->name."').plumb({target: 'table_".$relation->onTable."'});".NL;
             }
         }//foreach
     }
@@ -324,28 +324,30 @@ endforeach;
              <?php
              if($table->inDB && $table->isRegistered)
              {
-//                 foreach($tableHelper->types as $typeName=>$s)
-//                 {
-//                     echo '<td>';
-//                     foreach($scopes as $sType => $sName)
-//                     {
-//                        if( in_array($sType, $table->$typeName) )
-//                        {
-//                            echo "<div class=\"ecr_button img icon-16-edit\"
-// onclick=\"loadPart('".$this->ecr_project."', 'edit', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
-//                        }
-//                        else
-//                        {
-//                            echo "<div class=\"ecr_button img icon-16-add\"
-// onclick=\"loadPart('".$this->ecr_project."', 'new', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
-//                        }
-//                     }//foreach
-//                     echo '</td>';
-//                 }//foreach
+/*
+                 foreach($tableHelper->types as $typeName=>$s)
+                 {
+                     echo '<td>';
+                     foreach($scopes as $sType => $sName)
+                     {
+                        if( in_array($sType, $table->$typeName) )
+                        {
+                            echo "<div class=\"ecr_button img icon-16-edit\"
+ onclick=\"loadPart('".$this->ecr_project."', 'edit', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
+                        }
+                        else
+                        {
+                            echo "<div class=\"ecr_button img icon-16-add\"
+ onclick=\"loadPart('".$this->ecr_project."', 'new', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
+                        }
+                     }//foreach
+                     echo '</td>';
+                 }//foreach
+*/
              }
              else
              {
-//                 #echo str_repeat('<td>&nbsp;</td>', count($tableHelper->types));
+//-- C                 #echo str_repeat('<td>&nbsp;</td>', count($tableHelper->types));
              }
              ?>
         <td><?php echo $table->hasInstall; ?></td>

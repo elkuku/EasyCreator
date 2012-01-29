@@ -40,7 +40,8 @@ ecrScript('wizard2');
 
         <div class="ecr_table-row">
           <div class="ecr_table-cell">
-            <input type="text" name="com_name" id="com_name" style="font-size: 1.4em;" value="<?php echo $this->project->name; ?>"/>
+            <input type="text" name="com_name" id="com_name" style="font-size: 1.4em;"
+                   value="<?php echo $this->project->name; ?>"/>
             <br />
             <?php $formFieldNames[] = 'com_name' ?>
             <label for="com_name"><?php echo jgettext('Name'); ?></label>
@@ -68,7 +69,8 @@ ecrScript('wizard2');
         <strong class="img icon-16-easycreator">AutoCode</strong>
         <br />
         <?php echo jgettext('List postfix'); ?>
-        <input type="text" name="list_postfix" id="list_postfix" size="5" value="<?php echo $this->project->listPostfix; ?>"/>
+        <input type="text" name="list_postfix" id="list_postfix" size="5"
+               value="<?php echo $this->project->listPostfix; ?>"/>
         <span style="color: orange;"><?php echo jgettext('Required'); ?></span>
         <span id="req_list_postfix" style="display: none;"></span>
         </p>

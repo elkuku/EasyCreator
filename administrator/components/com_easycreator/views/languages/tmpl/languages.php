@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//--No direct access
+//-- No direct access
 defined('_JEXEC') || die('=;)');
 
 echo 'BUUU ?';

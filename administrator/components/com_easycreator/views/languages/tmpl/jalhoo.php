@@ -76,7 +76,7 @@ background-color: #fff; border: 2px dashed gray; padding: 0.5em;">
 <?php
 
 
-    //#echo $this->loadTemplate($this->langFormatOut);
+    //-- #echo $this->loadTemplate($this->langFormatOut);
 echo $this->parser->generate($this->checker, $this->buildOpts);
 
 ?>

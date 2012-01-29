@@ -96,18 +96,21 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         //-- Joomla! bootstrap
         $arguments[] = '--bootstrap '.JPATH_ROOT.'/tests/system/servers/config-def.php';
-        //$arguments[] = '--singleWindow';
+
+        //-- C $arguments[] = '--singleWindow';
         if( ! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
         {
-            //     JFolder::create(JPATH_ROOT.DS.$resultsBase);
+            //-- C     JFolder::create(JPATH_ROOT.DS.$resultsBase);
         }
 
-        //-- JUnit XML log file
-        //        $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.JFile::getName($test).'.xml';
-        //        $arguments[] = '--log-junit '.$logName;
+/*
+        -- JUnit XML log file
+                $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.JFile::getName($test).'.xml';
+                $arguments[] = '--log-junit '.$logName;
 
-        //-- @todo: Test Name
-        //        $arguments[] = 'KuKuTest';
+        -- @todo: Test Name
+                $arguments[] = 'KuKuTest';
+*/
 
         $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
@@ -118,15 +121,17 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $add = ob_get_contents();
         ob_end_clean();
 
-        //        if(JFile::exists($logName))
-        //        {
-        //            $response['text'] = $add.BR.$phpUnit->showFormattedLog($logName);
-        //            $response['status'] = 1;
-        //        }
-        //        else
-        //        {
-        //            $response['text'] = $add.BR.'ERROR writing: '.$logName;
-        //        }
+/*
+                if(JFile::exists($logName))
+                {
+                    $response['text'] = $add.BR.$phpUnit->showFormattedLog($logName);
+                    $response['status'] = 1;
+                }
+                else
+                {
+                    $response['text'] = $add.BR.'ERROR writing: '.$logName;
+                }
+*/
 
         $response->console = htmlentities($results);
 
@@ -307,10 +312,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $goToPath = 'cd /home/elkuku/git/testinggg &&';
 
-        //                $args[] = 'status';
-        //                $args[] = 'log';
         $args[] = 'branch';
-        //                $args[] = 'branch -a';
 
         $results = $console->cliExec($goToPath.'git', $args);
 
@@ -824,9 +826,10 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             $chart->loadColorPalette($colorPath);
         }
 
-        //        #      $chart->drawFilledRoundedRectangle(7, 7, 373, 193, 5, 240, 240, 240);
-        //        #       $chart->drawRoundedRectangle(5, 5, 375, 195, 5, 230, 230, 230);
-
+/*
+                      $chart->drawFilledRoundedRectangle(7, 7, 373, 193, 5, 240, 240, 240);
+                       $chart->drawRoundedRectangle(5, 5, 375, 195, 5, 230, 230, 230);
+*/
         //-- Draw the pie chart
         $chart->setFontProperties(JPATH_COMPONENT.DS.'helpers'.DS.'pchart/Fonts/MankSans.ttf', 10);
 

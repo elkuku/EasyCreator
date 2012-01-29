@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//--Add CSS
+//-- Add CSS
 ecrStylesheet('menu', 'stuffer');
 
 $extProps['module'] = array('name' => 'comName', 'client' => 'scope', 'position' => 'position', 'ordering' => 'ordering');
@@ -51,7 +51,7 @@ endforeach;
 $js[] = '};';
 
 if($this->project->type == 'component'):
-    //--The picture chooser
+    //-- The picture chooser
     $js[] = "window.addEvent('domready', function() {";
     $js[] = "drawPicChooser('', '".$this->project->menu['img']."');";
 

@@ -239,6 +239,7 @@ class EcrProjectModule extends EcrProject
                 break;
             default:
                 JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
+
                 return array();
                 break;
         }//switch

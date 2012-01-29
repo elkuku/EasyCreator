@@ -14,8 +14,6 @@ jimport('joomla.html.pane');
 
 ecrScript('parameter');
 
-//var_dump($this->params);
-//return;
 ?>
 
 <div class="toolbar" style="float: right;">

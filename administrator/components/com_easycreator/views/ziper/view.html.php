@@ -37,7 +37,7 @@ class EasyCreatorViewZiper extends JView
 
         $this->task = JRequest::getCmd('task');
 
-        //--Get the project
+        //-- Get the project
         try
         {
             $this->project = EcrProjectHelper::getProject();
@@ -56,11 +56,11 @@ class EasyCreatorViewZiper extends JView
 
         if(in_array($this->task, get_class_methods($this)))
         {
-            //--Execute the task
+            //-- Execute the task
             $this->{$this->task}();
         }
 
-        //--Draw the submenu
+        //-- Draw the submenu
         echo $this->displayBar();
 
         parent::display($tpl);

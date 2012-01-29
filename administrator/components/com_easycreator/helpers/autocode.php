@@ -99,7 +99,6 @@ class EcrAutoCode
         if( ! $this->enclose)
         return $text;
 
-        //        $addPHPTags = $this->enclose;
         $pOpen =($this->enclose === 'php') ? '<?php ' : '';
         $pClose =($this->enclose === 'php') ? ' ?>' : '';
         $start = $pOpen.str_replace('TTTT', $tag, $this->_startTag).$pClose;

@@ -44,7 +44,7 @@ class EasyCreatorControllerLanguages extends JController
      */
     public function save_lang_corrected()
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -58,7 +58,6 @@ class EasyCreatorControllerLanguages extends JController
             return;
         }//try
 
-        //--Read vars from request
         $scope = JRequest::getVar('scope', 'admin');
 
         if( ! $scope)
@@ -89,7 +88,7 @@ class EasyCreatorControllerLanguages extends JController
      */
     public function save_deflang_corrected()
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -103,7 +102,6 @@ class EasyCreatorControllerLanguages extends JController
             return;
         }//try
 
-        //--read vars from request
         $scope = JRequest::getVar('scope', 'admin');
 
         if( ! $scope)
@@ -201,7 +199,7 @@ class EasyCreatorControllerLanguages extends JController
 
         $options = JArrayHelper::toObject(JRequest::getVar('options', array()), 'JObject');
 
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();

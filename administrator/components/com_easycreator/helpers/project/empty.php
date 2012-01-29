@@ -281,6 +281,6 @@ class EcrProjectEmpty extends EcrProject
                 break;
         }//switch
 
-	    return array();
+        return array();
     }//function
 }//class

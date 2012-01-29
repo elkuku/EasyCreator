@@ -607,8 +607,8 @@ class EasyCreatorViewLanguages extends JView
 
         $c = '';
         $checked =($this->buildOpts->get('markFuzzy')) ? 'checked="checked"' : '';
-	    $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy" name="buildOpts[markFuzzy]" onchange="submitform();" />';
-	    $c .= '<label for="chkMarkFuzzy">Mark fuzzy</label>';
+        $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy" name="buildOpts[markFuzzy]" onchange="submitform();" />';
+        $c .= '<label for="chkMarkFuzzy">Mark fuzzy</label>';
 
         $this->checks->markFuzzy = $c;
 
@@ -859,7 +859,7 @@ class EasyCreatorViewLanguages extends JView
                     {
                         if($lang == 'en-GB')
                         {
-                            //--always show default language
+                            //-- Always show default language
                             continue;
                         }
 
@@ -959,7 +959,7 @@ class EasyCreatorViewLanguages extends JView
             case 'languages':
             case 'convert':
             case 'jalhoo' :
-                //--Do nothing
+                //-- Do nothing
                 break;
 
             default:
@@ -972,7 +972,7 @@ class EasyCreatorViewLanguages extends JView
 
     private function g11nUpdate()
     {
-        $this->languages = Ecrg11nHelper::getLanguages();// $this->get('languages');
+        $this->languages = Ecrg11nHelper::getLanguages();
 
         $this->g11nInfo = $this->getG11nInfo();
 
@@ -1012,7 +1012,7 @@ class EasyCreatorViewLanguages extends JView
         )
         );
 
-        //@todo - unify..
+        //-- @todo - unify..
         $html = '';
         $html .= EcrHtml::getSubBar($subTasks);
 
@@ -1043,7 +1043,7 @@ class EasyCreatorViewLanguages extends JView
             {
                 if($lang == 'en-GB' && ! $showDefault)
                 {
-                    //--default language ordered separated
+                    //-- Default language ordered separated
                     continue;
                 }
 

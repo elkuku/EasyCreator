@@ -99,8 +99,7 @@ class EcrManifest extends JObject
             ->processPackageModules()
             ->processPackagePlugins()
             ->processPackageElements()
-            ->processParameters()
-            ;
+            ->processParameters();
         }
         catch(Exception $e)
         {
@@ -906,7 +905,7 @@ class EcrManifest extends JObject
         {
             $s = str_replace('mod_', 'mod_'.$module->scope.'_', $module->name);
 
-            //--Get the project
+            //-- Get the project
             $project = EcrProjectHelper::getProject($s);
 
             $modElement = $modulesElement->addChild('module');
@@ -952,7 +951,7 @@ class EcrManifest extends JObject
                 }
                 else
                 {
-                    //@todo error
+                    //-- @todo error
                     $this->_addLog('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
                 }
             }//foreach
@@ -1027,7 +1026,7 @@ class EcrManifest extends JObject
 
         foreach($this->project->plugins as $item)
         {
-            //--Get the project
+            //-- Get the project
             $project = EcrProjectHelper::getProject('plg_'.$item->scope.'_'.$item->name);
 
             $f = JPATH_ROOT.DS.EcrProjectHelper::findManifest($project);
@@ -1058,7 +1057,7 @@ class EcrManifest extends JObject
                 }
                 else
                 {
-                    //@todo error
+                    //-- @todo error
                     $this->_addLog('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
                 }
             }//foreach
@@ -1124,7 +1123,7 @@ class EcrManifest extends JObject
         //-- DOMImplementation throws strict errors :(
         ini_set('error_reporting', 0);
 
-	    $dtd = $this->project->getDTD(JVERSION);
+        $dtd = $this->project->getDTD(JVERSION);
 
         if($dtd)
         {

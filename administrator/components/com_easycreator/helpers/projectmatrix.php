@@ -451,7 +451,6 @@ class EcrProjectMatrix extends JFolder
 
         $chartCode .= "
 <script type=\"text/javascript\">";
-//
 
         foreach($charts as $chart => $title)
         {

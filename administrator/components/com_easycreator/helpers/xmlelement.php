@@ -1,4 +1,4 @@
-<?php
+<?php defined('JPATH_BASE') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -6,9 +6,6 @@
  * @author     Created on 29-Feb-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-// No direct access
-defined('JPATH_BASE') || die('=;)');
 
 /**
  * Wrapper class for php SimpleXMLElement.
@@ -28,19 +25,19 @@ class EcrXMLElement extends SimpleXMLElement
     {
         $out = '';
 
-        // Start a new line, indent by the number indicated in $level
+        //-- Start a new line, indent by the number indicated in $level
         $out .= ($compressed) ? '' : "\n".str_repeat($indent, $level);
 
-        // Add a <, and add the name of the tag
+        //-- Add a <, and add the name of the tag
         $out .= '<'.$this->getName();
 
-        // For each attribute, add attr="value"
+        //-- For each attribute, add attr="value"
         foreach($this->attributes() as $attr)
         {
             $out .= ' '.$attr->getName().'="'.htmlspecialchars((string)$attr, ENT_COMPAT, 'UTF-8').'"';
         }//foreach
 
-        // If there are no children and it contains no data, end it off with a />
+        //-- If there are no children and it contains no data, end it off with a />
         if( ! count($this->children())
         && ! (string)$this)
         {
@@ -48,16 +45,16 @@ class EcrXMLElement extends SimpleXMLElement
         }
         else
         {
-            // If there are children
+            //-- If there are children
             if(count($this->children()))
             {
-                // Close off the start tag
+                //-- Close off the start tag
                 $out .= '>';
 
                 $level ++;
 
-                // For each child, call the asFormattedXML function
-                // (this will ensure that all children are added recursively)
+                //-- For each child, call the asFormattedXML function
+                //-- (this will ensure that all children are added recursively)
                 foreach($this->children() as $child)
                 {
                     $out .= $child->asFormattedXML($compressed, $indent, $level);
@@ -65,16 +62,16 @@ class EcrXMLElement extends SimpleXMLElement
 
                 $level --;
 
-                // Add the newline and indentation to go along with the close tag
+                //-- Add the newline and indentation to go along with the close tag
                 $out .=($compressed) ? '' : "\n".str_repeat($indent, $level);
             }
             else if((string)$this)
             {
-                // If there is data, close off the start tag and add the data
+                //-- If there is data, close off the start tag and add the data
                 $out .= '>'.htmlspecialchars((string)$this, ENT_COMPAT, 'UTF-8');
             }
 
-            // Add the end tag
+            //-- Add the end tag
             $out .= '</'.$this->getName().'>';
         }
 

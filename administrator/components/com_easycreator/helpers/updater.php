@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -6,9 +6,6 @@
  * @author     Created on 01-Jul-2011
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//--No direct access
-defined('_JEXEC') || die('=;)');
 
 /**
  * Update Joomla! extensions.
@@ -105,9 +102,10 @@ class EcrUpdater
             }
             else
             {
-                //@todo tmp solution for multiple file :-?
-                //echo 'more files found....picking '.$files[0];
-                $source = $buildsPath.'/'.$folder.'/'.$files[0];//temp
+                //-- @todo tmp solution for multiple file :-?
+                //-- ===echo 'more files found....picking '.$files[0];
+                //-- Temp
+                $source = $buildsPath.'/'.$folder.'/'.$files[0];
             }
 
             $this->log('Processing package: '.$source);

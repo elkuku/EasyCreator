@@ -45,7 +45,7 @@ class EasyCreatorControllerStuffer extends JController
 
             if( ! $ecr_project)
             {
-                //---NO PROJECT SELECTED - abort to mainscreen
+                //-- NO PROJECT SELECTED - abort to mainscreen
                 JRequest::setVar('view', 'easycreator');
                 parent::display($cachable, $urlparams);
 
@@ -74,7 +74,7 @@ class EasyCreatorControllerStuffer extends JController
 
         $old_task = JRequest::getCmd('old_task', 'stuffer');
 
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -88,7 +88,6 @@ class EasyCreatorControllerStuffer extends JController
             return;
         }//try
 
-        //        JRequest::setVar('task', $old_task);
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('file', '');
 
@@ -108,7 +107,7 @@ class EasyCreatorControllerStuffer extends JController
             return;
         }
 
-        //--Setup logging
+        //-- Setup logging
         $buildOpts = JRequest::getVar('buildopts', array());
         $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
@@ -119,7 +118,6 @@ class EasyCreatorControllerStuffer extends JController
         $options->group = $group;
         $options->part = $part;
 
-        //JPath::clean @since J 1.7
         $options->pathSource = JPath::clean(ECRPATH_PARTS.DS.$group.DS.$part.DS.'tmpl');
 
         $string = '';
@@ -156,7 +154,7 @@ class EasyCreatorControllerStuffer extends JController
      */
     public function new_relation()
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             if( ! $tableName = JRequest::getCmd('table_name'))
@@ -237,7 +235,7 @@ class EasyCreatorControllerStuffer extends JController
             throw new Exception(sprintf(jgettext('Unable to prepare project [project, group, part] [%s, %s, %s]')
             , $ecr_project, $group, $part));
 
-            //--Setup logging
+            //-- Setup logging
             $buildOpts = JRequest::getVar('buildopts', array());
             $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
@@ -299,7 +297,7 @@ class EasyCreatorControllerStuffer extends JController
             {
                 EcrHtml::displayMessage(jgettext('File has been deleted'));
 
-                //--Clean the cache
+                //-- Clean the cache
                 $ecr_project = JRequest::getVar('ecr_project', NULL);
 
                 JFactory::getCache('EasyCreator_'.$ecr_project)->clean();
@@ -383,7 +381,7 @@ class EasyCreatorControllerStuffer extends JController
         {
             case 'config.xml':
 
-                //--temp solution..
+                //-- Temp solution..
                 $rootElementName = 'config';
                 $config['type'] = 'config';
                 break;
@@ -433,10 +431,10 @@ class EasyCreatorControllerStuffer extends JController
                 {
                     if($k == 'children')
                     {
-                        //--we have options
+                        //-- We have options
                         foreach($v as $pos => $child)
                         {
-                            //-- first step - create the element
+                            //-- First step - create the element
                             foreach($child as $childK => $childV)
                             {
                                 if($childK == 'data')
@@ -445,7 +443,7 @@ class EasyCreatorControllerStuffer extends JController
                                 }
                             }//foreach
 
-                            //-- second step - add attributes
+                            //-- Second step - add attributes
                             foreach($child as $childK => $childV)
                             {
                                 if($childK != 'data')
@@ -476,7 +474,7 @@ class EasyCreatorControllerStuffer extends JController
                         {
                             if( ! $paramType)
                             {
-                                //--no type set so far (bad) we include the element anyway..
+                                //-- No type set so far (bad) we include the element anyway..
                                 $paramElem->addAttribute($k, $v);
                             }
                             else if(in_array($k, $paramTypes[$paramType])
@@ -507,7 +505,7 @@ class EasyCreatorControllerStuffer extends JController
 
         else if( ! ECR_DEBUG)
         {
-            //-- unknown type - unable to save
+            //-- Unknown type - unable to save
             echo '<pre class="ecr_debug">'.htmlentities($this->formatXML($xml)).'</pre>';
         }
 
@@ -571,7 +569,7 @@ class EasyCreatorControllerStuffer extends JController
      */
     public function delete_project($complete = false)
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -621,7 +619,7 @@ class EasyCreatorControllerStuffer extends JController
             return;
         }
 
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -715,7 +713,7 @@ class EasyCreatorControllerStuffer extends JController
 
         try
         {
-            //--Get the project
+            //-- Get the project
             $project = EcrProjectHelper::getProject();
 
             $installPath = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName.DS.'install';
@@ -737,11 +735,11 @@ class EasyCreatorControllerStuffer extends JController
                 $this->logger->log('Folder created: '.$installPath);
             }
 
-            //-- php or sql
+            //-- PHP or SQL
             switch($type1)
             {
                 case 'php' :
-                    //-- install or uninstall
+                    //-- Install or uninstall
                     switch($type2)
                     {
                         case 'install' :
@@ -759,7 +757,7 @@ class EasyCreatorControllerStuffer extends JController
                     break;
 
                 case 'sql' :
-                    //-- install or uninstall
+                    //-- Install or uninstall
                     switch($type2)
                     {
                         case 'install' :

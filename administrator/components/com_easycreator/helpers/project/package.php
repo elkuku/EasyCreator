@@ -53,7 +53,7 @@ class EcrProjectPackage extends EcrProject
      */
     public function getExtensionPath()
     {
-        //-- varies =;)
+        //-- Varies =;)
 
         return '';
     }//function
@@ -110,6 +110,7 @@ class EcrProjectPackage extends EcrProject
     public function getAllProjects($scope)
     {
         return array();
+
         switch($scope)
         {
             case 'admin':
@@ -125,6 +126,4 @@ class EcrProjectPackage extends EcrProject
                 break;
         }//switch
     }//function
-
-
 }//class

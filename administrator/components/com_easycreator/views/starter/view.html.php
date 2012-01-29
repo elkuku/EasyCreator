@@ -45,7 +45,7 @@ class EasyCreatorViewStarter extends JView
         ecrStylesheet('wizard');
         ecrScript('wizard');
 
-        //--JS for changing loader pic
+        //-- JS for changing loader pic
         $img_base = JURI::root().'administrator/components/com_easycreator/assets/images';
 
         $js = "var loaderPic = new Image(); loaderPic.src = '$img_base/ajax-loader2.gif';";
@@ -71,12 +71,12 @@ class EasyCreatorViewStarter extends JView
         $project->listPostfix = JRequest::getCmd('list_postfix', 'List', 'post');
         $project->JCompat = JRequest::getVar('jcompat', '', 'post');
 
-        //--Sanitize project name
+        //-- Sanitize project name
         $project->name = JRequest::getCmd('com_name', '', 'post');
         $disallows = array('_');
         $project->name = str_replace($disallows, '', $project->name);
 
-        //--Credits
+        //-- Credits
         $s = JRequest::getVar('author', '', 'post');
         $project->author =($s) ? $s : $params->get('cred_author');
         $s = JRequest::getVar('authorEmail', '', 'post');

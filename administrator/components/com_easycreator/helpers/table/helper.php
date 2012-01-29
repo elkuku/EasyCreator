@@ -241,6 +241,7 @@ class EcrTableHelper
 
         $engine = $db->loadResult();
         echo 'A'.$engine;
+        /*
         //        $engineQuery = ' SHOW TABLE STATUS LIKE `'.$tName.'`
         // FROM information_schema.TABLES
         // WHERE TABLE_SCHEMA = \''.$dbName.'\'
@@ -249,6 +250,7 @@ class EcrTableHelper
         //
         //        $engine = $db->loadResult();
         //        echo 'B'.$engine;
+        */
 
         foreach($table->getFields() as $field)
         {
@@ -264,7 +266,7 @@ class EcrTableHelper
         if($pri)
             $s .= ', PRIMARY KEY (`'.$pri.'`)';
 
-        // #       $s .= ') ENGINE='.$engine.' DEFAULT CHARSET='.
+        //-- #       $s .= ') ENGINE='.$engine.' DEFAULT CHARSET='.
 
         return $s;
     }//function
@@ -294,7 +296,7 @@ class EcrTableHelper
             default:
                 $def = 'NULL';
                 break;
-            //@todo some more options
+            //-- @todo some more options
         }//switch
 
         $s = '';

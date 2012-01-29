@@ -25,7 +25,8 @@ Use the new 'Discover' feature from the Joomla! installer - works great =;)
 */
 
 //-- Dev mode - internal use =;)
-define('ECR_DEV_MODE', 1);//@@DEBUG
+//-- @@DEBUG
+define('ECR_DEV_MODE', 1);
 
 jimport('joomla.error.profiler');
 
@@ -72,8 +73,9 @@ else
 //-- Load the special Language
 
 //-- 1) Check if g11n is installed as a PEAR package - see: http://elkuku.github.com/pear/
-// @todo: check for installed g11n PEAR package to remove the "shut-up"
-//@require_once 'elkuku/g11n/language.php';
+
+//-- @todo: check for installed g11n PEAR package to remove the "shut-up"
+//-- @require_once 'elkuku/g11n/language.php';
 
 try
 {
@@ -81,7 +83,8 @@ try
     {
         //-- 2) Check the libraries folder
 
-        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')//@todo remove JFolder::exists when dropping 1.5 support
+        //-- @todo remove JFolder::exists when dropping 1.5 support
+        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')
         || ! jimport('g11n.language'))
         {
             //-- 3) Load a dummy language handler -> english only !
@@ -94,10 +97,11 @@ try
 
     if(class_exists('g11n'))
     {
-        //TEMP@@debug
+        //-- TEMP@@debug
         if(ECR_DEV_MODE && ECR_DEBUG_LANG)
         {
-            g11n::cleanStorage();//@@DEBUG
+            //-- @@DEBUG
+            g11n::cleanStorage();
             g11n::setDebug(ECR_DEBUG_LANG);
         }
 
@@ -159,9 +163,9 @@ JHTML::_('behavior.tooltip', '.hasEasyTip', array('className' => 'easy'));
 if(version_compare(JVERSION, '1.6', '>'))
 {
     //-- Joomla! 1.6+ compat
-
     $prevErrorReporting = error_reporting(E_ALL);
-    //$prevErrorReporting = error_reporting(E_STRICT);//...when ¿
+
+    //-- $prevErrorReporting = error_reporting(E_STRICT);//...when ¿
     $prevErrorReporting = error_reporting(-1);
 }
 else

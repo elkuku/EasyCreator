@@ -183,7 +183,7 @@ class EcrBuilder extends JObject
 
                 if( ! $this->project->scope)
                 {
-                    //-- scope has been set previously by temlate options
+                    //-- Scope has been set previously by temlate options
                     $this->project->scope = (string)$this->_buildManifest->attributes()->scope;
                 }
                 break;
@@ -427,7 +427,7 @@ class EcrBuilder extends JObject
             throw new EcrBuilderException('No suiteable path found for CHANGELOG in '.$this->_buildDir);
         }
 
-        //@todo other options ?
+        //-- @todo other options ?
 
         if(JFile::write($path.DS.$fileName, $changelog))
         {
@@ -656,7 +656,7 @@ class EcrBuilder extends JObject
      */
     public function registerProject($type, $name, $scope = '')
     {
-        //--Setup logging
+        //-- Setup logging
         $comParams = JComponentHelper::getParams('com_easycreator');
         $options = array();
         $opts = array('logging', 'hotlogging', 'files', 'profile');

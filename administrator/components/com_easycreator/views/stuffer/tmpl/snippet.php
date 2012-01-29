@@ -23,18 +23,18 @@ for($i = $this->startAtLine - 1; $i < $this->endAtLine; $i++)
 
 $snip = implode("\n", $snip);
 
-//--Code language for GeSHi
+//-- Code language for GeSHi
 $lang = 'php';
 
-//--Alternating line colors
+//-- Alternating line colors
 $background1 = '#fcfcfc';
 $background2 = '#f0f0f0';
 
-//--Replace tag markers
+//-- Replace tag markers
 $snip = str_replace('&lt;', '<', $snip);
 $snip = str_replace('&gt;', '>', $snip);
 
-//--Replace TAB's with spaces
+//-- Replace TAB's with spaces
 $snip = str_replace("\t", '   ', $snip);
 
 $geshi = new GeSHi($snip, $lang);

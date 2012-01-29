@@ -36,7 +36,6 @@ class EasyCreatorControllerConfig extends JController
     {
         if(class_exists('g11n'))
         {
-            //g11n::setDebug(true);
             g11n::loadLanguage('com_easycreator.config');
         }
 

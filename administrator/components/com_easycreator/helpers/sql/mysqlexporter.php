@@ -282,14 +282,14 @@ class EcrSqlMysqlexporter
      */
     protected function getGenericTableName($table)
     {
-        // TODO Incorporate into parent class and use $this.
+        //-- TODO Incorporate into parent class and use $this.
         $prefix = $this->db->getPrefix();
 
-        // Replace the magic prefix if found.
+        //-- Replace the magic prefix if found.
         $table = preg_replace("|^$prefix|", '#__', $table);
 
         return $table;
-    }
+    }//function
 
     /**
      * Specifies a list of table names to export.
@@ -303,11 +303,11 @@ class EcrSqlMysqlexporter
      */
     public function from($from)
     {
-        if (is_string($from))
+        if(is_string($from))
         {
             $this->from = array($from);
         }
-        elseif (is_array($from))
+        else if(is_array($from))
         {
             $this->from = $from;
         }
@@ -317,7 +317,7 @@ class EcrSqlMysqlexporter
         }
 
         return $this;
-    }
+    }//function
 
     /**
      * Sets the database connector to use for exporting structure and/or data from MySQL.
@@ -333,7 +333,7 @@ class EcrSqlMysqlexporter
         $this->db = $db;
 
         return $this;
-    }
+    }//function
 
     /**
      * Sets an internal option to export the structure of the input table(s).
@@ -346,10 +346,10 @@ class EcrSqlMysqlexporter
      */
     public function withStructure($setting = true)
     {
-        $this->options->set('with-structure', (boolean) $setting);
+        $this->options->set('with-structure', (boolean)$setting);
 
         return $this;
-    }
+    }//function
 
     /**
      * Sets an internal option to export the data of the input table(s).
@@ -362,9 +362,9 @@ class EcrSqlMysqlexporter
      */
     public function withData($setting = true)
     {
-        $this->options->set('with-data', (boolean) $setting);
+        $this->options->set('with-data', (boolean)$setting);
 
         return $this;
-    }
+    }//function
 
-}
+}//class

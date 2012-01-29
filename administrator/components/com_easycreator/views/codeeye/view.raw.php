@@ -38,7 +38,7 @@ class EasyCreatorViewCodeEye extends JView
     {
         $response = array();
 
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();

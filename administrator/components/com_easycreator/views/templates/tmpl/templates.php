@@ -13,16 +13,16 @@ defined('_JEXEC') || die('=;)');
 /*
  * Context menu
  */
-//--Add css
+//-- Add css
 ecrStylesheet('contextmenu');
 
-//--Add javascript
+//-- Add javascript
 ecrScript('contextmenu', 'templates');
 
 JHTML::_('behavior.modal');
 
-//--Allowed extensions
-//TODO set somewhere else...
+//-- Allowed extensions
+//-- TODO set somewhere else...
 $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
 $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
@@ -38,18 +38,18 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 ?>
 
 <table width="100%">
-	<tr valign="top">
-		<td width="20%">
-		<div class="ecr_floatbox">
-			<span style="float: right;" class="img icon-16-info hasEasyTip" title="<?php echo jgettext('File tree').'::'.jgettext('Left click files to edit.').'<br />'.jgettext('Right click files and folders for options.'); ?>">&nbsp;</span>
-		<?php echo $fileTree->startTree(); ?>
-		<ul>
-			<li class="pft-directoryX">
-				<div style="font-size: 1.3em;">
-					<?php echo jgettext('Extension templates'); ?>
-				</div>
-				<ul>
-				    <?php
+    <tr valign="top">
+        <td width="20%">
+        <div class="ecr_floatbox">
+            <span style="float: right;" class="img icon-16-info hasEasyTip" title="<?php echo jgettext('File tree').'::'.jgettext('Left click files to edit.').'<br />'.jgettext('Right click files and folders for options.'); ?>">&nbsp;</span>
+        <?php echo $fileTree->startTree(); ?>
+        <ul>
+            <li class="pft-directoryX">
+                <div style="font-size: 1.3em;">
+                    <?php echo jgettext('Extension templates'); ?>
+                </div>
+                <ul>
+                    <?php
                     foreach($this->comTypes as $com_type => $comName):
                         if( ! isset($this->templates[$com_type])):
                             continue;
@@ -59,11 +59,11 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                         $js = " onmousedown=\"setAction('', '".$path."', '".$com_type."');\"";
 
                         ?>
-						<li class="pft-directory">
-							<div<?php echo $js; ?>>
-							    <?php echo $comName; ?>
-							</div>
-							<ul>
+                        <li class="pft-directory">
+                            <div<?php echo $js; ?>>
+                                <?php echo $comName; ?>
+                            </div>
+                            <ul>
 <?php
                             foreach($this->templates[$com_type] as $template):
                                 $fileTree->setDir($this->path.DS.$com_type.DS.$template->folder);
@@ -76,29 +76,29 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                                 echo '</li>';
                              endforeach;
 ?>
-							</ul>
-						</li>
+                            </ul>
+                        </li>
                     <?php
                     endforeach;
                     ?>
-				</ul>
-			</li>
-		</ul>
-		<ul>
-			<li class="pft-directoryX">
-				<div style="font-size: 1.3em;">
-					<?php echo jgettext('Extension templates parts'); ?>
-				</div>
-				<ul>
-				<?php
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li class="pft-directoryX">
+                <div style="font-size: 1.3em;">
+                    <?php echo jgettext('Extension templates parts'); ?>
+                </div>
+                <ul>
+                <?php
                 foreach(EcrProjectHelper::getPartsGroups() as $group):
                     $js = " onmousedown=\"setAction('', '".$path.DS."parts', '".$group."');\"";
                     ?>
-					<li class="pft-directory"><?php echo '<div'.$js.'>'.jgettext($group).'</div>'; ?>
-						<ul>
+                    <li class="pft-directory"><?php echo '<div'.$js.'>'.jgettext($group).'</div>'; ?>
+                        <ul>
 <?php
                         foreach(EcrProjectHelper::getParts($group) as $part):
-	                        $easyPart = EcrProjectHelper::getPart($group, $part, '', '');
+                            $easyPart = EcrProjectHelper::getPart($group, $part, '', '');
 
                             if($easyPart):
                                 $toolTip = $group.'::'.$part;
@@ -123,25 +123,25 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                             endif;
                         endforeach;
 ?>
-						</ul>
-					</li>
-<?php			endforeach; ?>
-				</ul>
-			</li>
-		</ul>
-		<ul>
-			<li class="pft-directoryX">
-				<div style="font-size: 1.3em;">
-					<?php echo jgettext('Standard files'); ?>
-				</div>
-				<ul>
-				<?php
+                        </ul>
+                    </li>
+<?php            endforeach; ?>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li class="pft-directoryX">
+                <div style="font-size: 1.3em;">
+                    <?php echo jgettext('Standard files'); ?>
+                </div>
+                <ul>
+                <?php
                 $fileTree->setDir(ECRPATH_EXTENSIONTEMPLATES.DS.'std');
                 echo $fileTree->drawTree();
                 ?>
-				</ul>
-			</li>
-		</ul>
+                </ul>
+            </li>
+        </ul>
         <?php echo $fileTree->endTree(); ?>
         </div>
 
@@ -150,21 +150,21 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
         <h3><?php echo jgettext('Common constants')?></h3>
         e.g. TestTest - com_testtest
         <ul>
-        	<li>_ECR_COM_NAME_ - TestTest</li>
-        	<li>_ECR_LOWER_COM_NAME_ - testtest</li>
-        	<li>_ECR_UPPER_COM_NAME_ - TESTTEST</li>
-        	<li>_ECR_COM_COM_NAME_ - com_testtest</li>
-        	<li>_ECR_UPPER_COM_COM_NAME_ - COM_TESTTEST</li>
-        	<li>_ECR_ACT_DATE_ - date('d-M-Y')</li>
+            <li>_ECR_COM_NAME_ - TestTest</li>
+            <li>_ECR_LOWER_COM_NAME_ - testtest</li>
+            <li>_ECR_UPPER_COM_NAME_ - TESTTEST</li>
+            <li>_ECR_COM_COM_NAME_ - com_testtest</li>
+            <li>_ECR_UPPER_COM_COM_NAME_ - COM_TESTTEST</li>
+            <li>_ECR_ACT_DATE_ - date('d-M-Y')</li>
         </ul>
         <h3><?php echo jgettext('Custom constants')?></h3>
         <?php echo jgettext('Custom constants may be defined in every template in options.php'); ?>
         </div>
-		</td>
-		<td>
-			<?php EcrHtml::prepareFileEdit(); ?>
-		</td>
-	</tr>
+        </td>
+        <td>
+            <?php EcrHtml::prepareFileEdit(); ?>
+        </td>
+    </tr>
 </table>
 
 <input type="hidden" name="com_type" value="<?php echo $this->com_type; ?>" />

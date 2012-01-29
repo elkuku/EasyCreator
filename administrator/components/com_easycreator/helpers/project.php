@@ -15,7 +15,8 @@ defined('_JEXEC') || die('=;)');
  */
 abstract class EcrProject extends JObject
 {
-    public $legacy = false;//removed in 1.6
+    //-- Removed in 1.6
+    public $legacy = false;
 
     public $method = '';
 
@@ -205,7 +206,7 @@ abstract class EcrProject extends JObject
         $this->dbTypes = JRequest::getVar('dbtypes', array());
         $this->headerType = JRequest::getCmd('headerType');
 
-        //--Package modules
+        //-- Package modules
         $this->modules = array();
         $items = JRequest::getVar('package_module', array(), 'post');
 
@@ -221,7 +222,7 @@ abstract class EcrProject extends JObject
             $this->modules[] = $m;
         }//foreach
 
-        //--Package plugins
+        //-- Package plugins
         $this->plugins = array();
         $items = JRequest::getVar('package_plugin', array(), 'post');
 
@@ -364,7 +365,7 @@ abstract class EcrProject extends JObject
             }
         }
 
-        //--Process credit vars
+        //-- Process credit vars
         foreach($xmlBuildVars as $xmlName)
         {
             $manifest->$xmlName = $this->$xmlName;
@@ -382,7 +383,7 @@ abstract class EcrProject extends JObject
 
         $output = $root.$manifest->asFormattedXML();
 
-        //--Write XML file to disc
+        //-- Write XML file to disc
         if( ! JFile::write(JPATH_ROOT.DS.$installXML, $output))
         {
             JFactory::getApplication()->enqueueMessage(
@@ -619,7 +620,6 @@ abstract class EcrProject extends JObject
         $root = '';
         $root .= '<?xml version="1.0" encoding="UTF-8"?>'.NL;
         $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14.1//DTD project 1.0//EN"'.NL;
-        //        $root .= '"http://xml.der-beta-server.de/dtd/easycreator/0.0.14.1/project.dtd">';
         $root .= '"http://joomlacode.org/gf/project/elkuku/scmsvn/?action=browse'
         .'&path=/*checkout*/dtd/easycreator/0.0.14.1/project.dtd">';
 
@@ -991,7 +991,7 @@ abstract class EcrProject extends JObject
         /*
          * Process files
          */
-        // @TODO ...
+        //-- @TODO ...
         $basePathDest =($element_scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
         $basePathDest .= DS.'components'.DS.$options->ecr_project;
 
@@ -999,11 +999,11 @@ abstract class EcrProject extends JObject
 
         foreach($files as $file)
         {
-            $fName = str_replace($options->pathSource.DS, '', JPath::clean($file));//JPath::clean @since J 1.7
+            $fName = str_replace($options->pathSource.DS, '', JPath::clean($file));
             $fName = str_replace('ecr_element_name', strtolower($element_name), $fName);
             $fName = str_replace('ecr_list_postfix', strtolower($this->listPostfix), $fName);
 
-            //--Check if file exists
+            //-- Check if file exists
             if(JFile::exists($basePathDest.DS.$fName) && ! $overwrite)
             {
                 //-- Replace AutoCode

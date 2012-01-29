@@ -127,8 +127,8 @@ function drawFileTree(EcrProject $project)
     $file_path = JRequest::getString('file_path');
     $file_name = JRequest::getString('file_name');
 
-    //--Allowed extensions
-    //TODO set somewhere else...
+    //-- Allowed extensions
+    //-- TODO set somewhere else...
     $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
     $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
@@ -169,7 +169,7 @@ function drawFileTree(EcrProject $project)
                 continue;
             }
 
-            //--This shows a single file not included in anterior directory list ;) - hi plugins...
+            //-- This shows a single file not included in anterior directory list ;) - hi plugins...
             $fileName = JFile::getName(JPath::clean($dir));
             $dirName = substr($dir, 0, strlen($dir) - strlen($fileName));
             $oldDir =(isset($oldDir)) ? $oldDir : '';

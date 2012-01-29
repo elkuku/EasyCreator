@@ -161,7 +161,6 @@ class EcrProjectLibrary extends EcrProject
     public function getJoomlaManifestName()
     {
         return $this->prefix.$this->comName.'.xml';
-        //return $this->comName.'.xml';
     }//function
 
     /**

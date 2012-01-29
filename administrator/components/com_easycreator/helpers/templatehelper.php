@@ -144,7 +144,7 @@ class EcrTemplateHelper
 
         $result = EcrArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
 
-        //--This means error
+        //-- This means error
         if( ! $result->listContent())
         throw new Exception(jgettext('Error creating archive'));
 

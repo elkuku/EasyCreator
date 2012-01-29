@@ -64,11 +64,11 @@ class EasyCreatorControllerAutoCode extends JController
             .'</div>';
         }
 
-        //--Additional request vars
+        //-- Additional request vars
         echo '<input type="hidden" name="group" value="'.$group.'" />';
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 
-        //--Additional options from part file
+        //-- Additional options from part file
         if( ! method_exists($AutoCode, 'getOptions'))
         {
             echo '<h4 style="color: red;"><tt>getOptions()</tt> not found</h4>';
@@ -88,7 +88,7 @@ class EasyCreatorControllerAutoCode extends JController
      */
     public function edit()
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -137,7 +137,7 @@ class EasyCreatorControllerAutoCode extends JController
         .ucfirst($group).' - '.ucfirst($part)
         .'</div>';
 
-        //--Additional request vars
+        //-- Additional request vars
         echo '<input type="hidden" name="group" value="'.$group.'" />';
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 

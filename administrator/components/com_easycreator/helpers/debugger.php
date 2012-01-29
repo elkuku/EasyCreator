@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//--No direct access
+//-- No direct access
 defined('_JEXEC') || die('=;)');
 
 /**
@@ -74,7 +74,7 @@ class EcrDebugger
         switch($debug_type)
         {
             case 'jdump':
-                //--Test if JDump is installed
+                //-- Test if JDump is installed
                 if( ! file_exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_dump'.DS.'helper.php'))
                 {
                     EcrHtml::displayMessage(jgettext('JDump not found'), 'error');

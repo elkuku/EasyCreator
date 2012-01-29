@@ -57,7 +57,7 @@ class EcrPearHelperPhploc extends EcrPearHelperConsole
 
         $results = $this->cliExec('phploc', $args);
 
-        //@todo save to file
+        //-- @todo save to file
 
         return $results;
     }//function

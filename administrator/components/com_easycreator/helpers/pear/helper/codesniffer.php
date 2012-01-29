@@ -147,7 +147,7 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
             return array();
         }
 
-        //--Expected response: e.g.
+        //-- Expected response: e.g.
         //-- The installed coding standards are PEAR, PHPCS, Squiz, Zend and MySource
         $s = $this->cliExec('phpcs', array('-i'));
 

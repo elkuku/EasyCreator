@@ -16,10 +16,10 @@ if( ! count($this->logFiles)):
     return;
 endif;
 
-//--Add css
+//-- Add css
 ecrStylesheet('php_file_tree');
 
-//--Add javascript
+//-- Add javascript
 ecrScript('php_file_tree', 'log');
 
 $fileTree = new EcrFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);

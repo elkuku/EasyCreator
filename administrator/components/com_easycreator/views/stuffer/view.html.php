@@ -42,7 +42,7 @@ class EasyCreatorViewStuffer extends JView
 
         $this->ecr_project = JRequest::getCmd('ecr_project');
 
-        //--Get the project
+        //-- Get the project
         try
         {
             $this->project = EcrProjectHelper::getProject();
@@ -73,21 +73,21 @@ class EasyCreatorViewStuffer extends JView
         && $task != 'aj_reflection'
         && $tmpl != 'component')
         {
-            //--Draw h1 header
+            //-- Draw h1 header
             EcrHtml::header(jgettext('Configure'), $this->project, 'ecr_config');
 
-            //--Draw the submenu if task is not for a raw view
+            //-- Draw the submenu if task is not for a raw view
             echo $this->displayBar($task);
         }
 
         if(in_array($task, get_class_methods($this)))
         {
-            //--Execute the task
+            //-- Execute the task
             $this->$task();
 
             if($task == 'display_snip')
             {
-                //--Raw view
+                //-- Raw view
                 parent::display($tpl);
 
                 return;
@@ -251,7 +251,7 @@ class EasyCreatorViewStuffer extends JView
         {
             switch(ECR_JVERSION)
             {
-                //--Get the project params
+                //-- Get the project params
                 case '1.5':
                     $this->params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
                     break;
@@ -341,7 +341,7 @@ class EasyCreatorViewStuffer extends JView
             echo '<div class="ebc_error" align="center">'.jgettext('File not found').'</div>';
             echo $path;
 
-            //--EXIT
+            //-- EXIT
             jexit();
         }
         else

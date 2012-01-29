@@ -37,7 +37,7 @@ if($this->scope != 'menu')
         }//foreach
     }//foreach
 
-    //TODO improve sorting.. on filenames only
+    //-- TODO improve sorting.. on filenames only
     sort($allFiles);
 
     $searchTitle = jgettext('PHP XML file analysis');

@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//--No direct access
+//-- No direct access
 defined('_JEXEC') || die('=;)');
 
 /**
@@ -267,8 +267,9 @@ class EcrDbUpdater
         {
             $statement = '';
 
+            //-- @todo: bad coder :(
             if( ! is_object($item))
-            continue;//@todo: bad coder :(
+                continue;
 
             $qq = new stdClass;
             $qq->version = $item->version;

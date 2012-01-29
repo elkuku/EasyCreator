@@ -144,4 +144,3 @@ class EcrTable
         return $this->name;
     }//function
 }//class
-

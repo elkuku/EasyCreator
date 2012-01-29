@@ -39,7 +39,7 @@ class EasyCreatorViewTemplates extends JView
 
         if(in_array($task, get_class_methods($this)))
         {
-            //--Execute the task
+            //-- Execute the task
             $this->$task();
         }
         else
@@ -51,7 +51,7 @@ class EasyCreatorViewTemplates extends JView
         if($task == 'tplinstall')
         {
             //-- We end our form first, cause another one follows
-            echo '<input type="hidden" name="com_type" /><input type="hidden" name="template" />';//:(
+            echo '<input type="hidden" name="com_type" /><input type="hidden" name="template" />';
 
             EcrHtml::easyFormEnd(false);
 
@@ -130,11 +130,11 @@ class EasyCreatorViewTemplates extends JView
         $this->setLayout('export');
     }//function
 
-	/**
-	 * Displays the submenu.
-	 *
-	 * @return string html
-	 */
+    /**
+     * Displays the submenu.
+     *
+     * @return string html
+     */
     private function displayBar()
     {
         $subTasks = array(

@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die ('=;)');
 
-//--Add CSS
+//-- Add CSS
 ecrStylesheet('icon', 'translator');
 
 ecrScript('php2js', 'translator');

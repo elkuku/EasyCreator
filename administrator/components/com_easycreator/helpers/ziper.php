@@ -70,7 +70,8 @@ class EcrZiper extends JObject
         , 'copyMedia'
         , 'copyPackageModules'
         , 'copyPackagePlugins'
-        , 'copyPackageElements' // 1.6 +
+        //-- 1.6 +
+        , 'copyPackageElements'
         , 'processInstall'
         , 'cleanProject'
         , 'deleteManifest'
@@ -119,7 +120,7 @@ class EcrZiper extends JObject
             $this->buildopts[$opt] =(in_array($opt, $buildopts)) ? true : false;
         }//foreach
 
-        //--Init profiler
+        //-- Init profiler
         if(in_array('profile', $buildopts))
         {
             jimport('joomla.error.profiler');
@@ -191,10 +192,10 @@ class EcrZiper extends JObject
 
                 if(substr($s, 0, 3) == 'pkg')
                 {
-                    //--- EasyCreator project file for packages goes to packageroot..
+                    //-- EasyCreator project file for packages goes to packageroot..
                     $dst = $this->temp_dir.DS.'easycreator.xml';
                 }
-                else//
+                else
                 {
                     $this->logger->log('neither admin or site dir found', 'Failed to copy EasyCreator project xml');
 
@@ -461,7 +462,7 @@ class EcrZiper extends JObject
             }
             else if(file_exists($copy))
             {
-                //--source is a file
+                //-- Source is a file
                 if(JFile::copy($copy, $tmp_dest.DS.JFile::getName($copy)))
                 {
                     $this->logger->log('COPY FILE<br />SRC: '.$copy.'<br />DST: '.$tmp_dest);
@@ -473,7 +474,7 @@ class EcrZiper extends JObject
             }
             else
             {
-                //--source does not exist - ABORT - TODO: rollback
+                //-- Source does not exist - ABORT - TODO: rollback
                 $this->logger->log('<div class="ebc_error">NOT FOUND :<br />>'.$copy.'</div>', 'not found');
 
                 return false;
@@ -550,7 +551,7 @@ class EcrZiper extends JObject
             {
                 $destPath .= DS.$folder;
 
-                // Create the folder
+                //-- Create the folder
                 JFolder::create($destPath);
             }
 
@@ -661,7 +662,7 @@ class EcrZiper extends JObject
                 return false;
             }
 
-            //--Get the project
+            //-- Get the project
             try
             {
                 $modProject = EcrProjectHelper::getProject($s);
@@ -728,7 +729,7 @@ class EcrZiper extends JObject
         {
             $plgFolderName = 'plg_'.$plugin->scope.'_'.$plugin->name;
 
-            //--Get the project
+            //-- Get the project
             try
             {
                 $plgProject = EcrProjectHelper::getProject($plgFolderName);
@@ -840,7 +841,7 @@ class EcrZiper extends JObject
         {
             $this->ecr_project = JRequest::getCmd('ecr_project');
 
-            //--Get the project
+            //-- Get the project
             try
             {
                 $project = EcrProjectHelper::getProject($element);
@@ -938,35 +939,15 @@ class EcrZiper extends JObject
                     continue;
                 }
 
-                //                $tmp_src =($scope === 'admin' || $scope === 'menu')
-                //? JPATH_ADMINISTRATOR : JPATH_SITE;
-                //                $tmp_src .= DS.'language'.DS.$language;
-
                 $s =($scope === 'menu' || $scope === 'sys') ? 'admin' : $scope;
                 $tmp_dest = $this->temp_dir.DS.$s.DS.'language'.DS.$language;
 
-                //                $s =($scope == 'menu') ? '.menu' : '';
-                //
-                //                $tmp_fname = $language.'.'.$this->project->comName.$s.'.ini';
                 $tmp_fname = $srcFileName;
 
                 if($this->project->type == 'plugin')
                 {
-                    //-- Plugin language files come from admin and go to site..
-                    //                    #                    $tmp_src = JPATH_ADMINISTRATOR.DS.'language'.DS.$language;
                     $tmp_dest = $this->temp_dir.DS.'site'.DS.'language'.DS.$language;
-                    //                    #
-                    //$tmp_fname = $language.'.plg_'.$this->project->scope.'_'.$this->project->comName.'.ini';
                 }
-
-                //                if($this->project->type == 'plugin')
-                //                {
-                //                    //-- Plugin language files come from admin and go to site..
-                //                    $tmp_src = JPATH_ADMINISTRATOR.DS.'language'.DS.$language;
-                //                    $tmp_dest = $this->temp_dir.DS.'site'.DS.'language';
-                //                    $tmp_fname = $language.'.plg_'.$this->project->scope.'_'.
-                //$this->project->comName.'.ini';
-                //                }
 
                 if(file_exists($tmp_dest.DS.$srcFileName))
                 {
@@ -986,18 +967,6 @@ class EcrZiper extends JObject
                         $this->setError(sprintf(jgettext('Failed to copy file %s to %s'), $srcPath.'/'.$srcFileName, $tmp_dest.DS.$srcFileName));
                     }
                 }
-
-                //                if(file_exists($tmp_src.DS.$tmp_fname))
-                //                {
-                //                    JFile::copy($tmp_src.DS.$tmp_fname, $tmp_dest.DS.$tmp_fname);
-                //                    $this->logger->log('copy: '.$tmp_fname);
-                //                }
-                //                else
-                //                {
-                //                    $this->logger->log('File: '.$tmp_fname, 'copy failed');
-                //                    $this->setError(jgettext('Failed to copy file %s to %s'
-                //, $tmp_src.DS.$tmp_fname, $tmp_dest.DS.$tmp_fname));
-                //                }
             }//foreach
         }//foreach
 
@@ -1038,7 +1007,7 @@ class EcrZiper extends JObject
 
         $subDir =(JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
 
-        //--@todo temp solution to put the md5 file in a sub folder for J! 1.6 not finding it...
+        //-- @todo temp solution to put the md5 file in a sub folder for J! 1.6 not finding it...
         $subDir .= DS.'install';
 
         if( ! JFile::write($this->temp_dir.DS.$subDir.DS.'MD5SUMS', $md5Str))
@@ -1072,13 +1041,16 @@ class EcrZiper extends JObject
             return $previous;
         }
 
-        $compressed = '=';//-- Same as previous path - maximun compression :)
+        //-- Same as previous path - maximun compression :)
+        $compressed = '=';
 
-        if($previous != $path) //-- Different path - too bad..
+        if($previous != $path)
         {
+            //-- Different path - too bad..
             $subParts = explode(DS, $path);
 
-            $compressed = $path;//-- One element at Root level
+            //-- One element at Root level
+            $compressed = $path;
 
             if(count($subParts) > 1) //-- More elements...
             {
@@ -1096,10 +1068,13 @@ class EcrZiper extends JObject
                     {
                         $result[] = '-';
                     }
-                    else //-- Different sub path
+                    else
                     {
+                        //-- Different sub path
+
+                        //-- Add a separator
                         if(count($result) && $result[count($result) - 1] == '-')
-                        $result[] = '|'; //-- Add a separator
+                            $result[] = '|';
 
                         $result[] = $part.DS;
 
@@ -1107,8 +1082,9 @@ class EcrZiper extends JObject
                     }
                 }//foreach
 
+                //-- Add a separator(no add path)
                 if(count($result) && $result[count($result) - 1] == '-')
-                $result[] = '|'; //-- Add a separator(no add path)
+                    $result[] = '|';
 
                 $compressed = implode('', $result);
             }
@@ -1133,8 +1109,6 @@ class EcrZiper extends JObject
 
         $this->logger->log('Start adding files');
 
-        //$zipDir = JPATH_ROOT.DS.$this->build_dir.DS.$this->project->comName.DS.$this->project->version;
-
         if($this->build_dir != ECRPATH_BUILDS)
         {
             $zipDir = $this->build_dir.DS.$this->project->version;
@@ -1144,7 +1118,7 @@ class EcrZiper extends JObject
             $zipDir = $this->build_dir.DS.$this->project->comName.DS.$this->project->version;
         }
 
-        //--Build the file list
+        //-- Build the file list
         $files = JFolder::files($this->temp_dir, '.', true, true);
         $this->logger->log('TOTAL: '.count($files).' files');
 

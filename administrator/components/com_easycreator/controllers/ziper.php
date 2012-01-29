@@ -40,7 +40,7 @@ class EasyCreatorControllerZIPer extends JController
 
         if( ! $ecr_project)
         {
-            //---NO PROJECT SELECTED - ABORT
+            //-- NO PROJECT SELECTED - ABORT
             EcrHtml::easyFormEnd();
 
             return;

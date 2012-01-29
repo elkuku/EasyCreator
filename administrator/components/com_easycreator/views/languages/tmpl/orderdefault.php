@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-// no direct access
+//-- No direct access
 defined('_JEXEC') || die(';)');
 
 JHTML::_('behavior.mootools');

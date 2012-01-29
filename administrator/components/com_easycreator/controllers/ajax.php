@@ -65,11 +65,11 @@ class EasyCreatorControllerAjax extends JController
             .'</div>';
         }
 
-        //--Additional request vars
+        //-- Additional request vars
         echo '<input type="hidden" name="group" value="'.$group.'" />';
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 
-        //--Additional options from part file
+        //-- Additional options from part file
         echo $EasyPart->getOptions();
     }//function
 
@@ -80,7 +80,7 @@ class EasyCreatorControllerAjax extends JController
      */
     public function edit_part()
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -142,7 +142,7 @@ class EasyCreatorControllerAjax extends JController
             .'</div>';
         }
 
-        //--Additional request vars
+        //-- Additional request vars
         echo '<input type="hidden" name="group" value="'.$group.'" />';
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 
@@ -286,7 +286,7 @@ class EasyCreatorControllerAjax extends JController
                 {
                     $s = '';
                     $s .= sprintf("%s<strong style='color: brown;'>$%s</strong>",
-                    //$parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
+                    //-- C$parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
                     $parameter->isPassedByReference() ? '<strong style="color: blue;"> & </strong>' : '',
                     $parameter->getName()
                     );
@@ -364,7 +364,7 @@ class EasyCreatorControllerAjax extends JController
             return;
         }
 
-        //--Execute the task
+        //-- Execute the task
         return $easyPart->$partTask($element);
     }//function
 
@@ -409,8 +409,8 @@ class EasyCreatorControllerAjax extends JController
 
         if($buffer)
         {
-            //            echo $buffer;
-            //            jexit();
+            //-- C            echo $buffer;
+            //-- C            jexit();
             $this->response['status'] = 1;
         }
 
@@ -629,7 +629,7 @@ class EasyCreatorControllerAjax extends JController
                 return;
             }
 
-            //--Clean the cache
+            //-- Clean the cache
             JFactory::getCache('EasyCreator_'.$ecr_project)->clean();
 
             echo '*OK*';
@@ -673,7 +673,7 @@ class EasyCreatorControllerAjax extends JController
                 return;
             }
 
-            //@todo file from template
+            //-- @todo file from template
             $template = 'new file';
 
             if( ! is_int(file_put_contents($path, $template)))
@@ -683,7 +683,7 @@ class EasyCreatorControllerAjax extends JController
                 return;
             }
 
-            //--Clean the cache
+            //-- Clean the cache
             JFactory::getCache('EasyCreator_'.$ecr_project)->clean();
 
             echo '*OK*';
@@ -729,7 +729,7 @@ class EasyCreatorControllerAjax extends JController
                 return;
             }
 
-            //--Clean the cache
+            //-- Clean the cache
             JFactory::getCache('EasyCreator_'.$ecr_project)->clean();
 
             echo '*OK*';
@@ -779,7 +779,7 @@ class EasyCreatorControllerAjax extends JController
                 return;
             }
 
-            //--Clean the cache
+            //-- Clean the cache
             JFactory::getCache('EasyCreator_'.$ecr_project)->clean();
 
             echo '*OK*';
@@ -1085,7 +1085,7 @@ body {
      */
     public function update_project_name()
     {
-        //--Get the project
+        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
