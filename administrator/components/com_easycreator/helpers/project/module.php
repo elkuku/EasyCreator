@@ -186,7 +186,7 @@ class EcrProjectModule extends EcrProject
     /**
      * Get the project Id.
      *
-     * @return integer Id
+     * @return int Id
      */
     public function getId()
     {
@@ -209,6 +209,8 @@ class EcrProjectModule extends EcrProject
                 EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
+
+        /* @var JDatabaseQuery $query */
 
         $query->from('#__modules AS m');
         $query->select('m.id');

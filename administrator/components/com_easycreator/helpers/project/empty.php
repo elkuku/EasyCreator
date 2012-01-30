@@ -166,7 +166,7 @@ class EcrProjectEmpty extends EcrProject
     /**
      * Get the project Id.
      *
-     * @return integer Id
+     * @return int Id
      */
     public function getId()
     {

@@ -283,7 +283,7 @@ class EcrProjectComponent extends EcrProject
     /**
      * Get the project Id.
      *
-     * @return integer Id
+     * @return int Id
      */
     public function getId()
     {
@@ -513,7 +513,7 @@ class EcrProjectComponent extends EcrProject
      * @param string $link Menu link
      * @param string $image Menu image
      *
-     * @return bool true on success
+     * @return boolean true on success
      */
     public function addSubmenuEntry($text, $link, $image = '')
     {
@@ -666,6 +666,8 @@ class EcrProjectComponent extends EcrProject
     {
         //-- Initialise Variables
         $db = JFactory::getDbo();
+
+        /* @var JTableMenu $table */
         $table = JTable::getInstance('menu');
         $id = $row->extension_id;
 
@@ -720,7 +722,7 @@ class EcrProjectComponent extends EcrProject
      *
      * @param array $item The menu.
      *
-     * @return bool true on success
+     * @return boolean true on success
      */
     protected function setDbMenuItem($item)
     {
@@ -761,6 +763,7 @@ class EcrProjectComponent extends EcrProject
             case '1.6':
             case '1.7':
             case '2.5':
+                /* @var JTableMenu $table */
                 $table = JTable::getInstance('menu');
 
                 $data = array();
@@ -821,7 +824,7 @@ class EcrProjectComponent extends EcrProject
      * For Joomla! 1.5 only !
      *
      * @param array $item Item to remove
-     * @return bool
+     * @return boolean
      */
     private function removeAdminMenu($item)
     {
