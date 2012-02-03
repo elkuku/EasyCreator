@@ -86,7 +86,14 @@ function ecrScript()
     }//foreach
 }//function
 
-spl_autoload_register('easy_creator_loader', true, true);
+if(version_compare(PHP_VERSION, '5.3', '<'))
+{
+    spl_autoload_register('easy_creator_loader', true);
+}
+else
+{
+    spl_autoload_register('easy_creator_loader', true, true);
+}
 
 /**
  * Autoloader.
