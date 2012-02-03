@@ -237,35 +237,34 @@ $stdJS .= "$('file_name').value='';";
     public static function getSubBar($subTasks, $rightTasks = array())
     {
         $task = JRequest::getCmd('task');
-        $html = '';
+        $html = array();
         $htmlDescriptionDivs = '';
         $jsVars = '';
         $jsEvents = '';
 
         if($rightTasks)
         {
-            $html .= '<div class="ecr_easy_toolbar" style="float: right;">';
+            $html[] = '<div class="ecr_easy_toolbar" style="float: right;">';
 
             foreach ($rightTasks as $rTask)
             {
-                $html .= '<div class="ecr_button img icon-16-'.$rTask['icon'].'"';
-                $html .= ' onclick="submitStuffer(\''.$rTask['task'].'\');">';
-                $html .= $rTask['title'].'</div>';
-                $html .= '</div>';
+                $html[] = '<div class="ecr_button img icon-16-'.$rTask['icon'].'"';
+                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\');">';
+                $html[] = $rTask['title'].'</div>';
             }//foreach
 
-            $html .= '</div>';
+            $html[] = '</div>';
         }
 
-        $html .= '<div id="ecr_sub_toolbar" style="margin-bottom: 1em; margin-top: 0.5em;">';
+        $html[] = '<div id="ecr_sub_toolbar" style="margin-bottom: 1em; margin-top: 0.5em;">';
 
         foreach($subTasks as $sTask)
         {
             $selected =($sTask['task'] == $task) ? '_selected' : '';
-            $html .= '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"';
-            $html .= ' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"';
-            $html .= ' onclick="submitbutton(\''.$sTask['task'].'\');">';
-            $html .= $sTask['title'].'</span>';
+            $html[] = '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"';
+            $html[] = ' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"';
+            $html[] = ' onclick="submitbutton(\''.$sTask['task'].'\');">';
+            $html[] = $sTask['title'].'</span>';
 
             if(ECR_HELP > 1)
             {
@@ -280,11 +279,11 @@ $stdJS .= "$('file_name').value='';";
             }
         }//foreach
 
-        $html .= $htmlDescriptionDivs;
+        $html[] = $htmlDescriptionDivs;
 
         if(ECR_HELP > 1)
         {
-            $html .= "<script type='text/javascript'>"
+            $html[] = "<script type='text/javascript'>"
             ."window.addEvent('domready', function() {\n"
             ."function showTaskDesc(name) {\n"
             ."this.setStyle('display', 'block');\n"
@@ -298,9 +297,9 @@ $stdJS .= "$('file_name').value='';";
             . "</script>";
         }
 
-        $html .= '</div>';
+        $html[] = '</div>';
 
-        return $html;
+        return implode(NL, $html);
     }//function
 
     /**
@@ -524,7 +523,7 @@ countries.</em></small>
         echo '<input type="hidden" name="file_path" id="file_path" '
         . 'value="'.JRequest::getVar('file_path').'" />'.NL;
         echo '</form>'.NL;
-        echo($closeDiv) ? '</div>'.NL : '';
+	    echo($closeDiv) ? '</div>'.NL : '';
         echo '<div style="clear: both"></div>'.NL;
     }//function
 
@@ -987,12 +986,10 @@ EOF;
         {
             $class = 'img3 icon-16-add';
         }
-
         else if($ecr_project == 'ecr_register_project')
         {
-            $class = 'img3 icon-16-install';
+            $class = 'img3 icon-16-import';
         }
-
         else if($ecr_project)
         {
             try
@@ -1016,7 +1013,7 @@ EOF;
         echo NL.'<option'.$class.' value="ecr_new_project"'.$selected.'>'.jgettext('New Project').'</option>';
 
         $selected =($ecr_project == 'ecr_register_project') ? ' selected="selected"' : '';
-        $class = ' class="img3 icon-16-install"';
+        $class = ' class="img3 icon-16-import"';
         echo NL.'<option'.$class.' value="ecr_register_project"'.$selected.'>'.jgettext('Register Project').'</option>';
 
         foreach($projectTypes as $comType => $display)

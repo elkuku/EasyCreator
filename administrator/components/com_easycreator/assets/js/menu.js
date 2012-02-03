@@ -7,11 +7,11 @@
  */
 
 /* Standard Joomla! menu images - css class */
-var stdMenuImgs = new Array('archive', 'article', 'category', 'checkin',
+    var stdMenuImgs = new Array('archive', 'article', 'category', 'checkin',
         'component', 'config', 'content', 'cpanel', 'default', 'frontpage',
         'help', 'info', 'install', 'language', 'logout', 'massmail', 'media',
-        'menu', 'menumgr', 'messages', 'module', 'plugin', 'section', 'static',
-        'stats', 'themes', 'trash', 'user ');
+        'menu', 'menumgr', 'messages', 'module', 'plugin', 'stats', 'themes',
+        'trash', 'user ');
 
 function newSubmenu(x, x, x, x, x, parent)
 {
@@ -25,9 +25,9 @@ function newSubmenu(x, x, x, x, x, parent)
 
 function addSubmenu(text, link, image, ordering, menuid, parent)
 {
-    var ni = $('divSubmenu');
-    var numi = $('totalSubmenu');
-    var num = ($('totalSubmenu').value - 1) + 2;
+    var ni = document.id('divSubmenu');
+    var numi = document.id('totalSubmenu');
+    var num = (document.id('totalSubmenu').value - 1) + 2;
 
     numi.value = num;
 
@@ -71,7 +71,7 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\""
         + " onclick=\"this.getParent().dispose();\">" + jgettext('Delete') + "</div>";
 
-    newdiv.innerHTML = html;
+    newdiv.set('html', html);
 
     ni.appendChild(newdiv);
 

@@ -351,9 +351,7 @@ class EcrBuilder extends JObject
         foreach($scopes as $scope)
         {
             if( ! in_array($scope, $tplFolders))
-            {
                 continue;
-            }
 
             JFolder::create($this->_buildDir.DS.$scope);
 

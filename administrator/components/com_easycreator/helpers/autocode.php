@@ -75,9 +75,7 @@ class EcrAutoCode
      * Subsequent classes will define text strings to be inserted.
      *
      * @param string     $type Code type
-     * @param \EcrTable $table
-     *
-     * @internal param \EcrTableField $field The field
+     * @param EcrTable $table
      *
      * @return void
      */
@@ -315,7 +313,7 @@ class EcrAutoCode
      * @param string $name Element name
      * @param string $path Element path
      *
-     * @return return_type
+     * @return EcrAutoCode
      */
     protected function getElement($name, $path)
     {

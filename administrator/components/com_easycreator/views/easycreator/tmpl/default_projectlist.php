@@ -18,7 +18,7 @@ $projectTypes = EcrProjectHelper::getProjectTypes();
 $toolImgBase = '&lt;span class=\'img icon-16-%s\' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;';
 
 $toolImg = new stdClass;
-$toolImg->package = sprintf($toolImgBase, 'module');
+$toolImg->package = sprintf($toolImgBase, 'installfolder');
 $toolImg->config = sprintf($toolImgBase, 'config');
 $toolImg->language = sprintf($toolImgBase, 'language');
 ?>
@@ -63,7 +63,7 @@ foreach($projectTypes as $comType => $titel) :
 				title="<?php echo jgettext('Languages').$toolImg->language.'::'.$project->name; ?>"
 				onclick="translateProject('<?php echo $project->fileName; ?>');">&nbsp;
 			</a>
-			<a class="ecr_button img icon-16-module hasEasyTip"
+			<a class="ecr_button img icon-16-installfolder hasEasyTip"
 				style="margin-right: 5px; padding-left: 20px;; height: 14px;"
 				title="<?php echo jgettext('Package').$toolImg->package.'::'.$project->name; ?>"
 				onclick="packProject('<?php echo $project->fileName; ?>');">&nbsp;

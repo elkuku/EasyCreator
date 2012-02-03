@@ -17,9 +17,9 @@ $link = new stdClass;
 //$link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.html?tmpl=component'
 //.'&myVersion='.ECR_VERSION;
 $link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.html?myVersion='.ECR_VERSION;
-$link->forum = 'http://joomlacode.org/gf/project/elkuku/forum/?action=ForumBrowse&forum_id=15109';
-$link->bugTracker = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284';
-$link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10283';
+$link->forum = 'http://joomlacode.org/gf/project/elkuku/forum/?action=ForumBrowse&amp;forum_id=15109';
+$link->bugTracker = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&amp;tracker_id=10284';
+$link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&amp;tracker_id=10283';
 $link->latestVersion = 'http://inkubator.der-beta-server.de/releases/easycreator.feed';
 $link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed';
 $link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';

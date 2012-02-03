@@ -69,10 +69,10 @@ foreach($projectScopes as $comType => $projectScope)
         foreach($unregisteredProjects as $project)
         {
             ?>
-    		<div class="ecr_button img icon-16-install hasEasyTip"
+    		<div class="ecr_button img icon-16-import hasEasyTip"
     			style="padding-left: 20px;; height: 14px; margin-top: 0.3em; margin-bottom: 0.3em;"
     			title="<?php
-                echo jgettext('Register').'&lt;span class=\'img icon-16-install\''
+                echo jgettext('Register').'&lt;span class=\'img icon-16-import\''
                 .' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;::'
                 .jgettext(ucfirst($comType)).' - '.$project; ?>"
     			onclick="registerProject(<?php echo "'$comType', '$project', '$scope'"; ?>);">
