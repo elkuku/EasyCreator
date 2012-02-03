@@ -70,7 +70,7 @@ if($this->project->type == 'component'):
     {
         $js[] = "sortSubMenu = new Sortables('#divSubmenu', {
         clone: true
-    	});";
+        });";
     }
 
     $js[] = '//--Package modules added by PHP';
@@ -103,13 +103,10 @@ ecrScript('addelement', 'menu');
 <input type="hidden" value="0" id="totalPackageElementsModules" />
 <input type="hidden" value="0" id="totalPackageElementsPlugins" />
 
-
-
 <!-- Info & credits -->
 <?php
 echo $this->loadTemplate('info');
 echo $this->loadTemplate('credits');
-
 echo $this->loadTemplate('packing');
 
 if($this->project->type == 'component'):
@@ -121,10 +118,7 @@ if($this->project->type == 'component'):
 endif;
 
 echo $this->loadTemplate('language');
-
 echo $this->loadTemplate('packageelements');
-
-
 echo $this->loadTemplate('update');
 ?>
 

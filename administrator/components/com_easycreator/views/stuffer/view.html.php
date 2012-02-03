@@ -131,7 +131,7 @@ class EasyCreatorViewStuffer extends JView
         )
         , array('title' => jgettext('Installing')
         , 'description' => jgettext('Create and modify install and uninstall files for your project.')
-        , 'icon' => 'install'
+        , 'icon' => 'installfolder'
         , 'task' => 'install'
         )
         , array('title' => jgettext('Parameters')
