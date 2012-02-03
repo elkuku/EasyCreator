@@ -275,7 +275,7 @@ class EcrProjectModule extends EcrProject
                     case '2.5':
                         return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus');
+                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
 
                     default:
                         EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
