@@ -63,7 +63,7 @@ function ecrStylesheet()
     foreach($args as $name)
     {
         $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.css');
-    }
+    }//foreach
 }//function
 
 /**
@@ -83,7 +83,7 @@ function ecrScript()
     foreach($args as $name)
     {
         $document->addScript(JURI::root(true).'/'.$path.'/assets/js/'.$name.'.js');
-    }
+    }//foreach
 }//function
 
 spl_autoload_register('easy_creator_loader', true, true);
@@ -94,7 +94,8 @@ spl_autoload_register('easy_creator_loader', true, true);
  * @param $className
  *
  * @return mixed
- */function easy_creator_loader($className)
+ */
+function easy_creator_loader($className)
 {
     if(0 !== strpos($className, 'Ecr'))
         return;
@@ -112,7 +113,7 @@ spl_autoload_register('easy_creator_loader', true, true);
         return;
     }
 
-    $parts = preg_split('/(?<=[a-z])(?=[A-Z])/x',substr($className, 3));
+    $parts = preg_split('/(?<=[a-z])(?=[A-Z])/x', substr($className, 3));
 
     $path = $base.'/'.strtolower(implode('/', $parts)).'.php';
 
@@ -122,4 +123,4 @@ spl_autoload_register('easy_creator_loader', true, true);
 
         return;
     }
-}
+}//function

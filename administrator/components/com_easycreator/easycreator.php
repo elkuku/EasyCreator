@@ -20,7 +20,7 @@ VALUES
 , 'EasyCreator', 'com_easycreator', 0
 , 'components/com_easycreator/assets/images/ico/icon-16-easycreator.png', 0, '', 1);
 
-** J! >= 1.6
+** J! >= 1.6 +
 Use the new 'Discover' feature from the Joomla! installer - works great =;)
 */
 
@@ -179,7 +179,8 @@ else
     $MTVersion = JFactory::getApplication()->get('MooToolsVersion');
 
     if( ! $MTVersion)
-    JFactory::getApplication()->enqueueMessage(jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'), 'error');
+    JFactory::getApplication()->enqueueMessage(
+        jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'), 'error');
 
     //-- J! 1.6 stuff not present in J! 1.5
     ecrLoadHelper('databasequery');

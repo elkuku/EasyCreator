@@ -19,7 +19,6 @@ jimport('joomla.form.formfield');
  * @package 	EasyCreator
  * @subpackage	Parameter
  */
-
 class JFormFieldText extends EcrFormField
 {
     /**

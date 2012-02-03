@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -7,12 +7,8 @@
  * @license    GNU/GPL
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
- * Enter description here ...
- *
+ * EcrEasycreator helper class.
  */
 class EcrEasycreator
 {
