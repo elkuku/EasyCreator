@@ -81,7 +81,7 @@ class Com_EasyCreatorInstallerScript
      */
     public function uninstall($parent)
     {
-        echo '<p>EasyCreator has been removed from your system -- you\'re on your own now... :( :( :(';
+        echo '<p>EasyCreator has been removed from your system -- you\'re on your own now... :( :( :(</p>';
         // $parent is the class calling this method
         //echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__UNINSTALL_TEXT').'</p>';
     }//function
