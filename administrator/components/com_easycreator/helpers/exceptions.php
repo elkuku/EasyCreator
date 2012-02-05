@@ -12,3 +12,5 @@
 class EcrLogException extends Exception {};
 
 class EcrBuilderException extends Exception {};
+
+class EcrZiperException extends Exception {};
