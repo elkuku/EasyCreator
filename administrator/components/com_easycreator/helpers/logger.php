@@ -115,6 +115,13 @@ class EcrLogger
 
         if($this->hot)
         $this->writeLog();
+
+        if('cli' == PHP_SAPI)
+        {
+            $s = str_replace('<br />', NL, $ret);
+            $s = strip_tags($s);
+            echo $s.NL;
+        }
     }//function
 
     /**
