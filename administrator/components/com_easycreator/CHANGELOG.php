@@ -50,7 +50,17 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.15.1 ----------
+
+2012-02-03
+Fix a fatal startup error in PHP 5.2 - please update to PHP 5.3 =;)
+Add a tiny changelog generator
+Update changelog
+
 ---------- 0.0.15 ----------
+
+2012-02-03
+Formatting
 
 2012-02-02
 Icon name changes and format

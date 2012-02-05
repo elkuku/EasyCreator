@@ -101,7 +101,7 @@ class EasyCreatorViewZiper extends JView
 
         $ziper = new EcrZiper;
 
-        $result->result = $ziper->create($this->project);
+        $result->result = $ziper->create($this->project, $this->buildopts);
         $result->errors = $ziper->getErrors();
 
         $result->downloadLinks = $ziper->getDownloadLinks();
