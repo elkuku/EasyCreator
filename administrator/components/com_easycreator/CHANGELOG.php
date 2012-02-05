@@ -50,11 +50,22 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-02-04
+Formatting
+Bump version to 0.0.15.1
++ Add a CLI builder script
+Add cli output to the logger
+Add EcrZiperException
+Refactor the Ziper
+
+2012-02-03
+Add a missing <p>
+
 ---------- 0.0.15.1 ----------
 
 2012-02-03
-Fix a fatal startup error in PHP 5.2 - please update to PHP 5.3 =;)
-Add a tiny changelog generator
+# [#1] Fix a fatal startup error in PHP 5.2 - please update to PHP 5.3 =;) - Thanks adonismedia
++ Add a tiny changelog generator
 Update changelog
 
 ---------- 0.0.15 ----------
@@ -65,21 +76,21 @@ Formatting
 2012-02-02
 Icon name changes and format
 Add mod_version to known J 2.5 core projects
-Fix a nasty bug that prevents the stuffer form from saving added menu items and update servers correctly, formatting
+# Fix a nasty bug that prevents the stuffer form from saving added menu items and update servers correctly, formatting
 
 2012-01-30
 Code style
 
 2012-01-29
-Fix admin list views in J! 2.5
+# Fix admin list views in J! 2.5
 Code style - Fix single line comments
 Formatting
-Fix another 2.5 option
+# Fix another 2.5 option
 Refactor EcrBuilder
 
 2012-01-25
 Changes JVersion for extension templates from 1.7 to 2.5 ;)
-Fix Missing function parameters in extending classes
+# Fix Missing function parameters in extending classes
 
 ---------- 0.0.14.4 ----------
 
