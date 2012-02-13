@@ -132,16 +132,16 @@ class EasyCreatorViewZiper extends JView
     private function displayBar()
     {
         $subTasks = array(
-        array('title' => jgettext('Package')
-        , 'description' => jgettext('Automatically create a package of your extension.')
-        , 'icon' => 'package'
-        , 'task' => 'ziper'
-        )
-        , array('title' => jgettext('Archive')
-        , 'description' => jgettext('View archived versions of your extension.')
-        , 'icon' => 'archive'
-        , 'task' => 'archive'
-        )
+            array('title' => jgettext('Package')
+            , 'description' => jgettext('Automatically create a package of your extension.')
+            , 'icon' => 'package'
+            , 'task' => array('ziper', 'ziperzip')
+            )
+            , array('title' => jgettext('Archive')
+            , 'description' => jgettext('View archived versions of your extension.')
+            , 'icon' => 'archive'
+            , 'task' => 'archive'
+            )
         );
 
         return EcrHtml::getSubBar($subTasks);

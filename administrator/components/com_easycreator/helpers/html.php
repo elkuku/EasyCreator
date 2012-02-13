@@ -260,21 +260,23 @@ $stdJS .= "$('file_name').value='';";
 
         foreach($subTasks as $sTask)
         {
-            $selected =($sTask['task'] == $task) ? '_selected' : '';
-            $html[] = '<span id="btn_'.$sTask['task'].'" style="margin-left: 0.3em;"';
+            $tasks = (array) $sTask['task'];
+
+            $selected =(in_array($task, $tasks)) ? '_selected' : '';
+            $html[] = '<span id="btn_'.$tasks[0].'" style="margin-left: 0.3em;"';
             $html[] = ' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"';
-            $html[] = ' onclick="submitbutton(\''.$sTask['task'].'\');">';
+            $html[] = ' onclick="submitbutton(\''.$tasks[0].'\');">';
             $html[] = $sTask['title'].'</span>';
 
             if(ECR_HELP > 1)
             {
-                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'.$sTask['task'].'">'
+                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'.$tasks[0].'">'
                 .$sTask['description'].'</div>';
-                $jsVars .= "var desc_".$sTask['task']." = $('desc_".$sTask['task']."');\n";
+                $jsVars .= "var desc_".$tasks[0]." = $('desc_".$tasks[0]."');\n";
 
-                $jsEvents .= "$('btn_".$sTask['task']."').addEvents({\n"
-                . "'mouseenter': showTaskDesc.bind(desc_".$sTask['task']."),\n"
-                . "'mouseleave': hideTaskDesc.bind(desc_".$sTask['task'].")\n"
+                $jsEvents .= "$('btn_".$tasks[0]."').addEvents({\n"
+                . "'mouseenter': showTaskDesc.bind(desc_".$tasks[0]."),\n"
+                . "'mouseleave': hideTaskDesc.bind(desc_".$tasks[0].")\n"
                 . "});\n";
             }
         }//foreach
@@ -1231,7 +1233,7 @@ EOF;
 
             if(isset($trace[$i]['file']))
             {
-                $link = str_replace(JPATH_ROOT.DS, '', $trace[$i]['file']);
+                $link = str_replace(JPATH_ROOT, 'JROOT', $trace[$i]['file']);
 
                 if($linkFormat)
                 {
