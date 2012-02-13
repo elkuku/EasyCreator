@@ -48,6 +48,8 @@ require THE_BUILD_PATH.'/libraries/import.php';
 jimport('joomla.environment.request');
 jimport('joomla.application.component.helper');
 
+jimport('joomla.environment.uri');
+
 //-- @todo deprecated JError..
 JError::$legacy = false;
 
@@ -112,6 +114,17 @@ class EcrBuilder extends JApplicationCli
 function jgettext($string)
 {
     return $string;
+}
+
+if(1)// ! class_exists('JUri'))
+{
+    class JUri
+    {
+        public static function root()
+        {
+            return '';
+        }
+    }
 }
 
 try
