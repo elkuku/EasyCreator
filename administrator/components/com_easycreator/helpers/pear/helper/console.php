@@ -35,9 +35,7 @@ class EcrPearHelperConsole extends JObject
     public function checkEnv()
     {
         if($this->validEnv)
-        {
             return true;
-        }
 
         //-- Check if PEAR is accessible
         include_once 'System.php';
@@ -92,9 +90,7 @@ class EcrPearHelperConsole extends JObject
             foreach($as as $a)
             {
                 if( ! $a)
-                {
                     continue;
-                }
 
                 if( ! $name)
                 {
@@ -190,16 +186,4 @@ class EcrPearHelperConsole extends JObject
 
         return $lastLine;
     }//function
-}//class
-
-/**
- * JResponse class.
- */
-class JsonResponse
-{
-    public $status = 0;
-
-    public $text = '';
-
-    public $console = '';
 }//class

@@ -29,7 +29,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function phpunit()
     {
-        $response = new JsonResponse;
+        $response = new stdClass;
 
         $folder = JRequest::getString('folder');
         $test = JRequest::getString('test');
@@ -85,7 +85,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      */
     public function selenium()
     {
-        $response = new JsonResponse;
+        $response = new stdClass;
 
         $folder = JRequest::getString('folder');
         $test = JRequest::getString('test');
@@ -151,7 +151,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $path = JPATH_ROOT.DS.$folder.DS.$file;
 
-        $response = new JsonResponse;
+        $response = new stdClass;
         $arguments = array();
 
         if( ! JFile::exists($path))
@@ -302,7 +302,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $path = JRequest::getVar('path');
         $file = JRequest::getVar('file');
 
-        $response = new JsonResponse;
+        $response = new stdClass;
 
         $args = array();
 
@@ -329,7 +329,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
     {
         $dir = JRequest::getString('dir');
 
-        $response = new JsonResponse;
+        $response = new stdClass;
 
         if( ! $dir || 'undefined' == $dir)
         {
