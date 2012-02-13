@@ -440,7 +440,7 @@ $stdJS .= "$('file_name').value='';";
 and <a href="http://opensuse.org" title="openSUSE" class="external">
 <span class="img icon-16-opensuse">openSUSE</span></a> <br />
 Made and partially Copyright &copy; 2008 - 2012 by <a
-href="http://joomlacode.org/gf/project/elkuku"
+href="https://github.com/elkuku"
     class="external">El KuKu</a><br />
 <small> <em style="color: silver;"><span class="img icon-16-joomla"></span>
 EasyCreator is not affiliated with or endorsed by the <a
