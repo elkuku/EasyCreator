@@ -8,7 +8,7 @@
   <authorUrl>https://github.com/elkuku</authorUrl>
   <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>0.0.15.1</version>
+  <version>0.0.15.2</version>
   <description>EasyCreator helps creating Extensions for Joomla</description>
   <installfile>install/install.easycreator.php</installfile>
   <uninstallfile />
