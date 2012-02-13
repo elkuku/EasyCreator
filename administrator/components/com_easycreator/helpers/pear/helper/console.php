@@ -161,7 +161,7 @@ class EcrPearHelperConsole extends JObject
         $args = implode(' ', $arguments);
         $cmd = $command.' '.$args.' 2>&1';
 
-        (ECR_DEBUG) ? BR.ecrDebugger::dEcho($cmd) : '';
+        (ECR_DEBUG) ? BR.EcrDebugger::dEcho($cmd) : '';
 
         $results = shell_exec($cmd);
 
@@ -183,7 +183,7 @@ class EcrPearHelperConsole extends JObject
         $args = implode(' ', $arguments);
         $cmd = $this->cliBase.$command.' '.$args;
 
-        (ECR_DEBUG) ? ecrDebugger::dEcho($cmd) : '';
+        (ECR_DEBUG) ? EcrDebugger::dEcho($cmd) : '';
         echo '<pre class="console">';
         $lastLine = system($cmd);
         echo '</pre>';

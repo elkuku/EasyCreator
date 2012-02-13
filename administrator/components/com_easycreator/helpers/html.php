@@ -460,8 +460,8 @@ countries.</em></small>
 
         if(defined('ECR_DEBUG') && ECR_DEBUG )
         {
-            ecrDebugger::printSysVars('get');
-            ecrDebugger::printSysVars('post');
+            EcrDebugger::printSysVars('get');
+            EcrDebugger::printSysVars('post');
         }
 
         echo NL.'<!-- EasyCreator END -->'.NL;

@@ -431,4 +431,4 @@ foreach($dbTables as $table)
 <input type="hidden" name="old_task" value="tables" />
 <?php
 
-ECR_DEBUG ? ecrDebugger::varDump($this->project) : null;
+ECR_DEBUG ? EcrDebugger::varDump($this->project) : null;

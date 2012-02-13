@@ -125,4 +125,4 @@ echo $this->loadTemplate('update');
 <div style="clear: both; height: 1em;"></div>
 
 <?php
-ECR_DEBUG ? ecrDebugger::varDump($this->project, '$this->project') : null;
+ECR_DEBUG ? EcrDebugger::varDump($this->project, '$this->project') : null;

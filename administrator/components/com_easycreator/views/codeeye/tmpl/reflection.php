@@ -116,7 +116,7 @@ function aj_drawProject(EcrProject $project)
             $reflection->aj_reflectProject($project);
 
 //			$reflections = $reflection->getReflections();
-//			if(ECR_DEBUG) ecrDebugger::dPrint($reflections, 'Reflection');
+//			if(ECR_DEBUG) EcrDebugger::dPrint($reflections, 'Reflection');
         break;
 
         default:
@@ -164,7 +164,7 @@ function drawProject(EcrProject $project)
             $reflection->reflectProject($project);
 
             $reflections = $reflection->getReflections();
-            ECR_DEBUG ? ecrDebugger::dPrint($reflections, 'Reflection') : null;
+            ECR_DEBUG ? EcrDebugger::dPrint($reflections, 'Reflection') : null;
 //			{
 //			echo '<pre>';
 //				print_r($reflections);
