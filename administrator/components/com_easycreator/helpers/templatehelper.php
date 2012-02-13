@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -136,7 +136,7 @@ class EcrTemplateHelper
         $result = $doc->saveXML();
 
         if( ! JFile::write($tempDir.DS.'manifest.xml', $result))
-        throw new Exception(sprintf(jgettext('Unable to write file %s'), $tempDir.DS.$fileName));
+        throw new Exception(sprintf(jgettext('Unable to write file %s'), $tempDir.DS.'manifest.xml'));
 
         $files[] = $tempDir.DS.'manifest.xml';
 

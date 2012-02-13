@@ -20,11 +20,11 @@ class PartViewsSimple
     /**
      * Info about the thing.
      *
-     * @return EasyTemplateInfo
+     * @return EcrTemplateinfo
      */
     public function info()
     {
-        $info = new EasyTemplateInfo;
+        $info = new EcrTemplateinfo;
 
         $info->group = ucfirst($this->group);
         $info->title = 'Simple View';

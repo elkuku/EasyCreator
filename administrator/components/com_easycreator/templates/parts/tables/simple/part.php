@@ -43,11 +43,11 @@ class PartTablesSimple extends EcrPart
     /**
      * Info about the thing.
      *
-     * @return EasyTemplateInfo
+     * @return EcrTemplateinfo
      */
     public function info()
     {
-        $info = new EasyTemplateInfo;
+        $info = new EcrTemplateinfo;
 
         $info->group = $this->group;
         $info->title = 'Data';
