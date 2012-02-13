@@ -112,12 +112,16 @@
     background-image: url(../images/ico/apply.png);
 }
 
-.icon-16-ecr_params {
-    background-image: url(../images/ico/icon-16-article.png);
-}
-
 .icon-16-bug {
     background-image: url(../images/ico/icon-16-bug.png);
+}
+
+.icon-16-ecr_params {
+    background-image: url(../images/ico/icon-16-article.png);
+    }
+
+.icon-16-git {
+    background-image: url(../images/ico/icon-16-git.png);
 }
 
 .img.outdated {

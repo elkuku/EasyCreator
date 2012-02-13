@@ -20,23 +20,23 @@ $link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.
 $link->forum = 'http://joomlacode.org/gf/project/elkuku/forum/?action=ForumBrowse&amp;forum_id=15109';
 $link->bugTracker = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&amp;tracker_id=10284';
 $link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&amp;tracker_id=10283';
-$link->latestVersion = 'http://inkubator.der-beta-server.de/releases/easycreator.feed';
-$link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed';
-$link->svn = 'http://anonymous@joomlacode.org/svn/elkuku/easy_creator/trunk/';
-$link->translations = 'http://g11n.der-beta-server.de/translations/elkuku/easycreator';
+$link->latestVersion = 'https://github.com/elkuku/EasyCreator/commits/master.atom';
+//$link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed';
+$link->repo = 'https://github.com/elkuku/EasyCreator/';
+$link->translations = 'https://opentranslators.transifex.net/projects/p/easycreator/';
 
 $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
 ?>
 
 <ul style="list-style: none; margin: 0; padding: 0;">
-    <li class="img icon-16-sig">
-        <a href="<?php echo ECR_DOCU_LINK; ?>" class="external">
-            <?php echo jgettext('Documentation'); ?>
-        </a>
-    </li>
     <li class="img icon-16-forum">
         <a href="index.php?option=com_easycreator&amp;controller=help">
             <?php echo jgettext('Credits'); ?>
+        </a>
+    </li>
+    <li class="img icon-16-sig">
+    <a href="<?php echo ECR_DOCU_LINK; ?>" class="external">
+            <?php echo jgettext('Documentation'); ?>
         </a>
     </li>
     <li class="img icon-16-forum">
@@ -63,19 +63,14 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
             <?php echo jgettext('Version check'); ?>
         </a>
     </li>
+    <li class="img icon-16-git">
+    <a href="<?php echo $link->repo; ?>" class="external">
+        <?php echo jgettext('Git repoisitory'); ?>
+    </a>
+    </li>
     <li class="img icon-16-rss">
         <a href="<?php echo $link->latestVersion; ?>" class="external">
-            <?php echo jgettext('Latest version'); ?>
-        </a>
-    </li>
-    <li class="img icon-16-rss">
-        <a href="<?php echo $link->incubatorFeed; ?>" class="external">
-            <?php echo jgettext('Incubator'); ?>
-        </a>
-    </li>
-    <li class="img icon-16-article">
-        <a href="<?php echo $link->svn; ?>" class="external">
-            <?php echo jgettext('SVN'); ?>
+            <?php echo jgettext('Recent commits'); ?>
         </a>
     </li>
     <li class="img icon-16-locale">
@@ -98,10 +93,6 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 </ul>
 
 <div style="clear: both;"></div>
-
-<div class="ecrFooter">
-EasyCreator <span style="color: blue;"><?php echo ECR_VERSION; ?></span>
-</div>
 
 <script>
 var ecrInfoBox = new Fx.Slide($('ecrInfoBox'));
