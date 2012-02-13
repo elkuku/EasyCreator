@@ -21,7 +21,9 @@ endif;
 $standard = JRequest::getCmd('sniff_standard');
 
 $standards = $sniffer->getStandards();
-$easyStandards = JFolder::folders(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer');
+
+//-- @todo provide own standards ¿ JFolder::folders(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer');
+$easyStandards = array();
 
 $formats = array('full', 'xml', 'checkstyle', 'csv', 'emacs', 'source', 'summary');
 
