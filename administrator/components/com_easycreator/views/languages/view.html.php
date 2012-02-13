@@ -813,11 +813,13 @@ class EasyCreatorViewLanguages extends JView
             , 'icon' => 'rename'
             , 'task' => 'convert'
             )
+            /*
             , array('title' => 'JALHOO'
             , 'description' => jgettext('JALHOO is an experimental language handler.')
             , 'icon' => 'ecr_language'
             , 'task' => 'jalhoo'
             )
+            */
         );
 
         //@todo - unify..
