@@ -1,18 +1,20 @@
 <?php
 /**
  * @package    EasyCreator
- * @subpackage	Parts
- * @author hidabe -- pls add your credits =;)
- * @author		Nikolai Plath (elkuku)
- * @author		Created on 20-Apr-2009
+ * @subpackage Parts
+ * @author     hidabe -- pls add your credits =;)
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 20-Apr-2009
  */
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
 /**
- * Enter description here ...@todo class doccomment.
+ * _ECR_ELEMENT_NAME_ model.
  *
+ * @package    EasyCreator
+ * @subpackage Templates.Parts
  */
 class PartTablesAdmin_create
 {

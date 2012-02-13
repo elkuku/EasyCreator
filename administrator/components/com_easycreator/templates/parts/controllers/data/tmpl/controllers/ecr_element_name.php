@@ -4,7 +4,7 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_COM_NAME_ Controller.
+ * _ECR_ELEMENT_NAME_ Controller.
  *
  * @package    _ECR_COM_NAME_
  * @subpackage Controllers

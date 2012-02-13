@@ -3,7 +3,6 @@
 
 /**
  * Class for table _ECR_TABLE_NAME_.
- *
  */
 class Table_ECR_ELEMENT_NAME_ extends JTable
 {

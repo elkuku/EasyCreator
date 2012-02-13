@@ -4,8 +4,10 @@
 jimport('joomla.application.component.controller');
 
 /**
- * Enter description here ...@todo class doccomment.
+ * _ECR_ELEMENT_NAME_ controller
  *
+ * @package    _ECR_COM_NAME_
+ * @subpackage Controllers
  */
 class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends JController
 {

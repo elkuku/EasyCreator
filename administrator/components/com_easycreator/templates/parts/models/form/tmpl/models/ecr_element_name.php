@@ -4,11 +4,16 @@
 jimport('joomla.application.component.model');
 
 /**
- * Enter description here ...@todo class doccomment.
+ * _ECR_ELEMENT_NAME_ model.
  *
+ * @package    _ECR_COM_NAME_
+ * @subpackage Models
  */
 class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
 {
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         $foo = 'Do something here..';
@@ -16,21 +21,28 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
         parent::__construct();
     }//function
 
+    /**
+     * Store a record
+     *
+     * @param array $data The data to be stored.
+     *
+     * @return bool
+     */
     function store($data)
     {
-        $row =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $table =& $this->getTable('_ECR_ELEMENT_NAME_');
 
-        if( ! $row->bind($data))
+        if( ! $table->bind($data))
         {
             return false;
         }
 
-        if( ! $row->check())
+        if( ! $table->check())
         {
             return false;
         }
 
-        if( ! $row->store())
+        if( ! $table->store())
         {
             return false;
         }
@@ -38,18 +50,23 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
         return true;
     }//function
 
+    /**
+     * Delete a record.
+     *
+     * @return bool
+     */
     function delete()
     {
         $cids = JRequest::getVar('cid', array(0), 'post', 'array');
-        $row =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $table =& $this->getTable('_ECR_ELEMENT_NAME_');
 
         if(count($cids))
         {
             foreach($cids as $cid)
             {
-                if( ! $row->delete($cid))
+                if( ! $table->delete($cid))
                 {
-                    $this->setError($row->getError());
+                    $this->setError($table->getError());
                     return false;
                 }
             }//foreach
@@ -58,11 +75,17 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
         return true;
     }//function
 
+    /**
+     * Retrieve the dta.
+     *
+     * @return JTable
+     */
     function getData()
     {
         $id = JRequest::getVar('cid');
-        $row =& $this->getTable('_ECR_ELEMENT_NAME_');
-        $row->load($id[0]);
-        return $row;
+        $table = $this->getTable('_ECR_ELEMENT_NAME_');
+        $table->load($id[0]);
+
+        return $table;
     }//function
 }//class

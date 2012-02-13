@@ -10,8 +10,10 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * Enter description here ...@todo class doccomment.
+ * Simple view part.
  *
+ * @package    EasyCreator
+ * @subpackage Templates.Parts
  */
 class PartViewsSimple
 {

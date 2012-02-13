@@ -10,8 +10,10 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * Enter description here ...@todo class doc comment.
+ * _Simple table part.
  *
+ * @package    EasyCreator
+ * @subpackage Templates.Parts
  */
 class PartTablesSimple extends EcrPart
 {

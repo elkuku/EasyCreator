@@ -4,8 +4,10 @@
 jimport('joomla.application.component.view');
 
 /**
- * Enter description here ...@todo class doccomment.
+ * _ECR_ELEMENT_NAME_ view.
  *
+ * @package    _ECR_COM_NAME_
+ * @subpackage Views
  */
 class _ECR_COM_NAME_sView_ECR_ELEMENT_NAME_s extends JView
 {

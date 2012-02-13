@@ -4,8 +4,10 @@
 jimport('joomla.application.component.model');
 
 /**
- * Enter description here ...@todo class doccomment.
+ * _ECR_ELEMENT_NAME_ model.
  *
+ * @package    _ECR_COM_NAME_
+ * @subpackage Models
  */
 class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_ELEMENT_NAME_s extends JModel
 {
