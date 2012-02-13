@@ -203,11 +203,26 @@ class EcrTableHelper
 
         $dbPrefix = $db->getPrefix();
 
-        $fields =('1.5' == ECR_JVERSION)
-            ? $db->getTableFields($dbPrefix.$tableName, false)
-            : $db->getTableColumns($dbPrefix.$tableName, false);
+        switch(ECR_JVERSION)
+        {
+            case '1.5' :
+                $fields = $db->getTableFields($dbPrefix.$tableName, false);
 
-        return $fields[$dbPrefix.$tableName];
+                return $fields[$dbPrefix.$tableName];
+                break;
+
+            case '1.6' :
+            case '1.7' :
+                $fields = $db->getTableColumns($dbPrefix.$tableName, false);
+
+                return $fields[$dbPrefix.$tableName];
+                break;
+
+            default :
+                return $db->getTableColumns($dbPrefix.$tableName, false);
+
+                break;
+        }
     }//function
 
     /**
