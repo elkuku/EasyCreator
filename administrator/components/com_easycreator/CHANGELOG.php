@@ -50,6 +50,28 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.15.2 ----------
+
+2012-02-13
+Bump version 0.0.15.2
+Missing file stubs
+Support for multiple sub bar tasks (ecr)
+Remove JsonResponse class
+Fix data designer table columns in J 2.5.1
+Remove g11n task (for now)
+Remove custom coding standards (for now)
+Fix debugger class name
+Revising docblocks in all template parts
+Fix missing fields in simple model template
+Change project link in footer from joomlacode to github
+
+2012-02-12
+Correct some bad links, switch vcs link to github
+Refactor EasyTemplateInfo => EcrTemplateinfo
+Fix header path when inserting new parts
+Fix a typo in function name
+Add missing dependency to JUri to the cli builder script ( :( )
+
 2012-02-04
 Formatting
 Bump version to 0.0.15.1
