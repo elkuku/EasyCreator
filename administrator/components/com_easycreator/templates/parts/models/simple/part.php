@@ -39,14 +39,12 @@ class PartModelsSimple
      */
     public function getOptions()
     {
-        /* Array with required fields */
-        $requireds = array();
-
-        $requireds[] = EcrHtml::drawSelectScope('scope');
-        $requireds[] = EcrHtml::drawSelectName('element_name');
+        EcrHtml::drawSelectScope();
+        EcrHtml::drawSelectName();
 
         EcrHtml::drawLoggingOptions();
 
+        $requireds = array('element_name', 'element_scope');
         EcrHtml::drawSubmitParts($requireds);
     }//function
 
