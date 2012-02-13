@@ -1099,7 +1099,7 @@ class EcrZiper extends JObject
 
         if(0 === strpos($this->project->getZipPath(), ECRPATH_BUILDS))
         {
-            $hrefBase = JURI::Root().'administrator/components/com_easycreator/builds/'
+            $hrefBase = JURI::root().'administrator/components/com_easycreator/builds/'
             .$this->project->comName.'/'.$this->project->version;
         }
         else
