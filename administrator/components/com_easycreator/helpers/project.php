@@ -1108,8 +1108,10 @@ abstract class EcrProject extends JObject
                 $this->addSubstitute($key, $value);
             }//foreach
 
+            $path = ECRPATH_EXTENSIONTEMPLATES.'/std/header/'.$project->headerType.'/header.txt';
+
             //-- Read the header file
-            $header = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'header.txt');
+            $header =(JFile::exists($path)) ? JFile::read($path) : '';
 
             //-- Replace vars in header
             $this->substitute($header);
