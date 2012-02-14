@@ -12,6 +12,9 @@
  *
  * @status First draft =;)
  *
+ * @property-read boolean $hasUpdates Indicate if the dtabase has any updates.
+ * @property-read string  $tmpPath    The temorary path.
+ *
  */
 class EcrUpdater
 {

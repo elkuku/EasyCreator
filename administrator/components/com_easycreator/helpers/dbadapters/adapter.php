@@ -13,6 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Database adapter class.
  *
+ * @property-get $query
  */
 class dbAdapter
 {
@@ -32,7 +33,7 @@ class dbAdapter
         if('queryType' == $what)
         {
             if(isset($this->query->type))
-            return $this->query->type;
+                return $this->query->type;
 
             return '';
         }
