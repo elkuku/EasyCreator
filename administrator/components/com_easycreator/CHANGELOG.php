@@ -52,6 +52,19 @@ ______________________________________________
 
 ---------- 0.0.15.2 ----------
 
+2012-02-20
+Bump version 0.0.15.3
+Fix a fatal error when the g11n class is not available on project with non ini language files
+Fix completely fail in J! 1.5 due to clashing spl_autoloader and J's old __autioload() method - Thanks deck1187hw and suhreed
+
+2012-02-14
+Add magic properties to docblocks
+
+2012-02-13
+Update changelog
+
+---------- 0.0.15.2 ----------
+
 2012-02-13
 Bump version 0.0.15.2
 Missing file stubs
