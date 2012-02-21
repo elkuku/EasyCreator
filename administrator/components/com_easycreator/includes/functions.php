@@ -105,7 +105,12 @@ else
 function easy_creator_loader($className)
 {
     if(0 !== strpos($className, 'Ecr'))
+    {
+        if('1.5' == ECR_JVERSION)
+            JLoader::load($className);
+
         return;
+    }
 
     $base = JPATH_COMPONENT_ADMINISTRATOR.'/helpers';
 
