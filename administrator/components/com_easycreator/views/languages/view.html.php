@@ -45,6 +45,14 @@ class EasyCreatorViewLanguages extends JView
         {
             $this->project = EcrProjectHelper::getProject();
 
+            if('ini' !=  $this->project->langFormat
+                && ! class_exists('g11nExtensionHelper'))
+            {
+                throw new Exception(
+                    sprintf('The g11n library must be available to process %s language files.'
+                        , $this->project->langFormat));
+            }
+
             //--Draw h1 header
             EcrHtml::header(jgettext('Languages'), $this->project, 'ecr_languages');
 
@@ -55,8 +63,6 @@ class EasyCreatorViewLanguages extends JView
             }
             else
             {
-                //             var_dump($this->project);
-
                 if( ! $this->scope)
                 {
                     $this->scope = 'site';
