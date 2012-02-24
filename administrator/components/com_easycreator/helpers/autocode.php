@@ -21,11 +21,15 @@ class EcrAutoCode
 
     public $element = '';
 
+    public $elements = array();
+
     public $scope = '';
 
     public $options = array();
 
     public $table = null;
+
+    public $tables = array();
 
     public $fields = array();
 

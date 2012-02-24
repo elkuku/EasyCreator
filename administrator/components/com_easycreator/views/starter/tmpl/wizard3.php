@@ -57,7 +57,7 @@ function submitbutton(command)
 }//function
 </script>
 
-<div class="ecr_floatbox" style="width: 75%;">
+<div class="ecr_floatbox left" style="width: 55%;">
     <div class="buttonBox">
         <a class="ecr_button img icon-16-2leftarrow"
         onclick="submitbutton('wizard2');"
@@ -109,7 +109,7 @@ function submitbutton(command)
         </h1>
     </div>
 </div>
-<div class="ecr_floatbox" style="width: 20%;">
+<div class="ecr_floatbox right" style="width: 40%;">
     <?php EcrHtml::displayResult($this->project); ?>
 </div>
 

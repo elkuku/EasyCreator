@@ -16,7 +16,7 @@ $img_base = JURI::root().'administrator/components/com_easycreator/assets/images
 ecrScript('wizard2');
 ?>
 
-<div class="ecr_floatbox" style="width: 55%;">
+<div class="ecr_floatbox left" style="width: 55%;">
     <div class="buttonBox">
         <a class="ecr_button img icon-16-2leftarrow"
         onclick="submitbutton('wizard');"
@@ -125,7 +125,7 @@ ecrScript('wizard2');
     $('com_name').focus();
 </script>
 
-<div class="ecr_floatbox" style="width: 40%;">
+<div class="ecr_floatbox right" style="width: 40%;">
     <?php EcrHtml::displayResult($this->project, $formFieldNames); ?>
 </div>
 

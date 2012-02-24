@@ -472,6 +472,15 @@ div.ecr_floatbox_title {
     border-right: 1px solid #ddd;
 }
 
+div.ecr_floatbox.left {
+    margin-left: 0;
+}
+
+div.ecr_floatbox.right {
+    margin-right: 0;
+    float: right;
+}
+
 div.white_box {
     background-color: #fff;
     padding: 1em;
@@ -479,11 +488,25 @@ div.white_box {
     border-radius: 10px;
 }
 
-div.ecr_dbRowCell {
+/* db table */
+div.dbTableOuter {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+div#db_table_fields {
+    width: 300px;
+}
+div.ecr_dbRow {
     float: left;
-    width: 90px;
+}
+div.ecr_dbRow.active:hover {
+    background-color: #ffc;
+}
+
+div.ecr_dbRowCell {
+    width: 100px;
     border-bottom: 1px solid gray;
-    padding-top: 0.2em;
+    height: 20px;
 }
 
 div.ecr_dbRowCell.head {

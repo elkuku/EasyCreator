@@ -63,12 +63,14 @@ class EasyTemplateOptions
         $field->null = 'NOT_NULL';
         $fields[] = $field;
 
-        $html .= EcrTableHelper::drawStdInsertRow();
+        $html .= EcrTableHelper::startDbEditor();
 
         foreach($fields as $count => $field)
         {
             $html .= EcrTableHelper::drawPredefinedRow($field, $count + 1);
         }//foreach
+
+        $html .= EcrTableHelper::endDbEditor();
 
         return $html;
     }//function

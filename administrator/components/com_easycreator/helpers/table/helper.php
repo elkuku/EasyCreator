@@ -358,27 +358,17 @@ class EcrTableHelper
     /**
      * Draws a row wit standard fields.
      *
-     * @deprecated move to template ?
-     *
      * @return string
      */
-    public static function drawStdInsertRow()
+    public static function startDbEditor()
     {
-        $field = new EcrTableField;
-        $field->name = 'id';
-        $field->label = 'Primary key';
-        $field->type = 'INT';
-        $field->length = '11';
-        $field->attributes = 'UNSIGNED';
-        $field->null = 'NOT_NULL';
-        $field->extra = 'AUTO_INCREMENT';
-
         $html = '';
         $html .= '
 <div class="addRow">
         <span class="ecr_button img icon-16-add" onclick="newRow(\'db_table_fields\');">'.jgettext('Add row').'</span>
 </div>
-<div id="db_table_fields">
+<div class="ecr_dbRow">
+
 <div class="ecr_dbRowCell head">'.jgettext('Name').'</div>
 <div class="ecr_dbRowCell head">'.jgettext('Label').'</div>
 <div class="ecr_dbRowCell head">'.jgettext('Type').'</div>
@@ -389,16 +379,44 @@ class EcrTableHelper
 <div class="ecr_dbRowCell head">'.jgettext('Extra').'</div>
 <div class="ecr_dbRowCell head">'.jgettext('Comment').'</div>
 
-<div style="clear: both;"></div>
 
 </div>
+<div class="dbTableOuter">
+<div id="db_table_fields">
+';
 
-<div style="background-color: #eee; font-weight: bold;">'.jgettext('Predefined fields').'</div>';
+//<div style="background-color: #eee; font-weight: bold;">'.jgettext('Predefined fields').'</div>';
+        $field = new EcrTableField;
+        $field->name = 'id';
+        $field->label = 'Primary key';
+        $field->type = 'INT';
+        $field->length = '11';
+        $field->attributes = 'UNSIGNED';
+        $field->null = 'NOT_NULL';
+        $field->extra = 'AUTO_INCREMENT';
+
 
         $html .= self::drawPredefinedRow($field, 0);
 
+ //       $html .= '</div>';
+//$html .= '<div style="clear: both;"></div>';
         return $html;
     }//function
+
+    /**
+     * @static
+     * @return string
+     */
+    public static function endDbEditor()
+    {
+        $html = array();
+
+        $html[] = '</div>';
+        $html[] = '</div>';
+        $html[] = '<div style="clear: both;"></div>';
+
+        return implode(NL, $html);
+    }
 
     /**
      * Draw a row of predefined table fields.
@@ -412,6 +430,7 @@ class EcrTableHelper
     {
         $ret = '';
         $ret .= '
+<div class="ecr_dbRow">
 <div class="ecr_dbRowCell" style="background-color: #eee;">'.$field->name.'&nbsp;</div>
 <div class="ecr_dbRowCell" style="background-color: #eee;">'.$field->label.'&nbsp;</div>
 <div class="ecr_dbRowCell" style="background-color: #eee;">'.$field->type.'&nbsp;</div>
@@ -432,7 +451,7 @@ class EcrTableHelper
 <input type="hidden" name ="fields['.$count.'][extra]" value="'.$field->extra.'" />
 <input type="hidden" name ="fields['.$count.'][comment]" value="'.$field->comment.'" />
 
-<div style="clear: both;"></div>
+</div>
 ';
 
         return $ret;

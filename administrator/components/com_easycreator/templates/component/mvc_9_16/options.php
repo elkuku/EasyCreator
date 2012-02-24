@@ -27,30 +27,10 @@ class EasyTemplateOptions
     {
         ecrScript('dbtables');
 
-        if( ! in_array('mysql', $project->dbTypes))
+        if(! in_array('mysql', $project->dbTypes))
         {
             $project->dbTypes = array_merge(array('mysql'), $project->dbTypes);
         }
-
-        $html = '';
-        $html .= '
-<script>
-	//--Set object count to 3 - 0 is the standard field "id"
-	//-- 1 is "catid" and 2 is "checked_out"
-	var obCount = 3;
-	var obCountOrig = 3;
-</script>
-';
-        $html .= '<h3>'.jgettext('Database support').'</h3>';
-        $html .= EcrHtml::drawDbOptions($project);
-
-        $html .= '<h3>'.jgettext('User defined table fields').'</h3>';
-        $html .= '<strong>'
-        .sprintf(
-                jgettext('Please define the fields for the table %s that will be created for your component.')
-                , '"'.strtolower($project->name).'"'
-            )
-        .'</strong>';
 
         $fields = array();
 
@@ -74,15 +54,36 @@ class EasyTemplateOptions
         $field->null = 'NOT_NULL';
         $fields[] = $field;
 
-        $html .= EcrTableHelper::drawStdInsertRow();
+        $html = array();
+
+        $html[] = '<script>';
+        $html[] = '//--Set object count to 3 - 0 is the standard field "id"';
+        $html[] = '//-- 1 is "catid" and 2 is "checked_out"';
+        $html[] = 'var obCount = 3;';
+        $html[] = 'var obCountOrig = 3;';
+        $html[] = '</script>';
+
+        $html[] = '<h3>'.jgettext('Database support').'</h3>';
+        $html[] = EcrHtml::drawDbOptions($project);
+
+        $html[] = '<h3>'.jgettext('User defined table fields').'</h3>';
+        $html[] = '<strong>'.sprintf(
+                    jgettext('Please define the fields for the table %s that will be created for your component.')
+                    , '"'.strtolower($project->name).'"'
+                )
+                .'</strong>';
+
+        $html[] = EcrTableHelper::startDbEditor();
 
         foreach($fields as $count => $field)
         {
-            $html .= EcrTableHelper::drawPredefinedRow($field, $count + 1);
-        }//foreach
+            $html[] = EcrTableHelper::drawPredefinedRow($field, $count + 1);
+        }
 
-        return $html;
-    }//function
+        $html[] = EcrTableHelper::endDbEditor();
+
+        return implode(NL, $html);
+    }
 
     /**
      * Get the required fields.
@@ -92,7 +93,7 @@ class EasyTemplateOptions
     public function getRequireds()
     {
         return array();
-    }//function
+    }
 
     /**
      * Process custom options.
@@ -105,7 +106,7 @@ class EasyTemplateOptions
     {
         $fields = JRequest::getVar('fields');
 
-        if( ! is_array($fields))
+        if(! is_array($fields))
         {
             JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
 
@@ -124,8 +125,6 @@ class EasyTemplateOptions
 
         //-- Prepare extension table
         $table = new EcrTable($tableName);
-
-        $tableFields = array();
 
         for($i = 0; $i < count($fields); $i ++)
         {
@@ -148,7 +147,7 @@ class EasyTemplateOptions
 
             $field = new EcrTableField($fields[$i]);
             $table->addField($field);
-        }//for
+        }
 
         $relation = new EcrTableRelation;
         $relation->type = 'LEFT JOIN';
@@ -185,7 +184,7 @@ class EasyTemplateOptions
 
         $c = EcrProjectHelper::getAutoCode('admin.tableclass.classvar.'.$tableName);
         $c->elements = array('var');
-        $c->options['varscope'] =($builder->project->phpVersion == '4') ? 'var' : 'protected';
+        $c->options['varscope'] = ($builder->project->phpVersion == '4') ? 'var' : 'protected';
         $codes[] = $c;
 
         $c = EcrProjectHelper::getAutoCode('admin.viewlist.table.'.$tableName);
@@ -203,10 +202,12 @@ class EasyTemplateOptions
         $c->elements = array('divrow');
         $codes[] = $c;
 
+
         $c = EcrProjectHelper::getAutoCode('site.viewcategory.table.'.$tableName);
         $c->elements = array('header', 'cell');
         $codes[] = $c;
 
+        /* @var EcrAutoCode $autoCode */
         foreach($codes as $autoCode)
         {
             foreach($autoCode->elements as $acElement)
@@ -221,13 +222,13 @@ class EasyTemplateOptions
                 $autoCode->fields[$key] = $table->getFields();
                 $autoCode->codes[$key] = $code;
                 $autoCode->tables[$key] = $table;
-            }//foreach
+            }
 
             $builder->project->addAutoCode($autoCode);
-        }//foreach
+        }
 
         $builder->addSubstitute('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
 
         return true;
-    }//function
+    }
 }//class
