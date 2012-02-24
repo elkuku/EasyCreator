@@ -1,71 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <install type="component" version="1.5">
-  <name>EasyCreator</name>
-  <creationDate>22-Apr-2010</creationDate>
-  <author>Nikolai Plath</author>
-  <authorEmail>der.el.kuku@gmail.com</authorEmail>
-  <authorUrl>https://github.com/elkuku</authorUrl>
-  <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
-  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>0.0.15.3</version>
-  <description>EasyCreator helps creating Extensions for Joomla</description>
-  <installfile>install/install.easycreator.php</installfile>
-  <uninstallfile />
-  <install>
-    <sql />
-  </install>
-  <uninstall>
-    <sql />
-  </uninstall>
-  <files folder="site">
-    <folder>assets</folder>
-    <folder>g11n</folder>
-    <folder>helpers</folder>
-    <folder>views</folder>
-    <filename>controller.php</filename>
-    <filename>easycreator.php</filename>
-  </files>
-  <administration>
-    <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png" link="option=com_easycreator">EasyCreator</menu>
-    <files folder="admin">
-      <folder>assets</folder>
-      <folder>builds</folder>
-      <folder>controllers</folder>
-      <folder>exports</folder>
-      <folder>g11n</folder>
-      <folder>helpers</folder>
-      <folder>install</folder>
-      <folder>logs</folder>
-      <folder>results</folder>
-      <folder>scripts</folder>
-      <folder>templates</folder>
-      <folder>tests</folder>
-      <folder>views</folder>
-      <filename>CHANGELOG.php</filename>
-      <filename>config.xml</filename>
-      <filename>controller.php</filename>
-      <filename>defines.php</filename>
-      <filename>easycreator.php</filename>
-      <filename>functions.php</filename>
+    <name>EasyCreator</name>
+    <creationDate>20-Feb-2012</creationDate>
+    <author>Nikolai Plath</author>
+    <authorEmail>der.el.kuku@gmail.com</authorEmail>
+    <authorUrl>https://github.com/elkuku</authorUrl>
+    <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>0.0.15.3</version>
+    <description>EasyCreator helps creating Extensions for Joomla</description>
+    <installfile>install/install.easycreator.php</installfile>
+    <uninstallfile/>
+    <install>
+        <sql/>
+    </install>
+    <uninstall>
+        <sql/>
+    </uninstall>
+    <scriptfile>install/script.php</scriptfile>
+    <files folder="site">
+        <folder>assets</folder>
+        <folder>g11n</folder>
+        <folder>helpers</folder>
+        <folder>views</folder>
+        <filename>controller.php</filename>
+        <filename>easycreator.php</filename>
     </files>
-  </administration>
-  <params>
-    <param name="cred_license" type="text" label="License" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" />
-    <param name="archive_tgz" type="checkbox" label="tar.gz" default="on_" />
-    <param name="custom_name_1" type="text" label="Custom name default" default="_*VERSION*_*VCSREV*_*DATETIMEYmd_Hi*" />
-    <param name="custom_name_2" type="text" label="Custom name" default="_*VERSION*_*DATETIMEYmd_Hi*" />
-    <param name="custom_name_3" type="text" label="Custom name" default="_*VERSION*" />
-    <param name="custom_name_4" type="text" label="Custom name" default="_*VCSREV*" />
-    <param name="logging" type="radio" label="Logger" default="1" />
-    <param name="profile" type="radio" label="Profiler" default="1" />
-    <param name="files" type="radio" label="Log file contents" default="1" />
-    <param name="ecr_help" type="list" label="Help Type" default="2" />
-    <param name="editarea_type" type="list" label="Editor type" default="edit_area_full.js" />
-    <param name="editarea_font_size" type="text" label="Editor font size" default="8" />
-    <param name="warn_livesite" type="radio" label="Livesite warning" default="1" />
-    <param name="use_google_trans_api" type="radio" label="Use Google translation API" default="1" />
-    <param name="langfiles_chk_bom" type="radio" label="Check for BOM" default="1" />
-    <param name="ecr_debug_type" type="list" label="Debugger Type" default="krumo" />
-  </params>
+    <administration>
+        <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png"
+              link="index.php?option=com_easycreator">EasyCreator
+        </menu>
+        <files folder="admin">
+            <folder>assets</folder>
+            <folder>builds</folder>
+            <folder>cli</folder>
+            <folder>controllers</folder>
+            <folder>exports</folder>
+            <folder>g11n</folder>
+            <folder>helpers</folder>
+            <folder>includes</folder>
+            <folder>install</folder>
+            <folder>logs</folder>
+            <folder>models</folder>
+            <folder>results</folder>
+            <folder>scripts</folder>
+            <folder>templates</folder>
+            <folder>tests</folder>
+            <folder>views</folder>
+            <filename>CHANGELOG.php</filename>
+            <filename>controller.php</filename>
+            <filename>easycreator.php</filename>
+            <filename>easycreator.xml</filename>
+            <filename>version.txt</filename>
+        </files>
+    </administration>
+    <params/>
 </install>
