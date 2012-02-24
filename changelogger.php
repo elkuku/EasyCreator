@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 03.02.12
- * Time: 07:22
+ * @package    EasyCreator
+ * @subpackage Helpers.others
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 03-Feb-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 $output = shell_exec('git tag');
@@ -16,35 +17,38 @@ $lastTag = '';
 
 $contents = array();
 
-foreach ($tags as $tag)
+foreach($tags as $tag)
 {
-	$output = shell_exec("git log ".$tag."..".$lastTag." --pretty=format:'%ad %s' --date=short");
+    $output = shell_exec('git log '.$tag.'..'.$lastTag.' --pretty=format:\'%ad %an: %s\' --date=short');
 
-	$lastTag = $tag;
+    $lastTag = $tag;
 
-	$lines = explode("\n", $output);
+    $lines = explode("\n", $output);
 
-	$actDate = '';
+    $actDate = '';
 
-	foreach ($lines as $line)
-	{
-		$date = substr($line, 0, 10);
+    foreach($lines as $line)
+    {
+        $date = substr($line, 0, 10);
 
-		$message = substr($line, 11);
+        $message = substr($line, 11);
 
-		if ($date != $actDate)
-		{
-			$contents[] = '';
-			$contents[] = $date;
+        //-- Remove myself ;)
+        $message = str_replace('Nikolai Plath: ', '', $message);
 
-			$actDate = $date;
-		}
+        if($date != $actDate)
+        {
+            $contents[] = '';
+            $contents[] = $date;
 
-		$contents[] = $message;
-	}
+            $actDate = $date;
+        }
 
-	$contents[] = '';
-	$contents[] = '---------- '.$tag.' ----------';
+        $contents[] = $message;
+    }
+
+    $contents[] = '';
+    $contents[] = '---------- '.$tag.' ----------';
 }
 
 echo implode("\n", $contents);
