@@ -119,15 +119,13 @@ class EcrZiper extends JObject
         }//foreach
 
         //-- Init profiler
+        $this->buildopts['profiling'] = false;
+
         if(in_array('profile', $buildopts))
         {
             jimport('joomla.error.profiler');
             $this->profiler = JProfiler::getInstance('EasyZipper');
             $this->buildopts['profiling'] = true;
-        }
-        else
-        {
-            $this->buildopts['profiling'] = false;
         }
 
         return true;
@@ -343,7 +341,6 @@ class EcrZiper extends JObject
      */
     private function setTempDir()
     {
-        //-- C$this->temp_dir = JFactory::getConfig()->getBalue('config.tmp_path').DS.uniqid($this->project->comName);
         $this->temp_dir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName);
 
         if( ! JFolder::create($this->temp_dir))

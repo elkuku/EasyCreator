@@ -54,9 +54,9 @@ jimport('joomla.environment.uri');
 JError::$legacy = false;
 
 /**
- * EasyCreator client builder
+ * EasyCreator client builder.
  */
-class EcrBuilder extends JApplicationCli
+class EcrCliBuilder extends JApplicationCli
 {
     /**
      * DoIt
@@ -129,14 +129,14 @@ if(1)// ! class_exists('JUri'))
 
 try
 {
-    // Execute the application.
-    JApplicationCli::getInstance('EcrBuilder')->execute();
+    //-- Execute the application.
+    JApplicationCli::getInstance('EcrCliBuilder')->execute();
 
     exit(0);
 }
 catch(Exception $e)
 {
-    // An exception has been caught, just echo the message.
+    //-- An exception has been caught, just echo the message.
     fwrite(STDOUT, $e->getMessage()."\n");
 
     exit($e->getCode());

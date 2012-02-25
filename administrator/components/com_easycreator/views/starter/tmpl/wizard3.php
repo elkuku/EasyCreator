@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package     EasyCreator
  * @subpackage  Views
@@ -7,11 +7,9 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 $requireds = $this->builder->customOptions('requireds');
 ?>
+
 <script type="text/javascript">
 function submitbutton(command)
 {
