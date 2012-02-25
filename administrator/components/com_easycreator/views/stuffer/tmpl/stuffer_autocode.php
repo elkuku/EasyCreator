@@ -14,9 +14,9 @@ defined('_JEXEC') || die('=;)');
 
 <div class="ecr_floatbox">
     <div class="infoHeader img icon-24-easycreator">AutoCode</div>
-    <h4><?= jgettext('List postfix') ?></h4>
-    <?= $this->project->listPostfix ?>
-    <h4><?= jgettext('File header template') ?></h4>
+    <h4><?php echo jgettext('List postfix') ?></h4>
+    <?php echo $this->project->listPostfix ?>
+    <h4><?php echo jgettext('File header template') ?></h4>
 
-    <?= EcrHtml::drawHeaderOptions($this->project->headerType) ?>
+    <?php echo EcrHtml::drawHeaderOptions($this->project->headerType) ?>
 </div>
