@@ -1,0 +1,38 @@
+/**
+ * @package    EasyCreator
+ * @subpackage CSS
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 26-Feb-2012
+ */
+div.dbTableOuter {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+div#db_table_fields {
+    width: 300px;
+}
+
+div.ecr_dbRow {
+    float: left;
+}
+
+div.ecr_dbRow.active:hover {
+    background-color: #ffc;
+}
+
+div.ecr_dbRowCell {
+    width: 100px;
+    border-bottom: 1px solid gray;
+    height: 20px;
+}
+
+div.ecr_dbRowCell.head {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+div.addRow {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
