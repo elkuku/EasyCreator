@@ -26,6 +26,7 @@ class EasyTemplateOptions
     public function displayOptions(EcrProject $project)
     {
         ecrScript('dbtables');
+        ecrStylesheet('dbtables');
 
         $html = '';
         $html .= '

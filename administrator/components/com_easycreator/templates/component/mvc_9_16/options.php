@@ -25,7 +25,9 @@ class EasyTemplateOptions
      */
     public function displayOptions(EcrProject $project)
     {
+
         ecrScript('dbtables');
+        ecrStylesheet('dbtables');
 
         if(! in_array('mysql', $project->dbTypes))
         {
