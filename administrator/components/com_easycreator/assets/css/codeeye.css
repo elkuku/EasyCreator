@@ -40,3 +40,8 @@ div#ecr_codeeye_output div.error {
 div#ecr_codeeye_output div.warning {
 	background-color: orange;
 }
+
+input.cliargs {
+    font-family: monospace;
+    font-size: 12px;
+}

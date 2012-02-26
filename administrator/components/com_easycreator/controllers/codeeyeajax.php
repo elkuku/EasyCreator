@@ -41,7 +41,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         //-- Joomla! bootstrap
         $arguments[] = '--bootstrap '.JPATH_ROOT.DS.'bootstrap.php';
 
-        if( ! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
+        if(! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
         {
             JFolder::create(JPATH_ROOT.DS.$resultsBase);
         }
@@ -53,7 +53,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         //-- @todo: Test Name
         $arguments[] = 'KuKuTest';
 
-        $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
+        $arguments[] = ($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
         $phpUnit = new EcrPearHelperPhpunit;
 
@@ -76,7 +76,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = htmlentities($results);
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Execute a selenium test.
@@ -98,21 +100,21 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $arguments[] = '--bootstrap '.JPATH_ROOT.'/tests/system/servers/config-def.php';
 
         //-- C $arguments[] = '--singleWindow';
-        if( ! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
+        if(! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
         {
             //-- C     JFolder::create(JPATH_ROOT.DS.$resultsBase);
         }
 
-/*
-        -- JUnit XML log file
-                $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.JFile::getName($test).'.xml';
-                $arguments[] = '--log-junit '.$logName;
+        /*
+                -- JUnit XML log file
+                        $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.JFile::getName($test).'.xml';
+                        $arguments[] = '--log-junit '.$logName;
 
-        -- @todo: Test Name
-                $arguments[] = 'KuKuTest';
-*/
+                -- @todo: Test Name
+                        $arguments[] = 'KuKuTest';
+        */
 
-        $arguments[] =($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
+        $arguments[] = ($folder) ? JPATH_ROOT.DS.$folder.DS.$test : JPATH_ROOT.DS.$test;
 
         $seleniumTest = new EcrPearHelperSelenium;
 
@@ -121,22 +123,24 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $add = ob_get_contents();
         ob_end_clean();
 
-/*
-                if(JFile::exists($logName))
-                {
-                    $response['text'] = $add.BR.$phpUnit->showFormattedLog($logName);
-                    $response['status'] = 1;
-                }
-                else
-                {
-                    $response['text'] = $add.BR.'ERROR writing: '.$logName;
-                }
-*/
+        /*
+                        if(JFile::exists($logName))
+                        {
+                            $response['text'] = $add.BR.$phpUnit->showFormattedLog($logName);
+                            $response['status'] = 1;
+                        }
+                        else
+                        {
+                            $response['text'] = $add.BR.'ERROR writing: '.$logName;
+                        }
+        */
 
         $response->console = htmlentities($results);
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Create a skeleton for a unit test.
@@ -154,7 +158,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response = new stdClass;
         $arguments = array();
 
-        if( ! JFile::exists($path))
+        if(! JFile::exists($path))
         {
             $response->text = jgettext('File not found');
             $response->status = 1;
@@ -177,7 +181,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                 $foundClasses = array_diff(get_declared_classes(), $classes);
 
-                if( ! count($foundClasses))
+                if(! count($foundClasses))
                 {
                     $response->text = jgettext('No classes found');
                     $response->console = $response->text;
@@ -202,7 +206,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                     if(JFile::exists($resultPath))
                     {
-                        $scope =(strpos($resultPath, JPATH_ADMINISTRATOR) === false) ? 'site' : 'admin';
+                        $scope = (strpos($resultPath, JPATH_ADMINISTRATOR) === false) ? 'site' : 'admin';
 
                         $test = str_replace(DS.JFile::getName($resultPath), '', $resultPath);
 
@@ -212,8 +216,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                             {
                                 //-- Subfolder
                                 $subFolder = str_replace(
-                                JPATH_SITE.DS.'components'.DS.$ecr_project.DS
-                                , '', $test);
+                                    JPATH_SITE.DS.'components'.DS.$ecr_project.DS
+                                    , '', $test);
                             }
                         }
                         else
@@ -222,16 +226,16 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                             {
                                 //-- Subfolder
                                 $subFolder = str_replace(JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project.DS
-                                , '', $test);
+                                    , '', $test);
                             }
                         }
 
                         $destFolder = JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project.DS.'tests'.DS.$scope;
-                        $destFolder .=($subFolder) ? DS.$subFolder : '';
+                        $destFolder .= ($subFolder) ? DS.$subFolder : '';
 
                         $destFileName = $class.'Test.php';
 
-                        if( ! JFolder::exists($destFolder))
+                        if(! JFolder::exists($destFolder))
                         {
                             JFolder::create($destFolder);
                         }
@@ -255,7 +259,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         }
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Displays the content of the test directory.
@@ -290,7 +296,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Executes a 'sniff'.
@@ -323,7 +331,34 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = $results;
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
+
+    public function runCli()
+    {
+
+        $appName = JRequest::getCmd('appName');
+        $path = JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/cliapps/'.$appName.'/'.$appName.'.php');
+        $args = (array)JRequest::getVar('args');
+
+        $response = new stdClass;
+
+        ob_start();
+
+        $console = new EcrPearHelperConsole;
+
+        $results = $console->cliExec('php '.$path, $args);
+
+        $response->text = ob_get_contents();
+
+        ob_end_clean();
+
+        $response->console = $results;
+
+        echo json_encode($response);
+
+    }
 
     public function phploc()
     {
@@ -331,7 +366,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response = new stdClass;
 
-        if( ! $dir || 'undefined' == $dir)
+        if(! $dir || 'undefined' == $dir)
         {
             $response->status = 1;
             $response->text = 'No directory given';
@@ -354,7 +389,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = $results;
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Executes a 'sniff'.
@@ -372,9 +409,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['text'] = '';
         $response['console'] = '';
 
-        if( ! $file)
+        if(! $file)
         {
-            if( ! JFolder::exists(JPATH_ROOT.DS.$path))
+            if(! JFolder::exists(JPATH_ROOT.DS.$path))
             {
                 $response['text'] = '<b style="color: red">'.jgettext('Folder not found').'</b>';
 
@@ -391,10 +428,10 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $sniffExtensions = array('php', 'js');
 
-            if( ! in_array($ext, $sniffExtensions))
+            if(! in_array($ext, $sniffExtensions))
             {
                 $response['text'] = '<b style="color: red">Sniffeable extensions:<br />'
-                .implode(',', $sniffExtensions).'</b>';
+                    .implode(',', $sniffExtensions).'</b>';
 
                 echo json_encode($response);
 
@@ -403,7 +440,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $fullPath = JPATH_ROOT.DS.$path.DS.$file;
 
-            if( ! JFile::exists($fullPath))
+            if(! JFile::exists($fullPath))
             {
                 $response['text'] = '<b style="color: red">'.jgettext('File not found').'</b>';
 
@@ -422,15 +459,15 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $standard = JRequest::getVar('sniff_standard');
 
         if($standard)
-        $sniffer->setStandard($standard);
+            $sniffer->setStandard($standard);
 
         $format = JRequest::getVar('sniff_format');
 
         if($format)
-        $sniffer->setFormat($format);
+            $sniffer->setFormat($format);
 
         $verbose = JRequest::getCmd('sniff_verbose');
-        $sniffer->verboseLevel =($verbose == 'true') ? '-v' : '';
+        $sniffer->verboseLevel = ($verbose == 'true') ? '-v' : '';
 
         $sniffs = JRequest::getVar('sniff_sniffs');
 
@@ -452,7 +489,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         if($file
-        && 'xml' == $format)
+            && 'xml' == $format
+        )
         {
             $xml = JFactory::getXML($results, false);
 
@@ -463,11 +501,12 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             {
                 $line = (int)$error->attributes()->line;
 
-                if( ! isset($errors[$line]))
-                $errors[$line] = array();
+                if(! isset($errors[$line]))
+                    $errors[$line] = array();
 
                 $errors[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
-            }//foreach
+            }
+            //foreach
 
             $warnings = array();
 
@@ -475,11 +514,12 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             {
                 $line = (int)$error->attributes()->line;
 
-                if( ! isset($warnings[$line]))
-                $warnings[$line] = array();
+                if(! isset($warnings[$line]))
+                    $warnings[$line] = array();
 
                 $warnings[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
-            }//foreach
+            }
+            //foreach
 
             $highlight = '';
             $highlight .= '<pre>';
@@ -512,10 +552,11 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                 $highlight .= str_pad($lNo, 4, ' ', STR_PAD_LEFT).' '.htmlentities($line);
 
                 if($msg)
-                $highlight .= '     <small>'.$msg.'</small>';
+                    $highlight .= '     <small>'.$msg.'</small>';
 
                 $highlight .= '</div>';
-            }//foreach
+            }
+            //foreach
 
             $highlight .= '</pre>';
 
@@ -523,7 +564,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         }
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Runs PHP Copy & Paste detector.
@@ -540,7 +583,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response = array();
 
-        if( ! $path)
+        if(! $path)
         {
             $response['status'] = 0;
             $response['text'] = jgettext('No path set');
@@ -563,7 +606,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Runs PHPDocumentor.
@@ -596,7 +641,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         foreach($parseDirs as $n)
         {
             $a[] = JPATH_ROOT.DS.$n;
-        }//foreach
+        }
+        //foreach
 
         $parseDirs = implode(',', $a);
 
@@ -606,7 +652,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         foreach($parseFiles as $n)
         {
             $a[] = JPATH_ROOT.DS.$n;
-        }//foreach
+        }
+        //foreach
 
         $parseFiles = implode(',', $a);
 
@@ -622,7 +669,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response['console'] = htmlentities($results);
 
-        if( ! JFile::exists(JPATH_ROOT.DS.$targetDir.DS.'index.html'))
+        if(! JFile::exists(JPATH_ROOT.DS.$targetDir.DS.'index.html'))
         {
             $response['status'] = 0;
             $response['text'] = jgettext('Something went wrong...');
@@ -635,13 +682,15 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['text'] = '';
         $response['text'] .= '<h1>'.jgettext('Documentation has been created').'</h1>';
         $response['text'] .= '<a class="external" href="'.JURI::root(true)
-        .'/'.str_replace(DS, '/', $targetDir).'">'.jgettext('View Documentation').'</a>'.BR;
+            .'/'.str_replace(DS, '/', $targetDir).'">'.jgettext('View Documentation').'</a>'.BR;
         $response['text'] .= '<a class="external" href="'.JURI::root(true)
-        .'/'.str_replace(DS, '/', $targetDir.'/errors.html').'">'.jgettext('View Errors').'</a>'.BR;
+            .'/'.str_replace(DS, '/', $targetDir.'/errors.html').'">'.jgettext('View Errors').'</a>'.BR;
         $response['text'] .= $add;
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Checks for installed PEAR packages.
@@ -658,88 +707,92 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $pearPackages = $pearConsole->getPackages();
         $notFound = '<strong style="color: red;">'.jgettext('Not found').'</strong>';
 
-        if( ! count($pearPackages))
+        if(! count($pearPackages))
         {
             echo '<h2 style="color: red;">'.jgettext('No PEAR packages found - Please check your Paths').'</h2>';
             echo sprintf(jgettext('For more information see: %s')
-            , '<a href="'.ECR_DOCU_LINK.'/EasyCodeEye#Check_your_PATHs">EasyCreator Doku: Check your path</a>');
+                , '<a href="'.ECR_DOCU_LINK.'/EasyCodeEye#Check_your_PATHs">EasyCreator Doku: Check your path</a>');
         }
         else
         {
             ?>
 
-<h3>Installed PEAR Packages</h3>
+        <h3>Installed PEAR Packages</h3>
 
 
 
 
 
-<?php echo sprintf(jgettext('See also: %s')
-, '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
-<table class="adminlist">
+        <?php echo sprintf(jgettext('See also: %s')
+            , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
+        <table class="adminlist">
 
-    <thead>
-        <tr>
-            <th><?php echo jgettext('Package'); ?></th>
-            <th><?php echo jgettext('Version'); ?></th>
-            <th><?php echo jgettext('Recommended'); ?></th>
-            <th><?php echo jgettext('Info'); ?></th>
-        </tr>
-    </thead>
+            <thead>
+            <tr>
+                <th><?php echo jgettext('Package'); ?></th>
+                <th><?php echo jgettext('Version'); ?></th>
+                <th><?php echo jgettext('Recommended'); ?></th>
+                <th><?php echo jgettext('Info'); ?></th>
+            </tr>
+            </thead>
 
-    <tbody>
-        <tr class="row0">
-            <td>PHP_CodeSniffer</td>
-            <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
-            ? $pearPackages['PHP_CodeSniffer']
-            : $notFound; ?>
-            </td>
-            <td>1.2.0</td>
-            <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
-                class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
-                CSS files and detects violations of a defined set of coding
-                standards.</td>
-        </tr>
+            <tbody>
+            <tr class="row0">
+                <td>PHP_CodeSniffer</td>
+                <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
+                    ? $pearPackages['PHP_CodeSniffer']
+                    : $notFound; ?>
+                </td>
+                <td>1.2.0</td>
+                <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
+                       class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
+                    CSS files and detects violations of a defined set of coding
+                    standards.
+                </td>
+            </tr>
 
-        <tr class="row1">
-            <td>phpcpd</td>
-            <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
-            <td>1.1.1</td>
-            <td><a href="http://github.com/sebastianbergmann/phpcpd"
-                class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
-                code.</td>
-        </tr>
+            <tr class="row1">
+                <td>phpcpd</td>
+                <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
+                <td>1.1.1</td>
+                <td><a href="http://github.com/sebastianbergmann/phpcpd"
+                       class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
+                    code.
+                </td>
+            </tr>
 
-        <tr class="row0">
-            <td>PhpDocumentor</td>
-            <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
-            ? $pearPackages['PhpDocumentor']
-            : $notFound; ?>
-            </td>
-            <td>1.4.3</td>
-            <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
-                is the world standard auto-documentation tool for PHP.</td>
-        </tr>
+            <tr class="row0">
+                <td>PhpDocumentor</td>
+                <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
+                    ? $pearPackages['PhpDocumentor']
+                    : $notFound; ?>
+                </td>
+                <td>1.4.3</td>
+                <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
+                    is the world standard auto-documentation tool for PHP.
+                </td>
+            </tr>
 
-        <tr class="row1">
-            <td>PhpUnit</td>
-            <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
-            <td>3.4.0</td>
-            <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
-                provides both a framework that makes the writing of tests easy as
-                well as the functionality to easily run the tests and analyse their
-                results.</td>
-        </tr>
+            <tr class="row1">
+                <td>PhpUnit</td>
+                <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
+                <td>3.4.0</td>
+                <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
+                    provides both a framework that makes the writing of tests easy as
+                    well as the functionality to easily run the tests and analyse their
+                    results.
+                </td>
+            </tr>
 
-    </tbody>
+            </tbody>
 
-</table>
-
-
-
+        </table>
 
 
-<?php
+
+
+
+        <?php
         }
 
         $response['text'] = ob_get_contents();
@@ -762,7 +815,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         echo json_encode($response);
-    }//function
+    }
+
+    //function
 
     /**
      * Display statistics.
@@ -776,7 +831,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         parent::display();
 
         return;
-    }//function
+    }
+
+    //function
 
     /**
      * Displays a chart.
@@ -826,15 +883,15 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             $chart->loadColorPalette($colorPath);
         }
 
-/*
-                      $chart->drawFilledRoundedRectangle(7, 7, 373, 193, 5, 240, 240, 240);
-                       $chart->drawRoundedRectangle(5, 5, 375, 195, 5, 230, 230, 230);
-*/
+        /*
+                              $chart->drawFilledRoundedRectangle(7, 7, 373, 193, 5, 240, 240, 240);
+                               $chart->drawRoundedRectangle(5, 5, 375, 195, 5, 230, 230, 230);
+        */
         //-- Draw the pie chart
         $chart->setFontProperties(JPATH_COMPONENT.DS.'helpers'.DS.'pchart/Fonts/MankSans.ttf', 10);
 
         $chart->drawPieGraph($DataSet->GetData()
-        , $DataSet->GetDataDescription(), 150, 90, 110, PIE_PERCENTAGE, true, 50, 20, 5);
+            , $DataSet->GetDataDescription(), 150, 90, 110, PIE_PERCENTAGE, true, 50, 20, 5);
 
         $chart->drawPieLegend(290, 15, $DataSet->GetData(), $DataSet->GetDataDescription(), 250, 250, 250);
 
@@ -842,5 +899,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $chart->Stroke();
 
         return;
-    }//function
+    }
+    //function
 }//class

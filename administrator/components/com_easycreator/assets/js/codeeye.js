@@ -448,8 +448,8 @@ function gitStatus()
         url: url,
         'onRequest' : function()
         {
-            $('ecr_codeeye_output').innerHTML = '';
-            $('ecr_codeeye_console').innerHTML = '';
+            document.id('ecr_codeeye_output').innerHTML = '';
+            document.id('ecr_codeeye_console').innerHTML = '';
         },
         'onComplete' : function(response)
         {
@@ -458,14 +458,47 @@ function gitStatus()
             if( ! resp.status) {
                 //-- Error
             }
-            $('ecr_codeeye_output').innerHTML = resp.text;
-            $('ecr_codeeye_console').innerHTML = resp.console;
+
+            document.id('ecr_codeeye_output').innerHTML = resp.text;
+            document.id('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
 }//function
 
 /**
- * Git stuff
+ * Run a PHP CLI script
+ */
+function runCli(appName)
+{
+    url = ecrAJAXLink
+        + '&controller=codeeyeajax'
+        + '&task=runCli'
+        + '&appName=' + appName
+        + '&args=' + document.id('cliargs').value;
+
+    new Request({
+        url: url,
+        'onRequest' : function()
+        {
+            document.id('ecr_codeeye_output').innerHTML = '';
+            document.id('ecr_codeeye_console').innerHTML = '';
+        },
+        'onComplete' : function(response)
+        {
+            var resp = JSON.decode(response);
+
+            if( ! resp.status) {
+                //-- Error
+            }
+
+            document.id('ecr_codeeye_output').innerHTML = resp.text;
+            document.id('ecr_codeeye_console').innerHTML = resp.console;
+        }
+    }).send();
+}
+
+/**
+ * PHP lines of code.
  */
 function phploc(dir)
 {
@@ -477,8 +510,8 @@ function phploc(dir)
         url: url,
         'onRequest' : function()
         {
-            $('ecr_codeeye_output').innerHTML = '';
-            $('ecr_codeeye_console').innerHTML = '';
+            document.id('ecr_codeeye_output').innerHTML = '';
+            document.id('ecr_codeeye_console').innerHTML = '';
         },
         'onComplete' : function(response)
         {
@@ -487,8 +520,8 @@ function phploc(dir)
             if( ! resp.status) {
                 //-- Error
             }
-            $('ecr_codeeye_output').innerHTML = resp.text;
-            $('ecr_codeeye_console').innerHTML = resp.console;
+            document.id('ecr_codeeye_output').innerHTML = resp.text;
+            document.id('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
 }//function
