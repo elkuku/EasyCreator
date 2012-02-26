@@ -38,7 +38,9 @@ class EcrProjectHelper
             case '2.5':
                 $projectTypes += array(
                 'lib' => 'library'
-                , 'pkg' => 'package');
+                , 'pkg' => 'package'
+                , 'cap' => 'cliapp'
+                );
                 break;
 
             default:
@@ -89,9 +91,10 @@ class EcrProjectHelper
 
         $project = new $className($name);
 
-        if( ! $project->dbId
-        && 'package' != $project->type)
+        if( ! $project->dbId)
         {
+            if('package' != $project->type
+            && 'cliapp' != $project->type)
             //-- All projects *except packages* must be installed in the database
             //return $project;
             throw new Exception(sprintf(jgettext('Project %s not found'), $name));
@@ -418,9 +421,7 @@ class EcrProjectHelper
         static $types = array();
 
         if(count($types))
-        {
             return $types;
-        }
 
         //-- We don't like these project types - for now..
         $unwanted = array('language', 'file');
@@ -433,6 +434,8 @@ class EcrProjectHelper
         , 'library' => array(jgettext('Libraries'), jgettext('Library'))
         , 'package' => array(jgettext('Packages'), jgettext('Package'))
         , 'template' => array(jgettext('Templates'), jgettext('Template'))
+
+        , 'cliapp' => array(jgettext('CLI Applications'), jgettext('CLI Application'))
         );
 
         //-- Degfined for automated plural translations
@@ -444,6 +447,8 @@ class EcrProjectHelper
             jngettext('%d Library', '%d Libraries', 0);
             jngettext('%d Package', '%d Packages', 0);
             jngettext('%d Template', '%d Templates', 0);
+
+            jngettext('%d CLI Application', '%d CLI Applications', 0);
         }
 
         //-- Get a list of J! installer adapters
@@ -461,14 +466,14 @@ class EcrProjectHelper
             $a = JFile::stripExt($aName);
 
             if(in_array($a, $unwanted))
-            {
                 continue;
-            }
 
             $n =(array_key_exists($a, $comTypes)) ? $comTypes[$a][0] : ucfirst($a);
 
             $types[$a] = $n;
         }//foreach
+
+        $types['cliapp'] = $comTypes['cliapp'][0];
 
         return $types;
     }//function

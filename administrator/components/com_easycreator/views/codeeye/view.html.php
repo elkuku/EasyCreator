@@ -15,13 +15,15 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Views
  */
 class EasyCreatorViewCodeEye extends JView
 {
+    /**
+     * @var EcrProject
+     */
     protected $project = null;
-
 
     /**
      * @var EcrProjectMatrix
@@ -52,8 +54,8 @@ class EasyCreatorViewCodeEye extends JView
         {
             $this->project = EcrProjectHelper::getProject();
 
-            if( ! count($this->project->copies))
-            throw new Exception(jgettext('No files found'));
+            if(! count($this->project->copies))
+                throw new Exception(jgettext('No files found'));
         }
         catch(Exception $e)
         {
@@ -62,7 +64,8 @@ class EasyCreatorViewCodeEye extends JView
             EcrHtml::easyFormEnd();
 
             return;
-        }//try
+        }
+        //try
 
         if(in_array($this->task, get_class_methods($this)))
         {
@@ -79,7 +82,7 @@ class EasyCreatorViewCodeEye extends JView
         }
         else if($this->task)
         {
-            echo sprintf('UNDEFINED Task %s in view %s', $this->task, $this->_name).'<br />';
+            echo sprintf('UNDEFINED Task "%s" in %s', $this->task, __CLASS__).'<br />';
         }
 
         //--Draw h1 header
@@ -91,7 +94,7 @@ class EasyCreatorViewCodeEye extends JView
         parent::display($tpl);
 
         EcrHtml::easyFormEnd();
-    }//function
+    }
 
     /**
      * Default task.
@@ -100,7 +103,12 @@ class EasyCreatorViewCodeEye extends JView
      */
     protected function codeeye()
     {
-    }//function
+    }
+
+    protected function runcli()
+    {
+        $this->setLayout('runcli');
+    }
 
     /**
      * PHPCS View.
@@ -110,7 +118,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function phpcs()
     {
         $this->setLayout('phpcs');
-    }//function
+    }
 
     /**
      * PHPCPD View.
@@ -120,7 +128,9 @@ class EasyCreatorViewCodeEye extends JView
     protected function phpcpd()
     {
         $this->setLayout('phpcpd');
-    }//function
+    }
+
+    //function
 
     /**
      * Stats View.
@@ -132,7 +142,7 @@ class EasyCreatorViewCodeEye extends JView
         $this->projectMatrix = new EcrProjectMatrix($this->project);
 
         $this->setLayout('stats');
-    }//function
+    }
 
     /**
      * Stats2 View.
@@ -142,7 +152,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function stats2()
     {
         $this->setLayout('stats2');
-    }//function
+    }
 
     /**
      * Reflect View.
@@ -152,7 +162,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function reflect()
     {
         $this->reflection();
-    }//function
+    }
 
     /**
      * Reflection View.
@@ -164,7 +174,7 @@ class EasyCreatorViewCodeEye extends JView
         $this->project = $this->project;
 
         $this->setLayout('reflection');
-    }//function
+    }
 
     /**
      * PHPDoc View.
@@ -174,7 +184,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function phpdoc()
     {
         $this->setLayout('phpdoc');
-    }//function
+    }
 
     /**
      * PHPLOC View.
@@ -184,7 +194,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function phploc()
     {
         $this->setLayout('phploc');
-    }//function
+    }
 
     /**
      * W3CValidation View.
@@ -194,7 +204,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function w3cvalidation()
     {
         $this->setLayout('w3cvalidation');
-    }//function
+    }
 
     /**
      * GitHub View.
@@ -204,7 +214,7 @@ class EasyCreatorViewCodeEye extends JView
     protected function git()
     {
         $this->setLayout('git');
-    }//function
+    }
 
     /**
      * PHPUnit View.
@@ -219,10 +229,10 @@ class EasyCreatorViewCodeEye extends JView
         switch($this->project->type)
         {
             case 'component':
-                if( ! JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
+                if(! JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
                 {
                     $btn = '&nbsp;<span class="ecr_button img icon-16-add" onclick="submitbutton(\'copy_bootstrap\');">'
-                    .jgettext('Copy bootstrap.php to Joomla root').'</span>';
+                        .jgettext('Copy bootstrap.php to Joomla root').'</span>';
 
                     EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
 
@@ -231,11 +241,11 @@ class EasyCreatorViewCodeEye extends JView
 
                 $this->testsBase = 'administrator'.DS.'components'.DS.$this->project->comName.DS.'tests'.DS.'unit';
 
-                if( ! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
+                if(! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
                 {
                     $btn = '&nbsp;<span class="ecr_button img icon-16-add"'
-                    .' onclick="submitbutton(\'create_test_dir_unit\');">'
-                    .jgettext('Create Test directory').'</span>';
+                        .' onclick="submitbutton(\'create_test_dir_unit\');">'
+                        .jgettext('Create Test directory').'</span>';
 
                     EcrHtml::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
 
@@ -249,8 +259,8 @@ class EasyCreatorViewCodeEye extends JView
             default:
                 EcrHtml::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Selenium View.
@@ -276,11 +286,11 @@ class EasyCreatorViewCodeEye extends JView
 
                 $this->testsBase = 'administrator'.DS.'components'.DS.$this->project->comName.DS.'tests'.DS.'system';
 
-                if( ! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
+                if(! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
                 {
                     $btn = '&nbsp;<span class="ecr_button img icon-16-add"'
-                    .' onclick="submitbutton(\'create_test_dir_selenium\');">'
-                    .jgettext('Create Test directory').'</span>';
+                        .' onclick="submitbutton(\'create_test_dir_selenium\');">'
+                        .jgettext('Create Test directory').'</span>';
 
                     EcrHtml::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
 
@@ -294,8 +304,8 @@ class EasyCreatorViewCodeEye extends JView
             default:
                 EcrHtml::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Displays the submenu.
@@ -305,58 +315,67 @@ class EasyCreatorViewCodeEye extends JView
     private function displayBar()
     {
         $subTasks = array(
-        array('title' => jgettext('CodeSniffer')
-        , 'description' => jgettext('Use CodeSniffer to assure coding standards.')
-        , 'icon' => 'eye'
-        , 'task' => 'phpcs'
-        )
+            array('title' => jgettext('CodeSniffer')
+            , 'description' => jgettext('Use CodeSniffer to assure coding standards.')
+            , 'icon' => 'eye'
+            , 'task' => 'phpcs'
+            )
         , array('title' => jgettext('Duplicated Code')
-        , 'description' => jgettext('Searches your code for duplicates.')
-        , 'icon' => 'eye'
-        , 'task' => 'phpcpd'
-        )
+            , 'description' => jgettext('Searches your code for duplicates.')
+            , 'icon' => 'eye'
+            , 'task' => 'phpcpd'
+            )
         , array('title' => jgettext('PHPUnit Tests')
-        , 'description' => jgettext('Generates and executes PHPUnit Tests.')
-        , 'icon' => 'eye'
-        , 'task' => 'phpunit'
-        )
+            , 'description' => jgettext('Generates and executes PHPUnit Tests.')
+            , 'icon' => 'eye'
+            , 'task' => 'phpunit'
+            )
         , array('title' => jgettext('Selenium Tests')
-        , 'description' => jgettext('Generates and executes Selenium Tests.')
-        , 'icon' => 'eye'
-        , 'task' => 'selenium'
-        )
+            , 'description' => jgettext('Generates and executes Selenium Tests.')
+            , 'icon' => 'eye'
+            , 'task' => 'selenium'
+            )
         , array('title' => jgettext('PHPDocumentor')
-        , 'description' => jgettext('Create automatic documentation for your project with PHPDocumentor.')
-        , 'icon' => 'eye'
-        , 'task' => 'phpdoc'
-        )
+            , 'description' => jgettext('Create automatic documentation for your project with PHPDocumentor.')
+            , 'icon' => 'eye'
+            , 'task' => 'phpdoc'
+            )
         , array('title' => jgettext('PHPLOC')
-        , 'description' => jgettext('Count the lines of code you have written.')
-        , 'icon' => 'eye'
-        , 'task' => 'phploc'
-        )
+            , 'description' => jgettext('Count the lines of code you have written.')
+            , 'icon' => 'eye'
+            , 'task' => 'phploc'
+            )
         , array('title' => jgettext('Statistics')
-        , 'description' => jgettext('Shows some statistics about your project.')
-        , 'icon' => 'chart'
-        , 'task' => 'stats'
-        )
+            , 'description' => jgettext('Shows some statistics about your project.')
+            , 'icon' => 'chart'
+            , 'task' => 'stats'
+            )
         , array('title' => jgettext('Statistics2')
-        , 'description' => jgettext('Shows some statistics about your project.')
-        , 'icon' => 'chart'
-        , 'task' => 'stats2'
-        )
+            , 'description' => jgettext('Shows some statistics about your project.')
+            , 'icon' => 'chart'
+            , 'task' => 'stats2'
+            )
         , array('title' => jgettext('Reflection')
-        , 'description' => jgettext('Displays information about your project (experimental).')
-        , 'icon' => 'icon'
-        , 'task' => 'reflection'
-        )
+            , 'description' => jgettext('Displays information about your project (experimental).')
+            , 'icon' => 'icon'
+            , 'task' => 'reflection'
+            )
         , array('title' => jgettext('GitHub')
-        , 'description' => jgettext('aaaaaaaaaa')
-        , 'icon' => 'icon'
-        , 'task' => 'git'
-        )
+            , 'description' => jgettext('aaaaaaaaaa')
+            , 'icon' => 'icon'
+            , 'task' => 'git'
+            )
         );
 
+        if('cliapp' == $this->project->type)
+        {
+            $subTasks[] = array('title' => jgettext('CLI Runner')
+            , 'description' => jgettext('Runs a CLI Application')
+            , 'icon' => 'icon'
+            , 'task' => 'runcli'
+            );
+        }
+
         return EcrHtml::getSubBar($subTasks);
-    }//function
+    }
 }//class

@@ -15,7 +15,7 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Views
  */
 class EasyCreatorViewStarter extends JView
@@ -59,8 +59,8 @@ class EasyCreatorViewStarter extends JView
         $tplFolder = JRequest::getCmd('tpl_name');
 
         $desc = isset($this->templateList[$tplType][$tplFolder])
-        ? $this->templateList[$tplType][$tplFolder]->description
-        : '';
+            ? $this->templateList[$tplType][$tplFolder]->description
+            : '';
 
         $project = EcrProjectHelper::newProject('empty');
 
@@ -78,82 +78,84 @@ class EasyCreatorViewStarter extends JView
 
         //-- Credits
         $s = JRequest::getVar('author', '', 'post');
-        $project->author =($s) ? $s : $params->get('cred_author');
+        $project->author = ($s) ? $s : $params->get('cred_author');
         $s = JRequest::getVar('authorEmail', '', 'post');
-        $project->authorEmail =($s) ? $s : $params->get('cred_author_email');
+        $project->authorEmail = ($s) ? $s : $params->get('cred_author_email');
         $s = JRequest::getVar('authorUrl', '', 'post');
-        $project->authorUrl =($s) ? $s : $params->get('cred_author_url');
+        $project->authorUrl = ($s) ? $s : $params->get('cred_author_url');
         $s = JRequest::getVar('license', '', 'post');
-        $project->license =($s) ? $s : $params->get('cred_license');
+        $project->license = ($s) ? $s : $params->get('cred_license');
         $s = JRequest::getVar('copyright', '', 'post');
-        $project->copyright =($s) ? $s : $params->get('cred_copyright');
+        $project->copyright = ($s) ? $s : $params->get('cred_copyright');
 
         $this->assignRef('project', $project);
 
         if($task && method_exists($this, $task))
-        $this->$task();
+            $this->$task();
 
         parent::display($tpl);
 
         EcrHtml::easyFormEnd();
-    }//function
+    }
 
     private function starter()
     {
         $this->setUpInfoLinks();
-    }//function
+    }
 
     private function wizard()
     {
         $this->setUpInfoLinks();
-    }//function
+    }
 
     private function wizard2()
     {
         $this->setLayout('wizard2');
-    }//function
+    }
 
     private function wizard3()
     {
         $this->setLayout('wizard3');
-    }//function
+    }
 
     private function setUpInfoLinks()
     {
         $docBase = 'http://docs.joomla.org/';
 
         $this->infoLinks = array(
-        'component' => array(
-            'Category:Components'
-        => $docBase.'Category:Components'
-        )
+            'component' => array(
+                'Category:Components'
+                => $docBase.'Category:Components'
+            )
 
         , 'module' => array(
-          'Category:Modules' => $docBase.'Category:Modules'
-        , 'Creating a Hello World Module'
-        => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
-        )
+                'Category:Modules' => $docBase.'Category:Modules'
+            , 'Creating a Hello World Module'
+                => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
+            )
 
         , 'plugin' => array(
-          'Category:Plugins' => $docBase.'Category:Plugins'
-        , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
-        , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
-        , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
-        , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
-        , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
-        )
+                'Category:Plugins' => $docBase.'Category:Plugins'
+            , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
+            , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
+            , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
+            , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
+            , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
+            )
 
         , 'template' => array(
-          'Category:Templates' => $docBase.'Category:Templates'
-        , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
-        , 'How to override the output from the Joomla! core'
-        => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
-        , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
-        )
+                'Category:Templates' => $docBase.'Category:Templates'
+            , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
+            , 'How to override the output from the Joomla! core'
+                => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
+            , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
+            )
 
         , 'library' => array()
 
         , 'package' => array()
+
+        , 'cliapp' => array()
         );
-    }//function
+    }
 }//class

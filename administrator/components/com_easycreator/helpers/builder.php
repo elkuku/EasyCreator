@@ -205,6 +205,10 @@ class EcrBuilder extends JObject
                 $this->project->buildPath = $this->_buildDir;
                 break;
 
+            case 'cliapp' :
+                $this->project->comName = strtolower($this->project->name);
+                break;
+
             default:
                 throw new EcrBuilderException(__METHOD__.' - Undefined type : '.$this->project->type);
                 break;
@@ -446,6 +450,11 @@ class EcrBuilder extends JObject
      */
     private function createJoomlaManifest()
     {
+        if('cliapp' == $this->project->type)
+        {
+            return $this;
+        }
+
         $manifest = new EcrManifest;
 
         $this->project->isNew = true;
@@ -459,7 +468,7 @@ class EcrBuilder extends JObject
         else
         {
             throw new EcrBuilderException('Error creating manifest file: '
-            .implode("\n", $manifest->getErrors()), 'Error creating manifest file');
+            .implode("\n", $manifest->getErrors()));
         }
 
         return $this;
@@ -505,7 +514,22 @@ class EcrBuilder extends JObject
             return $this;
         }
 
-        if($this->project->type == 'package')
+        if('cliapp' == $this->project->type)
+        {
+            $src = $this->_buildDir.'/site';
+            $dest = JPATH_COMPONENT_ADMINISTRATOR.'/cliapps/'.$this->project->comName;
+
+            if( ! JFolder::copy($src, $dest))
+                throw new EcrBuilderException(
+                    sprintf('Failed to copy the CLI app from %s to %s', $src, $dest));
+
+            $this->logger->log(
+                sprintf('CLI Application files copied from %s to %s', $src, $dest));
+
+            return $this;
+        }
+
+        if('package' == $this->project->type)
         {
             //-- J! 1.6 package - only copy the manifest xml
             $src = $this->_buildDir.DS.$this->project->getJoomlaManifestName();
