@@ -50,6 +50,43 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.15.4 ----------
+
+2012-03-03
+Bump version 0.0.15.4
+Fix Code style
+Fix fatal error on creating packages - Thanks Douglas Machado
+
+2012-02-26
+Update .gitignore
+Add a CLI runner
+Add a new project type: CLI Application
+
+2012-02-25
+Refactored css ;)
+Refactored css ;)
+Modify .gitignore
+Merge remote branch 'origin/master'
+Formatting
+Cleanup javascript dbtables
+Merge pull request #4 from klauswilms/master
+Klaus Wilms: correcting php short tags
+
+2012-02-24
+Fix the changelogger to include fellow contributers names - Thanks in advance :)
+Language manager fix for J! 2.5
+Update manifest
+Modify db designer in extension startup
+
+2012-02-23
+Merge pull request #3 from klauswilms/master
+
+2012-02-22
+Klaus Wilms: I made some corrections in the php tags. you wrote <?=, but I think its asp? so i changed it to <?php. After the opening php tag I missed the echo command, and at the end before closing tag I missed the semicolon. I test it on a local installation, and it works fine for me.
+
+2012-02-20
+Update changelog
+
 ---------- 0.0.15.3 ----------
 
 2012-02-20
