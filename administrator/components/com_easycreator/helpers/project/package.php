@@ -59,6 +59,18 @@ class EcrProjectPackage extends EcrProject
     }//function
 
     /**
+     * Get a list of known core projects.
+     *
+     * @param string $scope The scope - admin, site. etc.
+     *
+     * @return array
+     */
+    public function getCoreProjects($scope)
+    {
+        return array();
+    }
+
+    /**
      * Get a Joomla! manifest XML file name.
      *
      * @return string File name.
