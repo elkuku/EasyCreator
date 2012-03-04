@@ -13,9 +13,8 @@ defined('_JEXEC') || die('=;)');
 /**
  * Database updater.
  *
- * @property-get array  $versions Available versions for the update.
+ * @property array  $versions Available versions for the update.
  * @property-get string $tmpPath  The temporary path.
- *
  */
 class EcrDbUpdater
 {

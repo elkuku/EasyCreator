@@ -99,7 +99,7 @@ foreach ($jVersions as $v) : ?>
                             <div id="<?php echo $htmlId; ?>_files"></div>
                         </div>
                         <script type="text/javascript">
-                            <?php echo $htmlId; ?> = new Fx.Slide('<?php echo $htmlId; ?>');
+                            <?php echo $htmlId.' = new Fx.Slide(\''.$htmlId.'\');'; ?>
                             <?php echo $htmlId; ?>.hide();
                         </script>
                     </div>

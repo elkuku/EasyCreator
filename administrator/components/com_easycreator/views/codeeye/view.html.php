@@ -171,8 +171,6 @@ class EasyCreatorViewCodeEye extends JView
      */
     protected function reflection()
     {
-        $this->project = $this->project;
-
         $this->setLayout('reflection');
     }
 

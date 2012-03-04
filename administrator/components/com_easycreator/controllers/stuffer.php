@@ -150,6 +150,7 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Create a new relation for tables.
      *
+     * @throws Exception
      * @return void
      */
     public function new_relation()
@@ -202,6 +203,7 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Updates AutoCode.
      *
+     * @throws Exception
      * @return void
      */
     public function autocode_update()
@@ -693,6 +695,7 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Creates install files.
      *
+     * @throws Exception
      * @return void
      */
     public function create_install_file()
