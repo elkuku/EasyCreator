@@ -619,9 +619,8 @@ abstract class EcrProject extends JObject
 
         $root = '';
         $root .= '<?xml version="1.0" encoding="UTF-8"?>'.NL;
-        $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14.1//DTD project 1.0//EN"'.NL;
-        $root .= '"http://joomlacode.org/gf/project/elkuku/scmsvn/?action=browse'
-        .'&path=/*checkout*/dtd/easycreator/0.0.14.1/project.dtd">';
+        $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project 1.0//EN"'.NL;
+        $root .= '"http://elkuku.github.com/dtd/easycreator/0.0.14/project.dtd">';
 
         $output = $root.$xml->asFormattedXML();
 
