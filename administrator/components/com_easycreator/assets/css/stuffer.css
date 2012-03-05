@@ -61,11 +61,13 @@ div.closeButton {
     padding: 0.3em;
     font-weight: bold;
     float: right;
+    border-radius: 3px;
 }
 
 div.closeButton:hover {
     cursor: pointer;
-    background-color: #e5ff99;;
+    box-shadow: 0 0 6px orange;
+    background-color: #eee;
 }
 
 div#addBox {

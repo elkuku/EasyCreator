@@ -87,9 +87,11 @@ class EcrProjectModule extends EcrProject
     /**
      * Gets the paths to language files.
      *
+     * @param string $scope
+     *
      * @return array
      */
-    public function getLanguagePaths()
+    public function getLanguagePaths($scope = '')
     {
         $paths = array();
         $scope =($this->scope == 'admin') ? 'admin' : 'site';
@@ -101,9 +103,11 @@ class EcrProjectModule extends EcrProject
     /**
      * Get the name for language files.
      *
+     * @param string $scope
+     *
      * @return string
      */
-    public function getLanguageFileName()
+    public function getLanguageFileName($scope = '')
     {
         return $this->comName.'.ini';
     }//function

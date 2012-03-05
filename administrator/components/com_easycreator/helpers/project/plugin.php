@@ -83,9 +83,11 @@ class EcrProjectPlugin extends EcrProject
     /**
      * Gets the paths to language files.
      *
+     * @param string $scope
+     *
      * @return array
      */
-    public function getLanguagePaths()
+    public function getLanguagePaths($scope = '')
     {
         $paths = array();
 
@@ -98,9 +100,11 @@ class EcrProjectPlugin extends EcrProject
     /**
      * Get the name for language files.
      *
+     * @param string $scope
+     *
      * @return string
      */
-    public function getLanguageFileName()
+    public function getLanguageFileName($scope = '')
     {
         return 'plg_'.$this->scope.'_'.$this->comName.'.ini';
     }//function

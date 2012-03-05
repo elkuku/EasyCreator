@@ -434,6 +434,8 @@ function drawFileTree(EcrProject $project)
 
                 if($dirName != $oldDir)
                 {
+                    $d = str_replace(JPATH_ROOT, '', $dir);
+                    $dspl = str_replace(DS, ' '.DS.' ', $d);
                     $ret .= '<div class="file_tree_path"><strong>JROOT</strong>'.BR.$dspl.'</div>';
                 }
 

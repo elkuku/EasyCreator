@@ -139,6 +139,8 @@ class EcrProjectMatrix extends JFolder
 
         $this->projectData['images']['files'] = 0;
         $this->projectData['images']['size'] = 0;
+
+        return $this;
     }//function
 
     /**
@@ -176,6 +178,12 @@ class EcrProjectMatrix extends JFolder
             {
                 //-- It's a file
                 //... @todo ?
+                //-- Process known extensions
+                foreach($this->fileExtensions as $ext)
+                {
+                    $data = $this->getCodeLines($copy, $ext);
+                    $this->addData($data, $ext);
+                }//foreach
             }
         }//foreach
 
@@ -197,6 +205,8 @@ class EcrProjectMatrix extends JFolder
                 $this->addData($data, 'languages');
             }//foreach
         }//foreach
+
+        return $this;
     }//function
 
     /**
@@ -253,10 +263,13 @@ class EcrProjectMatrix extends JFolder
         $ratioBlanks = 0;
         $ratioComments = 0;
 
-        $ratio = array();
+  //      $ratio = array();
 
         foreach($files as $fileName)
         {
+            if($ext != JFile::getExt($fileName))
+                continue;
+
             $buffer = explode("\n", JFile::read($fileName));
 
             if(array_key_exists($ext, $this->codeRatioTypes))

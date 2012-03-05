@@ -15,7 +15,7 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Views
  */
 class EasyCreatorViewStuffer extends JView
@@ -29,11 +29,13 @@ class EasyCreatorViewStuffer extends JView
      * @var string
      */
     protected $ecr_project;
+
     /**
      * Standard display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
+     * @throws Exception
      * @return void
      */
     public function display($tpl = null)
@@ -48,7 +50,8 @@ class EasyCreatorViewStuffer extends JView
             $this->project = EcrProjectHelper::getProject();
 
             if('package' == $this->project->type
-            && ! $this->project->creationDate)
+                && ! $this->project->creationDate
+            )
             {
                 //-- This is a hack to detect that a package has no install manifest :(
                 throw new Exception(jgettext('Invalid project'));
@@ -61,7 +64,7 @@ class EasyCreatorViewStuffer extends JView
             EcrHtml::easyFormEnd();
 
             return;
-        }//try
+        }
 
         $task = JRequest::getCmd('task', 'stuffer');
         $tmpl = JRequest::getCmd('tmpl');
@@ -70,8 +73,9 @@ class EasyCreatorViewStuffer extends JView
         JRequest::setVar('controller', 'stuffer');
 
         if($task != 'display_snip'
-        && $task != 'aj_reflection'
-        && $tmpl != 'component')
+            && $task != 'aj_reflection'
+            && $tmpl != 'component'
+        )
         {
             //-- Draw h1 header
             EcrHtml::header(jgettext('Configure'), $this->project, 'ecr_config');
@@ -96,7 +100,7 @@ class EasyCreatorViewStuffer extends JView
         else
         {
             if($task)
-            echo 'UNDEFINED..'.$task.'<br />';
+                echo 'UNDEFINED..'.$task.'<br />';
 
             $this->stuffer();
         }
@@ -107,7 +111,7 @@ class EasyCreatorViewStuffer extends JView
         parent::display($tpl);
 
         EcrHtml::easyFormEnd();
-    }//function
+    }
 
     /**
      * Displays the submenu.
@@ -119,36 +123,44 @@ class EasyCreatorViewStuffer extends JView
     private function displayBar($task)
     {
         $subtasks = array(
-        array('title' => jgettext('Building')
-        , 'description' => jgettext('Shows options for building your project like credits, files and folders to copy, languages and admin menu.')
-        , 'icon' => 'ecr_config'
-        , 'task' => 'stuffer'
-        )
+            array('title' => jgettext('Building')
+            , 'description' => jgettext('Shows options for building your project like credits, files and folders to copy, languages and admin menu.')
+            , 'icon' => 'ecr_config'
+            , 'task' => 'stuffer'
+            )
         , array('title' => jgettext('Files')
-        , 'description' => jgettext('Shows all the files belonging to your project')
-        , 'icon' => 'directory'
-        , 'task' => 'files'
+            , 'description' => jgettext('Shows all the files belonging to your project')
+            , 'icon' => 'directory'
+            , 'task' => 'files'
+            )
+        );
+
+        if('cliapp' != $this->project->type
+            && 'webapp' != $this->project->type
         )
-        , array('title' => jgettext('Installing')
-        , 'description' => jgettext('Create and modify install and uninstall files for your project.')
-        , 'icon' => 'installfolder'
-        , 'task' => 'install'
-        )
-        , array('title' => jgettext('Parameters')
-        , 'description' => jgettext('Modify your project parameters stored in XML files.')
-        , 'icon' => 'ecr_params'
-        , 'task' => 'projectparams'
-        )
-        , array('title' => jgettext('DataDesigner')
-        , 'description' => jgettext('Automated source code and db creation for your project.')
-        , 'icon' => 'ecr_db'
-        , 'task' => 'tables'
-        )
-        , array('title' => jgettext('Remove Project')
+        {
+            $subtasks[] = array('title' => jgettext('Installing')
+            , 'description' => jgettext('Create and modify install and uninstall files for your project.')
+            , 'icon' => 'installfolder'
+            , 'task' => 'install'
+            );
+            $subtasks[] = array('title' => jgettext('Parameters')
+            , 'description' => jgettext('Modify your project parameters stored in XML files.')
+            , 'icon' => 'ecr_params'
+            , 'task' => 'projectparams'
+            );
+
+            $subtasks[] = array('title' => jgettext('DataDesigner')
+            , 'description' => jgettext('Automated source code and db creation for your project.')
+            , 'icon' => 'ecr_db'
+            , 'task' => 'tables'
+            );
+        }
+
+        $subtasks[] = array('title' => jgettext('Remove Project')
         , 'description' => jgettext('This will your delete your project.')
         , 'icon' => 'delete'
         , 'task' => 'projectdelete'
-        )
         );
 
         $rightTasks = array();
@@ -162,7 +174,7 @@ class EasyCreatorViewStuffer extends JView
         }
 
         return EcrHtml::getSubBar($subtasks, $rightTasks);
-    }//function
+    }
 
     /**
      * Stuffer View.
@@ -175,12 +187,12 @@ class EasyCreatorViewStuffer extends JView
         $this->installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         $this->setLayout('stuffer');
-    }//function
+    }
 
     private function new_element()
     {
         $this->files();
-    }//function
+    }
 
     /**
      * Files View.
@@ -192,7 +204,7 @@ class EasyCreatorViewStuffer extends JView
         ecrScript('addelement');
 
         $this->setLayout('files');
-    }//function
+    }
 
     /**
      * Install View.
@@ -204,7 +216,7 @@ class EasyCreatorViewStuffer extends JView
         $this->installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         $this->setLayout('install');
-    }//function
+    }
 
     /**
      * Delete project View.
@@ -214,7 +226,7 @@ class EasyCreatorViewStuffer extends JView
     private function projectdelete()
     {
         $this->setLayout('deleteconfirm');
-    }//function
+    }
 
     /**
      * Project parameters View.
@@ -238,14 +250,14 @@ class EasyCreatorViewStuffer extends JView
                     foreach($files as $file)
                     {
                         $xmlFiles[] = substr($file, strlen(JPATH_ROOT) + 1);
-                    }//foreach
+                    }
                 }
             }
             else if(JFile::getExt($path) == 'xml')
             {
                 $xmlFiles[] = substr($path, strlen(JPATH_ROOT) + 1);
             }
-        }//foreach
+        }
 
         if(in_array($selected_xml, $xmlFiles))
         {
@@ -265,22 +277,22 @@ class EasyCreatorViewStuffer extends JView
                 default:
                     EcrHtml::displayMessage(__METHOD__.' - Undefined J! version', 'error');
 
-                return false;
-                break;
-            }//switch
+                    return false;
+                    break;
+            }
         }
 
         $options = array();
         $options[] = JHTML::_('select.option', '', jgettext('Select'));
 
-        for($i = 1; $i < count($xmlFiles) + 1; $i++)
+        for($i = 1; $i < count($xmlFiles) + 1; $i ++)
         {
             $options[$i] = JHTML::_('select.option', $xmlFiles[$i - 1]);
-        }//for
+        }
 
         $xmlSelector = JHTML::_('select.genericlist', $options, 'selected_xml'
-        , 'style="font-size: 1.3em;" onchange="submitbutton(\''.JRequest::getCmd('task').'\');"'
-        , 'value', 'text', $selected_xml);
+            , 'style="font-size: 1.3em;" onchange="submitbutton(\''.JRequest::getCmd('task').'\');"'
+            , 'value', 'text', $selected_xml);
         $this->assignRef('xmlSelector', $xmlSelector);
 
         $this->assignRef('selected_xml', $selected_xml);
@@ -288,10 +300,10 @@ class EasyCreatorViewStuffer extends JView
         $layout = 'projectparams';
 
         if('1.5' == ECR_JVERSION)
-        $layout .= '_15';
+            $layout .= '_15';
 
         $this->setLayout($layout);
-    }//function
+    }
 
     /**
      * Tables View.
@@ -303,7 +315,7 @@ class EasyCreatorViewStuffer extends JView
         ecrScript('addelement');
 
         $this->setLayout('tables');
-    }//function
+    }
 
     /**
      * Register table View.
@@ -313,7 +325,7 @@ class EasyCreatorViewStuffer extends JView
     private function register_table()
     {
         $this->tables();
-    }//function
+    }
 
     /**
      * Create table View.
@@ -323,7 +335,7 @@ class EasyCreatorViewStuffer extends JView
     private function createTable()
     {
         $this->setLayout('tables');
-    }//function
+    }
 
     /**
      * Display snippet View.
@@ -336,7 +348,7 @@ class EasyCreatorViewStuffer extends JView
         $start = JRequest::getInt('start');
         $end = JRequest::getInt('end');
 
-        if( ! JFile::exists($path))
+        if(! JFile::exists($path))
         {
             echo '<div class="ebc_error" align="center">'.jgettext('File not found').'</div>';
             echo $path;
@@ -360,7 +372,7 @@ class EasyCreatorViewStuffer extends JView
         }
 
         $this->setLayout('snippet');
-    }//function
+    }
 
     /**
      * Draws a list of related links.
@@ -370,14 +382,14 @@ class EasyCreatorViewStuffer extends JView
     public function drawDocLinks()
     {
         $docLinks = array(
-        'Standard parameter types' => 'http://docs.joomla.org/Standard_parameter_types'
+            'Standard parameter types' => 'http://docs.joomla.org/Standard_parameter_types'
         , 'Reference: XML parameters'
-        => 'http://dev.joomla.org/component/option,com_jd-wiki/Itemid,/id,references:xml_parameters/'
+            => 'http://dev.joomla.org/component/option,com_jd-wiki/Itemid,/id,references:xml_parameters/'
         , 'Component parameters' => 'http://docs.joomla.org/Component_parameters'
         , 'Defining a parameter in templateDetails.xml'
-        => 'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
+            => 'http://docs.joomla.org/Defining_a_parameter_in_templateDetails.xml'
         , 'Creating custom template parameter types'
-        => 'http://docs.joomla.org/Creating_custom_template_parameter_types'
+            => 'http://docs.joomla.org/Creating_custom_template_parameter_types'
         );
 
         $ret = '';
@@ -390,11 +402,12 @@ class EasyCreatorViewStuffer extends JView
         foreach($docLinks as $title => $link)
         {
             $ret .= '<li><a class="external" href="'.$link.'" target="_blank" />'.$title.'</a></li>';
-        }//foreach
+        }
+
         $ret .= '</ul>';
         $ret .= '</div>';
         $ret .= '<br />';
 
         return $ret;
-    }//function
+    }
 }//class

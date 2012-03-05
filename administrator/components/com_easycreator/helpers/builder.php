@@ -50,7 +50,7 @@ class EcrBuilder extends JObject
      *
      * @param string $type Project type (component, plugin...)
      * @param string $template Name of the extension template
-     * @param string $name Babys name
+     * @param string $name Baby's name
      *
      * @return EcrProject on success | false on error.
      */
@@ -135,6 +135,7 @@ class EcrBuilder extends JObject
     /**
      * Setup the builder.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function setUp()
@@ -161,6 +162,7 @@ class EcrBuilder extends JObject
     /**
      * Setup the project.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function setUpProject()
@@ -206,6 +208,7 @@ class EcrBuilder extends JObject
                 break;
 
             case 'cliapp' :
+            case 'webapp' :
                 $this->project->comName = strtolower($this->project->name);
                 break;
 
@@ -318,6 +321,7 @@ class EcrBuilder extends JObject
     /**
      * Create the build directory.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function createBuildDir()
@@ -343,6 +347,7 @@ class EcrBuilder extends JObject
     /**
      * Copy the files.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function copyFiles()
@@ -388,6 +393,7 @@ class EcrBuilder extends JObject
     /**
      * Process additional options.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function processMoreOptions()
@@ -446,20 +452,16 @@ class EcrBuilder extends JObject
     /**
      * Create the Joomla! manifest.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function createJoomlaManifest()
     {
-        if('cliapp' == $this->project->type)
-        {
-            return $this;
-        }
-
         $manifest = new EcrManifest;
 
         $this->project->isNew = true;
         $this->project->basepath = $this->_buildDir;
-        $this->project->creationDate = date("d-M-Y");
+        $this->project->creationDate = date('d-M-Y');
 
         if($manifest->create($this->project))
         {
@@ -477,6 +479,7 @@ class EcrBuilder extends JObject
     /**
      * Create the EasyCreator manifest.
      *
+     * @throws EcrBuilderException
      * @return boolean true on success
      */
     private function createEasyCreatorManifest()
@@ -502,6 +505,7 @@ class EcrBuilder extends JObject
     /**
      * Installs an extension with the standard Joomla! installer.
      *
+     * @throws EcrBuilderException
      * @return EcrBuilder
      */
     private function install()
@@ -514,17 +518,25 @@ class EcrBuilder extends JObject
             return $this;
         }
 
-        if('cliapp' == $this->project->type)
+        if('cliapp' == $this->project->type
+        || 'webapp' == $this->project->type)
         {
             $src = $this->_buildDir.'/site';
-            $dest = JPATH_COMPONENT_ADMINISTRATOR.'/cliapps/'.$this->project->comName;
+            $dest = $this->project->getExtensionPath();// JPATH_COMPONENT_ADMINISTRATOR.'/cliapps/'.$this->project->comName;
 
             if( ! JFolder::copy($src, $dest))
                 throw new EcrBuilderException(
-                    sprintf('Failed to copy the CLI app from %s to %s', $src, $dest));
+                    sprintf('Failed to copy the JApplication from %s to %s', $src, $dest));
 
             $this->logger->log(
-                sprintf('CLI Application files copied from %s to %s', $src, $dest));
+                sprintf('JApplication files copied from %s to %s', $src, $dest));
+
+            $src = $this->_buildDir.DS.$this->project->getJoomlaManifestName();
+            $dest = $this->project->getJoomlaManifestPath().DS.$this->project->getJoomlaManifestName();
+
+            if( ! JFile::copy($src, $dest))
+                throw new EcrBuilderException(
+                    sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
 
             return $this;
         }

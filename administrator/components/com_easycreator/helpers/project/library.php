@@ -80,9 +80,11 @@ class EcrProjectLibrary extends EcrProject
     /**
      * Gets the paths to language files.
      *
+     * @param string $scope
+     *
      * @return array
      */
-    public function getLanguagePaths()
+    public function getLanguagePaths($scope = '')
     {
         return array('site' => JPATH_SITE);
     }//function
@@ -90,9 +92,11 @@ class EcrProjectLibrary extends EcrProject
     /**
      * Get the name for language files.
      *
+     * @param string $scope
+     *
      * @return string
      */
-    public function getLanguageFileName()
+    public function getLanguageFileName($scope = '')
     {
         return $this->prefix.$this->comName.'.ini';
     }//function

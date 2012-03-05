@@ -40,6 +40,7 @@ class EcrProjectHelper
                 'lib' => 'library'
                 , 'pkg' => 'package'
                 , 'cap' => 'cliapp'
+                , 'wap' => 'webapp'
                 );
                 break;
 
@@ -54,9 +55,10 @@ class EcrProjectHelper
     /**
      * Get an EasyCreator project.
      *
-     * @param string $name Project name.
+     * @param string  $name   Project name.
      * @param boolean $reload Reload the project.
      *
+     * @throws Exception
      * @return EcrProject [EcrProject project on success | boolean false on error]
      */
     public static function getProject($name = '', $reload = false)
@@ -93,8 +95,7 @@ class EcrProjectHelper
 
         if( ! $project->dbId)
         {
-            if('package' != $project->type
-            && 'cliapp' != $project->type)
+            if('package' != $project->type)
             //-- All projects *except packages* must be installed in the database
             //return $project;
             throw new Exception(sprintf(jgettext('Project %s not found'), $name));
@@ -290,7 +291,7 @@ class EcrProjectHelper
      *
      * @param string $path Path to xml file
      *
-     * @return mixed array credits data | boolean false on error
+     * @return JXMLElement on success | false on error
      */
     public static function parseXMLInstallFile($path)
     {
@@ -436,6 +437,7 @@ class EcrProjectHelper
         , 'template' => array(jgettext('Templates'), jgettext('Template'))
 
         , 'cliapp' => array(jgettext('CLI Applications'), jgettext('CLI Application'))
+        , 'webapp' => array(jgettext('Web Applications'), jgettext('Web Application'))
         );
 
         //-- Degfined for automated plural translations
@@ -449,6 +451,7 @@ class EcrProjectHelper
             jngettext('%d Template', '%d Templates', 0);
 
             jngettext('%d CLI Application', '%d CLI Applications', 0);
+            jngettext('%d Web Application', '%d Web Applications', 0);
         }
 
         //-- Get a list of J! installer adapters
@@ -474,6 +477,7 @@ class EcrProjectHelper
         }//foreach
 
         $types['cliapp'] = $comTypes['cliapp'][0];
+        $types['webapp'] = $comTypes['webapp'][0];
 
         return $types;
     }//function

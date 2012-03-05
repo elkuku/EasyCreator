@@ -67,6 +67,7 @@ class EcrProjectComponent extends EcrProject
      *
      * @param string $scope The scope - admin, site. etc.
      *
+     * @throws Exception
      * @return array
      */
     public function getLanguagePaths($scope = '')

@@ -44,7 +44,7 @@ class EcrProjectPackage extends EcrProject
     public function getJoomlaManifestPath()
     {
         return JPATH_MANIFESTS.DS.'packages';
-    }//function
+    }
 
     /**
      * Get the extension base path.
@@ -56,7 +56,7 @@ class EcrProjectPackage extends EcrProject
         //-- Varies =;)
 
         return '';
-    }//function
+    }
 
     /**
      * Get a list of known core projects.
@@ -78,7 +78,27 @@ class EcrProjectPackage extends EcrProject
     public function getJoomlaManifestName()
     {
         return $this->comName.'.xml';
-    }//function
+    }
+
+    /**
+     * Get the project Id.
+     *
+     * @return int Id
+     */
+    public function getId()
+    {
+        $db = JFactory::getDbo();
+
+        $query = $db->getQuery(true)
+            ->from('#__extensions AS e')
+            ->select('e.extension_id')
+            ->where('e.element = '.$db->quote($this->comName))
+            ->where('e.type = '.$db->quote('package'));
+
+        $db->setQuery($query);
+
+        return $db->loadResult();
+    }
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -88,7 +108,7 @@ class EcrProjectPackage extends EcrProject
     public function getEcrXmlFileName()
     {
         return $this->comName.'.xml';
-    }//function
+    }
 
     /**
      * Get a common file name.
@@ -98,7 +118,7 @@ class EcrProjectPackage extends EcrProject
     public function getFileName()
     {
         return $this->comName;
-    }//function
+    }
 
     /**
      * Find all files and folders belonging to the project.
@@ -110,7 +130,7 @@ class EcrProjectPackage extends EcrProject
     public function findCopies()
     {
         return array();
-    }//function
+    }
 
     /**
      * Discover all projects.
@@ -122,5 +142,52 @@ class EcrProjectPackage extends EcrProject
     public function getAllProjects($scope)
     {
         return array();
-    }//function
+    }
+
+    /**
+     * Gets the DTD for the extension type.
+     *
+     * @param string $jVersion Joomla! version
+     *
+     * @return mixed [array index array on success | false if not found]
+     */
+    public function getDTD($jVersion)
+    {
+        return false;
+    }
+
+    /**
+     * Gets the language scopes for the extension type.
+     *
+     * @return array Indexed array.
+     */
+    public function getLanguageScopes()
+    {
+        return array();
+    }
+
+    /**
+     * Get the name for language files.
+     *
+     * @param string $scope The scope - admin, site. etc.
+     *
+     * @return string
+     */
+    public function getLanguageFileName($scope = '')
+    {
+        return '';
+    }
+
+    /**
+     * Gets the paths to language files.
+     *
+     * @param string $scope The scope - admin, site. etc.
+     *
+     * @throws Exception
+     * @return array
+     */
+    public function getLanguagePaths($scope = '')
+    {
+        return array();
+    }
 }//class

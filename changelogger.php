@@ -33,7 +33,7 @@ foreach($tags as $tag)
 
         $message = substr($line, 11);
 
-        //-- Remove myself ;)
+        //-- Remove myself =;)
         $message = str_replace('Nikolai Plath: ', '', $message);
 
         if($date != $actDate)

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -7,15 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
- * Project definitions.
+ * Project base class.
  */
 abstract class EcrProject extends JObject
 {
-    //-- Removed in 1.6
+    //-- Removed in 1.6 - could be reintroduced in J! 3.0
     public $legacy = false;
 
     public $method = '';
@@ -102,6 +99,11 @@ abstract class EcrProject extends JObject
     public $isValid = true;
 
     /**
+     * @var bool If the project is installable through the Joomla! installer.
+     */
+    public $isInstallable = true;
+
+    /**
      * @var string
      */
     public $headerType;
@@ -113,8 +115,9 @@ abstract class EcrProject extends JObject
      */
     public function __construct($name = '')
     {
-        if( ! $name
-        || ! $this->readProjectXml($name))
+        if(! $name
+            || ! $this->readProjectXml($name)
+        )
         {
             return;
         }
@@ -123,33 +126,125 @@ abstract class EcrProject extends JObject
         $this->langs = EcrLanguageHelper::discoverLanguages($this);
 
         if($this->type == 'component')
-        $this->readMenu();
+            $this->readMenu();
 
         $this->readJoomlaXml();
         $this->dbId = $this->getId();
-    }//function
+    }
 
-    // @codingStandardsIgnoreStart
+    /**
+     * Find all files and folders belonging to the project.
+     *
+     * @return array
+     */
+    abstract public function findCopies();
 
-    public abstract function findCopies();
+    /**
+     * Gets the language scopes for the extension type.
+     *
+     * @return array Indexed array.
+     */
+    abstract public function getLanguageScopes();
 
-    public function getLanguageScopes() {}
-    public function getLanguagePaths() {}
-    public function getLanguageFileName() {}
-    public function getJoomlaManifestPath() {}
-    public function getJoomlaManifestName() {}
-    public function getDTD($jVersion) {}
-    public function getEcrXmlFileName() {}
-    public function getId() {}
+    /**
+     * Gets the paths to language files.
+     *
+     * @param string $scope The scope - admin, site. etc.
+     *
+     * @throws Exception
+     * @return array
+     */
+    abstract public function getLanguagePaths($scope = '');
+
+    /**
+     * Get the name for language files.
+     *
+     * @param string $scope The scope - admin, site. etc.
+     *
+     * @return string
+     */
+    abstract public function getLanguageFileName($scope = '');
+
+    /**
+     * Get the path for the Joomla! XML manifest file.
+     *
+     * @return string
+     */
+    abstract public function getJoomlaManifestPath();
+
+    /**
+     * Get a Joomla! manifest XML file name.
+     *
+     * @return string
+     */
+    abstract public function getJoomlaManifestName();
+
+    /**
+     * Gets the DTD for the extension type.
+     *
+     * @param string $jVersion Joomla! version
+     *
+     * @return mixed [array index array on success | false if not found]
+     */
+    abstract public function getDTD($jVersion);
+
+    /**
+     * Get a file name for a EasyCreator setup XML file.
+     *
+     * @return string
+     */
+    abstract public function getEcrXmlFileName();
+
+    /**
+     * Get the project Id.
+     *
+     * @return int Id
+     */
+    abstract public function getId();
+
+    /**
+     * Get the extension base path.
+     *
+     * @return string
+     */
     abstract public function getExtensionPath();
+
+    /**
+     * Discover all projects.
+     *
+     * @param $scope
+     *
+     * @return array
+     */
     abstract public function getAllProjects($scope);
+
+    /**
+     * Get a list of known core projects.
+     *
+     * @param string $scope The scope - admin, site. etc.
+     *
+     * @return array
+     */
     abstract public function getCoreProjects($scope);
-    protected function readMenu(){}
 
+    /**
+     * Read the J! main menu entries for a component from the core components table.
+     *
+     * @return void
+     */
+    protected function readMenu()
+    {
+    }
 
-    protected function updateAdminMenu() { return true; }
-
-    // @codingStandardsIgnoreEnd
+    /**
+     * Updates the administration main menu.
+     *
+     * @return boolean
+     */
+    protected function updateAdminMenu()
+    {
+        return true;
+    }
 
     /**
      * Read the Joomla! XML setup file.
@@ -160,7 +255,7 @@ abstract class EcrProject extends JObject
     {
         $fileName = EcrProjectHelper::findManifest($this);
 
-        if( ! $fileName)
+        if(! $fileName)
         {
             $this->isValid = false;
 
@@ -169,18 +264,18 @@ abstract class EcrProject extends JObject
 
         $data = EcrProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$fileName);
 
-        if( ! $data)
-        return false;
+        if(! $data)
+            return false;
 
         $this->method = (string)$data->attributes()->method;
 
         foreach($data as $key => $value)
         {
             $this->$key = (string)$value;
-        }//foreach
+        }
 
         return true;
-    }//function
+    }
 
     /**
      * Update project settings.
@@ -192,7 +287,7 @@ abstract class EcrProject extends JObject
     public function update($testMode = false)
     {
         return $this->writeProjectXml($testMode);
-    }//function
+    }
 
     /**
      * This will update the config file.
@@ -220,7 +315,7 @@ abstract class EcrProject extends JObject
             $m->ordering = $item['ordering'];
 
             $this->modules[] = $m;
-        }//foreach
+        }
 
         //-- Package plugins
         $this->plugins = array();
@@ -235,10 +330,10 @@ abstract class EcrProject extends JObject
             $m->ordering = $item['ordering'];
 
             $this->plugins[] = $m;
-        }//foreach
+        }
 
         $packageElements = (string)JRequest::getVar('package_elements');
-        $packageElements =($packageElements) ? explode(',', $packageElements) : array();
+        $packageElements = ($packageElements) ? explode(',', $packageElements) : array();
 
         if(count($packageElements))
         {
@@ -247,7 +342,7 @@ abstract class EcrProject extends JObject
             foreach($packageElements as $element)
             {
                 $this->elements[$element] = $element;
-            }//foreach
+            }
         }
 
         //-- Process credit vars
@@ -257,21 +352,21 @@ abstract class EcrProject extends JObject
             {
                 $this->$name = $var;
             }
-        }//foreach
+        }
 
         //-- Method special treatment for checkboxes
-        $this->method =(isset($buildVars['method'])) ? $buildVars['method'] : '';
-        $this->buildOpts['lng_separate_javascript'] =(in_array('lng_separate_javascript', $buildOpts)) ? 'ON' : 'OFF';
+        $this->method = (isset($buildVars['method'])) ? $buildVars['method'] : '';
+        $this->buildOpts['lng_separate_javascript'] = (in_array('lng_separate_javascript', $buildOpts)) ? 'ON' : 'OFF';
 
         //-- Build options
-        $this->buildOpts['archive_zip'] =(in_array('archive_zip', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['archive_tgz'] =(in_array('archive_tgz', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['archive_bz2'] =(in_array('archive_bz2', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_indexhtml'] =(in_array('create_indexhtml', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_md5'] =(in_array('create_md5', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_md5_compressed'] =(in_array('create_md5_compressed', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['include_ecr_projectfile'] =(in_array('include_ecr_projectfile', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['remove_autocode'] =(in_array('remove_autocode', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['archive_zip'] = (in_array('archive_zip', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['archive_tgz'] = (in_array('archive_tgz', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['archive_bz2'] = (in_array('archive_bz2', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['create_indexhtml'] = (in_array('create_indexhtml', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['create_md5'] = (in_array('create_md5', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['create_md5_compressed'] = (in_array('create_md5_compressed', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['include_ecr_projectfile'] = (in_array('include_ecr_projectfile', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['remove_autocode'] = (in_array('remove_autocode', $buildOpts)) ? 'ON' : 'OFF';
 
         $this->updateServers = array();
 
@@ -287,26 +382,26 @@ abstract class EcrProject extends JObject
                 $u->type = $updateServers['type'][$i];
                 $u->url = $updateServers['url'][$i];
                 $this->updateServers[$i] = $u;
-            }//foreach
+            }
         }
 
         $this->JCompat = JRequest::getString('jcompat');
 
-        if( ! $this->writeProjectXml())
+        if(! $this->writeProjectXml())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update EasyCreator manifest'), 'error');
 
             return false;
         }
 
-        if( ! $this->writeJoomlaManifest())
+        if(! $this->writeJoomlaManifest())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Joomla! manifest'), 'error');
 
             return false;
         }
 
-        if( ! $this->updateAdminMenu())
+        if(! $this->updateAdminMenu())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
@@ -314,7 +409,7 @@ abstract class EcrProject extends JObject
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Write the Joomla! manifest file.
@@ -326,7 +421,7 @@ abstract class EcrProject extends JObject
         $installXML = EcrProjectHelper::findManifest($this);
 
         $xmlBuildVars = array(
-        'version'
+            'version'
         , 'description'
         , 'author'
         , 'authorEmail'
@@ -337,7 +432,7 @@ abstract class EcrProject extends JObject
 
         $manifest = EcrProjectHelper::getXML(JPATH_ROOT.DS.$installXML);
 
-        if( ! $manifest)
+        if(! $manifest)
         {
             JFactory::getApplication()->enqueueMessage(
                 sprintf(jgettext('Can not load xml file %s'), $installXML), 'error');
@@ -369,7 +464,7 @@ abstract class EcrProject extends JObject
         foreach($xmlBuildVars as $xmlName)
         {
             $manifest->$xmlName = $this->$xmlName;
-        }//foreach
+        }
 
         $dtd = $this->getDTD($this->JCompat);
 
@@ -384,7 +479,7 @@ abstract class EcrProject extends JObject
         $output = $root.$manifest->asFormattedXML();
 
         //-- Write XML file to disc
-        if( ! JFile::write(JPATH_ROOT.DS.$installXML, $output))
+        if(! JFile::write(JPATH_ROOT.DS.$installXML, $output))
         {
             JFactory::getApplication()->enqueueMessage(
                 jgettext('Unable to write file'), 'error');
@@ -404,7 +499,7 @@ abstract class EcrProject extends JObject
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Updates the EasyCreator configuration file for the project.
@@ -416,11 +511,11 @@ abstract class EcrProject extends JObject
     public function writeProjectXml($testMode = false)
     {
         $xml = EcrProjectHelper::getXML('<easyproject'
-            .' type="'.$this->type.'"'
-            .' scope="'.$this->scope.'"'
-            .' version="'.ECR_VERSION.'"'
-            .' tpl="'.$this->fromTpl
-            .'" />'
+                .' type="'.$this->type.'"'
+                .' scope="'.$this->scope.'"'
+                .' version="'.ECR_VERSION.'"'
+                .' tpl="'.$this->fromTpl
+                .'" />'
             , false);
 
         $xml->addChild('name', $this->name);
@@ -460,7 +555,7 @@ abstract class EcrProject extends JObject
                 {
                     $modElement->addAttribute('ordering', $module->ordering);
                 }
-            }//foreach
+            }
         }
 
         //-- Package Plugins
@@ -483,7 +578,7 @@ abstract class EcrProject extends JObject
                 {
                     $modElement->addAttribute('ordering', $plugin->ordering);
                 }
-            }//foreach
+            }
         }
 
         //-- Tables
@@ -519,10 +614,10 @@ abstract class EcrProject extends JObject
 
                             $aliasElement->addChild('name', $alias->alias);
                             $aliasElement->addChild('field', $alias->aliasField);
-                        }//foreach
-                    }//foreach
+                        }
+                    }
                 }
-            }//foreach
+            }
         }
 
         //-- AutoCodes
@@ -547,7 +642,7 @@ abstract class EcrProject extends JObject
                         $option = (string)$option;
                         $optionElement = $optionsElement->addChild('option', $option);
                         $optionElement->addAttribute('name', $key);
-                    }//foreach
+                    }
                 }
 
                 if(count($autoCode->fields))
@@ -569,15 +664,15 @@ abstract class EcrProject extends JObject
 
                             foreach($oVars as $oKey => $oValue)
                             {
-                                if( ! $oValue)
-                                continue;
+                                if(! $oValue)
+                                    continue;
 
                                 $fieldElement->addChild($oKey, $oValue);
-                            }//foreach
-                        }//foreach
-                    }//foreach
+                            }
+                        }
+                    }
                 }
-            }//foreach
+            }
         }
 
         if($this->type == 'package')
@@ -588,7 +683,7 @@ abstract class EcrProject extends JObject
             foreach($this->elements as $element)
             {
                 $filesElement->addChild('element', $element);
-            }//foreach
+            }
         }
 
         //-- Buildopts
@@ -599,7 +694,7 @@ abstract class EcrProject extends JObject
             foreach($this->buildOpts as $k => $opt)
             {
                 $buildElement->addChild($k, $opt);
-            }//foreach
+            }
         }
 
         //-- Update servers
@@ -609,12 +704,13 @@ abstract class EcrProject extends JObject
 
             foreach($this->updateServers as $server)
             {
+                /* @var SimpleXMLElement $sElement */
                 $sElement = $element->addChild('server', $server->url);
 
                 $sElement->addAttribute('name', $server->name);
                 $sElement->addAttribute('type', $server->type);
                 $sElement->addAttribute('priority', $server->priority);
-            }//foreach
+            }
         }
 
         $root = '';
@@ -625,13 +721,13 @@ abstract class EcrProject extends JObject
         $output = $root.$xml->asFormattedXML();
 
         if(ECR_DEBUG)
-        echo '<pre>'.htmlentities($output).'</pre>';
+            echo '<pre>'.htmlentities($output).'</pre>';
 
         $path = ECRPATH_SCRIPTS.DS.$this->getEcrXmlFileName();
 
-        if( ! $testMode)
+        if(! $testMode)
         {
-            if( ! JFile::write(JPath::clean($path), $output))
+            if(! JFile::write(JPath::clean($path), $output))
             {
                 $this->setError('Could not save XML file!');
 
@@ -640,7 +736,7 @@ abstract class EcrProject extends JObject
         }
 
         return $output;
-    }//function
+    }
 
     /**
      * Read the project XML file.
@@ -653,7 +749,7 @@ abstract class EcrProject extends JObject
     {
         $fileName = ECRPATH_SCRIPTS.DS.$projectName.'.xml';
 
-        if( ! JFile::exists($fileName))
+        if(! JFile::exists($fileName))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Project manifest not found'), 'error');
 
@@ -662,8 +758,9 @@ abstract class EcrProject extends JObject
 
         $manifest = EcrProjectHelper::getXML($fileName);
 
-        if( ! $manifest instanceof SimpleXMLElement
-        || $manifest->getName() != 'easyproject')
+        if(! $manifest instanceof SimpleXMLElement
+            || $manifest->getName() != 'easyproject'
+        )
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Invalid project manifest'), 'error');
 
@@ -702,14 +799,15 @@ abstract class EcrProject extends JObject
                 foreach($e->attributes() as $k => $a)
                 {
                     $c->$k = (string)$a;
-                }//foreach
+                }
+                //foreach
 
                 $c->scope = (string)$e->attributes()->scope;
                 $c->position = (string)$e->attributes()->position;
                 $c->ordering = (string)$e->attributes()->ordering;
 
                 $this->modules[] = $c;
-            }//foreach
+            }
         }
 
         /*
@@ -717,6 +815,7 @@ abstract class EcrProject extends JObject
          */
         if(isset($manifest->plugins->plugin))
         {
+            /* @var SimpleXMLElement $e */
             foreach($manifest->plugins->plugin as $e)
             {
                 $c = new stdClass;
@@ -724,13 +823,13 @@ abstract class EcrProject extends JObject
                 foreach($e->attributes() as $k => $a)
                 {
                     $c->$k = (string)$a;
-                }//foreach
+                }
 
                 $c->scope = (string)$e->attributes()->scope;
                 $c->ordering = (string)$e->attributes()->ordering;
 
                 $this->plugins[] = $c;
-            }//foreach
+            }
         }
 
         /*
@@ -764,11 +863,12 @@ abstract class EcrProject extends JObject
                                 $alias->aliasField = (string)$elAlias->field;
 
                                 $relation->addAlias($alias);
-                            }//foreach
+                            }
                         }
 
                         $table->addRelation($relation);
-                    }//foreach
+                    }
+
                     $t->relations = $e->relations;
                 }
                 else
@@ -777,7 +877,7 @@ abstract class EcrProject extends JObject
                 }
 
                 $this->tables[$table->name] = $table;
-            }//foreach
+            }
         }
 
         /*
@@ -785,6 +885,7 @@ abstract class EcrProject extends JObject
          */
         if(isset($manifest->autoCodes->autoCode))
         {
+            /* @var SimpleXMLElement $code */
             foreach($manifest->autoCodes->autoCode as $code)
             {
                 $group = (string)$code->attributes()->group;
@@ -796,23 +897,25 @@ abstract class EcrProject extends JObject
 
                 $EasyAutoCode = EcrProjectHelper::getAutoCode($key);
 
-                if( ! $EasyAutoCode)
+                if(! $EasyAutoCode)
                 {
                     continue;
                 }
 
                 if(isset($code->options->option))
                 {
+                    /* @var SimpleXMLElement $o */
                     foreach($code->options->option as $o)
                     {
                         $option = (string)$o;
                         $k = (string)$o->attributes()->name;
                         $EasyAutoCode->options[$k] = (string)$option;
-                    }//foreach
+                    }
                 }
 
                 if(isset($code->fields))
                 {
+                    /* @var SimpleXMLElement $fieldsElement */
                     foreach($code->fields as $fieldsElement)
                     {
                         $key = (string)$fieldsElement->attributes()->key;
@@ -820,6 +923,7 @@ abstract class EcrProject extends JObject
 
                         if(isset($fieldsElement->field))
                         {
+                            /* @var SimpleXMLElement $field */
                             foreach($fieldsElement->field as $field)
                             {
                                 $f = new EcrTableField($field);
@@ -836,15 +940,15 @@ abstract class EcrProject extends JObject
                                 }
 
                                 $fields[$k] = $f;
-                            }//foreach
+                            }
                         }
 
                         $EasyAutoCode->fields[$key] = $fields;
-                    }//foreach
+                    }
                 }
 
                 $this->addAutoCode($EasyAutoCode);
-            }//foreach
+            }
         }
 
         /*
@@ -855,7 +959,7 @@ abstract class EcrProject extends JObject
             foreach($manifest->elements->element as $e)
             {
                 $this->elements[(string)$e] = (string)$e;
-            }//foreach
+            }
         }
 
         /*
@@ -866,14 +970,15 @@ abstract class EcrProject extends JObject
             foreach($opt as $k => $v)
             {
                 $this->buildOpts[$k] = (string)$v;
-            }//foreach
-        }//foreach
+            }
+        }
 
         /*
          * Update servers
          */
         if(isset($manifest->updateservers->server))
         {
+            /* @var SimpleXMLElement $server */
             foreach($manifest->updateservers->server as $server)
             {
                 $u = new stdClass;
@@ -882,11 +987,11 @@ abstract class EcrProject extends JObject
                 $u->type = (string)$server->attributes()->type;
                 $u->url = (string)$server;
                 $this->updateServers[] = $u;
-            }//foreach
+            }
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Adds AutoCode to the project.
@@ -898,7 +1003,7 @@ abstract class EcrProject extends JObject
     public function addAutoCode(EcrAutoCode $autoCode)
     {
         $this->autoCodes[$autoCode->getKey()] = $autoCode;
-    }//function
+    }
 
     /**
      * Deletes a project.
@@ -909,9 +1014,9 @@ abstract class EcrProject extends JObject
      */
     public function remove($complete = false)
     {
-        if( ! $this->dbId)
+        if(! $this->dbId)
         {
-            echo EcrHtml::displayMessage(jgettext('Invalid Project'), 'error');
+            EcrHtml::displayMessage(jgettext('Invalid Project'), 'error');
 
             return false;
         }
@@ -920,7 +1025,7 @@ abstract class EcrProject extends JObject
         {
             //-- Uninstall the extension
 
-            $clientId =($this->scope == 'admin') ? 1 : 0;
+            $clientId = ($this->scope == 'admin') ? 1 : 0;
 
             jimport('joomla.installer.installer');
 
@@ -928,9 +1033,9 @@ abstract class EcrProject extends JObject
             $installer = JInstaller::getInstance();
 
             //-- Uninstall the extension
-            if( ! $installer->uninstall($this->type, $this->dbId, $clientId))
+            if(! $installer->uninstall($this->type, $this->dbId, $clientId))
             {
-                echo EcrHtml::displayMessage(jgettext('JInstaller: Unable to remove project'), 'error');
+                EcrHtml::displayMessage(jgettext('JInstaller: Unable to remove project'), 'error');
 
                 return false;
             }
@@ -939,30 +1044,30 @@ abstract class EcrProject extends JObject
         //-- Remove the config script
         $fileName = $this->getEcrXmlFileName();
 
-        if( ! JFile::exists(ECRPATH_SCRIPTS.DS.$fileName))
+        if(! JFile::exists(ECRPATH_SCRIPTS.DS.$fileName))
         {
-            echo EcrHtml::displayMessage(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName), 'error');
+            EcrHtml::displayMessage(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName), 'error');
 
             return false;
         }
 
-        if( ! JFile::delete(ECRPATH_SCRIPTS.DS.$fileName))
+        if(! JFile::delete(ECRPATH_SCRIPTS.DS.$fileName))
         {
-            echo EcrHtml::displayMessage(jgettext('Unable to delete file'), 'error');
-            echo EcrHtml::displayMessage(ECRPATH_SCRIPTS.DS.$fileName, 'error');
+            EcrHtml::displayMessage(jgettext('Unable to delete file'), 'error');
+            EcrHtml::displayMessage(ECRPATH_SCRIPTS.DS.$fileName, 'error');
 
             return false;
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Insert a part to the project.
      *
-     * @param array $options Options for inserting
-     * @param EcrLogger $logger The logger
-     * @param boolean $overwrite Overwrite existing files
+     * @param array     $options   Options for inserting
+     * @param EcrLogger $logger    The logger
+     * @param boolean   $overwrite Overwrite existing files
      *
      * @return boolean
      */
@@ -972,8 +1077,9 @@ abstract class EcrProject extends JObject
         $element_name = JRequest::getVar('element_name', null);
         $element = JRequest::getVar('element', null);
 
-        if( ! isset($options->pathSource)
-        || ! $options->pathSource)
+        if(! isset($options->pathSource)
+            || ! $options->pathSource
+        )
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Invalid options'), 'error');
             $logger->log('Invalid options');
@@ -991,7 +1097,7 @@ abstract class EcrProject extends JObject
          * Process files
          */
         //-- @TODO ...
-        $basePathDest =($element_scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        $basePathDest = ($element_scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
         $basePathDest .= DS.'components'.DS.$options->ecr_project;
 
         $files = JFolder::files($options->pathSource, '.', true, true, array('options', '.svn'));
@@ -1018,8 +1124,8 @@ abstract class EcrProject extends JObject
                         foreach($AutoCode->codes as $key => $code)
                         {
                             $fileContents = $AutoCode->replaceCode($fileContents, $key);
-                        }//foreach
-                    }//foreach
+                        }
+                    }
                 }
                 else
                 {
@@ -1037,14 +1143,14 @@ abstract class EcrProject extends JObject
                 $subPackage = explode(DS, str_replace($options->pathSource.DS, '', $file));
                 $subPackage = $subPackage[0];
                 $subPackage = str_replace(JFile::getName($file), '', $subPackage);
-                $subPackage =($subPackage) ? $subPackage : 'Base';
+                $subPackage = ($subPackage) ? $subPackage : 'Base';
 
                 $this->addSubstitute('_ECR_SUBPACKAGE_', ucfirst($subPackage));
             }
 
             $this->substitute($fileContents);
 
-            if( ! JFile::write($basePathDest.DS.$fName, $fileContents))
+            if(! JFile::write($basePathDest.DS.$fName, $fileContents))
             {
                 JFactory::getApplication()->enqueueMessage(jgettext('Unable to write file'), 'error');
 
@@ -1052,15 +1158,15 @@ abstract class EcrProject extends JObject
             }
 
             $logger->logFileWrite($file, $basePathDest.DS.$fName, $fileContents);
-        }//foreach
+        }
 
-        if( ! $this->writeProjectXml())
+        if(! $this->writeProjectXml())
         {
             return false;
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Adds a table to the project.
@@ -1071,13 +1177,13 @@ abstract class EcrProject extends JObject
      */
     public function addTable(EcrTable $table)
     {
-        if( ! in_array($table->name, $this->tables))
+        if(! in_array($table->name, $this->tables))
         {
             $this->tables[$table->name] = $table;
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Prepare adding a part.
@@ -1085,7 +1191,7 @@ abstract class EcrProject extends JObject
      * Setup substitutes
      *
      * @param string $ecr_project Project name
-     * @param array $substitutes Substitutes to add
+     * @param array  $substitutes Substitutes to add
      *
      * @return boolean
      */
@@ -1105,12 +1211,12 @@ abstract class EcrProject extends JObject
             foreach($substitutes as $key => $value)
             {
                 $this->addSubstitute($key, $value);
-            }//foreach
+            }
 
             $path = ECRPATH_EXTENSIONTEMPLATES.'/std/header/'.$project->headerType.'/header.txt';
 
             //-- Read the header file
-            $header =(JFile::exists($path)) ? JFile::read($path) : '';
+            $header = (JFile::exists($path)) ? JFile::read($path) : '';
 
             //-- Replace vars in header
             $this->substitute($header);
@@ -1123,13 +1229,13 @@ abstract class EcrProject extends JObject
             $this->logger->log('Unable to load the project '.$ecr_project.' - '.$e->getMessage(), 'ERROR');
 
             return false;
-        }//try
-    }//function
+        }
+    }
 
     /**
      * Add a string to the substitution array.
      *
-     * @param string $key The key to search for
+     * @param string $key   The key to search for
      * @param string $value The string to substitute
      *
      * @return void
@@ -1137,7 +1243,7 @@ abstract class EcrProject extends JObject
     public function addSubstitute($key, $value)
     {
         $this->_substitutes[$key] = $value;
-    }//function
+    }
 
     /**
      * Get a subvstitute by key.
@@ -1149,10 +1255,10 @@ abstract class EcrProject extends JObject
     public function getSubstitute($key)
     {
         if(array_key_exists($key, $this->_substitutes))
-        return $this->_substitutes[$key];
+            return $this->_substitutes[$key];
 
         return '';
-    }//function
+    }
 
     /**
      * Replaces tags in a string with values from the substitution array.
@@ -1166,10 +1272,10 @@ abstract class EcrProject extends JObject
         foreach($this->_substitutes as $key => $value)
         {
             $string = str_replace($key, $value, $string);
-        }//foreach
+        }
 
         return $string;
-    }//function
+    }
 
     /**
      * Get the path to the build directory.
@@ -1180,17 +1286,17 @@ abstract class EcrProject extends JObject
     {
         //-- 1. Project specific build dir
         if($this->zipPath)
-        return $this->zipPath;
+            return $this->zipPath;
 
         //-- 2. Standard config build dir
         $path = JComponentHelper::getParams('com_easycreator')->get('zipPath');
 
         if($path)
-        return $path.'/'.$this->comName;
+            return $path.'/'.$this->comName;
 
         //-- 3. Standard extension build dir
         return ECRPATH_BUILDS.'/'.$this->comName;
-    }//function
+    }
 
     /**
      * Convert to a string.
@@ -1200,5 +1306,5 @@ abstract class EcrProject extends JObject
     public function __toString()
     {
         return $this->comName;
-    }//function
+    }
 }//class

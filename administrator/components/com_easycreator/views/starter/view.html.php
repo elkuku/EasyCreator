@@ -156,6 +156,7 @@ class EasyCreatorViewStarter extends JView
         , 'package' => array()
 
         , 'cliapp' => array()
+        , 'webapp' => array()
         );
     }
 }//class

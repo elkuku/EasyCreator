@@ -1,23 +1,20 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
  *
- * @author  Ian McLennan
- * @former  package    IansTools - by Ian McLennan
- * @former  subpackage ManifestMaker
- * @license GNU/GPL, see JROOT/LICENSE.php
+ * @author     Ian McLennan
+ * @former     package    IansTools - by Ian McLennan
+ * @former     subpackage ManifestMaker
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 /**
  * Manifest builder.
  *
  * FULL Credits to Ian McLennan =;)
  *
- * @package EasyCreator
+ * @package        EasyCreator
  * @former-package IansTools
  */
 class EcrManifest extends JObject
@@ -33,15 +30,6 @@ class EcrManifest extends JObject
     private $project = null;
 
     /**
-     * Constructor.
-     *
-     * @access  public
-     */
-    public function __construct()
-    {
-    }//function
-
-    /**
      * Method to create the manifest file.
      *
      * @param EcrProject $project The project.
@@ -50,7 +38,7 @@ class EcrManifest extends JObject
      */
     public function create(EcrProject $project)
     {
-        if( ! $project->type)
+        if(! $project->type)
         {
             $this->setError(__METHOD__.' - Invalid project given');
 
@@ -76,11 +64,11 @@ class EcrManifest extends JObject
                 JFactory::getApplication()->enqueueMessage(
                     __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
                 break;
-        }//switch
+        }
 
         $this->manifest = new EcrXMLElement('<?xml version="1.0" encoding="utf-8" ?><'.$rootTag.' />');
 
-        if( ! $this->manifest instanceof EcrXMLElement)
+        if(! $this->manifest instanceof EcrXMLElement)
         {
             $this->setError('Could not create XML builder');
 
@@ -90,16 +78,16 @@ class EcrManifest extends JObject
         try
         {
             $this->setUp()
-            ->processCredits()
-            ->processInstall()
-            ->processUpdates()
-            ->processSite()
-            ->processAdmin()
-            ->processMedia()
-            ->processPackageModules()
-            ->processPackagePlugins()
-            ->processPackageElements()
-            ->processParameters();
+                ->processCredits()
+                ->processInstall()
+                ->processUpdates()
+                ->processSite()
+                ->processAdmin()
+                ->processMedia()
+                ->processPackageModules()
+                ->processPackagePlugins()
+                ->processPackageElements()
+                ->processParameters();
         }
         catch(Exception $e)
         {
@@ -123,7 +111,7 @@ class EcrManifest extends JObject
 
         $xml = $this->formatXML();
 
-        if( ! JFile::write($path, $xml))
+        if(! JFile::write($path, $xml))
         {
             $this->setError('Could not save XML file!');
 
@@ -131,11 +119,12 @@ class EcrManifest extends JObject
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Setup the manifest building process.
      *
+     * @throws Exception
      * @return EcrManifest
      */
     private function setUp()
@@ -162,6 +151,8 @@ class EcrManifest extends JObject
         switch($this->project->type)
         {
             case 'component':
+            case 'cliapp':
+            case 'webapp':
                 break;
             case 'module':
             case 'template':
@@ -183,20 +174,20 @@ class EcrManifest extends JObject
             default :
                 throw new Exception(__METHOD__.' - unknown project type: '.$this->project->type);
                 break;
-        }//switch
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process credit vars.
      *
-     * @return boolean
+     * @return EcrManifest
      */
     private function processCredits()
     {
         $creditElements = array(
-        'name'
+            'name'
         , 'creationDate'
         , 'author'
         , 'authorEmail'
@@ -209,24 +200,26 @@ class EcrManifest extends JObject
 
         foreach($creditElements as $credit)
         {
-            $value =(isset($this->project->$credit)) ? $this->project->$credit : '';
+            $value = (isset($this->project->$credit)) ? $this->project->$credit : '';
             $this->manifest->addChild($credit, $value);
-        }//foreach
+        }
 
         //-- Special treatment for plugin names
         if($this->project->type == 'plugin'
-        && $this->project->isNew)
+            && $this->project->isNew
+        )
         {
             $this->manifest->name = ucfirst($this->project->scope).' - '.$this->project->name;
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process install section.
      *
-     * @return boolean
+     * @throws Exception
+     * @return EcrManifest
      */
     private function processInstall()
     {
@@ -240,7 +233,6 @@ class EcrManifest extends JObject
         $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         //-- PHP install scripts
-
         switch($this->project->JCompat)
         {
             case '1.5':
@@ -250,12 +242,15 @@ class EcrManifest extends JObject
 
             case '1.6':
             case '1.7':
+            case '2.5':
                 $this->manifest->addChild('scriptfile');
                 break;
 
             default:
+                JFactory::getApplication()->enqueueMessage(
+                    __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
                 break;
-        }//switch
+        }
 
         //-- SQL install scripts
         $install = $this->manifest->addChild('install');
@@ -278,14 +273,14 @@ class EcrManifest extends JObject
                     {
                         $schema = $updateSql->addChild('schemapath', $file->folder.'/'.$file->name);
                         $schema->addAttribute('type', $file->name);
-                    }//foreach
+                    }
                 }
 
                 break;
 
             default:
                 break;
-        }//switch
+        }
 
         //-- PHP
         if(count($installFiles['php']))
@@ -295,7 +290,7 @@ class EcrManifest extends JObject
 
             foreach($installFiles['php'] as $file)
             {
-                $dir =($file->folder) ? $file->folder.'/' : '';
+                $dir = ($file->folder) ? $file->folder.'/' : '';
                 $dir = str_replace('\\', '/', $dir);
 
                 if(strpos($file->name, 'install') === 0)
@@ -317,7 +312,7 @@ class EcrManifest extends JObject
                 {
                     throw new Exception(__METHOD__.' - Unsupported php file: '.$file->name);
                 }
-            }//foreach
+            }
         }
 
         //-- SQL
@@ -325,7 +320,7 @@ class EcrManifest extends JObject
         {
             foreach($installFiles['sql'] as $file)
             {
-                $dir =($file->folder) ? $file->folder.'/' : '';
+                $dir = ($file->folder) ? $file->folder.'/' : '';
                 $dir = str_replace('\\', '/', $dir);
 
                 if(strpos($file->name, 'install') === 0)
@@ -358,25 +353,26 @@ class EcrManifest extends JObject
                 $sFile->addAttribute('driver', $driver);
 
                 if(false == strpos($file->name, 'nonutf')
-                && false == strpos($file->name, 'compat'))
+                    && false == strpos($file->name, 'compat')
+                )
                 {
                     $sFile->addAttribute('charset', 'utf8');
                 }
-            }//foreach
+            }
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process Updates.
      *
-     * @return bool
+     * @return EcrManifest
      */
     private function processUpdates()
     {
-        if( ! count($this->project->updateServers))
-        return $this;
+        if(! count($this->project->updateServers))
+            return $this;
 
         //-- Update site
         $updateServers = $this->manifest->addChild('updateservers');
@@ -388,29 +384,30 @@ class EcrManifest extends JObject
             $sElement->addAttribute('name', $server->name);
             $sElement->addAttribute('type', $server->type);
             $sElement->addAttribute('priority', $server->priority);
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process media section.
      *
-     * @return boolean
+     * @return EcrManifest
      */
     private function processMedia()
     {
         $baseFolders = JFolder::folders($this->project->basepath);
 
-        if( ! in_array('media', $baseFolders))
-        return $this;
+        if(! in_array('media', $baseFolders))
+            return $this;
 
         $folders = JFolder::folders($this->project->basepath.DS.'media');
         $files = JFolder::files($this->project->basepath.DS.'media');
 
-        if( ! count($folders)
-        && ! count($files))
-        return $this;
+        if(! count($folders)
+            && ! count($files)
+        )
+            return $this;
 
         $mediaElement = $this->manifest->addChild('media');
         $mediaElement->addAttribute('destination', $this->project->comName);
@@ -419,20 +416,20 @@ class EcrManifest extends JObject
         foreach($folders as $folder)
         {
             $mediaElement->addChild('folder', $folder);
-        }//foreach
+        }
 
         foreach($files as $file)
         {
             $mediaElement->addChild('filename', $file);
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process site section.
      *
-     * @return boolean
+     * @return EcrManifest
      */
     private function processSite()
     {
@@ -457,14 +454,15 @@ class EcrManifest extends JObject
                 foreach($siteFolders as $siteFolder)
                 {
                     $siteFileElement->addChild('folder', $siteFolder);
-                }//foreach
+                }
 
                 foreach($siteFiles as $siteFile)
                 {
                     $siteElement = $siteFileElement->addChild('filename', $siteFile);
 
                     if($this->project->type == 'plugin'
-                    || $this->project->type == 'module')
+                        || $this->project->type == 'module'
+                    )
                     {
                         $s = JFile::stripExt($siteFile);
 
@@ -473,12 +471,13 @@ class EcrManifest extends JObject
                             $siteElement->addAttribute($this->project->type, $s);
                         }
                     }
-                }//foreach
+                }
             }
         }
 
         if(count($languageFiles)
-        && $this->project->JCompat == '1.5')
+            && $this->project->JCompat == '1.5'
+        )
         {
             $languagesElement = $this->manifest->addChild('languages');
             $languagesElement->addAttribute('folder', 'site/language');
@@ -489,16 +488,16 @@ class EcrManifest extends JObject
                 $t = str_replace(DS, '/', substr($languageFile, $substrlen));
                 $languageElement = $languagesElement->addChild('language', $t);
                 $languageElement->addAttribute('tag', substr(basename($languageFile), 0, 5));
-            }//foreach
+            }
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process admin section.
      *
-     * @return boolean
+     * @return EcrManifest
      */
     private function processAdmin()
     {
@@ -506,7 +505,7 @@ class EcrManifest extends JObject
         $folders = JFolder::folders($basepath);
         $mediaFiles = array();
 
-        if( ! in_array('admin', $folders))
+        if(! in_array('admin', $folders))
         {
             return $this;
         }
@@ -516,7 +515,7 @@ class EcrManifest extends JObject
             $administration = $this->manifest->addChild('administration');
 
             //-- Build the menu
-            $def_menu =(isset($this->project->menu)) ? $this->project->menu : '';
+            $def_menu = (isset($this->project->menu)) ? $this->project->menu : '';
 
             if($def_menu)
             {
@@ -531,7 +530,8 @@ class EcrManifest extends JObject
                     $s = $def_menu['img'];
 
                     if($s
-                    && false == strpos($s, '/'))
+                        && false == strpos($s, '/')
+                    )
                     {
                         $s = 'class:'.$s;
                     }
@@ -540,7 +540,8 @@ class EcrManifest extends JObject
                 }
 
                 if(isset($def_menu['link'])
-                && $this->project->JCompat == '1.5')
+                    && $this->project->JCompat == '1.5'
+                )
                 {
                     //-- Admin menu link only for J 1.5
                     $menu->addAttribute('link', $def_menu['link']);
@@ -568,7 +569,8 @@ class EcrManifest extends JObject
                         $s = $item['img'];
 
                         if($s
-                        && false == strpos($s, '/'))
+                            && false == strpos($s, '/')
+                        )
                         {
                             $s = 'class:'.$s;
                         }
@@ -587,10 +589,11 @@ class EcrManifest extends JObject
                             $menu->addAttribute('link', str_replace('index.php?', '', $item['link']));
                             break;
                         default :
-
+                            JFactory::getApplication()->enqueueMessage(
+                                __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
                             break;
-                    }//switch
-                }//foreach
+                    }
+                }
             }
         }
 
@@ -623,7 +626,7 @@ class EcrManifest extends JObject
         foreach($adminFolders as $adminFolder)
         {
             $adminFileElement->addChild('folder', $adminFolder);
-        }//foreach
+        }
 
         foreach($adminFiles as $adminFile)
         {
@@ -638,10 +641,11 @@ class EcrManifest extends JObject
                     $adminElement->addAttribute('module', $s);
                 }
             }
-        }//foreach
+        }
 
         if(count($languageFiles)
-        && $this->project->JCompat == '1.5')
+            && $this->project->JCompat == '1.5'
+        )
         {
             //-- We only need language file entries for J 1.5
             if($this->project->type == 'component')
@@ -661,7 +665,7 @@ class EcrManifest extends JObject
                 $t = str_replace(DS, '/', substr($languageFile, $substrlen));
                 $languageElement = $languagesElement->addChild('language', $t);
                 $languageElement->addAttribute('tag', substr(basename($languageFile), 0, 5));
-            }//foreach
+            }
         }
 
         if(count($mediaFiles))
@@ -674,21 +678,21 @@ class EcrManifest extends JObject
             {
                 $t = str_replace(DS, '/', substr($mediaFile, $substrlen));
                 $medElement = $mediaElement->addChild('filename', $t);
-            }//foreach
+            }
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process package elements for J! 1.6 packages.
      *
-     * @return boolean true on success
+     * @return EcrManifest
      */
     private function processPackageElements()
     {
         if($this->project->type != 'package')
-        return $this;
+            return $this;
 
         $filesElement = $this->manifest->addChild('files');
 
@@ -700,15 +704,15 @@ class EcrManifest extends JObject
             $fileElement = $filesElement->addChild('file', $path);
             $fileElement->addAttribute('type', $project->type);
             $fileElement->addAttribute('id', $element);
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process parameters section.
      *
-     * @return boolean
+     * @return EcrManifest
      */
     private function processParameters()
     {
@@ -716,17 +720,17 @@ class EcrManifest extends JObject
         {
             //-- No parameters for new projects
             if('template' != $this->project->type)
-            return $this;
+                return $this;
 
             //-- Except for templates :(
             $path = $this->project->buildPath;
 
-            $path .= '/site';//@todo admin templates ?
+            $path .= '/site'; //@todo admin templates ?
 
             $fileName = $path.'/templateDetails.xml';
 
-            if( ! JFile::exists($fileName))
-            return $this;
+            if(! JFile::exists($fileName))
+                return $this;
 
             $refXml = EcrProjectHelper::getXML($fileName);
 
@@ -749,8 +753,9 @@ class EcrManifest extends JObject
         {
             $cfgXml = EcrProjectHelper::getXML($fileName);
 
-            if( ! $cfgXml
-            || ! $cfgXml->params)
+            if(! $cfgXml
+                || ! $cfgXml->params
+            )
             {
                 return $this;
             }
@@ -762,13 +767,15 @@ class EcrManifest extends JObject
                 foreach($cfgParams->param as $cfgParam)
                 {
                     if($cfgParam->attributes()->type == 'spacer'
-                    || $cfgParam->attributes()->type == 'easyspacer')
+                        || $cfgParam->attributes()->type == 'easyspacer'
+                    )
                     {
                         continue;
                     }
 
                     if($cfgParam->attributes()->default
-                    && $cfgParam->attributes()->default != '0')
+                        && $cfgParam->attributes()->default != '0'
+                    )
                     {
                         $p = $paramsElement->addChild('param');
                         $p->addAttribute('name', $cfgParam->attributes()->name);
@@ -776,8 +783,8 @@ class EcrManifest extends JObject
                         $p->addAttribute('label', $cfgParam->attributes()->label);
                         $p->addAttribute('default', $cfgParam->attributes()->default);
                     }
-                }//foreach
-            }//foreach
+                }
+            }
         }
         else if(JFile::exists(JPath::clean(JPATH_ROOT.DS.EcrProjectHelper::findManifest($this->project))))
         {
@@ -804,71 +811,21 @@ class EcrManifest extends JObject
                     default:
                         EcrHtml::displayMessage(__METHOD__.' : Undefined JVersion', 'error');
                         break;
-                }//switch
+                }
             }
-
-            return $this;
-
-            //            //-- Try the install manifest.xml
-            //            $params = new JParameter('', JPath::clean(JPATH_ROOT.DS
-            //            .EcrProjectHelper::findManifest($this->project)));
-            //
-            //            if( ! $params->getNumParams()) return true;
-            //
-            //            /**
-            //             * @todo CHANGE for 1.6 - URGENT !!!! =;)
-            //             */
-            //
-            //            if( ! $params->_xml)
-            //            {
-            //                return true;
-            //            }
-            //
-            //            foreach($params->_xml as $groupName => $group)
-            //            {
-            //                $paramsElement = $this->manifest->addChild('params');
-            //
-            //                if($groupName != '_default')
-            //                {
-            //                    $paramsElement->addAttribute('group', $groupName);
-            //                }
-            //
-            //                foreach($group->_children as $param)
-            //                {
-            //                    if( ! $param instanceof JSimpleXMLElement)
-            //                    {
-            //                        continue;
-            //                    }
-            //                    $paramElement = $paramsElement->addChild('param');
-            //
-            //                    foreach($param->_attributes as $k => $v)
-            //                    {
-            //                        $paramElement->addAttribute($k, $v);
-            //                    }//foreach
-            //
-            //                    foreach($param->_children as $child)
-            //                    {
-            //                        if($child instanceof JSimpleXMLElement)
-            //                        {
-            //                            $optionElement = $paramElement->addChild('option', $child->_data);
-            //                            $optionElement->addAttribute('value', $child->_attributes['value']);
-            //                        }
-            //                    }//foreach
-            //                }//foreach
-            //            }//foreach
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Add one simplexml to another.
      *
-     * @param object &$to Object to add to
+     * @param object &$to   Object to add to
      * @param object &$from Object to add from
      *
      * @author Boris Korobkov
-     * @link http://www.ajaxforum.ru/
+     * @link   http://www.ajaxforum.ru/
      *
      * @return void
      */
@@ -881,22 +838,23 @@ class EcrManifest extends JObject
             foreach($child->attributes() as $key => $value)
             {
                 $temp->addAttribute($key, $value);
-            }//foreach
+            }
 
             $this->appendXML($temp, $child);
-        }//foreach
-    }//function
+        }
+    }
 
     /**
      * Process modules in a package.
      *
      * @deprecated removed for J! 1.6
      *
-     * @return boolean
+     * @throws Exception
+     * @return EcrManifest
      */
     private function processPackageModules()
     {
-        if( ! count($this->project->modules))
+        if(! count($this->project->modules))
             return $this;
 
         $modulesElement = $this->manifest->addChild('modules');
@@ -914,7 +872,7 @@ class EcrManifest extends JObject
 
             if($module->scope)
             {
-                $s =($module->scope == 'admin') ? 'administrator' : $module->scope;
+                $s = ($module->scope == 'admin') ? 'administrator' : $module->scope;
                 $modElement->addAttribute('client', $s);
             }
 
@@ -938,12 +896,12 @@ class EcrManifest extends JObject
                     foreach($folders as $folder)
                     {
                         $filesElement->addChild('folder', $folder);
-                    }//foreach
+                    }
 
                     foreach($files as $file)
                     {
                         $filesElement->addChild('file', $file);
-                    }//foreach
+                    }
                 }
                 else if(JFile::exists($copy))
                 {
@@ -954,7 +912,7 @@ class EcrManifest extends JObject
                     //-- @todo error
                     $this->_addLog('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
                 }
-            }//foreach
+            }
 
             if(count($project->langs))
             {
@@ -965,7 +923,7 @@ class EcrManifest extends JObject
                 {
                     $fileElement = $langsElement->addChild('language', $tag.'.'.$project->getLanguageFileName());
                     $fileElement->addAttribute('tag', $tag);
-                }//foreach
+                }
             }
 
             $paramsElement = $modElement->addChild('params');
@@ -974,7 +932,7 @@ class EcrManifest extends JObject
 
             $xml = EcrProjectHelper::getXML($path);
 
-            if( ! $xml)
+            if(! $xml)
                 throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $path));
 
             if(isset($xml->params->param))
@@ -987,7 +945,7 @@ class EcrManifest extends JObject
                     foreach($param->attributes() as $name => $value)
                     {
                         $paramElement->addAttribute($name, (string)$value);
-                    }//foreach
+                    }
 
                     if(isset($param->option))
                     {
@@ -998,26 +956,27 @@ class EcrManifest extends JObject
                             foreach($option->attributes() as $name => $value)
                             {
                                 $optionElement->addAttribute($name, (string)$value);
-                            }//foreach
-                        }//foreach
+                            }
+                        }
                     }
-                }//foreach
+                }
             }
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process plugins in a package.
      *
      * @deprecated removed for J! 1.6
      *
-     * @return boolean
+     * @throws Exception
+     * @return EcrManifest
      */
     private function processPackagePlugins()
     {
-        if( ! count($this->project->plugins))
+        if(! count($this->project->plugins))
         {
             return $this;
         }
@@ -1060,7 +1019,7 @@ class EcrManifest extends JObject
                     //-- @todo error
                     $this->_addLog('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
                 }
-            }//foreach
+            }
 
             if(count($project->langs))
             {
@@ -1071,13 +1030,13 @@ class EcrManifest extends JObject
                 {
                     $plgFileElement = $plgLangsElement->addChild('language', $tag.'.'.$project->getLanguageFileName());
                     $plgFileElement->addAttribute('tag', $tag);
-                }//foreach
+                }
             }
 
             $xml = EcrProjectHelper::getXML($f);
 
             if(false == $xml)
-            throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $f));
+                throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $f));
 
             $paramsElement = $plgElement->addChild('params');
 
@@ -1090,7 +1049,7 @@ class EcrManifest extends JObject
                     foreach($param->attributes() as $name => $value)
                     {
                         $paramElement->addAttribute($name, (string)$value);
-                    }//foreach
+                    }
 
                     if(isset($param->option))
                     {
@@ -1101,15 +1060,15 @@ class EcrManifest extends JObject
                             foreach($option->attributes() as $Name => $Value)
                             {
                                 $optionElement->addAttribute($Name, (string)$Value);
-                            }//foreach
-                        }//foreach
+                            }
+                        }
                     }
-                }//foreach
+                }
             }
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Formats SimpleXML.
@@ -1147,5 +1106,5 @@ class EcrManifest extends JObject
         ini_set('error_reporting', $errRep);
 
         return $document->saveXML();
-    }//function
+    }
 }//class

@@ -96,7 +96,7 @@ function com_install()
     <?php echo jgettext('You can create a "frame" for your extension and an installable zip package with just a few "clicks"'); ?>
 
 <p>Happy coding,<br />
-    <?php echo sprintf(jgettext('The %s Team.'), '<a href="http://joomlacode.org/gf/project/elkuku">EasyCreator</a>'); ?>
+    <?php echo sprintf(jgettext('The %s Team.'), '<a href="https://github.com/elkuku/EasyCreator">EasyCreator</a>'); ?>
 </p>
 
 </div>
