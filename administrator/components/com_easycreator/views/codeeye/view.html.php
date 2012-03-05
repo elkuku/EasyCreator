@@ -31,10 +31,18 @@ class EasyCreatorViewCodeEye extends JView
     protected $projectMatrix;
 
     /**
+     * @var string href for running a web application.
+     */
+    protected $href;
+
+    protected $task;
+
+    /**
      * Standard display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
+     * @throws Exception
      * @return void
      */
     public function display($tpl = null)
@@ -105,9 +113,28 @@ class EasyCreatorViewCodeEye extends JView
     {
     }
 
+    /**
+     * CLI Application View.
+     *
+     * @return void
+     */
     protected function runcli()
     {
         $this->setLayout('runcli');
+    }
+
+    /**
+     * CLI Application View.
+     *
+     * @return void
+     */
+    protected function runwap()
+    {
+        $webPath = str_replace(JPATH_ROOT.DIRECTORY_SEPARATOR, '', $this->project->getExtensionPath());
+
+        $this->href = JURI::root().$webPath.'/'.$this->project->comName.'.php';
+
+        $this->setLayout('runwap');
     }
 
     /**
@@ -371,6 +398,15 @@ class EasyCreatorViewCodeEye extends JView
             , 'description' => jgettext('Runs a CLI Application')
             , 'icon' => 'icon'
             , 'task' => 'runcli'
+            );
+        }
+
+        if('webapp' == $this->project->type)
+        {
+            $subTasks[] = array('title' => jgettext('Web Runner')
+            , 'description' => jgettext('Runs a Web Application')
+            , 'icon' => 'icon'
+            , 'task' => 'runwap'
             );
         }
 

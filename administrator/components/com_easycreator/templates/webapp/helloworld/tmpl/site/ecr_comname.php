@@ -1,0 +1,59 @@
+<?php
+// We are a valid Joomla entry point.
+// This is required to load the Joomla Platform import.php file.
+define('_JEXEC', 1);
+
+?>
+<?php
+##*HEADER*##
+
+// Setup the base path related constant.
+define('JPATH_BASE', dirname(__FILE__));
+
+// Increase error reporting to that any errors are displayed.
+// Note, you would not use these settings in production.
+error_reporting(- 1);
+ini_set('display_errors', true);
+
+// Bootstrap the application.
+require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
+
+// Import the JWeb class from the platform. This is only required for platform < 12.1
+jimport('joomla.application.web');
+
+/**
+ * An example Joomla! web application class.
+ *
+ * @package _ECR_COM_NAME_
+ */
+class _ECR_COM_NAME_ extends JApplicationWeb
+{
+    /**
+     * Overrides the parent doExecute method to run the web application.
+     *
+     * This method should include your custom code that runs the application.
+     *
+     * @return  void
+     */
+    protected function doExecute()
+    {
+        // This application will just output a simple HTML document.
+        // Use the setBody method to set the output.
+        // JApplicationWeb will take care of all the headers and such for you.
+
+        $this->setBody('
+            <html>
+                <head>
+                    <title>Hello WWW</title>
+                </head>
+                <body style="font-family:verdana;">
+                    <p>Hello WWW!</p>
+                </body>
+            </html>'
+        );
+    }
+}
+
+// Instantiate the application object, passing the class name to JApplicationWeb::getInstance
+// and use chaining to execute the application.
+JApplicationWeb::getInstance('_ECR_COM_NAME_')->execute();

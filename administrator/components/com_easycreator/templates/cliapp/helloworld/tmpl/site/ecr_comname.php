@@ -8,6 +8,11 @@ define('_JEXEC', 1);
 <?php
 ##*HEADER*##
 
+// Increase error reporting to that any errors are displayed.
+// Note, you would not use these settings in production.
+error_reporting(-1);
+ini_set('display_errors', true);
+
 // Setup the base path related constant.
 // This is one of the few, mandatory constants needed for the Joomla Platform.
 define('JPATH_BASE', dirname(__FILE__));
@@ -15,8 +20,8 @@ define('JPATH_BASE', dirname(__FILE__));
 // Bootstrap the application.
 require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
 
-// Import the JCli class from the platform.
-jimport('joomla.application.cli');
+// Import the JCli class from the platform. This is only required for platform < 12.1
+//jimport('joomla.application.cli');
 
 /**
  * A "hello world" command line application class.

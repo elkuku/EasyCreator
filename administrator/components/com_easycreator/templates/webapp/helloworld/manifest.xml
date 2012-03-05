@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+        "http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="webapp" version="0.0.14">
+    <name>Hello World</name>
+    <description>A simple web Application</description>
+    <version>1</version>
+    <jVersion>2.5</jVersion>
+    <phpVersion>5</phpVersion>
+    <dbTables>None</dbTables>
+    <author>Nikolai Plath</author>
+    <authorUrl>http://github.com/elkuku</authorUrl>
+</easyproject>
