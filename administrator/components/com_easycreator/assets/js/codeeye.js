@@ -468,12 +468,12 @@ function gitStatus()
 /**
  * Run a PHP CLI script
  */
-function runCli(appName)
+function runCli(ecr_project)
 {
     url = ecrAJAXLink
         + '&controller=codeeyeajax'
         + '&task=runCli'
-        + '&appName=' + appName
+        + '&ecr_project=' + ecr_project
         + '&args=' + document.id('cliargs').value;
 
     new Request({

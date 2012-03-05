@@ -333,13 +333,12 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         echo json_encode($response);
     }
 
-    //function
-
     public function runCli()
     {
+        $project = EcrProjectHelper::getProject();
 
-        $appName = JRequest::getCmd('appName');
-        $path = JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/cliapps/'.$appName.'/'.$appName.'.php');
+        $path = JPath::clean($project->getExtensionPath().'/'.$project->comName.'.php');
+
         $args = (array)JRequest::getVar('args');
 
         $response = new stdClass;

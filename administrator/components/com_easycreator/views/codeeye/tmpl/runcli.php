@@ -1,10 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 26.02.12
- * Time: 00:39
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Views
+ * @author     Nikolai Plath
+ * @author     Created on 30-Sep-2009
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 ecrStylesheet('php_file_tree');
@@ -12,7 +12,7 @@ ecrStylesheet()
 
 ?>
 
-<h2>Run</h2>
+<h2><?php echo jgettext('Run a CLI application'); ?></h2>
 
 <ul class="php-file-tree">
 
@@ -23,7 +23,7 @@ ecrStylesheet()
 <input type="text" size="50" id="cliargs" class="cliargs"/>
 
 <a href="javascript:;" class="ecr_button"
-   onclick="runCli('<?php echo $this->project->comName; ?>');">
+   onclick="runCli('<?php echo $this->project->getFilename(); ?>');">
     <?php echo jgettext('Execute'); ?>
 </a>
     </li>
