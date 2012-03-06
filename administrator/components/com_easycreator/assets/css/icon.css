@@ -313,6 +313,14 @@
     background-image: url(../images/ico/ext_esp_mini.png);
 }
 
+.icon-12-cliapp {
+    background-image: url(../images/ico/ext_app_mini.gif);
+}
+
+.icon-12-webapp {
+    background-image: url(../images/ico/ext_app_mini.gif);
+}
+
 .img {
     background-repeat: no-repeat;
     background-position: 4px 3px ! important;
