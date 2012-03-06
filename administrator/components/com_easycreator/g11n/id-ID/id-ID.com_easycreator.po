@@ -1,7 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 #   <uringinteristi@gmail.com>, 2011.
 msgid ""
@@ -9,9 +10,9 @@ msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2011-09-28 00:50+0000\n"
+"PO-Revision-Date: 2012-02-14 08:40+0000\n"
 "Last-Translator: uring <uringinteristi@gmail.com>\n"
-"Language-Team: Indonesian (Indonesia) (http://www.transifex.net/projects/p/opentranslators/team/id_ID/)\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.net/projects/p/opentranslators/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -913,7 +914,7 @@ msgid "Path is not a folder"
 msgstr "Path bukan folder"
 
 #. render it
-#.
+#. 
 #: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:96
 msgid "Backtrace"
 msgstr "Backtrace"
@@ -1190,7 +1191,7 @@ msgstr "Pengaya"
 
 #: administrator/components/com_easycreator/helpers/projecthelper.php:409
 msgid "Libraries"
-msgstr ""
+msgstr "Pustaka"
 
 #: administrator/components/com_easycreator/helpers/projecthelper.php:409
 msgid "Library"
@@ -1293,16 +1294,16 @@ msgstr "Kosong"
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:491
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:561
 msgid "comments"
-msgstr ""
+msgstr "Komentar"
 
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:495
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:565
 msgid "Comment to Code ratio"
-msgstr ""
+msgstr "Komentar untuk rasio Kode"
 
 #: administrator/components/com_easycreator/helpers/table.php:405
 msgid "Add row"
-msgstr ""
+msgstr "Tambah baris"
 
 #: administrator/components/com_easycreator/helpers/table.php:409
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:149
@@ -1316,15 +1317,15 @@ msgstr "Label"
 
 #: administrator/components/com_easycreator/helpers/table.php:411
 msgid "Length/Set"
-msgstr ""
+msgstr "Panjang/Atur"
 
 #: administrator/components/com_easycreator/helpers/table.php:412
 msgid "Attributes"
-msgstr ""
+msgstr "Atribut"
 
 #: administrator/components/com_easycreator/helpers/table.php:413
 msgid "Null"
-msgstr ""
+msgstr "Nol"
 
 #: administrator/components/com_easycreator/helpers/table.php:414
 msgid "Default"
@@ -1340,7 +1341,7 @@ msgstr "Komentar"
 
 #: administrator/components/com_easycreator/helpers/table.php:422
 msgid "Predefined fields"
-msgstr ""
+msgstr "Bidang Standar"
 
 #: administrator/components/com_easycreator/helpers/ziper.php:932
 #: administrator/components/com_easycreator/install/install.easycreator.php:175
@@ -1381,16 +1382,12 @@ msgstr "EasyCreator adalah peralatan pengembangan."
 
 msgid ""
 "It tries to speed up the developing process of custom Joomla! extensions."
-msgstr ""
-"Yang mencoba untuk mempercepat proses mengembangkan sendiri ekstensi "
-"Joomla!."
+msgstr "Yang mencoba untuk mempercepat proses mengembangkan sendiri ekstensi Joomla!."
 
 msgid ""
 "You can create a \"frame\" for your extension and an installable zip package"
 " with just a few \"clicks\""
-msgstr ""
-"Anda bisa membuat \"frame\" untuk ekstensi anda dan paket zip untuk "
-"pemasangan hanya dengan beberapa \"klik\" saja."
+msgstr "Anda bisa membuat \"frame\" untuk ekstensi anda dan paket zip untuk pemasangan hanya dengan beberapa \"klik\" saja."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:80
 #, php-format
@@ -1400,8 +1397,7 @@ msgstr "Tim %s."
 #: administrator/components/com_easycreator/install/install.easycreator.php:86
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:56
 msgid "Please use this extension only in local development environments."
-msgstr ""
-"Harap menggunakan ekstensi ini hanya pada lingkungan pengembangan lokal."
+msgstr "Harap menggunakan ekstensi ini hanya pada lingkungan pengembangan lokal."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:89
 msgid ""
@@ -1412,7 +1408,7 @@ msgstr "Lihat: "
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:108
 msgid "Checking MD5 sums..."
-msgstr ""
+msgstr "Memeriksa sum MD5..."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:114
 msgid "There have been errors"
@@ -1510,14 +1506,12 @@ msgstr "Ruang tabel didefinisikan pengguna"
 msgid ""
 "Please define the fields for the table %s that will be created for your "
 "component."
-msgstr ""
-"Harap mendefinisikan ruang untuk table %s yang akan dibuat pada komponen "
-"anda."
+msgstr "Harap mendefinisikan ruang untuk table %s yang akan dibuat pada komponen anda."
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:61
 #, php-format
 msgid "Existing libraries: %s"
-msgstr ""
+msgstr "Pustaka yang ada: %s"
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:63
 #: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:27
@@ -1532,7 +1526,7 @@ msgstr "Tidak ada folder yang diberikan"
 #: administrator/components/com_easycreator/templates/library/custom/options.php:100
 #, php-format
 msgid "%s is a reserved name"
-msgstr ""
+msgstr "%s nama dicadangkan"
 
 #: administrator/components/com_easycreator/templates/parts/controllers/data/part.php:36
 msgid "Provides methods to modify data with a specific model"
@@ -1540,22 +1534,22 @@ msgstr "Sediakan metode untuk modifikasi data dengan model tertentu"
 
 #: administrator/components/com_easycreator/templates/parts/controllers/simple/part.php:32
 msgid "A simple, empty, controller"
-msgstr ""
+msgstr "Simple, kosong, pengendali"
 
 #: administrator/components/com_easycreator/templates/parts/models/form/part.php:32
 #: administrator/components/com_easycreator/templates/parts/models/list/part.php:32
 #: administrator/components/com_easycreator/templates/parts/models/simple/part.php:31
 #: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:77
 msgid "A simple, empty, model"
-msgstr ""
+msgstr "Simple, kosong, model"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:33
 msgid "This will create a new table with admin interface"
-msgstr ""
+msgstr "Ini akan membuat tabel baru dengan tampilan admin"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:46
 msgid "Include Fields"
-msgstr ""
+msgstr "Masukkan Bidang"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:49
 msgid "Id"
@@ -1576,7 +1570,7 @@ msgstr "Mengurut"
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:36
 msgid ""
 "This will map an existing table and create an admin interface and menu link"
-msgstr ""
+msgstr "Ini akan memetakan tabel yang ada dan membuat tampilan admin dan tautan menu"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:76
 msgid "Menu link"
@@ -1609,7 +1603,7 @@ msgstr "Tidak bisa membuat tautan menu"
 
 #: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:55
 msgid "This will map an existing table to a table class"
-msgstr ""
+msgstr "Ini akan memetakan tabel yang ada pada class tabel"
 
 #: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:79
 #: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:111
@@ -1619,7 +1613,7 @@ msgstr "Pilih..."
 
 #: administrator/components/com_easycreator/templates/parts/various/changelog/part.php:31
 msgid "A standard, empty, Changelog"
-msgstr ""
+msgstr "Standar, kosong, Changelog"
 
 #: administrator/components/com_easycreator/templates/parts/various/changelog/part.php:48
 msgid "This project already has a changelog"
@@ -1627,13 +1621,11 @@ msgstr "Proyek ini sudah mempunyai changelog"
 
 #: administrator/components/com_easycreator/templates/parts/various/package_installer/part.php:31
 msgid "Install and Uninstall routine for packages"
-msgstr ""
+msgstr "Pasang dan Cabut rutinitas paket"
 
 #: administrator/components/com_easycreator/templates/parts/various/package_installer/part.php:52
 msgid "This project already has an install file - consider removing it"
-msgstr ""
-"Proyek ini sudah mempunyai berkas pemasangan - pertimbangkan untuk "
-"menyingkirkannya"
+msgstr "Proyek ini sudah mempunyai berkas pemasangan - pertimbangkan untuk menyingkirkannya"
 
 #: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:303
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:178
@@ -1642,7 +1634,7 @@ msgstr "View tidak ditemukan"
 
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:60
 msgid "Lists Data from a specific table."
-msgstr ""
+msgstr "Daftar Data dari table tertentu."
 
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:114
 msgid "Menu link:"
@@ -1650,7 +1642,7 @@ msgstr "Tautan menu:"
 
 #: administrator/components/com_easycreator/templates/parts/views/simple/part.php:32
 msgid "A simple, empty, view"
-msgstr ""
+msgstr "Sederhana, kosong, tampilan"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:21
 msgid "First Things First"
@@ -1679,11 +1671,11 @@ msgstr "Keluaran"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:39
 msgid "Sniff folder"
-msgstr ""
+msgstr "Folder sniff"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:87
 msgid "Perform only"
-msgstr ""
+msgstr "Hanya melakukan"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:65
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:61
@@ -1751,47 +1743,8 @@ msgstr "Lihat Sumber"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:548
 msgid "Properties"
-msgstr ""
+msgstr "Properti-properti"
 
-#. $constants = $theClass->getConstants();
-#. print_r($constants);
-#. Dokumentarischen Kommentar ausgeben
-#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
-#. 1));
-#.
-#. // Ausgeben, welche Interfaces von der Klasse implementiert werden
-#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
-#. 1));
-#.
-#. // Klassenkonstanten ausgeben
-#. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#.
-#. // Klasseneigenschaften ausgeben
-#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
-#. 1));
-#.
-#. // Klassenmethoden ausgeben
-#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
-#. '</pre>';
-#. #echo $theClass->getDocComment();
-#. echo '<pre>';
-#. printf(
-#. "===> %s%s%s %s '%s' [extends %s]\n" .
-#. "    deklariert in %s\n" .
-#. "    Zeilen %d bis %d\n" .
-#. "    hat die Modifizierer %d [%s]\n",
-#. $theClass->isInternal() ? 'internal' : 'user-defined',
-#. $theClass->isAbstract() ? ' abstract' : '',
-#. $theClass->isFinal() ? ' final' : '',
-#. $theClass->isInterface() ? 'interface' : 'class',
-#. $theClass->getName(),
-#. var_export($theClass->getParentClass(), 1),
-#. $theClass->getFileName(),
-#. $theClass->getStartLine(),
-#. $theClass->getEndline(),
-#. $theClass->getModifiers(),
-#. implode(' ', Reflection::getModifierNames($theClass->getModifiers()))
-#. );
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:609
 msgid "Methods"
 msgstr "Metode"
@@ -1832,7 +1785,7 @@ msgstr "Skema warna"
 #. foreach
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:104
 msgid "Generate statistics"
-msgstr ""
+msgstr "Menghasilkan statistik"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:113
 #, php-format
@@ -1870,35 +1823,35 @@ msgstr "Tes unit %s belum tersedia"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:291
 msgid "CodeSniffer"
-msgstr ""
+msgstr "CodeSniffer"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:292
 msgid "Use CodeSniffer to assure coding standards."
-msgstr ""
+msgstr "Gunakan CodeSniffer memastikan standar pengkodean."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:296
 msgid "Duplicated Code"
-msgstr ""
+msgstr "Kode Salinan"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:297
 msgid "Searches your code for duplicates."
-msgstr ""
+msgstr "Mencari kode anda untuk duplikasi/penyalinan."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:301
 msgid "PHPUnit Tests"
-msgstr ""
+msgstr "Pengetesan PHPUnit"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:302
 msgid "Generates and executes PHPUnit Tests."
-msgstr ""
+msgstr "Hasilkan dan melaksanakan pengetesan PHPUnit."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:306
 msgid "Selenium Tests"
-msgstr ""
+msgstr "Pengetesan Selenium"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:307
 msgid "Generates and executes Selenium Tests."
-msgstr ""
+msgstr "Hasilkan dan melaksanakan Pengetesan Selenium."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:311
 msgid "PHPDocumentor"
@@ -1958,7 +1911,7 @@ msgstr "Forum"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:47
 msgid "Bugtracker"
-msgstr ""
+msgstr "Bugtacker"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:53
 msgid "Feature requests"
@@ -1982,7 +1935,7 @@ msgstr "SVn"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:83
 msgid "Support EasyCreator by adding it to your stack at Ohloh"
-msgstr ""
+msgstr "Dukung EasyCreator dengan menambahkannya ke tumpukan anda pada Ohloh"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:57
 msgid "Registered Projects"
@@ -2015,39 +1968,35 @@ msgstr "Buat proyek pertama anda"
 
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:44
 msgid "This extension is not compatible with MS internet explorer R"
-msgstr ""
+msgstr "Ekstensi ini tidak bisa digunakan dengan MS internet explorer R"
 
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:59
 #, php-format
 msgid ""
 "See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! "
 "development</a>"
-msgstr ""
-"Lihat: <a href=\"%s\">docs.joomla.org/Setting up your workstation for "
-"Joomla! development</a>"
+msgstr "Lihat: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! development</a>"
 
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:62
 msgid ""
 "You may suppress this message in the configuration settings if you're shure"
-msgstr ""
+msgstr "Anda bisa menghilangkan pesan ini dalam pengaturan konfigurasi bila anda yakin"
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:72
 msgid "No local API copy specified. you may do this in configuration."
-msgstr ""
-"Tidak ada API lokal yang spesifik. Anda mungkin bisa melakukannya dalam "
-"konfigurasi"
+msgstr "Tidak ada API lokal yang spesifik. Anda mungkin bisa melakukannya dalam konfigurasi"
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:101
 msgid "By Package"
-msgstr ""
+msgstr "Per Paket"
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:145
 msgid "By Name"
-msgstr ""
+msgstr "Per Nama"
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:190
 msgid "So many empty pages on the wiki ?"
-msgstr ""
+msgstr "Terlalu banyak halaman kosong pada wiki?"
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:216
 msgid "Joomla! constants"
@@ -2059,11 +2008,11 @@ msgstr "Tampilkan semua kode PHP"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:33
 msgid "Convert quotes"
-msgstr ""
+msgstr "Konversi kutipan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:37
 msgid "Convert forbidden keys"
-msgstr ""
+msgstr "Konversi kunci terlarang"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:38
 msgid "Remove bad charcters"
@@ -2079,19 +2028,19 @@ msgstr "Tambah awalan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:41
 msgid "Convert to all caps"
-msgstr ""
+msgstr "Konversi semua ke huruf besar"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:44
 msgid "Convert to language file keys to the case of your code"
-msgstr ""
+msgstr "Konversi kunci berkas bahasa sesuai dengan kode anda."
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:62
 msgid "Convert code and language file"
-msgstr ""
+msgstr "Konversi kode dan berkas bahasa"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:67
 msgid "Convert language file"
-msgstr ""
+msgstr "Konversi berkas bahasa"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:81
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:158
@@ -2102,22 +2051,22 @@ msgstr "Asli"
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:161
 #, php-format
 msgid "Fixed for %s"
-msgstr ""
+msgstr "Diperbaiki pada %s"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:153
 #, php-format
 msgid "Language file: %s"
-msgstr ""
+msgstr "Berkas bahasa: %s"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/convert.php:229
 msgid "No language files found in selected scope"
-msgstr ""
+msgstr "Tidak ada berkas yang ditemukan pada cskupan yang dipilih"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:18
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:16
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:16
 msgid "No languages defined"
-msgstr ""
+msgstr "Tidak ada bahasa yang ditentukan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:267
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:266
@@ -2145,7 +2094,7 @@ msgstr "Terjemahan bahasa"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:33
 msgid "Corrected language"
-msgstr ""
+msgstr "Koreksi bahasa"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:47
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:94
@@ -2166,43 +2115,43 @@ msgstr "Analisa berkas PHP, XML dan JavaScript"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:64
 msgid "Menu analysis"
-msgstr ""
+msgstr "Analisa menu"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:78
 msgid "Filter"
-msgstr ""
+msgstr "Penyaring"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:102
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:104
 msgid "Translated"
-msgstr ""
+msgstr "Diterjemahkan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:106
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:182
 msgid "Not translated"
-msgstr ""
+msgstr "Tak diterjemahkan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:110
 msgid "Translated in core"
-msgstr ""
+msgstr "Diterjemahkan dalam core"
 
 #. -- No default translation available
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:39
 msgid "Unable to translate without default translation"
-msgstr ""
+msgstr "Tidak dapat menterjemahkan tanpa terjemahan standarnya"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:40
 #, php-format
 msgid "Please translate %s first"
-msgstr ""
+msgstr "Silahkan menterjemahkan %s terlebih dahulu"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:81
 msgid "Loading Google Translation API"
-msgstr ""
+msgstr "Memuat API Google Translation"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:123
 msgid "Translate [s]"
-msgstr ""
+msgstr "Terjemahan [s]"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:145
 msgid "Copy"
@@ -2244,49 +2193,49 @@ msgstr "Silahkan memilih kesalahan yang ingin anda benarkan"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:645
 msgid "Setup"
-msgstr ""
+msgstr "Setup"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:646
 msgid "Setup your language files"
-msgstr ""
+msgstr "Setup berkas-berkas bahasa anda"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:650
 msgid "Files and menus"
-msgstr ""
+msgstr "Berkas dan Menu"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:651
 msgid "Searches inside the source files and menus for translatable strings"
-msgstr ""
+msgstr "Mencari didalam berkas-berkas sumber dan menu-menu untuk strin-string yang bisa diterjemahkan"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:655
 msgid "Translations"
-msgstr ""
+msgstr "Terjemahan"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:657
 msgid ""
 "Manage translations in ini files and inspect your php / xml files for JText "
 "strings to translate."
-msgstr ""
+msgstr "Mengatur terjemahan dalam berkas-berkas ini dan periksa berkas-berkas php/xml untuk string-string JText agar diterjemahkan."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:661
 msgid "Default file order"
-msgstr ""
+msgstr "Standar urutan berkas"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:662
 msgid ""
 "Change the order of your default language file and add comments to create a "
 "structure."
-msgstr ""
+msgstr "Ganti urutan standar bahasa anda dan tambahkan komentar untuk membuat struktur."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:666
 msgid "Translation order"
-msgstr ""
+msgstr "Urutan terjemahan"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:667
 msgid ""
 "Change the order of your translated language files according to your default"
 " file."
-msgstr ""
+msgstr "Ganti urutan berkas-berkas bahasa yang diterjemahkan pada standar berkas anda."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:672
 msgid "Compare saved versions of your language files."
@@ -2294,15 +2243,15 @@ msgstr "Bandingkan versi tersimpan pada berkas-nerkas bahasa anda"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:676
 msgid "Convert"
-msgstr ""
+msgstr "Konversi"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:677
 msgid "Convert your language files and your code simultaneously."
-msgstr ""
+msgstr "Konversi berkas bahasa dan kode anda secara bersamaan."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:682
 msgid "g11n is an experimental language handler."
-msgstr ""
+msgstr "g11n adalah penanganan bahasa eksperimental."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:756
 msgid "Do NOT show"
@@ -2317,9 +2266,7 @@ msgstr "Muat core bahasa"
 msgid ""
 "Also load the core language file to check for translations (displayed in "
 "orange)"
-msgstr ""
-"Juga muat berkas core bahasa untuk memeriksa terjemahan (ditampilkan dengan "
-"warna orange)"
+msgstr "Juga muat berkas core bahasa untuk memeriksa terjemahan (ditampilkan dengan warna orange)"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:813
 msgid "Cut"
@@ -2327,7 +2274,7 @@ msgstr "Potong"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:839
 msgid "Drag and drop elements to rearrange. Add new comments."
-msgstr ""
+msgstr "geser dan letakkan elemen untuk mengatur ulang. Tambah komentar baru."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:905
 msgid "Language"
@@ -2335,23 +2282,23 @@ msgstr "Bahasa"
 
 #: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:15
 msgid "No logfiles found"
-msgstr ""
+msgstr "Tidak ada berkas log yang ditemukan"
 
 #: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:39
 msgid "Clear log"
-msgstr ""
+msgstr "Bersihkan log"
 
 #: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:30
 msgid "Show Joomla core projects"
-msgstr ""
+msgstr "Tampilkan proyek core Joomla"
 
 #: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:32
 msgid "Unregistered Projects"
-msgstr ""
+msgstr "Proyek Tak-terdaftar"
 
 #: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:45
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #. registerTable('$this->ecr_project', '$table->name',
 #. 'res-$table->name');\">";
@@ -2360,7 +2307,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:341
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:414
 msgid "Register"
-msgstr ""
+msgstr "Mendaftar"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:57
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:22
@@ -2369,7 +2316,7 @@ msgstr "Tipe Ekstensi"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:60
 msgid "Choose a component type from a predefined template"
-msgstr ""
+msgstr "Pilih tipe komponen dari template sebelum ditentukan"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:96
 msgid "Joomla 1.6 extension templates can not be build on Joomla 1.5"
@@ -2395,7 +2342,7 @@ msgstr "Nama untuk bayi anda"
 msgid ""
 "Please choose a name following the standard naming conventions. Use UPPER "
 "and lower case"
-msgstr ""
+msgstr "Silahkan memilih nama berdasarkan konvensi penamaan standar. Gunakan HURUF BESAR atau huruf kecil"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:39
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:47
@@ -2405,45 +2352,45 @@ msgstr "Diperlukan"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:69
 msgid "Your Credits"
-msgstr ""
+msgstr "Pengahargaan Anda"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:73
 msgid "Author name"
-msgstr ""
+msgstr "Nama penulis"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:87
 msgid "Author url"
-msgstr ""
+msgstr "Url penulis"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:102
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:41
 msgid "Copyright"
-msgstr ""
+msgstr "Copyright"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:75
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:89
 msgid "Build options"
-msgstr ""
+msgstr "Opsi pembuatan"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:83
 msgid "More options"
-msgstr ""
+msgstr "Opsi tambahan"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:90
 msgid "Create CHANGELOG.php"
-msgstr ""
+msgstr "Buat CHANGELOG.php"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:99
 msgid "Youre done"
-msgstr ""
+msgstr "Anda sudah selesai"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:100
 msgid "Just click on create it below to finish your component"
-msgstr ""
+msgstr "Hanya klik pada buat dibawah untuk menyelesaikan komponen anda"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:114
 msgid "Create it"
-msgstr ""
+msgstr "Buat"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:19
 msgid "Attention"
@@ -2471,7 +2418,7 @@ msgstr "ambah elemen"
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:46
 msgid "File tree"
-msgstr ""
+msgstr "Pohon berkas"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:46
@@ -2488,35 +2435,35 @@ msgstr "Klik kanan berkas dan folder untuk opsi"
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:234
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:113
 msgid "Select an element"
-msgstr ""
+msgstr "Piplih elemen"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:22
 msgid "Install and Uninstall PHP"
-msgstr ""
+msgstr "Pasang dan Cabut PHP"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:48
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:50
 msgid "Create install file"
-msgstr ""
+msgstr "Buat berkas pemasang"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:53
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:55
 msgid "Create uninstall file"
-msgstr ""
+msgstr "Buat berkas pencabut"
 
 #. #var_dump($this->project->tables);
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:23
 msgid "Install and Uninstall SQL"
-msgstr ""
+msgstr "Pasang dan Cabut SQL"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:58
 msgid "Install SQL analysis"
-msgstr ""
+msgstr "Pasang penganalisa SQL"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:18
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:18
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:21
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:19
@@ -2566,48 +2513,48 @@ msgstr "Tidak ada parameter yang ditentukan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:225
 msgid "Infos on parameters (external)"
-msgstr ""
+msgstr "Info pada parameter (eksternal)"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:17
 msgid "Credits"
-msgstr ""
+msgstr "Penghargaan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:31
 msgid "Autor-URL"
-msgstr ""
+msgstr "URL-Penulis"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:35
 msgid "Extension name"
-msgstr ""
+msgstr "Nama ekstensi"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:43
 msgid "Component scope"
-msgstr ""
+msgstr "Cakupan komponen"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:65
 msgid "From template"
-msgstr ""
+msgstr "Dari template"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:18
 msgid "Install and Uninstall"
-msgstr ""
+msgstr "Pasang dan Cabut"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:21
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:40
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:24
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:25
 msgid "Extension prefix"
-msgstr ""
+msgstr "Awalan ekstensi"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:24
 msgid "A custom prefix for your extension."
-msgstr ""
+msgstr "Awalan kustom untuk pada ekstensi anda."
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:33
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:34
@@ -2628,7 +2575,7 @@ msgid ""
 "* Note that those language file formats\\n needs a special language handler "
 "called \"g11n\" - What ?\\nPlease refer to <a href=\"%s\">Wiki.Joomla-"
 "Nafu.de</a> for more information."
-msgstr ""
+msgstr "* Harap diingat format berkas bahasa itu\\n memerlukan penanganan bahasa yang disebut \"g11n\" - Apa?\\nSilahkan mengacu pada <a href=\"%s\">Wki.Joomla-Nafu.de</a> untuk informasi lebih jelas."
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:22
 msgid "Menu"
@@ -2652,48 +2599,48 @@ msgstr "Submenu"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:66
 msgid "Add Submenu"
-msgstr ""
+msgstr "Tambah Submenu"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:19
 msgid "Add extensions"
-msgstr ""
+msgstr "Tambah ekstensi"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:33
 msgid "No module projects found"
-msgstr ""
+msgstr "Tidak proyek -proyek module yang ditemukan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:45
 msgid "Add Module"
-msgstr ""
+msgstr "Tambah Module"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:56
 msgid "No plugin projects found"
-msgstr ""
+msgstr "Tidak ada proyek pengaya yang ditemukan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:68
 msgid "Add Plugin"
-msgstr ""
+msgstr "Tambah Pengaya"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:93
 msgid "Package installer ?"
-msgstr ""
+msgstr "Pemasang paket?"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:95
 #, php-format
 msgid ""
 "Packages require a special install script which should be named "
 "<strong>%s</strong>"
-msgstr ""
+msgstr "Paket memerlukan script pemasang yang harus diberi nama <strong>%s</strong>"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:97
 msgid ""
 "EasyCreator can do this if you go to Files -> Add element -> Various -> "
 "Package installer"
-msgstr ""
+msgstr "EasyCreator bisa melakukan ini bila anda ke Berkas -> Tambah elemen -> Beragam -> Pemasang paket"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:19
 msgid "Package elements"
-msgstr ""
+msgstr "Elemen Paket"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:22
 msgid "Your package"
@@ -2713,7 +2660,7 @@ msgstr "Versi Joomla!"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:45
 msgid "Compression"
-msgstr ""
+msgstr "Kompresi"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:58
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:52
@@ -2738,52 +2685,52 @@ msgstr "Masukkan berkas Proyek EasyCreator"
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:82
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:84
 msgid "Remove EasyCreator AutoCode"
-msgstr ""
+msgstr "Singkirkan AutoCode EasyCreator"
 
 #. foreach
 #. foreach
 #. foreach
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:207
 msgid "Relations"
-msgstr ""
+msgstr "Relasi"
 
 #. foreach
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:236
 msgid "Add relation"
-msgstr ""
+msgstr "Tambah relasi"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:241
 msgid "New relation"
-msgstr ""
+msgstr "Relasi baru"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:251
 msgid "Foreign table"
-msgstr ""
+msgstr "Tabel asing"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:282
 msgid "Aliases"
-msgstr ""
+msgstr "Alias"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:311
 msgid "No tables to design"
-msgstr ""
+msgstr "Tidak ada tabel untuk dirancang"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:317
 msgid "Is registered"
-msgstr ""
+msgstr "Apakah Terdaftar"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:318
 msgid "In DB"
-msgstr ""
+msgstr "Dalam DB"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:319
 msgid "Has install"
-msgstr ""
+msgstr "Telah Dipasang"
 
 #. foreach
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:400
 msgid "Register Table"
-msgstr ""
+msgstr "Tabel Terdaftar"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:416
 msgid "New Table"
@@ -2791,29 +2738,29 @@ msgstr "Tabel Baru"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:426
 msgid "Fields"
-msgstr ""
+msgstr "Bidang"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:430
 msgid "Add Field"
-msgstr ""
+msgstr "Tambah Bidang"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:439
 msgid "CREATE Table"
-msgstr ""
+msgstr "BUAT Tabel"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:110
 msgid "Building"
-msgstr ""
+msgstr "Mengembangkan"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:111
 msgid ""
 "Shows options for building your project like credits, files and folders to "
 "copy, languages and admin menu."
-msgstr ""
+msgstr "Menampilkan opsi-opsi untuk mengembangkan proyek anda seperti penghargaan, berkas dan folder untuk disalin, bahasa dan menu admin."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:116
 msgid "Shows all the files belonging to your project"
-msgstr ""
+msgstr "Tampilkan semua berkas-berkas yang menjadi proyek milik anda"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:120
 msgid "Installing"
@@ -2821,23 +2768,23 @@ msgstr "Memasang"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:121
 msgid "Create and modify install and uninstall files for your project."
-msgstr ""
+msgstr "Buat dan modifikasi berkas pemasang dan pencabut pada proyek anda."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:125
 msgid "Parameters"
-msgstr ""
+msgstr "Parameter"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:126
 msgid "Modify your project parameters stored in XML files."
-msgstr ""
+msgstr "Modifikasi parameter-parameter proyek anda yang tersimpan dalam berkas-berkas XML"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:130
 msgid "DataDesigner"
-msgstr ""
+msgstr "DataDesigner"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:131
 msgid "Automated source code and db creation for your project."
-msgstr ""
+msgstr "Otomatisasi kode sumber dan pembuatan db pada proyek anda."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:135
 msgid "Remove Project"
@@ -2849,7 +2796,7 @@ msgstr "Hal ini akan menghapus proyek anda."
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:21
 msgid "Export templates"
-msgstr ""
+msgstr "Ekspor template"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:22
 msgid "Select the templates to export"
@@ -2858,21 +2805,21 @@ msgstr "Pilih template untuk diekspor"
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:35
 #: administrator/components/com_easycreator/views/templates/view.html.php:161
 msgid "Export"
-msgstr ""
+msgstr "Ekspor"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:44
 msgid "Exports"
-msgstr ""
+msgstr "Eksports"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:51
 #: administrator/components/com_easycreator/views/ziper/view.html.php:125
 msgid "Archive is empty"
-msgstr ""
+msgstr "Arsip kosong"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:64
 #: administrator/components/com_easycreator/views/ziper/view.html.php:159
 msgid "Modified"
-msgstr ""
+msgstr "Dimodifokasi"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:66
 #: administrator/components/com_easycreator/views/ziper/view.html.php:161
@@ -2881,11 +2828,11 @@ msgstr "Aksi"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:19
 msgid "Install templates"
-msgstr ""
+msgstr "Pasang template"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:20
 msgid "Select a template package to import"
-msgstr ""
+msgstr "Pilih paket template untuk di import"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:25
 msgid "Package File"
@@ -2893,16 +2840,16 @@ msgstr "Berkas Paket"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/install.php:28
 msgid "Upload and install package"
-msgstr ""
+msgstr "Unggah dan pasang paket"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:51
 #: administrator/components/com_easycreator/views/templates/view.html.php:39
 msgid "Extension templates"
-msgstr ""
+msgstr "Template ekstensi"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:92
 msgid "Extension templates parts"
-msgstr ""
+msgstr "Bagian template ekstensi"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:135
 msgid "Standard files"
@@ -2910,7 +2857,7 @@ msgstr "Berkas-berkas standar"
 
 #: administrator/components/com_easycreator/views/templates/view.html.php:152
 msgid "Manage EasyCreator Extension Templates"
-msgstr ""
+msgstr "Kelola Template Ekstensi EasyCreator"
 
 #: administrator/components/com_easycreator/views/templates/view.html.php:156
 msgid "Install"
@@ -2918,20 +2865,20 @@ msgstr "Pasang"
 
 #: administrator/components/com_easycreator/views/templates/view.html.php:157
 msgid "Installs EasyCreator Extension Templates"
-msgstr ""
+msgstr "Pasang Template Ekstensi EasyCreator"
 
 #: administrator/components/com_easycreator/views/templates/view.html.php:162
 msgid "Exports EasyCreator Extension Templates"
-msgstr ""
+msgstr "Ekspor Template Ekstensi EasyCreator"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:34
 #, php-format
 msgid "Create %s"
-msgstr ""
+msgstr "Buat %s"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:18
 msgid "Packing format options"
-msgstr ""
+msgstr "Opsi format pemaketan"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:17
 msgid "File name"
@@ -2940,23 +2887,23 @@ msgstr "Nama berkas"
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:18
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:23
 msgid "Custom name format"
-msgstr ""
+msgstr "Format nama kustom"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
-msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
+msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
 msgid "Customize"
-msgstr ""
+msgstr "Kustomisasi"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:22
 msgid "Your ZIPfile has been created sucessfully"
-msgstr ""
+msgstr "Berkas ZIP anda telah berhasil dibuat"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:27
 msgid "Your ZIPfile has NOT been created"
-msgstr ""
+msgstr "Berkas ZIP anda masih BELUM dibuat"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziperresult.php:45
 msgid "Log File"
@@ -2966,7 +2913,7 @@ msgstr "Berkas Log"
 #. -- Draw h1 header
 #: administrator/components/com_easycreator/views/ziper/view.html.php:53
 msgid "Component ZIPer"
-msgstr ""
+msgstr "Pembuat ZIP Komponen"
 
 #: administrator/components/com_easycreator/views/ziper/view.html.php:119
 msgid "Archive"
@@ -2975,5 +2922,3 @@ msgstr "Arsip"
 #: administrator/components/com_easycreator/views/ziper/view.html.php:148
 msgid "No ZIP files found"
 msgstr "Tidak ditemukan berkas-berkas ZIP"
-
-

@@ -1,7 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Joel Hansen <johaswe@gmail.com>, 2011.
 msgid ""
@@ -9,9 +10,9 @@ msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 23:45-0500\n"
-"PO-Revision-Date: 2011-09-28 11:42+0000\n"
-"Last-Translator: johaswe <johaswe@gmail.com>\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.net/projects/p/opentranslators/team/sv_SE/)\n"
+"PO-Revision-Date: 2012-02-14 09:10+0000\n"
+"Last-Translator: Joel Hansen <johaswe@gmail.com>\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.net/projects/p/opentranslators/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -140,5 +141,3 @@ msgstr "Du måste ange ett listpostfix"
 #, python-format
 msgid "Undefined Joomla! version: %s"
 msgstr "Odefinierad Joomla! version: %s"
-
-

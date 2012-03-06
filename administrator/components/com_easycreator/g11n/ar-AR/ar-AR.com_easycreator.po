@@ -1,17 +1,19 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 #   <ahmadalfy@gmail.com>, 2011.
+#   <m-amine-1995@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2011-09-30 13:09+0000\n"
-"Last-Translator: ahmadalfy <ahmadalfy@gmail.com>\n"
-"Language-Team: Arabic (http://www.transifex.net/projects/p/opentranslators/team/ar/)\n"
+"PO-Revision-Date: 2012-02-20 13:00+0000\n"
+"Last-Translator: AminosAmigos <m-amine-1995@hotmail.com>\n"
+"Language-Team: Arabic (http://www.transifex.net/projects/p/opentranslators/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,7 +108,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html.php:1102
 #: administrator/components/com_easycreator/helpers/html.php:1121
 msgid "New folder"
-msgstr ""
+msgstr "مجلد jadid "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:644
 #: administrator/components/com_easycreator/controllers/ajax.php:698
@@ -115,11 +117,11 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:668
 msgid "This is a folder"
-msgstr ""
+msgstr "هذا mojaled "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:675
 msgid "The file already exists"
-msgstr ""
+msgstr "الملف mawjoud "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:685
 msgid "Unable to create file"
@@ -129,18 +131,18 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html.php:1103
 #: administrator/components/com_easycreator/helpers/html.php:1122
 msgid "New file"
-msgstr ""
+msgstr "ملف جديد "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:715
 #: administrator/components/com_easycreator/controllers/ajax.php:765
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:260
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:259
 msgid "Empty"
-msgstr ""
+msgstr "faregh "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:724
 msgid "Folder does not exist"
-msgstr ""
+msgstr "المجلد غير موجود "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:731
 msgid "Unable to delete folder"
@@ -148,7 +150,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:744
 msgid "Delete folder"
-msgstr ""
+msgstr "حذف المجلد "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:744
 #: administrator/components/com_easycreator/controllers/ajax.php:794
@@ -162,11 +164,11 @@ msgstr ""
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:102
 #: administrator/components/com_easycreator/views/ziper/view.html.php:195
 msgid "Delete"
-msgstr ""
+msgstr "حذف "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:774
 msgid "File does not exist"
-msgstr ""
+msgstr "الملف غير موجود "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:781
 #: administrator/components/com_easycreator/helpers/project.php:893
@@ -175,22 +177,22 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:794
 msgid "Delete file"
-msgstr ""
+msgstr "حذف الملف "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:839
 msgid "Rename folder"
-msgstr ""
+msgstr "إعادة تسمية المجلد "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:839
 #: administrator/components/com_easycreator/controllers/ajax.php:883
 #: administrator/components/com_easycreator/helpers/html.php:1104
 #: administrator/components/com_easycreator/helpers/html.php:1123
 msgid "Rename"
-msgstr ""
+msgstr "إعادة تسمية"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:883
 msgid "Rename file"
-msgstr ""
+msgstr "إعادة تسمية almalf "
 
 #: administrator/components/com_easycreator/controllers/ajax.php:1138
 #: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:339
@@ -199,7 +201,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:258
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:274
 msgid "Select..."
-msgstr ""
+msgstr "إختيار ..."
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:48
 msgid "The file bootstrap.php has been copied to your Joomla root"
@@ -217,7 +219,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:107
 msgid "Invalid project"
-msgstr ""
+msgstr "مشروع غyr "
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:114
 msgid "Unable to create tests directory"
@@ -243,7 +245,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:422
 msgid "No path set"
-msgstr ""
+msgstr "لم يتم تحديد almasar "
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:506
 msgid "Something went wrong..."
@@ -259,7 +261,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:518
 msgid "View Errors"
-msgstr ""
+msgstr "إظهار al25ta2 "
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:539
 #: administrator/components/com_easycreator/helpers/languagehelper.php:151
@@ -269,7 +271,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:36
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:55
 msgid "Not found"
-msgstr ""
+msgstr "غير موجود "
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:543
 msgid "No PEAR packages found - Please check your Paths"
@@ -283,7 +285,7 @@ msgstr ""
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:552
 #, php-format
 msgid "See also: %s"
-msgstr ""
+msgstr "أنظر أيضا %s "
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:558
 #: administrator/components/com_easycreator/helpers/html.php:76
@@ -300,11 +302,11 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:46
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:51
 msgid "Version"
-msgstr ""
+msgstr "nos5a "
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:560
 msgid "Recommended"
-msgstr ""
+msgstr "موصى به "
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:561
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:108
@@ -312,7 +314,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:17
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:320
 msgid "Info"
-msgstr ""
+msgstr "ma3loumat "
 
 #: administrator/components/com_easycreator/controllers/config.php:62
 msgid "Unsupported Joomla! version"
@@ -320,11 +322,11 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/config.php:78
 msgid "Configuration has been saved"
-msgstr ""
+msgstr "تم حفظ الإعدادات "
 
 #: administrator/components/com_easycreator/controllers/languages.php:157
 msgid "The file has been created"
-msgstr ""
+msgstr "تم إنشاء almilf "
 
 #: administrator/components/com_easycreator/controllers/languages.php:190
 msgid "The BOM has been removed"
@@ -447,7 +449,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:523
 msgid "The Settings have been updated"
-msgstr ""
+msgstr "تم تحديث al23dadat "
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:580
 #, php-format
@@ -609,7 +611,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/file.php:36
 msgid "Empty content"
-msgstr ""
+msgstr "محتوى فارغ "
 
 #: administrator/components/com_easycreator/helpers/file.php:44
 msgid "The file must exist for save"
@@ -639,7 +641,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:38
 #: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:38
 msgid "Project"
-msgstr ""
+msgstr "مشروع "
 
 #. --Draw h1 header
 #: administrator/components/com_easycreator/helpers/html.php:64
@@ -647,7 +649,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/languages/view.html.php:61
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:19
 msgid "Languages"
-msgstr ""
+msgstr "loughat "
 
 #. --Draw h1 header
 #: administrator/components/com_easycreator/helpers/html.php:70
@@ -658,7 +660,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html.php:84
 #: administrator/components/com_easycreator/views/config/tmpl/default.php:31
 msgid "Configuration"
-msgstr ""
+msgstr "23dadat "
 
 #: administrator/components/com_easycreator/helpers/html.php:89
 #: administrator/components/com_easycreator/helpers/projecthelper.php:411
@@ -675,7 +677,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html.php:99
 #: administrator/components/com_easycreator/views/help/tmpl/default.php:19
 msgid "Help"
-msgstr ""
+msgstr "mousa3ada "
 
 #: administrator/components/com_easycreator/helpers/html.php:104
 msgid "Sandbox"
@@ -725,7 +727,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html.php:455
 msgid "Profile"
-msgstr ""
+msgstr "الملف alch5si "
 
 #: administrator/components/com_easycreator/helpers/html.php:468
 msgid "Activate logging"
@@ -754,7 +756,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:76
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:153
 msgid "Save"
-msgstr ""
+msgstr "7ifz "
 
 #: administrator/components/com_easycreator/helpers/html.php:708
 msgid "Your extension so far"
@@ -767,7 +769,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:45
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:19
 msgid "Type"
-msgstr ""
+msgstr "naw3 "
 
 #: administrator/components/com_easycreator/helpers/html.php:712
 #: administrator/components/com_easycreator/helpers/projecthelper.php:411
@@ -807,13 +809,13 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:127
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:21
 msgid "Author"
-msgstr ""
+msgstr "almo2lef "
 
 #: administrator/components/com_easycreator/helpers/html.php:731
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:80
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:26
 msgid "Author e-mail"
-msgstr ""
+msgstr "البريد الإلكتروني lilmo2alef "
 
 #: administrator/components/com_easycreator/helpers/html.php:732
 msgid "Author URL"
@@ -823,7 +825,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:94
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:36
 msgid "License"
-msgstr ""
+msgstr "alro5sa "
 
 #: administrator/components/com_easycreator/helpers/html.php:734
 msgid "Copyright (C)"
@@ -840,15 +842,15 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:66
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:67
 msgid "Back"
-msgstr ""
+msgstr "roujou3 "
 
 #: administrator/components/com_easycreator/helpers/html.php:805
 msgid "Next"
-msgstr ""
+msgstr "altali "
 
 #: administrator/components/com_easycreator/helpers/html.php:870
 msgid "New Project"
-msgstr ""
+msgstr "مشروع جديد "
 
 #: administrator/components/com_easycreator/helpers/html.php:874
 msgid "Register Project"
@@ -866,7 +868,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:402
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:308
 msgid "Select"
-msgstr ""
+msgstr "إختار "
 
 #: administrator/components/com_easycreator/helpers/html.php:911
 #: administrator/components/com_easycreator/helpers/table.php:39
@@ -878,14 +880,14 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/table.php:45
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:51
 msgid "Site"
-msgstr ""
+msgstr "almaw93 "
 
 #: administrator/components/com_easycreator/helpers/html.php:1109
 #: administrator/components/com_easycreator/views/languages/view.html.php:178
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:63
 #: administrator/components/com_easycreator/views/ziper/view.html.php:158
 msgid "File"
-msgstr ""
+msgstr "almlf "
 
 #: administrator/components/com_easycreator/helpers/html.php:1128
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:27
@@ -893,7 +895,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:25
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:44
 msgid "Folder"
-msgstr ""
+msgstr "المجلد "
 
 #: administrator/components/com_easycreator/helpers/html.php:1284
 msgid "Edit"
@@ -901,7 +903,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html.php:1288
 msgid "New"
-msgstr ""
+msgstr "جديد "
 
 #: administrator/components/com_easycreator/helpers/html.php:1308
 #, php-format
@@ -913,7 +915,7 @@ msgid "Path is not a folder"
 msgstr ""
 
 #. render it
-#.
+#. 
 #: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:96
 msgid "Backtrace"
 msgstr ""
@@ -933,7 +935,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/language.php:306
 #: administrator/components/com_easycreator/helpers/language.php:317
 msgid "Actual file"
-msgstr ""
+msgstr "الملف al7ali "
 
 #: administrator/components/com_easycreator/helpers/language.php:497
 #, php-format
@@ -972,7 +974,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:98
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:29
 msgid "KEY"
-msgstr ""
+msgstr "mifta7 "
 
 #. foreach
 #: administrator/components/com_easycreator/helpers/language.php:787
@@ -1774,45 +1776,6 @@ msgstr ""
 msgid "Properties"
 msgstr ""
 
-#. $constants = $theClass->getConstants();
-#. print_r($constants);
-#. Dokumentarischen Kommentar ausgeben
-#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
-#. 1));
-#.
-#. // Ausgeben, welche Interfaces von der Klasse implementiert werden
-#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
-#. 1));
-#.
-#. // Klassenkonstanten ausgeben
-#. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#.
-#. // Klasseneigenschaften ausgeben
-#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
-#. 1));
-#.
-#. // Klassenmethoden ausgeben
-#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
-#. '</pre>';
-#. #echo $theClass->getDocComment();
-#. echo '<pre>';
-#. printf(
-#. "===> %s%s%s %s '%s' [extends %s]\n" .
-#. "    deklariert in %s\n" .
-#. "    Zeilen %d bis %d\n" .
-#. "    hat die Modifizierer %d [%s]\n",
-#. $theClass->isInternal() ? 'internal' : 'user-defined',
-#. $theClass->isAbstract() ? ' abstract' : '',
-#. $theClass->isFinal() ? ' final' : '',
-#. $theClass->isInterface() ? 'interface' : 'class',
-#. $theClass->getName(),
-#. var_export($theClass->getParentClass(), 1),
-#. $theClass->getFileName(),
-#. $theClass->getStartLine(),
-#. $theClass->getEndline(),
-#. $theClass->getModifiers(),
-#. implode(' ', Reflection::getModifierNames($theClass->getModifiers()))
-#. );
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:609
 msgid "Methods"
 msgstr ""
@@ -2963,8 +2926,8 @@ msgid "Custom name format"
 msgstr "طريقة كتابة الإسم"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
-msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
-msgstr "إستخدم:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
+msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
+msgstr ""
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
 msgid "Customize"
@@ -2995,5 +2958,3 @@ msgstr "الأرشيف"
 #: administrator/components/com_easycreator/views/ziper/view.html.php:148
 msgid "No ZIP files found"
 msgstr "لم يتم العثور على ملفات مضغوطة"
-
-

@@ -1,18 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Nikolai Plath, 2010.
-
+# Michael  <michael.pohlhaus@googlemail.com>, 2011.
+# Nikolai Plath <info@nik-it.de>, 2010.
+#   <test1@nik-it.de>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2011-07-24 00:24+0000\n"
-"Last-Translator: elkuku \n"
-"Language-Team: German (Germany) (http://www.transifex.net/projects/p/opentranslators/team/de_DE/)\n"
+"PO-Revision-Date: 2012-02-14 08:40+0000\n"
+"Last-Translator: Michael <michael.pohlhaus@googlemail.com>\n"
+"Language-Team: German (Germany) (http://www.transifex.net/projects/p/opentranslators/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,8 +25,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html.php:348
 #, php-format
 msgid "The class file for your Joomla version %s has not been build yet."
-msgstr ""
-"Die Klassendatei für Ihre Joomla!version %s wurde noch nicht erstellt."
+msgstr "Die Klassendatei für Ihre Joomla!version %s wurde noch nicht erstellt."
 
 #: administrator/components/com_easycreator/controllers/ajax.php:188
 #: administrator/components/com_easycreator/controllers/ajax.php:479
@@ -739,8 +740,7 @@ msgstr "Bitte wählen Sie einen Komprimierungstyp"
 
 #: administrator/components/com_easycreator/helpers/html.php:519
 msgid "You can set a default compression type in configuration"
-msgstr ""
-"Sie können einen Standard-Komprimierungstyp in der Konfiguration angeben"
+msgstr "Sie können einen Standard-Komprimierungstyp in der Konfiguration angeben"
 
 #: administrator/components/com_easycreator/helpers/html.php:621
 #: administrator/components/com_easycreator/helpers/html.php:633
@@ -916,7 +916,7 @@ msgid "Path is not a folder"
 msgstr "Pfad ist kein Ordner"
 
 #. render it
-#.
+#. 
 #: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:96
 msgid "Backtrace"
 msgstr "Backtrace"
@@ -1126,7 +1126,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/project.php:855
 msgid "Invalid Project"
-msgstr ""
+msgstr "Ungültiges Projekt"
 
 #: administrator/components/com_easycreator/helpers/project.php:875
 msgid "JInstaller: Unable to remove project"
@@ -1145,7 +1145,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/projecthelper.php:62
 msgid "Empty project name"
-msgstr ""
+msgstr "Projektname leer"
 
 #: administrator/components/com_easycreator/helpers/projecthelper.php:91
 #: administrator/components/com_easycreator/helpers/projecthelper.php:636
@@ -1252,7 +1252,7 @@ msgstr "Klasse nicht gefunden"
 #. -- There was an error
 #: administrator/components/com_easycreator/helpers/projecthelper.php:816
 msgid "Could not load XML file"
-msgstr ""
+msgstr "Die XML Datei konnte nicht geladen werden"
 
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:396
 #: administrator/components/com_easycreator/helpers/projectmatrix.php:443
@@ -1368,7 +1368,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/ziper.php:1110
 msgid "Please make sure your version of PHP was built with bz2 support."
-msgstr ""
+msgstr "Bitte überprüfen Sie, ob Ihre PHP Version bz2 unterstützt."
 
 #: administrator/components/com_easycreator/helpers/ziper.php:1194
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:96
@@ -1390,16 +1390,12 @@ msgstr "EasyCreator ist ein Werkzeug für Entwickler."
 
 msgid ""
 "It tries to speed up the developing process of custom Joomla! extensions."
-msgstr ""
-"Es wird versucht den Entwicklungsprozess von eigenen Joomla! Erweiterungen "
-"zu beschleunigen."
+msgstr "Es wird versucht den Entwicklungsprozess von eigenen Joomla! Erweiterungen zu beschleunigen."
 
 msgid ""
 "You can create a \"frame\" for your extension and an installable zip package"
 " with just a few \"clicks\""
-msgstr ""
-"Sie können einen \"Rahmen\" für Ihre Erweiterung und ein installlierbares "
-"ZIP Archiv mit wenigen \"Klicks\" erstellen."
+msgstr "Sie können einen \"Rahmen\" für Ihre Erweiterung und ein installlierbares ZIP Archiv mit wenigen \"Klicks\" erstellen."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:80
 #, php-format
@@ -1409,9 +1405,7 @@ msgstr "Das %s Team"
 #: administrator/components/com_easycreator/install/install.easycreator.php:86
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:56
 msgid "Please use this extension only in local development environments."
-msgstr ""
-"Bitte verwenden Sie diese Erweiterung nur in einer lokalen "
-"Entwicklungsumgebung."
+msgstr "Bitte verwenden Sie diese Erweiterung nur in einer lokalen Entwicklungsumgebung."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:89
 msgid ""
@@ -1435,7 +1429,7 @@ msgstr "OK"
 #: administrator/components/com_easycreator/install/install.easycreator.php:170
 #, php-format
 msgid "MD5 check failed on file: %s"
-msgstr ""
+msgstr "MD5 Prüfung fehlgeschlagen für die Datei: %s"
 
 #. Draws an input box for a name field
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:70
@@ -1457,7 +1451,7 @@ msgstr ""
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:92
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:142
 msgid "Table"
-msgstr ""
+msgstr "Tabelle"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:72
 #: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:66
@@ -1475,23 +1469,23 @@ msgstr "Wählen"
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:152
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:84
 msgid "Field"
-msgstr ""
+msgstr "Feld"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:84
 msgid "Input type"
-msgstr ""
+msgstr "Eingabeart"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:90
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:91
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:86
 msgid "Display"
-msgstr ""
+msgstr "Anzeige"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:91
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:92
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:87
 msgid "Width"
-msgstr ""
+msgstr "Breite"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:122
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:123
@@ -1510,7 +1504,7 @@ msgstr "Aus"
 #: administrator/components/com_easycreator/templates/component/mvc_9/options.php:41
 #: administrator/components/com_easycreator/templates/component/mvc_9_16/options.php:41
 msgid "User defined table fields"
-msgstr ""
+msgstr "Benutzerdefinierte Tabellenfelder"
 
 #: administrator/components/com_easycreator/templates/component/mvc_10_16/xoptions.php:43
 #: administrator/components/com_easycreator/templates/component/mvc_5/options.php:42
@@ -1520,19 +1514,17 @@ msgstr ""
 msgid ""
 "Please define the fields for the table %s that will be created for your "
 "component."
-msgstr ""
-"Bitte definieren Sie die Felder für die Tabelle %s die für die Komponente "
-"erstellt wird."
+msgstr "Bitte definieren Sie die Felder für die Tabelle %s die für die Komponente erstellt wird."
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:61
 #, php-format
 msgid "Existing libraries: %s"
-msgstr ""
+msgstr "Vorhandene Bibliotheken: %s"
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:63
 #: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:27
 msgid "Folder name"
-msgstr ""
+msgstr "Verzeichnisname"
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:93
 #: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:55
@@ -1761,45 +1753,6 @@ msgstr "Quelltext betrachten"
 msgid "Properties"
 msgstr "Eigenschaften"
 
-#. $constants = $theClass->getConstants();
-#. print_r($constants);
-#. Dokumentarischen Kommentar ausgeben
-#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
-#. 1));
-#.
-#. // Ausgeben, welche Interfaces von der Klasse implementiert werden
-#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
-#. 1));
-#.
-#. // Klassenkonstanten ausgeben
-#. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#.
-#. // Klasseneigenschaften ausgeben
-#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
-#. 1));
-#.
-#. // Klassenmethoden ausgeben
-#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
-#. '</pre>';
-#. #echo $theClass->getDocComment();
-#. echo '<pre>';
-#. printf(
-#. "===> %s%s%s %s '%s' [extends %s]\n" .
-#. "    deklariert in %s\n" .
-#. "    Zeilen %d bis %d\n" .
-#. "    hat die Modifizierer %d [%s]\n",
-#. $theClass->isInternal() ? 'internal' : 'user-defined',
-#. $theClass->isAbstract() ? ' abstract' : '',
-#. $theClass->isFinal() ? ' final' : '',
-#. $theClass->isInterface() ? 'interface' : 'class',
-#. $theClass->getName(),
-#. var_export($theClass->getParentClass(), 1),
-#. $theClass->getFileName(),
-#. $theClass->getStartLine(),
-#. $theClass->getEndline(),
-#. $theClass->getModifiers(),
-#. implode(' ', Reflection::getModifierNames($theClass->getModifiers()))
-#. );
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:609
 msgid "Methods"
 msgstr "Methoden"
@@ -1990,9 +1943,7 @@ msgstr "SVN"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:83
 msgid "Support EasyCreator by adding it to your stack at Ohloh"
-msgstr ""
-"Unterstützen Sie EasyCreator, indem Sie ihn auf Ihrem Stack bei Ohloh "
-"hinzufügen."
+msgstr "Unterstützen Sie EasyCreator, indem Sie ihn auf Ihrem Stack bei Ohloh hinzufügen."
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:57
 msgid "Registered Projects"
@@ -2042,8 +1993,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:72
 msgid "No local API copy specified. you may do this in configuration."
-msgstr ""
-"Keine lokale API Kopie angegeben. Sie können dies in der Konfiguration tun."
+msgstr "Keine lokale API Kopie angegeben. Sie können dies in der Konfiguration tun."
 
 #: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:101
 msgid "By Package"
@@ -2274,9 +2224,7 @@ msgstr "Übersetzungen"
 msgid ""
 "Manage translations in ini files and inspect your php / xml files for JText "
 "strings to translate."
-msgstr ""
-"Verwalten Sie Übersetzungen in ini-Dateien und überprüfen Sie Ihre PHP / "
-"XML-Dateien auf zu übersetzende JText Strings."
+msgstr "Verwalten Sie Übersetzungen in ini-Dateien und überprüfen Sie Ihre PHP / XML-Dateien auf zu übersetzende JText Strings."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:661
 msgid "Default file order"
@@ -2286,9 +2234,7 @@ msgstr "Sortierung Standarddatei"
 msgid ""
 "Change the order of your default language file and add comments to create a "
 "structure."
-msgstr ""
-"Ändern der Reihenfolge Ihrer Standard Sprachdatei und hinzuzufügen von "
-"Kommentaren um eine Struktur zu erstellen."
+msgstr "Ändern der Reihenfolge Ihrer Standard Sprachdatei und hinzuzufügen von Kommentaren um eine Struktur zu erstellen."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:666
 msgid "Translation order"
@@ -2298,9 +2244,7 @@ msgstr "Sortierung Übersetzte Datei"
 msgid ""
 "Change the order of your translated language files according to your default"
 " file."
-msgstr ""
-"Ändern Sie die Reihenfolge Ihrer übersetzten Sprachdateien nach Ihrer "
-"Standard-Datei."
+msgstr "Ändern Sie die Reihenfolge Ihrer übersetzten Sprachdateien nach Ihrer Standard-Datei."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:672
 msgid "Compare saved versions of your language files."
@@ -2331,9 +2275,7 @@ msgstr "Lade die Core Sprachdateien"
 msgid ""
 "Also load the core language file to check for translations (displayed in "
 "orange)"
-msgstr ""
-"Lade ebenfalls die Core Sprachdateien zur Übersetzung (wird in orange "
-"angezeigt)"
+msgstr "Lade ebenfalls die Core Sprachdateien zur Übersetzung (wird in orange angezeigt)"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:813
 msgid "Cut"
@@ -2341,9 +2283,7 @@ msgstr "Abschneiden"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:839
 msgid "Drag and drop elements to rearrange. Add new comments."
-msgstr ""
-"Umsortieren der Einträge durch Ziehen und ablegen. Erstellen neuer "
-"Kommentare"
+msgstr "Umsortieren der Einträge durch Ziehen und ablegen. Erstellen neuer Kommentare"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:905
 msgid "Language"
@@ -2385,14 +2325,11 @@ msgstr "Typ der Erweiterung"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:60
 msgid "Choose a component type from a predefined template"
-msgstr ""
-"Wählen Sie einen Typ für Ihre Erweiterung basierend auf einer bestehenden "
-"Vorlage"
+msgstr "Wählen Sie einen Typ für Ihre Erweiterung basierend auf einer bestehenden Vorlage"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:96
 msgid "Joomla 1.6 extension templates can not be build on Joomla 1.5"
-msgstr ""
-"Joomla! 1.6 Extension Templates können nicht auf Joomla! 1.5 erstellt werden"
+msgstr "Joomla! 1.6 Extension Templates können nicht auf Joomla! 1.5 erstellt werden"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:108
 msgid "Click to view files"
@@ -2414,9 +2351,7 @@ msgstr "Name für Ihr Baby"
 msgid ""
 "Please choose a name following the standard naming conventions. Use UPPER "
 "and lower case"
-msgstr ""
-"Bitte wählen Sie einen Namen gemäss den Konventionen für die Benennung von "
-"Komponenten. Benutzen Sie Gross- und Kleinbuchstaben."
+msgstr "Bitte wählen Sie einen Namen gemäss den Konventionen für die Benennung von Komponenten. Benutzen Sie Gross- und Kleinbuchstaben."
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:39
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:47
@@ -2483,8 +2418,7 @@ msgstr "Die Projektdatei %s löschen"
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:36
 #, php-format
 msgid "Delete the whole %s project including files and database"
-msgstr ""
-"Das gesamte Projekt %s inklusive der Dateien und Datenbankeinträge löschen"
+msgstr "Das gesamte Projekt %s inklusive der Dateien und Datenbankeinträge löschen"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:41
 msgid "Add element"
@@ -2503,8 +2437,7 @@ msgstr "Klick mit der linken Maustaste um Dateien zu bearbeiten."
 #: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:51
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:46
 msgid "Right click files and folders for options."
-msgstr ""
-"Klicken von Dateien und Ordnern mit der rechten Maustaste für Optionen."
+msgstr "Klicken von Dateien und Ordnern mit der rechten Maustaste für Optionen."
 
 #. foreach
 #. foreach
@@ -2550,8 +2483,7 @@ msgstr "Methode"
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:21
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:45
 msgid "This will perform an upgrade on installing your extension"
-msgstr ""
-"Dies wird ein Upgrade auf die Installation Ihrer Erweiterung durchführen"
+msgstr "Dies wird ein Upgrade auf die Installation Ihrer Erweiterung durchführen"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:28
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:22
@@ -2640,9 +2572,7 @@ msgstr "Javascript trennen"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:33
 msgid "Separate JavaScript from PHP translations"
-msgstr ""
-"Sollen Übersetzungen für Javascript von denen für PHP in verschiedenen "
-"Sprachdateien getrennt werden ?"
+msgstr "Sollen Übersetzungen für Javascript von denen für PHP in verschiedenen Sprachdateien getrennt werden ?"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:46
 msgid "Language file format"
@@ -2650,8 +2580,11 @@ msgstr "Format der Sprachdateien"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:70
 #, php-format
-msgid "* Note that those language file formats\n needs a special language handler called \"g11n\" - What ?\nPlease refer to <a href=\"%s\">Wiki.Joomla-Nafu.de</a> for more information."
-msgstr "* Bitte beachten Sie, dass diese Formate\n einen spezielle Bibliothek mit Namen \"g11n\" benötigen - Wie bitte ?\nMehr Informationen finden Sie auf <a href=\"%s\">Wiki.Joomla-Nafu.de</a>."
+msgid ""
+"* Note that those language file formats\\n needs a special language handler "
+"called \"g11n\" - What ?\\nPlease refer to <a href=\"%s\">Wiki.Joomla-"
+"Nafu.de</a> for more information."
+msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:22
 msgid "Menu"
@@ -2706,8 +2639,7 @@ msgstr "Paket Installer?"
 msgid ""
 "Packages require a special install script which should be named "
 "<strong>%s</strong>"
-msgstr ""
-"Pakete benötigen ein spezielles Install Skript mit Namen <strong>%s</strong>"
+msgstr "Pakete benötigen ein spezielles Install Skript mit Namen <strong>%s</strong>"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:97
 msgid ""
@@ -2833,9 +2765,7 @@ msgstr "Erstellen"
 msgid ""
 "Shows options for building your project like credits, files and folders to "
 "copy, languages and admin menu."
-msgstr ""
-"Zeigt Optionen für das Erstellen Ihres Projekts wie Credits, zu kopierende "
-"Dateien und Ordner, Sprachen und das Admin-Menü."
+msgstr "Zeigt Optionen für das Erstellen Ihres Projekts wie Credits, zu kopierende Dateien und Ordner, Sprachen und das Admin-Menü."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:116
 msgid "Shows all the files belonging to your project"
@@ -2847,8 +2777,7 @@ msgstr "Installieren"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:121
 msgid "Create and modify install and uninstall files for your project."
-msgstr ""
-"Erstellen und Bearbeiten von Install- zund Uninstalldateien für Ihr Projekt."
+msgstr "Erstellen und Bearbeiten von Install- zund Uninstalldateien für Ihr Projekt."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:125
 msgid "Parameters"
@@ -2856,9 +2785,7 @@ msgstr "Parameter"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:126
 msgid "Modify your project parameters stored in XML files."
-msgstr ""
-"Ändern Sie die Parameter Ihres Projekts die in XML-Dateien gespeicherten "
-"werden."
+msgstr "Ändern Sie die Parameter Ihres Projekts die in XML-Dateien gespeicherten werden."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:130
 msgid "DataDesigner"
@@ -2973,7 +2900,7 @@ msgstr "Benutzerdefiniertes Format"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
 msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
-msgstr "Verwendung:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
+msgstr ""
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
 msgid "Customize"
@@ -3004,5 +2931,3 @@ msgstr "Archiv"
 #: administrator/components/com_easycreator/views/ziper/view.html.php:148
 msgid "No ZIP files found"
 msgstr "Keine Zipdateien gefunden"
-
-

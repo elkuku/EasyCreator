@@ -1,6 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-#
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 #   <uringinteristi@gmail.com>, 2011.
 msgid ""
@@ -8,9 +10,9 @@ msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-08 03:00 -500\n"
-"PO-Revision-Date: 2011-09-25 10:57+0000\n"
+"PO-Revision-Date: 2012-02-14 08:52+0000\n"
 "Last-Translator: uring <uringinteristi@gmail.com>\n"
-"Language-Team: Indonesian (Indonesia) (http://www.transifex.net/projects/p/opentranslators/team/id_ID/)\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.net/projects/p/opentranslators/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -183,26 +185,20 @@ msgstr "Memori dan waktu profil"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "Log the contents / the code of the files been written to disk"
-msgstr ""
-"Log pada konten atau kode dari berkas-berkas yang dituliskan pada disket"
+msgstr "Log pada konten atau kode dari berkas-berkas yang dituliskan pada disket"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid ""
 "Choose the type of help you need (from beginner to expert). Messages will be"
 " displayed all over the place in light green boxes - you may also switch "
 "them off here."
-msgstr ""
-"Pilih tipe bantuan yang anda perlukan (dari pemula sampai mahir). Pesan akan"
-" ditampilkan pada semua tempat dalam kotak berwarna hijau - anda bisa juga "
-"mematikannya dari sini."
+msgstr "Pilih tipe bantuan yang anda perlukan (dari pemula sampai mahir). Pesan akan ditampilkan pada semua tempat dalam kotak berwarna hijau - anda bisa juga mematikannya dari sini."
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid ""
 "Which EditArea type shall we load (please see docu on developers site "
 "http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-msgstr ""
-"Tipe EditArea manakah yang harus kita muat (harap lihat docu pada situs "
-"pembangun http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "Tipe EditArea manakah yang harus kita muat (harap lihat docu pada situs pembangun http://www.cdolivet.net/editarea/editarea/docs/include.html)"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "The default font size for the code editor in pixel"
@@ -216,28 +212,21 @@ msgstr "Salinan API Joomla! anda - dapatkan dari http://api.joomla.org"
 msgid ""
 "If a IP other then 127.0.0.1 is detected a warning message will be displayed"
 " for your own safety"
-msgstr ""
-"Bila IP selain 127.0.0.1 terdeteksi pesan peringatan akan ditampilkan untuk "
-"keselamatan anda sendiri"
+msgstr "Bila IP selain 127.0.0.1 terdeteksi pesan peringatan akan ditampilkan untuk keselamatan anda sendiri"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid ""
 "When modifying your files, always save a backup version. These will be named"
 " *.rx"
-msgstr ""
-"Saat memodifikasi berkas-berkas anda, selalu simpan versi backup-nya. Ini "
-"akan dinamakan *.rx"
+msgstr "Saat memodifikasi berkas-berkas anda, selalu simpan versi backup-nya. Ini akan dinamakan *.rx"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "Should we use the Google Translation API for helping in translations ?"
-msgstr ""
-"Apakah kita harus menggunakan API Penterjemah Google untuk membantu "
-"penterjemahan ?"
+msgstr "Apakah kita harus menggunakan API Penterjemah Google untuk membantu penterjemahan ?"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "Should languages files be checked for UTF-8"
-msgstr ""
-"Apakah kita harus memeriksa berkas-berkas bahasa yang menggunakan UTF8"
+msgstr "Apakah kita harus memeriksa berkas-berkas bahasa yang menggunakan UTF8"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "Should languages files be checked for a BOM"
@@ -322,5 +311,3 @@ msgstr "Krumo"
 #: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla"
 msgstr "EasyCreator membantu anda membuat ekstensi pada Joomla"
-
-

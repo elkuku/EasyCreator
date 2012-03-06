@@ -1,15 +1,17 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-#
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-08 03:00 -500\n"
-"PO-Revision-Date: 2011-10-02 22:04+0000\n"
+"PO-Revision-Date: 2011-07-20 16:51+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/opentranslators/team/nl_NL/)\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/opentranslators/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -308,5 +310,3 @@ msgstr ""
 #: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla"
 msgstr ""
-
-

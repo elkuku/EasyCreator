@@ -1,6 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-#
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 # Manoel iikozen <iikozen@yahoo.com>, 2011.
 msgid ""
@@ -8,9 +10,9 @@ msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-08 03:00 -500\n"
-"PO-Revision-Date: 2011-07-20 22:24+0000\n"
-"Last-Translator: iikozen <iikozen@yahoo.com>\n"
-"Language-Team: Portuguese (Brazilian) (http://www.transifex.net/projects/p/opentranslators/team/pt_BR/)\n"
+"PO-Revision-Date: 2012-02-14 08:52+0000\n"
+"Last-Translator: Manoel Silva <iikozen@yahoo.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.net/projects/p/opentranslators/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -183,26 +185,20 @@ msgstr "Perfil tempo e memória"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "Log the contents / the code of the files been written to disk"
-msgstr ""
-"Dê entrada nos conteúdos / o código dos arquivos foram escritos em disco"
+msgstr "Dê entrada nos conteúdos / o código dos arquivos foram escritos em disco"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid ""
 "Choose the type of help you need (from beginner to expert). Messages will be"
 " displayed all over the place in light green boxes - you may also switch "
 "them off here."
-msgstr ""
-"Escolha o tipo de ajuda que você precisa (desde iniciante a expert). "
-"Mensagens serão exibidas em todos os lugares em caixas verde claro - você "
-"também pode desligá-los aqui."
+msgstr "Escolha o tipo de ajuda que você precisa (desde iniciante a expert). Mensagens serão exibidas em todos os lugares em caixas verde claro - você também pode desligá-los aqui."
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid ""
 "Which EditArea type shall we load (please see docu on developers site "
 "http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-msgstr ""
-"Qual tipo de EditArea devemos carregar (favor ver documentação no site dos "
-"desenvolvedores http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "Qual tipo de EditArea devemos carregar (favor ver documentação no site dos desenvolvedores http://www.cdolivet.net/editarea/editarea/docs/include.html)"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "The default font size for the code editor in pixel"
@@ -216,17 +212,13 @@ msgstr "Sua cópia da API do Joomla! - obtenha-a de http://api.joomla.org"
 msgid ""
 "If a IP other then 127.0.0.1 is detected a warning message will be displayed"
 " for your own safety"
-msgstr ""
-"Caso um IP além de 127.0.0.1 seja detectado uma mensagem de aviso será "
-"exibida para sua segurança"
+msgstr "Caso um IP além de 127.0.0.1 seja detectado uma mensagem de aviso será exibida para sua segurança"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid ""
 "When modifying your files, always save a backup version. These will be named"
 " *.rx"
-msgstr ""
-"Ao modificar arquivos, sempre salve uma versão de backup. Estas serão "
-"nomeadas *.rx"
+msgstr "Ao modificar arquivos, sempre salve uma versão de backup. Estas serão nomeadas *.rx"
 
 #: administrator/components/com_easycreator/config.xmldescription
 msgid "Should we use the Google Translation API for helping in translations ?"
@@ -319,5 +311,3 @@ msgstr "Krumo"
 #: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla"
 msgstr "EasyCreator te ajuda a criar Extensões para Joomla"
-
-

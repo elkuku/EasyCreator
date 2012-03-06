@@ -1,17 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Nikolai Plath, 2010.
+# Nikolai Plath <info@nik-it.de>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2011-07-20 18:23+0000\n"
-"Last-Translator: elkuku \n"
-"Language-Team: Chinese (China) (http://www.transifex.net/projects/p/opentranslators/team/zh_CN/)\n"
+"PO-Revision-Date: 2012-02-14 08:40+0000\n"
+"Last-Translator: Nikolai Plath <der.el.kuku@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.net/projects/p/opentranslators/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -913,7 +914,7 @@ msgid "Path is not a folder"
 msgstr ""
 
 #. render it
-#.
+#. 
 #: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:96
 msgid "Backtrace"
 msgstr ""
@@ -1403,10 +1404,7 @@ msgid ""
 "See: <a "
 "href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting"
 " up your workstation for Joomla! development</a>"
-msgstr ""
-"See: <a "
-"href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting"
-" up your workstation for Joomla! development</a>"
+msgstr "See: <a href='http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'>docs.joomla.org/Setting up your workstation for Joomla! development</a>"
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:108
 msgid "Checking MD5 sums..."
@@ -1747,45 +1745,6 @@ msgstr ""
 msgid "Properties"
 msgstr "属性"
 
-#. $constants = $theClass->getConstants();
-#. print_r($constants);
-#. Dokumentarischen Kommentar ausgeben
-#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
-#. 1));
-#.
-#. // Ausgeben, welche Interfaces von der Klasse implementiert werden
-#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
-#. 1));
-#.
-#. // Klassenkonstanten ausgeben
-#. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#.
-#. // Klasseneigenschaften ausgeben
-#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
-#. 1));
-#.
-#. // Klassenmethoden ausgeben
-#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
-#. '</pre>';
-#. #echo $theClass->getDocComment();
-#. echo '<pre>';
-#. printf(
-#. "===> %s%s%s %s '%s' [extends %s]\n" .
-#. "    deklariert in %s\n" .
-#. "    Zeilen %d bis %d\n" .
-#. "    hat die Modifizierer %d [%s]\n",
-#. $theClass->isInternal() ? 'internal' : 'user-defined',
-#. $theClass->isAbstract() ? ' abstract' : '',
-#. $theClass->isFinal() ? ' final' : '',
-#. $theClass->isInterface() ? 'interface' : 'class',
-#. $theClass->getName(),
-#. var_export($theClass->getParentClass(), 1),
-#. $theClass->getFileName(),
-#. $theClass->getStartLine(),
-#. $theClass->getEndline(),
-#. $theClass->getModifiers(),
-#. implode(' ', Reflection::getModifierNames($theClass->getModifiers()))
-#. );
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:609
 msgid "Methods"
 msgstr "Methods"
@@ -2931,7 +2890,7 @@ msgid "Custom name format"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
-msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
+msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
@@ -2963,5 +2922,3 @@ msgstr ""
 #: administrator/components/com_easycreator/views/ziper/view.html.php:148
 msgid "No ZIP files found"
 msgstr ""
-
-

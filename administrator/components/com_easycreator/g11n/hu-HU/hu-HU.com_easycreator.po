@@ -1,7 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# com_easycreator.pot
+# The main language file
+# Copyright (C) 2008-2011 Nikolai Plath
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Sándor Balikó <vo101sanyo@gmail.com>, 2011.
 msgid ""
@@ -9,9 +10,9 @@ msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2010-12-07 13:58-0500\n"
-"PO-Revision-Date: 2011-09-17 21:56+0000\n"
-"Last-Translator: vo101sanyo <vo101sanyo@gmail.com>\n"
-"Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/opentranslators/team/hu_HU/)\n"
+"PO-Revision-Date: 2012-02-14 08:40+0000\n"
+"Last-Translator: Sándor Balikó <vo101sanyo@gmail.com>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/opentranslators/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,7 +73,7 @@ msgstr "Nyelv nem található"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:484
 msgid "File loaded"
-msgstr "Fájl betöltéve"
+msgstr "Fájl betöltve"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:517
 #, php-format
@@ -278,7 +279,7 @@ msgstr "A PEAR csomagok nem találhatóak - Ellenőrizze az útvonalat"
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:544
 #, php-format
 msgid "For more information see: %s"
-msgstr "További információkért: %s"
+msgstr "További információkért lásd: %s"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:552
 #, php-format
@@ -431,8 +432,7 @@ msgstr "A %s típus még nem támogatott... emlékezz arra, hogy ez még béta"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:386
 msgid "But you can copy + paste the code below to your params section.."
-msgstr ""
-"De másolhatod + beillesztheted a kódot a lenti paraméterek szekcióban..."
+msgstr "De másolhatod + beillesztheted a kódot a lenti paraméterek szekcióban..."
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:394
 msgid "Could not create XML"
@@ -512,7 +512,7 @@ msgstr "Az útvonal nem tartalmaz érvényes csomagot"
 #: administrator/components/com_easycreator/helpers/builder.php:569
 #, php-format
 msgid "An error happened while installing your %s"
-msgstr ""
+msgstr "Hiba történt a(z) %s telepítése közben"
 
 #: administrator/components/com_easycreator/helpers/builder.php:616
 #, php-format
@@ -914,7 +914,7 @@ msgid "Path is not a folder"
 msgstr "Az útvonal nem könyvtár"
 
 #. render it
-#.
+#. 
 #: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:96
 msgid "Backtrace"
 msgstr ""
@@ -1058,7 +1058,7 @@ msgstr "A fájl nem UTF-8 kódolással van ellátva"
 
 #: administrator/components/com_easycreator/helpers/languagehelper.php:179
 msgid "Not checked for BOM"
-msgstr "Nem volt BOM ellenőrés"
+msgstr "Nem volt BOM ellenőrzés"
 
 #: administrator/components/com_easycreator/helpers/languagehelper.php:188
 msgid "No BOM"
@@ -1403,8 +1403,7 @@ msgstr "A %s csapat."
 #: administrator/components/com_easycreator/install/install.easycreator.php:86
 #: administrator/components/com_easycreator/views/easycreator/view.html.php:56
 msgid "Please use this extension only in local development environments."
-msgstr ""
-"Kérem, hogy ezt a kiegészítőt csak helyi fejlesztő környezetben használja."
+msgstr "Kérem, hogy ezt a kiegészítőt csak helyi fejlesztő környezetben használja."
 
 #: administrator/components/com_easycreator/install/install.easycreator.php:89
 msgid ""
@@ -1752,45 +1751,6 @@ msgstr "Forrás megjelenítése"
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#. $constants = $theClass->getConstants();
-#. print_r($constants);
-#. Dokumentarischen Kommentar ausgeben
-#. printf("---> Dokumentation:\n %s\n", var_export($theClass->getDocComment(),
-#. 1));
-#.
-#. // Ausgeben, welche Interfaces von der Klasse implementiert werden
-#. printf("---> Implementiert:\n %s\n", var_export($theClass->getInterfaces(),
-#. 1));
-#.
-#. // Klassenkonstanten ausgeben
-#. printf("---> Konstanten: %s\n", var_export($theClass->getConstants(), 1));
-#.
-#. // Klasseneigenschaften ausgeben
-#. printf("---> Eigenschaften: %s\n", var_export($theClass->getProperties(),
-#. 1));
-#.
-#. // Klassenmethoden ausgeben
-#. printf("---> Methoden: %s\n", var_export($theClass->getMethods(), 1));echo
-#. '</pre>';
-#. #echo $theClass->getDocComment();
-#. echo '<pre>';
-#. printf(
-#. "===> %s%s%s %s '%s' [extends %s]\n" .
-#. "    deklariert in %s\n" .
-#. "    Zeilen %d bis %d\n" .
-#. "    hat die Modifizierer %d [%s]\n",
-#. $theClass->isInternal() ? 'internal' : 'user-defined',
-#. $theClass->isAbstract() ? ' abstract' : '',
-#. $theClass->isFinal() ? ' final' : '',
-#. $theClass->isInterface() ? 'interface' : 'class',
-#. $theClass->getName(),
-#. var_export($theClass->getParentClass(), 1),
-#. $theClass->getFileName(),
-#. $theClass->getStartLine(),
-#. $theClass->getEndline(),
-#. $theClass->getModifiers(),
-#. implode(' ', Reflection::getModifierNames($theClass->getModifiers()))
-#. );
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:609
 msgid "Methods"
 msgstr "Módszerek"
@@ -2937,7 +2897,7 @@ msgid "Custom name format"
 msgstr "Egyedi név formátum"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:19
-msgid "Use:<br />*VERSION*<br />*SVNREV*<br />*DATETIMExxxx*"
+msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:47
@@ -2969,5 +2929,3 @@ msgstr "Archív"
 #: administrator/components/com_easycreator/views/ziper/view.html.php:148
 msgid "No ZIP files found"
 msgstr "ZIP fájl nem található"
-
-
