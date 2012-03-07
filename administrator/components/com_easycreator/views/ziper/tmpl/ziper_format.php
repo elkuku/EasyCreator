@@ -17,6 +17,7 @@ $chk_upgrade =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 <strong><?php echo jgettext('Packing format options'); ?>:</strong>
 <?php EcrHtml::drawPackOpts($this->project->buildOpts); ?>
 <br />
+<br />
 <strong class="img icon-16-joomla">
     <?php echo jgettext('Joomla! version'); ?>
 </strong>
@@ -29,7 +30,7 @@ $chk_upgrade =($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 <label for="jversion15" class="img32b icon-joomla-compat-15">&nbsp;</label>
 
 <input type="radio" id="jversion16" name="jcompat" value="1.6"
-<?php echo ($this->project->JCompat == '1.6') ? ' checked="checked"' : ''; ?>
+<?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5'))) ? ' checked="checked"' : ''; ?>
 />
 <label for="jversion16" class="img32b icon-joomla-compat-16">
     <span class="img32b icon-joomla-compat-17"></span>
