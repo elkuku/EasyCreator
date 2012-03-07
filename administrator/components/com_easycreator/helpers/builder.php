@@ -721,6 +721,9 @@ class EcrBuilder extends JObject
         $project->comName = $name;
         $project->scope = $scope;
 
+        //-- Set the Joomla! compatibility version to the version we are actually running on
+        $project->JCompat = ECR_JVERSION;
+
         if( ! $xmlPath = EcrProjectHelper::findManifest($project))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('No manifest file found'), 'error');
