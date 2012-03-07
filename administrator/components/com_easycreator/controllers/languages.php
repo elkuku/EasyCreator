@@ -329,20 +329,26 @@ class EasyCreatorControllerLanguages extends JController
 
                 default:
                     $comName = $project->comName;
-                break;
-            }//switch
+                    break;
+            }
 
-            $msg = Ecrg11nHelper::createTemplate($comName, $scope);
+            $parts = explode('.', $scope);
 
-            JFactory::getApplication()->enqueueMessage($msg);
+            if(2 == count($parts))
+            {
+                $scope = $parts[0];
+                $comName .= '.'.$parts[1];
+            }
+
+            Ecrg11nHelper::createTemplate($comName, $scope, $project->version);
         }
         catch(Exception $e)
         {
             JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
-        }//try
+        }
 
         JRequest::setVar('task', 'g11nUpdate');
 
         parent::display();
-    }//function
+    }
 }//class

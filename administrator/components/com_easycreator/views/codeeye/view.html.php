@@ -385,11 +385,13 @@ class EasyCreatorViewCodeEye extends JView
             , 'icon' => 'icon'
             , 'task' => 'reflection'
             )
+            /*
         , array('title' => jgettext('GitHub')
-            , 'description' => jgettext('aaaaaaaaaa')
+            , 'description' => jgettext('GitHub stuff')
             , 'icon' => 'icon'
             , 'task' => 'git'
             )
+            */
         );
 
         if('cliapp' == $this->project->type)

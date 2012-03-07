@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <install type="component" version="1.5">
-    <name>EasyCreator</name>
-    <creationDate>20-Feb-2012</creationDate>
-    <author>Nikolai Plath</author>
-    <authorEmail>der.el.kuku@gmail.com</authorEmail>
-    <authorUrl>https://github.com/elkuku</authorUrl>
-    <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
-    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>0.0.15.4</version>
-    <description>EasyCreator helps creating Extensions for Joomla</description>
-    <installfile>install/install.easycreator.php</installfile>
-    <uninstallfile/>
-    <install>
-        <sql/>
-    </install>
-    <uninstall>
-        <sql/>
-    </uninstall>
-    <scriptfile>install/script.php</scriptfile>
-    <files folder="site">
-        <folder>assets</folder>
-        <folder>g11n</folder>
-        <folder>helpers</folder>
-        <folder>views</folder>
-        <filename>controller.php</filename>
-        <filename>easycreator.php</filename>
-    </files>
-    <administration>
-        <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png"
-              link="index.php?option=com_easycreator">EasyCreator
+  <name>EasyCreator</name>
+  <creationDate>20-Feb-2012</creationDate>
+  <author>Nikolai Plath</author>
+  <authorEmail>der.el.kuku@gmail.com</authorEmail>
+  <authorUrl>https://github.com/elkuku</authorUrl>
+  <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>0.0.15.4</version>
+  <description>EasyCreator helps creating Extensions for Joomla</description>
+  <installfile>install/install.easycreator.php</installfile>
+  <uninstallfile />
+  <install>
+    <sql />
+  </install>
+  <uninstall>
+    <sql />
+  </uninstall>
+  <scriptfile>install/script.php</scriptfile>
+  <files folder="site">
+    <folder>assets</folder>
+    <folder>g11n</folder>
+    <folder>helpers</folder>
+    <folder>views</folder>
+    <filename>controller.php</filename>
+    <filename>easycreator.php</filename>
+  </files>
+  <administration>
+    <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png" link="index.php?option=com_easycreator">EasyCreator
         </menu>
-        <files folder="admin">
-            <folder>assets</folder>
-            <folder>builds</folder>
-            <folder>cli</folder>
-            <folder>controllers</folder>
-            <folder>exports</folder>
-            <folder>g11n</folder>
-            <folder>helpers</folder>
-            <folder>includes</folder>
-            <folder>install</folder>
-            <folder>logs</folder>
-            <folder>models</folder>
-            <folder>results</folder>
-            <folder>scripts</folder>
-            <folder>templates</folder>
-            <folder>tests</folder>
-            <folder>views</folder>
-            <filename>CHANGELOG.php</filename>
-            <filename>controller.php</filename>
-            <filename>easycreator.php</filename>
-            <filename>easycreator.xml</filename>
-            <filename>version.txt</filename>
-        </files>
-    </administration>
-    <params/>
+    <files folder="admin">
+      <folder>assets</folder>
+      <folder>builds</folder>
+      <folder>cli</folder>
+      <folder>controllers</folder>
+      <folder>exports</folder>
+      <folder>g11n</folder>
+      <folder>helpers</folder>
+      <folder>includes</folder>
+      <folder>install</folder>
+      <folder>logs</folder>
+      <folder>models</folder>
+      <folder>results</folder>
+      <folder>scripts</folder>
+      <folder>templates</folder>
+      <folder>tests</folder>
+      <folder>views</folder>
+      <filename>CHANGELOG.php</filename>
+      <filename>controller.php</filename>
+      <filename>easycreator.php</filename>
+      <filename>easycreator.xml</filename>
+      <filename>version.txt</filename>
+    </files>
+  </administration>
+  <params />
 </install>

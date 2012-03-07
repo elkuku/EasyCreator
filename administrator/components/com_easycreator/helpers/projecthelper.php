@@ -59,7 +59,7 @@ class EcrProjectHelper
      * @param boolean $reload Reload the project.
      *
      * @throws Exception
-     * @return EcrProject [EcrProject project on success | boolean false on error]
+     * @return EcrProject
      */
     public static function getProject($name = '', $reload = false)
     {

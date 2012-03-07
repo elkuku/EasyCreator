@@ -65,7 +65,7 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
     </li>
     <li class="img icon-16-git">
     <a href="<?php echo $link->repo; ?>" class="external">
-        <?php echo jgettext('Git repoisitory'); ?>
+        <?php echo jgettext('Git repository'); ?>
     </a>
     </li>
     <li class="img icon-16-rss">
@@ -95,6 +95,6 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 <div style="clear: both;"></div>
 
 <script>
-var ecrInfoBox = new Fx.Slide($('ecrInfoBox'));
+var ecrInfoBox = new Fx.Slide(document.id('ecrInfoBox'));
 ecrInfoBox.hide();
 </script>

@@ -15,6 +15,12 @@ defined('_JEXEC') || die('=;)');
  */
 class Ecrg11nHelper
 {
+    /**
+     * Get a list of cached files.
+     *
+     * @static
+     * @return array
+     */
     public static function getCachedFiles()
     {
         $paths = array(JPATH_ADMINISTRATOR, JPATH_SITE);
@@ -45,6 +51,12 @@ class Ecrg11nHelper
         return $cachedFiles;
     }//function
 
+    /**
+     * Get a list of known languages.
+     *
+     * @static
+     * @return array
+     */
     public static function getLanguages()
     {
         $languages = array();
@@ -64,6 +76,18 @@ class Ecrg11nHelper
         return $languages;
     }//function
 
+    /**
+     * Create or update a language file.
+     *
+     * @static
+     *
+     * @param $extension
+     * @param $scope
+     * @param $lang
+     *
+     * @return mixed|string
+     * @throws Exception
+     */
     public static function updateLanguage($extension, $scope, $lang)
     {
         $languageFile = g11nExtensionHelper::findLanguageFile($lang, $extension, $scope);
@@ -137,42 +161,50 @@ class Ecrg11nHelper
         return $msg;
     }//function
 
-    public static function createTemplate($extension, $scope)
+    /**
+     * Create a language template file.
+     *
+     * @static
+     *
+     * @param string $extension Extension name
+     * @param string $scope Scope mus be "admin" or "site"
+     *
+     * @param string $version Version string
+     * @param string $fileName Process only a single file
+     *
+     * @return bool
+     * @throws Exception
+     */
+    public static function createTemplate($extension, $scope, $version = '1.0', $fileName = null)
     {
         if(($scope != 'admin')
         && ($scope != 'site'))
-        throw new Exception('Scope must be "admin" or "site"');
+            throw new Exception('Scope must be "admin" or "site"');
 
         $base = g11nExtensionHelper::getScopePath($scope);
         $templatePath = g11nStorage::getTemplatePath($extension, $scope);
         $extensionDir = g11nExtensionHelper::getExtensionPath($extension);
 
+        if( ! JFolder::exists($base.DS.$extensionDir))
+            throw new Exception('Invalid extension');
+
+        $dirName = dirname($templatePath);
+
+        if( ! JFolder::exists($dirName)
+            && ! JFolder::create($dirName))
+            throw new Exception(jgettext('Can not create the language template folder'));
+
         $headerData = '';
-        $headerData .= ' --copyright-holder="NiK(C)"';
-        $headerData .= ' --package-name="'.$extension.' - '.$scope.'"';
-        $headerData .= ' --package-version="123.456"';
-        $headerData .= ' --msgid-bugs-address="info@nik.it.de"';
+        $headerData .= ' --copyright-holder="Nikolai Plath - elkuku"';
+        $headerData .= ' --package-name="'.$extension.'"';
+        $headerData .= ' --package-version="'.$version.'"';
+        $headerData .= ' --msgid-bugs-address="der.el.kuku@gmail.com"';
 
         $comments = ' --add-comments=TRANSLATORS:';
 
         $keywords = ' -k --keyword=jgettext --keyword=jngettext:1,2';
 
         $forcePo = ' --force-po --no-wrap';
-
-        /*
-         * KEYS="-k --keyword=jgettext --keyword=jngettext:1,2"
-
-        find "$WORK_PATH/." -type f -iname "*.php" | xgettext $KEYS -o $WORK_PATH/language/$FNAME.pot -f -
-        */
-
-        if( ! JFolder::exists($base.DS.$extensionDir))
-        throw new Exception('Invalid extension');
-
-        $dirName = dirname($templatePath);
-
-        if( ! JFolder::exists($dirName)
-        && ! JFolder::create($dirName))
-        throw new Exception(jgettext('Can not create the language template folder'));
 
         $subType =(strpos($extension, '.')) ? substr($extension, strpos($extension, '.') + 1) : '';
 
@@ -184,24 +216,30 @@ class Ecrg11nHelper
         , '/php2js.js'
         );
 
+        $title = $extension.' - '.$scope;
+        $search = 'php';
+
         switch($subType)
         {
             case '':
                 $search = 'php';
+                $title .= ' - The main language file.';
                 break;
 
             case 'js':
                 $search = 'js';
                 $buildOpts .= ' -L python';
+                $title .= ' - The javascript language file.';
                 break;
 
             case 'config':
-                //                    $search = 'xml';
-                //                    $buildOpts .= ' -L Glade';
-                //                    $keywords = ' -k --keyword=description --keyword=label';
+                $search = 'xml';
+                $buildOpts .= ' -L Glade';
+                $keywords = ' -k --keyword=description --keyword=label';
 
                 $excludes[] = '/templates/';
                 $excludes[] = '/scripts/';
+                $title .= ' - The configuration language file.';
                 break;
 
             default:
@@ -222,11 +260,11 @@ class Ecrg11nHelper
             foreach($excludes as $exclude)
             {
                 if(strpos($file, $exclude))
-                $found = true;
+                    $found = true;
             }//foreach
 
             if( ! $found)
-            $cleanFiles[] = $file;
+                $cleanFiles[] = $file;
         }//foreach
 
         if('config' == $subType)
@@ -273,15 +311,15 @@ class Ecrg11nHelper
             $buffer = $potParser->generate($outFile, $options);
 
             if( ! JFile::write($templatePath, $buffer))
-            throw new Exception('Unable to write the output file', $code);
+                throw new Exception('Unable to write the output file');
         }
-        else//
+        else
         {
             $fileList = implode("\n", $cleanFiles);
 
             $command = $keywords.$buildOpts.' -o '.$templatePath.$forcePo.$comments.$headerData;
 
-            echo '<h3>'.$command.'</h3>';
+            echo '<h3>FILELIST | xgettext '.$command.' -f - 2>&1</h3>';
 
             ob_start();
 
@@ -293,14 +331,18 @@ class Ecrg11nHelper
         }
 
         if( ! JFile::exists($templatePath))
-        throw new Exception('Could not create the template');
+            throw new Exception('Could not create the template');
 
-        //-- Manually strip the JROOT path - ... @todo: did i miss a parameter ¿
+        //-- Manually strip the JROOT path
         $contents = JFile::read($templatePath);
         $contents = str_replace(JPATH_ROOT.DS, '', $contents);
 
-        JFile::write($templatePath, $contents);
+        //-- Replace the title
+        $contents = str_replace('# SOME DESCRIPTIVE TITLE.', '# '.$title, $contents);
 
-        JFactory::getApplication()->enqueueMessage(jgettext('Your template has been created'));
+        if( ! JFile::write($templatePath, $contents))
+            throw new Exception(sprintf('Unable to write to path: %s', $templatePath));
+
+        return true;
     }//function
 }//class

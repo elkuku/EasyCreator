@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -6,9 +6,6 @@
  * @author     Created on 07-Mar-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 jimport('joomla.application.component.view');
 
@@ -22,15 +19,29 @@ class EasyCreatorViewLanguages extends JView
 {
     protected $versions = array();
 
+    protected $scope;
+
+    protected $scopes = array();
+
+    protected $hideLangs = array();
+
+    protected $showCore = false;
+
     private $paths = array(
       'admin' => JPATH_ADMINISTRATOR
     , 'site' => JPATH_SITE);
+
+    /**
+     * @var EcrProject
+     */
+    protected $project;
 
     /**
      * Standard display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
+     * @throws Exception
      * @return void
      */
     public function display($tpl = null)
@@ -39,7 +50,7 @@ class EasyCreatorViewLanguages extends JView
 
         $this->hideLangs = JRequest::getVar('hide_langs', array());
         $this->scope = JRequest::getCmd('scope');
-        $this->_showCore = JRequest::getCmd('showCore');
+        $this->showCore = JRequest::getCmd('showCore');
 
         try
         {
@@ -80,7 +91,7 @@ class EasyCreatorViewLanguages extends JView
                 }
                 else
                 {
-                    $this->easyLanguage = new EcrLanguage($this->project, $this->scope, $this->hideLangs, $this->_showCore);
+                    $this->easyLanguage = new EcrLanguage($this->project, $this->scope, $this->hideLangs, $this->showCore);
 
                     if(JRequest::getCmd('tmpl') != 'component')
                     {
@@ -136,11 +147,14 @@ class EasyCreatorViewLanguages extends JView
         }
     }//function
 
+    /**
+     * @return \stdClass
+     */
     private function getG11nInfo()
     {
         $info = new stdClass;
 
-        $this->languages = Ecrg11nHelper::getLanguages();// $this->get('languages');
+        $this->languages = Ecrg11nHelper::getLanguages();
 
         $baseLink = '';
 
@@ -174,72 +188,69 @@ class EasyCreatorViewLanguages extends JView
         ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
         : '';
 
-        $cachedFiles = Ecrg11nHelper::getCachedFiles();// $this->get('CachedFiles');
+        $cachedFiles = Ecrg11nHelper::getCachedFiles();
 
         $this->scopes = array('admin' => JPATH_ADMINISTRATOR, 'site' => JPATH_SITE);
 
-        //-- Get data from the model
-        //             $items = $this->get('Data');
-
         $baseLink = 'index.php?option=com_g11n';
 
-        //             foreach($items as $i => $item)
-        //             {
-        //         $info = new stdClass;
-
-        $scope =($this->project->scope) ? $this->project->scope : 'admin';
-
-        //         $info->exists = g11nExtensionHelper::isExtension($this->project->comName, $scope);
-        $info->editLink = $baseLink.'&task=g11n.edit';//&cid[]='.$item->id;
-
-        //         $info->templateLink =($info->exists)
-        //         ? $baseLink.'&task=g11n.createTemplate&extension='.$this->project->comName
-        //         : '';
-
+        $info->editLink = $baseLink.'&task=g11n.edit';
         $info->templateCommands = array();
-
         $info->updateLinks = array();
-
         $info->cacheLinks = array();
 
-        $s = jgettext('Not cached');
+        $types = array('');
+
+        $options = new JRegistry($this->project->buildOpts);
+
+        if('ON' == $options->get('lng_separate_javascript'))
+            $types[] = '.js';
+
+        $types[] = '.config';
 
         $extensionName = $this->project->comName;
 
         if(strpos($extensionName, '.'))
-        $extensionName = substr($extensionName, 0, strpos($extensionName, '.'));
+            $extensionName = substr($extensionName, 0, strpos($extensionName, '.'));
 
         foreach($this->scopes as $scope => $path)
         {
+            foreach($types as $type)
+            {
+                if('.config' == $type && 'admin' != $scope)
+                    continue;
+
+                $scopeType = $scope.$type;
+
+                if( ! isset($this->languages[$scopeType]))
+                    $this->languages[$scopeType] = $this->languages[$scope];
+
             try
             {
-                $info->templateExists[$scope] = g11nStorage::templateExists($comName, $scope);
+                $info->templateExists[$scopeType] = g11nStorage::templateExists($comName.$type, $scope);
             }
             catch(Exception $e)
             {
-                $info->templateCommands[$scope] = $e->getMessage();
+                $info->templateCommands[$scopeType] = $e->getMessage();
                 $info->templateLink = '';
             }//try
 
-            try//
+            try
             {
-                $info->templateStatus[$scope] = g11nStorage::templateExists($comName, $scope);
+                $info->templateStatus[$scopeType] = g11nStorage::templateExists($comName.$type, $scope);
             }
             catch(Exception $e)
             {
-                $info->templateStatus[$scope] = $e->getMessage();
+                $info->templateStatus[$scopeType] = $e->getMessage();
                 echo '';
             }//try
 
-            foreach($this->languages[$scope] as $lang)
+            foreach($this->languages[$scopeType] as $lang)
             {
-                if($lang['tag'] == 'xx-XX')
-                continue;
-
                 $exists = g11nExtensionHelper::findLanguageFile($lang['tag']
-                , $comName, $scope);
+                , $comName.$type, $scope);
 
-                $info->fileStatus[$scope][$lang['tag']] =($exists) ? true : false;
+                $info->fileStatus[$scopeType][$lang['tag']] =($exists) ? true : false;
                 //                     g11nExtensionHelper::findLanguageFile($lang['tag']
                 //                    , $item->extension, $scope);
 
@@ -247,17 +258,16 @@ class EasyCreatorViewLanguages extends JView
                 $link .= '&extension='.$info->extension.'&scope='.$scope;
                 $link .= '&langTag='.$lang['tag'];
 
-                $info->updateLinks[$scope][$lang['tag']] = $link;
+                $info->updateLinks[$scopeType][$lang['tag']] = $link;
 
                 if( ! array_key_exists($extensionName, $cachedFiles)
                 || ! array_key_exists($scope, $cachedFiles[$extensionName]))
                 {
-                    $info->cacheStatus[$scope][$lang['tag']] = false;
+                    $info->cacheStatus[$scopeType][$lang['tag']] = false;
                     continue;
                 }
 
-                $s = jgettext('Not cached');
-                $info->cacheStatus[$scope][$lang['tag']] = false;
+                $info->cacheStatus[$scopeType][$lang['tag']] = false;
 
                 $fName = $lang['tag'].'.'.$this->project->comName;
 
@@ -265,12 +275,12 @@ class EasyCreatorViewLanguages extends JView
                 {
                     if(strpos($file, $fName) === 0)
                     {
-                        $s = jgettext('Cached');
                         $info->cacheStatus[$scope][$lang['tag']] = true;
                     }
                 }//foreach
             }//foreach
         }//foreach
+    }
 
         return $info;
     }//function
@@ -888,7 +898,7 @@ class EasyCreatorViewLanguages extends JView
                 {
                     $html .= '<div class="ecr_menu_box">';
 
-                    if($this->_showCore)
+                    if($this->showCore)
                     {
                         $checked = ' checked="checked"';
                         $style = ' style="color: red;"';
@@ -980,8 +990,6 @@ class EasyCreatorViewLanguages extends JView
 
     private function g11nUpdate()
     {
-        $this->languages = Ecrg11nHelper::getLanguages();
-
         $this->g11nInfo = $this->getG11nInfo();
 
         $this->setLayout('g11nupdate');
@@ -998,8 +1006,7 @@ class EasyCreatorViewLanguages extends JView
      */
     private function displayBarG11n($task)
     {
-        $sel_language = JRequest::getCmd('sel_language');
-        $this->sel_language = $sel_language;
+        $this->sel_language = JRequest::getCmd('sel_language');
 
         $subTasks = array(
         array('title' => jgettext('Status')
@@ -1020,11 +1027,7 @@ class EasyCreatorViewLanguages extends JView
         )
         );
 
-        //-- @todo - unify..
-        $html = '';
-        $html .= EcrHtml::getSubBar($subTasks);
-
-        return $html;
+        return EcrHtml::getSubBar($subTasks);
     }//function
 
     /**

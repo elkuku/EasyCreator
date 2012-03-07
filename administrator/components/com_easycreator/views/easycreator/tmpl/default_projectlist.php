@@ -46,7 +46,7 @@ foreach($projectTypes as $comType => $titel) :
 
     echo '<div class="boxHeader img icon-12-'.$comType.'">';
 
-    //-- Do not translate
+    //TRANSLATORS: Do not translate !
     echo sprintf(jngettext('%d '.ucfirst($comType), '%d '.$plural, $count), $count);
 
     echo '</div>';

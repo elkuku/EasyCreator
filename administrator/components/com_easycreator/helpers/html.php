@@ -66,12 +66,14 @@ final class EcrHtml
                 $tasks['languages']->title = jgettext('Languages');
                 $tasks['languages']->image = 'ecr_languages';
                 $tasks['languages']->tasks = array('languages', 'translations', 'searchfiles', 'langcorrectdeforder'
-                , 'langcorrectorder', 'show_version', 'show_versions', 'language_check', 'create_langfile', 'convert');
+                , 'langcorrectorder', 'show_version', 'show_versions', 'language_check', 'create_langfile', 'convert'
+                , 'g11nUpdate');
 
                 $tasks['codeeye'] = new stdClass;
                 $tasks['codeeye']->title = jgettext('CodeEye');
                 $tasks['codeeye']->image = 'xeyes';
-                $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats', 'runcli', 'runwap');
+                $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats', 'runcli'
+                , 'runwap');
             }
 
             $tasks['ziper'] = new stdClass;

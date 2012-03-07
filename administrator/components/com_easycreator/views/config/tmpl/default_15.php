@@ -38,7 +38,7 @@ $blacks = array('_default', 'Personal');
     <div style="background-color: #ffc; border: 1px solid orange; padding: 0.5em;">
         EasyCreator is in "English ONLY" mode ! If you want a localized version, please install the g11n library. -
         <a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
-            Download lig_g11n
+            Download lib_g11n
         </a>
     </div>
 <?php endif; ?>

@@ -55,8 +55,6 @@ abstract class EcrProject extends JObject
 
     public $langs = array();
 
-    public $langSeparateJavascript = false;
-
     public $modules = array();
 
     public $plugins = array();
