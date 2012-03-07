@@ -13,6 +13,15 @@
 class EcrEasycreator
 {
     /**
+     * @var array Supported compression formats for creating packages
+     */
+    public static $packFormats = array(
+        'archive_zip' => 'zip'
+    , 'archive_tgz' => 'tgz'
+    , 'archive_bz2' => 'bz2'
+    );
+
+    /**
      * Get a specific controller.
      *
      * @return JController

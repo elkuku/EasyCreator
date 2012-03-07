@@ -718,8 +718,17 @@ class EcrBuilder extends JObject
         }
 
         $project = EcrProjectHelper::newProject($type);
+
         $project->comName = $name;
         $project->scope = $scope;
+
+        foreach(EcrEasycreator::$packFormats as $name => $ext)
+        {
+            if($comParams->get($name))
+            {
+                $project->buildOpts[$name] = 'ON';
+            }
+        }
 
         //-- Set the Joomla! compatibility version to the version we are actually running on
         $project->JCompat = ECR_JVERSION;

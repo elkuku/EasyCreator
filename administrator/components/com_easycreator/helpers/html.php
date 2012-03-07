@@ -645,15 +645,9 @@ final class EcrHtml
         //--Get component parameters
         $params = JComponentHelper::getParams('com_easycreator');
 
-        $formats = array(
-            'archive_zip' => 'zip'
-        , 'archive_tgz' => 'tgz'
-        , 'archive_bz2' => 'bz2'
-        );
-
         $opts = array();
 
-        foreach($formats as $name => $ext)
+        foreach(EcrEasycreator::$packFormats as $name => $ext)
         {
             if(isset($projectParams[$name]))
             {
@@ -677,7 +671,7 @@ final class EcrHtml
                 .'</div>';
         }
 
-        foreach($formats as $name => $ext)
+        foreach(EcrEasycreator::$packFormats as $name => $ext)
         {
             $checked = ($opts[$name]) ? ' checked="checked"' : '';
 
