@@ -844,7 +844,7 @@ class EasyCreatorControllerStuffer extends JController
 
             if( ! JFile::write($fullPath, $string))
             {
-                EcrHtml::displayMessage(jgettext('Can not create file at '.$fullPath), 'error');
+                EcrHtml::displayMessage(sprintf(jgettext('Can not create file at %s'), $fullPath), 'error');
 
                 $this->logger->log($fullPath, 'Can not create file');
             }
