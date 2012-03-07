@@ -636,14 +636,6 @@ class EasyCreatorViewLanguages extends JView
         $c .= '<label for="chkMarkKeyDiffers">Mark key difference(s)</label>';
 
         $this->checks->markKeyDiffers = $c;
-
-        //        $options = array();
-        //
-        //        $options[] = JHtml::_('select.option', '', 'Standard');
-        //        $options[] = JHtml::_('select.option', 'js', 'JavaScript');
-        //
-        //        $this->lists['subScope'] = JHtml::_('select.genericlist', $options, 'subScope'
-        //        , 'onchange="submitform();"', 'value', 'text', $this->subScope);
     }//function
 
     /**
@@ -829,13 +821,6 @@ class EasyCreatorViewLanguages extends JView
             , 'icon' => 'rename'
             , 'task' => 'convert'
             )
-            /*
-            , array('title' => 'JALHOO'
-            , 'description' => jgettext('JALHOO is an experimental language handler.')
-            , 'icon' => 'ecr_language'
-            , 'task' => 'jalhoo'
-            )
-            */
         );
 
         //@todo - unify..
@@ -966,11 +951,6 @@ class EasyCreatorViewLanguages extends JView
                 $html .= $this->drawLangSelector($sel_language, 'show_versions', true);
                 $html .= '</div>';
                 break;
-                //            case 'convert':
-                //                $html .= '<div class="ecr_menu_box">';
-                //                $html .= $this->drawLangSelector($sel_language, 'convert', true);
-                //                $html .= '</div>';
-                //                break;
 
             case 'translate':
             case 'language_check':
@@ -1014,11 +994,13 @@ class EasyCreatorViewLanguages extends JView
         , 'icon' => 'apply'
         , 'task' => 'languages'
         )
+            /*
         , array('title' => jgettext('Cache')
         , 'description' => jgettext('Displays the cache status of your language files.')
         , 'icon' => 'ecr_language'
         , 'task' => 'g11nCache'
         )
+            */
         , array('title' => jgettext('g11n')
         , 'description' =>
         jgettext('Utility to create and update your language files.')

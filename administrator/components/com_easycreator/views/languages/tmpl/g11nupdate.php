@@ -100,8 +100,3 @@ $item = $this->g11nInfo;
 
 <input type="hidden" name="scope"/>
 <input type="hidden" name="langTag"/>
-
-<?php
-var_dump($item);
-echo '<hr />';
-var_dump($this->languages);
