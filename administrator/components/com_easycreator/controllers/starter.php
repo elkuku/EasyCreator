@@ -98,7 +98,9 @@ class EasyCreatorControllerStarter extends JController
         $name = JRequest::getCmd('ecr_project_name');
         $scope = JRequest::getCmd('ecr_project_scope');
 
-        if( ! $project = $builder->registerProject($type, $name, $scope))
+        $project = $builder->registerProject($type, $name, $scope);
+
+        if(false == $project)
         {
             //-- Error
             JFactory::getApplication()->enqueueMessage('Can not register project', 'error');

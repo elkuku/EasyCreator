@@ -135,7 +135,7 @@ class EcrProjectComponent extends EcrProject
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion', 'error');
 
                 return array();
                 break;

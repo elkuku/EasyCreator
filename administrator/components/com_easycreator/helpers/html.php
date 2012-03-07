@@ -569,7 +569,6 @@ final class EcrHtml
             echo NL.'<input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
             echo NL.'<label for="'.$name.'">'.$titel.'</label><br />';
         }
-        //foreach
 
         echo NL.'   </div>';
         echo NL.'</div>';
@@ -599,7 +598,6 @@ final class EcrHtml
                 .'value="'.$name.'" id="headerType'.$name.'"'.$checked.'>'
                 .'<label for="headerType'.$name.'">'.$name.'</label>';
         }
-        //foreach
 
         return implode(NL, $html);
     }
@@ -630,7 +628,6 @@ final class EcrHtml
             $options[] = '<input type="checkbox" name="dbtypes[]"'.$checked.' value="'.$f.'" id="dbopt_'.$f.'" />';
             $options[] = '<label for="dbopt_'.$f.'">'.ucfirst($f).'</label>';
         }
-        //foreach
 
         return implode(NL, $options);
     }
@@ -658,7 +655,6 @@ final class EcrHtml
                 $opts[$name] = ($params->get($name) == 'on') ? true : false;
             }
         }
-        //foreach
 
         if(! $opts['archive_zip']
             && ! $opts['archive_tgz']
@@ -678,7 +674,6 @@ final class EcrHtml
             echo NL.'   <input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
             echo NL.'   <label for="'.$name.'">'.$ext.'</label>';
         }
-        //foreach
     }
 
     /**
@@ -704,10 +699,7 @@ final class EcrHtml
         $translates = array('txt' => 'brainfuck'
         , 'pot' => 'po');
 
-//        if(array_key_exists($cfg['syntax'], $translates))
         $syntax = (array_key_exists($cfg['syntax'], $translates)) ? $translates[$cfg['syntax']] : $cfg['syntax'];
-
-//        $syntax =(in_array($cfg['syntax'], $translates)) ? $cfg['syntax'] : 'brainfuck';
 
         $debug = (ECR_DEBUG) ? ',debug: true'.NL : '';
 
@@ -869,7 +861,6 @@ EOF;
             $ret .= ($revOnly) ? '' : '  / '.$svn_date;
 
             break;
-
         }
 
         fclose($f);
@@ -941,9 +932,7 @@ EOF;
     private static function displayResultFieldRow($title, $property, $formFieldName, EcrProject $project, $formFieldNames)
     {
         if(! $project->$property)
-        {
             return '';
-        }
 
         $return = array();
         $return[] = '<div class="ecr_table-row">';
@@ -1049,12 +1038,11 @@ EOF;
                     echo NL.'<option'.$class.' value="'.$project->fileName.'" label="'.$project->name.'"'.$selected.'>'
                         .$displayName.'</option>';
                 }
-                //foreach
 
                 echo NL.'</optgroup>';
             }
         }
-        //foreach
+
         echo NL.'</select></span>';
     }
 
@@ -1288,20 +1276,17 @@ EOF;
                     {
                         $s .= str_replace(JPATH_ROOT.DS, '', $arg).BR;
                     }
-                    //foreach
                 }
 
                 $s .= '</td>';
 
                 $s .= '</tr>';
             }
-            //for
 
             $s .= '</table>';
 
             echo $s;
         }
-        //foreach
     }
 
     /**

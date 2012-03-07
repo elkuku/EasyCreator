@@ -435,8 +435,6 @@ class EcrBuilder extends JObject
             throw new EcrBuilderException('No suiteable path found for CHANGELOG in '.$this->_buildDir);
         }
 
-        //-- @todo other options ?
-
         if(JFile::write($path.DS.$fileName, $changelog))
         {
             $this->logger->logFileWrite('', $path.DS.$fileName, $changelog);
@@ -690,8 +688,10 @@ class EcrBuilder extends JObject
      */
     public function registerProject($type, $name, $scope = '')
     {
-        //-- Setup logging
+        //--Get component parameters
         $comParams = JComponentHelper::getParams('com_easycreator');
+
+        //-- Setup logging
         $options = array();
         $opts = array('logging', 'hotlogging', 'files', 'profile');
 
@@ -701,7 +701,7 @@ class EcrBuilder extends JObject
             {
                 $options[] = $o;
             }
-        }//foreach
+        }
 
         $options['fileName'] = date('ymd_Hi').'_register.log';
 
@@ -751,7 +751,7 @@ class EcrBuilder extends JObject
 
         $pXml = $project->writeProjectXml();
 
-        if($pXml === false)
+        if(false == $pXml)
         {
             $this->logger->log('', 'Unable to create EasyCreator manifest');
             $this->logger->writeLog();

@@ -167,38 +167,6 @@ class EcrProjectHelper
             $xmlFiles = JFolder::files($path, '.xml$', false, true);
         }
 
-        /*
-         if(ECR_JVERSION == '1.5'
-        && $project->type == 'plugin')
-        {
-        /*
-        * Special treatment for plugins in 1.5
-        $xmlFiles = array($path.DS.$project->comName.'.xml');
-        }
-        else if(ECR_JVERSION == '1.6'
-        && $project->type == 'library')
-        {
-        /*
-        * Very Special treatment for libraries in 1.6
-        $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
-        }
-        else if(ECR_JVERSION == '1.6'
-        && $project->type == 'package')
-        {
-        /*
-        * Very Special treatment for packages in 1.6
-        $xmlFiles = array($path.DS.$project->getJoomlaManifestName());
-        }
-        else
-        {
-        if( ! JFolder::exists($path))
-        {
-        return false;
-        }
-
-        $xmlFiles = JFolder::files($path, '.xml$', false, true);
-        }
-        */
         if(empty($xmlFiles))
         {
             return false;
@@ -870,6 +838,7 @@ class EcrProjectHelper
      * @param boolean $isFile Set [true to load a file | false to load a string].
      *
      * @todo This may go in a separate class - error reporting may be improved.
+     * @todo Update: dropJ1.5support remove since it is now part of JFactory
      *
      * @return JXMLElement on success | false on error
      */

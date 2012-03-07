@@ -42,7 +42,7 @@ echo $this->loadTemplate('result');
 
 <div class="ecr_floatbox" style="background-color: #ccff99;">
     <h3><?php echo jgettext('Create the package'); ?></h3>
-    <div class="ecr_button" onclick="$('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
+    <div class="ecr_button" onclick="document.id('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
     style="margin: 1em; padding: 1em; text-align: center;">
         <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
         style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
