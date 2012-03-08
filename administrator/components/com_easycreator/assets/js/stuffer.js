@@ -13,25 +13,6 @@ function createFile(type1, type2) {
     submitbutton('create_install_file');
 }//function
 
-function addUpdateServer(name, url, type, priority) {
-    var container = document.id('updateServers');
-    var div = new Element('div', {'style':'border: 1px dashed gray; padding: 0.4em; margin: 0.2em;'});
-    var html = '';
-
-    html += jgettext('Name') + ': <input type="text" name="updateServers[name][]" value="' + name + '" /><br />';
-    html += jgettext('URL') + ': <input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
-    html += jgettext('Priority') + ': <input type="text" size="2" name="updateServers[priority][]" value="' + priority + '" /> ';
-    html += jgettext('Type') + ': <input type="text" size="8" name="updateServers[type][]" value="' + type + '" /><br />';
-
-    html += '<br /><span class="ecr_button" onclick="this.getParent().dispose();">';
-    html += jgettext('Delete');
-    html += '</span>';
-
-    div.set('html', html);
-
-    div.inject(container);
-}//function
-
 function submitStuffer(task) {
     if (document.id('package-to') == null) {
         submitbutton(task);
@@ -61,17 +42,34 @@ window.addEvent('domready', function () {
 });
 
 var ecrStuffer = new Class({
-    loadFilenameDefaults : function()
-    {
-        new Request({
-            url: ecrAJAXLink + '&controller=ajax&task=getEcrParams',
+    addUpdateServer:function (name, url, type, priority) {
+        var container = document.id('updateServers');
+        var html = '';
 
-            onComplete: function(response)
-            {
+        html += jgettext('URL') + ': <input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
+        html += jgettext('Name') + ': <input type="text" name="updateServers[name][]" value="' + name + '" /><br />';
+        html += jgettext('Priority') + ': <input type="text" size="2" name="updateServers[priority][]" value="' + priority + '" /> ';
+        html += jgettext('Type') + ': <input type="text" size="8" name="updateServers[type][]" value="' + type + '" /><br />';
+        html += '<br /><span class="ecr_button" onclick="this.getParent().dispose();">';
+
+        html += jgettext('Delete');
+        html += '</span>';
+
+        var div = new Element('div', {'style':'border: 1px dashed gray; padding: 0.4em; margin: 0.2em;'});
+
+        div.set('html', html);
+
+        div.inject(container);
+    },
+
+    loadFilenameDefaults:function () {
+        new Request({
+            url:ecrAJAXLink + '&controller=ajax&task=getEcrParams',
+
+            onComplete:function (response) {
                 var resp = JSON.decode(response);
 
-                if(resp.status)
-                {
+                if (resp.status) {
                     //-- Error
                     alert(resp.text);
 
@@ -90,3 +88,5 @@ var ecrStuffer = new Class({
         }).send();
     }
 });
+
+var Stuffer = new ecrStuffer();

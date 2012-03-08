@@ -90,6 +90,7 @@ class EasyCreatorControllerTemplates extends JController
     /**
      * Export EasyCreator extension templates.
      *
+     * @throws Exception
      * @return void
      */
     public function do_export()

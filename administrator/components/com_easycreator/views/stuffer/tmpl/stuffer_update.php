@@ -37,7 +37,7 @@ JFactory::getDocument()->addScriptDeclaration($js);
     <?php if ('1.5' != $this->project->JCompat) : ?>
     <h4><?php echo jgettext('Update server'); ?></h4>
     <div id="updateServers"></div>
-    <div onclick="addUpdateServer('<?php echo $this->project->name?> update server', '', 'extension', '1');"
+    <div onclick="Stuffer.addUpdateServer('<?php echo $this->project->name?> update server', '', 'extension', '1');"
          class="ecr_button img icon-16-add">
         <?php echo jgettext('Add Server');?>
     </div>

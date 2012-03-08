@@ -14,6 +14,8 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
     /**
      * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method
      *
+     * @param null $tpl
+     *
      * @return void
      */
     public function display($tpl = null)
@@ -34,7 +36,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
         {
             JFactory::getApplication()->enqueueMessage(implode('<br />', $errors), 'error');
 
-            return false;
+            return;
         }
 
         // Das Template wird aufgerufen

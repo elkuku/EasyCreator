@@ -10,9 +10,6 @@
 $buildOpts = $this->project->buildOpts;
 $options = new JRegistry($this->project->buildOpts);
 ?>
-<script type="text/javascript">
-    var Stuffer = new ecrStuffer();
-</script>
 
 <div class="ecr_floatbox">
 

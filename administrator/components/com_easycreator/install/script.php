@@ -18,7 +18,10 @@ class Com_EasyCreatorInstallerScript
     /**
      * Method to run before an install/update/uninstall method.
      *
-     * @return void
+     * @param $type
+     * @param $parent
+     *
+     * @return boolean
      */
     public function preflight($type, $parent)
     {
@@ -42,6 +45,8 @@ class Com_EasyCreatorInstallerScript
     /**
      * Method to install the component.
      *
+     * @param $parent
+     *
      * @return void
      */
     public function install($parent)
@@ -54,6 +59,8 @@ class Com_EasyCreatorInstallerScript
     /**
      * Method to update the component. DISABLED...
      *
+     * @param $parent
+     *
      * @return void
      */
     public function NOupdate($parent)
@@ -64,6 +71,9 @@ class Com_EasyCreatorInstallerScript
 
     /**
      * Method to run after an install/update/uninstall method.
+     *
+     * @param $type
+     * @param $parent
      *
      * @return void
      */
@@ -76,6 +86,8 @@ class Com_EasyCreatorInstallerScript
 
     /**
      * Method to uninstall the component.
+     *
+     * @param $parent
      *
      * @return void
      */

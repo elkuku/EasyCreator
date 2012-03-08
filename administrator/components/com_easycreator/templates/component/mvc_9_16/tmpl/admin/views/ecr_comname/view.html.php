@@ -6,7 +6,7 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the _ECR_COM_NAME_ Component.
  *
- * @package _ECR_COM_NAME_
+ * @package    _ECR_COM_NAME_
  * @subpackage Views
  */
 class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
@@ -34,9 +34,9 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
 
         if(count($errors))
         {
-	        JFactory::getApplication()->enqueueMessage(implode('<br />', $errors), 'error');
+            JFactory::getApplication()->enqueueMessage(implode('<br />', $errors), 'error');
 
-            return false;
+            return;
         }
 
         // Die Toolbar hinzufügen
@@ -47,7 +47,9 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
 
         // Set the document
         $this->setDocument();
-    }//function
+    }
+
+    //function
 
     /**
      * Setting the toolbar
@@ -59,23 +61,25 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
         $isNew = ($this->item->id == 0);
 
         JToolBarHelper::title($isNew
-        ? JText::_('_ECR_UPPER_COM_COM_NAME__MANAGER__ECR_UPPER_COM_NAME__NEW')
-        : JText::_('_ECR_UPPER_COM_COM_NAME__MANAGER__ECR_UPPER_COM_NAME__EDIT')
-        , '_ECR_LOWER_COM_NAME_');
+                ? JText::_('_ECR_UPPER_COM_COM_NAME__MANAGER__ECR_UPPER_COM_NAME__NEW')
+                : JText::_('_ECR_UPPER_COM_COM_NAME__MANAGER__ECR_UPPER_COM_NAME__EDIT')
+            , '_ECR_LOWER_COM_NAME_');
 
         JToolBarHelper::save('_ECR_LOWER_COM_NAME_.save');
 
         JToolBarHelper::cancel('_ECR_LOWER_COM_NAME_.cancel'
-        , $isNew
-        ? 'JTOOLBAR_CANCEL'
-        : 'JTOOLBAR_CLOSE');
+            , $isNew
+                ? 'JTOOLBAR_CANCEL'
+                : 'JTOOLBAR_CLOSE');
 
         // CSS Klasse für das 48x48 Icon der Toolbar
         JFactory::getDocument()->addStyleDeclaration(
-        '.icon-48-_ECR_LOWER_COM_NAME_ {background-image: url('
-        .'components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png);}'
+            '.icon-48-_ECR_LOWER_COM_NAME_ {background-image: url('
+                .'components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png);}'
         );
-    }//function
+    }
+
+    //function
 
     /**
      * Method to set up the document properties
@@ -89,14 +93,15 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
         $document = JFactory::getDocument();
 
         $document->setTitle($isNew
-        ? JText::_('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__CREATING')
-        : JText::_('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__EDITING'));
+            ? JText::_('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__CREATING')
+            : JText::_('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__EDITING'));
 
         $document->addScript(JURI::root(true).$this->script);
 
         $document->addScript(JURI::root(true)
-        .'/administrator/components/_ECR_COM_COM_NAME_/views/_ECR_LOWER_COM_NAME_/submitbutton.js');
+            .'/administrator/components/_ECR_COM_COM_NAME_/views/_ECR_LOWER_COM_NAME_/submitbutton.js');
 
         JText::script('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__ERROR_UNACCEPTABLE');
-    }//function
+    }
+    //function
 }//class
