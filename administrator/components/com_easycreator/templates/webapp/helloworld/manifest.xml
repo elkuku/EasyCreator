@@ -8,6 +8,6 @@
     <jVersion>2.5</jVersion>
     <phpVersion>5</phpVersion>
     <dbTables>None</dbTables>
-    <author>Nikolai Plath</author>
-    <authorUrl>http://github.com/elkuku</authorUrl>
+    <author>The Joomla! Platform Team</author>
+    <authorUrl>https://github.com/joomla/joomla-platform-examples/tree/master/web/101-hello-www</authorUrl>
 </easyproject>
