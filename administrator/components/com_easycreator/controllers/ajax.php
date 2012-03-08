@@ -1159,4 +1159,15 @@ body {
 
         echo json_encode($response);
     }//function
+
+    public function getEcrParams()
+    {
+        $response = new stdClass;
+
+        $response->status = 0;
+
+        $response->text = json_encode(JComponentHelper::getParams('com_easycreator')->toArray());
+
+        echo json_encode($response);
+    }
 }//class

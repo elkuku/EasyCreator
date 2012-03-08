@@ -8,7 +8,11 @@
  */
 
 $buildOpts = $this->project->buildOpts;
+$options = new JRegistry($this->project->buildOpts);
 ?>
+<script type="text/javascript">
+    var Stuffer = new ecrStuffer();
+</script>
 
 <div class="ecr_floatbox">
 
@@ -18,15 +22,15 @@ $buildOpts = $this->project->buildOpts;
 
     <br/>
     <strong class="img icon-16-installfolder"><?php echo jgettext('Build folder'); ?></strong>
-    <?php if (2 == ECR_HELP) echo JHTML::tooltip(jgettext('Build folder') . '::'
-    . jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.')
-    . sprintf(jgettext('<br />If left blank the folder <strong>%s</strong> wil be used'), ECRPATH_BUILDS));
+    <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Build folder').'::'
+    .jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.')
+    .sprintf(jgettext('<br />If left blank the folder <strong>%s</strong> wil be used'), ECRPATH_BUILDS));
     ?>
     <br/>
     <input type="text" name="buildvars[zipPath]" size="40"
            value="<?php echo $this->project->zipPath; ?>"/>
     <?php
-    if ($this->project->zipPath && !JFolder::exists($this->project->zipPath)) :
+    if($this->project->zipPath && ! JFolder::exists($this->project->zipPath)) :
         EcrHtml::displayMessage(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'warning');
     endif;
     ?>
@@ -58,8 +62,8 @@ $buildOpts = $this->project->buildOpts;
     && $buildOpts['create_md5_compressed'] == 'ON') ? ' checked="checked"' : ''; ?>
                                 value="create_md5_compressed"/>
     <label for="lbl_create_md5_compressed"><?php echo jgettext('Compress checksum file'); ?></label>
-    <?php if (2 == ECR_HELP) echo JHTML::tooltip(jgettext('Compress checksum file') . '::'
-    . jgettext('This will do a small compression on your checksum file')); ?>
+    <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Compress checksum file').'::'
+    .jgettext('This will do a small compression on your checksum file')); ?>
 
     <br/>
     <br/>
@@ -81,5 +85,34 @@ $buildOpts = $this->project->buildOpts;
         && $buildOpts['remove_autocode'] == 'ON') ? ' checked="checked"' : ''; ?>
            value="remove_autocode"/>
     <label for="lbl_remove_autocode"><?php echo jgettext('Remove EasyCreator AutoCode'); ?></label>
+
+    <br/>
+    <br/>
+    <strong><?php echo jgettext('File name'); ?></strong>
+
+    <ul>
+        <li>
+            <label for="custom_name_1"><?php echo jgettext('Default name'); ?></label>
+            <input type="text" size="30" name="buildopts[custom_name_1]" id="custom_name_1"
+                   value="<?php echo $options->get('custom_name_1'); ?>"/>
+        </li>
+        <li>
+            <label for="custom_name_2"><?php echo jgettext('Custom name'); ?></label>
+            <input type="text" size="30" name="buildopts[custom_name_2]" id="custom_name_2"
+                   value="<?php echo $options->get('custom_name_2'); ?>"/>
+        </li>
+        <li>
+            <label for="custom_name_3"><?php echo jgettext('Custom name'); ?></label>
+            <input type="text" size="30" name="buildopts[custom_name_3]" id="custom_name_3"
+                   value="<?php echo $options->get('custom_name_3'); ?>"/>
+        </li>
+        <li>
+            <label for="custom_name_4"><?php echo jgettext('Custom name'); ?></label>
+            <input type="text" size="30" name="buildopts[custom_name_4]" id="custom_name_4"
+                   value="<?php echo $options->get('custom_name_4'); ?>"/>
+        </li>
+    </ul>
+
+    <span class="ecr_button" onclick="Stuffer.loadFilenameDefaults();"><?php echo jgettext('Reset to default'); ?></span>
 
 </div>

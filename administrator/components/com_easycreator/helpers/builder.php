@@ -56,6 +56,9 @@ class EcrBuilder extends JObject
      */
     public function build($type, $template, $name)
     {
+        //--Get component parameters
+        $comParams = JComponentHelper::getParams('com_easycreator');
+
         //-- Setup logging
         $buildOpts = JRequest::getVar('buildopts', array());
         $buildOpts['fileName'] = date('ymd_Hi').'_building.log';
@@ -93,6 +96,11 @@ class EcrBuilder extends JObject
 
         $this->project->dbTypes = JRequest::getVar('dbtypes', array(), 'array');
         $this->project->headerType = JRequest::getCmd('headerType');
+
+        for($i = 1; $i < 5; $i++)
+        {
+            $this->project->buildOpts['custom_name_'.$i] = $comParams->get('custom_name_'.$i);
+        }
 
         if( ! $this->customOptions('process'))
         {
@@ -728,6 +736,11 @@ class EcrBuilder extends JObject
             {
                 $project->buildOpts[$name] = 'ON';
             }
+        }
+
+        for($i = 1; $i < 5; $i++)
+        {
+            $project->buildOpts['custom_name_'.$i] = $comParams->get('custom_name_'.$i);
         }
 
         //-- Set the Joomla! compatibility version to the version we are actually running on

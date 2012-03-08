@@ -40,25 +40,3 @@ function captureMousePosition(e)
         yMousePos = e.pageY;
     }
 }//function
-
-function updateName(ecr_project)
-{
-    url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=ajax';
-    url += '&ecr_project='+ecr_project;
-    url += '&cst_format='+$('cst_format').value;
-    new Request({
-        url: url + '&task=update_project_name',
-        'onRequest': function()
-            {
-                $('ajMessage').className = 'ajax_loading16';
-                $('ajMessage').innerHTML = jgettext('Loading...');
-            },
-        'onComplete': function(request)
-            {
-                $('ajName').innerHTML = request;
-
-                $('ajMessage').innerHTML = '';
-                $('ajMessage').className = '';
-            }
-    }).send();
-}//function

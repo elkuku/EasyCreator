@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,13 +7,11 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 ecrScript('util');
 
 if('package' == $this->project->type
-&& ! $this->project->elements)
+    && ! $this->project->elements
+)
 {
     EcrHtml::displayMessage(jgettext('Please add some extensions to your package before creating it'), 'error');
 
@@ -42,14 +40,16 @@ echo $this->loadTemplate('result');
 
 <div class="ecr_floatbox" style="background-color: #ccff99;">
     <h3><?php echo jgettext('Create the package'); ?></h3>
-    <div class="ecr_button" onclick="document.id('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
-    style="margin: 1em; padding: 1em; text-align: center;">
+
+    <div class="ecr_button"
+         onclick="document.id('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
+         style="margin: 1em; padding: 1em; text-align: center;">
         <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
-        style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
+             style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
         <h1>
             <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
         </h1>
     </div>
 </div>
 
-<input type="hidden" name="old_task" value="<?php echo JRequest::getCmd('task'); ?>" />
+<input type="hidden" name="old_task" value="<?php echo JRequest::getCmd('task'); ?>"/>

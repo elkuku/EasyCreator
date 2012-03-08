@@ -366,6 +366,13 @@ abstract class EcrProject extends JObject
         $this->buildOpts['include_ecr_projectfile'] = (in_array('include_ecr_projectfile', $buildOpts)) ? 'ON' : 'OFF';
         $this->buildOpts['remove_autocode'] = (in_array('remove_autocode', $buildOpts)) ? 'ON' : 'OFF';
 
+        $ooo = new JRegistry($buildOpts);
+
+        for($i = 1; $i < 5; $i++)
+        {
+            $this->buildOpts['custom_name_'.$i] = $ooo->get('custom_name_'.$i);
+        }
+
         $this->updateServers = array();
 
         $updateServers = JRequest::getVar('updateServers', array());

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,33 +7,31 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-if( ! $this->zipResult)
-return;
+if(! $this->zipResult)
+    return;
 ?>
 
 <div class="ecr_floatbox">
-<?php if( ! $this->zipResult->errors): ?>
-	<h1 class="img icon-16-check_ok" style="color: green; text-align: center;">
-		<?php echo jgettext('Your ZIPfile has been created sucessfully'); ?>
-	</h1>
+    <?php if(! $this->zipResult->errors): ?>
+    <h1 class="img icon-16-check_ok" style="color: green; text-align: center;">
+        <?php echo jgettext('Your ZIPfile has been created sucessfully'); ?>
+    </h1>
     <?php if(count($this->zipResult->downloadLinks)) : ?>
         <ul class="downloadLinks">
-        <?php foreach($this->zipResult->downloadLinks as $link) : ?>
+            <?php foreach($this->zipResult->downloadLinks as $link) : ?>
             <li>
-            	<h2><a href="<?php echo $link; ?>"><?php echo JFile::getName(JPath::clean($link)); ?></a></h2>
+                <h2><a href="<?php echo $link; ?>"><?php echo JFile::getName(JPath::clean($link)); ?></a></h2>
             </li>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
 
         </ul>
 
-    <?php else : ?>
+        <?php else : ?>
         <p><?php echo jgettext('No download available'); ?></p>
-    <?php endif; ?>
+        <?php endif; ?>
 
-<?php else:
+    <?php
+else:
     EcrHtml::displayMessage(jgettext('Your ZIPfile has NOT been created'), 'error');
     echo '<h2>'.jgettext('Errors').'</h2>';
     echo '<ul><li>'.implode('</li><li>', $errors).'</li></ul>';

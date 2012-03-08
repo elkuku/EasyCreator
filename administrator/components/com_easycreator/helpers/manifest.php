@@ -585,12 +585,13 @@ class EcrManifest extends JObject
                             break;
                         case '1.6' :
                         case '1.7' :
+                        case '2.5' :
                             //-- 'index.php?' from the link
                             $menu->addAttribute('link', str_replace('index.php?', '', $item['link']));
                             break;
                         default :
                             JFactory::getApplication()->enqueueMessage(
-                                __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
+                                __METHOD__.' Unknown JCompat: '.$this->project->JCompat, 'error');
                             break;
                     }
                 }

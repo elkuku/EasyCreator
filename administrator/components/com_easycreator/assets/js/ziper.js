@@ -7,13 +7,13 @@
  */
 
 function deleteZipFile(path, file) {
-    url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
+    var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
     url += '&controller=ziper&task=delete';
     url += '&file_path=' + path;
     url += '&file_name=' + file;
 
-    var box = $('ajaxMessage');
-    var debug = $('ajaxDebug');
+    var box = document.id('ajaxMessage');
+    var debug = document.id('ajaxDebug');
 
     switch(ECR_JVERSION)
     {
@@ -64,6 +64,28 @@ function deleteZipFile(path, file) {
                     'opacity' : 1
                 });
             });
+        }
+    }).send();
+}//function
+
+function updateName(ecr_project)
+{
+    var url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=ajax';
+    url += '&ecr_project='+ecr_project;
+    url += '&cst_format=' + document.id('cst_format').value;
+    new Request({
+        url: url + '&task=update_project_name',
+        'onRequest': function()
+        {
+            document.id('ajMessage').className = 'ajax_loading16';
+            document.id('ajMessage').innerHTML = jgettext('Loading...');
+        },
+        'onComplete': function(request)
+        {
+            document.id('ajName').innerHTML = request;
+
+            document.id('ajMessage').innerHTML = '';
+            document.id('ajMessage').className = '';
         }
     }).send();
 }//function
