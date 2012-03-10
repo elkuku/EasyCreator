@@ -50,199 +50,242 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-03-09
+d95466b Add a script to extract translators names from language files to include them in the credits
+3668325 Modify the credits file to include new translators from opentranslators/transifex
+
+2012-03-08
+873233c Code style
+442a31e Add support for project specific package file names
+
+2012-03-07
+fee7091 Modify credits for JApplication extension templates
+d10d7fd Code formatting
+cfde6d4 Fix JCompat not working for J 2.5 when packing
+c165ebe Change: Compression format for new and registered projects is now taken from default
+d99a1b1 Change: JCompat is set to the version of the actual running Joomla! instance
+3d4dad5 Hide some experimental code
+a821ac0 Correct a language string
+48b31d6 Remove obsolete code
+b5c37d7 Fix js and config language file creation for non ini language files
+4c3ec71 Update language templates
+32676dc Update language templates
+
+2012-03-06
+9551b98 Language update Thanks to: ar-AR: ahmadalfy, AminosAmigos da-DK: Brian Rønnow de-DE: Michael es-ES: javier Fernández Llata fr-FR: Marcos Peebles hu-HU: Sándor Balikó id-ID: uring nl-NL: Steven Zeegers pl-PL: Begina Felicysym pt-BR: Manoel Silva sv-SE: Joel Hansen, linus.pettersson, Tess Neale
+4a2f56b Add a new icon for JApplications
+
+2012-03-05
+c7ff402 Code style and docblocks
+0bc198c Fix CLI app and runner
+cb98d0e Add a new extension type: Web Application
+
+2012-03-04
+23616cb Update .gitignore
+c02423d Update DTD links
+
+2012-03-03
+be960ce Update changelog
+
 ---------- 0.0.15.4 ----------
 
 2012-03-03
-Bump version 0.0.15.4
-Fix Code style
-Fix fatal error on creating packages - Thanks Douglas Machado
+e0e2d6c Bump version 0.0.15.4
+ef75349 Fix Code style
+1146947 Fix fatal error on creating packages - Thanks Douglas Machado
 
 2012-02-26
-Update .gitignore
-Add a CLI runner
-Add a new project type: CLI Application
+d47fbf2 Update .gitignore
+45e11cb Add a CLI runner
+86abe99 Add a new project type: CLI Application
 
 2012-02-25
-Refactored css ;)
-Refactored css ;)
-Modify .gitignore
-Merge remote branch 'origin/master'
-Formatting
-Cleanup javascript dbtables
-Merge pull request #4 from klauswilms/master
-Klaus Wilms: correcting php short tags
+96fd723 Refactored css ;)
+6dd0f28 Refactored css ;)
+40da989 Modify .gitignore
+b470a78 Merge remote branch 'origin/master'
+a50cea7 Formatting
+e233740 Cleanup javascript dbtables
+5513526 Merge pull request #4 from klauswilms/master
+1fa44f9 Klaus Wilms: correcting php short tags
 
 2012-02-24
-Fix the changelogger to include fellow contributers names - Thanks in advance :)
-Language manager fix for J! 2.5
-Update manifest
-Modify db designer in extension startup
+147485d Fix the changelogger to include fellow contributers names - Thanks in advance :)
+a93b605 Language manager fix for J! 2.5
+407997c Update manifest
+985dfa5 Modify db designer in extension startup
 
 2012-02-23
-Merge pull request #3 from klauswilms/master
+28f51bd Merge pull request #3 from klauswilms/master
 
 2012-02-22
-Klaus Wilms: I made some corrections in the php tags. you wrote <?=, but I think its asp? so i changed it to <?php. After the opening php tag I missed the echo command, and at the end before closing tag I missed the semicolon. I test it on a local installation, and it works fine for me.
+fec37ea Klaus Wilms: I made some corrections in the php tags. you wrote <?=, but I think its asp? so i changed it to <?php. After the opening php tag I missed the echo command, and at the end before closing tag I missed the semicolon. I test it on a local installation, and it works fine for me.
 
 2012-02-20
-Update changelog
+2fdd21b Update changelog
 
 ---------- 0.0.15.3 ----------
 
 2012-02-20
-Bump version 0.0.15.3
-Fix a fatal error when the g11n class is not available on project with non ini language files
-Fix completely fail in J! 1.5 due to clashing spl_autoloader and J's old __autioload() method - Thanks deck1187hw and suhreed
+58e442e Bump version 0.0.15.3
+a961a91 Fix a fatal error when the g11n class is not available on project with non ini language files
+e878298 Fix completely fail in J! 1.5 due to clashing spl_autoloader and J's old __autioload() method - Thanks deck1187hw and suhreed
 
 2012-02-14
-Add magic properties to docblocks
+3fb892a Add magic properties to docblocks
 
 2012-02-13
-Update changelog
+d3c6a01 Update changelog
 
 ---------- 0.0.15.2 ----------
 
 2012-02-13
-Bump version 0.0.15.2
-Missing file stubs
-Support for multiple sub bar tasks (ecr)
-Remove JsonResponse class
-Fix data designer table columns in J 2.5.1
-Remove g11n task (for now)
-Remove custom coding standards (for now)
-Fix debugger class name
-Revising docblocks in all template parts
-Fix missing fields in simple model template
-Change project link in footer from joomlacode to github
+73d7640 Bump version 0.0.15.2
+deedb93 Missing file stubs
+2d764e1 Support for multiple sub bar tasks (ecr)
+e0ed1f5 Remove JsonResponse class
+a74e6d5 Fix data designer table columns in J 2.5.1
+9d3387c Remove g11n task (for now)
+df43c04 Remove custom coding standards (for now)
+c44807f Fix debugger class name
+c4eddad Revising docblocks in all template parts
+593a446 Fix missing fields in simple model template
+4d0449e Change project link in footer from joomlacode to github
 
 2012-02-12
-Correct some bad links, switch vcs link to github
-Refactor EasyTemplateInfo => EcrTemplateinfo
-Fix header path when inserting new parts
-Fix a typo in function name
-Add missing dependency to JUri to the cli builder script ( :( )
+75b3f17 Correct some bad links, switch vcs link to github
+880c48d Refactor EasyTemplateInfo => EcrTemplateinfo
+976ebb0 Fix header path when inserting new parts
+0c098e0 Fix a typo in function name
+b2752b4 Add missing dependency to JUri to the cli builder script ( :( )
 
 2012-02-04
-Formatting
-Bump version to 0.0.15.1
-+ Add a CLI builder script
-Add cli output to the logger
-Add EcrZiperException
-Refactor the Ziper
+7364f04 Update changelog
+5b225c1 Formatting
+26eba29 Bump version to 0.0.15.1
+70e6226 Add a CLI builder script
+49ede99 Add cli output to the logger
+5a9aac9 Add EcrZiperException
+9b7a4cd Refactor the Ziper
 
 2012-02-03
-Add a missing <p>
+673608e Add a missing <p>
 
 ---------- 0.0.15.1 ----------
 
 2012-02-03
-# [#1] Fix a fatal startup error in PHP 5.2 - please update to PHP 5.3 =;) - Thanks adonismedia
-+ Add a tiny changelog generator
-Update changelog
+128db38 Fix a fatal startup error in PHP 5.2 - please update to PHP 5.3 =;)
+b54a12c Add a tiny changelog generator
+891e01b Update changelog
 
 ---------- 0.0.15 ----------
 
 2012-02-03
-Formatting
+d5c2e17 Formatting
 
 2012-02-02
-Icon name changes and format
-Add mod_version to known J 2.5 core projects
-# Fix a nasty bug that prevents the stuffer form from saving added menu items and update servers correctly, formatting
+e95e95c Icon name changes and format
+6b1f2f7 Add mod_version to known J 2.5 core projects
+b842eea Fix a nasty bug that prevents the stuffer form from saving added menu items and update servers correctly, formatting
 
 2012-01-30
-Code style
+aaf19a3 Code style
 
 2012-01-29
-# Fix admin list views in J! 2.5
-Code style - Fix single line comments
-Formatting
-# Fix another 2.5 option
-Refactor EcrBuilder
+946262f Fix admin list views in J! 2.5
+7d64e98 Code style - Fix single line comments
+02f5767 Formatting
+4831225 Fix another 2.5 option
+f25baa5 Refactor EcrBuilder
 
 2012-01-25
-Changes JVersion for extension templates from 1.7 to 2.5 ;)
-# Fix Missing function parameters in extending classes
+79646c2 Changes JVersion for extension templates from 1.7 to 2.5 ;)
+1f5ba79 Fix Missing function parameters in extending classes
+
+2012-01-19
+1410a5c Fix g11n language loading in frontend sandbox - Thanks Troy
+86192e8 dummy2
+7d89503 dummy
+6931c78 Simplify Projecthelper - a bit
+5e0b379 Fix Projecthelper
 
 ---------- 0.0.14.4 ----------
 
 2012-01-19
-Fix g11n language loading in frontend sandbox - Thanks Troy
-Simplify Projecthelper - a bit
-Fix Projecthelper
-Rename Pear tar and zip and the php_file_tree class
-Rename EasyPearHelper(s) => EcrPearHelper(s)
-Rename dbUpdater => EcrDbUpdater
-Rename EasyProjectMatrix => EcrProjectMatrix
-Rename EcrLanguageConverter and Ecrg11nHelper
-Fix wrong extension in ecrStylesheet()
-Simplified acrStylesheet() and ecrScript() calls
-Add suport for multiple style sheets in ecrStylesheet()
-Rename EasyLanguage => EcrLanguage
-Adapt the JMethodLister to J! 2.5 (phew....)
-Modify (C) date
-Remove missing from Renames
-Rename EasyPart => EcrPart
-Rename EasyAutoCode => EcrAutoCode
-Rename EasyXMLElement => EcrXMLElement
-Formatting
-Rename EasyTable => EcrTable including other table related classes
-Rename EasyProfiler => EcrProfiler
-Leftover from EcrProject refactoring
-Rename JoomlaManifest => EcrManifest
-Rename EasyTemplateHelper => EcrTemplateHelper
-Rename EasyFile => EcrFile
-Add support for a new version replacement in filename creation -> VCSREV
+308fb34 Rename Pear tar and zip and the php_file_tree class
+f7a9840 Rename EasyPearHelper(s) => EcrPearHelper(s)
+713da99 Rename dbUpdater => EcrDbUpdater
+842f1c0 Rename EasyProjectMatrix => EcrProjectMatrix
+3ac7e4a Rename EcrLanguageConverter and Ecrg11nHelper
+ca01f75 Fix wrong extension in ecrStylesheet()
+886faed Simplified acrStylesheet() and ecrScript() calls
+a430195 Add suport for multiple style sheets in ecrStylesheet()
+6733fc5 Rename EasyLanguage => EcrLanguage
+43c641f Adapt the JMethodLister to J! 2.5 (phew....)
+ce9cd5c Modify (C) date
+381d2bd Remove missing from Renames
+986a8ea Rename EasyPart => EcrPart
+fa4faea Rename EasyAutoCode => EcrAutoCode
+6d291a2 Rename EasyXMLElement => EcrXMLElement
+93485d0 Formatting
+60d1898 Rename EasyTable => EcrTable including other table related classes
+4435931 Rename EasyProfiler => EcrProfiler
+94f2455 Leftover from EcrProject refactoring
+948d665 Rename JoomlaManifest => EcrManifest
+b9012f0 Rename EasyTemplateHelper => EcrTemplateHelper
+c228072 Rename EasyFile => EcrFile
+00cbea4 Add support for a new version replacement in filename creation -> VCSREV
 
 2012-01-17
-Add support for mutpile file header types
-Move install.sql files to a mysql subfolder
-Change comments in language files
-Move header template files
+6210808 Add support for mutpile file header types
+0d00f89 Move install.sql files to a mysql subfolder
+1c9362d Change comments in language files
+093becd Move header template files
 
 2012-01-16
-Rename EasyLogger => EcrLogger
-Rename EasyProject => EcrProject as well as extending classes
-Rename EasyReflection => EcrReflection
-Add J! 1.5 deprecation notes
-Rename EasyLanguageHelper => EcrLanguageHelper
-Rename EasyProjectHelper => EcrProjectHelper
-Update xml
-Modify readme
-Modify readme
+9daa17e Rename EasyLogger => EcrLogger
+170f3ae Rename EasyProject => EcrProject as well as extending classes
+ad55f5c Rename EasyReflection => EcrReflection
+7cca07e Add J! 1.5 deprecation notes
+6054be3 Rename EasyLanguageHelper => EcrLanguageHelper
+349c5e0 Rename EasyProjectHelper => EcrProjectHelper
+a4d77d2 Update xml
+bd1b47e Modify readme
+d5ecd8f Modify readme
 
 ---------- 0.0.14.3.3 ----------
 
 2012-01-15
-Formatting
-Formatting
-Refactor Joomla! manifest class
-Fix git version info
-Rename classes EasyBuilder => EcrBuilder, EasyArchive => EcrArchive, EasyCreatorHelper => EcrHelper
-Fix frontend g11n call to removed function
-Fix wrong paths in frontend sandbox
-Modify .gitignore
-Fix autoloader
-Renaming SQL package to sql
-Renaming classes for auto_loading
+a5fb0e0 Formatting
+66df249 Formatting
 
 ---------- 0.0.14.3.2 ----------
 
+2012-01-15
+0fffa50 Refactor Joomla! manifest class
+9679525 Fix git version info
+6d6f11d Rename classes EasyBuilder => EcrBuilder, EasyArchive => EcrArchive, EasyCreatorHelper => EcrHelper
+74bb1fb Fix frontend g11n call to removed function
+a8fb0ec Fix wrong paths in frontend sandbox
+4a8403b Modify .gitignore
+7d2d1ea Fix autoloader
+faab1d3 Renaming SQL package to sql
+d9a2b26 Renaming classes for auto_loading
+
 2012-01-14
-Add SQL dropTable format
-Update DTD location in manifest.xml(s)
-Add support for multiple database types
-Add git version information to footer
-Fix Can not save project config **sometimes**
-Add SQL formatters for MySQL, Postgre and SQLite
-Fix MysqlExporter
-Add pre-commit hook script for reference
-Add  .git/hooks/pre-commit generated version information to the footer
-Add db icon
-Add SQL formatters
+6579e33 Add SQL dropTable format
+8509093 Update DTD location in manifest.xml(s)
+b6e238e Add support for multiple database types
+a2e3cb9 Add git version information to footer
+ea72b8e Fix Can not save project config **sometimes**
+2f4704c Add SQL formatters for MySQL, Postgre and SQLite
+5a73ba7 Fix MysqlExporter
+e78b87b Add pre-commit hook script for reference
+6e3ac65 Add  .git/hooks/pre-commit generated version information to the footer
+52095a6 Add db icon
+d85788f Add SQL formatters
 
 ---------- 0.0.14.3.1 ----------
-
 2012-01-09
 Remove obsolete files
 Remove obsolete documentation
