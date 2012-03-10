@@ -19,7 +19,7 @@ $contents = array();
 
 foreach($tags as $tag)
 {
-    $output = shell_exec('git log '.$tag.'..'.$lastTag.' --pretty=format:\'%ad %an: %s\' --date=short');
+    $output = shell_exec('git log '.$tag.'..'.$lastTag.' --pretty=format:\'%h %ad %an: %s\' --date=short');
 
     $lastTag = $tag;
 
@@ -29,9 +29,9 @@ foreach($tags as $tag)
 
     foreach($lines as $line)
     {
-        $date = substr($line, 0, 10);
-
-        $message = substr($line, 11);
+        $sha = substr($line, 0, 8);
+        $date = substr($line, 8, 10);
+        $message = substr($line, 19);
 
         //-- Remove myself =;)
         $message = str_replace('Nikolai Plath: ', '', $message);
@@ -44,7 +44,7 @@ foreach($tags as $tag)
             $actDate = $date;
         }
 
-        $contents[] = $message;
+        $contents[] = $sha.$message;
     }
 
     $contents[] = '';
