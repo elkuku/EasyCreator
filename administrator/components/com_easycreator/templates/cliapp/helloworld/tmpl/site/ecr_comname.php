@@ -20,9 +20,6 @@ define('JPATH_BASE', dirname(__FILE__));
 // Bootstrap the application.
 require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
 
-// Import the JCli class from the platform. This is only required for platform < 12.1
-//jimport('joomla.application.cli');
-
 /**
  * A "hello world" command line application class.
  *
@@ -46,5 +43,16 @@ class _ECR_COM_NAME_ extends JApplicationCli
     }
 }
 
-// Instantiate the application object and execute the application.
-JApplicationCli::getInstance('_ECR_COM_NAME_')->execute();
+// Wrap the execution in a try statement to catch any exceptions thrown anywhere in the script.
+try
+{
+    // Instantiate the application object, passing the class name to JApplicationCli::getInstance
+    // and use chaining to execute the application.
+    JApplicationCli::getInstance('_ECR_COM_NAME_')->execute();
+}
+catch (Exception $e)
+{
+    // An exception has been caught, just echo the message.
+    fwrite(STDOUT, $e->getMessage() . "\n");
+    exit($e->getCode());
+}

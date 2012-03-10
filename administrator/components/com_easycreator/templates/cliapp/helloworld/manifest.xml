@@ -3,8 +3,8 @@
         "http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
 <easyproject type="cliapp" version="0.0.12">
     <name>Hello World</name>
-    <description>A simple CLI Application</description>
-    <version>1</version>
+    <description>A CLI application that outputs Hello World to the terminal.</description>
+    <version>1.0</version>
     <jVersion>2.5</jVersion>
     <phpVersion>5</phpVersion>
     <dbTables>None</dbTables>

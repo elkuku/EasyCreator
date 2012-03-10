@@ -1,6 +1,5 @@
 <?php
 // We are a valid Joomla entry point.
-// This is required to load the Joomla Platform import.php file.
 define('_JEXEC', 1);
 
 ?>
@@ -17,9 +16,6 @@ ini_set('display_errors', true);
 
 // Bootstrap the application.
 require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
-
-// Import the JWeb class from the platform. This is only required for platform < 12.1
-jimport('joomla.application.web');
 
 /**
  * An example Joomla! web application class.

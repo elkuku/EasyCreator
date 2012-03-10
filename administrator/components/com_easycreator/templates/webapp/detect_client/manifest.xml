@@ -2,8 +2,8 @@
 <!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
         "http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
 <easyproject type="webapp" version="0.0.14">
-    <name>Hello World</name>
-    <description>This is a web application example that outputs Hello WWW to the browser.</description>
+    <name>Detect client</name>
+    <description>This is a web application example that shows how to detect the client properties (browser, platform, etc) that the application is being viewed in.</description>
     <version>1.0</version>
     <jVersion>2.5</jVersion>
     <phpVersion>5</phpVersion>
