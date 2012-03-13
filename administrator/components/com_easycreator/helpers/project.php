@@ -1015,34 +1015,37 @@ abstract class EcrProject extends JObject
      *
      * @param boolean $complete Set true to remove the whole project
      *
-     * @return boolean true on success
+     * @throws Exception
+     * @return EcrProject
      */
     public function remove($complete = false)
     {
         if(! $this->dbId)
-        {
-            EcrHtml::displayMessage(jgettext('Invalid Project'), 'error');
-
-            return false;
-        }
+            throw new Exception(jgettext('Invalid Project'));
 
         if($complete)
         {
             //-- Uninstall the extension
 
-            $clientId = ($this->scope == 'admin') ? 1 : 0;
-
-            jimport('joomla.installer.installer');
-
-            //-- Get an installer object
-            $installer = JInstaller::getInstance();
-
-            //-- Uninstall the extension
-            if(! $installer->uninstall($this->type, $this->dbId, $clientId))
+            if($this->isInstallable)
             {
-                EcrHtml::displayMessage(jgettext('JInstaller: Unable to remove project'), 'error');
+                $clientId = ($this->scope == 'admin') ? 1 : 0;
 
-                return false;
+                jimport('joomla.installer.installer');
+
+                //-- Get an installer object
+                $installer = JInstaller::getInstance();
+
+                //-- Uninstall the extension
+                if(! $installer->uninstall($this->type, $this->dbId, $clientId))
+                    throw new Exception(jgettext('JInstaller: Unable to remove project'));
+            }
+            else
+            {
+                // The extension is not "installable" - so just remove the files
+
+                if( ! JFolder::delete($this->getExtensionPath()))
+                    throw new Exception('Unable to remove the extension');
             }
         }
 
@@ -1050,21 +1053,12 @@ abstract class EcrProject extends JObject
         $fileName = $this->getEcrXmlFileName();
 
         if(! JFile::exists(ECRPATH_SCRIPTS.DS.$fileName))
-        {
-            EcrHtml::displayMessage(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName), 'error');
-
-            return false;
-        }
+            throw new Exception(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName));
 
         if(! JFile::delete(ECRPATH_SCRIPTS.DS.$fileName))
-        {
-            EcrHtml::displayMessage(jgettext('Unable to delete file'), 'error');
-            EcrHtml::displayMessage(ECRPATH_SCRIPTS.DS.$fileName, 'error');
+            throw new Exception(sprintf(jgettext('Unable to delete file at %s'), ECRPATH_SCRIPTS.DS.$fileName));
 
-            return false;
-        }
-
-        return true;
+        return $this;
     }
 
     /**
