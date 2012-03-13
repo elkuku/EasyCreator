@@ -57,7 +57,7 @@ class EcrTemplateHelper
      * @param string $tplType Template type
      * @param string $tplName Template name
      *
-     * @return object Template info.
+     * @return object stdClass Template info.
      */
     public static function getTemplateInfo($tplType, $tplName)
     {
@@ -81,8 +81,8 @@ class EcrTemplateHelper
         $info->info = '';
         $info->info .= jgettext(ucfirst($tplType)).' '.$info->name.' '.$info->version.'::'.$info->description;
         $info->info .=($info->author) ? '<br /><span style=\'color: blue;\'>Author:</span> '.$info->author : '';
-        $info->info .= '<br /><strong>Joomla! version:</strong> '.$info->jVersion;
-        $info->info .= '<br /><strong>PHP version:</strong> '.$info->phpVersion;
+        $info->info .= '<br /><strong>Joomla!:</strong> '.$info->jVersion;
+        $info->info .= '<br /><strong>PHP:</strong> '.$info->phpVersion;
         $info->info .=($info->dbTables) ? '<br /><span style=\'color: orange;\'>dbTables:</span> '.$info->dbTables : '';
         $info->info .= '<br />ECR Folder: '.$info->folder;
 
@@ -94,6 +94,7 @@ class EcrTemplateHelper
      *
      * @param array $exports Index array of templates to export
      *
+     * @throws Exception
      * @return boolean true on success
      */
     public static function exportTemplates($exports)
@@ -154,6 +155,7 @@ class EcrTemplateHelper
     /**
      * Install templates.
      *
+     * @throws Exception
      * @return boolean true on success
      */
     public static function installTemplates()
@@ -212,6 +214,7 @@ class EcrTemplateHelper
     /**
      * Upload and unpack a package file.
      *
+     * @throws Exception
      * @return mixed array the package on success | boolean false on error
      */
     private static function _getPackageFromUpload()

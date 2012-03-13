@@ -14,7 +14,7 @@
  *
  * Other build options are taken from the project settings.
  *
- * @todo to be implemented:
+ * @todo        to be implemented:
  *         'files'
 , 'archive_zip', 'archive_tgz', 'archive_bz'
 , 'create_indexhtml', 'remove_autocode', 'include_ecr_projectfile'
@@ -60,6 +60,8 @@ class EcrCliBuilder extends JApplicationCli
 {
     /**
      * DoIt
+     *
+     * @throws Exception
      */
     public function execute()
     {
@@ -101,7 +103,7 @@ class EcrCliBuilder extends JApplicationCli
             //-- @todo this is ugly..
             if('ON' == $v)
                 $buildOpts[] = $opt;
-        }//foreach
+        }
 
         $ziper = new EcrZiper;
 
@@ -111,19 +113,32 @@ class EcrCliBuilder extends JApplicationCli
     }
 }
 
+/**
+ * Dummy function.
+ *
+ * @param $string
+ *
+ * @return mixed
+ */
 function jgettext($string)
 {
     return $string;
 }
 
-if(1)// ! class_exists('JUri'))
+/**
+ * Dummy.
+ */
+class JUri
 {
-    class JUri
+    /**
+     * Dummy.
+     *
+     * @static
+     * @return string
+     */
+    public static function root()
     {
-        public static function root()
-        {
-            return '';
-        }
+        return '';
     }
 }
 

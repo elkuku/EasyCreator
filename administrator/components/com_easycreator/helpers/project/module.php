@@ -37,23 +37,17 @@ class EcrProjectModule extends EcrProject
     public function findCopies()
     {
         if($this->copies)
-        return $this->copies;
-
-        $this->copies = array();
+            return $this->copies;
 
         if($this->scope == 'admin')
         {
             if(JFolder::exists(JPATH_ADMINISTRATOR.DS.'modules'.DS.$this->comName))
-            {
                 $this->copies[] = JPATH_ADMINISTRATOR.DS.'modules'.DS.$this->comName;
-            }
         }
         else
         {
             if(JFolder::exists(JPATH_SITE.DS.'modules'.DS.$this->comName))
-            {
                 $this->copies[] = JPATH_SITE.DS.'modules'.DS.$this->comName;
-            }
         }
 
         return $this->copies;
@@ -180,7 +174,7 @@ class EcrProjectModule extends EcrProject
     /**
      * Get a Joomla! manifest XML file name.
      *
-     * @return string File name.
+     * @return string The file name.
      */
     public function getJoomlaManifestName()
     {

@@ -129,7 +129,7 @@ class EcrProjectPackage extends EcrProject
      */
     public function findCopies()
     {
-        return array();
+        return $this->copies;
     }
 
     /**

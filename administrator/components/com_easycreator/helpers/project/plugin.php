@@ -39,20 +39,20 @@ class EcrProjectPlugin extends EcrProject
     public function findCopies()
     {
         if($this->copies)
-        return $this->copies;
+            return $this->copies;
 
         //-- J! 1.5
         $base = JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
 
         //-- J! 1.6
         if(JFolder::exists($base))
-        $this->copies[] = $base;
+            $this->copies[] = $base;
 
         if(JFile::exists($base.'.php'))
-        $this->copies[] = $base.'.php';
+            $this->copies[] = $base.'.php';
 
         if(JFile::exists($base.'.xml'))
-        $this->copies[] = $base.'.xml';
+            $this->copies[] = $base.'.xml';
 
         return $this->copies;
     }//function
@@ -191,7 +191,7 @@ class EcrProjectPlugin extends EcrProject
     /**
      * Get a Joomla! manifest XML file name.
      *
-     * @return mixed [string file name | boolean false on error]
+     * @return string The file name
      */
     public function getJoomlaManifestName()
     {

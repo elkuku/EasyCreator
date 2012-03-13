@@ -41,6 +41,9 @@ class EcrProjectWebapp extends EcrProject
 
         $this->copies = JFolder::files($this->getExtensionPath(), '.', true, true);
 
+        if(false == $this->copies)
+            $this->copies = array();
+
         return $this->copies;
     }
 
@@ -152,7 +155,7 @@ class EcrProjectWebapp extends EcrProject
     /**
      * Get a Joomla! manifest XML file name.
      *
-     * @return mixed [string file name | boolean false on error]
+     * @return string The file name
      */
     public function getJoomlaManifestName()
     {

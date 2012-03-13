@@ -890,10 +890,7 @@ EOF;
 
         $info = EcrTemplateHelper::getTemplateInfo($project->type, $project->tplName);
 
-        if($info)
-        {
-            echo $info->description;
-        }
+        echo ($info) ? $info->description : '';
 
         echo '</div>';
 

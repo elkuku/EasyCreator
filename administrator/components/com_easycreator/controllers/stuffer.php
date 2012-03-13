@@ -574,32 +574,24 @@ class EasyCreatorControllerStuffer extends JController
         //-- Get the project
         try
         {
-            $project = EcrProjectHelper::getProject();
+            $project = EcrProjectHelper::getProject()
+                ->remove($complete);
+
+            $this->setRedirect('index.php?option=com_easycreator'
+                , sprintf(jgettext('The Project %s has been removed'), $project->name));
         }
         catch(Exception $e)
         {
             EcrHtml::displayMessage($e);
-
-            parent::display();
-
-            return;
-        }//try
-
-        if($project->remove($complete))
-        {
-            $this->setRedirect('index.php?option=com_easycreator'
-            , sprintf(jgettext('The Project %s has been removed'), $project->name));
-        }
-        else
-        {
-            JFactory::getApplication()->enqueueMessage(sprintf(
-            jgettext('The Project %s could not be removed'), $project->name), 'error');
+            EcrHtml::displayMessage(sprintf(jgettext('The Project %s could not be removed'), $project->name), 'error');
 
             JRequest::setVar('view', 'stuffer');
             JRequest::setVar('task', 'stuffer');
 
             parent::display();
-        }
+
+            return;
+        }//try
     }//function
 
     /**

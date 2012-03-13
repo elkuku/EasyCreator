@@ -37,17 +37,13 @@ class EcrProjectComponent extends EcrProject
     public function findCopies()
     {
         if($this->copies)
-        return $this->copies;
+            return $this->copies;
 
         if(JFolder::exists(JPATH_ADMINISTRATOR.'/components/'.$this->comName))
-        {
             $this->copies[] = JPATH_ADMINISTRATOR.'/components/'.$this->comName;
-        }
 
         if(JFolder::exists(JPATH_SITE.'/components/'.$this->comName))
-        {
             $this->copies[] = JPATH_SITE.'/components/'.$this->comName;
-        }
 
         return $this->copies;
     }//function
