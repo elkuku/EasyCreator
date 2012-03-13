@@ -29,6 +29,8 @@ class EasyCreatorViewStarter extends JView
 
     protected $templateList;
 
+    protected $notes = array();
+
     /**
      * Standard display method.
      *
@@ -48,8 +50,8 @@ class EasyCreatorViewStarter extends JView
         //-- JS for changing loader pic
         $img_base = JURI::root().'administrator/components/com_easycreator/assets/images';
 
-        $js = "var loaderPic = new Image(); loaderPic.src = '$img_base/ajax-loader2.gif';";
-        JFactory::getDocument()->addScriptDeclaration($js);
+        JFactory::getDocument()->addScriptDeclaration(
+            "var loaderPic = new Image(); loaderPic.src = '$img_base/ajax-loader2.gif';");
 
         $params = JComponentHelper::getParams('com_easycreator');
 
@@ -124,39 +126,63 @@ class EasyCreatorViewStarter extends JView
 
         $this->infoLinks = array(
             'component' => array(
-                'Category:Components'
-                => $docBase.'Category:Components'
+                'JDocs - Component' => $docBase.'Component'
+            , 'JDocs - Category:Components' => $docBase.'Category:Components'
             )
 
         , 'module' => array(
-                'Category:Modules' => $docBase.'Category:Modules'
-            , 'Creating a Hello World Module'
+                'JDocs - Module' => $docBase.'Modules'
+            , 'JDocs - Category:Modules' => $docBase.'Category:Modules'
+            , 'JDocs - Creating a Hello World Module'
                 => $docBase.'Tutorial:Creating_a_Hello_World_Module_for_Joomla_1.5'
             )
 
         , 'plugin' => array(
-                'Category:Plugins' => $docBase.'Category:Plugins'
-            , 'Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
-            , 'How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
-            , 'How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
-            , 'How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
-            , 'Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
+                'JDocs - Plugin' => $docBase.'Plugin'
+            , 'JDocs - Category:Plugins' => $docBase.'Category:Plugins'
+            , 'JDocs - Creating a Plugin for Joomla 1.5' => $docBase.'Tutorial:Creating_a_Plugin_for_Joomla_1.5'
+            , 'JDocs - How to create a content plugin' => $docBase.'How_to_create_a_content_plugin'
+            , 'JDocs - How to create a search plugin' => $docBase.'How_to_create_a_search_plugin'
+            , 'JDocs - How to create a system plugin' => $docBase.'How_to_create_a_system_plugin'
+            , 'JDocs - Joomla System Plugin Specification' => $docBase.'Reference:Joomla_System_Plugin_Specification'
             )
 
         , 'template' => array(
-                'Category:Templates' => $docBase.'Category:Templates'
-            , 'Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
-            , 'How to override the output from the Joomla! core'
+                'JDocs - Template' => $docBase.'Template'
+            , 'JDocs - Category:Templates' => $docBase.'Category:Templates'
+            , 'JDocs - Category:Template_FAQ' => $docBase.'Category:Template_FAQ'
+            , 'JDocs - How to override the output from the Joomla! core'
                 => $docBase.'How_to_override_the_output_from_the_Joomla!_core'
             , 'The Joomla! CSS explained' => 'http://www.joomla-css.nl'
             )
 
-        , 'library' => array()
+        , 'library' => array(
+                'JDocs - Library' => $docBase.'Library'
+            )
 
-        , 'package' => array()
+        , 'package' => array(
+                'JDocs - Package' => $docBase.'Package')
 
-        , 'cliapp' => array()
-        , 'webapp' => array()
+        , 'cliapp' => array(
+                'JDocs - Create a stand-alone application' => $docBase.'http://docs.joomla.org/How_to_create_a_stand-alone_application_using_the_Joomla!_Platform'
+            , 'JDocs - Tips and Tericks' => $docBase.'Platform_Applications_Tips_and_Tricks'
+            )
+
+        , 'webapp' => array(
+                'JDocs - Create a stand-alone application' => $docBase.'http://docs.joomla.org/How_to_create_a_stand-alone_application_using_the_Joomla!_Platform'
+            , 'JDocs - Tips and Tericks' => $docBase.'Platform_Applications_Tips_and_Tricks'
+            )
+        );
+
+        $this->notes = array(
+            'component' => ''
+        , 'module' => ''
+        , 'plugin' => ''
+        , 'template' => ''
+        , 'library' => ''
+        , 'package' => jgettext('Packages are containers to group other extension types')
+        , 'cliapp' => jgettext('JApplications created with EasyCreator will look for an environment variable called JOOMLA_PATFORM_PATH. Otherwise you have to adjust the path in the entry file by hand !')
+        , 'webapp' => jgettext('JApplications created with EasyCreator will look for an environment variable called JOOMLA_PATFORM_PATH. Otherwise you have to adjust the path in the entry file by hand !')
         );
     }
 }//class
