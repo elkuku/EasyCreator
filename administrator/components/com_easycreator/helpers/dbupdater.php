@@ -23,7 +23,7 @@ class EcrDbUpdater
     private $versions = array();
 
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     private $project = null;
 
@@ -34,10 +34,10 @@ class EcrDbUpdater
     /**
      * Constructor.
      *
-     * @param EcrProject $project
+     * @param EcrProjectBase $project
      * @param string $adapter
      */
-    public function __construct(EcrProject $project, $adapter = 'mysql')
+    public function __construct(EcrProjectBase $project, $adapter = 'mysql')
     {
         if(class_exists('easyLogger'))
         $this->logger = EcrLogger::getInstance('ecr');

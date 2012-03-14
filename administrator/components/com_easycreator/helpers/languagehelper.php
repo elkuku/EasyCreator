@@ -19,11 +19,11 @@ class EcrLanguageHelper
     /**
      * Discover the languages for a project.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return array
      */
-    public static function discoverLanguages(EcrProject $project)
+    public static function discoverLanguages(EcrProjectBase $project)
     {
         static $languages = array();
 
@@ -86,13 +86,13 @@ class EcrLanguageHelper
     /**
      * Check a language file for common problems.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      * @param string $lang Language tag e.g. en-GB
      * @param string $scope Scope e.g. admin site
      *
      * @return void
      */
-    public static function checkFile(EcrProject $project, $lang, $scope)
+    public static function checkFile(EcrProjectBase $project, $lang, $scope)
     {
         $fileName = EcrLanguage::getFileName($lang, $scope, $project, false);
 

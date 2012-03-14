@@ -102,7 +102,7 @@ function reflectFile(file_path, file_nameame)
  * 2 B moooved...
  */
 
-function aj_drawProject(EcrProject $project)
+function aj_drawProject(EcrProjectBase $project)
 {
     echo '<h1>'.$project->name.'</h1>';
     echo '<h3>'.$project->comName.'</h2>';
@@ -149,7 +149,7 @@ function aj_drawProject(EcrProject $project)
 	*/
 }//function
 
-function drawProject(EcrProject $project)
+function drawProject(EcrProjectBase $project)
 {
     echo '<h1>'.$project->name.'</h1>';
     echo '<h3>'.$project->comName.'</h2>';
@@ -199,7 +199,7 @@ function drawProject(EcrProject $project)
 	<?php
 }//function
 
-function displayReflectedFiles($reflections, $type, EcrProject $project)
+function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
 {
     switch ($type)
     {
@@ -381,7 +381,7 @@ function displayReflectedFiles($reflections, $type, EcrProject $project)
     }//switch
 }//function
 
-function drawFileTree(EcrProject $project)
+function drawFileTree(EcrProjectBase $project)
 {
     EcrHtml::initFileTree();
     $ret = '';

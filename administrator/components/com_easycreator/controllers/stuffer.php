@@ -801,10 +801,10 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Process the SQL install file.
      *
-     * @param EcrProject $project The project.
+     * @param EcrProjectBase $project The project.
      * @param             $installPath
      */
-    private function processSQLInstall(EcrProject $project, $installPath)
+    private function processSQLInstall(EcrProjectBase $project, $installPath)
     {
         $xmlPath = $this->createDbExport($project, $installPath);
 
@@ -852,10 +852,10 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Process the SQL uninstall file.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      * @param string      $installPath    Path to the project root.
      */
-    private function processSQLUnInstall(EcrProject $project, $installPath)
+    private function processSQLUnInstall(EcrProjectBase $project, $installPath)
     {
         $xmlPath = $this->createDbExport($project, $installPath);
 
@@ -906,13 +906,13 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Create the XML database export file.
      *
-     * @param EcrProject $project
+     * @param EcrProjectBase $project
      * @param string $installPath
      *
      * @return string
      * @throws Exception
      */
-    private function createDbExport(EcrProject $project, $installPath)
+    private function createDbExport(EcrProjectBase $project, $installPath)
     {
         $db = JFactory::getDbo();
 
@@ -951,11 +951,11 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Process a SQL update file.
      *
-     * @param EcrProject $project The project.
+     * @param EcrProjectBase $project The project.
      * @param string      $installPath    Path to the project root.
      *
      * @return mixed
-     */private function processSQLUpdate(EcrProject $project, $installPath)
+     */private function processSQLUpdate(EcrProjectBase $project, $installPath)
     {
         $dbType = 'mysql';
 

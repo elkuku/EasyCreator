@@ -41,12 +41,12 @@ class EcrZiper extends JObject
     /**
      * Create the package.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      * @param array      $buildOpts
      *
      * @return bool true on success
      */
-    public function create(EcrProject $project, array $buildOpts)
+    public function create(EcrProjectBase $project, array $buildOpts)
     {
         $this->project = $project;
 

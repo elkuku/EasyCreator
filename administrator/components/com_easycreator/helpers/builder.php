@@ -38,11 +38,18 @@ class EcrBuilder extends JObject
     private $testMode = false;
 
     /**
+     * @var ecrProjectReplacement
+     */
+    public $replacement;
+
+    /**
      * Constructor.
      */
     public function __construct()
     {
         $this->testMode =(JRequest::getCmd('ecr_test_mode') == 'test') ? true : false;
+
+        $this->replacement = new EcrProjectReplacement;
     }//function
 
     /**
@@ -235,6 +242,8 @@ class EcrBuilder extends JObject
         $this->project->copyright = JRequest::getVar('copyright');
         $this->project->license = JRequest::getVar('license');
         $this->project->listPostfix = JRequest::getVar('list_postfix');
+
+        $this->replacement->ECR_COMNAME = $this->project->name;
 
         $this->addSubstitute('_ECR_COM_NAME_', $this->project->name);
         $this->addSubstitute('_ECR_LOWER_COM_NAME_', strtolower($this->project->name));
@@ -595,11 +604,11 @@ class EcrBuilder extends JObject
      * Process custom otions.
      *
      * @param string $action The action to perform
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return mixed [array custom options | boolean false on error]
      */
-    public function customOptions($action = 'display', EcrProject $project = null)
+    public function customOptions($action = 'display', EcrProjectBase $project = null)
     {
         static $templateOptions = null;
 

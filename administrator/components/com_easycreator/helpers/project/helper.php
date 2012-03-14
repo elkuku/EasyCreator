@@ -89,7 +89,7 @@ class EcrProjectHelper
         if( ! array_key_exists($type, $projectTypes))
         throw new Exception(sprintf('Invalid project type: %s ', $type));
 
-        $className = 'EcrProject'.ucfirst($projectTypes[$type]);
+        $className = 'EcrProjectType'.ucfirst($projectTypes[$type]);
 
         $project = new $className($name);
 
@@ -111,11 +111,11 @@ class EcrProjectHelper
      *
      * @param string $type Project type (component, plugin, etc.)
      *
-     * @return EcrProject | boolean false on error
+     * @return EcrProjectBase
      */
     public static function newProject($type)
     {
-        $className = 'EcrProject'.ucfirst($type);
+        $className = 'EcrProjectType'.ucfirst($type);
 
         return new $className;
     }//function
@@ -123,11 +123,11 @@ class EcrProjectHelper
     /**
      * Findes the Joomla! install xml file for a given extension.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return mixed [boolean false on error | string path on success]
      */
-    public static function findManifest(EcrProject $project)
+    public static function findManifest(EcrProjectBase $project)
     {
         $path = $project->getJoomlaManifestPath();
 
@@ -408,7 +408,7 @@ class EcrProjectHelper
         , 'webapp' => array(jgettext('Web Applications'), jgettext('Web Application'))
         );
 
-        //-- Degfined for automated plural translations
+        //-- Defined for automated plural translations
         if(0)
         {
             jngettext('%d Component', '%d Components', 0);
@@ -474,12 +474,12 @@ class EcrProjectHelper
     /**
      * Format a filename for a package file.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      * @param string $format The format to use
      *
      * @return string
      */
-    public static function formatFileName(EcrProject $project, $format)
+    public static function formatFileName(EcrProjectBase $project, $format)
     {
         $vcsRev = EcrHtml::getVersionFromCHANGELOG($project->comName, true);
 
@@ -523,7 +523,7 @@ class EcrProjectHelper
             break;
         }//switch
 
-        /* @var EcrProject $project */
+        /* @var EcrProjectBase $project */
         $project = self::newProject($type);
 
         if($showCore)
@@ -626,11 +626,11 @@ class EcrProjectHelper
     /**
      * Finds PHP and SQL install files.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return array Object array
      */
-    public static function findInstallFiles(EcrProject $project)
+    public static function findInstallFiles(EcrProjectBase $project)
     {
         $installFiles = array();
         $installFiles['php'] = array();

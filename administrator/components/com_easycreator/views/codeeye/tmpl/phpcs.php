@@ -118,11 +118,11 @@ $fileTree = drawFileTree($this->project);
 /**
  * Draws a file tree.
  *
- * @param EcrProject $project The project
+ * @param EcrProjectBase $project The project
  *
  * @return string
  */
-function drawFileTree(EcrProject $project)
+function drawFileTree(EcrProjectBase $project)
 {
     $ret = '';
 

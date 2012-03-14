@@ -170,13 +170,13 @@ class PartTablesAdmin_map
     /**
      * Inserts the part into the project.
      *
-     * @param EcrProject $project The project.
+     * @param EcrProjectBase $project The project.
      * @param array $options Insert options.
      * @param EcrLogger $logger The EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $project, $options, EcrLogger $logger)
+    public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
         $element_name = JRequest::getCmd('element_name');
         $table_name = JRequest::getCmd('table_name');

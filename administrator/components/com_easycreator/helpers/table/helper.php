@@ -46,11 +46,11 @@ class EcrTableHelper
     /**
      * Auto discover tables.
      *
-     * @param EcrProject $project The Project.
+     * @param EcrProjectBase $project The Project.
      *
      * @return array
      */
-    public function discoverTables(EcrProject $project)
+    public function discoverTables(EcrProjectBase $project)
     {
         $db = JFactory::getDBO();
         $dbTables = $db->getTableList();

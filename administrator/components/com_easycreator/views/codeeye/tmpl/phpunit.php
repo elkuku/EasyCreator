@@ -78,11 +78,11 @@ $fileTree = new EcrFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFold
 /**
  * Draws a file tree for the project.
  *
- * @param EcrProject $project The project
+ * @param EcrProjectBase $project The project
  *
  * @return string
  */
-function drawFileTree(EcrProject $project)
+function drawFileTree(EcrProjectBase $project)
 {
     $ret = '';
 

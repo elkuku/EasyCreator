@@ -53,11 +53,11 @@ class EcrReflection
     /**
      * Reflect a project.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return void
      */
-    public function reflectProject(EcrProject $project)
+    public function reflectProject(EcrProjectBase $project)
     {
         switch($project->type)
         {
@@ -127,11 +127,11 @@ class EcrReflection
     /**
      * Reflect a project with AJAX - aka second try.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return void
      */
-    public function aj_reflectProject(EcrProject $project)
+    public function aj_reflectProject(EcrProjectBase $project)
     {
         switch($project->type)
         {

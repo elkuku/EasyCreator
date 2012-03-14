@@ -69,17 +69,17 @@ class EcrProjectMatrix extends JFolder
     );
 
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     private $project;
 
     /**
      * Constructor.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      * @param string $type Matrix type e.g. highcharts
      */
-    public function __construct(EcrProject $project, $type = 'highcharts')
+    public function __construct(EcrProjectBase $project, $type = 'highcharts')
     {
         $this->project = $project;
 

@@ -478,11 +478,11 @@ final class EcrHtml
     /**
      * Draws a h1 tag with title and project name.
      *
-     * @param string                   $title
-     * @param \EcrProject|null|object  $project EcrProject
-     * @param string                   $class
+     * @param string          $title
+     * @param EcrProjectBase  $project EcrProject
+     * @param string          $class
      */
-    public static function header($title, EcrProject $project = null, $class = '')
+    public static function header($title, EcrProjectBase $project = null, $class = '')
     {
         $pName = ($project) ? $project->name : '';
         $pType = ($project) ? ucfirst($project->type) : '';
@@ -607,13 +607,13 @@ final class EcrHtml
      *
      * @static
      *
-     * @param \EcrProject $project
+     * @param \EcrProjectBase $project
      *
      * @internal param array $projectParams
      *
      * @return string
      */
-    public static function drawDbOptions(EcrProject $project)
+    public static function drawDbOptions(EcrProjectBase $project)
     {
         $formats = JFolder::files(JPATH_COMPONENT.'/helpers/sql/format');
 
@@ -872,10 +872,10 @@ EOF;
      * Wizard
      * Displays the project information introduced so far.
      *
-     * @param \EcrProject|\JObject  $project
-     * @param array                 $formFieldNames fields already displayed
+     * @param \EcrProjectBase  $project
+     * @param array            $formFieldNames fields already displayed
      */
-    public static function displayResult(EcrProject $project, $formFieldNames = array())
+    public static function displayResult(EcrProjectBase $project, $formFieldNames = array())
     {
         ?>
     <div class="ecr_result">
@@ -918,15 +918,15 @@ EOF;
      * Wizard form
      * displays a table row with a hidden formfield if not included in $formFieldNames
      *
-     * @param string              $title
-     * @param string              $property
-     * @param string              $formFieldName
-     * @param \EcrProject|object  $project
-     * @param array               $formFieldNames fields not to display
+     * @param string           $title
+     * @param string           $property
+     * @param string           $formFieldName
+     * @param \EcrProjectBase  $project
+     * @param array            $formFieldNames fields not to display
      *
      * @return string
      */
-    private static function displayResultFieldRow($title, $property, $formFieldName, EcrProject $project, $formFieldNames)
+    private static function displayResultFieldRow($title, $property, $formFieldName, EcrProjectBase $project, $formFieldNames)
     {
         if(! $project->$property)
             return '';

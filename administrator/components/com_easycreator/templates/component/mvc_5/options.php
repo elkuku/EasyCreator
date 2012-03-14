@@ -19,11 +19,11 @@ class EasyTemplateOptions
     /**
      * Displays available options with input fields.
      *
-     * @param EcrProject $project The project
+     * @param EcrProjectBase $project The project
      *
      * @return string HTML
      */
-    public function displayOptions(EcrProject $project)
+    public function displayOptions(EcrProjectBase $project)
     {
         ecrScript('dbtables');
         ecrStylesheet('dbtables');
@@ -77,6 +77,8 @@ class EasyTemplateOptions
         }
 
         $tableName = strtolower($builder->project->name);
+
+        $builder->replacement->ECR_COMNAME = 'huhu';
 
         $builder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
 

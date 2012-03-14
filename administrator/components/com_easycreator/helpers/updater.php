@@ -19,7 +19,7 @@
 class EcrUpdater
 {
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     private $project = null;
 
@@ -29,9 +29,9 @@ class EcrUpdater
 
     private $logger = null;
 
-    public function __construct(EcrProject $project, EcrLogger $logger = null)
+    public function __construct(EcrProjectBase $project, EcrLogger $logger = null)
     {
-        if($project instanceof EcrProject)
+        if($project instanceof EcrProjectBase)
         {
             $this->project = $project;
             $this->logger = $logger;

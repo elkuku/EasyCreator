@@ -182,13 +182,13 @@ class AutoCodeAdminTableclassClassvar extends EcrAutoCode
     /**
      * Inserts the AutoCode into the project.
      *
-     * @param EcrProject $project EcrProject - The project.
-     * @param array $options Insert options.
-     * @param EcrLogger $logger EcrLogger.
+     * @param EcrProjectBase  $project  The project.
+     * @param array           $options  Insert options.
+     * @param EcrLogger       $logger   EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $project, $options, EcrLogger $logger)
+    public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
         $table_name = JRequest::getCmd('element');
         $var_scope = JRequest::getCmd('var_scope');

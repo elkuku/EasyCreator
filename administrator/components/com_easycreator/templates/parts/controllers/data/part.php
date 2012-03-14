@@ -96,13 +96,13 @@ class PartControllersData
     /**
      * Inserts the part into the project.
      *
-     * @param EcrProject $project EcrProject - The project.
+     * @param EcrProjectBase $project EcrProject - The project.
      * @param array $options Insert options.
      * @param object $logger EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $project, $options, $logger)
+    public function insert(EcrProjectBase $project, $options, $logger)
     {
         $project->addSubstitute('_ECR_SUBPACKAGE_', 'Controllers');
 

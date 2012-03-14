@@ -25,18 +25,18 @@ class EcrManifest extends JObject
     private $manifest = null;
 
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     private $project = null;
 
     /**
      * Method to create the manifest file.
      *
-     * @param EcrProject $project The project.
+     * @param EcrProjectBase $project The project.
      *
      * @return boolean true on success
      */
-    public function create(EcrProject $project)
+    public function create(EcrProjectBase $project)
     {
         if(! $project->type)
         {
