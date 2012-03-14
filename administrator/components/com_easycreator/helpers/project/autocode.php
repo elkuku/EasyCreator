@@ -81,7 +81,7 @@ class EcrProjectAutocode
      * @param string     $type Code type
      * @param EcrTable $table
      *
-     * @return void
+     * @return string
      */
     public function getCode($type, EcrTable $table)
     {

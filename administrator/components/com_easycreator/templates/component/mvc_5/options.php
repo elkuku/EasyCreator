@@ -78,9 +78,7 @@ class EasyTemplateOptions
 
         $tableName = strtolower($builder->project->name);
 
-        $builder->replacement->ECR_COMNAME = 'huhu';
-
-        $builder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
+        $builder->replacements->_ECR_COM_TBL_NAME_ = $tableName;
 
         //-- Prepare extension table
         $table = new EcrTable($tableName);
@@ -133,7 +131,7 @@ class EasyTemplateOptions
 
                 $code = $autoCode->enclose($code, $key);
 
-                $builder->addSubstitute($autoCode->getFormattedKey($key), $code);
+                $builder->replacements->addCustom($autoCode->getFormattedKey($key), $code);
 
                 $autoCode->fields[$key] = $table->getFields();
                 $autoCode->codes[$key] = $code;
@@ -143,7 +141,7 @@ class EasyTemplateOptions
             $builder->project->addAutoCode($autoCode);
         }
 
-        $builder->addSubstitute('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
+        $builder->replacements->addCustom('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
 
         return true;
     }

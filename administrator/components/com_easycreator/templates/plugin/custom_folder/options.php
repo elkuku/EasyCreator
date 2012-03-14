@@ -51,13 +51,13 @@ class EasyTemplateOptions
     {
         if( ! $ecr_folder_name = JRequest::getCmd('ecr_folder_name'))
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No folder given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No folder given'), 'error');
 
             return false;
         }
 
         $builder->setScope($ecr_folder_name);
-        $builder->addSubstitute('_ECR_COM_SCOPE_', ucfirst($ecr_folder_name));
+        $builder->replacements->_ECR_COM_SCOPE_ = ucfirst($ecr_folder_name);
 
         return true;
     }//function

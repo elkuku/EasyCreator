@@ -106,7 +106,7 @@ class EasyTemplateOptions
 
         $tableName = strtolower($builder->project->name);
 
-        $builder->addSubstitute('_ECR_COM_TBL_NAME_', $tableName);
+        $builder->replacements->_ECR_COM_TBL_NAME_ = $tableName;
 
         //-- Add the core categories table
         $table = new EcrTable('categories', true);
@@ -182,6 +182,7 @@ class EasyTemplateOptions
         $c->elements = array('header', 'cell');
         $codes[] = $c;
 
+        /* @var EcrProjectAutocode $autoCode */
         foreach($codes as $autoCode)
         {
             foreach($autoCode->elements as $acElement)
@@ -193,7 +194,7 @@ class EasyTemplateOptions
 
                 $code = $autoCode->enclose($code, $key);
 
-                $builder->addSubstitute($autoCode->getFormattedKey($key), $code);
+                $builder->replacements->addCustom($autoCode->getFormattedKey($key), $code);
 
                 $autoCode->fields[$key] = $table->getFields();
                 $autoCode->codes[$key] = $code;
@@ -203,7 +204,7 @@ class EasyTemplateOptions
             $builder->project->addAutoCode($autoCode);
         }//foreach
 
-        $builder->addSubstitute('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
+        $builder->replacements->addCustom('#_ECR_ADMIN_LIST_COLSPAN_#', count($fields) + 2);
 
         return true;
     }//function
