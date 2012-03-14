@@ -10,7 +10,7 @@
 /**
  * EasyCreator project type CLI Application.
  */
-class EcrProjectCliapp extends EcrProject
+class EcrProjectTypeCliapp extends EcrProjectBase
 {
     /**
      * @var string Project type.

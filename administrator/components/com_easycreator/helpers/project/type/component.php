@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * EasyCreator project type component.
  */
-class EcrProjectComponent extends EcrProject
+class EcrProjectTypeComponent extends EcrProjectBase
 {
     /**
      * Project type.

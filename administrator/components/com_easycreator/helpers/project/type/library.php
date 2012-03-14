@@ -1,33 +1,35 @@
-<?php defined('_JEXEC') || die('=;)');
+<?php
 /**
  * @package    EasyCreator
  * @subpackage ProjectTypes
  * @author     Nikolai Plath
- * @author     Created on 04-Mar-2012
+ * @author     Created on 16-May-2010
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+//-- No direct access
+defined('_JEXEC') || die('=;)');
+
 /**
- * EasyCreator project type Web Application.
+ * EasyCreator project type library.
  */
-class EcrProjectWebapp extends EcrProject
+class EcrProjectTypeLibrary extends EcrProjectBase
 {
     /**
-     * @var string $type Project type.
+     * Project type.
+     *
+     * @var string
      */
-    public $type = 'webapp';
+    public $type = 'library';
 
     /**
-     * @var string $prefix Project prefix.
+     * Project prefix.
+     *
+     * @var string
      */
-    public $prefix = 'wap_';
+    public $prefix = 'lib_';
 
     public $JCompat = '1.6';
-
-    /**
-     * @var bool If the project is installable through the Joomla! installer.
-     */
-    public $isInstallable = false;
 
     /**
      * Find all files and folders belonging to the project.
@@ -39,13 +41,17 @@ class EcrProjectWebapp extends EcrProject
         if($this->copies)
             return $this->copies;
 
-        $this->copies = JFolder::files($this->getExtensionPath(), '.', true, true);
-
-        if(false == $this->copies)
-            $this->copies = array();
+        if(JFolder::exists(JPATH_PLATFORM.DS.$this->comName))
+        {
+            $this->copies[] = JPATH_PLATFORM.DS.$this->comName;
+        }
+        else if(JFolder::exists(JPATH_LIBRARIES.DS.$this->comName))
+        {
+            $this->copies[] = JPATH_LIBRARIES.DS.$this->comName;
+        }
 
         return $this->copies;
-    }
+    }//function
 
     /**
      * Gets the language scopes for the extension type.
@@ -55,12 +61,11 @@ class EcrProjectWebapp extends EcrProject
     public function getLanguageScopes()
     {
         JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
-
         $scopes = array();
-        $scopes[] = ($this->scope) == 'admin' ? 'admin' : 'site';
+        $scopes[] =($this->scope) == 'admin' ? 'admin' : 'site';
 
         return $scopes;
-    }
+    }//function
 
     /**
      * Get the extension base path.
@@ -69,8 +74,8 @@ class EcrProjectWebapp extends EcrProject
      */
     public function getExtensionPath()
     {
-        return JPATH_SITE.'/webapps/'.$this->comName;
-    }
+        return JPATH_LIBRARIES.'/'.$this->comName;
+    }//function
 
     /**
      * Gets the paths to language files.
@@ -82,7 +87,7 @@ class EcrProjectWebapp extends EcrProject
     public function getLanguagePaths($scope = '')
     {
         return array('site' => JPATH_SITE);
-    }
+    }//function
 
     /**
      * Get the name for language files.
@@ -94,7 +99,7 @@ class EcrProjectWebapp extends EcrProject
     public function getLanguageFileName($scope = '')
     {
         return $this->prefix.$this->comName.'.ini';
-    }
+    }//function
 
     /**
      * Gets the DTD for the extension type.
@@ -116,11 +121,11 @@ class EcrProjectWebapp extends EcrProject
 
             default:
                 EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
-                break;
-        }
+            break;
+        }//switch
 
         return $dtd;
-    }
+    }//function
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -130,7 +135,7 @@ class EcrProjectWebapp extends EcrProject
     public function getEcrXmlFileName()
     {
         return $this->getFileName().'.xml';
-    }
+    }//function
 
     /**
      * Get a common file name.
@@ -140,7 +145,7 @@ class EcrProjectWebapp extends EcrProject
     public function getFileName()
     {
         return $this->prefix.$this->comName;
-    }
+    }//function
 
     /**
      * Get the path for the Joomla! XML manifest file.
@@ -149,8 +154,8 @@ class EcrProjectWebapp extends EcrProject
      */
     public function getJoomlaManifestPath()
     {
-        return $this->getExtensionPath();
-    }
+        return JPATH_MANIFESTS.DS.'libraries';
+    }//function
 
     /**
      * Get a Joomla! manifest XML file name.
@@ -159,8 +164,8 @@ class EcrProjectWebapp extends EcrProject
      */
     public function getJoomlaManifestName()
     {
-        return $this->comName.'.xml';
-    }
+        return $this->prefix.$this->comName.'.xml';
+    }//function
 
     /**
      * Get the project Id.
@@ -169,8 +174,19 @@ class EcrProjectWebapp extends EcrProject
      */
     public function getId()
     {
-        return -1;
-    }
+        $db = JFactory::getDBO();
+
+        $query = $db->getQuery(true);
+
+        $query->from('#__extensions AS e');
+        $query->select('e.extension_id');
+        $query->where('e.type = '.$db->quote($this->type));
+        $query->where('e.element = '.$db->quote($this->prefix.$this->comName));
+
+        $db->setQuery($query);
+
+        return $db->loadResult();
+    }//function
 
     /**
      * Discover all projects.
@@ -181,8 +197,19 @@ class EcrProjectWebapp extends EcrProject
      */
     public function getAllProjects($scope)
     {
-        return JFolder::folders($this->getExtensionPath());
-    }
+        $folders = array();
+
+        /*
+        if(defined('JPATH_PLATFORM'))
+        {
+            $folders = JFolder::folders(JPATH_PLATFORM.'/libraries');
+        }
+        */
+
+        $folders = array_merge($folders, JFolder::folders(JPATH_LIBRARIES));
+
+        return $folders;
+    }//function
 
     /**
      * Get a list of known core projects.
@@ -193,6 +220,22 @@ class EcrProjectWebapp extends EcrProject
      */
     public function getCoreProjects($scope)
     {
+        switch(ECR_JVERSION)
+        {
+            case '1.6':
+            case '1.7':
+                return array('joomla', 'phpmailer', 'phputf8', 'simplepie');
+                break;
+
+            case '2.5':
+                return array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
+                break;
+
+            default:
+                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
+            break;
+        }//switch
+
         return array();
-    }
+    }//function
 }//class

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Empty project for creating new projects.
  */
-class EcrProjectEmpty extends EcrProject
+class EcrProjectTypeEmpty extends EcrProjectBase
 {
     /**
      * Project type.
@@ -201,7 +201,7 @@ class EcrProjectEmpty extends EcrProject
                 break;
 
             default:
-                JFactory::getApplication()->enqueueMessage('EcrProjectModule::getCoreProjects Unknown scope', 'error');
+                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
 
                 return array();
                 break;
@@ -269,7 +269,7 @@ class EcrProjectEmpty extends EcrProject
                 break;
 
             default:
-                JFactory::getApplication()->enqueueMessage('EcrProjectModule::getCoreProjects Unknown scope', 'error');
+                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
 
                 return array();
                 break;

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * EasyCreator project type plugin.
  */
-class EcrProjectPlugin extends EcrProject
+class EcrProjectTypePlugin extends EcrProjectBase
 {
     /**
      * Project type.
