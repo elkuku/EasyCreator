@@ -28,7 +28,7 @@ class PartTablesAdmin_map
      */
     public function info()
     {
-        $info = new EcrTemplateInfo;
+        $info = new EcrProjectTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Map and Admin';

@@ -23,7 +23,7 @@ class PartVariousPackage_installer
      */
     public function info()
     {
-        $info = new EcrTemplateInfo;
+        $info = new EcrProjectTemplateInfo;
 
         $info->group = ucfirst($this->group);
         $info->title = 'Package Installer';

@@ -24,7 +24,7 @@ class PartModelsList
      */
     public function info()
     {
-        $info = new EcrTemplateInfo;
+        $info = new EcrProjectTemplateInfo;
 
         $info->group = ucfirst($this->group);
         $info->title = 'Data List';

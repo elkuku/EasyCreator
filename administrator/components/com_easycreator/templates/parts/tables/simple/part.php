@@ -49,7 +49,7 @@ class PartTablesSimple extends EcrProjectPart
      */
     public function info()
     {
-        $info = new EcrTemplateInfo;
+        $info = new EcrProjectTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data';

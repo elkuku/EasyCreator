@@ -12,7 +12,7 @@
  *
  * @package    EasyCreator
  */
-class EcrTemplateInfo
+class EcrProjectTemplateInfo
 {
     public $group = '';
 

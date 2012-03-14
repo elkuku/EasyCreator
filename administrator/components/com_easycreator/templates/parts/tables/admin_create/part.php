@@ -27,7 +27,7 @@ class PartTablesAdmin_create
      */
     public function info()
     {
-        $info = new EcrTemplateInfo;
+        $info = new EcrProjectTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Create and Admin';

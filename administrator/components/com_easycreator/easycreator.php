@@ -35,12 +35,13 @@ $profiler = JProfiler::getInstance('Application');
 JDEBUG ? $profiler->mark('com_easycreator starting') : null;
 
 //-- Global constants
-require_once JPATH_COMPONENT.'/includes/defines.php';
+require JPATH_COMPONENT.'/includes/defines.php';
 
 //-- Global functions
-require_once JPATH_COMPONENT.'/includes/functions.php';
+require JPATH_COMPONENT.'/includes/functions.php';
 
-ecrLoadHelper('exceptions');
+//-- Global functions
+require JPATH_COMPONENT.'/includes/exceptions.php';
 
 if(ECR_DEV_MODE)
 {

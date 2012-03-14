@@ -24,7 +24,7 @@ class PartControllersSimple
      */
     public function info()
     {
-        $info = new EcrTemplateInfo;
+        $info = new EcrProjectTemplateInfo;
 
         $info->group = ucfirst($this->group);
         $info->title = 'Simple';
