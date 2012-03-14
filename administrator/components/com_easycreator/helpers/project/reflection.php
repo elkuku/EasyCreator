@@ -35,7 +35,7 @@ function fakeClasses($fName)
 /**
  * Enter description here ...
  */
-class EcrReflection
+class EcrProjectReflection
 {
     private $declared_classes = array();
 

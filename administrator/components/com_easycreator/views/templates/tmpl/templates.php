@@ -66,13 +66,12 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                             <ul>
 <?php
                             foreach($this->templates[$com_type] as $template):
-                                $fileTree->setDir($this->path.DS.$com_type.DS.$template->folder);
                                 $js = " onmousedown=\"setAction('', '".$path.DS.$com_type."', '".$template->folder."');\"";
                                 echo '<li class="pft-directory">';
                                 echo '<div'.$js.' class="hasEasyTip" title="'.$template->info.'">';
                                 echo '<span class="img icon-16-info" />'.$template->name;
                                 echo '</div>';
-                                echo $fileTree->drawTree();
+                                echo $fileTree->setDir($this->path.DS.$com_type.DS.$template->folder)->drawTree();
                                 echo '</li>';
                              endforeach;
 ?>
@@ -113,12 +112,11 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                                 endif;
 
                                 $js = " onmousedown=\"setAction('', '".$path.DS.'parts'.DS.$group."', '".$part."');\"";
-                                $fileTree->setDir(ECRPATH_PARTS.DS.$group.DS.$part);
                                 echo '<li class="pft-directory">';
                                 echo '<div'.$js.' class="hasEasyTip" title="'.$toolTip.'">';
                                 echo '<span class="img icon-16-info"/>'.$title;
                                 echo '</div>';
-                                echo $fileTree->drawTree();
+                                echo $fileTree->setDir(ECRPATH_PARTS.DS.$group.DS.$part)->drawTree();
                                 echo '</li>';
                             endif;
                         endforeach;
@@ -136,8 +134,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                 </div>
                 <ul>
                 <?php
-                $fileTree->setDir(ECRPATH_EXTENSIONTEMPLATES.DS.'std');
-                echo $fileTree->drawTree();
+                echo $fileTree->setDir(ECRPATH_EXTENSIONTEMPLATES.DS.'std')->drawTree();
                 ?>
                 </ul>
             </li>
@@ -173,4 +170,9 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 <input type="hidden" name="old_controller" value="templates" />
 
 <?php
-echo EcrHtml::contextMenu();
+EcrHtml::contextMenu();
+
+
+$info =  EcrProjectTemplateHelper::getReplacementInfo();
+
+var_dump($info);

@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class PartViewsData_form extends EcrPart
+class PartViewsData_form extends EcrProjectPart
 {
     public $group = 'views';
 
@@ -65,11 +65,11 @@ class PartViewsData_form extends EcrPart
     /**
      * Info about the thing.
      *
-     * @return EcrTemplateinfo
+     * @return EcrTemplateInfo
      */
     public function info()
     {
-        $info = new EcrTemplateinfo;
+        $info = new EcrTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data Form';
@@ -230,7 +230,7 @@ $acFields[] = $f;
 
  /*       $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 */
-        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $this->_scope);
+        $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $this->_scope);
 //        $AutoCode->group = $this->group;
 //        $AutoCode->name = $this->name;
 //

@@ -14,7 +14,7 @@
  * @subpackage Helpers
  *
  */
-class EcrZiper extends JObject
+class EcrProjectZiper extends JObject
 {
     private $build_dir = '';
 
@@ -135,7 +135,7 @@ class EcrZiper extends JObject
      * Clean up unwanted stuff.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function cleanProject()
     {
@@ -234,7 +234,7 @@ class EcrZiper extends JObject
      * Tries to find the package manifest file.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function deleteManifest()
     {
@@ -304,13 +304,13 @@ class EcrZiper extends JObject
      * Create the Joomla! manifest.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function createManifest()
     {
         $this->logger->log('Starting manifest');
 
-        $manifest = new EcrManifest;
+        $manifest = new EcrProjectManifest;
 
         $this->project->basepath = $this->temp_dir;
         $this->project->creationDate = date('d-M-Y');
@@ -328,7 +328,7 @@ class EcrZiper extends JObject
      * Set the temp directory.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function setTempDir()
     {
@@ -346,7 +346,7 @@ class EcrZiper extends JObject
      * Copy files and folders.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function copyCopies()
     {
@@ -461,7 +461,7 @@ class EcrZiper extends JObject
     /**
      * Copy media files.
      *
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function copyMedia()
     {
@@ -484,7 +484,7 @@ class EcrZiper extends JObject
      * Process install files.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function processInstall()
     {
@@ -604,7 +604,7 @@ class EcrZiper extends JObject
      * @see        EasyZIPer::copyPackageElements
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function copyPackageModules()
     {
@@ -682,7 +682,7 @@ class EcrZiper extends JObject
      * @deprecated in favor for J! 1.6 packages
      * @see EasyZIPer::copyPackageElements
      *
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function copyPackagePlugins()
     {
@@ -794,7 +794,7 @@ class EcrZiper extends JObject
      * For Joomla! 1.6 packages only.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function copyPackageElements()
     {
@@ -822,7 +822,7 @@ class EcrZiper extends JObject
                 continue;
             }//try
 
-            $ziper = new EcrZiper;
+            $ziper = new EcrProjectZiper;
             $result = $ziper->create($project, $this->buildopts);
             $files = $ziper->getCreatedFiles();
 
@@ -859,7 +859,7 @@ class EcrZiper extends JObject
     /**
      * Copy language files.
      *
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function copyLanguage()
     {
@@ -943,7 +943,7 @@ class EcrZiper extends JObject
      * Create a MD5 checksum file.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function createMD5()
     {
@@ -1061,7 +1061,7 @@ class EcrZiper extends JObject
      * Create the zip file.
      *
      * @throws EcrZiperException
-     * @return EcrZiper
+     * @return EcrProjectZiper
      */
     private function createArchive()
     {

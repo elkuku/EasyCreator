@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class AutoCodeSiteTableclassClassvar extends EcrAutoCode
+class AutoCodeSiteTableclassClassvar extends EcrProjectAutocode
 {
     private $varScopes = array(
     'var'
@@ -105,11 +105,11 @@ class AutoCodeSiteTableclassClassvar extends EcrAutoCode
     /**
      * Open the part for edit.
      *
-     * @param EcrAutoCode $AutoCode TheAutocode
+     * @param EcrProjectAutocode $AutoCode TheAutocode
      *
      * @return void
      */
-    public function edit(EcrAutoCode $AutoCode)
+    public function edit(EcrProjectAutocode $AutoCode)
     {
         $var_scope = $AutoCode->options['varscope'];
 
@@ -231,7 +231,7 @@ class AutoCodeSiteTableclassClassvar extends EcrAutoCode
             }//foreach
         }
 
-        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
         $AutoCode->options['varscope'] = $var_scope;

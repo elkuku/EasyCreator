@@ -1012,11 +1012,11 @@ abstract class EcrProjectBase extends JObject
     /**
      * Adds AutoCode to the project.
      *
-     * @param EcrAutoCode $autoCode The AutoCode
+     * @param EcrProjectAutocode $autoCode The AutoCode
      *
      * @return void
      */
-    public function addAutoCode(EcrAutoCode $autoCode)
+    public function addAutoCode(EcrProjectAutocode $autoCode)
     {
         $this->autoCodes[$autoCode->getKey()] = $autoCode;
     }

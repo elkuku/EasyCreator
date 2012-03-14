@@ -24,11 +24,11 @@ class PartTablesAdmin_map
     /**
      * Info about the thing.
      *
-     * @return EcrTemplateinfo
+     * @return EcrTemplateInfo
      */
     public function info()
     {
-        $info = new EcrTemplateinfo;
+        $info = new EcrTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Map and Admin';

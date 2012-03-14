@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class PartViewsData_list extends EcrPart
+class PartViewsData_list extends EcrProjectPart
 {
     public $group = 'views';
 
@@ -48,11 +48,11 @@ class PartViewsData_list extends EcrPart
     /**
     * Info about the thing.
     *
-    * @return EcrTemplateinfo
+    * @return EcrTemplateInfo
     */
     public function info()
     {
-        $info = new EcrTemplateinfo;
+        $info = new EcrTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data List';
@@ -140,7 +140,7 @@ class PartViewsData_list extends EcrPart
         /* Draws an input box for a name field */
         $requireds[] = EcrHtml::drawSelectName($this->_element, jgettext('Table'));
 //        JLoader::import('helpers.autocode', JPATH_COMPONENT);
-//        $AutoCode = new EcrAutoCode;
+//        $AutoCode = new EcrProjectAutocode;
 
         $ecr_project = JRequest::getCmd('ecr_project');
         $element_name = JRequest::getCmd('element');
@@ -293,7 +293,7 @@ class PartViewsData_list extends EcrPart
 
         $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 
-        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
 

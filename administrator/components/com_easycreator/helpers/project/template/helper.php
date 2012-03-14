@@ -12,7 +12,7 @@
  *
  * @package    EasyCreator
  */
-class EcrTemplateHelper
+class EcrProjectTemplateHelper
 {
     /**
      * Gets a list of installed templates.
@@ -24,16 +24,17 @@ class EcrTemplateHelper
         static $list = array();
 
         if(count($list))
-        return $list;
+            return $list;
 
         $types = JFolder::folders(ECRPATH_EXTENSIONTEMPLATES);
 
         foreach($types as $tplType)
         {
             if($tplType == 'parts'
-            || $tplType == 'std'
-            || $tplType == 'autocodes')
-            continue;
+                || $tplType == 'std'
+                || $tplType == 'autocodes'
+            )
+                continue;
 
             $templates = JFolder::folders(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType);
 
@@ -41,15 +42,15 @@ class EcrTemplateHelper
             {
                 $info = self::getTemplateInfo($tplType, $tplName);
 
-                if( ! $info)
-                continue;
+                if(! $info)
+                    continue;
 
                 $list[$tplType][$info->folder] = $info;
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $list;
-    }//function
+    }
 
     /**
      * Gets Information about a specific template.
@@ -61,8 +62,8 @@ class EcrTemplateHelper
      */
     public static function getTemplateInfo($tplType, $tplName)
     {
-        if( ! JFile::exists(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml'))
-        return false;
+        if(! JFile::exists(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml'))
+            return false;
 
         $xml = EcrProjectHelper::getXML(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml');
 
@@ -80,14 +81,14 @@ class EcrTemplateHelper
 
         $info->info = '';
         $info->info .= jgettext(ucfirst($tplType)).' '.$info->name.' '.$info->version.'::'.$info->description;
-        $info->info .=($info->author) ? '<br /><span style=\'color: blue;\'>Author:</span> '.$info->author : '';
+        $info->info .= ($info->author) ? '<br /><span style=\'color: blue;\'>Author:</span> '.$info->author : '';
         $info->info .= '<br /><strong>Joomla!:</strong> '.$info->jVersion;
         $info->info .= '<br /><strong>PHP:</strong> '.$info->phpVersion;
-        $info->info .=($info->dbTables) ? '<br /><span style=\'color: orange;\'>dbTables:</span> '.$info->dbTables : '';
+        $info->info .= ($info->dbTables) ? '<br /><span style=\'color: orange;\'>dbTables:</span> '.$info->dbTables : '';
         $info->info .= '<br />ECR Folder: '.$info->folder;
 
         return $info;
-    }//function
+    }
 
     /**
      * Export templates to a tar.gz package.
@@ -113,17 +114,17 @@ class EcrTemplateHelper
                 {
                     $path = str_replace(ECRPATH_EXTENSIONTEMPLATES.DS, '', $path);
 
-                    if( ! JFolder::exists(dirname($tempDir.DS.$path)))
-                    JFolder::create(dirname($tempDir.DS.$path));
+                    if(! JFolder::exists(dirname($tempDir.DS.$path)))
+                        JFolder::create(dirname($tempDir.DS.$path));
 
-                    if( ! JFile::copy(ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path))
-                    throw new Exception(sprintf(jgettext('Unable to copy the file %s to %s')
-                    , ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path));
+                    if(! JFile::copy(ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path))
+                        throw new Exception(sprintf(jgettext('Unable to copy the file %s to %s')
+                            , ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path));
 
                     $files[] = $tempDir.DS.$path;
-                }//foreach
-            }//foreach
-        }//foreach
+                }
+            }
+        }
 
         $xml = new SimpleXMLElement('<install type="ecrextensiontemplate" version="'.ECR_VERSION.'"/>');
 
@@ -136,8 +137,8 @@ class EcrTemplateHelper
 
         $result = $doc->saveXML();
 
-        if( ! JFile::write($tempDir.DS.'manifest.xml', $result))
-        throw new Exception(sprintf(jgettext('Unable to write file %s'), $tempDir.DS.'manifest.xml'));
+        if(! JFile::write($tempDir.DS.'manifest.xml', $result))
+            throw new Exception(sprintf(jgettext('Unable to write file %s'), $tempDir.DS.'manifest.xml'));
 
         $files[] = $tempDir.DS.'manifest.xml';
 
@@ -146,11 +147,11 @@ class EcrTemplateHelper
         $result = EcrArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
 
         //-- This means error
-        if( ! $result->listContent())
-        throw new Exception(jgettext('Error creating archive'));
+        if(! $result->listContent())
+            throw new Exception(jgettext('Error creating archive'));
 
         return true;
-    }//function
+    }
 
     /**
      * Install templates.
@@ -162,11 +163,11 @@ class EcrTemplateHelper
     {
         jimport('joomla.installer.helper');
 
-        if( ! $package = self::_getPackageFromUpload())
-        throw new Exception(jgettext('Unable to find install package'));
+        if(! $package = self::_getPackageFromUpload())
+            throw new Exception(jgettext('Unable to find install package'));
 
         if($package['type'] != 'ecrextensiontemplate')
-        throw new Exception(jgettext('This is not an EasyCreator Extension Template'));
+            throw new Exception(jgettext('This is not an EasyCreator Extension Template'));
 
         $types = (JFolder::folders($package['extractdir']));
 
@@ -179,7 +180,7 @@ class EcrTemplateHelper
             {
                 //-- Check for previous install - no upgrade yet..
                 if(JFolder::exists(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template))
-                throw new Exception(sprintf(jgettext('The template %s is already installed'), $type.' - '.$template));
+                    throw new Exception(sprintf(jgettext('The template %s is already installed'), $type.' - '.$template));
 
                 //-- Create template dir
                 JFolder::create(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template);
@@ -191,9 +192,9 @@ class EcrTemplateHelper
                 {
                     $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $folder);
 
-                    if( ! JFolder::create(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
-                    throw new Exception(sprintf(jgettext('Can not create folder %s'), $folder));
-                }//foreach
+                    if(! JFolder::create(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
+                        throw new Exception(sprintf(jgettext('Can not create folder %s'), $folder));
+                }
 
                 //-- Copy the files
                 $files = JFolder::files($package['extractdir'].DS.$type.DS.$template, '.', true, true);
@@ -202,14 +203,14 @@ class EcrTemplateHelper
                 {
                     $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $file);
 
-                    if( ! JFile::copy($file, ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
-                    throw new Exception(jgettext('Can not copy file %s', $s));
-                }//foreach
-            }//foreach
-        }//foreach
+                    if(! JFile::copy($file, ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
+                        throw new Exception(jgettext('Can not copy file %s', $s));
+                }
+            }
+        }
 
         return true;
-    }//function
+    }
 
     /**
      * Upload and unpack a package file.
@@ -223,12 +224,12 @@ class EcrTemplateHelper
         $userfile = JRequest::getVar('install_package', null, 'files', 'array');
 
         //-- If there is no uploaded file, we have a problem...
-        if( ! is_array($userfile))
-        throw new Exception(jgettext('No file selected'));
+        if(! is_array($userfile))
+            throw new Exception(jgettext('No file selected'));
 
         //-- Check if there was a problem uploading the file.
         if($userfile['error'] || $userfile['size'] < 1)
-        throw new Exception(jgettext('Invalid package'));
+            throw new Exception(jgettext('Invalid package'));
 
         //-- Build the appropriate paths
         $tmp_src = $userfile['tmp_name'];
@@ -241,5 +242,32 @@ class EcrTemplateHelper
         $package = JInstallerHelper::unpack($tmp_dest);
 
         return $package;
-    }//function
+    }
+
+    /**
+     * Get extended replacement information.
+     *
+     * @static
+     * @return array
+     */
+    public static function getReplacementInfo()
+    {
+        $reflector = new ReflectionClass('EcrProjectReplacement');
+
+        $info = array();
+
+        foreach($reflector->getProperties() as $property)
+        {
+            $comment = $property->getDocComment();
+
+            $comment = str_replace('@var string', '', $comment);
+            $comment = trim($comment, '/*\n ');
+            $comment = trim($comment);
+            $comment = trim($comment, '* ');
+
+            $info[$property->getName()] = $comment;
+        }
+
+        return $info;
+    }
 }//class

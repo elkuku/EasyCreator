@@ -11,7 +11,7 @@
  * Base class for EcrParts.
  *
  */
-class EcrPart extends JObject
+class EcrProjectPart extends JObject
 {
     public $group = '';
 

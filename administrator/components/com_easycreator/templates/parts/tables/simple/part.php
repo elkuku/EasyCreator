@@ -15,7 +15,7 @@ defined('_JEXEC') || die('=;)');
  * @package    EasyCreator
  * @subpackage Templates.Parts
  */
-class PartTablesSimple extends EcrPart
+class PartTablesSimple extends EcrProjectPart
 {
     public $group = 'tables';
 
@@ -45,11 +45,11 @@ class PartTablesSimple extends EcrPart
     /**
      * Info about the thing.
      *
-     * @return EcrTemplateinfo
+     * @return EcrTemplateInfo
      */
     public function info()
     {
-        $info = new EcrTemplateinfo;
+        $info = new EcrTemplateInfo;
 
         $info->group = $this->group;
         $info->title = 'Data';
@@ -190,7 +190,7 @@ class PartTablesSimple extends EcrPart
             }//foreach
         }
 
-        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
         $AutoCode->options['varScope'] = $var_scope;

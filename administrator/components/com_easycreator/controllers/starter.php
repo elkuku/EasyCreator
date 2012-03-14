@@ -46,7 +46,7 @@ class EasyCreatorControllerStarter extends JController
      */
     public function starterstart()
     {
-        $builder = new EcrBuilder;
+        $builder = new EcrProjectBuilder;
 
         $type = JRequest::getCmd('tpl_type');
         $name = JRequest::getCmd('tpl_name');
@@ -92,7 +92,7 @@ class EasyCreatorControllerStarter extends JController
      */
     public function register_project()
     {
-        $builder = new EcrBuilder;
+        $builder = new EcrProjectBuilder;
 
         $type = JRequest::getCmd('ecr_project_type');
         $name = JRequest::getCmd('ecr_project_name');

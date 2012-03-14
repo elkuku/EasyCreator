@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
  * Enter description here ...@todo class doccomment.
  *
  */
-class AutoCodeAdminTableclassClassvar extends EcrAutoCode
+class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
 {
     protected $tags = array('start' => '#', 'end' => '#');
 
@@ -111,11 +111,11 @@ class AutoCodeAdminTableclassClassvar extends EcrAutoCode
     /**
      * Open the part for edit.
      *
-     * @param EcrAutoCode $AutoCode The EcrAutoCode
+     * @param EcrProjectAutocode $AutoCode The EcrProjectAutocode
      *
      * @return void
      */
-    public function edit(EcrAutoCode $AutoCode)
+    public function edit(EcrProjectAutocode $AutoCode)
     {
         $var_scope = $AutoCode->options['varscope'];
 
@@ -237,7 +237,7 @@ class AutoCodeAdminTableclassClassvar extends EcrAutoCode
             }//foreach
         }
 
-        $AutoCode = new EcrAutoCode($this->group, $this->name, $table_name, $element_scope);
+        $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $element_scope);
 
         $AutoCode->options = array();
         $AutoCode->options['varscope'] = $var_scope;

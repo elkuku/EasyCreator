@@ -99,7 +99,7 @@ class EasyCreatorViewTemplates extends JView
         if($profiling)
         $this->profiler->mark('start get templates');
 
-        $this->templates  = EcrTemplateHelper::getTemplateList();
+        $this->templates  = EcrProjectTemplateHelper::getTemplateList();
 
         if($profiling)
         $this->profiler->mark('end get cached templates');

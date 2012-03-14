@@ -61,11 +61,11 @@ class EasyTemplateOptions
     /**
      * Process custom options.
      *
-     * @param EcrBuilder $builder The Builder class
+     * @param EcrProjectBuilder $builder The Builder class
      *
      * @return boolean True on sucess.
      */
-    public function processOptions(EcrBuilder $builder)
+    public function processOptions(EcrProjectBuilder $builder)
     {
         $fields = JRequest::getVar('fields');
 

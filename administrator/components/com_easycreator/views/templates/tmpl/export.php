@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-$templateList = EcrTemplateHelper::getTemplateList();
+$templateList = EcrProjectTemplateHelper::getTemplateList();
 ?>
 <div style="height: 1em;"></div>
 <div class="ecr_floatbox">

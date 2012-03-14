@@ -29,10 +29,11 @@ function jgettext($string)
 /**
  * PHP dummy function.
  *
- * @param string $singular Singular string
- * @param string $pluralPlural string
- * @param integer $count Count
+ * @param string  $singular Singular string
+ * @param string  $plural
+ * @param integer $count    Count
  *
+ * @internal param string $pluralPlural string
  * @return string
  */
 function jngettext($singular, $plural, $count)

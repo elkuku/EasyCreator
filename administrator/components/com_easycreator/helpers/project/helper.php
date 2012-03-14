@@ -59,7 +59,7 @@ class EcrProjectHelper
      * @param boolean $reload Reload the project.
      *
      * @throws Exception
-     * @return EcrProject
+     * @return EcrProjectBase
      */
     public static function getProject($name = '', $reload = false)
     {
@@ -591,7 +591,7 @@ class EcrProjectHelper
      * @param string $scope The scope e.g. admin, site etc.
      * @param boolean $edit Open the part to edit
      *
-     * @return EcrPart on success | null on error
+     * @return EcrProjectPart on success | null on error
      */
     public static function getPart($group, $part, $element, $scope, $edit = false)
     {
@@ -766,11 +766,11 @@ class EcrProjectHelper
     }//function
 
     /**
-     * Gets an EcrAutoCode.
+     * Gets an EcrProjectAutocode.
      *
      * @param string $key Separated by dots (.) - scope.group.name.element
      *
-     * @return EcrAutoCode [object EcrAutoCode on success | boolean false on error]
+     * @return EcrProjectAutocode [object EcrProjectAutocode on success | boolean false on error]
      */
     public static function getAutoCode($key)
     {

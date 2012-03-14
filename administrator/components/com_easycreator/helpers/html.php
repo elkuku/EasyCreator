@@ -888,7 +888,7 @@ EOF;
 
         echo '<div style="background-color: #fff; border: 1px solid gray; padding-left: 0.5em;">';
 
-        $info = EcrTemplateHelper::getTemplateInfo($project->type, $project->tplName);
+        $info = EcrProjectTemplateHelper::getTemplateInfo($project->type, $project->tplName);
 
         echo ($info) ? $info->description : '';
 

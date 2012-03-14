@@ -99,7 +99,7 @@ class EasyCreatorViewZiper extends JView
 
         $this->buildopts = JRequest::getVar('buildopts', array());
 
-        $ziper = new EcrZiper;
+        $ziper = new EcrProjectZiper;
 
         $result->result = $ziper->create($this->project, $this->buildopts);
         $result->errors = $ziper->getErrors();

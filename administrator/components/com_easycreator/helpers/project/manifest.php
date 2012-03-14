@@ -17,7 +17,7 @@
  * @package        EasyCreator
  * @former-package IansTools
  */
-class EcrManifest extends JObject
+class EcrProjectManifest extends JObject
 {
     /**
      * @var SimpleXMLElement
@@ -125,7 +125,7 @@ class EcrManifest extends JObject
      * Setup the manifest building process.
      *
      * @throws Exception
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function setUp()
     {
@@ -182,7 +182,7 @@ class EcrManifest extends JObject
     /**
      * Process credit vars.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processCredits()
     {
@@ -219,7 +219,7 @@ class EcrManifest extends JObject
      * Process install section.
      *
      * @throws Exception
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processInstall()
     {
@@ -367,7 +367,7 @@ class EcrManifest extends JObject
     /**
      * Process Updates.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processUpdates()
     {
@@ -392,7 +392,7 @@ class EcrManifest extends JObject
     /**
      * Process media section.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processMedia()
     {
@@ -429,7 +429,7 @@ class EcrManifest extends JObject
     /**
      * Process site section.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processSite()
     {
@@ -497,7 +497,7 @@ class EcrManifest extends JObject
     /**
      * Process admin section.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processAdmin()
     {
@@ -688,7 +688,7 @@ class EcrManifest extends JObject
     /**
      * Process package elements for J! 1.6 packages.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processPackageElements()
     {
@@ -713,7 +713,7 @@ class EcrManifest extends JObject
     /**
      * Process parameters section.
      *
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processParameters()
     {
@@ -851,7 +851,7 @@ class EcrManifest extends JObject
      * @deprecated removed for J! 1.6
      *
      * @throws Exception
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processPackageModules()
     {
@@ -973,7 +973,7 @@ class EcrManifest extends JObject
      * @deprecated removed for J! 1.6
      *
      * @throws Exception
-     * @return EcrManifest
+     * @return EcrProjectManifest
      */
     private function processPackagePlugins()
     {

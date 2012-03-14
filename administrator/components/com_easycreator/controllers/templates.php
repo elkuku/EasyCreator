@@ -100,7 +100,7 @@ class EasyCreatorControllerTemplates extends JController
             if( ! $exports = (array)JRequest::getVar('exports'))
             throw new Exception(jgettext('No templates selected'));
 
-            EcrTemplateHelper::exportTemplates($exports);
+            EcrProjectTemplateHelper::exportTemplates($exports);
 
             EcrHtml::displayMessage(jgettext('Templates have been exported.'));
         }
@@ -124,7 +124,7 @@ class EasyCreatorControllerTemplates extends JController
     {
         try
         {
-            EcrTemplateHelper::installTemplates();
+            EcrProjectTemplateHelper::installTemplates();
 
             EcrHtml::displayMessage(jgettext('Templates have been installed.'));
 

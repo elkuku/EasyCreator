@@ -23,7 +23,7 @@ class EasyCreatorViewStarter extends JView
     protected $infoLinks = array();
 
     /**
-     * @var EcrBuilder
+     * @var EcrProjectBuilder
      */
     protected $builder;
 
@@ -42,7 +42,7 @@ class EasyCreatorViewStarter extends JView
     {
         $task = JRequest::getCmd('task');
 
-        $this->builder = new EcrBuilder;
+        $this->builder = new EcrProjectBuilder;
 
         ecrStylesheet('wizard');
         ecrScript('wizard');
@@ -55,7 +55,7 @@ class EasyCreatorViewStarter extends JView
 
         $params = JComponentHelper::getParams('com_easycreator');
 
-        $this->templateList = EcrTemplateHelper::getTemplateList();
+        $this->templateList = EcrProjectTemplateHelper::getTemplateList();
 
         $tplType = JRequest::getCmd('tpl_type');
         $tplFolder = JRequest::getCmd('tpl_name');

@@ -16,7 +16,7 @@
  * @property-read string  $tmpPath    The temorary path.
  *
  */
-class EcrUpdater
+class EcrProjectUpdater
 {
     /**
      * @var EcrProjectBase
@@ -29,6 +29,12 @@ class EcrUpdater
 
     private $logger = null;
 
+    /**
+     * Constructor.
+     *
+     * @param EcrProjectBase $project
+     * @param EcrLogger|null $logger
+     */
     public function __construct(EcrProjectBase $project, EcrLogger $logger = null)
     {
         if($project instanceof EcrProjectBase)

@@ -105,7 +105,7 @@ class EcrCliBuilder extends JApplicationCli
                 $buildOpts[] = $opt;
         }
 
-        $ziper = new EcrZiper;
+        $ziper = new EcrProjectZiper;
 
         $ziper->create($project, $buildOpts);
 

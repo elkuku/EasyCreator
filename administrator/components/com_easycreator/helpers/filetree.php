@@ -114,11 +114,13 @@ class EcrFileTree
      *
      * @param string $directory Path to directory
      *
-     * @return void
+     * @return EcrFileTree
      */
     public function setDir($directory)
     {
         $this->directory = $directory;
+
+        return $this;
     }//function
 
     /**

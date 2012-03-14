@@ -224,7 +224,7 @@ a430195 Add suport for multiple style sheets in ecrStylesheet()
 43c641f Adapt the JMethodLister to J! 2.5 (phew....)
 ce9cd5c Modify (C) date
 381d2bd Remove missing from Renames
-986a8ea Rename EasyPart => EcrPart
+986a8ea Rename EasyPart => EcrProjectPart
 fa4faea Rename EasyAutoCode => EcrAutoCode
 6d291a2 Rename EasyXMLElement => EcrXMLElement
 93485d0 Formatting

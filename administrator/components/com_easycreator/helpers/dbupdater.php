@@ -119,7 +119,7 @@ class EcrDbUpdater
 
         $dbType = 'mysql';
 
-        $updater = new EcrUpdater($this->project, $this->logger);
+        $updater = new EcrProjectUpdater($this->project, $this->logger);
 
         if( ! $updater->hasUpdates)
         {

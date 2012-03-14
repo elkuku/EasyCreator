@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 /**
  * Adds AutoCode to the project.
  */
-class EcrAutoCode
+class EcrProjectAutocode
 {
     public $group = '';
 
@@ -317,7 +317,7 @@ class EcrAutoCode
      * @param string $name Element name
      * @param string $path Element path
      *
-     * @return EcrAutoCode
+     * @return EcrProjectAutocode
      */
     protected function getElement($name, $path)
     {

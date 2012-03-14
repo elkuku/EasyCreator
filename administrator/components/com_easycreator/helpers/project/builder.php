@@ -12,10 +12,10 @@
  *
  * @package EasyCreator
  */
-class EcrBuilder extends JObject
+class EcrProjectBuilder extends JObject
 {
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     public $project = null;
 
@@ -151,7 +151,7 @@ class EcrBuilder extends JObject
      * Setup the builder.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function setUp()
     {
@@ -178,7 +178,7 @@ class EcrBuilder extends JObject
      * Setup the project.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function setUpProject()
     {
@@ -339,7 +339,7 @@ class EcrBuilder extends JObject
      * Create the build directory.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function createBuildDir()
     {
@@ -365,7 +365,7 @@ class EcrBuilder extends JObject
      * Copy the files.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function copyFiles()
     {
@@ -411,7 +411,7 @@ class EcrBuilder extends JObject
      * Process additional options.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function processMoreOptions()
     {
@@ -468,11 +468,11 @@ class EcrBuilder extends JObject
      * Create the Joomla! manifest.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function createJoomlaManifest()
     {
-        $manifest = new EcrManifest;
+        $manifest = new EcrProjectManifest;
 
         $this->project->isNew = true;
         $this->project->basepath = $this->_buildDir;
@@ -521,7 +521,7 @@ class EcrBuilder extends JObject
      * Installs an extension with the standard Joomla! installer.
      *
      * @throws EcrBuilderException
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function install()
     {
@@ -795,7 +795,7 @@ class EcrBuilder extends JObject
     /**
      * Read the header file.
      *
-     * @return EcrBuilder
+     * @return EcrProjectBuilder
      */
     private function readHeader()
     {
