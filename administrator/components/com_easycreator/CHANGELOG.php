@@ -50,6 +50,26 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-03-14
+81baa55 Add new selenium tests
+fb9add7 Rename and move database helpers
+b8add90 Add a replacement class for extension templates for easier access
+edd8443 Fix wrong class name EcrTemplateInfo => EcrProjectTemplateInfo
+eb53035 Rename and move project related classes
+
+2012-03-13
+a32e593 Rename the project base class
+0aa3339 Move and rename project base class and types classes
+590d01a Formatting and Docblocks
+04e707d Fix: can not completely remove CLIApps and WebApps
+c58a5f5 Add aditional explanatory notes to extension templates
+ae8dbae Add aditional explanatory notes to extension templates
+
+2012-03-10
+11f088a Add new extension templates for CLI- and Webapplications from joomla-platform-examples
+e8b4988 Update changelog
+e7c6c3c Modify changelogger to include the abbreviated commit hash for every commit
+
 2012-03-09
 d95466b Add a script to extract translators names from language files to include them in the credits
 3668325 Modify the credits file to include new translators from opentranslators/transifex
