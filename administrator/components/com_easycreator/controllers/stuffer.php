@@ -934,6 +934,9 @@ class EasyCreatorControllerStuffer extends JController
             $tableList[] = $prefix.$table;
         }//foreach
 
+        if(empty($tableList))
+            throw new Exception('The project contains no tables');
+
         $exporter = new EcrSqlMysqlexporter;
 
         $xmlString = (string)$exporter->setDbo($db)->from($tableList);
@@ -955,7 +958,8 @@ class EasyCreatorControllerStuffer extends JController
      * @param string      $installPath    Path to the project root.
      *
      * @return mixed
-     */private function processSQLUpdate(EcrProjectBase $project, $installPath)
+     */
+    private function processSQLUpdate(EcrProjectBase $project, $installPath)
     {
         $dbType = 'mysql';
 

@@ -38,7 +38,7 @@ include dirname(__FILE__) . '/ctype.php';
  * @author  Brent Cook <busterbcook@yahoo.com>
  * @version 0.5
  * @access  public
- * @package SQL_Parser
+ * @package EcrSqlParser
  */
 class SQL_Parser_Lexer
 {

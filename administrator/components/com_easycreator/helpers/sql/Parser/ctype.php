@@ -12,7 +12,7 @@
  * @author John Millaway
  * @author Brent Cook <busterbcook@yahoo.com
  * @access  public
- * @package SQL_Parser
+ * @package EcrSqlParser
  */
 if (!extension_loaded('ctype')) {
     function ctype_alnum($c) {

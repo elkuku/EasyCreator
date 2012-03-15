@@ -32,7 +32,7 @@ require_once 'PEAR.php';
  * @author  John Griffin <jgriffin316@netscape.net>
  * @version 0.1
  * @access  public
- * @package SQL_Parser
+ * @package EcrSqlParser
  */
 class SQL_Parser_Compiler
 {

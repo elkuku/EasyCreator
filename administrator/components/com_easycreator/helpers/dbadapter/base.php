@@ -15,7 +15,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @property-get $query
  */
-class dbAdapter
+class EcrDbadapterBase
 {
     protected $nameQuote = '`';
 

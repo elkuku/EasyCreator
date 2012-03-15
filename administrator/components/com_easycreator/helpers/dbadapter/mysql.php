@@ -10,12 +10,10 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-ecrLoadHelper('dbadapters.adapter');// or throw new Exception('dbAdapter not found');
-
 /**
  * Database adapter for MySQL.
  */
-class dbAdapterMySQL extends dbAdapter
+class EcrDbadapterMysql extends EcrDbadapterBase
 {
     public function __construct()
     {
@@ -28,7 +26,7 @@ class dbAdapterMySQL extends dbAdapter
         //-- Invoke the PEAR parser
 //        ecrLoadHelper('SQL.Parser');
 
-        $parser = new SQL_Parser($this->query->processed, 'MySQL');
+        $parser = new EcrSqlParser($this->query->processed, 'MySQL');
 
         $parsed = $parser->parseCreate();
 

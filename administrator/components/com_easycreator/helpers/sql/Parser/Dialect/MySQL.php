@@ -20,13 +20,13 @@
  * License along with this library; If not, see <http://www.gnu.org/licenses/>.
  *
  * @category  Database
- * @package   SQL_Parser
+ * @package   EcrSqlParser
  * @author    Brent Cook <busterbcook@yahoo.com>
  * @author    John Griffin <jgriffin316@netscape.net>
  * @copyright 2004, 2005 John Griffin
  * @license   http://www.gnu.org/licenses/lgpl.html GNU Lesser GPL 3
  * @version   CVS: $Id$
- * @link      http://pear.php.net/package/SQL_Parser
+ * @link      http://pear.php.net/package/EcrSqlParser
  * @since     File available since Release 0.5.0
  */
 

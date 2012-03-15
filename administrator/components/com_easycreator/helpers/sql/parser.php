@@ -30,7 +30,7 @@
  *            it is a function call: "function("
  *            or just some expression: "ident ("
  * @category  Database
- * @package   SQL_Parser
+ * @package   EcrSqlParser
  * @author    Erich Enke <erich.Enke@gmail.com>
  * @author    Brent Cook <busterbcook@yahoo.com>
  * @author    Jason Pell <jasonpell@hotmail.com>
@@ -39,7 +39,7 @@
  * @copyright 2002-2004 Brent Cook
  *            2005 Erich Enke
  * @license   http://www.gnu.org/licenses/lgpl.html GNU Lesser GPL 3
- * @link      http://pear.php.net/package/SQL_Parser
+ * @link      http://pear.php.net/package/EcrSqlParser
  * @since     File available since Release 0.1.0
  */
 
@@ -52,16 +52,16 @@ require_once dirname(__FILE__) . '/Parser/Lexer.php';
  * A sql parser
  *
  * @category  Database
- * @package   SQL_Parser
+ * @package   EcrSqlParser
  * @author    Brent Cook <busterbcook@yahoo.com>
  * @copyright 2002-2004 Brent Cook
  *            2005 Erich Enke
  * @license   http://www.gnu.org/licenses/lgpl.html GNU Lesser GPL 3
  * @version   Devel: 0.5
- * @link      http://pear.php.net/package/SQL_Parser
+ * @link      http://pear.php.net/package/EcrSqlParser
  * @since     File available since Release 0.1.0
  */
-class SQL_Parser
+class EcrSqlParser
 {
     /**
      * @var    SQL_Parser_Lexer
@@ -150,16 +150,16 @@ class SQL_Parser
      */
     const DIALECT_MYSQL = 'MySQL';
 
-    // {{{ function SQL_Parser($string = null, $dialect = 'ANSI')
+    // {{{ function EcrSqlParser($string = null, $dialect = 'ANSI')
     /**
     * Constructor
     *
     * @param string $string the SQL query to parse
     * @param string $dialect the SQL dialect
-    * @uses  SQL_Parser::setDialect()
-    * @uses  SQL_Parser::$lexer      W to create it
-    * @uses  SQL_Parser::$symbols    R
-    * @uses  SQL_Parser::$lexeropts  R
+    * @uses  EcrSqlParser::setDialect()
+    * @uses  EcrSqlParser::$lexer      W to create it
+    * @uses  EcrSqlParser::$symbols    R
+    * @uses  EcrSqlParser::$lexeropts  R
     * @uses  SQL_Parser_Lexer        to create an Object
     * @uses  SQL_Parser_Lexer::$symbols W to set it
     * @uses  is_string()
@@ -190,20 +190,20 @@ class SQL_Parser
     * @param string $dialect the SQL dialect to use
     * @return mixed true on success, otherwise Error
     * @uses  in_array()
-    * @uses  SQL_Parser::$dialects   R
-    * @uses  SQL_Parser::$types      W to set it
-    * @uses  SQL_Parser::$functions  W to set it
-    * @uses  SQL_Parser::$operators  W to set it
-    * @uses  SQL_Parser::$commands   W to set it
-    * @uses  SQL_Parser::$synonyms   W to set it
-    * @uses  SQL_Parser::$symbols    W to set it
-    * @uses  SQL_Parser::$lexeropts  W to set it
-    * @uses  SQL_Parser::$parseropts W to set it
-    * @uses  SQL_Parser::raiseError()
+    * @uses  EcrSqlParser::$dialects   R
+    * @uses  EcrSqlParser::$types      W to set it
+    * @uses  EcrSqlParser::$functions  W to set it
+    * @uses  EcrSqlParser::$operators  W to set it
+    * @uses  EcrSqlParser::$commands   W to set it
+    * @uses  EcrSqlParser::$synonyms   W to set it
+    * @uses  EcrSqlParser::$symbols    W to set it
+    * @uses  EcrSqlParser::$lexeropts  W to set it
+    * @uses  EcrSqlParser::$parseropts W to set it
+    * @uses  EcrSqlParser::raiseError()
     */
     public function setDialect($dialect)
     {
-        if (! in_array($dialect, SQL_Parser::$dialects)) {
+        if (! in_array($dialect, EcrSqlParser::$dialects)) {
             throw new Exception('Unknown SQL dialect:' . $dialect);
         }
 
@@ -241,11 +241,11 @@ class SQL_Parser
     * @param array   &$types  to set it
     * @param integer $i       position
     * @return mixed true on success, otherwise Error
-    * @uses  SQL_Parser::$token  R
-    * @uses  SQL_Parser::$lexer  R
-    * @uses  SQL_Parser::getTok()
-    * @uses  SQL_Parser::isVal()
-    * @uses  SQL_Parser::raiseError()
+    * @uses  EcrSqlParser::$token  R
+    * @uses  EcrSqlParser::$lexer  R
+    * @uses  EcrSqlParser::getTok()
+    * @uses  EcrSqlParser::isVal()
+    * @uses  EcrSqlParser::raiseError()
     * @uses  SQL_Parser_Lexer::$tokText R
     */
     public function getParams(&$values, &$types, $i = 0)
@@ -289,8 +289,8 @@ class SQL_Parser
     * @uses  strlen()
     * @uses  str_repeat()
     * @uses  abs()
-    * @uses  SQL_Parser::$lexer      R
-    * @uses  SQL_Parser::$token      R
+    * @uses  EcrSqlParser::$lexer      R
+    * @uses  EcrSqlParser::$token      R
     * @uses  SQL_Parser_Lexer::$string   R
     * @uses  SQL_Parser_Lexer::$lineBegin R
     * @uses  SQL_Parser_Lexer::$stringLen R
@@ -325,8 +325,8 @@ class SQL_Parser
     /**
     * Returns true if current token is a variable type name, otherwise false
     *
-    * @uses  SQL_Parser::$types  R
-    * @uses  SQL_Parser::$token  R
+    * @uses  EcrSqlParser::$types  R
+    * @uses  EcrSqlParser::$token  R
     * @return  boolean  true if current token is a variable type name
     */
     public function isType()
@@ -339,7 +339,7 @@ class SQL_Parser
     /**
     * Returns true if current token is a value, otherwise false
     *
-    * @uses  SQL_Parser::$token  R
+    * @uses  EcrSqlParser::$token  R
     * @return  boolean  true if current token is a value
     */
     public function isVal()
@@ -355,8 +355,8 @@ class SQL_Parser
     /**
     * Returns true if current token is a function, otherwise false
     *
-    * @uses  SQL_Parser::$token  R
-    * @uses  SQL_Parser::$functions R
+    * @uses  EcrSqlParser::$token  R
+    * @uses  EcrSqlParser::$functions R
     * @return  boolean  true if current token is a function
     */
     public function isFunc()
@@ -369,8 +369,8 @@ class SQL_Parser
     /**
     * Returns true if current token is a command, otherwise false
     *
-    * @uses  SQL_Parser::$token  R
-    * @uses  SQL_Parser::$commands R
+    * @uses  EcrSqlParser::$token  R
+    * @uses  EcrSqlParser::$commands R
     * @return  boolean  true if current token is a command
     */
     public function isCommand()
@@ -383,8 +383,8 @@ class SQL_Parser
     /**
     * Returns true if current token is a reserved word, otherwise false
     *
-    * @uses  SQL_Parser::$token  R
-    * @uses  SQL_Parser::$symbols R
+    * @uses  EcrSqlParser::$token  R
+    * @uses  EcrSqlParser::$symbols R
     * @return  boolean  true if current token is a reserved word
     */
     public function isReserved()
@@ -397,8 +397,8 @@ class SQL_Parser
     /**
     * Returns true if current token is an operator, otherwise false
     *
-    * @uses  SQL_Parser::$token  R
-    * @uses  SQL_Parser::$operators R
+    * @uses  EcrSqlParser::$token  R
+    * @uses  EcrSqlParser::$operators R
     * @return  boolean  true if current token is an operator
     */
     public function isOperator()
@@ -411,8 +411,8 @@ class SQL_Parser
     /**
     * retrieves next token
     *
-    * @uses  SQL_Parser::$token  W to set it
-    * @uses  SQL_Parser::$lexer  R
+    * @uses  EcrSqlParser::$token  W to set it
+    * @uses  EcrSqlParser::$lexer  R
     * @uses  SQL_Parser_Lexer::lex()
     * @return void
     */
@@ -427,16 +427,16 @@ class SQL_Parser
     /**
     * Parses field/column options, usually  for an CREATE or ALTER TABLE statement
     *
-    * @uses  SQL_Parser::$token
-    * @uses  SQL_Parser::getTok()
-    * @uses  SQL_Parser::raiseError()
-    * @uses  SQL_Parser::$lexer
+    * @uses  EcrSqlParser::$token
+    * @uses  EcrSqlParser::getTok()
+    * @uses  EcrSqlParser::raiseError()
+    * @uses  EcrSqlParser::$lexer
     * @uses  SQL_Parser_Lexer::$tokText
     * @uses  SQL_Parser_Lexer::unget()
-    * @uses  SQL_Parser::isVal()
-    * @uses  SQL_Parser::isFunc()
-    * @uses  SQL_Parser::parseFunctionOpts()
-    * @uses  SQL_Parser::parseCondition()
+    * @uses  EcrSqlParser::isVal()
+    * @uses  EcrSqlParser::isFunc()
+    * @uses  EcrSqlParser::parseFunctionOpts()
+    * @uses  EcrSqlParser::parseCondition()
     * @return  array   parsed field options
     */
     public function parseFieldOptions()
@@ -656,17 +656,17 @@ class SQL_Parser
     * parses conditions usually used in WHERE or ON
     *
     * @return  array   parsed condition
-    * @uses  SQL_Parser::$token
-    * @uses  SQL_Parser::$lexer
-    * @uses  SQL_Parser::getTok()
-    * @uses  SQL_Parser::raiseError()
-    * @uses  SQL_Parser::getParams()
-    * @uses  SQL_Parser::isFunc()
-    * @uses  SQL_Parser::parseFunctionOpts()
-    * @uses  SQL_Parser::parseCondition()
-    * @uses  SQL_Parser::isReserved()
-    * @uses  SQL_Parser::isOperator()
-    * @uses  SQL_Parser::parseSelect()
+    * @uses  EcrSqlParser::$token
+    * @uses  EcrSqlParser::$lexer
+    * @uses  EcrSqlParser::getTok()
+    * @uses  EcrSqlParser::raiseError()
+    * @uses  EcrSqlParser::getParams()
+    * @uses  EcrSqlParser::isFunc()
+    * @uses  EcrSqlParser::parseFunctionOpts()
+    * @uses  EcrSqlParser::parseCondition()
+    * @uses  EcrSqlParser::isReserved()
+    * @uses  EcrSqlParser::isOperator()
+    * @uses  EcrSqlParser::parseSelect()
     * @uses  SQL_Parser_Lexer::$tokText
     * @uses  SQL_Parser_Lexer::unget()
     * @uses  SQL_Parser_Lexer::pushBack()
@@ -1728,18 +1728,18 @@ class SQL_Parser
     /**
     *
     * @return  array   parsed data
-    * @uses  SQL_Parser::$lexeropts
-    * @uses  SQL_Parser::$lexer
-    * @uses  SQL_Parser::$symbols
-    * @uses  SQL_Parser::$token
-    * @uses  SQL_Parser::raiseError()
-    * @uses  SQL_Parser::getTok()
-    * @uses  SQL_Parser::parseSelect()
-    * @uses  SQL_Parser::parseUpdate()
-    * @uses  SQL_Parser::parseInsert()
-    * @uses  SQL_Parser::parseDelete()
-    * @uses  SQL_Parser::parseCreate()
-    * @uses  SQL_Parser::parseDrop()
+    * @uses  EcrSqlParser::$lexeropts
+    * @uses  EcrSqlParser::$lexer
+    * @uses  EcrSqlParser::$symbols
+    * @uses  EcrSqlParser::$token
+    * @uses  EcrSqlParser::raiseError()
+    * @uses  EcrSqlParser::getTok()
+    * @uses  EcrSqlParser::parseSelect()
+    * @uses  EcrSqlParser::parseUpdate()
+    * @uses  EcrSqlParser::parseInsert()
+    * @uses  EcrSqlParser::parseDelete()
+    * @uses  EcrSqlParser::parseCreate()
+    * @uses  EcrSqlParser::parseDrop()
     * @uses  SQL_Parser_Lexer
     * @uses  SQL_Parser_Lexer::$symbols
     * @access  public
