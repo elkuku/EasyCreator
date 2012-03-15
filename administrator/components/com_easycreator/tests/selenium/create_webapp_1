@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://storm.kuku/web_easycreator/administrator" />
+<title>create_webapp_1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create_webapp_1</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/web_easycreator/administrator/index.php?option=com_easycreator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>id=ecr_project</td>
+	<td>label=Neues Projekt</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Hello World')])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=com_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Weiter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.ecr_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td> webapp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=span.icon-32-xeyes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=btn_runwap</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=exact:http://storm.kuku/web_easycreator/webapps/test/test.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Hello WWW!</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
