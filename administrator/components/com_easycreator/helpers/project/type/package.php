@@ -37,6 +37,36 @@ class EcrProjectTypePackage extends EcrProjectBase
     public $elements = array();
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Package');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Packages');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Package', '%d Packages', $n);
+    }
+
+    /**
      * Get the path for the Joomla! XML manifest file.
      *
      * @return string

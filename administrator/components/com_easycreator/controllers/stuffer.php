@@ -803,6 +803,7 @@ class EasyCreatorControllerStuffer extends JController
      *
      * @param EcrProjectBase $project The project.
      * @param             $installPath
+     * @return void
      */
     private function processSQLInstall(EcrProjectBase $project, $installPath)
     {
@@ -854,6 +855,7 @@ class EasyCreatorControllerStuffer extends JController
      *
      * @param EcrProjectBase $project The project
      * @param string      $installPath    Path to the project root.
+     * @return void
      */
     private function processSQLUnInstall(EcrProjectBase $project, $installPath)
     {

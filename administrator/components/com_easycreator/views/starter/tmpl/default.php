@@ -7,6 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+/* @var EcrProjectBase $pType */
 //-- Add css
 ecrStylesheet('php_file_tree');
 
@@ -38,10 +39,10 @@ $jVersions = array('15', '25');
 
 <div style="clear: both; height: 1em;"></div>
 
-<?php foreach(EcrProjectHelper::getProjectTypes() as $extType => $description): ?>
+<?php foreach(EcrProjectHelper::getProjectTypes() as $extType => $pType): ?>
 <div class="ecr_floatbox" style="width: 250px;">
     <div class="ecr_floatbox_title img icon-12-<?php echo $extType; ?>">
-        <?php echo $description; ?>
+        <?php echo $pType->translateType(); ?>
     </div>
     <?php if(isset($this->templateList[$extType])): ?>
     <?php if('' != $this->notes[$extType]) : ?>

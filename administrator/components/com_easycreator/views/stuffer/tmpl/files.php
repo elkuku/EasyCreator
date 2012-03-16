@@ -95,11 +95,6 @@ function drawFileTree(EcrProjectBase $project)
 {
     $ret = '';
 
-    //-- Allowed extensions
-    //-- TODO set somewhere else...
-    $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
-    $allowed_pics = array('png', 'gif', 'jpg', 'ico');
-
     $javascript = '';
     $javascript .= " onmousedown=\"setAction(event, '[link]', '[file]', '[id]');\"";
     $javascript .= " onclick=\"ecr_loadFile('', '[link]', '[file]', '[id]');\"";

@@ -50,28 +50,29 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                 </div>
                 <ul>
                     <?php
-                    foreach($this->comTypes as $com_type => $comName):
-                        if( ! isset($this->templates[$com_type])):
+                    /* @var EcrProjectBase $pType */
+                    foreach($this->comTypes as $pTag => $pType):
+                        if( ! isset($this->templates[$pTag])):
                             continue;
                         endif;
 
                         $path = str_replace(JPATH_ROOT.DS, '', $this->path);
-                        $js = " onmousedown=\"setAction('', '".$path."', '".$com_type."');\"";
+                        $js = " onmousedown=\"setAction('', '".$path."', '".$pTag."');\"";
 
                         ?>
                         <li class="pft-directory">
                             <div<?php echo $js; ?>>
-                                <?php echo $comName; ?>
+                                <?php echo $pType->translateTypePlural(); ?>
                             </div>
                             <ul>
 <?php
-                            foreach($this->templates[$com_type] as $template):
-                                $js = " onmousedown=\"setAction('', '".$path.DS.$com_type."', '".$template->folder."');\"";
+                            foreach($this->templates[$pTag] as $template):
+                                $js = " onmousedown=\"setAction('', '".$path.DS.$pTag."', '".$template->folder."');\"";
                                 echo '<li class="pft-directory">';
                                 echo '<div'.$js.' class="hasEasyTip" title="'.$template->info.'">';
                                 echo '<span class="img icon-16-info" />'.$template->name;
                                 echo '</div>';
-                                echo $fileTree->setDir($this->path.DS.$com_type.DS.$template->folder)->drawTree();
+                                echo $fileTree->setDir($this->path.DS.$pTag.DS.$template->folder)->drawTree();
                                 echo '</li>';
                              endforeach;
 ?>

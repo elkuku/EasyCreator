@@ -21,36 +21,16 @@ class EcrProjectHelper
      */
     public static function getProjectTypesTags()
     {
-        $projectTypes = array(
-        'com' => 'component'
-        , 'mod' => 'module'
-        , 'plg' => 'plugin'
-        , 'tpl' => 'template'
-        );
+        $tags = array();
 
-        switch(ECR_JVERSION)
+        /* @var EcrProjectBase $project */
+        foreach(self::getProjectTypes() as $project)
         {
-            case '1.5' :
-                break;
+            $tags[$project->prefix] = $project->type;
+        }
 
-            case '1.6':
-            case '1.7':
-            case '2.5':
-                $projectTypes += array(
-                'lib' => 'library'
-                , 'pkg' => 'package'
-                , 'cap' => 'cliapp'
-                , 'wap' => 'webapp'
-                );
-                break;
-
-            default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
-            break;
-        }//switch
-
-        return $projectTypes;
-    }//function
+        return $tags;
+    }
 
     /**
      * Get an EasyCreator project.
@@ -67,27 +47,27 @@ class EcrProjectHelper
         static $defaultName = '';
 
         if( ! $defaultName)
-        $defaultName = JRequest::getCmd('ecr_project');
+            $defaultName = JRequest::getCmd('ecr_project');
 
         if( ! $name)
-        $name = $defaultName;
+            $name = $defaultName;
 
         if( ! $name)
-        throw new Exception(jgettext('Empty project name'));
+            throw new Exception(jgettext('Empty project name'));
 
-        if(isset($projects[$name])
-        && ! $reload)
-        return $projects[$name];
+        if(isset($projects[$name]) && ! $reload)
+            return $projects[$name];
+
+        $type = substr($name, 0, 4);
+
+        //-- Internal - new, register
+        if($type == 'ecr_')
+            return '';
 
         $projectTypes = self::getProjectTypesTags();
 
-        $type = substr($name, 0, 3);
-
-        if($type == 'ecr')
-        return ''; //-- Internal - new, register
-
         if( ! array_key_exists($type, $projectTypes))
-        throw new Exception(sprintf('Invalid project type: %s ', $type));
+            throw new Exception(sprintf('Invalid project type: %s ', $type));
 
         $className = 'EcrProjectType'.ucfirst($projectTypes[$type]);
 
@@ -95,10 +75,9 @@ class EcrProjectHelper
 
         if( ! $project->dbId)
         {
-            if('package' != $project->type)
             //-- All projects *except packages* must be installed in the database
-            //return $project;
-            throw new Exception(sprintf(jgettext('Project %s not found'), $name));
+            if('package' != $project->type)
+                throw new Exception(sprintf(jgettext('Project %s not found'), $name));
         }
 
         $projects[$name] = $project;
@@ -392,63 +371,18 @@ class EcrProjectHelper
         if(count($types))
             return $types;
 
-        //-- We don't like these project types - for now..
-        $unwanted = array('language', 'file');
+        $list = JFolder::files(ECRPATH_HELPERS.'/project/type');
 
-        //-- Defined for translation
-        $comTypes = array(
-          'component' => array(jgettext('Components'), jgettext('Component'))
-        , 'module' => array(jgettext('Modules'), jgettext('Module'))
-        , 'plugin' => array(jgettext('Plugins'), jgettext('Plugin'))
-        , 'library' => array(jgettext('Libraries'), jgettext('Library'))
-        , 'package' => array(jgettext('Packages'), jgettext('Package'))
-        , 'template' => array(jgettext('Templates'), jgettext('Template'))
-
-        , 'cliapp' => array(jgettext('CLI Applications'), jgettext('CLI Application'))
-        , 'webapp' => array(jgettext('Web Applications'), jgettext('Web Application'))
-        );
-
-        //-- Defined for automated plural translations
-        if(0)
+        foreach($list as $item)
         {
-            jngettext('%d Component', '%d Components', 0);
-            jngettext('%d Module', '%d Modules', 0);
-            jngettext('%d Plugin', '%d Plugins', 0);
-            jngettext('%d Library', '%d Libraries', 0);
-            jngettext('%d Package', '%d Packages', 0);
-            jngettext('%d Template', '%d Templates', 0);
-
-            jngettext('%d CLI Application', '%d CLI Applications', 0);
-            jngettext('%d Web Application', '%d Web Applications', 0);
-        }
-
-        //-- Get a list of J! installer adapters
-        if(defined('JPATH_PLATFORM'))
-        {
-            $adapters = JFolder::files(JPATH_PLATFORM.DS.'joomla'.DS.'installer'.DS.'adapters', '.php$');
-        }
-        else
-        {
-            $adapters = JFolder::files(JPATH_LIBRARIES.DS.'joomla'.DS.'installer'.DS.'adapters', '.php$');
-        }
-
-        foreach($adapters as $aName)
-        {
-            $a = JFile::stripExt($aName);
-
-            if(in_array($a, $unwanted))
+            if('empty.php' == $item)
                 continue;
 
-            $n =(array_key_exists($a, $comTypes)) ? $comTypes[$a][0] : ucfirst($a);
-
-            $types[$a] = $n;
-        }//foreach
-
-        $types['cliapp'] = $comTypes['cliapp'][0];
-        $types['webapp'] = $comTypes['webapp'][0];
+            $types[JFile::stripExt($item)] = self::newProject(JFile::stripExt($item));
+        }
 
         return $types;
-    }//function
+    }
 
     /**
      * Get a list of known project scopes.
@@ -640,13 +574,13 @@ class EcrProjectHelper
         if($project->type != 'component')
         {
             //-- Only components can have install files..
-            //@todo change in 1.6
+            //-- @todo change in 1.6
             return $installFiles;
         }
 
         if($project->buildPath)
         {
-            //-- if $project->buildPath is set we are building a NEW project)
+            //-- If $project->buildPath is set we are building a NEW project)
             if(JFolder::exists($project->buildPath.'/install'))
             {
                 $base = $project->buildPath.DS.'install';
@@ -689,7 +623,7 @@ class EcrProjectHelper
 
             foreach($files as $file)
             {
-                $file = str_replace('/', DS, $file);//@todo since 1.7 :(
+                $file = str_replace('/', DS, $file);
                 $folder = str_replace($base.DS, '', $file);
                 $folder = str_replace(DS.JFile::getName($file), '', $folder);
 
@@ -838,13 +772,13 @@ class EcrProjectHelper
      * @param boolean $isFile Set [true to load a file | false to load a string].
      *
      * @todo This may go in a separate class - error reporting may be improved.
-     * @todo Update: dropJ1.5support remove since it is now part of JFactory
+     * @todo Update: drop J1.5 support remove since it is now part of JFactory
      *
      * @return JXMLElement on success | false on error
      */
     public static function getXML($data, $isFile = true)
     {
-        // Disable libxml errors and allow to fetch error information as needed
+        //-- Disable libxml errors and allow to fetch error information as needed
         libxml_use_internal_errors(true);
 
         if($isFile)

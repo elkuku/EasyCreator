@@ -30,6 +30,36 @@ class EcrProjectTypeCliapp extends EcrProjectBase
     public $isInstallable = false;
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('CLI Application');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('CLI Applications');
+    }
+
+    /**
+     * Translate the type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d CLI Application', '%d CLI Applications', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array

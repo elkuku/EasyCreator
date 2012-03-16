@@ -30,6 +30,36 @@ class EcrProjectTypeWebapp extends EcrProjectBase
     public $isInstallable = false;
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Web Application');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Web Applications');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Web Application', '%d Web Applications', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array

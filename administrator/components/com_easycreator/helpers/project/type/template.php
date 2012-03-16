@@ -30,6 +30,36 @@ class EcrProjectTypeTemplate extends EcrProjectBase
     public $prefix = 'tpl_';
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Template');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Templates');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Template', '%d Templates', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array

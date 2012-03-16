@@ -32,6 +32,36 @@ class EcrProjectTypeLibrary extends EcrProjectBase
     public $JCompat = '1.6';
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Library');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Libraries');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Library', '%d Libraries', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array

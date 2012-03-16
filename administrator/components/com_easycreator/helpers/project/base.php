@@ -237,6 +237,27 @@ abstract class EcrProjectBase extends JObject
     abstract public function getCoreProjects($scope);
 
     /**
+     * Translate the type
+     * @return string
+     */
+    abstract public function translateType();
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    abstract public function translateTypePlural();
+
+    /**
+     * Translate the type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    abstract public function translateTypeCount($n);
+
+    /**
      * Read the J! main menu entries for a component from the core components table.
      *
      * @return void
@@ -1027,7 +1048,7 @@ abstract class EcrProjectBase extends JObject
      * @param boolean $complete Set true to remove the whole project
      *
      * @throws Exception
-     * @return EcrProject
+     * @return EcrProjectBase
      */
     public function remove($complete = false)
     {

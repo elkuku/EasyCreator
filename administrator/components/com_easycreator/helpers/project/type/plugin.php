@@ -30,6 +30,36 @@ class EcrProjectTypePlugin extends EcrProjectBase
     public $prefix = 'plg_';
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Plugin');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Plugins');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Plugin', '%d Plugins', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @todo changes in 1.6

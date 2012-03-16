@@ -64,7 +64,7 @@ class EcrProjectBuilder extends JObject
      */
     public function build($type, $template, $name)
     {
-        //--Get component parameters
+        //-- Get component parameters
         $comParams = JComponentHelper::getParams('com_easycreator');
 
         //-- Setup logging
@@ -86,14 +86,6 @@ class EcrProjectBuilder extends JObject
             $this->setError(sprintf('Unknown project type [%s]', $type));
 
             return false;
-        }
-
-        foreach($projectTypes as $tag => $pType)
-        {
-            if($pType == $type)
-            {
-                break;
-            }
         }
 
         $this->project = EcrProjectHelper::newProject($type);
@@ -701,7 +693,7 @@ class EcrProjectBuilder extends JObject
      * @param string $name  Project name
      * @param string $scope Project scope e.g. admin, site
      *
-     * @return EcrProject on success | false on error
+     * @return EcrProjectBase on success | false on error
      */
     public function registerProject($type, $name, $scope = '')
     {
@@ -724,9 +716,7 @@ class EcrProjectBuilder extends JObject
 
         $this->logger = EcrLogger::getInstance('ecr', $options);
 
-        $projectTypes = EcrProjectHelper::getProjectTypes();
-
-        if(! array_key_exists($type, $projectTypes))
+        if(! array_key_exists($type, EcrProjectHelper::getProjectTypes()))
         {
             JFactory::getApplication()->enqueueMessage(sprintf(jgettext('The project type %s is not defined yet'), $type), 'error');
             $this->setError(sprintf(jgettext('The project type %s is not defined yet'), $type));

@@ -30,6 +30,36 @@ class EcrProjectTypeComponent extends EcrProjectBase
     public $prefix = 'com_';
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Component');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Components');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Component', '%d Components', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array

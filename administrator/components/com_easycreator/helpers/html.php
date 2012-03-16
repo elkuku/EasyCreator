@@ -48,7 +48,7 @@ final class EcrHtml
         $tasks = array();
         $rightTasks = array();
 
-        if($project instanceof EcrProject
+        if($project instanceof EcrProjectBase
             && $project->isValid
         )
         {
@@ -127,7 +127,6 @@ final class EcrHtml
             $rTasks = array_merge($rTasks, $v->tasks);
         }
 
-        $js = 'onchange="submitbutton(\''.$task.'\')"';
         ?>
     <div class="white_box" style="margin-bottom: 0.5em;">
         <div class="ecr_easy_toolbar">
@@ -479,13 +478,13 @@ final class EcrHtml
      * Draws a h1 tag with title and project name.
      *
      * @param string          $title
-     * @param EcrProjectBase  $project EcrProject
+     * @param EcrProjectBase  $project
      * @param string          $class
      */
     public static function header($title, EcrProjectBase $project = null, $class = '')
     {
         $pName = ($project) ? $project->name : '';
-        $pType = ($project) ? ucfirst($project->type) : '';
+        $pType = ($project) ? $project->translateType() : '';
         $pVersion = ($project) ? $project->version : '';
 
         $icon = ($class) ? '<span class="img32c icon-32-'.$class.'"></span>' : '';
@@ -493,7 +492,7 @@ final class EcrHtml
         $html = '';
         $html .= $icon;
         $html .= $title;
-        $html .= ($pType) ? '&nbsp;<span style="color: black">'.jgettext($pType).'</span>' : '';
+        $html .= ($pType) ? '&nbsp;<span style="color: black">'.$pType.'</span>' : '';
         $html .= ($pName) ? '&nbsp;<span style="color: green">'.$pName.'</span>' : '';
         $html .= ($pVersion) ? '&nbsp;<small><small>'.$pVersion.'</small></small>' : '';
 
@@ -998,9 +997,7 @@ EOF;
             }
             catch(Exception $e)
             {
-                echo ''; //-- To satisfy the sniffer - aka: do nothing.
             }
-            //try
         }
 
         echo '<span class="'.$class.'">';
@@ -1015,15 +1012,17 @@ EOF;
         $class = ' class="img3 icon-16-import"';
         echo NL.'<option'.$class.' value="ecr_register_project"'.$selected.'>'.jgettext('Register Project').'</option>';
 
-        foreach($projectTypes as $comType => $display)
+        /* @var EcrProjectBase $pType */
+        foreach($projectTypes as $pTag => $pType)
         {
-            if(isset($projects[$comType])
-                && count($projects[$comType])
+            if(isset($projects[$pTag])
+                && count($projects[$pTag])
             )
             {
-                echo NL.'<optgroup label="'.$display.'">';
+                echo NL.'<optgroup label="'.$pType->translateTypePlural().'">';
 
-                foreach($projects[$comType] as $project)
+                /* @var EcrProjectBase $project */
+                foreach($projects[$pTag] as $project)
                 {
                     $displayName = $project->name;
 
@@ -1031,7 +1030,7 @@ EOF;
                         $displayName .= ' ('.$project->scope.')';
 
                     $selected = ($project->fileName == $ecr_project) ? ' selected="selected"' : '';
-                    $class = ' class="img12 icon-12-'.$comType.'"';
+                    $class = ' class="img12 icon-12-'.$pTag.'"';
                     echo NL.'<option'.$class.' value="'.$project->fileName.'" label="'.$project->name.'"'.$selected.'>'
                         .$displayName.'</option>';
                 }

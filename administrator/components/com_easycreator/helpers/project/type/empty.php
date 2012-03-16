@@ -30,6 +30,36 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public $prefix = '';
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return '';
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return '';
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return '';
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array

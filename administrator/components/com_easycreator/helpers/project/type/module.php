@@ -30,6 +30,36 @@ class EcrProjectTypeModule extends EcrProjectBase
     public $prefix = 'mod_';
 
     /**
+     * Translate the type
+     * @return string
+     */
+    public function translateType()
+    {
+        return jgettext('Module');
+    }
+
+    /**
+     * Translate the plural type
+     * @return string
+     */
+    public function translateTypePlural()
+    {
+        return jgettext('Modules');
+    }
+
+    /**
+     * Translate the plural type using a count
+     *
+     * @param int $n The amount
+     *
+     * @return string
+     */
+    public function translateTypeCount($n)
+    {
+        return jngettext('%d Module', '%d Modules', $n);
+    }
+
+    /**
      * Find all files and folders belonging to the project.
      *
      * @return array
