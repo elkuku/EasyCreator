@@ -8,7 +8,7 @@
  */
 
 $buildOpts = $this->project->buildOpts;
-$options = new JRegistry($this->project->buildOpts);
+$options = new JObject($this->project->buildOpts);
 ?>
 
 <div class="ecr_floatbox">

@@ -333,7 +333,15 @@ class EcrProjectBuilder extends JObject
     private function createBuildDir()
     {
         //-- Create build directory
-        $this->buildDir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName.'_');
+        if('1.5' == ECR_JVERSION)
+        {
+            $cfg = new JConfig;
+            $this->buildDir = $cfg->tmp_path.DS.uniqid($this->project->comName.'_');
+        }
+        else
+        {
+            $this->buildDir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName.'_');
+        }
 
         //-- Clean the path @since J 1.7
         $this->buildDir = JPath::clean($this->buildDir);
