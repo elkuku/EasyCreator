@@ -185,8 +185,11 @@
 }
 
 .icon-16-opensuse {
-    background-image: url(../images/ico/opensuse_6.gif);
-    padding-left: 87px !important;
+    background-image: url(../images/ico/icon-16-opensuse.png);
+}
+
+.icon-16-phpstorm {
+    background-image: url(../images/ico/icon-16-phpstorm.png);
 }
 
 .icon-16-eye {

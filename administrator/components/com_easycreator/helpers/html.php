@@ -445,7 +445,7 @@ final class EcrHtml
         <a href="http://www.mozilla-europe.org/firefox/" title="FireFox" class="external">
             <span class="img icon-16-firefox">Firefox</span></a>
         and <a href="http://opensuse.org" title="openSUSE" class="external">
-        <span class="img icon-16-opensuse">openSUSE</span></a> <br/>
+        <span class="img icon-16-opensuse">openSUSE</span></a>&nbsp;Developed with<a href="http://www.jetbrains.com/phpstorm/" title="PHPStorm" class="external"><span class="img icon-16-phpstorm">PHPStorm</span></a><br/>
         Made and partially Copyright &copy; 2008 - 2012 by <a
         href="https://github.com/elkuku"
         class="external">El KuKu</a><br/>
