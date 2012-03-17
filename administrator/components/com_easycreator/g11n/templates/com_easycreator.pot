@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com_easycreator 0.0.15.4\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
-"POT-Creation-Date: 2012-03-07 01:53-0500\n"
+"POT-Creation-Date: 2012-03-16 19:09-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: administrator/components/com_easycreator/controllers/ajax.php:167
-#: administrator/components/com_easycreator/helpers/html.php:432
+#: administrator/components/com_easycreator/helpers/html.php:431
 #, php-format
 msgid "The class file for your Joomla version %s has not been build yet."
 msgstr ""
@@ -34,7 +34,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/language.php:326
 #: administrator/components/com_easycreator/helpers/language.php:335
 #: administrator/components/com_easycreator/helpers/language.php:1032
-#: administrator/components/com_easycreator/helpers/projecthelper.php:637
+#: administrator/components/com_easycreator/helpers/project/helper.php:539
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:491
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:353
 msgid "File not found"
@@ -103,8 +103,8 @@ msgid "Unable to create folder"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:640
-#: administrator/components/com_easycreator/helpers/html.php:1340
-#: administrator/components/com_easycreator/helpers/html.php:1359
+#: administrator/components/com_easycreator/helpers/html.php:1315
+#: administrator/components/com_easycreator/helpers/html.php:1334
 msgid "New folder"
 msgstr ""
 
@@ -126,8 +126,8 @@ msgid "Unable to create file"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:694
-#: administrator/components/com_easycreator/helpers/html.php:1341
-#: administrator/components/com_easycreator/helpers/html.php:1360
+#: administrator/components/com_easycreator/helpers/html.php:1316
+#: administrator/components/com_easycreator/helpers/html.php:1335
 msgid "New file"
 msgstr ""
 
@@ -152,15 +152,15 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:740
 #: administrator/components/com_easycreator/controllers/ajax.php:790
-#: administrator/components/com_easycreator/helpers/html.php:1343
-#: administrator/components/com_easycreator/helpers/html.php:1362
+#: administrator/components/com_easycreator/helpers/html.php:1318
+#: administrator/components/com_easycreator/helpers/html.php:1337
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:129
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:23
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:30
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:31
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:32
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:99
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:81
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:77
 msgid "Delete"
 msgstr ""
 
@@ -169,7 +169,6 @@ msgid "File does not exist"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:777
-#: administrator/components/com_easycreator/helpers/project.php:1054
 msgid "Unable to delete file"
 msgstr ""
 
@@ -183,8 +182,8 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/ajax.php:835
 #: administrator/components/com_easycreator/controllers/ajax.php:879
-#: administrator/components/com_easycreator/helpers/html.php:1342
-#: administrator/components/com_easycreator/helpers/html.php:1361
+#: administrator/components/com_easycreator/helpers/html.php:1317
+#: administrator/components/com_easycreator/helpers/html.php:1336
 msgid "Rename"
 msgstr ""
 
@@ -206,7 +205,7 @@ msgid "The file bootstrap.php has been copied to your Joomla root"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeye.php:48
-#: administrator/components/com_easycreator/helpers/templatehelper.php:204
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:207
 #, php-format
 msgid "Can not copy file %s"
 msgstr ""
@@ -233,7 +232,7 @@ msgid "Only PHP files are allowed"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:186
-#: administrator/components/com_easycreator/helpers/reflection.php:338
+#: administrator/components/com_easycreator/helpers/project/reflection.php:338
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:522
 msgid "No classes found"
 msgstr ""
@@ -290,17 +289,17 @@ msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:731
 #: administrator/components/com_easycreator/helpers/html.php:80
-#: administrator/components/com_easycreator/helpers/projecthelper.php:436
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:68
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:16
+#: administrator/components/com_easycreator/helpers/project/type/package.php:45
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:50
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:17
 #: administrator/components/com_easycreator/views/ziper/view.html.php:135
 msgid "Package"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:732
-#: administrator/components/com_easycreator/helpers/html.php:917
+#: administrator/components/com_easycreator/helpers/html.php:898
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:43
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:90
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:126
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:56
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:71
 msgid "Version"
@@ -311,8 +310,8 @@ msgid "Recommended"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:734
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:67
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:71
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:109
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:113
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:16
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:287
 msgid "Info"
@@ -354,7 +353,7 @@ msgstr ""
 msgid "Your project has been created"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/starter.php:117
+#: administrator/components/com_easycreator/controllers/starter.php:119
 msgid "Your project has been registered"
 msgstr ""
 
@@ -391,7 +390,7 @@ msgid "Invalid Table"
 msgstr ""
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:172
-#: administrator/components/com_easycreator/helpers/project.php:1082
+#: administrator/components/com_easycreator/helpers/project/base.php:1115
 msgid "Invalid options"
 msgstr ""
 
@@ -454,56 +453,56 @@ msgstr ""
 msgid "The Settings have been updated"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:591
+#: administrator/components/com_easycreator/controllers/stuffer.php:581
 #, php-format
 msgid "The Project %s has been removed"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:596
+#: administrator/components/com_easycreator/controllers/stuffer.php:586
 #, php-format
 msgid "The Project %s could not be removed"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:842
+#: administrator/components/com_easycreator/controllers/stuffer.php:835
 #, php-format
 msgid "%s Install sql file updated"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:843
+#: administrator/components/com_easycreator/controllers/stuffer.php:836
 #, php-format
 msgid "%s Install sql file created"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:847
+#: administrator/components/com_easycreator/controllers/stuffer.php:840
 #, php-format
 msgid "Can not create file at %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:896
+#: administrator/components/com_easycreator/controllers/stuffer.php:890
 #, php-format
 msgid "%s uninstall sql file updated"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:897
+#: administrator/components/com_easycreator/controllers/stuffer.php:891
 #, php-format
 msgid "%s uninstall sql file created"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:901
+#: administrator/components/com_easycreator/controllers/stuffer.php:895
 msgid "Can not create file at "
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:978
-#: administrator/components/com_easycreator/controllers/stuffer.php:1007
+#: administrator/components/com_easycreator/controllers/stuffer.php:976
+#: administrator/components/com_easycreator/controllers/stuffer.php:1005
 msgid "Update sql file has been written"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:982
-#: administrator/components/com_easycreator/controllers/stuffer.php:1013
+#: administrator/components/com_easycreator/controllers/stuffer.php:980
+#: administrator/components/com_easycreator/controllers/stuffer.php:1011
 msgid "Can not create the update sql file"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/stuffer.php:996
+#: administrator/components/com_easycreator/controllers/stuffer.php:994
 msgid "Update sql already exists"
 msgstr ""
 
@@ -511,15 +510,15 @@ msgstr ""
 msgid "Template has been deleted."
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/templates.php:100
+#: administrator/components/com_easycreator/controllers/templates.php:101
 msgid "No templates selected"
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/templates.php:104
+#: administrator/components/com_easycreator/controllers/templates.php:105
 msgid "Templates have been exported."
 msgstr ""
 
-#: administrator/components/com_easycreator/controllers/templates.php:128
+#: administrator/components/com_easycreator/controllers/templates.php:129
 msgid "Templates have been installed."
 msgstr ""
 
@@ -527,74 +526,18 @@ msgstr ""
 msgid "The file has been deleted"
 msgstr ""
 
-#: administrator/components/com_easycreator/easycreator.php:132
+#: administrator/components/com_easycreator/easycreator.php:133
 #, php-format
 msgid "EasyCreator version %s is in testing stage with your Joomla! version %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/easycreator.php:145
+#: administrator/components/com_easycreator/easycreator.php:146
 #, php-format
 msgid "EasyCreator version %s may not work well with your Joomla! version %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/easycreator.php:183
+#: administrator/components/com_easycreator/easycreator.php:184
 msgid "Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/autocode.php:136
-#, php-format
-msgid "AutoCode %s not found"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/autocode.php:153
-#, php-format
-msgid "Match mismatch on %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:384
-#, php-format
-msgid "Can not write the file at %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:567
-msgid "Path does not have a valid package"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:583
-#, php-format
-msgid "An error happened while installing your %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:622
-#, php-format
-msgid "Required class %s not found"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:638
-#: administrator/components/com_easycreator/helpers/builder.php:654
-#: administrator/components/com_easycreator/helpers/builder.php:664
-#, php-format
-msgid "Required method %s not found"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:644
-msgid "Custom options"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:673
-#, php-format
-msgid "Action %s not defined"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:714
-#: administrator/components/com_easycreator/helpers/builder.php:715
-#, php-format
-msgid "The project type %s is not defined yet"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/builder.php:726
-#: administrator/components/com_easycreator/helpers/builder.php:728
-msgid "No manifest file found"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/debugger.php:80
@@ -609,12 +552,12 @@ msgstr ""
 msgid "No debugger set"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/easycreator.php:36
+#: administrator/components/com_easycreator/helpers/easycreator.php:45
 #, php-format
 msgid "Controller %s not found"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/easycreator.php:50
+#: administrator/components/com_easycreator/helpers/easycreator.php:59
 #, php-format
 msgid "Controller class %s not found"
 msgstr ""
@@ -669,14 +612,14 @@ msgid "No files found"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html.php:58
-#: administrator/components/com_easycreator/helpers/html.php:1028
+#: administrator/components/com_easycreator/helpers/html.php:1005
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:34
 #: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:34
 msgid "Project"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html.php:66
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:63
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:45
 #: administrator/components/com_easycreator/views/languages/view.html.php:68
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:21
 msgid "Languages"
@@ -692,7 +635,7 @@ msgid "Configuration"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html.php:99
-#: administrator/components/com_easycreator/helpers/projecthelper.php:437
+#: administrator/components/com_easycreator/helpers/project/type/template.php:47
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:351
 #: administrator/components/com_easycreator/views/templates/view.html.php:141
 msgid "Templates"
@@ -704,7 +647,7 @@ msgid "Logfiles"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html.php:109
-#: administrator/components/com_easycreator/views/help/tmpl/default.php:18
+#: administrator/components/com_easycreator/views/help/tmpl/default.php:16
 msgid "Help"
 msgstr ""
 
@@ -712,89 +655,89 @@ msgstr ""
 msgid "Sandbox"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:137
+#: administrator/components/com_easycreator/helpers/html.php:136
 msgid "J! API"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:182
-#: administrator/components/com_easycreator/helpers/html.php:184
+#: administrator/components/com_easycreator/helpers/html.php:181
+#: administrator/components/com_easycreator/helpers/html.php:183
 msgid "More..."
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:182
+#: administrator/components/com_easycreator/helpers/html.php:181
 msgid "Click for more options"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:321
+#: administrator/components/com_easycreator/helpers/html.php:320
 msgid "Save versioned"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:337
+#: administrator/components/com_easycreator/helpers/html.php:336
 msgid "Continue editing"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:353
+#: administrator/components/com_easycreator/helpers/html.php:352
 msgid "Invalid path"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:408
+#: administrator/components/com_easycreator/helpers/html.php:407
 #: administrator/components/com_easycreator/helpers/language.php:1036
 msgid "Create language file"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:425
+#: administrator/components/com_easycreator/helpers/html.php:424
 msgid "Found a BOM in languagefile"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:431
+#: administrator/components/com_easycreator/helpers/html.php:430
 msgid "Create class list file"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:544
+#: administrator/components/com_easycreator/helpers/html.php:543
 msgid "Log file contents"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:545
+#: administrator/components/com_easycreator/helpers/html.php:544
 msgid "Profile"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:558
+#: administrator/components/com_easycreator/helpers/html.php:557
 msgid "Activate logging"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:674
+#: administrator/components/com_easycreator/helpers/html.php:663
 msgid "Please set a compression type"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:676
+#: administrator/components/com_easycreator/helpers/html.php:665
 msgid "You can set a default compression type in configuration"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:781
-#: administrator/components/com_easycreator/helpers/html.php:794
+#: administrator/components/com_easycreator/helpers/html.php:766
+#: administrator/components/com_easycreator/helpers/html.php:779
 msgid "Select a file"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:792
-#: administrator/components/com_easycreator/helpers/html.php:1139
-#: administrator/components/com_easycreator/helpers/html.php:1153
+#: administrator/components/com_easycreator/helpers/html.php:777
+#: administrator/components/com_easycreator/helpers/html.php:1117
+#: administrator/components/com_easycreator/helpers/html.php:1131
 #: administrator/components/com_easycreator/views/config/tmpl/default.php:17
 #: administrator/components/com_easycreator/views/config/tmpl/default.php:18
 #: administrator/components/com_easycreator/views/config/tmpl/default_15.php:21
 #: administrator/components/com_easycreator/views/config/tmpl/default_15.php:22
-#: administrator/components/com_easycreator/views/languages/view.html.php:949
-#: administrator/components/com_easycreator/views/languages/view.html.php:958
+#: administrator/components/com_easycreator/views/languages/view.html.php:934
+#: administrator/components/com_easycreator/views/languages/view.html.php:943
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:74
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:72
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:170
 msgid "Save"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:897
+#: administrator/components/com_easycreator/helpers/html.php:881
 msgid "Your extension so far"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:900
+#: administrator/components/com_easycreator/helpers/html.php:884
 #: administrator/components/com_easycreator/helpers/table/helper.php:374
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:119
 #: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:353
@@ -803,19 +746,19 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:901
-#: administrator/components/com_easycreator/helpers/projecthelper.php:437
+#: administrator/components/com_easycreator/helpers/html.php:885
+#: administrator/components/com_easycreator/helpers/project/type/template.php:38
 #: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:24
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:23
 msgid "Template"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:902
+#: administrator/components/com_easycreator/helpers/html.php:886
 msgid "JVersion"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:916
-#: administrator/components/com_easycreator/helpers/html.php:1108
+#: administrator/components/com_easycreator/helpers/html.php:897
+#: administrator/components/com_easycreator/helpers/html.php:1086
 #: administrator/components/com_easycreator/helpers/table/helper.php:372
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:47
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:27
@@ -833,63 +776,63 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:918
+#: administrator/components/com_easycreator/helpers/html.php:899
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:58
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:48
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:89
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:62
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:78
 msgid "Description"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:922
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:86
+#: administrator/components/com_easycreator/helpers/html.php:903
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:125
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:20
 msgid "Author"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:923
+#: administrator/components/com_easycreator/helpers/html.php:904
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:91
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:25
 msgid "Author e-mail"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:924
+#: administrator/components/com_easycreator/helpers/html.php:905
 msgid "Author URL"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:925
+#: administrator/components/com_easycreator/helpers/html.php:906
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:105
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:35
 msgid "License"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:926
+#: administrator/components/com_easycreator/helpers/html.php:907
 msgid "Copyright (C)"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:928
+#: administrator/components/com_easycreator/helpers/html.php:909
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:71
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_autocode.php:17
 msgid "List postfix"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1032
+#: administrator/components/com_easycreator/helpers/html.php:1009
 msgid "New Project"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1036
+#: administrator/components/com_easycreator/helpers/html.php:1013
 msgid "Register Project"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1078
-#: administrator/components/com_easycreator/helpers/html.php:1084
+#: administrator/components/com_easycreator/helpers/html.php:1056
+#: administrator/components/com_easycreator/helpers/html.php:1062
 #: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:21
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:20
-#: administrator/components/com_easycreator/views/languages/view.html.php:852
+#: administrator/components/com_easycreator/views/languages/view.html.php:837
 msgid "Scope"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1087
+#: administrator/components/com_easycreator/helpers/html.php:1065
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:82
 #: administrator/components/com_easycreator/views/languages/view.html.php:357
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:376
@@ -897,26 +840,26 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1088
+#: administrator/components/com_easycreator/helpers/html.php:1066
 #: administrator/components/com_easycreator/helpers/table/helper.php:35
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:25
 msgid "Admin"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1089
+#: administrator/components/com_easycreator/helpers/html.php:1067
 #: administrator/components/com_easycreator/helpers/table/helper.php:41
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:25
 msgid "Site"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1347
+#: administrator/components/com_easycreator/helpers/html.php:1322
 #: administrator/components/com_easycreator/views/languages/view.html.php:355
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:60
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:54
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:50
 msgid "File"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/html.php:1366
+#: administrator/components/com_easycreator/helpers/html.php:1341
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:26
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:19
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:27
@@ -950,7 +893,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/language.php:467
 #: administrator/components/com_easycreator/helpers/language.php:606
-#: administrator/components/com_easycreator/helpers/templatehelper.php:139
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:141
 #, php-format
 msgid "Unable to write file %s"
 msgstr ""
@@ -981,7 +924,7 @@ msgid "Can not save version"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/language.php:711
-#: administrator/components/com_easycreator/helpers/reflection.php:628
+#: administrator/components/com_easycreator/helpers/project/reflection.php:628
 #, php-format
 msgid "File %s not found"
 msgstr ""
@@ -1102,272 +1045,400 @@ msgid "The file %s could not be written to path %s"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/logger.php:308
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:46
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:44
 msgid "Log File"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/manifest.php:936
-#: administrator/components/com_easycreator/helpers/manifest.php:1039
-#, php-format
-msgid "Unable to load the xml file %s"
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/parameter/parameter_15.php:65
 msgid "No parameters for this item"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:390
+#: administrator/components/com_easycreator/helpers/project/autocode.php:136
+#, php-format
+msgid "AutoCode %s not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/autocode.php:153
+#, php-format
+msgid "Match mismatch on %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/base.php:429
 msgid "Can not update EasyCreator manifest"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:397
+#: administrator/components/com_easycreator/helpers/project/base.php:436
 msgid "Can not update Joomla! manifest"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:404
+#: administrator/components/com_easycreator/helpers/project/base.php:443
 msgid "Can not update Admin menu"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:436
+#: administrator/components/com_easycreator/helpers/project/base.php:475
 #, php-format
 msgid "Can not load xml file %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:483
-#: administrator/components/com_easycreator/helpers/project.php:1153
+#: administrator/components/com_easycreator/helpers/project/base.php:522
+#: administrator/components/com_easycreator/helpers/project/base.php:1186
 msgid "Unable to write file"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:752
+#: administrator/components/com_easycreator/helpers/project/base.php:791
 msgid "Project manifest not found"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:763
+#: administrator/components/com_easycreator/helpers/project/base.php:802
 msgid "Invalid project manifest"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:1017
+#: administrator/components/com_easycreator/helpers/project/base.php:1056
 msgid "Invalid Project"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:1036
+#: administrator/components/com_easycreator/helpers/project/base.php:1073
 msgid "JInstaller: Unable to remove project"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:1047
-#: administrator/components/com_easycreator/helpers/projecthelper.php:300
+#: administrator/components/com_easycreator/helpers/project/base.php:1088
+#: administrator/components/com_easycreator/helpers/project/helper.php:247
 #, php-format
 msgid "File not found %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project.php:1131
+#: administrator/components/com_easycreator/helpers/project/base.php:1091
+#, php-format
+msgid "Unable to delete file at %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/base.php:1164
 #, php-format
 msgid "Autocode key %s not found"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/project/component.php:692
-msgid "There was a problem updating the admin menu"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/project/plugin.php:332
-#: administrator/components/com_easycreator/helpers/project/plugin.php:368
-#: administrator/components/com_easycreator/helpers/project/plugin.php:403
-#: administrator/components/com_easycreator/helpers/project/plugin.php:447
+#: administrator/components/com_easycreator/helpers/project/builder.php:391
 #, php-format
-msgid "%s - Unknown scope: %s"
+msgid "Can not write the file at %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:76
+#: administrator/components/com_easycreator/helpers/project/builder.php:574
+msgid "Path does not have a valid package"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:590
+#, php-format
+msgid "An error happened while installing your %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:629
+#, php-format
+msgid "Required class %s not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:645
+#: administrator/components/com_easycreator/helpers/project/builder.php:661
+#: administrator/components/com_easycreator/helpers/project/builder.php:671
+#, php-format
+msgid "Required method %s not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:651
+msgid "Custom options"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:680
+#, php-format
+msgid "Action %s not defined"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:721
+#: administrator/components/com_easycreator/helpers/project/builder.php:722
+#, php-format
+msgid "The project type %s is not defined yet"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:750
+#: administrator/components/com_easycreator/helpers/project/builder.php:752
+msgid "No manifest file found"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:56
 msgid "Empty project name"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:101
-#: administrator/components/com_easycreator/helpers/projecthelper.php:699
+#: administrator/components/com_easycreator/helpers/project/helper.php:80
+#: administrator/components/com_easycreator/helpers/project/helper.php:601
 #, php-format
 msgid "Project %s not found"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:235
+#: administrator/components/com_easycreator/helpers/project/helper.php:182
 #, php-format
 msgid "Manifest not found for type: %s - name: %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:310
+#: administrator/components/com_easycreator/helpers/project/helper.php:257
 #, php-format
 msgid "Invalid manifest file %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:432
-msgid "Components"
+#: administrator/components/com_easycreator/helpers/project/helper.php:550
+msgid "Class not found"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:432
-msgid "Component"
+#: administrator/components/com_easycreator/helpers/project/helper.php:798
+msgid "Could not load XML file"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:433
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:29
-msgid "Modules"
+#: administrator/components/com_easycreator/helpers/project/manifest.php:937
+#: administrator/components/com_easycreator/helpers/project/manifest.php:1040
+#, php-format
+msgid "Unable to load the xml file %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:433
-msgid "Module"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:411
+#: administrator/components/com_easycreator/helpers/project/matrix.php:458
+#: administrator/components/com_easycreator/helpers/project/matrix.php:525
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:43
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:119
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:19
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:131
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:131
+msgid "Files"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:434
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:52
-msgid "Plugins"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:412
+#: administrator/components/com_easycreator/helpers/project/matrix.php:459
+#: administrator/components/com_easycreator/helpers/project/matrix.php:526
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:129
+msgid "Code lines"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:434
-msgid "Plugin"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:413
+#: administrator/components/com_easycreator/helpers/project/matrix.php:460
+#: administrator/components/com_easycreator/helpers/project/matrix.php:527
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:44
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:124
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:20
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:44
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:62
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:52
+msgid "Size"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:435
-msgid "Libraries"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:436
+#, php-format
+msgid "Code analysis %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:435
-msgid "Library"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:501
+#: administrator/components/com_easycreator/helpers/project/matrix.php:565
+msgid "code"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:436
-msgid "Packages"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:502
+#: administrator/components/com_easycreator/helpers/project/matrix.php:566
+msgid "blanks"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:439
-msgid "CLI Applications"
+#: administrator/components/com_easycreator/helpers/project/matrix.php:503
+#: administrator/components/com_easycreator/helpers/project/matrix.php:567
+msgid "comments"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:439
+#: administrator/components/com_easycreator/helpers/project/matrix.php:507
+#: administrator/components/com_easycreator/helpers/project/matrix.php:571
+msgid "Comment to Code ratio"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:121
+#, php-format
+msgid "Unable to copy the file %s to %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:151
+msgid "Error creating archive"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:167
+msgid "Unable to find install package"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:170
+msgid "This is not an EasyCreator Extension Template"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:183
+#, php-format
+msgid "The template %s is already installed"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:196
+#, php-format
+msgid "Can not create folder %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:228
+msgid "No file selected"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:232
+msgid "Invalid package"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/info.php:53
+msgid "Edit"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/info.php:57
+msgid "New"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/info.php:76
+#, php-format
+msgid "Undefined format: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/cliapp.php:38
 msgid "CLI Application"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:440
-msgid "Web Applications"
+#: administrator/components/com_easycreator/helpers/project/type/cliapp.php:47
+msgid "CLI Applications"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:440
-msgid "Web Application"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:446
-#, php-format
-msgid "%d Component"
-msgid_plural "%d Components"
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:447
-#, php-format
-msgid "%d Module"
-msgid_plural "%d Modules"
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:448
-#, php-format
-msgid "%d Plugin"
-msgid_plural "%d Plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:449
-#, php-format
-msgid "%d Library"
-msgid_plural "%d Libraries"
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:450
-#, php-format
-msgid "%d Package"
-msgid_plural "%d Packages"
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:451
-#, php-format
-msgid "%d Template"
-msgid_plural "%d Templates"
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:453
+#: administrator/components/com_easycreator/helpers/project/type/cliapp.php:59
 #, php-format
 msgid "%d CLI Application"
 msgid_plural "%d CLI Applications"
 msgstr[0] ""
 msgstr[1] ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:454
+#: administrator/components/com_easycreator/helpers/project/type/component.php:38
+msgid "Component"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:47
+msgid "Components"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:59
+#, php-format
+msgid "%d Component"
+msgid_plural "%d Components"
+msgstr[0] ""
+msgstr[1] ""
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:718
+msgid "There was a problem updating the admin menu"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/library.php:40
+msgid "Library"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/library.php:49
+msgid "Libraries"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/library.php:61
+#, php-format
+msgid "%d Library"
+msgid_plural "%d Libraries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: administrator/components/com_easycreator/helpers/project/type/module.php:38
+msgid "Module"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/module.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:29
+msgid "Modules"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/module.php:59
+#, php-format
+msgid "%d Module"
+msgid_plural "%d Modules"
+msgstr[0] ""
+msgstr[1] ""
+
+#: administrator/components/com_easycreator/helpers/project/type/package.php:54
+msgid "Packages"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/package.php:66
+#, php-format
+msgid "%d Package"
+msgid_plural "%d Packages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:38
+msgid "Plugin"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:52
+msgid "Plugins"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:59
+#, php-format
+msgid "%d Plugin"
+msgid_plural "%d Plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:362
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:398
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:433
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:477
+#, php-format
+msgid "%s - Unknown scope: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/template.php:59
+#, php-format
+msgid "%d Template"
+msgid_plural "%d Templates"
+msgstr[0] ""
+msgstr[1] ""
+
+#: administrator/components/com_easycreator/helpers/project/type/webapp.php:38
+msgid "Web Application"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/webapp.php:47
+msgid "Web Applications"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/type/webapp.php:59
 #, php-format
 msgid "%d Web Application"
 msgid_plural "%d Web Applications"
 msgstr[0] ""
 msgstr[1] ""
 
-#: administrator/components/com_easycreator/helpers/projecthelper.php:648
-msgid "Class not found"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projecthelper.php:895
-msgid "Could not load XML file"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:411
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:458
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:525
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:43
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:119
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:19
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:98
-#: administrator/components/com_easycreator/views/stuffer/view.html.php:131
-msgid "Files"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:412
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:459
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:526
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:129
-msgid "Code lines"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:413
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:460
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:527
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:44
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:124
-#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:20
-#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:44
-#: administrator/components/com_easycreator/views/templates/tmpl/export.php:62
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:56
-msgid "Size"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:436
+#: administrator/components/com_easycreator/helpers/project/ziper.php:905
+#: administrator/components/com_easycreator/templates/std/md5check.po.php:40
 #, php-format
-msgid "Code analysis %s"
+msgid "File not found: %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:501
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:565
-msgid "code"
+#: administrator/components/com_easycreator/helpers/project/ziper.php:933
+#, php-format
+msgid "Failed to copy file %s to %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:502
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:566
-msgid "blanks"
+#: administrator/components/com_easycreator/helpers/project/ziper.php:1140
+msgid "The extension \"bz2\" couldn't be found."
 msgstr ""
 
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:503
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:567
-msgid "comments"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:507
-#: administrator/components/com_easycreator/helpers/projectmatrix.php:571
-msgid "Comment to Code ratio"
+#: administrator/components/com_easycreator/helpers/project/ziper.php:1142
+msgid "Please make sure your version of PHP was built with bz2 support."
 msgstr ""
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:368
@@ -1407,73 +1478,6 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:380
 msgid "Comment"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:119
-#, php-format
-msgid "Unable to copy the file %s to %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:149
-msgid "Error creating archive"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:164
-msgid "Unable to find install package"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:167
-msgid "This is not an EasyCreator Extension Template"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:180
-#, php-format
-msgid "The template %s is already installed"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:193
-#, php-format
-msgid "Can not create folder %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:224
-msgid "No file selected"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templatehelper.php:228
-msgid "Invalid package"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templateinfo.php:53
-msgid "Edit"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templateinfo.php:57
-msgid "New"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/templateinfo.php:76
-#, php-format
-msgid "Undefined format: %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/ziper.php:910
-#: administrator/components/com_easycreator/templates/std/md5check.po.php:40
-#, php-format
-msgid "File not found: %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/ziper.php:938
-#, php-format
-msgid "Failed to copy file %s to %s"
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/ziper.php:1143
-msgid "The extension \"bz2\" couldn't be found."
-msgstr ""
-
-#: administrator/components/com_easycreator/helpers/ziper.php:1145
-msgid "Please make sure your version of PHP was built with bz2 support."
 msgstr ""
 
 #: administrator/components/com_easycreator/includes/functions.php:37
@@ -1558,7 +1562,7 @@ msgstr ""
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:71
 #: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:65
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:60
-#: administrator/components/com_easycreator/views/languages/view.html.php:1051
+#: administrator/components/com_easycreator/views/languages/view.html.php:1033
 msgid "Choose"
 msgstr ""
 
@@ -1821,8 +1825,8 @@ msgstr ""
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:59
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:53
 #: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:53
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:41
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:40
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:42
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:38
 msgid "Options"
 msgstr ""
 
@@ -2113,29 +2117,21 @@ msgstr ""
 msgid "Support EasyCreator by adding it to your stack at Ohloh"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:25
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:21
 msgid "Registered Projects"
 msgstr ""
 
-#. TRANSLATORS: Do not translate !
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:50
-#, php-format
-msgid "%d "
-msgid_plural "%d "
-msgstr[0] ""
-msgstr[1] ""
-
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:57
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:39
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:81
 msgid "Configure"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:83
-#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:61
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:65
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:53
 msgid "None found"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:87
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:69
 msgid "Create your first project"
 msgstr ""
 
@@ -2348,7 +2344,7 @@ msgid "Google translate"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:14
-#: administrator/components/com_easycreator/views/languages/view.html.php:822
+#: administrator/components/com_easycreator/views/languages/view.html.php:814
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:41
 msgid "Versions"
 msgstr ""
@@ -2371,7 +2367,7 @@ msgid "Show"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:384
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:38
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:36
 msgid "Errors"
 msgstr ""
 
@@ -2379,104 +2375,96 @@ msgstr ""
 msgid "Please select the errors you wish to correct"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:796
+#: administrator/components/com_easycreator/views/languages/view.html.php:788
 msgid "Setup"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:797
+#: administrator/components/com_easycreator/views/languages/view.html.php:789
 msgid "Setup your language files"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:801
+#: administrator/components/com_easycreator/views/languages/view.html.php:793
 msgid "Files and menus"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:802
+#: administrator/components/com_easycreator/views/languages/view.html.php:794
 msgid "Searches inside the source files and menus for translatable strings"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:806
+#: administrator/components/com_easycreator/views/languages/view.html.php:798
 msgid "Translations"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:808
+#: administrator/components/com_easycreator/views/languages/view.html.php:800
 msgid "Manage translations in ini files and inspect your php / xml files for JText strings to translate."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:812
+#: administrator/components/com_easycreator/views/languages/view.html.php:804
 msgid "Default file order"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:813
+#: administrator/components/com_easycreator/views/languages/view.html.php:805
 msgid "Change the order of your default language file and add comments to create a structure."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:817
+#: administrator/components/com_easycreator/views/languages/view.html.php:809
 msgid "Translation order"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:818
+#: administrator/components/com_easycreator/views/languages/view.html.php:810
 msgid "Change the order of your translated language files according to your default file."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:823
+#: administrator/components/com_easycreator/views/languages/view.html.php:815
 msgid "Compare saved versions of your language files."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:827
+#: administrator/components/com_easycreator/views/languages/view.html.php:819
 msgid "Convert"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:828
+#: administrator/components/com_easycreator/views/languages/view.html.php:820
 msgid "Convert your language files and your code simultaneously."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:874
+#: administrator/components/com_easycreator/views/languages/view.html.php:859
 msgid "Do NOT show"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:915
-#: administrator/components/com_easycreator/views/languages/view.html.php:919
+#: administrator/components/com_easycreator/views/languages/view.html.php:900
+#: administrator/components/com_easycreator/views/languages/view.html.php:904
 msgid "Load core language"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:918
+#: administrator/components/com_easycreator/views/languages/view.html.php:903
 msgid "Also load the core language file to check for translations (displayed in orange)"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:934
+#: administrator/components/com_easycreator/views/languages/view.html.php:919
 msgid "Cut"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:960
+#: administrator/components/com_easycreator/views/languages/view.html.php:945
 msgid "Drag and drop elements to rearrange. Add new comments."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:1012
+#: administrator/components/com_easycreator/views/languages/view.html.php:992
 msgid "Status"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:1013
+#: administrator/components/com_easycreator/views/languages/view.html.php:993
 msgid "Displays the status of your language files including cache."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:1017
-msgid "Cache"
-msgstr ""
-
-#: administrator/components/com_easycreator/views/languages/view.html.php:1018
-msgid "Displays the cache status of your language files."
-msgstr ""
-
-#: administrator/components/com_easycreator/views/languages/view.html.php:1022
+#: administrator/components/com_easycreator/views/languages/view.html.php:1004
 msgid "g11n"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:1024
+#: administrator/components/com_easycreator/views/languages/view.html.php:1006
 msgid "Utility to create and update your language files."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/languages/view.html.php:1049
+#: administrator/components/com_easycreator/views/languages/view.html.php:1031
 msgid "Language"
 msgstr ""
 
@@ -2488,47 +2476,61 @@ msgstr ""
 msgid "Clear log"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:26
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:22
 msgid "Show Joomla core projects"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:29
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:25
 msgid "Unregistered Projects"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:75
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:66
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:309
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:388
 msgid "Register"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:20
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:21
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:41
 msgid "Extension type"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:23
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:24
 msgid "Choose a component type from a predefined template"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:27
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:28
 msgid "Hide templates for Joomla! versions"
 msgstr ""
 
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:50
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:76
+msgid "Notes"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:55
+msgid "See also..."
+msgstr ""
+
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:58
+msgid "External infos"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:99
 msgid "Joomla 1.6 extension templates can not be build on Joomla 1.5"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:67
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:109
 msgid "Click to view files"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:94
-msgid "PHP version"
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:124
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:19
+msgid "Link"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/starter/tmpl/default.php:110
-msgid "External infos"
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:128
+msgid "PHP version"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:23
@@ -2576,7 +2578,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:69
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install.php:24
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:99
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:97
 msgid "Build options"
 msgstr ""
 
@@ -2599,6 +2601,15 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:106
 msgid "Create it"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/view.html.php:183
+msgid "Packages are containers to group other extension types"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/view.html.php:184
+#: administrator/components/com_easycreator/views/starter/view.html.php:185
+msgid "JApplications created with EasyCreator will look for an environment variable called JOOMLA_PATFORM_PATH. Otherwise you have to adjust the path in the entry file by hand !"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:17
@@ -2639,7 +2650,7 @@ msgstr ""
 msgid "Right click files and folders for options."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:238
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:233
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:80
 msgid "Select an element"
 msgstr ""
@@ -2744,7 +2755,7 @@ msgid "Autor-URL"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:20
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:21
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:19
 msgid "Joomla! version"
 msgstr ""
 
@@ -2810,10 +2821,6 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:19
-msgid "Link"
-msgstr ""
-
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:25
 msgid "Image"
 msgstr ""
@@ -2871,67 +2878,86 @@ msgstr ""
 msgid "Available projects"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:20
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:21
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:15
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:17
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:22
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:12
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:14
 msgid "Build folder"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:22
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:18
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:23
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:15
 msgid "The folder where your final package ends up. The folders extension_name and version will be added automatically."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:23
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:24
 #, php-format
 msgid "<br />If left blank the folder <strong>%s</strong> wil be used"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:30
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:31
 #, php-format
 msgid "The folder %s does not exist"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:36
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:37
 msgid "Compression"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:47
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:54
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:48
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:52
 msgid "Create index.html files"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:54
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:62
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:55
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:60
 msgid "Create MD5 checksum file"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:60
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:61
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:68
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:69
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:62
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:66
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:67
 msgid "Compress checksum file"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:62
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:70
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:63
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:68
 msgid "This will do a small compression on your checksum file"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:67
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:76
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:68
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:74
 msgid "EasyCreator Options"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:76
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:85
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:77
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:83
 msgid "Include EasyCreator Project file"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:83
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:94
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:84
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:92
 msgid "Remove EasyCreator AutoCode"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:88
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:16
+msgid "File name"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:92
+msgid "Default name"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:97
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:102
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:107
+msgid "Custom name"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:113
+msgid "Reset to default"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:27
@@ -2943,12 +2969,12 @@ msgid "Method"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:33
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:47
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:45
 msgid "This will perform an upgrade on installing your extension"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:34
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:45
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:43
 msgid "Upgrade"
 msgstr ""
 
@@ -3086,17 +3112,17 @@ msgid "Exports"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:48
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:23
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:20
 msgid "Archive is empty"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:61
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:55
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:51
 msgid "Modified"
 msgstr ""
 
 #: administrator/components/com_easycreator/views/templates/tmpl/export.php:63
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:58
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:54
 msgid "Action"
 msgstr ""
 
@@ -3129,23 +3155,23 @@ msgstr ""
 msgid "Extension templates parts"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:135
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:134
 msgid "Standard files"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:149
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:147
 msgid "Template constants"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:150
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:148
 msgid "Common constants"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:160
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:158
 msgid "Custom constants"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:161
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:159
 msgid "Custom constants may be defined in every template in options.php"
 msgstr ""
 
@@ -3165,15 +3191,15 @@ msgstr ""
 msgid "Exports EasyCreator Extension Templates"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:44
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:40
 msgid "No ZIP files found"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:18
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:16
 msgid "Please add some extensions to your package before creating it"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:44
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:42
 msgid "Create the package"
 msgstr ""
 
@@ -3182,44 +3208,40 @@ msgstr ""
 msgid "Create %s"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:19
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:16
 msgid "<br />If left blank the default folder will be used."
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:25
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:22
 msgid "The folder does not exist"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:17
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:14
 msgid "Packing format options"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:15
-msgid "File name"
-msgstr ""
-
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:22
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:23
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:24
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:26
 msgid "Custom name format"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:24
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:27
 msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:48
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:52
 msgid "Customize"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:20
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:17
 msgid "Your ZIPfile has been created sucessfully"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:33
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:30
 msgid "No download available"
 msgstr ""
 
-#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:37
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_result.php:35
 msgid "Your ZIPfile has NOT been created"
 msgstr ""
 

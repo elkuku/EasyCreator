@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
-"POT-Creation-Date: 2012-03-07 01:54 -500\n"
+"POT-Creation-Date: 2012-03-16 19:15 -500\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,6 +69,11 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xml:label
 #: administrator/components/com_easycreator/models/forms/config_15.xml:label
 msgid "tar.gz"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:label
+#: administrator/components/com_easycreator/models/forms/config_15.xml:label
+msgid "bz2"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:label
@@ -189,6 +194,11 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xml:description
 #: administrator/components/com_easycreator/models/forms/config_15.xml:description
 msgid "Ziped Tarball"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:description
+#: administrator/components/com_easycreator/models/forms/config_15.xml:description
+msgid "BZ2 format"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:description

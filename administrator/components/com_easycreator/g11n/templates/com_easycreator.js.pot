@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com_easycreator.js 0.0.15.4\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
-"POT-Creation-Date: 2012-03-07 01:53-0500\n"
+"POT-Creation-Date: 2012-03-16 19:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,15 +29,15 @@ msgstr ""
 #: administrator/components/com_easycreator/assets/js/easycreator.js:189
 #: administrator/components/com_easycreator/assets/js/log.js:38
 #: administrator/components/com_easycreator/assets/js/parts.js:13
-#: administrator/components/com_easycreator/assets/js/util.js:54
 #: administrator/components/com_easycreator/assets/js/wizard.js:44
+#: administrator/components/com_easycreator/assets/js/ziper.js:81
 msgid "Loading..."
 msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/addelement.js:178
 #: administrator/components/com_easycreator/assets/js/dbtables.js:150
 #: administrator/components/com_easycreator/assets/js/menu.js:72
-#: administrator/components/com_easycreator/assets/js/stuffer.js:29
+#: administrator/components/com_easycreator/assets/js/stuffer.js:55
 msgid "Delete"
 msgstr ""
 
@@ -130,19 +130,19 @@ msgstr ""
 msgid "You must provide a name"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/stuffer.js:23
-msgid "Name"
-msgstr ""
-
-#: administrator/components/com_easycreator/assets/js/stuffer.js:24
+#: administrator/components/com_easycreator/assets/js/stuffer.js:49
 msgid "URL"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/stuffer.js:25
+#: administrator/components/com_easycreator/assets/js/stuffer.js:50
+msgid "Name"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/stuffer.js:51
 msgid "Priority"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/stuffer.js:26
+#: administrator/components/com_easycreator/assets/js/stuffer.js:52
 msgid "Type"
 msgstr ""
 
