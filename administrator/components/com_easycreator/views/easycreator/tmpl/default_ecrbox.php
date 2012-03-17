@@ -18,7 +18,7 @@ $link = new stdClass;
 //.'&myVersion='.ECR_VERSION;
 $link->versionCheck = 'http://inkubator.der-beta-server.de/releases/easycreator.html?myVersion='.ECR_VERSION;
 $link->forum = 'http://joomlacode.org/gf/project/elkuku/forum/?action=ForumBrowse&amp;forum_id=15109';
-$link->bugTracker = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&amp;tracker_id=10284';
+$link->bugTracker = 'https://github.com/elkuku/EasyCreator/issues';
 $link->features = 'http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&amp;tracker_id=10283';
 $link->latestVersion = 'https://github.com/elkuku/EasyCreator/commits/master.atom';
 //$link->incubatorFeed = 'http://inkubator.der-beta-server.de/snapshots/EasyCreator.feed';
@@ -57,12 +57,14 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
         </a>
     </li>
 
+    <!--
     <li class="img icon-16-rename">
-    <!-- <a href="<?php echo $link->versionCheck; ?>" class="modal external"> -->
+     <a href="<?php echo $link->versionCheck; ?>" class="modal external">
         <a href="<?php echo $link->versionCheck; ?>" target="_blank" class="external">
-            <?php echo jgettext('Version check'); ?>
-        </a>
+    <?php echo jgettext('Version check'); ?>
+    </a>
     </li>
+     -->
     <li class="img icon-16-git">
     <a href="<?php echo $link->repo; ?>" class="external">
         <?php echo jgettext('Git repository'); ?>
