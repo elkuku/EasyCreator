@@ -1,6 +1,5 @@
-# com_easycreator.pot
-# The main language file
-# Copyright (C) 2008-2011 Nikolai Plath
+# com_easycreator.js - admin - The javascript language file.
+# Copyright (C) YEAR Nikolai Plath - elkuku
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
@@ -8,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
-"POT-Creation-Date: 2010-12-07 23:45-0500\n"
+"POT-Creation-Date: 2012-03-16 19:15-0500\n"
 "PO-Revision-Date: 2011-07-20 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/opentranslators/language/hu_HU/)\n"
@@ -18,33 +17,36 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: administrator/components/com_easycreator/assets/js/addelement.js:39
+#: administrator/components/com_easycreator/assets/js/addelement.js:38
 msgid "Please review your input"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/addelement.js:180
-#: administrator/components/com_easycreator/assets/js/menu.js:57
-msgid "Delete"
-msgstr ""
-
-#: administrator/components/com_easycreator/assets/js/addelement.js:218
-#: administrator/components/com_easycreator/assets/js/menu.js:101
-msgid "Select..."
-msgstr ""
-
+#: administrator/components/com_easycreator/assets/js/addelement.js:66
 #: administrator/components/com_easycreator/assets/js/autocode.js:86
-#: administrator/components/com_easycreator/assets/js/dbtables.js:269
-#: administrator/components/com_easycreator/assets/js/easycreator.js:131
-#: administrator/components/com_easycreator/assets/js/easycreator.js:143
-#: administrator/components/com_easycreator/assets/js/easycreator.js:190
-#: administrator/components/com_easycreator/assets/js/log.js:39
-#: administrator/components/com_easycreator/assets/js/parts.js:14
-#: administrator/components/com_easycreator/assets/js/util.js:55
-#: administrator/components/com_easycreator/assets/js/wizard.js:43
+#: administrator/components/com_easycreator/assets/js/dbtables.js:244
+#: administrator/components/com_easycreator/assets/js/easycreator.js:130
+#: administrator/components/com_easycreator/assets/js/easycreator.js:142
+#: administrator/components/com_easycreator/assets/js/easycreator.js:189
+#: administrator/components/com_easycreator/assets/js/log.js:38
+#: administrator/components/com_easycreator/assets/js/parts.js:13
+#: administrator/components/com_easycreator/assets/js/wizard.js:44
+#: administrator/components/com_easycreator/assets/js/ziper.js:81
 msgid "Loading..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/codeeye.js:427
+#: administrator/components/com_easycreator/assets/js/addelement.js:178
+#: administrator/components/com_easycreator/assets/js/dbtables.js:150
+#: administrator/components/com_easycreator/assets/js/menu.js:72
+#: administrator/components/com_easycreator/assets/js/stuffer.js:55
+msgid "Delete"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/addelement.js:216
+#: administrator/components/com_easycreator/assets/js/menu.js:118
+msgid "Select..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/codeeye.js:419
 msgid "CodeEye is checking your environment..."
 msgstr ""
 
@@ -52,71 +54,108 @@ msgstr ""
 msgid "This is not a number"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/dbtables.js:80
+#: administrator/components/com_easycreator/assets/js/dbtables.js:78
 msgid "Please add at least one field"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/easycreator.js:25
+#: administrator/components/com_easycreator/assets/js/easycreator.js:24
 msgid "New project..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/easycreator.js:33
+#: administrator/components/com_easycreator/assets/js/easycreator.js:32
 msgid "Register project..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/easycreator.js:42
-#, python-format
-msgid "Loading %s ..."
+#: administrator/components/com_easycreator/assets/js/easycreator.js:41
+msgid "Loading project..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/editor.js:43
-#: administrator/components/com_easycreator/assets/js/translator.js:123
+#: administrator/components/com_easycreator/assets/js/easycreator.js:285
+#: administrator/components/com_easycreator/assets/js/easycreator.js:309
+msgid "Checking..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:317
+msgid "Server error"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:340
+#, python-format
+msgid "The Latest EasyCreator version is: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:345
+msgid "Your version is up-to-date"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/easycreator.js:349
+msgid "Unknown version - maybe SVN ?"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/editor.js:47
+#: administrator/components/com_easycreator/assets/js/translator.js:121
 msgid "Saving..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:20
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:19
 msgid "Please enter a description for the element"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:36
+#: administrator/components/com_easycreator/assets/js/lang_orderdefault.js:35
 msgid "The element has been added"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:40
+#: administrator/components/com_easycreator/assets/js/menu.js:50
 msgid "Text"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:44
+#: administrator/components/com_easycreator/assets/js/menu.js:54
 msgid "Link"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:47
+#: administrator/components/com_easycreator/assets/js/menu.js:60
 msgid "Ordering"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:51
+#: administrator/components/com_easycreator/assets/js/menu.js:66
 msgid "Image"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:125
+#: administrator/components/com_easycreator/assets/js/menu.js:142
 msgid "User defined"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/parameter.js:80
-#: administrator/components/com_easycreator/assets/js/wizard2.js:39
+#: administrator/components/com_easycreator/assets/js/parameter.js:82
+#: administrator/components/com_easycreator/assets/js/wizard2.js:38
 msgid "You must provide a name"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/templates.js:34
+#: administrator/components/com_easycreator/assets/js/stuffer.js:49
+msgid "URL"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/stuffer.js:50
+msgid "Name"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/stuffer.js:51
+msgid "Priority"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/stuffer.js:52
+msgid "Type"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/templates.js:33
 msgid "Please select a package to upload"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/translator.js:30
-#: administrator/components/com_easycreator/assets/js/ziper.js:38
+#: administrator/components/com_easycreator/assets/js/translator.js:29
+#: administrator/components/com_easycreator/assets/js/ziper.js:39
 msgid "Deleting..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/translator.js:50
+#: administrator/components/com_easycreator/assets/js/translator.js:48
 msgid "Empty"
 msgstr ""
 
@@ -128,11 +167,11 @@ msgstr ""
 msgid "Translating..."
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/wizard2.js:27
+#: administrator/components/com_easycreator/assets/js/wizard2.js:26
 msgid "You must provide a version number"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/wizard2.js:51
+#: administrator/components/com_easycreator/assets/js/wizard2.js:50
 msgid "You must provide a list postfix"
 msgstr ""
 
