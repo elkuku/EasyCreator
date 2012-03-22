@@ -25,7 +25,7 @@ class EcrProjectZiper extends JObject
     private $createdFiles = array();
 
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     private $project;
 

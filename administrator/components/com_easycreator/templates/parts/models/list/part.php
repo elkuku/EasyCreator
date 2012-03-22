@@ -54,13 +54,13 @@ class PartModelsList
     /**
      * Inserts the part into the project.
      *
-     * @param EcrProject $easyProject The project.
+     * @param EcrProjectBase $easyProject The project.
      * @param array $options Insert options.
      * @param EcrLogger $logger The EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $easyProject, $options, EcrLogger $logger)
+    public function insert(EcrProjectBase $easyProject, $options, EcrLogger $logger)
     {
         $easyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
 

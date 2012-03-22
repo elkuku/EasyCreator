@@ -140,13 +140,13 @@ class PartViewsData_form extends EcrProjectPart
     /**
      * Inserts the part into the project.
      *
-     * @param EcrProject $EasyProject The project.
+     * @param EcrProjectBase $EasyProject The project.
      * @param array $options Insert options.
      * @param EcrLogger $logger The EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $EasyProject, $options, EcrLogger $logger)
+    public function insert(EcrProjectBase $EasyProject, $options, EcrLogger $logger)
     {
         $this->_options = $options;
 

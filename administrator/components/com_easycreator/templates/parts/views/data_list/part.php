@@ -216,13 +216,13 @@ class PartViewsData_list extends EcrProjectPart
     /**
      * Inserts the part into the project.
      *
-     * @param EcrProject $EcrProject The project.
+     * @param EcrProjectBase $EcrProject The project.
      * @param array $options Insert options.
      * @param EcrLogger $logger The EcrLogger.
      *
      * @return boolean
      */
-    public function insert(EcrProject $EcrProject, $options, EcrLogger $logger)
+    public function insert(EcrProjectBase $EcrProject, $options, EcrLogger $logger)
     {
         $EcrProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
 

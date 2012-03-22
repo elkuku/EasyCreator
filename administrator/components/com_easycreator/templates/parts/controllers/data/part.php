@@ -96,7 +96,7 @@ class PartControllersData
     /**
      * Inserts the part into the project.
      *
-     * @param EcrProjectBase $project EcrProject - The project.
+     * @param EcrProjectBase $project The project.
      * @param array $options Insert options.
      * @param object $logger EcrLogger.
      *

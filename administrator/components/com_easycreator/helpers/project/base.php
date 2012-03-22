@@ -788,6 +788,7 @@ abstract class EcrProjectBase extends JObject
 
         if(! JFile::exists($fileName))
         {
+            throw new Exception('Project manifest not found');
             JFactory::getApplication()->enqueueMessage(jgettext('Project manifest not found'), 'error');
 
             return false;
