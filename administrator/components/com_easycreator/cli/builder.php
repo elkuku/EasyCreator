@@ -62,14 +62,10 @@ class EcrCliBuilder extends JApplicationCli
      * DoIt
      *
      * @throws Exception
+     * @return void
      */
     public function execute()
     {
-        $projectName = $this->input->get('project');
-
-        if('' == $projectName)
-            throw new Exception('Please specify a project with the option --project');
-
         define('JPATH_BASE', THE_BUILD_PATH);
         define('JPATH_SITE', JPATH_BASE);
         define('JPATH_CACHE', JPATH_BASE.'/cache');
@@ -77,6 +73,8 @@ class EcrCliBuilder extends JApplicationCli
 
         define('JPATH_COMPONENT', JPATH_ADMINISTRATOR.'/components/com_easycreator');
         define('JPATH_COMPONENT_ADMINISTRATOR', JPATH_COMPONENT);
+
+        define('JPATH_INSTALLATION', '');
 
         require JPATH_BASE.'/configuration.php';
         require JPATH_BASE.'/libraries/cms/version/version.php';
@@ -96,6 +94,18 @@ class EcrCliBuilder extends JApplicationCli
         if($this->input->get('v') || $this->input->get('verbose'))
             $buildOpts[] = 'logging';
 
+        if($this->input->get('list'))
+        {
+            $this->printList();
+
+            return;
+        }
+
+        $projectName = $this->input->get('project');
+
+        if('' == $projectName)
+            throw new Exception('Please specify a project with the option --project');
+
         $project = EcrProjectHelper::getProject($projectName);
 
         foreach($project->buildOpts as $opt => $v)
@@ -110,6 +120,35 @@ class EcrCliBuilder extends JApplicationCli
         $ziper->create($project, $buildOpts);
 
         $this->out('Finished =;)');
+    }
+
+    private function printList()
+    {
+        $this->out('*** Project List ***');
+
+        $list = EcrProjectHelper::getProjectList();
+
+        $type = '';
+
+        foreach($list as $type => $items)
+        {
+            $this->out('===========================');
+            $this->out($type);
+            $this->out('===========================');
+
+            foreach($items as $item)
+            {
+                $this->out($item->name.' ('.$item->comName.')');
+            }
+
+
+        }
+//
+
+
+
+//        var_dump($list);
+
     }
 }
 
