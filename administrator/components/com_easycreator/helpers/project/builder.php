@@ -97,9 +97,19 @@ class EcrProjectBuilder extends JObject
         $this->project->dbTypes = JRequest::getVar('dbtypes', array(), 'array');
         $this->project->headerType = JRequest::getCmd('headerType');
 
+        //-- Set custom build names from component defaults
         for($i = 1; $i < 5; $i ++)
         {
             $this->project->buildOpts['custom_name_'.$i] = $comParams->get('custom_name_'.$i);
+        }
+
+        //-- Set packing formats from component defaults
+        foreach(EcrEasycreator::$packFormats as $name => $ext)
+        {
+            if($comParams->get($name))
+            {
+                $this->project->buildOpts[$name] = 'ON';
+            }
         }
 
         if(! $this->customOptions('process'))

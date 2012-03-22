@@ -477,10 +477,11 @@ class EcrLanguage
     /**
      * Saves a single translation item to a file.
      *
-     * @param string $lang Language tag e.g. en-GB
-     * @param string $key The key to save
+     * @param string $lang        Language tag e.g. en-GB
+     * @param string $key         The key to save
      * @param string $translation The translation to save
      *
+     * @throws Exception
      * @return return_type
      */
     public function saveTranslation($lang, $key, $translation)
@@ -703,6 +704,7 @@ class EcrLanguage
      *
      * @param string $path Path to language file
      *
+     * @throws Exception
      * @return array
      */
     public function parseFile($path)
