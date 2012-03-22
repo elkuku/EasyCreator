@@ -50,7 +50,24 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-03-21
+b336e4d Fix insert parts not working due to recent class rename
+18711b7 Enhance the CLI builder
+
+2012-03-18
+d773ede Fix wrong info links
+
+2012-03-17
+39c9cb8 Change the bug tracker link to github
+
+2012-03-16
+8e14976 Fix can not create any project in J 1.5
+e0d0f1d Add a PHPStorm logo
+29110ca Update language files
+10aea3f Change: Translations of extension template types are now done in the specific adapters
+
 2012-03-14
+956b536 Update changelog
 81baa55 Add new selenium tests
 fb9add7 Rename and move database helpers
 b8add90 Add a replacement class for extension templates for easier access
@@ -62,8 +79,8 @@ a32e593 Rename the project base class
 0aa3339 Move and rename project base class and types classes
 590d01a Formatting and Docblocks
 04e707d Fix: can not completely remove CLIApps and WebApps
-c58a5f5 Add aditional explanatory notes to extension templates
-ae8dbae Add aditional explanatory notes to extension templates
+c58a5f5 Add additional explanatory notes to extension templates
+ae8dbae Add additional explanatory notes to extension templates
 
 2012-03-10
 11f088a Add new extension templates for CLI- and Webapplications from joomla-platform-examples
