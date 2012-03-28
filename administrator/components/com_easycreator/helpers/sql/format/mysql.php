@@ -1,4 +1,12 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
+/**
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath
+ * @author     Created on 18-Jan-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
+ */
+
 /**
  * Format XML database dumps to MySQL format.
  */
@@ -7,8 +15,11 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
     protected $quoteString = '`';
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatCreate()
+     * Format a create statement.
+     *
+     * @param \SimpleXMLElement $create
+     *
+     * @return string
      */
     public function formatCreate(SimpleXMLElement $create)
     {
@@ -24,7 +35,7 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 
         $fields = array();
 
-        foreach ($create->field as $field)
+        foreach($create->field as $field)
         {
             $attribs = $field->attributes();
 
@@ -37,90 +48,94 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
             $as[] = $type;
 
             if('PRI' == (string)$attribs->Key)
-            $as[] = 'PRIMARY KEY';
+                $as[] = 'PRIMARY KEY';
 
-            if('NO' == (string) $attribs->Null
-            && 'auto_increment' != (string)$attribs->Extra)
-            $as[] = 'NOT NULL';
+            if('NO' == (string)$attribs->Null
+                && 'auto_increment' != (string)$attribs->Extra
+            )
+                $as[] = 'NOT NULL';
 
-            $default = (string) $attribs->Default;
+            $default = (string)$attribs->Default;
 
             if('' != $default)
-            $as[] = "DEFAULT '$default'";
+                $as[] = "DEFAULT '$default'";
 
             if('auto_increment' == (string)$attribs->Extra)
-            $as[] = 'AUTO INCREMENT';
+                $as[] = 'AUTO INCREMENT';
 
             if((string)$attribs->Comment)
-            $as[] = 'COMMENT \''.$attribs->Comment.'\'';
+                $as[] = 'COMMENT \''.$attribs->Comment.'\'';
 
             $fields[] = implode(' ', $as);
-        }//foreach
+        }
 
         $primaries = array();
         $uniques = array();
 //         $indices = array();
         $keys = array();
 
-        foreach ($create->key as $key)
+        foreach($create->key as $key)
         {
             $n = (string)$key->attributes()->Key_name;
             $c = (string)$key->attributes()->Column_name;
 
             if('PRIMARY' == $n)
-            $primaries[] = $c;
+                $primaries[] = $c;
             elseif('0' == (string)$key->attributes()->Non_unique)
-            $uniques[$n][] = $c;
+                $uniques[$n][] = $c;
 //             elseif('1' == (string)$key->attributes()->Seq_in_index)
 //             $indices[$n][] = $c;
             else
-            $keys[$n][] = $c;
-        }//foreach
+                $keys[$n][] = $c;
+        }
 
         $s[] = implode(",\n", $fields);
 
         if($primaries)
-        $s[] = 'PRIMARY KEY ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $primaries)).'),';
+            $s[] = 'PRIMARY KEY ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $primaries)).'),';
 
 //         foreach ($indices as $kName => $columns)
 //         {
 //             $s[] = 'INDEX '.$this->quote($kName).' (`'.implode('`,`', $columns).'`),';
 //         }//foreach
 
-        foreach ($uniques as $kName => $columns)
+        foreach($uniques as $kName => $columns)
         {
             $s[] = 'UNIQUE KEY '.$this->quote($kName)
-            .' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
-        }//foreach
+                .' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
+        }
 
-        foreach ($keys as $kName => $columns)
+        foreach($keys as $kName => $columns)
         {
             $s[] = 'KEY '.$this->quote($kName)
-            .' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
-        }//foreach
+                .' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
+        }
 
-	    /*
-	    $collation = (string)$create->options->attributes()->Collation;
+        /*
+          $collation = (string)$create->options->attributes()->Collation;
 
-	    $collation =($collation) ? ' DEFAULT CHARSET='.$collation : '';
+          $collation =($collation) ? ' DEFAULT CHARSET='.$collation : '';
 
-	    $s[] = ')'.$collation.';';
-	     */
+          $s[] = ')'.$collation.';';
+           */
 
-	    $s[] = ');';
+        $s[] = ');';
         $s[] = '';
 
         return implode("\n", $s);
-    }//function
+    }
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatInsert()
+     * Format the insert statement.
+     *
+     * @param \SimpleXMLElement $insert
+     *
+     * @return string
      */
     public function formatInsert(SimpleXMLElement $insert)
     {
-        if( ! isset($insert->row->field))
-        return '';
+        if(! isset($insert->row->field))
+            return '';
 
         $tableName = (string)$insert->attributes()->name;
 
@@ -134,7 +149,7 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 
         $keys = array();
 
-        foreach ($insert->row->field as $field)
+        foreach($insert->row->field as $field)
         {
             $keys[] = $this->quote($field->attributes()->name);
         }
@@ -145,21 +160,21 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 
         $values = array();
 
-        foreach ($insert->row as $row)
+        foreach($insert->row as $row)
         {
             $vs = array();
-            foreach ($row->field as $field)
+            foreach($row->field as $field)
             {
-                $f = (string) $field;
+                $f = (string)$field;
 
                 if($f != (string)(int)$field)
-                $f = $this->quote($f);
+                    $f = $this->quote($f);
 
                 $vs[] = $f;
-            }//foreach
+            }
 
             $values[] = '('.implode(', ', $vs).')';
-        }//foreach
+        }
 
         $s[] = 'VALUES';
 
@@ -168,22 +183,28 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
         $s[] = ';';
 
         return implode("\n", $s);
-    }//function
-
-	/**
-	 * (non-PHPdoc)
-	 * @see Xml2SqlFormatter::formatTruncate()
-	 */
-	public function formatTruncate(SimpleXMLElement $tableStructure)
-	{
-		$tableName = str_replace($this->options->get('prefix'), '#__', (string)$tableStructure->attributes()->name);
-
-		return 'TRUNCATE TABLE '.$tableName.";\n";
-	}
+    }
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatTruncate()
+     * Format the truncate table statement.
+     *
+     * @param \SimpleXMLElement $tableStructure
+     *
+     * @return string
+     */
+    public function formatTruncate(SimpleXMLElement $tableStructure)
+    {
+        $tableName = str_replace($this->options->get('prefix'), '#__', (string)$tableStructure->attributes()->name);
+
+        return 'TRUNCATE TABLE '.$tableName.";\n";
+    }
+
+    /**
+     * Format the drop table statement.
+     *
+     * @param \SimpleXMLElement $tableStructure
+     *
+     * @return string
      */
     public function formatDropTable(SimpleXMLElement $tableStructure)
     {

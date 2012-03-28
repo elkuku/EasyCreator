@@ -1,4 +1,12 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
+/**
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath
+ * @author     Created on 18-Jan-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
+ */
+
 /**
  * Format XML database dumps to MySQL format.
  */
@@ -7,8 +15,11 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
     protected $quoteString = '"';
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatCreate()
+     * Format the create statement.
+     *
+     * @param \SimpleXMLElement $create
+     *
+     * @return string
      */
     public function formatCreate(SimpleXMLElement $create)
     {
@@ -19,7 +30,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
         $s = array();
 
         $s[] = '';
-	    $s[] = '';
+        $s[] = '';
         $s[] = '-- Table structure for table '.$tableName;
         $s[] = '';
 
@@ -28,7 +39,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
         $fields = array();
         $comments = array();
 
-        foreach ($create->field as $field)
+        foreach($create->field as $field)
         {
             $attribs = $field->attributes();
 
@@ -40,8 +51,8 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
             {
                 $as[] = 'serial';
 
-                if('NO' == (string) $attribs->Null)
-                $as[] = 'NOT NULL';
+                if('NO' == (string)$attribs->Null)
+                    $as[] = 'NOT NULL';
             }
             else
             {
@@ -57,7 +68,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
                     }
                     if(0 === strpos(strtolower($matches[1]), 'int'))
                     {
-                        $type =($matches[2] > 10) ? 'bigint' : 'integer';
+                        $type = ($matches[2] > 10) ? 'bigint' : 'integer';
                     }
                     elseif(0 === strpos(strtolower($matches[1]), 'varchar'))
                     {
@@ -72,13 +83,12 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
                 $as[] = $type;
 
                 if('PRI' == (string)$attribs->Key)
-                $as[] = 'PRIMARY KEY';
+                    $as[] = 'PRIMARY KEY';
 
-                if('NO' == (string) $attribs->Null)
-                $as[] = 'NOT NULL';
+                if('NO' == (string)$attribs->Null)
+                    $as[] = 'NOT NULL';
 
-
-                $default = (string) $attribs->Default;
+                $default = (string)$attribs->Default;
 
                 if('' != $default)
                 {
@@ -90,80 +100,87 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
             $f = '';
 
             if((string)$attribs->Comment)
-            $f .= '-- '.$attribs->Comment."\n";
+                $f .= '-- '.$attribs->Comment."\n";
 
             $f .= implode(' ', $as);
 
             $fields[] = $f;
-        }//foreach
+        }
+        //foreach
 
         $primaries = array();
         $uniques = array();
         //         $indices = array();
         $keys = array();
 
-        foreach ($create->key as $key)
+        foreach($create->key as $key)
         {
             $n = (string)$key->attributes()->Key_name;
             $c = (string)$key->attributes()->Column_name;
 
             if('PRIMARY' == $n)
-            $primaries[] = $c;
+                $primaries[] = $c;
             elseif('0' == (string)$key->attributes()->Non_unique)
-            $uniques[$n][] = $c;
+                $uniques[$n][] = $c;
             //             elseif('1' == (string)$key->attributes()->Seq_in_index)
             //             $indices[$n][] = $c;
             else
-            $keys[$n][] = $c;
-        }//foreach
+                $keys[$n][] = $c;
+        }
+        //foreach
 
         $s[] = implode(",\n", $fields);
 
         $s[] = ',';
 
         if($primaries)
-        $s[] = 'PRIMARY KEY ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $primaries)).'),';
-
+            $s[] = 'PRIMARY KEY ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $primaries)).'),';
 
         //         foreach ($indices as $kName => $columns)
         //         {
         //             $s[] = 'INDEX '.$this->quote($kName).' (`'.implode('`,`', $columns).'`),';
         //         }//foreach
 
-        foreach ($uniques as $kName => $columns)
+        foreach($uniques as $kName => $columns)
         {
             $s[] = 'UNIQUE KEY '.$this->quote($kName).' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
-        }//foreach
+        }
+        //foreach
 
-        foreach ($keys as $kName => $columns)
+        foreach($keys as $kName => $columns)
         {
             $s[] = 'KEY '.$this->quote($kName).' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
-        }//foreach
-
+        }
+        //foreach
 
         /*
-	    $collation = (string)$create->options->attributes()->Collation;
+       $collation = (string)$create->options->attributes()->Collation;
 
-	    $collation =($collation) ? ' DEFAULT CHARSET='.$collation : '';
+       $collation =($collation) ? ' DEFAULT CHARSET='.$collation : '';
 
-	    $s[] = ')'.$collation.';';
-         */
+       $s[] = ')'.$collation.';';
+        */
 
-	    $s[] = ');';
+        $s[] = ');';
 
         $s[] = '';
 
         return implode("\n", $s);
-    }//function
+    }
+
+    //function
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatInsert()
+     * Format the insert statement
+     *
+     * @param \SimpleXMLElement $insert
+     *
+     * @return string
      */
     public function formatInsert(SimpleXMLElement $insert)
     {
-        if( ! isset($insert->row->field))
-        return '';
+        if(! isset($insert->row->field))
+            return '';
 
         $tableName = (string)$insert->attributes()->name;
 
@@ -177,7 +194,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
         $keys = array();
 
-        foreach ($insert->row->field as $field)
+        foreach($insert->row->field as $field)
         {
             $keys[] = $this->quote($field->attributes()->name);
         }
@@ -188,22 +205,24 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
         $values = array();
 
-        foreach ($insert->row as $row)
+        foreach($insert->row as $row)
         {
             $vs = array();
 
-            foreach ($row->field as $field)
+            foreach($row->field as $field)
             {
-                $f = (string) $field;
+                $f = (string)$field;
 
                 if($f != (string)(int)$field)
-                $f = $this->quote($f);
+                    $f = $this->quote($f);
 
                 $vs[] = $f;
-            }//foreach
+            }
+            //foreach
 
             $values[] = '('.implode(', ', $vs).')';
-        }//foreach
+        }
+        //foreach
 
         $s[] = 'VALUES';
 
@@ -212,22 +231,30 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
         $s[] = ';';
 
         return implode("\n", $s);
-    }//function
+    }
 
-	/**
-	 * (non-PHPdoc)
-	 * @see Xml2SqlFormatter::formatTruncate()
-	 */
-	public function formatTruncate(SimpleXMLElement $tableStructure)
-	{
-		$tableName = str_replace($this->options->get('prefix'), '#__', (string)$tableStructure->attributes()->name);
-
-		return 'TRUNCATE TABLE '.$tableName.";\n";
-	}
+    //function
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatTruncate()
+     * Format the truncate table statement.
+     *
+     * @param \SimpleXMLElement $tableStructure
+     *
+     * @return string
+     */
+    public function formatTruncate(SimpleXMLElement $tableStructure)
+    {
+        $tableName = str_replace($this->options->get('prefix'), '#__', (string)$tableStructure->attributes()->name);
+
+        return 'TRUNCATE TABLE '.$tableName.";\n";
+    }
+
+    /**
+     * Format the drop table statement.
+     *
+     * @param \SimpleXMLElement $tableStructure
+     *
+     * @return string
      */
     public function formatDropTable(SimpleXMLElement $tableStructure)
     {

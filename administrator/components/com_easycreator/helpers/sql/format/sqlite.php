@@ -1,4 +1,12 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
+/**
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath
+ * @author     Created on 18-Jan-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
+ */
+
 /**
  * Format XML database dumps to SQLite format.
  *
@@ -9,8 +17,11 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
     protected $quoteString = '';
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatCreate()
+     * Format a create statement.
+     *
+     * @param \SimpleXMLElement $create
+     *
+     * @return string
      */
     public function formatCreate(SimpleXMLElement $create)
     {
@@ -29,7 +40,7 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
             'REAL' => array('real', 'floa', 'doub'),
         );
 
-        foreach ($create->field as $field)
+        foreach($create->field as $field)
         {
             $attribs = $field->attributes();
 
@@ -43,14 +54,14 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
 
             $affinity = '';
 
-            if( ! $affinity)
+            if(! $affinity)
             {
-                foreach ($affinityTypes as $aType => $cTypes)
+                foreach($affinityTypes as $aType => $cTypes)
                 {
                     if($affinity)
-                    continue;
+                        continue;
 
-                    foreach ($cTypes as $cType)
+                    foreach($cTypes as $cType)
                     {
                         if(false !== strpos($type, $cType))
                         {
@@ -58,41 +69,43 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
 
                             continue 2;
                         }
-                    }//foreach
-                }//foreach
+                    }
+                }
             }
 
-            if( ! $affinity)
+            if(! $affinity)
             {
                 $affinity = 'NUMERIC';
             }
 
             $as[] = $affinity;
 
-            if('PRI' == (string) $attribs->Key
-            && ! $primaryKeySet)
+            if('PRI' == (string)$attribs->Key
+                && ! $primaryKeySet
+            )
             {
                 $as[] = 'PRIMARY KEY';
                 $primaryKeySet = true;
             }
 
-            if(0)//@todo - we ditch NOT NULL for now,as SQLite is very strict about it :(
+            if(0) //@todo - we ditch NOT NULL for now,as SQLite is very strict about it :(
             {
-                if('NO' == (string) $attribs->Null
-                && 'auto_increment' != (string)$attribs->Extra)
-                $as[] = 'NOT NULL';
+                if('NO' == (string)$attribs->Null
+                    && 'auto_increment' != (string)$attribs->Extra
+                )
+                    $as[] = 'NOT NULL';
             }
 
-            $default = (string) $attribs->Default;
+            $default = (string)$attribs->Default;
 
             if('' != $default)
-            $as[] = "DEFAULT '$default'";
+                $as[] = "DEFAULT '$default'";
 
             if('auto_increment' == (string)$attribs->Extra)
-            $as[] = 'AUTOINCREMENT';
+                $as[] = 'AUTOINCREMENT';
 
             $fields[] = implode(' ', $as);
-        }//foreach
+        }
 
         $s = array();
 
@@ -104,16 +117,19 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
         $s[] = ');';
 
         return implode("\n", $s);
-    }//function
+    }
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatInsert()
+     * Format the insert statement.
+     *
+     * @param \SimpleXMLElement $insert
+     *
+     * @return string
      */
     public function formatInsert(SimpleXMLElement $insert)
     {
-        if( ! isset($insert->row->field))
-        return '';
+        if(! isset($insert->row->field))
+            return '';
 
         $tableName = (string)$insert->attributes()->name;
 
@@ -122,10 +138,10 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
         $keys = array();
         $values = array();
 
-        foreach ($insert->row->field as $field)
+        foreach($insert->row->field as $field)
         {
-            $keys[] = (string) $field->attributes()->name;
-        }//foreach
+            $keys[] = (string)$field->attributes()->name;
+        }
 
         $s = array();
 
@@ -136,21 +152,21 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
 
         $started = false;
 
-        foreach ($insert->row as $row)
+        foreach($insert->row as $row)
         {
             $vs = array();
 
             $i = 0;
 
-            foreach ($row->field as $field)
+            foreach($row->field as $field)
             {
                 // ''escape'' single quotes by prefixing them with another single quote
-                $f = str_replace("'", "''", (string) $field);
+                $f = str_replace("'", "''", (string)$field);
 
-                $vs[] =($started) ? "'".$f."'" : "'".$f."' AS ".$keys[$i++];
-            }//foreach
+                $vs[] = ($started) ? "'".$f."'" : "'".$f."' AS ".$keys[$i ++];
+            }
 
-            if( ! $started)
+            if(! $started)
             {
                 $s[] = '      SELECT '.implode(', ', $vs);
             }
@@ -160,16 +176,19 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
             }
 
             $started = true;
-        }//foreach
+        }
 
         $s[] = ';';
 
         return implode("\n", $s);
-    }//function
+    }
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatTruncate()
+     * Format the truncate table statement.
+     *
+     * @param \SimpleXMLElement $tableStructure
+     *
+     * @return string
      */
     public function formatTruncate(SimpleXMLElement $tableStructure)
     {
@@ -179,8 +198,11 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Xml2SqlFormatter::formatTruncate()
+     * Format the drop table statement.
+     *
+     * @param \SimpleXMLElement $tableStructure
+     *
+     * @return string
      */
     public function formatDropTable(SimpleXMLElement $tableStructure)
     {
