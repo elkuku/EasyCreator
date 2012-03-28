@@ -38,6 +38,12 @@ echo $this->loadTemplate('result');
     <?php echo $this->loadTemplate('options'); ?>
 </div>
 
+<!--
+
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('database'); ?>
+</div>
+-->
 <div class="ecr_floatbox" style="background-color: #ccff99;">
     <h3><?php echo jgettext('Create the package'); ?></h3>
 

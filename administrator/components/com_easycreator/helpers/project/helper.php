@@ -604,7 +604,7 @@ class EcrProjectHelper
         }
 
         //-- Look in components 'root'
-        $files = JFolder::files($base, '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$)');
+        $files = JFolder::files($base, '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$|xml$)');
 
         foreach($files as $file)
         {
@@ -619,7 +619,7 @@ class EcrProjectHelper
         if(JFolder::exists($base.'/install'))
         {
             $files = JFolder::files($base.DS.'install'
-            , '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$)', true, true);
+            , '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$|xml$)', true, true);
 
             foreach($files as $file)
             {
@@ -631,7 +631,12 @@ class EcrProjectHelper
                 $f->folder = $folder;
                 $f->name = JFile::getName($file);
 
-                $installFiles[JFile::getExt($file)][] = $f;
+                $ext = JFile::getExt($file);
+
+                if('xml' == $ext)
+                    $ext = 'sql';
+
+                $installFiles[$ext][] = $f;
             }//foreach
         }
 

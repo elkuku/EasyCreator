@@ -28,14 +28,11 @@ class EasyCreatorControllerStuffer extends JController
     /**
      * Standard display method.
      *
-     * @param boolean    $cachable  If true, the view output will be cached
+     * @param bool       $cachable  If true, the view output will be cached
      * @param array|bool $urlparams An array of safe url parameters and their variable types,
-     *                              for valid values see {
+     *                              for valid values see {@link JFilterInput::clean()}.
      *
-     * @link JFilterInput::clean()}.
-     *
-     * @return void
-     * @see  JController::display()
+     * @return \JController|void
      */
     public function display($cachable = false, $urlparams = false)
     {
@@ -809,27 +806,37 @@ class EasyCreatorControllerStuffer extends JController
     {
         $xmlPath = $this->createDbExport($project, $installPath);
 
+        /* @var JXMLElement $xml */
         $xml = JFactory::getXML($xmlPath);
 
         foreach($project->dbTypes as $dbType)
         {
-            $className = 'EcrSqlFormat'.ucfirst($dbType);
-
-            /* @var EcrSqlFormat $formatter */
-            $formatter = new $className;
-
-            $sql = array();
-
-            foreach($xml->database->table_structure as $tableStructure)
+            if('xml' == $dbType)
             {
-                $sql[] = $formatter->formatCreate($tableStructure);
-            }//foreach
+                $type = 'xml';
+                $string = $xml->asFormattedXML();
+            }
+            else
+            {
+                $type = 'sql';
+                $className = 'EcrSqlFormat'.ucfirst($dbType);
 
-            $string = implode("\n", $sql);
+                /* @var EcrSqlFormat $formatter */
+                $formatter = new $className;
+
+                $sql = array();
+
+                foreach($xml->database->table_structure as $tableStructure)
+                {
+                    $sql[] = $formatter->formatCreate($tableStructure);
+                }//foreach
+
+                $string = implode("\n", $sql);
+            }
 
             $encoding = 'utf8';
 
-            $fullPath = $installPath."/sql/$dbType/install.$encoding.sql";
+            $fullPath = "$installPath/sql/$dbType/install.$encoding.$type";
 
             $msg =(JFile::exists($fullPath))
             ? sprintf(jgettext('%s Install sql file updated'), $dbType)
@@ -863,28 +870,35 @@ class EasyCreatorControllerStuffer extends JController
 
         $xml = JFactory::getXML($xmlPath);
 
-        $db = JFactory::getDbo();
-        $prefix = $db->getPrefix();
-
         foreach($project->dbTypes as $dbType)
         {
-            $className = 'EcrSqlFormat'.ucfirst($dbType);
-
-            /* @var EcrSqlFormat $formatter */
-            $formatter = new $className;
-
-            $sql = array();
-
-            foreach($xml->database->table_structure as $tableStructure)
+            if('xml' == $dbType)
             {
-                $sql[] = $formatter->formatDropTable($tableStructure);
-            }//foreach
+                $type = 'xml';
+                $string = $xml->asFormattedXML();
+            }
+            else
+            {
+                $type = 'sql';
 
-            $string = implode(NL, $sql);
+                $className = 'EcrSqlFormat'.ucfirst($dbType);
+
+                /* @var EcrSqlFormat $formatter */
+                $formatter = new $className;
+
+                $sql = array();
+
+                foreach($xml->database->table_structure as $tableStructure)
+                {
+                    $sql[] = $formatter->formatDropTable($tableStructure);
+                }//foreach
+
+                $string = implode(NL, $sql);
+            }
 
             $encoding = 'utf8';
 
-            $fullPath = $installPath."/sql/$dbType/uninstall.$encoding.sql";
+            $fullPath = "$installPath/sql/$dbType/uninstall.$encoding.$type";
 
             $msg =(JFile::exists($fullPath))
                 ? sprintf(jgettext('%s uninstall sql file updated'), $dbType)
@@ -946,9 +960,7 @@ class EasyCreatorControllerStuffer extends JController
         $fullPath = $installPath.'/sql/tables.xml';
 
         if( ! JFile::write($fullPath, $xmlString))
-        {
             throw new Exception(__METHOD__.' - Can not write the file: '.$fullPath);
-        }
 
         return $fullPath;
     }//function
