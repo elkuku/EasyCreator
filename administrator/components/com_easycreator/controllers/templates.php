@@ -23,14 +23,11 @@ class EasyCreatorControllerTemplates extends JController
     /**
      * Standard display method.
      *
-     * @param boolean    $cachable  If true, the view output will be cached
-     * @param array $urlparams An array of safe url parameters and their variable types,
-     *                              for valid values see {
+     * @param bool       $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {@link JFilterInput::clean()}.
      *
-     * @link JFilterInput::clean()}.
-     *
-     * @return void
-     * @see  JController::display()
+     * @return \JController|void
      */
     public function display($cachable = false, $urlparams = false)
     {

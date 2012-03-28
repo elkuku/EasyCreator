@@ -10,6 +10,9 @@
 $projectOptions = $this->project->buildOpts;
 $chk_upgrade = ($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 ?>
+<div class="infoHeader imgbarleft icon-24-info">
+    <?php echo jgettext('Options') ?>
+</div>
 
 <strong><?php echo jgettext('Packing format options'); ?>:</strong>
 <?php EcrHtml::drawPackOpts($this->project->buildOpts); ?>

@@ -34,9 +34,9 @@ class EasyCreatorViewStarter extends JView
     /**
      * Standard display method.
      *
-     * @param string $tpl The name of the template file to parse;
+     * @param null|string $tpl The name of the template file to parse;
      *
-     * @return void
+     * @return mixed|void
      */
     public function display($tpl = null)
     {

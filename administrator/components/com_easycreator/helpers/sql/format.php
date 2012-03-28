@@ -24,7 +24,9 @@ abstract class EcrSqlFormat
     /**
      * Format a SQL CREATE TABLE statement
      *
-     * @param SimpleXMLElement $create The CREATE TABLE block
+     * @param SimpleXMLElement $tableStructure
+     *
+     * @internal param \SimpleXMLElement $create The CREATE TABLE block
      *
      * @return string Formatted SQL statement
      */
@@ -33,7 +35,7 @@ abstract class EcrSqlFormat
     /**
      * Format a SQL INSERT statement
      *
-     * @param SimpleXMLElement $insert The INSERT block
+     * @param SimpleXMLElement $tableData
      *
      * @return string Formatted SQL statement
      */

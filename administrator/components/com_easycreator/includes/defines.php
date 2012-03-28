@@ -11,6 +11,11 @@
 defined('_JEXEC') || die('=;)');
 
 /**
+ * The OS specific directory separator - @todo remove ?
+ */
+defined('DS') || define('DS', DIRECTORY_SEPARATOR);
+
+/**
  * Path for extension templates
  */
 define('ECRPATH_EXTENSIONTEMPLATES', JPATH_COMPONENT_ADMINISTRATOR.DS.'templates');

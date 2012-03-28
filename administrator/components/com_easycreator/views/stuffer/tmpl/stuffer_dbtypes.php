@@ -9,6 +9,6 @@
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-database"><?= jgettext('Database support') ?></div>
+    <div class="infoHeader img icon-24-database"><?php echo jgettext('Database support') ?></div>
     <?php echo EcrHtml::drawDbOptions($this->project); ?>
 </div>

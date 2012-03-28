@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-if ('package' == $this->project->type)
+if('package' == $this->project->type)
     return;
 
 $buildOpts = $this->project->buildOpts;
@@ -23,7 +23,7 @@ $buildOpts = $this->project->buildOpts;
     <ul>
         <li>
             <label for="extension_prefix" class="creditsLabel hasEasyTip"
-                   title="<?php echo jgettext('Extension prefix') . '::' . jgettext('A custom prefix for your extension.'); ?>">
+                   title="<?php echo jgettext('Extension prefix').'::'.jgettext('A custom prefix for your extension.'); ?>">
                 <?php echo jgettext('Extension prefix'); ?>
             </label>
             <input type="text" name="buildvars[extensionPrefix]" id="extension_prefix"
@@ -32,7 +32,7 @@ $buildOpts = $this->project->buildOpts;
 
         <li>
             <label for="lng_separate_javascript" class="creditsLabel hasEasyTip"
-                   title="<?php echo jgettext('Separate JavaScript') . '::' . jgettext('Separate JavaScript from PHP translations'); ?>">
+                   title="<?php echo jgettext('Separate JavaScript').'::'.jgettext('Separate JavaScript from PHP translations'); ?>">
                 <?php echo jgettext('Separate JavaScript'); ?>
             </label>
             <input type="checkbox" name="buildopts[]" value="lng_separate_javascript" id="lng_separate_javascript"

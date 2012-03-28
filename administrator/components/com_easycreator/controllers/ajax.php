@@ -371,6 +371,7 @@ class EasyCreatorControllerAjax extends JController
     /**
      * Saves a translation.
      *
+     * @throws Exception
      * @return void
      */
     public function translate()
@@ -420,6 +421,7 @@ class EasyCreatorControllerAjax extends JController
     /**
      * Deletes a translation.
      *
+     * @throws Exception
      * @return void
      */
     public function delete_translation()

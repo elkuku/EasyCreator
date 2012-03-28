@@ -25,5 +25,5 @@ echo $this->loadTemplate('update');
     <?php EcrHtml::drawLoggingOptions(); ?>
 </div>
 
-<input type="hidden" name="old_task" value="install" />
+<input type="hidden" name="old_task" value="install"/>
 <?php

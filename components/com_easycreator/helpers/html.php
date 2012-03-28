@@ -70,7 +70,9 @@ class easyHTML
 foreach($projects['component'] as $project)
 {
     $selected =($project->comName == $selectedProject) ? '_selected' : '';
-    echo '<li class="ecr_button'.$selected.'" onclick="drawProject(\''.$project->comName.'\');">'.$project->name.'</li>';
+    echo '<li class="ecr_button'.$selected.'" onclick="drawProject(\''.$project->comName.'\');">'
+        .$project->name
+        .'</li>';
 }//foreach
 ?>
 </ol>

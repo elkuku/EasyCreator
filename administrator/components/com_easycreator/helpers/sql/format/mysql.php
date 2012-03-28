@@ -12,8 +12,6 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
      */
     public function formatCreate(SimpleXMLElement $create)
     {
-        $tableName = (string)$create->attributes()->name;
-
         $tableName = str_replace($this->options->get('prefix'), '#__', (string)$create->attributes()->name);
 
         $s = array();

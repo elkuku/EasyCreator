@@ -20,10 +20,11 @@ class EasyCreatorControllerCodeEye extends JController
     /**
      * Standard display method.
      *
-     * @param boolean $cachable If it is cachable
-     * @param array|boolean $urlparams Desc
+     * @param bool       $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {@link JFilterInput::clean()}.
      *
-     * @return void
+     * @return \JController|void
      */
     public function display($cachable = false, $urlparams = false)
     {

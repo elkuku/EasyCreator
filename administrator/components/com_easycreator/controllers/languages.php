@@ -23,12 +23,10 @@ class EasyCreatorControllerLanguages extends JController
     /**
      * Standard display method.
      *
-     * @param boolean $cachable If true, the view output will be cached
-     * @param array|boolean $urlparams An array of safe url parameters and their variable types,
-     * for valid values see {@link JFilterInput::clean()}.
-     *
-     * @return void
-     * @see JController::display()
+     * @param bool       $cachable  If true, the view output will be cached
+     * @param array|bool $urlparams An array of safe url parameters and their variable types,
+     *                              for valid values see {@link JFilterInput::clean()}.
+     * @return \JController|void
      */
     public function display($cachable = false, $urlparams = false)
     {
@@ -172,7 +170,7 @@ class EasyCreatorControllerLanguages extends JController
         }
         else
         {
-            if(EcrLanguage::removeBOM_utf8($fileName))
+            if(EcrLanguageHelper::removeBOM_utf8($fileName))
             {
                 EcrHtml::displayMessage(jgettext('The BOM has been removed'));
             }

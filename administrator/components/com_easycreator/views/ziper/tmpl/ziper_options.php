@@ -12,8 +12,10 @@ $params = JComponentHelper::getParams('com_easycreator');
 $buildOpts = new JRegistry($this->project->buildOpts);
 ?>
 
+<div class="infoHeader img icon-24-package_creation">
+    <?php echo jgettext('File name'); ?>
+</div>
 <span id="ajMessage" style="float: right;"></span>
-<h3><?php echo jgettext('File name'); ?></h3>
 
 <div style="border: 1px dotted gray; padding: 0.5em; background-color: #ffc; margin: 0.5em;
 font-size: 1.3em; font-family: monospace;">
@@ -49,7 +51,9 @@ font-size: 1.3em; font-family: monospace;">
 <label for="opt_format_4"><tt><?php echo $buildOpts->get('custom_name_4'); ?></tt></label>
 <br/>
 <br/>
-<?php echo jgettext('Customize'); ?>&nbsp;
+<label for="cst_format">
+    <?php echo jgettext('Customize'); ?>&nbsp;
+</label>
 <br/>
 <input type="text" size="50" onkeyup="updateName('<?php echo $this->ecr_project; ?>');"
        name="cst_format" id="cst_format" value="<?php echo $buildOpts->get('custom_name_1'); ?>"

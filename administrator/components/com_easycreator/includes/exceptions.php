@@ -7,8 +7,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-// @codingStandardsIgnoreStart
-
 class EcrLogException extends Exception {};
 
 class EcrBuilderException extends Exception {};

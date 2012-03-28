@@ -23,9 +23,9 @@ class EasyCreatorViewZiper extends JView
     /**
      * Standard display method.
      *
-     * @param string $tpl The name of the template file to parse;
+     * @param null|string $tpl The name of the template file to parse;
      *
-     * @return void
+     * @return mixed|void
      */
     public function display($tpl = null)
     {
@@ -35,7 +35,7 @@ class EasyCreatorViewZiper extends JView
 
         $this->ecr_project = JRequest::getCmd('ecr_project');
 
-        $this->task = JRequest::getCmd('task');
+        $task = JRequest::getCmd('task');
 
         //-- Get the project
         try
@@ -54,10 +54,10 @@ class EasyCreatorViewZiper extends JView
         //-- Draw h1 header
         EcrHtml::header(jgettext('Component ZIPer'), $this->project, 'ecr_archive');
 
-        if(in_array($this->task, get_class_methods($this)))
+        if(in_array($task, get_class_methods($this)))
         {
             //-- Execute the task
-            $this->{$this->task}();
+            $this->$task();
         }
 
         //-- Draw the submenu
@@ -108,8 +108,6 @@ class EasyCreatorViewZiper extends JView
         $result->log = $ziper->printLog();
 
         $this->zipResult = $result;
-
-        $this->task = 'ziper';
 
         $this->setLayout('ziper');
     }//function

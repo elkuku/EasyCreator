@@ -34,7 +34,7 @@ if(! $this->zipResult)
 else:
     EcrHtml::displayMessage(jgettext('Your ZIPfile has NOT been created'), 'error');
     echo '<h2>'.jgettext('Errors').'</h2>';
-    echo '<ul><li>'.implode('</li><li>', $errors).'</li></ul>';
+    echo '<ul><li>'.implode('</li><li>', $this->zipResult->errors).'</li></ul>';
 endif; ?>
 </div>
 

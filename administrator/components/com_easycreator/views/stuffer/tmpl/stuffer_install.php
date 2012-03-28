@@ -16,8 +16,9 @@ return;
 <div class="ecr_floatbox">
     <table>
         <tr>
-            <th colspan="2"
-                class="infoHeader imgbarleft icon-24-install"><?php echo jgettext('Install and Uninstall') ?></th>
+            <th colspan="2" class="infoHeader imgbarleft icon-24-install">
+                <?php echo jgettext('Install and Uninstall'); ?>
+            </th>
         </tr>
         <tr>
             <th colspan="2"><?php echo jgettext('PHP'); ?></th>

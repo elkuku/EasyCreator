@@ -765,6 +765,7 @@ class EcrProjectManifest extends JObject
 
             foreach($cfgXml->params as $cfgParams)
             {
+                /* @var SimpleXMLElement $cfgParam */
                 foreach($cfgParams->param as $cfgParam)
                 {
                     if($cfgParam->attributes()->type == 'spacer'
@@ -820,20 +821,22 @@ class EcrProjectManifest extends JObject
     }
 
     /**
-     * Add one simplexml to another.
+     * Add one SimpleXMLElement to another.
      *
-     * @param object &$to   Object to add to
-     * @param object &$from Object to add from
+     * @param \SimpleXMLElement $to
+     * @param \SimpleXMLElement $from
      *
      * @author Boris Korobkov
      * @link   http://www.ajaxforum.ru/
      *
      * @return void
      */
-    private function appendXML(&$to, &$from)
+    private function appendXML(SimpleXMLElement &$to, SimpleXMLElement &$from)
     {
+        /* @var SimpleXMLElement $child */
         foreach($from->children() as $child)
         {
+            /* @var SimpleXMLElement $temp */
             $temp = $to->addChild($child->getName(), (string)$child);
 
             foreach($child->attributes() as $key => $value)
@@ -950,6 +953,7 @@ class EcrProjectManifest extends JObject
 
                     if(isset($param->option))
                     {
+                        /* @var SimpleXMLElement $option */
                         foreach($param->option as $option)
                         {
                             $optionElement = $paramElement->addChild('option', (string)$option);

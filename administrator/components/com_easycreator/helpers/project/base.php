@@ -10,7 +10,7 @@
 /**
  * Project base class.
  */
-abstract class EcrProjectBase extends JObject
+abstract class EcrProjectBase
 {
     //-- Removed in 1.6 - could be reintroduced in J! 3.0
     public $legacy = false;
@@ -207,7 +207,7 @@ abstract class EcrProjectBase extends JObject
     /**
      * Get the project Id.
      *
-     * @return int Id
+     * @return integer
      */
     abstract public function getId();
 
@@ -780,6 +780,7 @@ abstract class EcrProjectBase extends JObject
      *
      * @param string $projectName Projects name
      *
+     * @throws Exception
      * @return boolean
      */
     private function readProjectXml($projectName)
@@ -787,12 +788,7 @@ abstract class EcrProjectBase extends JObject
         $fileName = ECRPATH_SCRIPTS.DS.$projectName.'.xml';
 
         if(! JFile::exists($fileName))
-        {
             throw new Exception('Project manifest not found');
-            JFactory::getApplication()->enqueueMessage(jgettext('Project manifest not found'), 'error');
-
-            return false;
-        }
 
         $manifest = EcrProjectHelper::getXML($fileName);
 
@@ -838,7 +834,6 @@ abstract class EcrProjectBase extends JObject
                 {
                     $c->$k = (string)$a;
                 }
-                //foreach
 
                 $c->scope = (string)$e->attributes()->scope;
                 $c->position = (string)$e->attributes()->position;

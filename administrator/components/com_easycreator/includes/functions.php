@@ -21,6 +21,8 @@ jimport('joomla.filesystem.file');
  *
  * @param string $name Path in JLoader dot syntax.
  *
+ * @deprecated - 2B replaced by the autoloader
+ *
  * @return mixed [string path | boolean false on error]
  */
 function ecrLoadHelper($name)
