@@ -323,93 +323,120 @@ e78b87b Add pre-commit hook script for reference
 d85788f Add SQL formatters
 
 ---------- 0.0.14.3.1 ----------
+
 2012-01-09
-Remove obsolete files
-Remove obsolete documentation
-Add missing J! 2.5 fixes
+c51359c Remove obsolete files
+7514d9d Remove obsolete documentation
+0581cd7 Add missing J! 2.5 fixes
 
 2012-01-08
-Fix another JParameter usage
-Fix template component 9_16, cleanup queries, removed JParameter
+efcc724 Fix another JParameter usage
+08b6509 Fix template component 9_16, cleanup queries, removed JParameter
 
 2012-01-07
-Code style
-Code style
-Remove deprecated JError - part 4
-Remove deprecated JError - part 3
-Remove deprecated JError - part 2
-Remove bad link :(
-Remove bad link :(
-Remove deprecated JError - 1st part
-More J! 2.5 work
-Code style
-Removing obsolete svn ids
-Prepare for J! 2.5
-Merge remote branch 'elkuku/master'
+e08d96e Code style
+b55b772 Code style
+2a18983 Remove deprecated JError - part 4
+3353895 Remove deprecated JError - part 3
+de6bfc4 Remove deprecated JError - part 2
+617c537 Remove bad link :(
+1f63def Remove bad link :(
+be42af7 Remove deprecated JError - 1st part
+abd9799 More J! 2.5 work
+20ba497 Code style
+21125f7 Removing obsolete svn ids
+f8010c4 Prepare for J! 2.5
+e874ad5 Merge remote branch 'elkuku/master'
 
 2011-10-29
-First check if the g11n language library is installed as a PEAR package
-Switched template compat versions from 1.6 to 1.7
+df75cc8 elkuku: First check if the g11n language library is installed as a PEAR package
+b1f08b3 elkuku: Switched template compat versions from 1.6 to 1.7
 
 2011-10-21
-Add link to ghpage
-Add Ohloh stats
+7661c8e Add link to ghpage
+c251f68 Add Ohloh stats
 
 2011-10-20
-Add Transifex stats
+40e1d6c Add Transifex stats
 
 2011-10-18
-Add code preview to code sniffer
+13ef33e elkuku: Add code preview to code sniffer
 
 2011-10-10
-Remove Joomla coding standard
+40bcb04 elkuku: Remove Joomla coding standard
 
 2011-10-03
-Update language zh-CN
-Update language template headers
-Add Transifex config file
-Update language fr-FR
-Update language nl-NL
-Add language pt-BR
-Update language pl-PL
-Update language zh-CN
-Add language id-ID
-Add language hu-HU
-Add language da-DK
-Add language ar-AR
-Update language es-ES
-Add language sv-SE
-Garbage in language template :P
-Update language
+c02ca3a elkuku: Update language zh-CN
+36d1dc7 elkuku: Update language template headers
+be42131 elkuku: Add Transifex config file
+75d907d elkuku: Update language fr-FR
+87ade4b elkuku: Update language nl-NL
+679b461 elkuku: Add language pt-BR
+354d768 elkuku: Update language pl-PL
+ea0a544 elkuku: Update language zh-CN
+83d09b0 elkuku: Add language id-ID
+0984b7f elkuku: Add language hu-HU
+ad4de11 elkuku: Add language da-DK
+eb2fb8f elkuku: Add language ar-AR
+816eabb elkuku: Update language es-ES
+33af3c1 elkuku: Add language sv-SE
+02117cb elkuku: Garbage in language template :P
+aa5f61c elkuku: Update language
 
 2011-09-30
-Add experimental ant script
+ed0579c elkuku: Add experimental ant script
 
 2011-09-26
-Fix package names must be lower case
+4e94777 elkuku: Fix package names must be lower case
 
 2011-09-18
-Fix g11n loading plugins and templates
-Modify icon
-Add nl-NL and sv-SE language - Thx Transifex =;)
-Fix g11n lookup for templates and plugins
+e0d447c elkuku: Fix g11n loading plugins and templates
+7fb58c9 elkuku: Modify icon
+21f8003 elkuku: Add nl-NL and sv-SE language - Thx Transifex =;)
+c9d4262 elkuku: Fix g11n lookup for templates and plugins
 
 2011-08-28
-preference of JPATH_PLATFORM over JPATH_LIBRARIES
+471cd81 elkuku: preference of JPATH_PLATFORM over JPATH_LIBRARIES
+
+2011-08-24
+49ea421 elkuku: Fixed "add elements" not working on Windows in J! 1.7 - Thanks Apfelkuchen
+684ad96 elkuku: +icons
+52fe266 elkuku: icons
+
+2011-08-19
+74b4c2d elkuku: test
 
 2011-08-15
-Added automatic language file handling for po files using gettext utilities
+652fd34 elkuku: Added automatic language file handling for po files using gettext utilities
 
-23-Aug-2011
- # Fixed "add elements" not working on Windows in J! 1.7 - Thanks Apfelkuchen
+2011-08-12
+73f7adb elkuku: Added interface for PHPLOC
+d26f122 elkuku: formatting
 
-12-Aug-2011
- + Added interface for PHPLOC
+2011-08-11
+62daddf elkuku: moved defines and functions to includes folder
 
-02-Aug-2011
- # Fixed md5 compression method
- ^ Config now uses JForm
- ^ More CSS 3 eye candy
+2011-08-08
+7450f92 elkuku: new zipper view, work on db updates
+
+2011-08-07
+8ecc008 elkuku: removed jquery libs
+
+2011-08-06
+4c1fab8 elkuku: strict standards
+
+2011-08-05
+ea15491 elkuku: + readme for github
+469cf21 elkuku: + pagoda box file
+1a099ce elkuku: more eye candy
+aa3e19a elkuku: # errors on compressed md5 file
+
+2011-08-04
+10ba8d3 elkuku: code style
+6c51f1a elkuku: adapting to JForm
+
+2011-08-03
+3354421 elkuku:  ^ Config now uses JForm
 
 --------------- 0.0.14.3 BETA -- [29-Jun-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15410
