@@ -50,6 +50,15 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.16 ----------
+
+2012-04-06
+47d30f6 Add a method to verify removed files on extension upgrade (EasyCreator only (for now..))
+ad3d03e Change return falses to exceptions
+c909e79 Fix wrong link to J API in JHelp
+8b9a9a1 Update changelog
+649168d Modify old changelog
+
 2012-03-29
 0ab5175 Fix edit link not working from list layout in extension template component mvc_9_16
 

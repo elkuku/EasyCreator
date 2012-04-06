@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<install type="component" version="1.5">
+<install type="component" version="1.5" method="upgrade">
   <name>EasyCreator</name>
   <creationDate>20-Feb-2012</creationDate>
   <author>Nikolai Plath</author>
@@ -8,7 +8,7 @@
   <authorUrl>https://github.com/elkuku</authorUrl>
   <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>0.0.15.4</version>
+  <version>0.0.16</version>
   <description>EasyCreator helps creating Extensions for Joomla</description>
   <installfile>install/install.easycreator.php</installfile>
   <uninstallfile />
