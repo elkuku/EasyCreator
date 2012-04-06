@@ -50,7 +50,20 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-03-29
+0ab5175 Fix edit link not working from list layout in extension template component mvc_9_16
+
+2012-03-28
+5094206 Format and docblocks
+a577bd9 Format and docblocks
+c818d63 Add option to generate xml files for extension database installation
+
+2012-03-22
+75f124e Update language files
+bb1a0d5 Fix set packing formats from component defaults for new projects
+
 2012-03-21
+44fd27f Update changelog
 b336e4d Fix insert parts not working due to recent class rename
 18711b7 Enhance the CLI builder
 
