@@ -416,7 +416,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
     /**
      * Updates the administration main menu.
      *
-     * @return boolean
+     * @throws Exception
+     * @return bool
      */
     protected function updateAdminMenu()
     {
@@ -424,11 +425,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
         if( ! isset($menu['text'])
         || ! $menu['text'])
-        {
-            $this->setError(__METHOD__.' - Empty admin menu');
-
-            return false;
-        }
+            throw new Exception(__METHOD__.' - Empty admin menu');
 
         switch(ECR_JVERSION)
         {
@@ -683,11 +680,12 @@ class EcrProjectTypeComponent extends EcrProjectBase
     /**
      * Method to remove admin menu references to a component
      *
-     * @param $row
+     * @param object $row Component table object
      *
-     * @internal param object $component Component table object
+     * @throws Exception
+     * @internal param object $component
      *
-     * @return  boolean  True if successful
+     * @return bool True if successful
      */
     protected function removeAdminMenus($row)
     {
@@ -730,11 +728,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             foreach($ids as $menuid)
             {
                 if( ! $table->delete((int)$menuid))
-                {
-                    $this->setError($table->getError());
-
-                    return false;
-                }
+                    throw new Exception(__METHOD__.' - '.$table->getError());
             }//foreach
 
             //-- Rebuild the whole tree
@@ -749,7 +743,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
      *
      * @param array $item The menu.
      *
-     * @return boolean true on success
+     * @throws Exception
+     * @return bool true on success
      */
     protected function setDbMenuItem($item)
     {
@@ -812,11 +807,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 || ! $table->bind($data)
                 || ! $table->check()
                 || ! $table->store())
-                {
-                    $this->setError($table->getError());
-
-                    return false;
-                }
+                    throw new Exception(__METHOD__.' - '.$table->getError());
 
                 $parent_id = $table->id;
 
