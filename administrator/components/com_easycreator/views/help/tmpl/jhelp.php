@@ -38,7 +38,7 @@ $packageName = JRequest::getCmd('packageName');
 $formats = array(
      array('Source', 'source', 'source', 'local')
     , array('api.joomla.org'
-    , 'api.joomla.org/Joomla-Framework/[package]/[class].html#[method]'
+    , 'api.joomla.org/Joomla-Platform/[package]/[class].html#[method]'
     , 'api', 'remote')
     , array('docs.joomla.org', 'docs.joomla.org/[class]/[method]', 'docs', 'remote')
     , array('wiki.joomla-nafu.de'
