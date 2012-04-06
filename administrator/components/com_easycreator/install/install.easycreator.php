@@ -24,43 +24,50 @@ define('ECR_XML_LOCATION', $this->parent->getPath('manifest'));
  */
 function com_install()
 {
+  //  define('EASY_CREATOR_INSTALL_SCRIPT_HAS_BEEN_EXECUTED', 1);
+
     $PHPMinVersion = '5.2.4';
 
     if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
     {
         JFactory::getApplication()->enqueueMessage(sprintf('This script requires at least PHP version %s'
-        , $PHPMinVersion), 'error');//@Do_NOT_Translate
+            , $PHPMinVersion), 'error');
+        //@Do_NOT_Translate
 
         return false;
     }
 
     try
     {
-        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')//@todo remove JFolder::exists when dropping 1.5 support
-        || ! jimport('g11n.language'))
+        //-- @todo remove JFolder::exists when dropping 1.5 support
+        if(! JFolder::exists(JPATH_LIBRARIES.'/g11n')
+            || ! jimport('g11n.language')
+        )
         {
             //-- Get our special language file
             JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR.'/components/com_easycreator');
-?>
-<div style="padding: 0.3em; background-color: #ffc;">
-    <h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
-    <h3 style="color: red;">
-        If you like EasyCreator in your language, just install the g11n language library :
-    </h3>
-    <h3 style="color: red;">
-        <a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
-            Download lib_g11n
-        </a>
-    </h3>
-</div>
-<?php
+            ?>
+        <div style="padding: 0.3em; background-color: #ffc;">
+            <h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
+
+            <h3 style="color: red;">
+                If you like EasyCreator in your language, just install the g11n language library :
+            </h3>
+
+            <h3 style="color: red;">
+                <a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
+                    Download lib_g11n
+                </a>
+            </h3>
+        </div>
+        <?php
         }
         else
         {
             g11n::loadLanguage('com_easycreator');
         }
 
-        if( ! $xml = simplexml_load_file(ECR_XML_LOCATION))
+        if(! $xml = simplexml_load_file(ECR_XML_LOCATION))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Install manifest not found'), 'error');
 
@@ -72,7 +79,7 @@ function com_install()
         JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
         return false;
-    }//try
+    }
 
     define('ECR_VERSION', $xml->version);
 
@@ -84,20 +91,20 @@ function com_install()
 
 <div>
 
-<div style="float: right">
-    <img
-    src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
-    alt="EasyCreator Logo" title="EasyCreator Logo" />
-</div>
+    <div style="float: right">
+        <img
+            src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
+            alt="EasyCreator Logo" title="EasyCreator Logo"/>
+    </div>
 
-<h1>EasyCreator</h1>
-    <?php echo jgettext('EasyCreator is a developer tool.'); ?><br />
-    <?php echo jgettext('It tries to speed up the developing process of custom Joomla! extensions.'); ?><br />
+    <h1>EasyCreator</h1>
+    <?php echo jgettext('EasyCreator is a developer tool.'); ?><br/>
+    <?php echo jgettext('It tries to speed up the developing process of custom Joomla! extensions.'); ?><br/>
     <?php echo jgettext('You can create a "frame" for your extension and an installable zip package with just a few "clicks"'); ?>
 
-<p>Happy coding,<br />
-    <?php echo sprintf(jgettext('The %s Team.'), '<a href="https://github.com/elkuku/EasyCreator">EasyCreator</a>'); ?>
-</p>
+    <p>Happy coding,<br/>
+        <?php echo sprintf(jgettext('The %s Team.'), '<a href="https://github.com/elkuku/EasyCreator">EasyCreator</a>'); ?>
+    </p>
 
 </div>
 
@@ -109,7 +116,7 @@ function com_install()
     , 'href="http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development"'); ?>
 </p>
 
-    <?php
+<?php
     ##ECR_MD5CHECK##
 
     EcrHtml::footer();
