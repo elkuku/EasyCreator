@@ -249,7 +249,8 @@ class EcrFileTree
 
                         if(strpos($d, '-'))
                         {
-                            $d = substr($d, strpos($d, '-') + 1);
+                            // @todo: what's that for ??
+                            // $d = substr($d, strpos($d, '-') + 1);
                         }
 
                         $js = $this->parseLink($this->jsFolder, $li, $d);

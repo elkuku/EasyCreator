@@ -740,7 +740,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         $this->actForm(jgettext('Delete folder'), 'delete', jgettext('Delete'), false);
-        $this->processForm('delete_folder', $ecr_project, 'folder', 'delete');
+        $this->processForm('delete_folder', $ecr_project, 'folder', 'delete', true);
     }//function
 
     /**
