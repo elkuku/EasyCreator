@@ -1571,11 +1571,12 @@ case 'etc':
             }
         }//foreach
 
-        //-- No existing file found - return the last file from the array
+        //-- No existing file found.
+        //-- Return a valid new file name based on the scope
 
-        if(isset($paths[0]))
+        if(isset($paths[$scope]))
         {
-            return $paths[0].DS.$addPath;
+            return $paths[$scope].DS.$addPath;
         }
 
         //-- Found nothing :(
