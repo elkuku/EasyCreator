@@ -1,0 +1,7 @@
+builds/*
+deploy/*
+exports/*
+logs/*
+results/*
+scripts/*
+sync/*
