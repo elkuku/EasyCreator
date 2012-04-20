@@ -1,0 +1,63 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: elkuku
+ * Date: 18.04.12
+ * Time: 16:15
+ * To change this template use File | Settings | File Templates.
+ */
+
+jimport('joomla.client.ftp');
+
+/**
+ *
+ */
+class EcrFtp extends JFTP
+{
+    /**
+     * Returns the global FTP connector object, only creating it
+     * if it doesn't already exist.
+     *
+     * You may optionally specify a username and password in the parameters. If you do so,
+     * you may not login() again with different credentials using the same object.
+     * If you do not use this option, you must quit() the current connection when you
+     * are done, to free it for use by others.
+     *
+     * @param   string  $host     Host to connect to
+     * @param   string  $port     Port to connect to
+     * @param   array   $options  Array with any of these options: type=>[FTP_AUTOASCII|FTP_ASCII|FTP_BINARY], timeout=>(int)
+     * @param   string  $user     Username to use for a connection
+     * @param   string  $pass     Password to use for a connection
+     *
+     * @return  JFTP    The FTP Client object.
+     *
+     * @since   11.1
+     */
+    public static function getClient($host = '127.0.0.1', $port = '21', $options = null, $user = null, $pass = null)
+    {
+
+        //-- Avoid all this mess by declaring JFtp::getInstance() as "static" !!
+
+        $x = new JFTP;
+
+        return $x->getInstance($host, $port, $options, $user, $pass);
+    }
+
+    /**
+     * Method to store a file to the FTP server
+     *
+     * @param   string  $local   Path to local file to store on the FTP server
+     * @param   string  $remote  FTP path to file to create
+     *
+     * @throws Exception
+     *
+     * @return  boolean  True if successful
+     */
+    public function store($local, $remote = null)
+    {
+        //-- Avoid all this mess by throwing appropriate exceptions !!
+
+        if(! parent::store($local, $remote))
+            throw new Exception(JError::getError());
+    }
+}

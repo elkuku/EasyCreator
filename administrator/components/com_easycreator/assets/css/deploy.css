@@ -1,0 +1,35 @@
+div.buttons {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+pre#ecrDebugBox {
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    padding: 0.5em;
+    font-size: 12px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+ul.syncList {
+    list-style: none;
+    padding: 0;
+
+}
+
+ul.syncList li.new {
+    color: green;
+}
+ul.syncList li.changed {
+    color: orange;
+}
+
+div.allInSync {
+    padding: 0.5em;
+    color: green;
+    text-align: center;
+    font-size: 1.3em;
+}

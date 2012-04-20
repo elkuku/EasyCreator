@@ -1,12 +1,11 @@
-<?php defined('_JEXEC') || die('=;)');
+<?php
 /**
- * @package    EasyCreator
- * @subpackage Views
- * @author     Nikolai Plath
- * @author     Created on 07-Aug-2011
- * @license    GNU/GPL, see JROOT/LICENSE.php
+ * Created by JetBrains PhpStorm.
+ * User: elkuku
+ * Date: 17.04.12
+ * Time: 14:27
+ * To change this template use File | Settings | File Templates.
  */
-
 $path = $this->project->getZipPath();
 
 $base_href = (0 === strpos($path, ECRPATH_BUILDS))
@@ -15,12 +14,11 @@ $base_href = (0 === strpos($path, ECRPATH_BUILDS))
 
 echo '<div class="img icon-16-server path">'.$path.'</div>';
 
-if(! JFolder::exists($path))
-{
+if(! JFolder::exists($path)) :
     EcrHtml::displayMessage(jgettext('Archive is empty'), 'warning');
 
     return;
-}
+endif;
 
 $folders = JFolder::folders($path);
 
@@ -47,11 +45,11 @@ foreach($folders as $folder) :
 <table class="adminlist">
     <tbody>
     <tr style="background-color: #eee;">
+        <th align="center" width="5%"><?php echo jgettext('Deploy'); ?></th>
         <th><?php echo jgettext('File'); ?></th>
         <th width="10%"><?php echo jgettext('Modified'); ?></th>
         <th width="10%"><?php echo jgettext('Size'); ?></th>
         <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
-        <th align="center"><?php echo jgettext('Action'); ?></th>
         <?php endif; ?>
     </tr>
         <?php
@@ -67,18 +65,10 @@ foreach($folders as $folder) :
             ?>
         <tr id="row<?php echo $file; ?>"
             class="<?php echo 'row'.$k; ?>">
+            <td><input type="checkbox" name="file[]" value="<?php echo $base_path.DS.$file; ?>"></td>
             <td><a href="<?php echo $href; ?>"><?php echo $file; ?></a></td>
             <td nowrap="nowrap"><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
             <td><?php echo EcrHtml::byte_convert($info[7]); ?></td>
-            <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
-            <td width="2%">
-                <div style="padding-left: 20px; height: 14px;"
-                     class="ecr_button img icon-16-delete hasEasyTip"
-                     title="<?php echo jgettext('Delete'); ?>::"
-                     onclick="EcrZiper.deleteZipFile(<?php echo "'$p', '$file'"?>);">&nbsp;
-                </div>
-            </td>
-            <?php endif; ?>
         </tr>
             <?php
             $k = 1 - $k;

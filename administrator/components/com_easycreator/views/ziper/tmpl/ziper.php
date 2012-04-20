@@ -19,7 +19,7 @@ if('package' == $this->project->type
 }
 
 JFactory::getDocument()->addScriptDeclaration(
-    "window.addEvent('domready', function() { updateName('{$this->ecr_project}'); });");
+    "window.addEvent('domready', function() { EcrZiper.updateName('{$this->ecr_project}'); });");
 
 echo $this->loadTemplate('result');
 

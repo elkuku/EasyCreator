@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Base
@@ -7,53 +7,10 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
  * The OS specific directory separator - @todo remove ?
  */
 defined('DS') || define('DS', DIRECTORY_SEPARATOR);
-
-/**
- * Path for extension templates
- */
-define('ECRPATH_EXTENSIONTEMPLATES', JPATH_COMPONENT_ADMINISTRATOR.DS.'templates');
-
-/**
- * Path for AutoCodes
- */
-define('ECRPATH_AUTOCODES', ECRPATH_EXTENSIONTEMPLATES.DS.'autocodes');
-
-/**
- * Path for Parts
- */
-define('ECRPATH_PARTS', ECRPATH_EXTENSIONTEMPLATES.DS.'parts');
-
-/**
- * Path for Logs
- */
-define('ECRPATH_LOGS', JPATH_COMPONENT_ADMINISTRATOR.DS.'logs');
-
-/**
- * Path for Scripts
- */
-define('ECRPATH_SCRIPTS', JPATH_COMPONENT_ADMINISTRATOR.DS.'scripts');
-
-/**
- * Path for Scripts
- */
-define('ECRPATH_HELPERS', JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers');
-
-/**
- * Path for Builds
- */
-define('ECRPATH_BUILDS', JPATH_COMPONENT_ADMINISTRATOR.DS.'builds');
-
-/**
- * Path for Exports
- */
-define('ECRPATH_EXPORTS', JPATH_COMPONENT_ADMINISTRATOR.DS.'exports');
 
 /**
  * A newline character for cleaner HTML styling
@@ -65,11 +22,57 @@ defined('BR') || define('BR', '<br />');
  */
 defined('NL') || define('NL', "\n");
 
+/**
+ * Path for extension templates
+ */
+define('ECRPATH_EXTENSIONTEMPLATES', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'templates');
+
+/**
+ * Path for AutoCodes
+ */
+define('ECRPATH_AUTOCODES', ECRPATH_EXTENSIONTEMPLATES.DIRECTORY_SEPARATOR.'autocodes');
+
+/**
+ * Path for Parts
+ */
+define('ECRPATH_PARTS', ECRPATH_EXTENSIONTEMPLATES.DIRECTORY_SEPARATOR.'parts');
+
+/**
+ * Path for Logs
+ */
+define('ECRPATH_LOGS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'logs');
+
+/**
+ * Path for Scripts
+ */
+define('ECRPATH_SCRIPTS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'scripts');
+
+/**
+ * Path for Scripts
+ */
+define('ECRPATH_HELPERS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'helpers');
+
+/**
+ * Path for Builds
+ */
+define('ECRPATH_BUILDS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'builds');
+
+/**
+ * Path for Exports
+ * @deprecated
+ */
+define('ECRPATH_EXPORTS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'exports');
+
+/**
+ * Path for Exports
+ */
+define('ECRPATH_DATA', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'data');
+
 $parts = explode('.', JVERSION);
 
 if(3 != count($parts))
 {
-    die(__FILE__.' - Unfortunately we are not able to determine your Joomla! version :( :(');
+    throw new Exception(__FILE__.' - Unfortunately we are not able to determine your Joomla! version :( :(');
 }
 
 /**

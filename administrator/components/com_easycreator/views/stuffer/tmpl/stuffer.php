@@ -120,6 +120,7 @@ endif;
 echo $this->loadTemplate('language');
 echo $this->loadTemplate('packageelements');
 echo $this->loadTemplate('update');
+echo $this->loadTemplate('deploy');
 ?>
 
 <div style="clear: both; height: 1em;"></div>

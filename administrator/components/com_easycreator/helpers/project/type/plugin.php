@@ -122,6 +122,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
         $paths = array();
 
         //-- This is NOT an error but a strange J! behavior....
+        //-- Language files for plugins always "live" in the "administrator" section.
         $paths['admin'] = JPATH_ADMINISTRATOR;
 
         return $paths;

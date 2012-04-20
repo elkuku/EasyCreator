@@ -31,22 +31,22 @@ font-size: 1.3em; font-family: monospace;">
 <br/>
 <input type="radio" name="opt_format" id="opt_format_1" class="custom_opt"
        checked="checked"
-       onclick="document.id('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"
+       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_1'); ?>"/>
 <label for="opt_format_1"><tt><?php echo $buildOpts->get('custom_name_1'); ?></tt></label>
 <br/>
 <input type="radio" name="opt_format" id="opt_format_2" class="custom_opt"
-       onclick="document.id('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"
+       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_2'); ?>"/>
 <label for="opt_format_2"><tt><?php echo $buildOpts->get('custom_name_2'); ?></tt></label>
 <br/>
 <input type="radio" name="opt_format" id="opt_format_3" class="custom_opt"
-       onclick="document.id('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"
+       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_3'); ?>"/>
 <label for="opt_format_3"><tt><?php echo $buildOpts->get('custom_name_3'); ?></tt></label>
 <br/>
 <input type="radio" name="opt_format" id="opt_format_4" class="custom_opt"
-       onclick="document.id('cst_format').value=this.value; updateName('<?php echo $this->ecr_project; ?>');"
+       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_4'); ?>"/>
 <label for="opt_format_4"><tt><?php echo $buildOpts->get('custom_name_4'); ?></tt></label>
 <br/>
@@ -55,6 +55,6 @@ font-size: 1.3em; font-family: monospace;">
     <?php echo jgettext('Customize'); ?>&nbsp;
 </label>
 <br/>
-<input type="text" size="50" onkeyup="updateName('<?php echo $this->ecr_project; ?>');"
+<input type="text" size="50" onkeyup="EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        name="cst_format" id="cst_format" value="<?php echo $buildOpts->get('custom_name_1'); ?>"
        style="font-family: monospace; font-size: 1.2em;"/>

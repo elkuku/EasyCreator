@@ -256,8 +256,13 @@ class EcrProjectTemplateHelper
 
         $info = array();
 
+        $blacks = array('customs', 'priorities');
+
         foreach($reflector->getProperties() as $property)
         {
+            if(in_array((string)$property->getName(), $blacks))
+                continue;
+
             $comment = $property->getDocComment();
 
             $comment = str_replace('@var string', '', $comment);

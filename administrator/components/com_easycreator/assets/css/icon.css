@@ -11,6 +11,14 @@
     background-image: url(../images/ico/icon-32-chart.png);
 }
 
+.icon-24-ecr_deploy {
+    background-image: url(../images/ico/icon-24-deploy.png);
+}
+
+.icon-32-ecr_deploy {
+    background-image: url(../images/ico/icon-32-deploy.png);
+}
+
 .icon-32-ecr_languages {
     background-image: url(../images/ico/icon-32-languages.png);
 }
@@ -57,6 +65,14 @@
 
 .icon-24-debug {
     background-image: url(../images/ico/icon-24-bug.png);
+}
+
+.icon-24-ftp {
+    background-image: url(../images/ico/icon-24-ftp.png);
+}
+
+.icon-24-github {
+    background-image: url(../images/ico/icon-24-github.png);
 }
 
 .icon-24-info {
@@ -224,6 +240,12 @@
     background-image: url(../images/ico/icon-16-locale.png);
 }
 
+.icon-16-ok {
+    background-image: url(../images/ico/icon-16-ok.png);
+}
+.icon-16-notok {
+    background-image: url(../images/ico/icon-16-notok.png);
+}
 .icon-16-package {
     background-image: url(../images/ico/icon-16-install.png);
 }
@@ -268,8 +290,14 @@
     background-image: url(../images/ico/icon-16-wizard.png);
 }
 
+.icon-16-greenled {
+    background-image: url(../images/ico/icon-16-greenled.png);
+}
 .icon-16-yellowled {
     background-image: url(../images/ico/icon-16-yellowled.png);
+}
+.icon-16-redled {
+    background-image: url(../images/ico/icon-16-redled.png);
 }
 
 .icon-joomla-compat-15 {

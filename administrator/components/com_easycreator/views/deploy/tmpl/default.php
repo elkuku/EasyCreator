@@ -1,0 +1,60 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: elkuku
+ * Date: 19.04.12
+ * Time: 01:34
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('ftp'); ?>
+
+    <div class="infoHeader img icon-24-ftp">
+        <?php echo jgettext('Status') ?>
+    </div>
+
+    <div id="syncList"></div>
+
+    <div class="buttons">
+        <a href="javascript:;" class="ecr_button img icon-16-ok" onclick="EcrDeploy.checkAll();">
+            <?php echo jgettext('Check all'); ?>
+        </a>
+        <a href="javascript:;" class="ecr_button img icon-16-greenled" onclick="EcrDeploy.checkAll('new');">
+            <?php echo jgettext('Check all new'); ?>
+        </a>
+        <a href="javascript:;" class="ecr_button img icon-16-yellowled" onclick="EcrDeploy.checkAll('changed');">
+            <?php echo jgettext('Check all modified'); ?>
+        </a>
+        <a href="javascript:;" class="ecr_button img icon-16-notok" onclick="EcrDeploy.uncheckAll();">
+            <?php echo jgettext('Uncheck all'); ?>
+        </a>
+    </div>
+
+    <hr />
+
+    <div id="ftpMessage"></div>
+    <div id="ftpDebug"></div>
+
+    <div id="ftpDisplay"></div>
+
+    <div class="buttons">
+        <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.syncFiles('ftp');">
+            <?php echo jgettext('Synchronize remote'); ?>
+        </a>
+        <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.getSyncList();">
+            <?php echo jgettext('Reload local'); ?>
+        </a>
+        <a href="javascript:;" class="ecr_button img icon-16-export" onclick="EcrDeploy.deployFiles('ftp');">
+            <?php echo jgettext('Deploy'); ?>
+        </a>
+    </div>
+</div>
+
+<div class="clr"></div>
+
+<h3><?php echo jgettext('Log console'); ?></h3>
+<div id="pollStatus"></div>
+<pre id="ecrDebugBox"></pre>
+
+<script type="text/javascript">EcrDeploy.getSyncList();</script>

@@ -143,7 +143,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.7':
             case '2.5':
                 if($scope == 'menu')
-                $scope = 'sys';
+                    $scope = 'sys';
 
                 $paths['admin'][] = JPATH_ADMINISTRATOR.'/components/'.$this->comName;
                 $paths['admin'][] = JPATH_ADMINISTRATOR;
@@ -168,10 +168,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
         }//switch
 
         if($scope && ! array_key_exists($scope, $paths))
-        throw new Exception('Unknown scope: '.$scope);
+            throw new Exception('Unknown scope: '.$scope);
 
         if($scope && isset($paths[$scope]))
-        return $paths[$scope];
+            return $paths[$scope];
 
         return $paths;
     }//function
@@ -290,11 +290,15 @@ class EcrProjectTypeComponent extends EcrProjectBase
     /**
      * Get a file name for a EasyCreator setup XML file.
      *
+     * @param string $type
+     *
      * @return string
      */
-    public function getEcrXmlFileName()
+    public function getEcrXmlFileName($type = '')
     {
-        return $this->getFileName().'.xml';
+        $type =($type) ? '.'.$type : '';
+
+        return $this->getFileName().$type.'.xml';
     }//function
 
     /**

@@ -81,6 +81,11 @@ final class EcrHtml
             $tasks['ziper']->image = 'ecr_archive';
             $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete', 'archive');
 
+            $tasks['deploy'] = new stdClass;
+            $tasks['deploy']->title = jgettext('Deploy');
+            $tasks['deploy']->image = 'ecr_deploy';
+            $tasks['deploy']->tasks = array('deploy');
+
             foreach($tasks as $k => $v)
             {
                 $actives[$k] = (in_array($task, $v->tasks)) ? 'active' : '';
@@ -1139,7 +1144,7 @@ EOF;
      * 'error'    : RED
      * '[EMPTY]': BLUE [default]
      *
-     * @param array  $messages
+     * @param mixed  $messages
      * @param string $type empty, notice, error
      */
     public static function displayMessage($messages, $type = '')

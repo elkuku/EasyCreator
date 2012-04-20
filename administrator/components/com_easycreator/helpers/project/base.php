@@ -118,6 +118,11 @@ abstract class EcrProjectBase
     public $headerType;
 
     /**
+     * @var JRegistry
+     */
+    public $deployOptions;
+
+    /**
      * Constructor.
      *
      * @param string $name Project name.
@@ -139,6 +144,7 @@ abstract class EcrProjectBase
 
         $this->readJoomlaXml();
         $this->dbId = $this->getId();
+        $this->readDeployFile();
     }
 
     /**
@@ -438,7 +444,26 @@ abstract class EcrProjectBase
             return false;
         }
 
-        if(! $this->updateAdminMenu())
+        if(0)//! $this->updateAdminMenu())
+        {
+            JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
+
+            return false;
+        }
+
+        $this->deployOptions->set('ftp.host', JRequest::getVar('ftpHost'));
+        $this->deployOptions->set('ftp.port', JRequest::getVar('ftpPort'));
+        $this->deployOptions->set('ftp.basedir', JRequest::getVar('ftpBasedir'));
+        $this->deployOptions->set('ftp.downloads', JRequest::getVar('ftpDownloads'));
+        $this->deployOptions->set('ftp.user', JRequest::getVar('ftpUser'));
+        $this->deployOptions->set('ftp.pass', JRequest::getVar('ftpPass'));
+
+        $this->deployOptions->set('github.repoowner', JRequest::getVar('githubRepoOwner'));
+        $this->deployOptions->set('github.reponame', JRequest::getVar('githubRepoName'));
+        $this->deployOptions->set('github.user', JRequest::getVar('githubUser'));
+        $this->deployOptions->set('github.pass', JRequest::getVar('githubPass'));
+
+        if(! $this->writeDeployFile())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
@@ -446,6 +471,82 @@ abstract class EcrProjectBase
         }
 
         return true;
+    }
+
+    /**
+     * Write the deploy information file.
+     *
+     * @throws Exception
+     * @return EcrProjectBase
+     */
+    private function writeDeployFile()
+    {
+        $path = ECRPATH_DATA.'/deploy/'.$this->getEcrXmlFileName('deploy');
+
+        $xml = EcrProjectHelper::getXML('<ecrdeploy'
+                .' version="'.ECR_VERSION.'"'
+                .' />'
+            , false);
+
+        $ftp = $xml->addChild('ftp');
+
+        $ftp->addChild('host', $this->deployOptions->get('ftp.host'));
+        $ftp->addChild('port', $this->deployOptions->get('ftp.port'));
+        $ftp->addChild('basedir', $this->deployOptions->get('ftp.basedir'));
+        $ftp->addChild('downloads', $this->deployOptions->get('ftp.downloads'));
+        $ftp->addChild('user', $this->deployOptions->get('ftp.user'));
+        $ftp->addChild('pass', $this->deployOptions->get('ftp.pass'));
+
+        $github = $xml->addChild('github');
+
+        $github->addChild('repoowner', $this->deployOptions->get('github.repoowner'));
+        $github->addChild('reponame', $this->deployOptions->get('github.reponame'));
+        $github->addChild('user', $this->deployOptions->get('github.user'));
+        $github->addChild('pass', $this->deployOptions->get('github.pass'));
+
+        $contents = $xml->asFormattedXML();
+
+        if( ! JFile::write($path, $contents))
+            throw new Exception(__METHOD__.' - Unable to write deploy file to: '.$path);
+
+        return $this;
+    }
+
+    /**
+     * Read the deploy information file.
+     *
+     * @throws Exception
+     *
+     * @return \EcrProjectBase
+     */
+    private function readDeployFile()
+    {
+        $path = ECRPATH_DATA.'/deploy/'.$this->getEcrXmlFileName('deploy');
+
+        $this->deployOptions = new JRegistry;
+
+        if( ! JFile::exists($path))
+            return $this;
+
+        $xml = EcrProjectHelper::getXML($path);
+
+        if( ! $xml)
+            throw new Exception(__METHOD__.' - Invalid deploy file');
+
+        $this->deployOptions->set('ftp.host', (string)$xml->ftp->host);
+        $this->deployOptions->set('ftp.port', (string)$xml->ftp->port);
+        $this->deployOptions->set('ftp.basedir', (string)$xml->ftp->basedir);
+        $this->deployOptions->set('ftp.downloads', (string)$xml->ftp->downloads);
+        $this->deployOptions->set('ftp.user', (string)$xml->ftp->user);
+        $this->deployOptions->set('ftp.pass', (string)$xml->ftp->pass);
+
+
+        $this->deployOptions->set('github.repoowner', (string)$xml->github->repoowner);
+        $this->deployOptions->set('github.reponame', (string)$xml->github->reponame);
+        $this->deployOptions->set('github.user', (string)$xml->github->user);
+        $this->deployOptions->set('github.pass', (string)$xml->github->pass);
+
+        return $this;
     }
 
     /**

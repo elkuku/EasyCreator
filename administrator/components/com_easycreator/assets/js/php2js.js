@@ -55,56 +55,56 @@ function str_replace(search, replace, subject, count) {
 
 
 var php2js = {
-		trim : function  (str, charlist) {
-		    // http://kevin.vanzonneveld.net
-		    // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		    // +   improved by: mdsjack (http://www.mdsjack.bo.it)
-		    // +   improved by: Alexander Ermolaev (http://snippets.dzone.com/user/AlexanderErmolaev)
-		    // +      input by: Erkekjetter
-		    // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		    // +      input by: DxGx
-		    // +   improved by: Steven Levithan (http://blog.stevenlevithan.com)
-		    // +    tweaked by: Jack
-		    // +   bugfixed by: Onno Marsman
-		    // *     example 1: trim('    Kevin van Zonneveld    ');
-		    // *     returns 1: 'Kevin van Zonneveld'
-		    // *     example 2: trim('Hello World', 'Hdle');
-		    // *     returns 2: 'o Wor'
-		    // *     example 3: trim(16, 1);
-		    // *     returns 3: 6
+    trim:function (str, charlist) {
+        // http://kevin.vanzonneveld.net
+        // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // +   improved by: mdsjack (http://www.mdsjack.bo.it)
+        // +   improved by: Alexander Ermolaev (http://snippets.dzone.com/user/AlexanderErmolaev)
+        // +      input by: Erkekjetter
+        // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+        // +      input by: DxGx
+        // +   improved by: Steven Levithan (http://blog.stevenlevithan.com)
+        // +    tweaked by: Jack
+        // +   bugfixed by: Onno Marsman
+        // *     example 1: trim('    Kevin van Zonneveld    ');
+        // *     returns 1: 'Kevin van Zonneveld'
+        // *     example 2: trim('Hello World', 'Hdle');
+        // *     returns 2: 'o Wor'
+        // *     example 3: trim(16, 1);
+        // *     returns 3: 6
 
-		    var whitespace, l = 0, i = 0;
-		    str += '';
+        var whitespace, l = 0, i = 0;
+        str += '';
 
-		    if (!charlist) {
-		        // default list
-		        whitespace = " \n\r\t\f\x0b\xa0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000";
-		    } else {
-		        // preg_quote custom list
-		        charlist += '';
-		        whitespace = charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '$1');
-		    }
+        if (!charlist) {
+            // default list
+            whitespace = " \n\r\t\f\x0b\xa0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000";
+        } else {
+            // preg_quote custom list
+            charlist += '';
+            whitespace = charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '$1');
+        }
 
-		    l = str.length;
-		    for (i = 0; i < l; i++) {
-		        if (whitespace.indexOf(str.charAt(i)) === -1) {
-		            str = str.substring(i);
-		            break;
-		        }
-		    }
+        l = str.length;
+        for (i = 0; i < l; i++) {
+            if (whitespace.indexOf(str.charAt(i)) === -1) {
+                str = str.substring(i);
+                break;
+            }
+        }
 
-		    l = str.length;
-		    for (i = l - 1; i >= 0; i--) {
-		        if (whitespace.indexOf(str.charAt(i)) === -1) {
-		            str = str.substring(0, i + 1);
-		            break;
-		        }
-		    }
+        l = str.length;
+        for (i = l - 1; i >= 0; i--) {
+            if (whitespace.indexOf(str.charAt(i)) === -1) {
+                str = str.substring(0, i + 1);
+                break;
+            }
+        }
 
-		    return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
-		},//function
+        return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
+    }, //function
 
-        sprintf : function () {
+    sprintf:function () {
         // Return a formatted string
         //
         // version: 1008.1718
@@ -127,47 +127,44 @@ var php2js = {
         var a = arguments, i = 0, format = a[i++];
 
         // pad()
-        var pad = function(str, len, chr, leftJustify) {
+        var pad = function (str, len, chr, leftJustify) {
             if (!chr) {
                 chr = ' ';
             }
             var padding = (str.length >= len) ? '' : Array(
-                    1 + len - str.length >>> 0).join(chr);
+                1 + len - str.length >>> 0).join(chr);
             return leftJustify ? str + padding : padding + str;
         };
 
         // justify()
-        var justify = function(value, prefix, leftJustify, minWidth, zeroPad,
-                customPadChar) {
+        var justify = function (value, prefix, leftJustify, minWidth, zeroPad, customPadChar) {
             var diff = minWidth - value.length;
             if (diff > 0) {
                 if (leftJustify || !zeroPad) {
                     value = pad(value, minWidth, customPadChar, leftJustify);
                 } else {
                     value = value.slice(0, prefix.length)
-                            + pad('', diff, '0', true) + value.slice(prefix.length);
+                        + pad('', diff, '0', true) + value.slice(prefix.length);
                 }
             }
             return value;
         };
 
         // formatBaseX()
-        var formatBaseX = function(value, base, prefix, leftJustify, minWidth,
-                precision, zeroPad) {
+        var formatBaseX = function (value, base, prefix, leftJustify, minWidth, precision, zeroPad) {
             // Note: casts negative numbers to positive ones
             var number = value >>> 0;
             prefix = prefix && number && {
-                '2' : '0b',
-                '8' : '0',
-                '16' : '0x'
+                '2':'0b',
+                '8':'0',
+                '16':'0x'
             }[base] || '';
             value = prefix + pad(number.toString(base), precision || 0, '0', false);
             return justify(value, prefix, leftJustify, minWidth, zeroPad);
         };
 
         // formatString()
-        var formatString = function(value, leftJustify, minWidth, precision,
-                zeroPad, customPadChar) {
+        var formatString = function (value, leftJustify, minWidth, precision, zeroPad, customPadChar) {
             if (precision != null) {
                 value = value.slice(0, precision);
             }
@@ -175,8 +172,7 @@ var php2js = {
         };
 
         // doFormat()
-        var doFormat = function(substring, valueIndex, flags, minWidth, _,
-                precision, type) {
+        var doFormat = function (substring, valueIndex, flags, minWidth, _, precision, type) {
             var number;
             var prefix;
             var method;
@@ -190,26 +186,26 @@ var php2js = {
             // parse flags
             var leftJustify = false, positivePrefix = '', zeroPad = false, prefixBaseX = false, customPadChar = ' ';
             var flagsl = flags.length;
-            for ( var j = 0; flags && j < flagsl; j++) {
+            for (var j = 0; flags && j < flagsl; j++) {
                 switch (flags.charAt(j)) {
-                case ' ':
-                    positivePrefix = ' ';
-                    break;
-                case '+':
-                    positivePrefix = '+';
-                    break;
-                case '-':
-                    leftJustify = true;
-                    break;
-                case "'":
-                    customPadChar = flags.charAt(j + 1);
-                    break;
-                case '0':
-                    zeroPad = true;
-                    break;
-                case '#':
-                    prefixBaseX = true;
-                    break;
+                    case ' ':
+                        positivePrefix = ' ';
+                        break;
+                    case '+':
+                        positivePrefix = '+';
+                        break;
+                    case '-':
+                        leftJustify = true;
+                        break;
+                    case "'":
+                        customPadChar = flags.charAt(j + 1);
+                        break;
+                    case '0':
+                        zeroPad = true;
+                        break;
+                    case '#':
+                        prefixBaseX = true;
+                        break;
                 }
             }
 
@@ -237,7 +233,7 @@ var php2js = {
 
             if (!precision) {
                 precision = 'fFeE'.indexOf(type) > -1 ? 6 : (type == 'd') ? 0
-                        : undefined;
+                    : undefined;
             } else if (precision == '*') {
                 precision = +a[i++];
             } else if (precision.charAt(0) == '*') {
@@ -250,54 +246,54 @@ var php2js = {
             value = valueIndex ? a[valueIndex.slice(0, -1)] : a[i++];
 
             switch (type) {
-            case 's':
-                return formatString(String(value), leftJustify, minWidth,
+                case 's':
+                    return formatString(String(value), leftJustify, minWidth,
                         precision, zeroPad, customPadChar);
-            case 'c':
-                return formatString(String.fromCharCode(+value), leftJustify,
+                case 'c':
+                    return formatString(String.fromCharCode(+value), leftJustify,
                         minWidth, precision, zeroPad);
-            case 'b':
-                return formatBaseX(value, 2, prefixBaseX, leftJustify, minWidth,
+                case 'b':
+                    return formatBaseX(value, 2, prefixBaseX, leftJustify, minWidth,
                         precision, zeroPad);
-            case 'o':
-                return formatBaseX(value, 8, prefixBaseX, leftJustify, minWidth,
+                case 'o':
+                    return formatBaseX(value, 8, prefixBaseX, leftJustify, minWidth,
                         precision, zeroPad);
-            case 'x':
-                return formatBaseX(value, 16, prefixBaseX, leftJustify, minWidth,
+                case 'x':
+                    return formatBaseX(value, 16, prefixBaseX, leftJustify, minWidth,
                         precision, zeroPad);
-            case 'X':
-                return formatBaseX(value, 16, prefixBaseX, leftJustify, minWidth,
+                case 'X':
+                    return formatBaseX(value, 16, prefixBaseX, leftJustify, minWidth,
                         precision, zeroPad).toUpperCase();
-            case 'u':
-                return formatBaseX(value, 10, prefixBaseX, leftJustify, minWidth,
+                case 'u':
+                    return formatBaseX(value, 10, prefixBaseX, leftJustify, minWidth,
                         precision, zeroPad);
-            case 'i':
-            case 'd':
-                number = parseInt(+value, 10);
-                prefix = number < 0 ? '-' : positivePrefix;
-                value = prefix
+                case 'i':
+                case 'd':
+                    number = parseInt(+value, 10);
+                    prefix = number < 0 ? '-' : positivePrefix;
+                    value = prefix
                         + pad(String(Math.abs(number)), precision, '0', false);
-                return justify(value, prefix, leftJustify, minWidth, zeroPad);
-            case 'e':
-            case 'E':
-            case 'f':
-            case 'F':
-            case 'g':
-            case 'G':
-                number = +value;
-                prefix = number < 0 ? '-' : positivePrefix;
-                method = [ 'toExponential', 'toFixed', 'toPrecision' ]['efg'
+                    return justify(value, prefix, leftJustify, minWidth, zeroPad);
+                case 'e':
+                case 'E':
+                case 'f':
+                case 'F':
+                case 'g':
+                case 'G':
+                    number = +value;
+                    prefix = number < 0 ? '-' : positivePrefix;
+                    method = [ 'toExponential', 'toFixed', 'toPrecision' ]['efg'
                         .indexOf(type.toLowerCase())];
-                textTransform = [ 'toString', 'toUpperCase' ]['eEfFgG'
+                    textTransform = [ 'toString', 'toUpperCase' ]['eEfFgG'
                         .indexOf(type) % 2];
-                value = prefix + Math.abs(number)[method](precision);
-                return justify(value, prefix, leftJustify, minWidth, zeroPad)[textTransform]
+                    value = prefix + Math.abs(number)[method](precision);
+                    return justify(value, prefix, leftJustify, minWidth, zeroPad)[textTransform]
                         ();
-            default:
-                return substring;
+                default:
+                    return substring;
             }
         };
 
         return format.replace(regex, doFormat);
-    },
-}
+    }
+};

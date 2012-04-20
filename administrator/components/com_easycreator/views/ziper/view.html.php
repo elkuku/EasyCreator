@@ -88,6 +88,11 @@ class EasyCreatorViewZiper extends JView
         $this->setLayout('archive');
     }//function
 
+    private function deploy()
+    {
+        $this->setLayout('deploy');
+    }
+
     /**
      * Zips the project.
      *
@@ -139,6 +144,11 @@ class EasyCreatorViewZiper extends JView
             , 'description' => jgettext('View archived versions of your extension.')
             , 'icon' => 'archive'
             , 'task' => 'archive'
+            )
+            , array('title' => jgettext('Deploy')
+            , 'description' => jgettext('This deploys you package to a server.')
+            , 'icon' => 'archive'
+            , 'task' => 'deploy'
             )
         );
 

@@ -50,9 +50,18 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-04-16
+e2c8a31 Fix: Unnecessary and ugly warning on a non existing build folder when creating packages - thanks fade2gray
+4196e22 Fix: Can't create language file - thanks fade2gray
+4739ee8 Fix: Can't delete hyphenated directories - thanks fade2gray
+
+2012-04-14
+67bcf73 Remove debug output - thanks fade2gray
+
 ---------- 0.0.16 ----------
 
 2012-04-06
+af5e3aa Bump version 0.0.16
 47d30f6 Add a method to verify removed files on extension upgrade (EasyCreator only (for now..))
 ad3d03e Change return falses to exceptions
 c909e79 Fix wrong link to J API in JHelp
