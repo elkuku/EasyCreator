@@ -14,16 +14,11 @@ pre#ecrDebugBox {
     overflow: auto;
 }
 
-ul.syncList {
-    list-style: none;
-    padding: 0;
-
-}
-
-ul.syncList li.new {
+div#syncTree label.new {
     color: green;
 }
-ul.syncList li.changed {
+
+div#syncTree label.changed {
     color: orange;
 }
 

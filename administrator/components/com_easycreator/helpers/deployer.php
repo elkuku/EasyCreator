@@ -199,7 +199,6 @@ class EcrDeployer
 
         foreach($project->copies as $copy)
         {
-
             $files = JFolder::files($copy, '.', true, true);
 
             foreach($files as $file)
@@ -229,6 +228,8 @@ class EcrDeployer
                 }
             }
         }
+
+        ksort($fileList);
 
         return $fileList;
     }

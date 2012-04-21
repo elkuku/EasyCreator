@@ -3,7 +3,7 @@
  * @package    EasyCreator
  * @subpackage Controllers
  * @author     Nikolai Plath
- * @author     Created on 24-Sep-2008
+ * @author     Created on 20-Apr-2012
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
@@ -216,6 +216,87 @@ class EasyCreatorControllerDeploy extends JController
         echo json_encode($this->response);
     }
 
+    /**
+     * @param $list
+     * @return string
+     */
+    private function generateTree($list)
+    {
+        $converteds = array();
+
+        foreach($list as $item)
+        {
+            $parts = explode('/', $item->path);
+
+            array_pop($parts);
+
+            eval('$converteds[\''.implode("']['", $parts).'\'][]=$item;');
+        }
+
+        return '<div id="syncTree">'.$this->processTree($converteds).'</div>';
+    }
+
+    /**
+     * @param $list
+     * @return string
+     */
+    private function processTree($list)
+    {
+        static $tree = array();
+
+        static $level = 0;
+
+        foreach($list as $k => $item)
+        {
+            if(is_array($item))
+            {
+                ksort($item);
+                uksort($item, array($this, 'sort'));
+
+                $tree[] = '<div class="pft-directory">'.str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level).$k.'</div>';
+
+                $level ++;
+
+                $this->processTree($item);
+
+                $level --;
+
+                continue;
+            }
+
+            $f = JFile::getName($item->path);
+            $status = ($item->exists) ? ' changed' : ' new';
+
+            $tree[] = '<div class="file'.$status.'">'.str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level)
+                .'<input type="checkbox" value="'.$item->path.'" id="'.$item->path.'" />'
+                .'<label class="pft-file'.$status.'" for="'.$item->path.'">'.$f.'</label>'
+                .'</div>';
+        }
+
+        return implode("\n", $tree);
+    }
+
+    /**
+     * @param $a
+     * @param $b
+     * @return int
+     */
+    public function sort($a, $b)
+    {
+        if(is_int($a) && ! is_int($b))
+        {
+            return 1;
+        }
+
+        if(is_int($b) && ! is_int($a))
+        {
+            return -1;
+        }
+    }
+
+    /**
+     *
+     */
     public function getSyncList()
     {
         ob_start();
@@ -230,6 +311,11 @@ class EasyCreatorControllerDeploy extends JController
 
             if(count($list))
             {
+                $html[] = self::generateTree($list);
+
+//$html[] = '<pre>'.print_r($llll, 1).'</pre>';
+                /*
+
                 $html[] = '<ul class="syncList">';
 
                 foreach($list as $item)
@@ -243,6 +329,7 @@ class EasyCreatorControllerDeploy extends JController
                 }
 
                 $html[] = '</ul>';
+                */
             }
             else
             {
