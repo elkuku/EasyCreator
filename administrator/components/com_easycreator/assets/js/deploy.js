@@ -1,9 +1,9 @@
 /**
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Javascript
- * @author Nikolai Plath
- * @author Created on 19-Apr-2012
- * @license GNU/GPL, see JROOT/LICENSE.php
+ * @author     Nikolai Plath
+ * @author     Created on 19-Apr-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 var EcrDeploy = new Class({
@@ -13,8 +13,11 @@ var EcrDeploy = new Class({
         url:''
     },
 
+    url:'',
+
     initialize:function (options) {
         this.setOptions(options);
+        this.url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=deploy';
     },
 
     /**
@@ -23,19 +26,13 @@ var EcrDeploy = new Class({
      * @return {*}
      */
     deployPackage:function (destination) {
-        var form = document.id('adminForm');
-
         var files = '';
 
-        for (i = 0; i < document.adminForm.elements.length; i++) {
-            var el = document.adminForm.elements[i];
-            if ('checkbox' == el.type
-                && 'file[]' == el.name
-                && true == el.checked
-                ) {
-                files += '&file[]=' + el.value;
+        $$('table.adminlist input').each(function (input) {
+            if (input.checked) {
+                files += '&file[]=' + input.value;
             }
-        }
+        });
 
         if ('' == files) {
             alert(jgettext('Please choose one or more files to deploy'));
@@ -43,46 +40,20 @@ var EcrDeploy = new Class({
             return false;
         }
 
-        switch (destination) {
-            case 'github' :
-                var data = {
-                    owner:document.id('githubRepoOwner').value,
-                    repo:document.id('githubRepoName').value,
-                    user:document.id('githubUser').value,
-                    pass:document.id('githubPass').value
-                };
-                break;
-
-            case 'ftp' :
-                var data = {
-                    ftpHost:document.id('ftpHost').value,
-                    ftpPort:document.id('ftpPort').value,
-                    ftpUser:document.id('ftpUser').value,
-                    ftpPass:document.id('ftpPass').value,
-                    ftpDirectory:document.id('ftpDirectory').value
-                };
-                break;
-
-            default:
-                alert('Unknown destination: ' + destination);
-                return;
-                break;
-        }
-
-        elements = form.elements;
-
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=deploy&task=deployPackages';
-        url += '&type=' + destination;
-        url += '&ecr_project=' + document.id('ecr_project');
-        url += files;
-
         var box = document.id(destination + 'DeployMessage');
         var debug = document.id(destination + 'DeployDebug');
 
+        var data = this._getCredentials(destination);
+
+        data.task = 'deployPackages';
+        data.type = destination;
+        data.ecr_project = document.id('ecr_project');
+
         new Request({
-            url:url,
+            url:this.url + files,
+
             data:data,
+
             onRequest:function () {
                 box.style.color = 'black';
                 box.innerHTML = jgettext(php2js.sprintf('Deploying to %s...', destination));
@@ -101,8 +72,6 @@ var EcrDeploy = new Class({
                     box.style.color = 'green';
                     box.set('text', resp.message);
                     box.className = '';
-
-//                    EcrDeploy.getList(destination);
                 }
 
                 stopPoll();
@@ -118,7 +87,7 @@ var EcrDeploy = new Class({
     deployFiles:function (destination) {
         var files = '';
 
-        $$('ul.syncList li input').each(function (input) {
+        $$('div#syncTree div input').each(function (input) {
             if (input.checked) {
                 files += '&file[]=' + input.value;
             }
@@ -130,36 +99,20 @@ var EcrDeploy = new Class({
             return false;
         }
 
-        switch (destination) {
-            case 'ftp' :
-                var data = this._getCredentials(destination);
-                var datax = {
-                    ftpHost:document.id('ftpHost').value,
-                    ftpPort:document.id('ftpPort').value,
-                    ftpUser:document.id('ftpUser').value,
-                    ftpPass:document.id('ftpPass').value,
-                    ftpDirectory:document.id('ftpDirectory').value
-                };
-                break;
-
-            default:
-                alert('Unknown destination: ' + destination);
-                return;
-                break;
-        }
-
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=deploy&task=deployFiles';
-        url += '&type=' + destination;
-        url += '&ecr_project=' + document.id('ecr_project').value;
-        url += files;
-
         var box = document.id(destination + 'Message');
         var debug = document.id(destination + 'Debug');
 
+        var data = this._getCredentials(destination);
+
+        data.task = 'deployFiles';
+        data.type = destination;
+        data.ecr_project = document.id('ecr_project').value;
+
         new Request({
-            url:url,
+            url:this.url + files,
+
             data:data,
+
             onRequest:function () {
                 box.style.color = 'black';
                 box.innerHTML = jgettext(php2js.sprintf('Deploying to %s...', destination));
@@ -194,28 +147,18 @@ var EcrDeploy = new Class({
      */
     getList:function (destination) {
         var task;
+
+        var data = this._getCredentials(destination);
+
+        data.type= destination;
+
         switch (destination) {
             case 'github' :
-                task = 'getGitHubDownloads';
-
-                var data = {
-                    owner:document.id('githubRepoOwner').value,
-                    repo:document.id('githubRepoName').value
-//                    user:document.id('githubUser').value,
-//                    pass:document.id('githubPass').value,
-                };
+                data.task = 'getGitHubDownloads';
                 break;
 
             case 'ftp' :
-                task = 'getFtpDownloads';
-
-                var data = {
-                    ftpHost:document.id('ftpHost').value,
-                    ftpPort:document.id('ftpPort').value,
-                    ftpUser:document.id('ftpUser').value,
-                    ftpPass:document.id('ftpPass').value,
-                    ftpDirectory:document.id('ftpDirectory').value
-                };
+                data.task = 'getFtpDownloads';
                 break;
 
             default:
@@ -223,17 +166,16 @@ var EcrDeploy = new Class({
                 return;
                 break;
         }
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=deploy&task=' + task;
-        url += '&type=' + destination;
 
         var box = document.id('ajax' + destination + 'Message');
         var debug = document.id('ajax' + destination + 'Debug');
         var display = document.id(destination + 'Display');
 
         new Request({
-            url:url,
+            url:this.url,
+
             data:data,
+
             onRequest:function () {
                 box.style.color = 'black';
                 box.innerHTML = jgettext(php2js.sprintf('Obtaining downloads from: %s', destination));
@@ -266,15 +208,19 @@ var EcrDeploy = new Class({
      *
      */
     getSyncList:function () {
-
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=deploy&task=getSyncList';
-        url += '&ecr_project=' + document.id('ecr_project').value;
-
         var box = document.id('syncList');
 
+        var data = {
+            task:'getSyncList',
+            ecr_project:document.id('ecr_project').value
+        }
+
         new Request({
-            url:url,
+
+            url:this.url,
+
+            data:data,
+
             onRequest:function () {
                 box.style.color = 'black';
                 box.innerHTML = jgettext('Creating synclist...');
@@ -302,20 +248,12 @@ var EcrDeploy = new Class({
      * @param file
      */
     deleteDownload:function (destination, file) {
-        var task;
-
         switch (destination) {
             case 'github' :
-                task = 'deleteGitHubDownload';
+                var data = this._getCredentials(destination);
 
-                var data = {
-                    owner:document.id('githubRepoOwner').value,
-                    repo:document.id('githubRepoName').value,
-                    user:document.id('githubUser').value,
-                    pass:document.id('githubPass').value,
-
-                    id:file
-                };
+                data.id = file;
+                data.task = 'deleteGitHubDownload';
 
                 break;
 
@@ -324,16 +262,16 @@ var EcrDeploy = new Class({
                 return;
                 break;
         }
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=deploy&task=' + task;
 
         var box = document.id('ajax' + destination + 'Message');
         var debug = document.id('ajax' + destination + 'Debug');
         var display = document.id(destination + 'Display');
 
         new Request({
-            url:url,
+            url:this.url,
+
             data:data,
+
             onRequest:function () {
                 box.style.color = 'black';
                 box.innerHTML = jgettext(php2js.sprintf('Deleting files on: %s', destination));
@@ -355,7 +293,6 @@ var EcrDeploy = new Class({
                     box.set('text', '');
                     display.set('html', resp.message);
                 }
-
             }
         }).send();
     },
@@ -365,39 +302,21 @@ var EcrDeploy = new Class({
      * @param destination
      */
     syncFiles:function (destination) {
-        var task;
+        var data = this._getCredentials(destination);
 
-        switch (destination) {
-            case 'ftp' :
-                task = 'syncFiles';
-
-                var data = {
-                    ftpHost:document.id('ftpHost').value,
-                    ftpPort:document.id('ftpPort').value,
-                    ftpUser:document.id('ftpUser').value,
-                    ftpPass:document.id('ftpPass').value,
-                    ftpDirectory:document.id('ftpDirectory').value
-                };
-                break;
-
-            default:
-                alert('Unknown destination: ' + destination);
-                return;
-                break;
-        }
-
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=deploy&task=' + task;
-        url += '&type=' + destination;
-        url += '&ecr_project=' + document.id('ecr_project').value;
+        data.task = 'syncFiles';
+        data.type = destination;
+        data.ecr_project = document.id('ecr_project').value;
 
         var box = document.id(destination + 'Message');
         var debug = document.id(destination + 'Debug');
         var display = document.id(destination + 'Display');
 
         new Request({
-            url:url,
+            url:this.url,
+
             data:data,
+
             onRequest:function () {
                 box.style.color = 'black';
                 box.innerHTML = jgettext(php2js.sprintf('Synchronizing files on: %s', destination));
@@ -436,7 +355,7 @@ var EcrDeploy = new Class({
     checkAll:function (type) {
         type = (undefined == type) ? '' : '.' + type;
 
-        $$('ul.syncList li' + type + ' input').each(function (e) {
+        $$('div#syncTree div' + type + ' input').each(function (e) {
             e.checked = 'checked'
         });
     },
@@ -445,11 +364,10 @@ var EcrDeploy = new Class({
      * Uncheck all checkboxes.
      */
     uncheckAll:function () {
-        $$('ul.syncList li input').each(function (e) {
+        $$('div#syncTree div input').each(function (e) {
             e.checked = ''
         });
     },
-
 
     /**
      *
@@ -460,22 +378,30 @@ var EcrDeploy = new Class({
     _getCredentials:function (destination) {
         switch (destination) {
             case 'ftp' :
-                var credentials = {
+                var data = {
                     ftpHost:document.id('ftpHost').value,
                     ftpPort:document.id('ftpPort').value,
                     ftpUser:document.id('ftpUser').value,
                     ftpPass:document.id('ftpPass').value,
                     ftpDirectory:document.id('ftpDirectory').value
                 };
+                break;
 
-                return credentials;
+            case 'github' :
+                var data = {
+                    owner:document.id('githubRepoOwner').value,
+                    repo:document.id('githubRepoName').value,
+                    user:document.id('githubUser').value,
+                    pass:document.id('githubPass').value
+                };
                 break;
 
             default:
-                alert('Unknown destination: ' + destination);
-                return;
+                throw('Unknown destination: ' + destination);
                 break;
         }
+
+        return data;
     }
 
 });
