@@ -1,6 +1,7 @@
-builds/*.zip
+*.zip
+*.gz
+*.bz2
 deploy/*.xml
-exports/*.zip
 logs/*.log
 results/*.xml
 scripts/*.xml

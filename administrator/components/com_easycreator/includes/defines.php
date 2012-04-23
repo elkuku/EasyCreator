@@ -38,35 +38,34 @@ define('ECRPATH_AUTOCODES', ECRPATH_EXTENSIONTEMPLATES.DIRECTORY_SEPARATOR.'auto
 define('ECRPATH_PARTS', ECRPATH_EXTENSIONTEMPLATES.DIRECTORY_SEPARATOR.'parts');
 
 /**
- * Path for Logs
- */
-define('ECRPATH_LOGS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'logs');
-
-/**
- * Path for Scripts
- */
-define('ECRPATH_SCRIPTS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'scripts');
-
-/**
- * Path for Scripts
+ * Path for Helpers
  */
 define('ECRPATH_HELPERS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'helpers');
-
-/**
- * Path for Builds
- */
-define('ECRPATH_BUILDS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'builds');
-
-/**
- * Path for Exports
- * @deprecated
- */
-define('ECRPATH_EXPORTS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'exports');
 
 /**
  * Path for Exports
  */
 define('ECRPATH_DATA', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'data');
+
+/**
+* Path for Logs
+*/
+define('ECRPATH_LOGS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'logs');
+
+/**
+* Path for Scripts
+*/
+define('ECRPATH_SCRIPTS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'scripts');
+
+/**
+ * Path for Builds
+ */
+define('ECRPATH_BUILDS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'builds');
+
+/**
+ * Path for Exports
+ */
+define('ECRPATH_EXPORTS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'exports');
 
 $parts = explode('.', JVERSION);
 

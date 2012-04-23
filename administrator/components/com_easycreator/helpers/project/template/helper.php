@@ -144,6 +144,9 @@ class EcrProjectTemplateHelper
 
         $fileName = 'ecr_extension_templates'.date('Ymd_His').'.tar.gz';
 
+        if( ! JFolder::create(ECRPATH_EXPORTS.DS.'templates'))
+            throw new Exception(sprintf(jgettext('Unable to create the folder %s'), ECRPATH_EXPORTS.DS.'templates'));
+
         $result = EcrArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
 
         //-- This means error

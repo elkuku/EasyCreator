@@ -372,14 +372,15 @@ class EcrProjectZiper extends JObject
                     if($this->project->comName == 'com_easycreator' && $dest == 'admin')
                     {
                         $ecrBase = $this->temp_dir.DS.'admin';
-                        $folders = array('logs', 'scripts', 'builds', 'templates/exports', 'tests', 'results');
+
+                        $folders = array('data/builds', 'data/deploy', 'data/exports', 'data/logs', 'data/results', 'data/scripts', 'data/sync', 'tests');
 
                         foreach($folders as $folder)
                         {
                             if( ! JFolder::exists($ecrBase.DS.$folder))
-                            continue;
+                                continue;
 
-                            $files = JFolder::files($ecrBase.DS.$folder, '.', true, true, array('.svn', 'index.html'));
+                            $files = JFolder::files($ecrBase.DS.$folder, '.', true, true, array('.svn', 'readme.md'));
 
                             foreach($files as $file)
                             {
