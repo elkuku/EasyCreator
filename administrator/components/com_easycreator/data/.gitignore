@@ -1,7 +1,7 @@
-builds/*
-deploy/*
-exports/*
-logs/*
-results/*
-scripts/*
-sync/*
+builds/*.zip
+deploy/*.xml
+exports/*.zip
+logs/*.log
+results/*.xml
+scripts/*.xml
+sync/*.txt
