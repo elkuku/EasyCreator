@@ -14,6 +14,11 @@ class EcrDeployer
      */
     private static $ftp = null;
 
+    /**
+     * @var EcrGithub
+     */
+    private static $github = null;
+
     private static $credentials = null;
 
     /**
@@ -21,39 +26,42 @@ class EcrDeployer
      * @return array|mixed
      * @throws Exception
      */
-    public static function getDownloads()
+    public static function getPackageList()
     {
         $input = JFactory::getApplication()->input;
 
         self::setupLog();
 
-        JLog::add('Starting');
+        JLog::add('|¯¯¯ Starting');
 
-        switch($input->get('type'))
+        $type = $input->get('type');
+
+        self::connect($type);
+
+        JLog::add('| << '.jgettext('Obtaining download list ...'));
+
+        switch($type)
         {
             case 'ftp':
-                self::connect('ftp');
+                $downloads = self::$ftp->listDetails(self::$credentials->downloads, 'files');
 
-                JLog::add('Obtaining downloads ...');
+                if(count($downloads))
+                {
+                    $downloads = JArrayHelper::toObject($downloads);
 
-                $downloads = self::$ftp->listDetails(self::$credentials->directory, 'files');
+                    if(! $downloads)
+                        return array();
+
+                    foreach($downloads as &$download)
+                    {
+                        $download->html_url = '';
+                    }
+                }
 
                 break;
 
             case 'github':
-                $input = JFactory::getApplication()->input;
-
-                $config = new JRegistry;
-
-                JLog::add('Connecting to GitHub ...');
-
-                $github = new EcrGithub($config);
-
-                JLog::add('Connected');
-
-                JLog::add('Obtaining downloads ...');
-
-                $downloads = $github->downloads->getList($input->get('owner'), $input->get('repo'));
+                $downloads = self::$github->downloads->getList($input->get('owner'), $input->get('repo'));
 
                 break;
 
@@ -62,7 +70,7 @@ class EcrDeployer
                 break;
         }
 
-        JLog::add('Finished');
+        JLog::add('|___ Finished');
 
         //-- Give the logger a chance to finish.
         sleep(1);
@@ -80,7 +88,7 @@ class EcrDeployer
     {
         self::setupLog();
 
-        JLog::add('Starting');
+        JLog::add('|¯¯¯ Starting');
 
         $input = JFactory::getApplication()->input;
 
@@ -105,7 +113,7 @@ class EcrDeployer
 
                 $fileList = self::getSyncList();
 
-                JLog::add('Finished');
+                JLog::add('|___ Finished');
 
                 //-- Give the logger a chance to finish.
                 sleep(1);
@@ -195,11 +203,15 @@ class EcrDeployer
         $syncList = self::readSyncList();
 
         if(false === $syncList)
-            throw new Exception(jgettext('No synclist found - Please synchronize'));
+            throw new Exception(jgettext('No synchronization list found - Please synchronize with your remote'));
+
+        $allCopies = array();
 
         foreach($project->copies as $copy)
         {
             $files = JFolder::files($copy, '.', true, true);
+
+            $allCopies = array_merge($files, $allCopies);
 
             foreach($files as $file)
             {
@@ -210,7 +222,7 @@ class EcrDeployer
                 {
                     $f = new stdClass;
                     $f->path = $fShort;
-                    $f->exists = false;
+                    $f->status = 'new';
 
                     $fileList[$fShort] = $f;
                 }
@@ -221,11 +233,23 @@ class EcrDeployer
                     //-- File size is different
                     if($f->size != filesize($file))
                     {
-                        $f->exists = true;
+                        $f->status = 'changed';
 
                         $fileList[$fShort] = $f;
                     }
                 }
+            }
+        }
+
+        foreach($syncList as $item)
+        {
+            if(! in_array(JPATH_ROOT.'/'.$item->path, $allCopies))
+            {
+                $f = new stdClass;
+                $f->path = $item->path;
+                $f->status = 'deleted';
+
+                $fileList[$item->path] = $f;
             }
         }
 
@@ -242,11 +266,12 @@ class EcrDeployer
     {
         self::setupLog();
 
-        JLog::add('Starting');
+        JLog::add('|¯¯¯ Starting');
 
         $input = JFactory::getApplication()->input;
 
-        $files = $input->get('file', array(), 'array');
+        $files = $input->get('files', array(), 'array');
+        $deletedFiles = $input->get('deletedfiles', array(), 'array');
 
         switch($input->get('type'))
         {
@@ -257,7 +282,7 @@ class EcrDeployer
 
                 foreach($files as $file)
                 {
-                    JLog::add(sprintf('Uploading %s ...', $file));
+                    JLog::add('| >> '.sprintf(jgettext('Uploading %s ...'), $file));
 
                     $parts = explode('/', $file);
 
@@ -276,7 +301,7 @@ class EcrDeployer
                         {
                             if(self::$ftp->mkdir($d))
                             {
-                                JLog::add('Created directory: '.$d);
+                                JLog::add('| ++ '.sprintf(jgettext('Created directory: %s'), $d));
                             }
                             else
                             {
@@ -287,9 +312,15 @@ class EcrDeployer
                         $knownDirs[] = $d;
                     }
 
-                    //                  self::$ftp->chdir(self::$credentials->directory);
-
                     if(! self::$ftp->store(JPATH_ROOT.'/'.$file, self::$credentials->directory.'/'.$file))
+                        throw new Exception(JError::getError());
+                }
+
+                foreach($deletedFiles as $file)
+                {
+                    JLog::add('| -- '.sprintf(jgettext('Deleting %s ...'), $file));
+
+                    if(! self::$ftp->delete(self::$credentials->directory.'/'.$file))
                         throw new Exception(JError::getError());
                 }
 
@@ -300,7 +331,7 @@ class EcrDeployer
                 break;
         }
 
-        JLog::add('Finished');
+        JLog::add('|___ Finished');
 
         //-- Give the logger a chance to finish.
         sleep(1);
@@ -323,52 +354,110 @@ class EcrDeployer
             }
         }
 
+        foreach($deletedFiles as $file)
+        {
+            unset($syncList[$file]);
+        }
+
         self::writeSyncList($syncList);
     }
 
     /**
      * @static
+     * @return mixed
      * @throws Exception
+     */
+    public static function deletePackage()
+    {
+        self::setupLog();
+
+        JLog::add('|¯¯¯ Starting');
+
+        $input = JFactory::getApplication()->input;
+
+        $type = $input->get('type');
+
+        self::connect($type);
+
+        switch($type)
+        {
+            case 'github':
+
+                $id = $input->getInt('id');
+
+                JLog::add('| -- '.sprintf('Deleting %s ...', $id));
+
+                self::$github->downloads->delete($input->get('owner'), $input->get('repo'), $id);
+                break;
+
+            case 'ftp':
+                $file = $input->get('file');
+
+                JLog::add(sprintf(jgettext('| -- Deleting %s ...'), $file));
+
+                if(! self::$ftp->delete(self::$credentials->downloads.'/'.$file))
+                    throw new Exception(JError::getError());
+
+                break;
+
+            default:
+                throw new Exception(__METHOD__.' - Unknown deploy type: '.$input->get('type'));
+                break;
+        }
+
+        JLog::add('|___ Finished');
+
+        //-- Give the logger a chance to finish.
+        sleep(1);
+
+        return;
+    }
+
+    /**
+     * @static
+     * @throws Exception
+     * @return int
      */
     public static function deployPackage()
     {
         self::setupLog();
 
-        JLog::add('Starting');
+        JLog::add('|¯¯¯ Starting');
 
         $input = JFactory::getApplication()->input;
 
         $files = $input->get('file', array(), 'array');
 
-        switch($input->get('type'))
+        $type = $input->get('type');
+
+        self::connect($type);
+
+        switch($type)
         {
             case 'github':
-                $config = new JRegistry;
-
-                $config->set('api.username', $input->get('user'));
-                $config->set('api.password', $input->get('pass'));
-
-                $github = new EcrGithub($config);
-
                 foreach($files as $file)
                 {
-                    JLog::add(sprintf('Uploading %s ...', str_replace(JPATH_ROOT, 'JROOT', $file)));
+                    JLog::add('| >> '.sprintf(jgettext('Uploading %s ...'), str_replace(JPATH_ROOT, 'JROOT', $file)));
 
-                    $github->downloads->add($input->get('owner'), $input->get('repo'), $file);
+                    self::$github->downloads->add($input->get('owner'), $input->get('repo'), $file);
                 }
 
                 break;
 
             case 'ftp':
-                self::connect('ftp');
-
-                JLog::add(sprintf('Upload directory: %s', self::$credentials->directory));
+                JLog::add(sprintf(jgettext('|    Upload directory: %s'), self::$credentials->downloads));
 
                 foreach($files as $file)
                 {
-                    JLog::add(sprintf('Uploading %s ...', str_replace(JPATH_ROOT, 'JROOT', $file)));
+                    $fName = JFile::getName($file);
 
-                    self::$ftp->store($file, self::$credentials->directory.'/'.JFile::getName($file));
+                    JLog::add('| >> '.sprintf(jgettext('Uploading %s ...'), $fName));
+
+                    if(! self::$ftp->chdir(self::$credentials->downloads))
+                        throw new Exception(jgettext('Download directory not found on server'));
+
+                    if(! self::$ftp->store($file, self::$credentials->downloads.'/'.$fName))
+                        throw new Exception(JError::getError());
                 }
 
                 break;
@@ -378,24 +467,30 @@ class EcrDeployer
                 break;
         }
 
-        JLog::add('Finished');
+        JLog::add('|___ Finished');
 
         //-- Give the logger a chance to finish.
         sleep(1);
+
+        return count($files);
     }
 
     /**
      * @param $dir
      *
+     * @throws Exception
      * @return array
      */
     private static function scan($dir)
     {
         static $list = array();
 
-        JLog::add(sprintf('Scanning %s ...', $dir));
+        JLog::add(sprintf(jgettext('| ~~ Scanning %s ...'), $dir));
 
         $items = self::$ftp->listDetails($dir);
+
+        if(false == $items)
+            throw new Exception(JError::getError());
 
         foreach($items as $item)
         {
@@ -423,27 +518,43 @@ class EcrDeployer
      */
     private static function connect($destination)
     {
+        $credentials = self::getCredentials($destination);
+
         switch($destination)
         {
+            case 'github':
+                $config = new JRegistry;
+
+                $config->set('api.username', $credentials->user);
+                $config->set('api.password', $credentials->pass);
+
+                JLog::add('| ^^ '.sprintf(jgettext('Connecting to %s ...'), $destination));
+
+                self::$github = new EcrGithub($config);
+
+                break;
+
             case 'ftp':
-                $credentials = self::getCredentials('ftp');
 
                 $options = null;
 
-                JLog::add(sprintf('Connecting to %s ...', $credentials->host));
+                JLog::add('| ^^ '.sprintf(jgettext('Connecting to %s ...'), $credentials->host));
 
                 self::$ftp = EcrFtp::getClient($credentials->host, $credentials->port, $options
                     , $credentials->user, $credentials->pass);
 
-                JLog::add('Connected');
+                if(! self::$ftp->isConnected())
+                    throw new Exception(jgettext('Unable to connect to FTP server'));
 
-                self::$credentials = $credentials;
                 break;
 
             default:
                 throw new Exception(__METHOD__.' - Unknown deploy type: '.$destination);
+
                 break;
         }
+
+        self::$credentials = $credentials;
     }
 
     /**
@@ -455,23 +566,27 @@ class EcrDeployer
     private static function getCredentials($type)
     {
         $credentials = new stdClass;
+
+        /* @var JInput $input */
         $input = JFactory::getApplication()->input;
 
         switch($type)
         {
             case 'github':
-                $credentials->set = $input->get('user');
-                $credentials->password = $input->get('pass');
+                $credentials->user = $input->get('user');
+                $credentials->pass = $input->get('pass');
 
                 break;
 
             case 'ftp':
 
-                $credentials->host = 'www5.subdomain.com';
-                $credentials->port = $input->getInt('port');
-                $credentials->directory = '/www';
-                $credentials->user = 'user2033242';
-                $credentials->pass = 'kuku4711';
+                $credentials->host = $input->get('ftpHost'); //'www5.subdomain.com';
+                $credentials->port = $input->getInt('ftpPort');
+                $credentials->directory = $input->getString('ftpDirectory'); //'/www';
+                $credentials->downloads = $input->getString('ftpDownloads'); //'/www';
+
+                $credentials->user = $input->get('ftpUser'); //'user2033242';
+                $credentials->pass = $input->get('ftpPass'); //'kuku4711';
 
                 break;
 
@@ -484,21 +599,38 @@ class EcrDeployer
         return $credentials;
     }
 
+    /**
+     * @static
+     *
+     */
     private static function setupLog()
     {
         $path = JFactory::getConfig()->get('log_path');
 
         $fileName = 'ecr_deploy.php';
+        $entry = '----------------------------------------------';
 
-        if(JFile::exists($path.'/'.$fileName))
+        if('preserve' == JFactory::getApplication()->input->get('logMode')
+            && JFile::exists($path.'/'.$fileName)
+        )
+        {
+            $entry = '----------------------------------------------';
+        }
+        else
+        {
             JFile::delete($path.'/'.$fileName);
+        }
 
         JLog::addLogger(
             array(
                 'text_file' => $fileName
+            , 'text_entry_format' => '{DATETIME}	{PRIORITY}	{MESSAGE}'
             )
             , JLog::INFO | JLog::ERROR
         );
+
+        if($entry)
+            JLog::add($entry);
     }
 
 }

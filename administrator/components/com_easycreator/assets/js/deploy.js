@@ -17,7 +17,11 @@ var EcrDeploy = new Class({
 
     initialize:function (options) {
         this.setOptions(options);
-        this.url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=deploy';
+
+        this.url = 'index.php?option=com_easycreator'
+            + '&tmpl=component'
+            + '&format=raw'
+            + '&controller=deploy';
     },
 
     /**
@@ -56,7 +60,7 @@ var EcrDeploy = new Class({
 
             onRequest:function () {
                 box.style.color = 'black';
-                box.innerHTML = jgettext(php2js.sprintf('Deploying to %s...', destination));
+                box.innerHTML = php2js.sprintf(jgettext('Deploying to %s...'), destination);
                 box.className = 'ajax_loading16';
 
                 startPoll();
@@ -65,16 +69,20 @@ var EcrDeploy = new Class({
             onComplete:function (response) {
                 resp = JSON.decode(response);
 
+                stopPoll();
+
+                box.className = '';
+
                 if (resp.status) {
                     box.style.color = 'red';
+                    box.set('text', resp.message);
                     debug.set('text', resp.debug);
                 } else {
                     box.style.color = 'green';
                     box.set('text', resp.message);
-                    box.className = '';
                 }
 
-                stopPoll();
+                EcrDeploy.getPackageList(destination, 'preserve');
             }
         }).send();
     },
@@ -86,14 +94,20 @@ var EcrDeploy = new Class({
      */
     deployFiles:function (destination) {
         var files = '';
+        var deletedFiles = '';
 
         $$('div#syncTree div input').each(function (input) {
             if (input.checked) {
-                files += '&file[]=' + input.value;
+                if (input.value == 'deleted') {
+                    deletedFiles += '&deletedfiles[]=' + input.id;
+                }
+                else {
+                    files += '&files[]=' + input.id;
+                }
             }
         });
 
-        if ('' == files) {
+        if ('' == files && '' == deletedFiles) {
             alert(jgettext('Please choose one or more files to deploy'));
 
             return false;
@@ -109,13 +123,13 @@ var EcrDeploy = new Class({
         data.ecr_project = document.id('ecr_project').value;
 
         new Request({
-            url:this.url + files,
+            url:this.url + files + deletedFiles,
 
             data:data,
 
             onRequest:function () {
                 box.style.color = 'black';
-                box.innerHTML = jgettext(php2js.sprintf('Deploying to %s...', destination));
+                box.innerHTML = php2js.sprintf(jgettext('Deploying to %s...'), destination);
                 box.className = 'ajax_loading16';
 
                 startPoll();
@@ -145,20 +159,18 @@ var EcrDeploy = new Class({
      *
      * @param destination
      */
-    getList:function (destination) {
+    getPackageList:function (destination, logMode) {
         var task;
 
         var data = this._getCredentials(destination);
 
-        data.type= destination;
+        data.type = destination;
+        data.logMode = (undefined == logMode) ? '' : logMode;
+        data.task = 'getPackageList';
 
         switch (destination) {
             case 'github' :
-                data.task = 'getGitHubDownloads';
-                break;
-
             case 'ftp' :
-                data.task = 'getFtpDownloads';
                 break;
 
             default:
@@ -178,7 +190,7 @@ var EcrDeploy = new Class({
 
             onRequest:function () {
                 box.style.color = 'black';
-                box.innerHTML = jgettext(php2js.sprintf('Obtaining downloads from: %s', destination));
+                box.innerHTML = php2js.sprintf(jgettext('Obtaining downloads from: %s'), destination);
                 box.className = 'ajax_loading16';
                 display.set('html', '');
 
@@ -192,11 +204,13 @@ var EcrDeploy = new Class({
 
                 if (resp.status) {
                     box.style.color = 'red';
-                    box.set('text', resp.message);
-                    debug = resp.debug;
+                    box.set('test', '');
+                    display.set('html', resp.message);
+                    debug.set('html', resp.debug);
                 } else {
                     box.set('text', '');
                     display.set('html', resp.message);
+                    debug.set('html', resp.debug);
                 }
 
                 stopPoll();
@@ -213,7 +227,7 @@ var EcrDeploy = new Class({
         var data = {
             task:'getSyncList',
             ecr_project:document.id('ecr_project').value
-        }
+        };
 
         new Request({
 
@@ -247,18 +261,24 @@ var EcrDeploy = new Class({
      * @param destination
      * @param file
      */
-    deleteDownload:function (destination, file) {
+    deletePackage:function (destination, file) {
+        var data = this._getCredentials(destination);
+
+        data.type = destination;
+        data.task = 'deletePackage';
+
         switch (destination) {
             case 'github' :
-                var data = this._getCredentials(destination);
-
                 data.id = file;
-                data.task = 'deleteGitHubDownload';
+                break;
 
+            case 'ftp' :
+                data.file = file;
                 break;
 
             default:
                 alert('Unknown destination: ' + destination);
+
                 return;
                 break;
         }
@@ -274,16 +294,19 @@ var EcrDeploy = new Class({
 
             onRequest:function () {
                 box.style.color = 'black';
-                box.innerHTML = jgettext(php2js.sprintf('Deleting files on: %s', destination));
+                box.innerHTML = php2js.sprintf(jgettext('Deleting files on: %s'), destination);
                 box.className = 'ajax_loading16';
                 display.set('html', '');
+
+                startPoll();
             },
 
             onComplete:function (response) {
                 resp = JSON.decode(response);
 
                 box.className = '';
-                EcrDeploy.getList(destination);
+
+                stopPoll();
 
                 if (resp.status) {
                     box.style.color = 'red';
@@ -292,6 +315,8 @@ var EcrDeploy = new Class({
                 } else {
                     box.set('text', '');
                     display.set('html', resp.message);
+
+                    EcrDeploy.getPackageList(destination, 'preserve');
                 }
             }
         }).send();
@@ -319,11 +344,19 @@ var EcrDeploy = new Class({
 
             onRequest:function () {
                 box.style.color = 'black';
-                box.innerHTML = jgettext(php2js.sprintf('Synchronizing files on: %s', destination));
+                box.innerHTML = php2js.sprintf(jgettext('Synchronizing files on: %s'), destination);
+
                 box.className = 'ajax_loading16';
                 display.set('html', '');
 
                 startPoll();
+            },
+
+            onFailure:function () {
+                box.style.color = 'red';
+                box.set('text', 'The request failed');
+                box.className = '';
+                //debug.set('html', resp.debug);
             },
 
             onComplete:function (response) {
@@ -356,7 +389,7 @@ var EcrDeploy = new Class({
         type = (undefined == type) ? '' : '.' + type;
 
         $$('div#syncTree div' + type + ' input').each(function (e) {
-            e.checked = 'checked'
+            e.checked = 'checked';
         });
     },
 
@@ -365,7 +398,7 @@ var EcrDeploy = new Class({
      */
     uncheckAll:function () {
         $$('div#syncTree div input').each(function (e) {
-            e.checked = ''
+            e.checked = '';
         });
     },
 
@@ -376,19 +409,22 @@ var EcrDeploy = new Class({
      * @private
      */
     _getCredentials:function (destination) {
+        var data = null;
+
         switch (destination) {
             case 'ftp' :
-                var data = {
+                data = {
                     ftpHost:document.id('ftpHost').value,
                     ftpPort:document.id('ftpPort').value,
                     ftpUser:document.id('ftpUser').value,
                     ftpPass:document.id('ftpPass').value,
-                    ftpDirectory:document.id('ftpDirectory').value
+                    ftpDirectory:document.id('ftpDirectory').value,
+                    ftpDownloads:document.id('ftpDownloads').value
                 };
                 break;
 
             case 'github' :
-                var data = {
+                data = {
                     owner:document.id('githubRepoOwner').value,
                     repo:document.id('githubRepoName').value,
                     user:document.id('githubUser').value,

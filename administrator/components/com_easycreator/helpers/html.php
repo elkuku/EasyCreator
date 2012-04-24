@@ -84,7 +84,7 @@ final class EcrHtml
             $tasks['deploy'] = new stdClass;
             $tasks['deploy']->title = jgettext('Deploy');
             $tasks['deploy']->image = 'ecr_deploy';
-            $tasks['deploy']->tasks = array('deploy');
+            $tasks['deploy']->tasks = array('deploy', 'package');
 
             foreach($tasks as $k => $v)
             {

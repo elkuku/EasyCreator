@@ -33,7 +33,7 @@
 <div id="githubDisplay"></div>
 
 <div class="buttons">
-    <a href="javascript:;" class="ecr_button img icon-16-import" onclick="EcrDeploy.getList('github');">
+    <a href="javascript:;" class="ecr_button img icon-16-import" onclick="EcrDeploy.getPackageList('github');">
         <?php echo jgettext('Get List'); ?>
     </a>
 </div>

@@ -22,9 +22,18 @@ div#syncTree label.changed {
     color: orange;
 }
 
+div#syncTree label.deleted {
+    color: red;
+}
+
 div.allInSync {
     padding: 0.5em;
     color: green;
     text-align: center;
     font-size: 1.3em;
+}
+
+div#syncTree ul {
+    list-style: none;
+    padding-left: 1em;
 }

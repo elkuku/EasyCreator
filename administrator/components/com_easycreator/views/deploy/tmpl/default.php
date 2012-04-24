@@ -17,18 +17,20 @@
     <div id="syncList"></div>
 
     <div class="buttons">
-        <a href="javascript:;" class="ecr_button img icon-16-ok" onclick="EcrDeploy.checkAll();">
-            <?php echo jgettext('Check all'); ?>
-        </a>
-        <a href="javascript:;" class="ecr_button img icon-16-greenled" onclick="EcrDeploy.checkAll('new');">
-            <?php echo jgettext('Check all new'); ?>
-        </a>
-        <a href="javascript:;" class="ecr_button img icon-16-yellowled" onclick="EcrDeploy.checkAll('changed');">
-            <?php echo jgettext('Check all modified'); ?>
-        </a>
-        <a href="javascript:;" class="ecr_button img icon-16-notok" onclick="EcrDeploy.uncheckAll();">
-            <?php echo jgettext('Uncheck all'); ?>
-        </a>
+        <a title="<?php echo jgettext('Check all'); ?>" href="javascript:;"
+           class="ecr_button img icon-16-ok" onclick="EcrDeploy.checkAll();"></a>
+
+        <a title="<?php echo jgettext('Check all new'); ?>" href="javascript:;"
+           class="ecr_button img icon-16-greenled" onclick="EcrDeploy.checkAll('new');"></a>
+
+        <a title="<?php echo jgettext('Check all modified'); ?>" href="javascript:;"
+           class="ecr_button img icon-16-yellowled" onclick="EcrDeploy.checkAll('changed');"></a>
+
+        <a title="<?php echo jgettext('Check all deleted'); ?>" href="javascript:;"
+           class="ecr_button img icon-16-redled" onclick="EcrDeploy.checkAll('deleted');"></a>
+
+        <a title="<?php echo jgettext('Uncheck all'); ?>" href="javascript:;"
+           class="ecr_button img icon-16-notok" onclick="EcrDeploy.uncheckAll();"></a>
     </div>
 
     <hr />

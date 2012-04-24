@@ -17,7 +17,7 @@ $options = $this->project->deployOptions;
     <legend><?php echo jgettext('Credentials'); ?></legend>
 
     <label for="ftpHost"><?php echo jgettext('Server'); ?></label>
-    <input type="text" id="ftpHost" value="<?php echo $options->get('ftp.host'); ?>" size="14"/>
+    <input type="text" id="ftpHost" value="<?php echo $options->get('ftp.host'); ?>" />
 
     <label for="ftpPort"><?php echo jgettext('Port'); ?></label>
     <input type="text" id="ftpPort" value="<?php echo $options->get('ftp.port'); ?>" size="8"/>

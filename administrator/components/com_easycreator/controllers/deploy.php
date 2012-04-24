@@ -20,6 +20,27 @@ class EasyCreatorControllerDeploy extends JController
     private $response = array('status' => 0, 'message' => '', 'debug' => '');
 
     /**
+     * Constructor.
+     *
+     * @param   array  $config  An optional associative array of configuration settings.
+     *                          Recognized key values include 'name', 'default_task', 'model_path', and
+     * 'view_path' (this list is not meant to be comprehensive).
+     *
+     * @since   11.1
+     */
+    public function __construct($config = array())
+    {
+        $this->input = JFactory::getApplication()->input;
+
+        $this->response = new stdClass;
+        $this->response->status = 0;
+        $this->response->message = '';
+        $this->response->debug = '';
+
+        parent::__construct($config);
+    }
+
+    /**
      * Standard display method.
      *
      * @param bool       $cachable  If true, the view output will be cached
@@ -30,67 +51,83 @@ class EasyCreatorControllerDeploy extends JController
      */
     public function display($cachable = false, $urlparams = false)
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
-
-        if(! $ecr_project)
-        {
-            //-- NO PROJECT SELECTED - ABORT
-            EcrHtml::easyFormEnd();
-
-            return;
-        }
-
         JRequest::setVar('view', 'deploy');
 
         parent::display($cachable, $urlparams);
     }
 
     /**
-     *
+     * @throws Exception
      */
-    public function getFtpDownloads()
+    public function getPackageList()
     {
         ob_start();
 
         try
         {
-            $downloads = EcrDeployer::getDownloads();
+            $input = JFactory::getApplication()->input;
+
+            $type = $input->get('type');
+
+            $downloads = EcrDeployer::getPackageList();
 
             $html = array();
 
-            $html[] = '<ul>';
-
-            /* @var EcrGithubResponseDownloadsGet $download */
-            foreach($downloads as $download)
+            if(! count($downloads))
             {
-                $download = JArrayHelper::toObject($download);
-                $html[] = '<li>';
-                $html[] = '<a href="'.$download->name.'">'.$download->name.'</a>';
-                $html[] = '<a href="javascript:;" onclick="EcrZiper.deleteDownload(\'ftp\', \''.$download->name.'\');">'
-                    .jgettext('Delete')
-                    .'</a>';
-                $html[] = '</li>';
+                $html[] = '<div class="warning">'.jgettext('No downloads found').'</div>';
+            }
+            else
+            {
+                $html[] = '<ul>';
+
+                /* @var EcrGithubResponseDownloadsGet $download */
+                foreach($downloads as $download)
+                {
+                    $html[] = '<li>';
+
+                    $html[] = ($download->html_url)
+                        ? '<a href="'.$download->html_url.'">'.$download->name.'</a>'
+                        : $download->name;
+
+                    switch($type)
+                    {
+                        case 'ftp':
+                            $name = $download->name;
+                            break;
+
+                        case 'github':
+                            $name = $download->id;
+                            break;
+
+                        default:
+                            throw new Exception(__METHOD__.' - Unknown type: '.$type);
+                    }
+
+                    $html[] = '<a href="javascript:;"'
+                        .'onclick="EcrDeploy.deletePackage(\''.$type.'\', \''.$name.'\');">'
+                        .jgettext('Delete')
+                        .'</a>';
+
+                    $html[] = '</li>';
+                }
+
+                $html[] = '</ul>';
             }
 
-            $html[] = '</ul>';
-
-            $this->response['message'] = implode("\n", $html);
+            $this->response->message = implode("\n", $html);
         }
         catch(Exception $e)
         {
-            JLog::add($e->getMessage(), JLog::ERROR);
-
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
+            $this->handleException($e);
         }
 
         $buffer = ob_get_clean();
 
         if($buffer)
         {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
+            $this->response->status = 1;
+            $this->response->debug .= $buffer;
         }
 
         echo json_encode($this->response);
@@ -99,48 +136,27 @@ class EasyCreatorControllerDeploy extends JController
     /**
      *
      */
-    public function getGitHubDownloads()
+    public function deletePackage()
     {
         ob_start();
 
         try
         {
-            $downloads = EcrDeployer::getDownloads();
+            EcrDeployer::deletePackage();
 
-            $html = array();
-
-            $html[] = '<ul>';
-
-            /* @var EcrGithubResponseDownloadsGet $download */
-            foreach($downloads as $download)
-            {
-                $html[] = '<li>';
-                $html[] = '<a href="'.$download->html_url.'">'.$download->name.'</a>';
-                $html[] = '<a href="javascript:;" onclick="EcrZiper.deleteDownload(\'github\', \''.$download->id.'\');">'
-                    .jgettext('Delete')
-                    .'</a>';
-                $html[] = '</li>';
-            }
-
-            $html[] = '</ul>';
-
-            $this->response['message'] = implode("\n", $html);
+            $this->response->message = jgettext('The package has been deleted.');
         }
         catch(Exception $e)
         {
-            JLog::add($e->getMessage(), JLog::ERROR);
-
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
+            $this->handleException($e);
         }
 
         $buffer = ob_get_clean();
 
         if($buffer)
         {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
+            $this->response->status = 1;
+            $this->response->debug .= $buffer;
         }
 
         echo json_encode($this->response);
@@ -157,23 +173,19 @@ class EasyCreatorControllerDeploy extends JController
         {
             EcrDeployer::deployFiles();
 
-            $this->response['message'] = jgettext('The files have been deployed.');
+            $this->response->message = jgettext('The files have been deployed.');
         }
         catch(Exception $e)
         {
-            JLog::add($e->getMessage(), JLog::ERROR);
-
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
+            $this->handleException($e);
         }
 
         $buffer = ob_get_clean();
 
         if($buffer)
         {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
+            $this->response->status = 1;
+            $this->response->debug .= $buffer;
         }
 
         sleep(1);
@@ -192,32 +204,34 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            EcrDeployer::deployPackage();
+            $count = EcrDeployer::deployPackage();
 
-            $this->response['message'] = jgettext('The files have been deployed.');
+            $this->response->message = sprintf(
+                jngettext(
+                    'The file has been deployed.'
+                    , '%d files have been deployed.'
+                    , $count)
+                , $count);
         }
         catch(Exception $e)
         {
-            JLog::add($e->getMessage(), JLog::ERROR);
-
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
+            $this->handleException($e);
         }
 
         $buffer = ob_get_clean();
 
         if($buffer)
         {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
+            $this->response->status = 1;
+            $this->response->debug .= $buffer;
         }
 
         echo json_encode($this->response);
     }
 
     /**
-     * @param $list
+     * @param array          $list
+     *
      * @return string
      */
     private function generateTree($list)
@@ -233,18 +247,20 @@ class EasyCreatorControllerDeploy extends JController
             eval('$converteds[\''.implode("']['", $parts).'\'][]=$item;');
         }
 
-        return '<div id="syncTree">'.$this->processTree($converteds).'</div>';
+        return '<div id="syncTree">'
+            .'<div class="root">JROOT</div>'
+            .'<ul>'.$this->processTree($converteds).'</ul>'
+            .'</div>';
     }
 
     /**
      * @param $list
+     *
      * @return string
      */
     private function processTree($list)
     {
         static $tree = array();
-
-        static $level = 0;
 
         foreach($list as $k => $item)
         {
@@ -253,24 +269,24 @@ class EasyCreatorControllerDeploy extends JController
                 ksort($item);
                 uksort($item, array($this, 'sort'));
 
-                $tree[] = '<div class="pft-directory">'.str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level).$k.'</div>';
+                $tree [] = '<li>';
 
-                $level ++;
+                $tree[] = '<div class="pft-directory">'.$k.'</div>';
+                $tree[] = '<ul>';
 
                 $this->processTree($item);
-
-                $level --;
+                $tree[] = '</ul>';
+                $tree[] = '</li>';
 
                 continue;
             }
 
             $f = JFile::getName($item->path);
-            $status = ($item->exists) ? ' changed' : ' new';
 
-            $tree[] = '<div class="file'.$status.'">'.str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level)
-                .'<input type="checkbox" value="'.$item->path.'" id="'.$item->path.'" />'
-                .'<label class="pft-file'.$status.'" for="'.$item->path.'">'.$f.'</label>'
-                .'</div>';
+            $tree[] = '<li><div class="file '.$item->status.'">'
+                .'<input type="checkbox" value="'.$item->status.'" id="'.$item->path.'" />'
+                .'<label class="pft-file '.$item->status.'" for="'.$item->path.'">'.$f.'</label>'
+                .'</div></li>';
         }
 
         return implode("\n", $tree);
@@ -279,6 +295,7 @@ class EasyCreatorControllerDeploy extends JController
     /**
      * @param $a
      * @param $b
+     *
      * @return int
      */
     public function sort($a, $b)
@@ -290,8 +307,10 @@ class EasyCreatorControllerDeploy extends JController
 
         if(is_int($b) && ! is_int($a))
         {
-            return -1;
+            return - 1;
         }
+
+        return 0;
     }
 
     /**
@@ -303,62 +322,35 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            $project = EcrProjectHelper::getProject();
-
-            $list = EcrDeployer::getSyncList($project);
+            $list = EcrDeployer::getSyncList();
 
             $html = array();
 
-            if(count($list))
-            {
-                $html[] = self::generateTree($list);
+            $html[] = (count($list))
+                ? self::generateTree($list)
+                : '<div class="allInSync">'.jgettext('All files are synchronized').'</div>';
 
-//$html[] = '<pre>'.print_r($llll, 1).'</pre>';
-                /*
-
-                $html[] = '<ul class="syncList">';
-
-                foreach($list as $item)
-                {
-                    $status = ($item->exists) ? 'changed' : 'new';
-
-                    $html[] = '<li class="'.$status.'">';
-                    $html[] = '<input type="checkbox" name="file[]" id="'.$item->path.'" value="'.$item->path.'" />';
-                    $html[] = '<label for="'.$item->path.'">'.$item->path.'</label>';
-                    $html[] = '</li>';
-                }
-
-                $html[] = '</ul>';
-                */
-            }
-            else
-            {
-                $html[] = '<div class="allInSync">'.jgettext('All files are synchronized').'</div>';
-            }
-
-            $this->response['message'] = implode("\n", $html);
+            $this->response->message = implode("\n", $html);
         }
         catch(Exception $e)
         {
-            JLog::add($e->getMessage(), JLog::ERROR);
-
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
+            $this->handleException($e);
         }
 
         $buffer = ob_get_clean();
 
         if($buffer)
         {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
+            $this->response->status = 1;
+            $this->response->debug .= $buffer;
         }
 
         echo json_encode($this->response);
-
     }
 
+    /**
+     *
+     */
     public function syncFiles()
     {
         jimport('joomla.filesystem.file');
@@ -369,30 +361,27 @@ class EasyCreatorControllerDeploy extends JController
         {
             EcrDeployer::syncFiles();
 
-            $this->response['message'] = jgettext('The files have been synchronized.');
+            $this->response->message = jgettext('The files have been synchronized.');
         }
         catch(Exception $e)
         {
-            JLog::add($e->getMessage(), JLog::ERROR);
-
-            sleep(1);
-
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
+            $this->handleException($e);
         }
 
         $buffer = ob_get_clean();
 
         if($buffer)
         {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
+            $this->response->status = 1;
+            $this->response->debug .= $buffer;
         }
 
         echo json_encode($this->response);
     }
 
+    /**
+     *
+     */
     public function pollLog()
     {
         $path = JFactory::getConfig()->get('log_path').'/ecr_deploy.php';
@@ -403,10 +392,26 @@ class EasyCreatorControllerDeploy extends JController
 
             $s .= "\n".'Time '.date('H:i:s');
 
-            $this->response['message'] = $s;
+            $this->response->message = $s;
         }
 
         echo json_encode($this->response);
+    }
+
+    /**
+     * @param Exception $e
+     */
+    private function handleException(Exception $e)
+    {
+        JLog::add('| XX '.$e->getMessage(), JLog::ERROR);
+        JLog::add('|___ Finished :(', JLog::ERROR);
+        JLog::add('', JLog::ERROR);
+
+        $this->response->debug = (ECR_DEBUG) ? nl2br($e) : '';
+        $this->response->message = $e->getMessage();
+        $this->response->status = 1;
+
+        sleep(1);
     }
 
 }
