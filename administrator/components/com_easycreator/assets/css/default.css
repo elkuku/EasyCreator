@@ -534,12 +534,16 @@ div#jsourceDisplay div.path {
 }
 
 .infoHeader {
-    background-color: #ffc;
+    background-color: #ccc;
     padding: 5px;
     font-weight: bold;
     text-align: center;
+    font-size: 16px;
+    color:#505050;
+    text-shadow: 1px 1px 0px #fff;
     min-height: 20px;
-    border:1px solid silver;
+    box-shadow: 0px 0px 2px #000;
+    border: 1px solid #fff;
     border-radius: 10px;
 }
 
@@ -651,4 +655,5 @@ div.path {
     background-color: #fff;
     font-family: monospace;
     font-size: 1.3em;
+    margin: 0.5em;
 }

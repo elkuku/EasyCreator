@@ -33,12 +33,12 @@ defined('_JEXEC') || die('=;)');
         </li>
         <li>
             <label for="buildvars-license" class="creditsLabel"><?php echo jgettext('License'); ?></label>
-            <input type="text" id="buildvars-license" name="buildvars[license]" size="40"
+            <input type="text" id="buildvars-license" name="buildvars[license]" size="30"
                    value="<?php echo $this->project->license; ?>"/>
         </li>
         <li>
             <label for="buildvars-copyright" class="creditsLabel"><?php echo jgettext('Copyright'); ?></label>
-            <input type="text" id="buildvars-copyright" name="buildvars[copyright]" size="40"
+            <input type="text" id="buildvars-copyright" name="buildvars[copyright]" size="30"
                    value="<?php echo $this->project->copyright; ?>"/>
         </li>
     </ul>

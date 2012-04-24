@@ -128,8 +128,6 @@ class EcrCliBuilder extends JApplicationCli
 
         $list = EcrProjectHelper::getProjectList();
 
-        $type = '';
-
         foreach($list as $type => $items)
         {
             $this->out('===========================');
@@ -140,15 +138,7 @@ class EcrCliBuilder extends JApplicationCli
             {
                 $this->out($item->name.' ('.$item->comName.')');
             }
-
-
         }
-//
-
-
-
-//        var_dump($list);
-
     }
 }
 

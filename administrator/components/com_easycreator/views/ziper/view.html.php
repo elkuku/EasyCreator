@@ -145,11 +145,6 @@ class EasyCreatorViewZiper extends JView
             , 'icon' => 'archive'
             , 'task' => 'archive'
             )
-            , array('title' => jgettext('Deploy')
-            , 'description' => jgettext('This deploys you package to a server.')
-            , 'icon' => 'archive'
-            , 'task' => 'deploy'
-            )
         );
 
         return EcrHtml::getSubBar($subTasks);

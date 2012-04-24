@@ -300,6 +300,10 @@
     background-image: url(../images/ico/icon-16-redled.png);
 }
 
+.icon-16-warning {
+    background-image: url(../images/ico/icon-16-warning.png);
+}
+
 .icon-joomla-compat-15 {
     background-image: url(../images/ico/Compat_icon_1_5.png);
 }
@@ -370,6 +374,7 @@
     background-repeat: no-repeat;
     background-position: 4px 50%;
     height: 28px;
+    padding-left: 24px;
 }
 
 .img12 {

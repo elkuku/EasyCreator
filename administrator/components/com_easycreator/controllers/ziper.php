@@ -90,45 +90,4 @@ class EasyCreatorControllerZIPer extends JController
         echo json_encode($this->response);
     }
 
-
-
-    public function deleteGitHubDownload()
-    {
-        ob_start();
-
-        try
-        {
-            $input = JFactory::getApplication()->input;
-
-            $id = $input->getInt('id');
-
-            $config = new JRegistry;
-
-            $config->set('api.username', $input->get('user'));
-            $config->set('api.password', $input->get('pass'));
-
-            $github = new EcrGithub($config);
-
-            $github->downloads->delete($input->get('owner'), $input->get('repo'), $id);
-
-            $this->response['message'] = jgettext('The file has been deleted.');
-        }
-        catch(Exception $e)
-        {
-            $this->response['debug'] = (ECR_DEBUG) ? nl2br($e) : '';
-            $this->response['message'] = $e->getMessage();
-            $this->response['status'] = 1;
-        }
-
-        $buffer = ob_get_clean();
-
-        if($buffer)
-        {
-            $this->response['status'] = 1;
-            $this->response['debug'] .= $buffer;
-        }
-
-        echo json_encode($this->response);
-    }
-
 }//class
