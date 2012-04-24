@@ -6,6 +6,10 @@
  * Time: 13:37
  * To change this template use File | Settings | File Templates.
  */
+
+/**
+ * @link http://developer.github.com/v3/repos/downloads/
+ */
 class EcrGithubDownloads extends JGithubObject
 {
     /**
@@ -47,16 +51,21 @@ class EcrGithubDownloads extends JGithubObject
      *
      * @param   string   $user   The name of the owner of the GitHub repository.
      * @param   string   $repo   The name of the GitHub repository.
-     * @param string $path
-     * @param string $description
+     * @param string     $path
+     * @param string     $description
      *
+     * @throws Exception
+     * @throws DomainException
      * @return mixed
      *
-     * @throws DomainException
      */
     public function add($user, $repo, $path, $description = '')
     {
-        $content_type = '';
+
+        /*
+         * First part: Create the download resource
+         */
+
         // Build the request data.
         $fileName = JFile::getName($path);
 
@@ -65,8 +74,6 @@ class EcrGithubDownloads extends JGithubObject
                 'name' => $fileName,
                 'size' => filesize($path),
                 'description' => $description,
-                'content_type' => $content_type,
-                'file' => '@'.$path,
             )
         );
 
@@ -85,36 +92,73 @@ class EcrGithubDownloads extends JGithubObject
             throw new DomainException($error->message, $response->code);
         }
 
+        /*
+         * Second part: Upload the file
+         *
+         * For the second part we use plain curl - JHttp seems to add some unnecessary stuff...
+         */
+
         $respData = json_decode($response->body);
 
-        $data = json_encode(
-            array(
-                'key' => $respData->path,
-                'acl' => $respData->acl,
-                'success_action_status' => 201,
-                'Filename' => $respData->name,
-                'AWSAccessKeyId' => $respData->accesskeyid,
-                'Policy' => $respData-> policy,
-                'Signature' => $respData->signature,
-                'Content-Type' => $respData->mime_type,
-                'file' => '@'.$path
-            )
+        if(! $respData)
+            throw new Exception('Invalid response');
+
+        $data = array(
+            'key' => $respData->path,
+            'acl' => $respData->acl,
+            'success_action_status' => 201,
+            'Filename' => $respData->name,
+            'AWSAccessKeyId' => $respData->accesskeyid,
+            'Policy' => $respData->policy,
+            'Signature' => $respData->signature,
+            'Content-Type' => $respData->mime_type,
+            'file' => '@'.$path,
         );
 
-        $this->options->set('api.url', 'https://github.s3.amazonaws.com/');
+        $ch = curl_init();
 
-        $response = $this->client->post($this->fetchUrl($repoPath), $data);
+        $curlOptions = array(
+            CURLOPT_URL => $respData->s3_url
+        , CURLOPT_POST => true
+        , CURLOPT_POSTFIELDS => $data
+        , CURLOPT_RETURNTRANSFER => true
+        , CURLOPT_HEADER, true
+        );
+
+        curl_setopt_array($ch, $curlOptions);
+
+        $result = curl_exec($ch);
+
+        $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if(201 != $responseCode)
+        {
+            throw new DomainException($result, $responseCode);
+        }
+
+        /*
+        $this->options->set('api.url', $respData->s3_url);
+
+        // Unset credentials
+        $this->options->set('api.username', '');
+        $this->options->set('api.password', '');
+
+        $headers = array(
+            //          'Expires' => time() + 300,
+        );
+
+        $response = $this->client->post($this->fetchUrl(''), $data, $headers);
 
         // Validate the response code.
         if(201 != $response->code)
         {
             // Decode the error response and throw an exception.
-            $error = json_decode($response->body);
-
-            throw new DomainException($error->message, $response->code);
+            throw new DomainException($response->body, $response->code);
         }
 
         return json_decode($response->body);
+        */
+        return $this;
     }
 
     /**
@@ -146,6 +190,5 @@ class EcrGithubDownloads extends JGithubObject
         }
 
         return json_decode($response->body);
-
     }
 }
