@@ -2,7 +2,7 @@
 
 <install type="component" version="1.5" method="upgrade">
   <name>EasyCreator</name>
-  <creationDate>20-Feb-2012</creationDate>
+  <creationDate>24-Apr-2012</creationDate>
   <author>Nikolai Plath</author>
   <authorEmail>der.el.kuku@gmail.com</authorEmail>
   <authorUrl>https://github.com/elkuku</authorUrl>
@@ -32,18 +32,14 @@
         </menu>
     <files folder="admin">
       <folder>assets</folder>
-      <folder>builds</folder>
       <folder>cli</folder>
       <folder>controllers</folder>
-      <folder>exports</folder>
+      <folder>data</folder>
       <folder>g11n</folder>
       <folder>helpers</folder>
       <folder>includes</folder>
       <folder>install</folder>
-      <folder>logs</folder>
       <folder>models</folder>
-      <folder>results</folder>
-      <folder>scripts</folder>
       <folder>templates</folder>
       <folder>tests</folder>
       <folder>views</folder>
