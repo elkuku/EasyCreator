@@ -50,6 +50,9 @@ abstract class EcrDeployer
         $this->connect();
     }
 
+    /**
+     * Destructor.
+     */
     public function __destruct()
     {
         JLog::add('|___ Finished');
@@ -230,7 +233,7 @@ abstract class EcrDeployer
     {
         $path = JFactory::getConfig()->get('log_path');
 
-        $fileName = 'ecr_deploy.php';
+        $fileName = 'ecr_log.php';
         $entry = '';
 
         if('preserve' == JFactory::getApplication()->input->get('logMode')

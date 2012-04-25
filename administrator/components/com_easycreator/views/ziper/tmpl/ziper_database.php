@@ -1,10 +1,8 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
  * User: elkuku
  * Date: 25.03.12
  * Time: 13:18
- * To change this template use File | Settings | File Templates.
  */
 ?>
 

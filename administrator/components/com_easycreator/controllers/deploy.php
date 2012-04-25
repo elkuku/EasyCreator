@@ -366,25 +366,6 @@ class EasyCreatorControllerDeploy extends JController
     }
 
     /**
-     *
-     */
-    public function pollLog()
-    {
-        $path = JFactory::getConfig()->get('log_path').'/ecr_deploy.php';
-
-        if(JFile::exists($path))
-        {
-            $s = JFile::read($path);
-
-            $s .= "\n".'Time '.date('H:i:s');
-
-            $this->response->message = $s;
-        }
-
-        echo json_encode($this->response);
-    }
-
-    /**
      * @param Exception $e
      */
     private function handleException(Exception $e)

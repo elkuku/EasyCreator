@@ -28,6 +28,42 @@ class EasyCreatorControllerAjax extends JController
     private $response = array('status' => 0, 'text' => '', 'debug' => '');
 
     /**
+     * @var EcrResponseJson
+     */
+    private $responseJson;
+
+    public function __construct($config = array())
+    {
+        $this->responseJson = new EcrResponseJson;
+
+        parent::__construct($config);
+    }
+
+    /**
+     *
+     */
+    public function pollLog()
+    {
+        $path = JFactory::getConfig()->get('log_path').'/ecr_log.php';
+
+        if(JFile::exists($path))
+        {
+            $s = JFile::read($path);
+
+            $s .= "\n".'Time '.date('H:i:s');
+
+            $this->responseJson->message = $s;
+        }
+        else
+        {
+            $this->responseJson->status = 1;
+            $this->responseJson->message = jgettext('Log file not found');
+        }
+
+        echo $this->responseJson;
+    }
+
+    /**
      * Shows a part from templates/parts folder. Calls the 'getOptions' function in part class.
      *
      * @return void

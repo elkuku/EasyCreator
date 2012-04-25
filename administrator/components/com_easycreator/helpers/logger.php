@@ -122,6 +122,13 @@ class EcrLogger
             $s = strip_tags($s);
             echo $s.NL;
         }
+
+        $s = $string;
+        $s = str_replace('<br />', NL, $s);
+        $s = str_replace(array('<strong>', '</strong>'), '', $s);
+        $s = str_replace(JPATH_ROOT, 'JROOT', $s);
+
+        JLog::add($s);
     }//function
 
     /**

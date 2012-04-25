@@ -88,35 +88,6 @@ class EasyCreatorViewZiper extends JView
         $this->setLayout('archive');
     }//function
 
-    private function deploy()
-    {
-        $this->setLayout('deploy');
-    }
-
-    /**
-     * Zips the project.
-     *
-     * @return void
-     */
-    private function ziperzip()
-    {
-        $result = new stdClass;
-
-        $this->buildopts = JRequest::getVar('buildopts', array());
-
-        $ziper = new EcrProjectZiper;
-
-        $result->result = $ziper->create($this->project, $this->buildopts);
-        $result->errors = $ziper->getErrors();
-
-        $result->downloadLinks = $ziper->getDownloadLinks();
-        $result->log = $ziper->printLog();
-
-        $this->zipResult = $result;
-
-        $this->setLayout('ziper');
-    }//function
-
     /**
      * Deletes a zip file.
      *

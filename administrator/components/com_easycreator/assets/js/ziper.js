@@ -7,6 +7,49 @@
  */
 
 var EcrZiper = new Class({
+    url:'index.php?option=com_easycreator&tmpl=component&format=raw',
+
+    createPackage:function () {
+        document.id('zipResult').setStyle('display', 'block');
+
+        var message = document.id('ajaxMessage');
+        var result = document.id('zipResultLinks');
+
+        startPoll();
+
+        new Request({
+            url:this.url
+                + '&' + document.id('adminForm').toQueryString()
+                + '&controller=ziper&task=createPackage',
+
+            'onRequest':function () {
+                message.setStyle('color', 'black');
+                message.className = 'ajax_loading16';
+                message.innerHTML = jgettext('Creating your package...');
+                result.innerHTML = '';
+            },
+
+            'onComplete':function (r) {
+                var response = JSON.decode(r);
+
+                message.innerHTML = '';
+                message.className = '';
+
+
+                if (response.status) {
+                    message.innerHTML = response.message;
+                    message.setStyle('color', 'red');
+                }
+                else {
+                    result.innerHTML = response.message;
+                }
+
+                stopPoll();
+            }
+        }).send();
+
+    },
+
     deleteZipFile:function (path, file) {
         var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
         url += '&controller=ziper&task=delete';

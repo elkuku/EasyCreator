@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-ecrScript('util');
+ecrScript('util', 'pollrequest');
 
 if('package' == $this->project->type
     && ! $this->project->elements
@@ -21,9 +21,20 @@ if('package' == $this->project->type
 JFactory::getDocument()->addScriptDeclaration(
     "window.addEvent('domready', function() { EcrZiper.updateName('{$this->ecr_project}'); });");
 
-echo $this->loadTemplate('result');
-
 ?>
+<div class="clr"></div>
+
+<div id="zipResult" style="display: none;">
+
+    <div id="ajaxMessage"></div>
+
+    <div id="zipResultLinks"></div>
+
+    <h3><?php echo jgettext('Log console'); ?></h3>
+    <div id="pollStatus"></div>
+    <pre id="ecrDebugBox"></pre>
+
+</div>
 <div style="clear: both;"></div>
 
 <div class="ecr_floatbox">
@@ -48,7 +59,7 @@ echo $this->loadTemplate('result');
     <h3><?php echo jgettext('Create the package'); ?></h3>
 
     <div class="ecr_button"
-         onclick="document.id('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
+         onclick="EcrZiper.createPackage();return false;document.id('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
          style="margin: 1em; padding: 1em; text-align: center;">
         <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
              style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>

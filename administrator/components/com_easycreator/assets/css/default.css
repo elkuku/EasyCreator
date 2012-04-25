@@ -657,3 +657,7 @@ div.path {
     font-size: 1.3em;
     margin: 0.5em;
 }
+
+div#ecr_logdisplay {
+    border: 1px dashed gray;
+}

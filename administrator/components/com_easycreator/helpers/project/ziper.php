@@ -39,10 +39,35 @@ class EcrProjectZiper extends JObject
     private $profiler = null;
 
     /**
+     * Constructor.
+     *
+     * @param null $properties
+     */
+    public function __construct($properties = null)
+    {
+        $this->setupLog();
+
+        JLog::add('|¯¯¯ Starting');
+
+        parent::__construct();
+    }
+
+    /**
+     * Destructor.
+     */
+    public function __destruct()
+    {
+        JLog::add('|___ Finished');
+
+        //-- Give the logger a chance to finish.
+        sleep(2);
+    }
+
+    /**
      * Create the package.
      *
      * @param EcrProjectBase $project The project
-     * @param array      $buildOpts
+     * @param array          $buildOpts
      *
      * @return bool true on success
      */
@@ -53,7 +78,6 @@ class EcrProjectZiper extends JObject
         $this->build_dir = $this->project->getZipPath();
 
         //-- Init buildopts
-//        $buildopts = JRequest::getVar('buildopts', array());
         $this->initBuildOpts($buildOpts);
 
         //-- Setup logging
@@ -67,20 +91,20 @@ class EcrProjectZiper extends JObject
         try
         {
             $this
-            ->setTempDir()
-            ->copyCopies()
-            ->copyLanguage()
-            ->copyMedia()
-            ->copyPackageModules()
-            ->copyPackagePlugins()
-            ->copyPackageElements()
-            ->processInstall()
-            ->cleanProject()
-            ->deleteManifest()
-            ->createMD5()
-            ->createManifest()
-            ->createArchive()
-            ->removeBuildDir();
+                ->setTempDir()
+                ->copyCopies()
+                ->copyLanguage()
+                ->copyMedia()
+                ->copyPackageModules()
+                ->copyPackagePlugins()
+                ->copyPackageElements()
+                ->processInstall()
+                ->cleanProject()
+                ->deleteManifest()
+                ->createMD5()
+                ->createManifest()
+                ->createArchive()
+                ->removeBuildDir();
         }
         catch(EcrZiperException $e)
         {
@@ -90,14 +114,14 @@ class EcrProjectZiper extends JObject
             $this->setError('ERROR: '.$e->getMessage());
 
             return false;
-        }//try
+        }
 
         $this->logger->log('FINISHED');
 
         $this->logger->writeLog();
 
         return true;
-    }//function
+    }
 
     /**
      * Initialize build options.
@@ -115,8 +139,8 @@ class EcrProjectZiper extends JObject
 
         foreach($stdOpts as $opt)
         {
-            $this->buildopts[$opt] =(in_array($opt, $buildopts)) ? true : false;
-        }//foreach
+            $this->buildopts[$opt] = (in_array($opt, $buildopts)) ? true : false;
+        }
 
         //-- Init profiler
         $this->buildopts['profiling'] = false;
@@ -129,7 +153,7 @@ class EcrProjectZiper extends JObject
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Clean up unwanted stuff.
@@ -153,13 +177,13 @@ class EcrProjectZiper extends JObject
         {
             foreach($folders as $folder)
             {
-                if( ! Jfile::exists($folder.DS.'index.html'))
+                if(! Jfile::exists($folder.DS.'index.html'))
                 {
                     JFile::copy($stdHtmlPath, $folder.DS.'index.html');
 
                     $cntIndex ++;
                 }
-            }//foreach
+            }
 
             $this->logger->log(sprintf('%s index.html files created', $cntIndex));
         }
@@ -199,7 +223,7 @@ class EcrProjectZiper extends JObject
                 }
             }
 
-            if( ! JFile::copy($src, $dst))
+            if(! JFile::copy($src, $dst))
                 throw new EcrZiperException(__METHOD__.' - '.$src.' => '.$dst, 'Failed to copy EasyCreator project xml');
 
             $this->logger->log('EasyCreator project xml copied');
@@ -219,16 +243,16 @@ class EcrProjectZiper extends JObject
                 {
                     $this->logger->log('Removing unwanted '.$item.' at '.$file);
 
-                    if( ! JFile::delete($file))
+                    if(! JFile::delete($file))
                     {
                         $this->logger->log('Unable to remove '.$file, 'ERROR');
                     }
                 }
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Tries to find the package manifest file.
@@ -252,20 +276,20 @@ class EcrProjectZiper extends JObject
             //-- Is it a valid Joomla! installation manifest file ?
             $manifest = $this->_isManifest($file);
 
-            if( ! is_null($manifest))
+            if(! is_null($manifest))
             {
                 //-- Delete manifest file in temp folder
-                if( ! JFile::delete($file))
+                if(! JFile::delete($file))
                     throw new EcrZiperException(__METHOD__.' - Unable to delete file '.$file);
 
                 $this->logger->log('File deleted '.$file);
 
                 return $this;
             }
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Is the xml file a valid Joomla installation manifest file ?.
@@ -279,7 +303,7 @@ class EcrProjectZiper extends JObject
         $xml = EcrProjectHelper::getXML($file);
 
         //-- If we can not load the xml file return null
-        if( ! $xml)
+        if(! $xml)
         {
             return null;
         }
@@ -288,7 +312,8 @@ class EcrProjectZiper extends JObject
          * Check for a valid XML root tag.
         */
         if($xml->getName() != 'install'
-        && $xml->getName() != 'extension')
+            && $xml->getName() != 'extension'
+        )
         {
             //-- Free up xml parser memory and return null
             unset($xml);
@@ -298,7 +323,7 @@ class EcrProjectZiper extends JObject
 
         //-- Valid manifest file return the object
         return $xml;
-    }//function
+    }
 
     /**
      * Create the Joomla! manifest.
@@ -316,13 +341,13 @@ class EcrProjectZiper extends JObject
         $this->project->creationDate = date('d-M-Y');
         $this->project->isNew = false;
 
-        if( ! $manifest->create($this->project))
+        if(! $manifest->create($this->project))
             throw new EcrZiperException(__METHOD__.' - '.implode("\n", $manifest->getErrors()));
 
         $this->logger->logFileWrite('manifest.xml', $this->project->basepath.DS.'manifest.xml', $manifest->formatXML());
 
         return $this;
-    }//function
+    }
 
     /**
      * Set the temp directory.
@@ -334,13 +359,13 @@ class EcrProjectZiper extends JObject
     {
         $this->temp_dir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName);
 
-        if( ! JFolder::create($this->temp_dir))
+        if(! JFolder::create($this->temp_dir))
             throw new EcrZiperException(__METHOD__.' - Can not create TempDir<br />'.$this->temp_dir);
 
         $this->logger->log('TempDir created<br />'.$this->temp_dir);
 
         return $this;
-    }//function
+    }
 
     /**
      * Copy files and folders.
@@ -352,7 +377,7 @@ class EcrProjectZiper extends JObject
     {
         foreach($this->project->copies as $copy)
         {
-            $dest =(strpos($copy, JPATH_ADMINISTRATOR) === 0) ? 'admin' : 'site';
+            $dest = (strpos($copy, JPATH_ADMINISTRATOR) === 0) ? 'admin' : 'site';
             $copy = str_replace('/', DS, $copy);
             $tmp_dest = $this->temp_dir.DS.$dest;
 
@@ -377,7 +402,7 @@ class EcrProjectZiper extends JObject
 
                         foreach($folders as $folder)
                         {
-                            if( ! JFolder::exists($ecrBase.DS.$folder))
+                            if(! JFolder::exists($ecrBase.DS.$folder))
                                 continue;
 
                             $files = JFolder::files($ecrBase.DS.$folder, '.', true, true, array('.svn', 'readme.md'));
@@ -392,8 +417,8 @@ class EcrProjectZiper extends JObject
                                 {
                                     $this->logger->log('error removing EasyCreator file :(<br />'.$file, 'ERROR');
                                 }
-                            }//foreach
-                        }//foreach
+                            }
+                        }
                     }
 
                     if($this->buildopts['remove_autocode'])
@@ -417,7 +442,7 @@ class EcrProjectZiper extends JObject
                                 {
                                     $buffer[] = $line;
                                 }
-                            }//foreach
+                            }
 
                             if($acFound)
                             {
@@ -426,10 +451,10 @@ class EcrProjectZiper extends JObject
                                 if(JFile::write($file, $contents))
                                 {
                                     $this->logger->log('Autocode removed from file '
-                                    .str_replace($this->temp_dir.DS, '', $file));
+                                        .str_replace($this->temp_dir.DS, '', $file));
                                 }
                             }
-                        }//foreach
+                        }
                     }
                 }
                 else
@@ -454,10 +479,10 @@ class EcrProjectZiper extends JObject
                 //-- Source does not exist - ABORT - TODO: rollback
                 throw new EcrZiperException(__METHOD__.' - File not found: '.$copy);
             }
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Copy media files.
@@ -468,8 +493,8 @@ class EcrProjectZiper extends JObject
     {
         $mediaPath = JPATH_ROOT.DS.'media'.DS.$this->project->comName;
 
-        if( ! JFolder::exists($mediaPath))
-        return $this;
+        if(! JFolder::exists($mediaPath))
+            return $this;
 
         $destination = $this->temp_dir.DS.'media';
 
@@ -479,7 +504,7 @@ class EcrProjectZiper extends JObject
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Process install files.
@@ -489,15 +514,15 @@ class EcrProjectZiper extends JObject
      */
     private function processInstall()
     {
-        if( ! $this->project->JCompat == '1.5')
+        if(! $this->project->JCompat == '1.5')
         {
             return $this;
         }
 
         $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
-        if( ! count($installFiles['php']))
-        return $this;
+        if(! count($installFiles['php']))
+            return $this;
 
         $srcDir = $this->temp_dir.DS.'admin';
         $destDir = $this->temp_dir.DS.'install';
@@ -509,7 +534,7 @@ class EcrProjectZiper extends JObject
         foreach($installFiles['php'] as $file)
         {
             $srcPath = $srcDir;
-            $srcPath .=($file->folder) ? DS.$file->folder : '';
+            $srcPath .= ($file->folder) ? DS.$file->folder : '';
             $srcPath .= DS.$file->name;
 
             $destPath = $destDir;
@@ -538,18 +563,18 @@ class EcrProjectZiper extends JObject
             else
             {
                 $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath
-                .'<br />DST: '.$destPath.DS.$file->name, 'ERROR copy file');
+                    .'<br />DST: '.$destPath.DS.$file->name, 'ERROR copy file');
 
                 continue;
             }
 
             if(0 != strpos($file->name, 'install'))
-            continue;
+                continue;
 
             if($this->buildopts['create_md5'])
             {
-                $format =('po' == $this->project->langFormat) ? '.po' : '';
-                $compressed =($this->buildopts['create_md5_compressed']) ? '_compressed' : '';
+                $format = ('po' == $this->project->langFormat) ? '.po' : '';
+                $compressed = ($this->buildopts['create_md5_compressed']) ? '_compressed' : '';
                 $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.$format.'.php');
                 $fileContents = str_replace('<?php', '', $fileContents);
                 $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
@@ -580,23 +605,23 @@ class EcrProjectZiper extends JObject
             {
                 $this->logger->log('Failed to add MD5 install check routine to install.php', 'error');
             }
-        }//foreach
+        }
 
         //-- Delete install files from 'admin'
         foreach($installFiles['php'] as $file)
         {
             $srcPath = $srcDir;
-            $srcPath .=($file->folder) ? DS.$file->folder : '';
+            $srcPath .= ($file->folder) ? DS.$file->folder : '';
             $srcPath .= DS.$file->name;
 
-            if( ! JFile::delete($srcPath))
+            if(! JFile::delete($srcPath))
                 throw new EcrZiperException(__METHOD__.' - Delete install file failed: '.$srcPath);
 
             $this->logger->log('INSTALL FILE DELETED<br />SRC: '.$srcPath);
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Copy the package modules.
@@ -609,7 +634,7 @@ class EcrProjectZiper extends JObject
      */
     private function copyPackageModules()
     {
-        if( ! count($this->project->modules))
+        if(! count($this->project->modules))
         {
             return $this;
         }
@@ -618,17 +643,17 @@ class EcrProjectZiper extends JObject
 
         foreach($this->project->modules as $module)
         {
-            $clientPath =($module->scope == 'admin') ? JPATH_ADMINISTRATOR.DS.'modules' : JPATH_SITE.DS.'modules';
+            $clientPath = ($module->scope == 'admin') ? JPATH_ADMINISTRATOR.DS.'modules' : JPATH_SITE.DS.'modules';
 
             if(JFolder::copy($clientPath.DS.$module->name, $this->temp_dir.DS.$module->name, '', true))
             {
                 $this->logger->log('COPY DIR<br />SRC: '.$clientPath.DS.$module->name
-                .'<br />DST: '.$this->temp_dir.DS.$module->name);
+                    .'<br />DST: '.$this->temp_dir.DS.$module->name);
             }
             else
             {
                 throw new EcrZiperException(__METHOD__.' - COPY DIR FAILED SRC: '.$clientPath.DS.$module->name
-                .' - DST: '.$this->temp_dir);
+                    .' - DST: '.$this->temp_dir);
             }
 
             //-- Get the project
@@ -641,14 +666,14 @@ class EcrProjectZiper extends JObject
                 $this->logger->log('Unable to load the project '.$s.' - '.$e->getMessage(), 'ERROR');
 
                 continue;
-            }//try
+            }
 
-            if( ! is_array($modProject->langs))
+            if(! is_array($modProject->langs))
             {
                 continue;
             }
 
-            $clientPath =($module->scope == 'admin') ? JPATH_ADMINISTRATOR.DS.'language' : JPATH_SITE.DS.'language';
+            $clientPath = ($module->scope == 'admin') ? JPATH_ADMINISTRATOR.DS.'language' : JPATH_SITE.DS.'language';
 
             if(count($modProject->langs))
             {
@@ -671,23 +696,23 @@ class EcrProjectZiper extends JObject
                 {
                     $this->logger->log('NOT FOUND: '.$clientPath.DS.$tag.DS.$tmp_fname, 'copy langfile');
                 }
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Copy the package plugins.
      *
      * @deprecated in favor for J! 1.6 packages
-     * @see EasyZIPer::copyPackageElements
+     * @see        EasyZIPer::copyPackageElements
      *
      * @return EcrProjectZiper
      */
     private function copyPackagePlugins()
     {
-        if( ! count($this->project->plugins))
+        if(! count($this->project->plugins))
         {
             return $this;
         }
@@ -708,7 +733,7 @@ class EcrProjectZiper extends JObject
                 $this->logger->log('Unable to load the project - Error:'.$e->getMessage(), 'ERROR');
 
                 continue;
-            }//try
+            }
 
             if(JFolder::create($this->temp_dir.DS.$plgFolderName))
             {
@@ -728,13 +753,13 @@ class EcrProjectZiper extends JObject
                     if(JFolder::copy($copy, $this->temp_dir.DS.$plgFolderName.DS.$tName))
                     {
                         $this->logger->log('COPY folder<br />SRC: '.$copy
-                        .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName);
+                            .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName);
                     }
                     else
                     {
                         $this->logger->log('COPY FOLDER FAILED<br />SRC: '.$copy
-                        .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName
-                        , 'ERROR copy folder');
+                                .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName
+                            , 'ERROR copy folder');
                     }
                 }
                 else if(JFile::exists($copy))
@@ -744,22 +769,22 @@ class EcrProjectZiper extends JObject
                     if(JFile::copy($copy, $this->temp_dir.DS.$plgFolderName.DS.$tName))
                     {
                         $this->logger->log('COPY file<br />SRC: '.$copy
-                        .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName);
+                            .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName);
                     }
                     else
                     {
                         $this->logger->log('COPY FILE FAILED<br />SRC: '.$copy
-                        .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName
-                        , 'ERROR copy file');
+                                .'<br />DST: '.$this->temp_dir.DS.$plgFolderName.DS.$tName
+                            , 'ERROR copy file');
                     }
                 }
                 else
                 {
                     $this->logger->log('Not found<br />SRC: '.$copy, 'FILE NOT FOUND');
                 }
-            }//foreach
+            }
 
-            if( ! count($plgProject->langs))
+            if(! count($plgProject->langs))
             {
                 $this->logger->log('No languages found');
             }
@@ -783,11 +808,11 @@ class EcrProjectZiper extends JObject
                 {
                     $this->logger->log('NOT FOUND: '.$tmp_src.DS.$tmp_fname, 'copy langfile');
                 }
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Copy the elements of a package.
@@ -800,10 +825,10 @@ class EcrProjectZiper extends JObject
     private function copyPackageElements()
     {
         if($this->project->type != 'package')
-        return $this;
+            return $this;
 
-        if( ! count($this->project->elements))
-        return $this;
+        if(! count($this->project->elements))
+            return $this;
 
         $this->logger->log('<strong style="color: blue;">Copying Package elements</strong>');
 
@@ -821,13 +846,13 @@ class EcrProjectZiper extends JObject
                 $this->logger->log('Unable to load the project '.$element.' - '.$e->getMessage(), 'ERROR');
 
                 continue;
-            }//try
+            }
 
             $ziper = new EcrProjectZiper;
             $result = $ziper->create($project, $this->buildopts);
             $files = $ziper->getCreatedFiles();
 
-            if( ! count($files))
+            if(! count($files))
             {
                 $this->logger->log(sprintf('No packages files have been created for project %s', $element), 'ERROR');
 
@@ -850,12 +875,12 @@ class EcrProjectZiper extends JObject
             {
                 throw new EcrZiperException(__METHOD__.' - '.sprintf(
                     'Unable to create package %s try to copy from %s to %s'
-                , $element, $src, $dest));
+                    , $element, $src, $dest));
             }
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Copy language files.
@@ -865,12 +890,12 @@ class EcrProjectZiper extends JObject
     private function copyLanguage()
     {
         //-- No languages defined
-        if( ! is_array($this->project->langs))
-        return $this;
+        if(! is_array($this->project->langs))
+            return $this;
 
         //-- Only ini files needs to be copied
         if($this->project->langFormat != 'ini')
-        return $this;
+            return $this;
 
         foreach($this->project->langs as $language => $scopes)
         {
@@ -880,11 +905,11 @@ class EcrProjectZiper extends JObject
 
                 $paths = $this->project->getLanguagePaths($scope);
 
-                if( ! is_array($paths))
-                $paths = array($paths);
+                if(! is_array($paths))
+                    $paths = array($paths);
 
-                if( ! count($paths))
-                continue;
+                if(! count($paths))
+                    continue;
 
                 $found = false;
 
@@ -898,9 +923,9 @@ class EcrProjectZiper extends JObject
                         $found = true;
                         break;
                     }
-                }//foreach
+                }
 
-                if( ! $found)
+                if(! $found)
                 {
                     $this->logger->log('File: '.$srcPath.'/'.$srcFileName, 'copy failed');
                     $this->setError(sprintf(jgettext('File not found: %s'), $srcPath.'/'.$srcFileName));
@@ -908,7 +933,7 @@ class EcrProjectZiper extends JObject
                     continue;
                 }
 
-                $s =($scope === 'menu' || $scope === 'sys') ? 'admin' : $scope;
+                $s = ($scope === 'menu' || $scope === 'sys') ? 'admin' : $scope;
                 $tmp_dest = $this->temp_dir.DS.$s.DS.'language'.DS.$language;
 
                 if($this->project->type == 'plugin')
@@ -934,11 +959,11 @@ class EcrProjectZiper extends JObject
                         $this->setError(sprintf(jgettext('Failed to copy file %s to %s'), $srcPath.'/'.$srcFileName, $tmp_dest.DS.$srcFileName));
                     }
                 }
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Create a MD5 checksum file.
@@ -950,7 +975,7 @@ class EcrProjectZiper extends JObject
     {
         $md5Str = '';
 
-        if( ! $this->buildopts['create_md5'])
+        if(! $this->buildopts['create_md5'])
         {
             return $this;
         }
@@ -971,20 +996,20 @@ class EcrProjectZiper extends JObject
             {
                 $md5Str .= md5_file($file).' '.str_replace($this->temp_dir.DS, '', $file).NL;
             }
-        }//foreach
+        }
 
-        $subDir =(JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
+        $subDir = (JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
 
         //-- @todo temp solution to put the md5 file in a sub folder for J! 1.6 not finding it...
         $subDir .= DS.'install';
 
-        if( ! JFile::write($this->temp_dir.DS.$subDir.DS.'MD5SUMS', $md5Str))
+        if(! JFile::write($this->temp_dir.DS.$subDir.DS.'MD5SUMS', $md5Str))
             throw new EcrZiperException(__METHOD__.' - Can not create MD5SUMS File');
 
         $this->logger->logFileWrite('MD5SUMS', $this->temp_dir.DS.'MD5SUMS', $md5Str);
 
         return $this;
-    }//function
+    }
 
     /**
      * Tiny compression for MD5 files.
@@ -997,7 +1022,7 @@ class EcrProjectZiper extends JObject
     {
         static $previous = '';
 
-        if( ! $previous) //-- Init
+        if(! $previous) //-- Init
         {
             $previous = $path;
 
@@ -1026,8 +1051,9 @@ class EcrProjectZiper extends JObject
                 foreach($subParts as $i => $part)
                 {
                     if(isset($previousParts[$i])
-                    && $part == $previousParts[$i]
-                    && ! $foundDifference) //-- Same as previous sub path
+                        && $part == $previousParts[$i]
+                        && ! $foundDifference
+                    ) //-- Same as previous sub path
                     {
                         $result[] = '-';
                     }
@@ -1043,7 +1069,7 @@ class EcrProjectZiper extends JObject
 
                         $foundDifference = true;
                     }
-                }//foreach
+                }
 
                 //-- Add a separator(no add path)
                 if(count($result) && $result[count($result) - 1] == '-')
@@ -1056,7 +1082,7 @@ class EcrProjectZiper extends JObject
         $previous = $path;
 
         return $compressed;
-    }//function
+    }
 
     /**
      * Create the zip file.
@@ -1067,7 +1093,7 @@ class EcrProjectZiper extends JObject
     private function createArchive()
     {
         $zipTypes = array(
-        'zip' => 'zip'
+            'zip' => 'zip'
         , 'tgz' => 'tar.gz'
         , 'bz' => 'bz2');
 
@@ -1086,16 +1112,16 @@ class EcrProjectZiper extends JObject
         $files = JFolder::files($this->temp_dir, '.', true, true);
         $this->logger->log('TOTAL: '.count($files).' files');
 
-        if( ! is_dir($zipDir))
+        if(! JFolder::exists($zipDir))
         {
-            if( ! JFolder::create($zipDir))
+            if(! JFolder::create($zipDir))
                 throw new EcrZiperException(__METHOD__.' - ERROR creating folder '.$zipDir);
         }
 
         if(0 === strpos($this->project->getZipPath(), ECRPATH_BUILDS))
         {
-            $hrefBase = JURI::root().'administrator/components/com_easycreator/builds/'
-            .$this->project->comName.'/'.$this->project->version;
+            $hrefBase = JURI::root().str_replace(JPATH_ROOT, '', ECRPATH_BUILDS)
+                .'/'.$this->project->comName.'/'.$this->project->version;
         }
         else
         {
@@ -1108,7 +1134,7 @@ class EcrProjectZiper extends JObject
 
         foreach($zipTypes as $zipType => $ext)
         {
-            if( ! $this->buildopts['archive_'.$zipType])
+            if(! $this->buildopts['archive_'.$zipType])
             {
                 continue;
             }
@@ -1122,7 +1148,7 @@ class EcrProjectZiper extends JObject
                     //-- Translate win path to unix path - for PEAR..
                     $p = str_replace('\\', '/', $this->temp_dir);
 
-                    if( ! EcrArchive::createZip($zipDir.DS.$fileName.'.zip', $files, $p))
+                    if(! EcrArchive::createZip($zipDir.DS.$fileName.'.zip', $files, $p))
                         throw new EcrZiperException(__METHOD__.' - ERROR Packing routine for '.$ext);
 
                     break;
@@ -1130,12 +1156,12 @@ class EcrProjectZiper extends JObject
                 case 'bz2':
                     ecrLoadHelper('PEAR');
 
-                    if( ! extension_loaded('bz2'))
+                    if(! extension_loaded('bz2'))
                     {
                         PEAR::loadExtension('bz2');
                     }
 
-                    if( ! extension_loaded('bz2'))
+                    if(! extension_loaded('bz2'))
                     {
                         JFactory::getApplication()->enqueueMessage(
                             jgettext('The extension "bz2" couldn\'t be found.'), 'error');
@@ -1151,7 +1177,7 @@ class EcrProjectZiper extends JObject
 
                         $result = $archive = EcrArchive::createTgz($zipDir.DS.$fileName.'.'.$ext, $files, 'bz2', $p);
 
-                        if( ! $result->listContent())
+                        if(! $result->listContent())
                             throw new EcrZiperException(__METHOD__.'ERROR Packing routine for '.$ext);
                     }
 
@@ -1159,25 +1185,25 @@ class EcrProjectZiper extends JObject
 
                 case 'tar.gz':
                     $result = $archive = EcrArchive::createTgz($zipDir
-                    .DS.$fileName.'.'.$ext, $files, 'gz', $this->temp_dir);
+                        .DS.$fileName.'.'.$ext, $files, 'gz', $this->temp_dir);
 
-                    if( ! $result->listContent())
+                    if(! $result->listContent())
                         throw new EcrZiperException(__METHOD__.'ERROR Packing routine for '.$ext);
 
                     break;
 
                 default:
                     throw new EcrZiperException(__METHOD__.'undefined packing type '.$ext);
-                break;
-            }//switch
+                    break;
+            }
 
             $this->logger->log('Packing routine for '.$ext.' finished');
             $this->downloadLinks[] = $hrefBase.'/'.$fileName.'.'.$ext;
             $this->createdFiles[] = $zipDir.DS.$fileName.'.'.$ext;
-        }//foreach
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Remove the build directory.
@@ -1194,13 +1220,13 @@ class EcrProjectZiper extends JObject
             return $this;
         }
 
-        if( ! JFolder::delete($this->temp_dir))
+        if(! JFolder::delete($this->temp_dir))
             throw new EcrZiperException(__METHOD__.'Unable to delete<br />'.$this->temp_dir);
 
         $this->logger->log('The build folder<br />'.$this->temp_dir.'<br />has been sucessfully deleted.');
 
         return $this;
-    }//function
+    }
 
     /**
      * Dislays the download links for created packages.
@@ -1210,7 +1236,7 @@ class EcrProjectZiper extends JObject
     public function getDownloadLinks()
     {
         return $this->downloadLinks;
-    }//function
+    }
 
     /**
      * Get a list of created files.
@@ -1220,7 +1246,7 @@ class EcrProjectZiper extends JObject
     public function getCreatedFiles()
     {
         return $this->createdFiles;
-    }//function
+    }
 
     /**
      * Prints the log.
@@ -1230,7 +1256,7 @@ class EcrProjectZiper extends JObject
     public function printLog()
     {
         return $this->logger->printLog();
-    }//function
+    }
 
     /**
      * Get the error log.
@@ -1240,5 +1266,44 @@ class EcrProjectZiper extends JObject
     public function getErrorLog()
     {
         return $this->_errors;
-    }//function
+    }
+
+    /**
+     * Set up the log file.
+     *
+     * @return \EcrDeployer
+     */
+    private function setupLog()
+    {
+        $path = JFactory::getConfig()->get('log_path');
+
+        $fileName = 'ecr_log.php';
+        $entry = '';
+
+        if('preserve' == JFactory::getApplication()->input->get('logMode')
+            && JFile::exists($path.'/'.$fileName)
+        )
+        {
+            $entry = '----------------------------------------------';
+        }
+        elseif(JFile::exists($path.'/'.$fileName))
+        {
+            JFile::delete($path.'/'.$fileName);
+        }
+
+        JLog::addLogger(
+            array(
+                'text_file' => $fileName
+            , 'text_entry_format' => '{DATETIME}	{PRIORITY}	{MESSAGE}'
+            , 'text_file_no_php' => true
+            )
+            , JLog::INFO | JLog::ERROR
+        );
+
+        if('' != $entry)
+            JLog::add($entry);
+
+        return $this;
+    }
+
 }//class
