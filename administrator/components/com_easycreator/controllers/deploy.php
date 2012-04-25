@@ -188,8 +188,6 @@ class EasyCreatorControllerDeploy extends JController
      */
     public function deployPackages()
     {
-        jimport('joomla.filesystem.file');
-
         ob_start();
 
         try
@@ -343,8 +341,6 @@ class EasyCreatorControllerDeploy extends JController
      */
     public function syncFiles()
     {
-        jimport('joomla.filesystem.file');
-
         ob_start();
 
         try

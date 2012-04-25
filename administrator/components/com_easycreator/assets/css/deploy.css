@@ -37,3 +37,17 @@ div#syncTree ul {
     list-style: none;
     padding-left: 1em;
 }
+
+ul.packageList {
+    padding-left: 0;
+}
+
+ul.packageList li {
+    list-style: none;
+}
+ul.packageList li:hover {
+background-color: #eee;
+}
+ul.packageList div.actions {
+    float: right;
+}

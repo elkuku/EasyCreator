@@ -14,6 +14,8 @@ var EcrDeploy = new Class({
     },
 
     url:'',
+    urlAdd:'',
+    box:'',
 
     initialize:function (options) {
         this.setOptions(options);
@@ -26,10 +28,10 @@ var EcrDeploy = new Class({
 
     /**
      *
-     * @param destination
+     * @param deployTarget
      * @return {*}
      */
-    deployPackage:function (destination) {
+    deployPackage:function (deployTarget) {
         var files = '';
 
         $$('table.adminlist input').each(function (input) {
@@ -44,55 +46,30 @@ var EcrDeploy = new Class({
             return false;
         }
 
-        var box = document.id(destination + 'DeployMessage');
-        var debug = document.id(destination + 'DeployDebug');
+        this.urlAdd = files;
 
-        var data = this._getCredentials(destination);
+        var data = this._getCredentials(deployTarget, 'deployPackages');
 
-        data.task = 'deployPackages';
-        data.type = destination;
-        data.ecr_project = document.id('ecr_project');
+        var containers = {
+            status:document.id(deployTarget + 'DeployMessage'),
+            debug:document.id(deployTarget + 'DeployDebug'),
+            display:document.id(deployTarget + 'DeployDebug')
+        };
 
-        new Request({
-            url:this.url + files,
+        startPoll();
 
-            data:data,
-
-            onRequest:function () {
-                box.style.color = 'black';
-                box.innerHTML = php2js.sprintf(jgettext('Deploying to %s...'), destination);
-                box.className = 'ajax_loading16';
-
-                startPoll();
-            },
-
-            onComplete:function (response) {
-                resp = JSON.decode(response);
-
-                stopPoll();
-
-                box.className = '';
-
-                if (resp.status) {
-                    box.style.color = 'red';
-                    box.set('text', resp.message);
-                    debug.set('text', resp.debug);
-                } else {
-                    box.style.color = 'green';
-                    box.set('text', resp.message);
-                }
-
-                EcrDeploy.getPackageList(destination, 'preserve');
-            }
-        }).send();
+        this._send(containers, data
+            , php2js.sprintf(jgettext('Deploying to %s'), deployTarget)
+            , 'getPackageList', deployTarget
+        );
     },
 
     /**
      *
-     * @param destination
+     * @param deployTarget
      * @return {*}
      */
-    deployFiles:function (destination) {
+    deployFiles:function (deployTarget) {
         var files = '';
         var deletedFiles = '';
 
@@ -113,271 +90,124 @@ var EcrDeploy = new Class({
             return false;
         }
 
-        var box = document.id(destination + 'Message');
-        var debug = document.id(destination + 'Debug');
+        this.urlAdd = files + deletedFiles;
 
-        var data = this._getCredentials(destination);
+        var data = this._getCredentials(deployTarget, 'deployFiles');
 
-        data.task = 'deployFiles';
-        data.type = destination;
-        data.ecr_project = document.id('ecr_project').value;
-
-        new Request({
-            url:this.url + files + deletedFiles,
-
-            data:data,
-
-            onRequest:function () {
-                box.style.color = 'black';
-                box.innerHTML = php2js.sprintf(jgettext('Deploying to %s...'), destination);
-                box.className = 'ajax_loading16';
-
-                startPoll();
-            },
-
-            onComplete:function (response) {
-                resp = JSON.decode(response);
-
-                if (resp.status) {
-                    box.style.color = 'red';
-                    box.set('text', resp.message);
-                    debug.set('text', resp.debug);
-                } else {
-                    box.style.color = 'green';
-                    box.set('text', resp.message);
-                    box.className = '';
-
-                    EcrDeploy.getSyncList(destination);
-                }
-
-                stopPoll();
-            }
-        }).send();
-    },
-
-    /**
-     *
-     * @param destination
-     */
-    getPackageList:function (destination, logMode) {
-        var task;
-
-        var data = this._getCredentials(destination);
-
-        data.type = destination;
-        data.logMode = (undefined == logMode) ? '' : logMode;
-        data.task = 'getPackageList';
-
-        switch (destination) {
-            case 'github' :
-            case 'ftp' :
-                break;
-
-            default:
-                alert('Unknown destination: ' + destination);
-                return;
-                break;
-        }
-
-        var box = document.id('ajax' + destination + 'Message');
-        var debug = document.id('ajax' + destination + 'Debug');
-        var display = document.id(destination + 'Display');
-
-        new Request({
-            url:this.url,
-
-            data:data,
-
-            onRequest:function () {
-                box.style.color = 'black';
-                box.innerHTML = php2js.sprintf(jgettext('Obtaining downloads from: %s'), destination);
-                box.className = 'ajax_loading16';
-                display.set('html', '');
-
-                startPoll();
-            },
-
-            onComplete:function (response) {
-                resp = JSON.decode(response);
-
-                box.className = '';
-
-                if (resp.status) {
-                    box.style.color = 'red';
-                    box.set('test', '');
-                    display.set('html', resp.message);
-                    debug.set('html', resp.debug);
-                } else {
-                    box.set('text', '');
-                    display.set('html', resp.message);
-                    debug.set('html', resp.debug);
-                }
-
-                stopPoll();
-            }
-        }).send();
-    },
-
-    /**
-     *
-     */
-    getSyncList:function () {
-        var box = document.id('syncList');
-
-        var data = {
-            task:'getSyncList',
-            ecr_project:document.id('ecr_project').value
+        var containers = {
+            status:document.id(deployTarget + 'Message'),
+            debug:document.id(deployTarget + 'Debug'),
+            display:document.id(deployTarget + 'Debug')
         };
 
-        new Request({
+        startPoll();
 
-            url:this.url,
-
-            data:data,
-
-            onRequest:function () {
-                box.style.color = 'black';
-                box.innerHTML = jgettext('Creating synclist...');
-                box.className = 'ajax_loading16';
-            },
-
-            onComplete:function (response) {
-                resp = JSON.decode(response);
-
-                box.className = '';
-
-                if (resp.status) {
-                    box.style.color = 'red';
-                    box.set('text', resp.message + resp.debug);
-                } else {
-                    box.set('html', resp.message);
-                }
-            }
-        }).send();
+        this._send(containers, data
+            , php2js.sprintf(jgettext('Deploying to %s'), deployTarget)
+            , 'getSyncList', deployTarget
+        );
     },
 
     /**
      *
-     * @param destination
+     * @param deployTarget
+     */
+    getPackageList:function (deployTarget, logMode) {
+        var data = this._getCredentials(deployTarget, 'getPackageList');
+
+        data.logMode = (undefined == logMode) ? '' : logMode;
+
+        var containers = {
+            status:document.id('ajax' + deployTarget + 'Message'),
+            debug:document.id('ajax' + deployTarget + 'Debug'),
+            display:document.id(deployTarget + 'Display')
+        };
+
+        startPoll();
+
+        this._send(containers, data, php2js.sprintf(jgettext('Obtaining downloads from: %s'), deployTarget))
+    },
+
+    /**
+     *
+     */
+    getSyncList:function (deployTarget) {
+
+        var containers = {
+            status:document.id('syncList'),
+            debug:document.id('syncList'),
+            display:document.id('syncList')
+        };
+
+        var data = this._getCredentials(deployTarget, 'getSyncList');
+
+        this._send(containers, data, jgettext('Generating synchronization list...'));
+    },
+
+    /**
+     *
+     * @param deployTarget
      * @param file
      */
-    deletePackage:function (destination, file) {
-        var data = this._getCredentials(destination);
+    deletePackage:function (deployTarget, file) {
+        try {
+            var data = this._getCredentials(deployTarget, 'deletePackage');
 
-        data.type = destination;
-        data.task = 'deletePackage';
+            switch (deployTarget) {
+                case 'github' :
+                    data.id = file;
+                    break;
 
-        switch (destination) {
-            case 'github' :
-                data.id = file;
-                break;
+                case 'ftp' :
+                    data.file = file;
+                    break;
 
-            case 'ftp' :
-                data.file = file;
-                break;
-
-            default:
-                alert('Unknown destination: ' + destination);
-
-                return;
-                break;
-        }
-
-        var box = document.id('ajax' + destination + 'Message');
-        var debug = document.id('ajax' + destination + 'Debug');
-        var display = document.id(destination + 'Display');
-
-        new Request({
-            url:this.url,
-
-            data:data,
-
-            onRequest:function () {
-                box.style.color = 'black';
-                box.innerHTML = php2js.sprintf(jgettext('Deleting files on: %s'), destination);
-                box.className = 'ajax_loading16';
-                display.set('html', '');
-
-                startPoll();
-            },
-
-            onComplete:function (response) {
-                resp = JSON.decode(response);
-
-                box.className = '';
-
-                stopPoll();
-
-                if (resp.status) {
-                    box.style.color = 'red';
-                    box.set('text', resp.message);
-                    debug = resp.debug;
-                } else {
-                    box.set('text', '');
-                    display.set('html', resp.message);
-
-                    EcrDeploy.getPackageList(destination, 'preserve');
-                }
+                default:
+                    throw('Unknown deploy target: ' + deployTarget);
+                    break;
             }
-        }).send();
+
+            var containers = {
+                status:document.id('ajax' + deployTarget + 'Message'),
+                debug:document.id('ajax' + deployTarget + 'Debug'),
+                display:document.id(deployTarget + 'Display')
+            };
+
+            startPoll();
+
+            this._send(containers, data
+                , php2js.sprintf(jgettext('Deleting files on: %s'), deployTarget)
+                , 'getPackageList', deployTarget
+            );
+
+        } catch (e) {
+            debug.innerHTML = e;
+        }
     },
 
     /**
      *
-     * @param destination
+     * @param deployTarget
      */
-    syncFiles:function (destination) {
-        var data = this._getCredentials(destination);
+    syncFiles:function (deployTarget) {
+        try {
+            var data = this._getCredentials(deployTarget, 'syncFiles');
 
-        data.task = 'syncFiles';
-        data.type = destination;
-        data.ecr_project = document.id('ecr_project').value;
+            var containers = {
+                status:document.id(deployTarget + 'Message'),
+                debug:document.id(deployTarget + 'Debug'),
+                display:document.id(deployTarget + 'Display')
+            };
 
-        var box = document.id(destination + 'Message');
-        var debug = document.id(destination + 'Debug');
-        var display = document.id(destination + 'Display');
+            startPoll();
 
-        new Request({
-            url:this.url,
+            this._send(containers, data
+                , php2js.sprintf(jgettext('Synchronizing files on: %s'), deployTarget)
+            );
 
-            data:data,
-
-            onRequest:function () {
-                box.style.color = 'black';
-                box.innerHTML = php2js.sprintf(jgettext('Synchronizing files on: %s'), destination);
-
-                box.className = 'ajax_loading16';
-                display.set('html', '');
-
-                startPoll();
-            },
-
-            onFailure:function () {
-                box.style.color = 'red';
-                box.set('text', 'The request failed');
-                box.className = '';
-                //debug.set('html', resp.debug);
-            },
-
-            onComplete:function (response) {
-                resp = JSON.decode(response);
-
-                box.className = '';
-
-                stopPoll();
-
-                EcrDeploy.getSyncList();
-
-                if (resp.status) {
-                    box.style.color = 'red';
-                    box.set('text', resp.message);
-                    debug.set('html', resp.debug);
-                } else {
-                    box.set('text', '');
-                    display.set('html', resp.message);
-                }
-            }
-        }).send();
+        } catch (e) {
+            alert(e);
+        }
     },
 
     /**
@@ -402,16 +232,70 @@ var EcrDeploy = new Class({
         });
     },
 
+    _send:function (containers, data, message, additional, deployTarget) {
+        new Request({
+            url:this.url + this.urlAdd,
+            data:data,
+
+            onRequest:function () {
+                containers.status.style.color = 'black';
+                containers.status.innerHTML = message;
+                containers.status.className = 'ajax_loading16';
+            },
+
+            onComplete:function (response) {
+                resp = JSON.decode(response);
+
+                containers.status.className = '';
+
+                if (resp.status) {
+                    containers.status.style.color = 'red';
+                    containers.status.set('text', resp.message);
+                    containers.debug.set('text', resp.debug);
+                } else {
+                    containers.status.set('text', '');
+                    containers.debug.set('text', '');
+                    containers.display.set('html', resp.message);
+                }
+
+                stopPoll();
+
+                if (additional) {
+                    switch (additional) {
+                        case 'getPackageList':
+                            EcrDeploy.getPackageList(deployTarget, 'preserve');
+                            break;
+
+                        case 'getSyncList':
+                            EcrDeploy.getSyncList(deployTarget);
+                            break;
+
+                        default:
+                            console.log('Unknown additinal:' + additional);
+                            break;
+                    }
+                }
+            },
+
+            onFailure:function () {
+                containers.status.style.color = 'red';
+                containers.status.set('text', 'The request failed');
+                containers.status.className = '';
+                //debug.set('html', resp.debug);
+            }
+        }).send();
+    },
+
     /**
      *
-     * @param destination
+     * @param deployTarget
      * @return {*}
      * @private
      */
-    _getCredentials:function (destination) {
+    _getCredentials:function (deployTarget, task) {
         var data = null;
 
-        switch (destination) {
+        switch (deployTarget) {
             case 'ftp' :
                 data = {
                     ftpHost:document.id('ftpHost').value,
@@ -433,9 +317,13 @@ var EcrDeploy = new Class({
                 break;
 
             default:
-                throw('Unknown destination: ' + destination);
+                throw('Unknown deploy targetx: ' + deployTarget);
                 break;
         }
+
+        data.task = task;
+        data.deployTarget = deployTarget;
+        data.ecr_project = document.id('ecr_project').value;
 
         return data;
     }
