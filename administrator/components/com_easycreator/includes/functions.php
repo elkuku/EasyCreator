@@ -1,5 +1,7 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
+ * This file contains global functions.
+ *
  * @package    EasyCreator
  * @subpackage Base
  * @author     Nikolai Plath
@@ -7,14 +9,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 jimport('joomla.filesystem.file');
-
-/*
- * Global functions.
- */
 
 /**
  * Loads EasyCreator Helpers.
@@ -34,7 +29,7 @@ function ecrLoadHelper($name)
         return $helpers[$name];
     }
 
-    if( ! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
+    if(! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
     {
         EcrHtml::displayMessage(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
 
@@ -46,7 +41,7 @@ function ecrLoadHelper($name)
     $helpers[$name] = JLoader::import('helpers.'.$name, JPATH_COMPONENT_ADMINISTRATOR);
 
     return $helpers[$name];
-}//function
+}
 
 /**
  * Adds a CSS stylesheet filename from standard CSS directory to the document.
@@ -65,8 +60,8 @@ function ecrStylesheet()
     foreach($args as $name)
     {
         $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.css');
-    }//foreach
-}//function
+    }
+}
 
 /**
  * Adds a Javascript file from standard Javascript directory to the document.
@@ -85,11 +80,12 @@ function ecrScript()
     foreach($args as $name)
     {
         $document->addScript(JURI::root(true).'/'.$path.'/assets/js/'.$name.'.js');
-    }//foreach
-}//function
+    }
+}
 
 if(version_compare(PHP_VERSION, '5.3', '<'))
 {
+    //-- @todo php 5.3
     spl_autoload_register('easy_creator_loader', true);
 }
 else
@@ -120,6 +116,7 @@ function easy_creator_loader($className)
 
     $path = $base.'/'.$file;
 
+    //-- 1. search in 'helpers/<file>.php'
     if(file_exists($path))
     {
         include $path;
@@ -127,6 +124,7 @@ function easy_creator_loader($className)
         return;
     }
 
+    //-- 2. search in 'helpers/<path>/<file>.php'
     $parts = preg_split('/(?<=[a-z])(?=[A-Z])/x', substr($className, 3));
 
     $path = $base.'/'.strtolower(implode('/', $parts)).'.php';
@@ -137,4 +135,14 @@ function easy_creator_loader($className)
 
         return;
     }
-}//function
+
+    //-- 3. search in 'helpers/<path>/<file>/<file>.php'
+    $path = $base.'/'.strtolower(implode('/', $parts)).'/'.$file.'.php';
+
+    if(file_exists($path))
+    {
+        include $path;
+
+        return;
+    }
+}
