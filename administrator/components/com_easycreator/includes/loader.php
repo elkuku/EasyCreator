@@ -112,9 +112,9 @@ function easy_creator_loader($className)
 
     $base = JPATH_COMPONENT_ADMINISTRATOR.'/helpers';
 
-    $file = strtolower(substr($className, 3)).'.php';
+    $file = strtolower(substr($className, 3));
 
-    $path = $base.'/'.$file;
+    $path = $base.'/'.$file.'.php';
 
     //-- 1. search in 'helpers/<file>.php'
     if(file_exists($path))
@@ -137,6 +137,8 @@ function easy_creator_loader($className)
     }
 
     //-- 3. search in 'helpers/<path>/<file>/<file>.php'
+    $file = strtolower($parts[count($parts) - 1]);
+
     $path = $base.'/'.strtolower(implode('/', $parts)).'/'.$file.'.php';
 
     if(file_exists($path))
