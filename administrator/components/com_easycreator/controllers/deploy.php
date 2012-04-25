@@ -65,11 +65,11 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            $input = JFactory::getApplication()->input;
+            $downloads = EcrDeployer::getInstance()->getPackageList();
+//            $downloads = EcrDeployer::getPackageList();
 
-            $type = $input->get('type');
+            $deployTarget = JFactory::getApplication()->input->get('deployTarget');
 
-            $downloads = EcrDeployer::getPackageList();
 
             $html = array();
 
@@ -79,7 +79,7 @@ class EasyCreatorControllerDeploy extends JController
             }
             else
             {
-                $html[] = '<ul>';
+                $html[] = '<ul class="packageList">';
 
                 /* @var EcrGithubResponseDownloadsGet $download */
                 foreach($downloads as $download)
@@ -90,24 +90,14 @@ class EasyCreatorControllerDeploy extends JController
                         ? '<a href="'.$download->html_url.'">'.$download->name.'</a>'
                         : $download->name;
 
-                    switch($type)
-                    {
-                        case 'ftp':
-                            $name = $download->name;
-                            break;
+                    $html[] = '<div class="actions">';
 
-                        case 'github':
-                            $name = $download->id;
-                            break;
-
-                        default:
-                            throw new Exception(__METHOD__.' - Unknown type: '.$type);
-                    }
-
-                    $html[] = '<a href="javascript:;"'
-                        .'onclick="EcrDeploy.deletePackage(\''.$type.'\', \''.$name.'\');">'
+                    $html[] = '<a href="javascript:;" style="color: red;"'
+                        .'onclick="EcrDeploy.deletePackage(\''.$deployTarget.'\', \''.$download->fileName.'\');">'
                         .jgettext('Delete')
                         .'</a>';
+
+                    $html[] = '</div>';
 
                     $html[] = '</li>';
                 }
@@ -142,7 +132,7 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            EcrDeployer::deletePackage();
+            EcrDeployer::getInstance()->deletePackage();
 
             $this->response->message = jgettext('The package has been deleted.');
         }
@@ -171,7 +161,7 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            EcrDeployer::deployFiles();
+            EcrDeployer::getInstance()->deployFiles();
 
             $this->response->message = jgettext('The files have been deployed.');
         }
@@ -204,7 +194,7 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            $count = EcrDeployer::deployPackage();
+            $count = EcrDeployer::getInstance()->deployPackage();
 
             $this->response->message = sprintf(
                 jngettext(
@@ -322,7 +312,7 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            $list = EcrDeployer::getSyncList();
+            $list = EcrDeployer::getInstance()->getSyncList();
 
             $html = array();
 
@@ -359,7 +349,7 @@ class EasyCreatorControllerDeploy extends JController
 
         try
         {
-            EcrDeployer::syncFiles();
+            EcrDeployer::getInstance()->syncFiles();
 
             $this->response->message = jgettext('The files have been synchronized.');
         }
@@ -404,7 +394,7 @@ class EasyCreatorControllerDeploy extends JController
     private function handleException(Exception $e)
     {
         JLog::add('| XX '.$e->getMessage(), JLog::ERROR);
-        JLog::add('|___ Finished :(', JLog::ERROR);
+        JLog::add('|___ :(', JLog::ERROR);
         JLog::add('', JLog::ERROR);
 
         $this->response->debug = (ECR_DEBUG) ? nl2br($e) : '';

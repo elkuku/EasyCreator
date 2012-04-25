@@ -44,7 +44,7 @@
         <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.syncFiles('ftp');">
             <?php echo jgettext('Synchronize remote'); ?>
         </a>
-        <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.getSyncList();">
+        <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.getSyncList('ftp');">
             <?php echo jgettext('Reload local'); ?>
         </a>
         <a href="javascript:;" class="ecr_button img icon-16-export" onclick="EcrDeploy.deployFiles('ftp');">
@@ -59,4 +59,4 @@
 <div id="pollStatus"></div>
 <pre id="ecrDebugBox"></pre>
 
-<script type="text/javascript">EcrDeploy.getSyncList();</script>
+<script type="text/javascript">EcrDeploy.getSyncList('ftp');</script>
