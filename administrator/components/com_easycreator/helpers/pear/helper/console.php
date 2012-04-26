@@ -38,7 +38,7 @@ class EcrPearHelperConsole extends JObject
             return true;
 
         //-- Check if PEAR is accessible
-        include_once 'System.php';
+        @include_once 'System.php';
 
         if( ! class_exists('System'))
         {
