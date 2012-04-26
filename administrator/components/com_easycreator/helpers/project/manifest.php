@@ -806,6 +806,7 @@ class EcrProjectManifest extends JObject
                         break;
                     case '1.6':
                     case '1.7':
+                    case '2.5':
                         $positions = $this->manifest->addChild('positions');
                         $this->appendXML($positions, $refXml->positions);
                         break;
