@@ -1149,32 +1149,35 @@ abstract class EcrProjectBase
      */
     public function remove($complete = false)
     {
-        if(! $this->dbId)
-            throw new Exception(jgettext('Invalid Project'));
-
-        if($complete)
+        if('package' != $this->type)
         {
-            //-- Uninstall the extension
+            if(! $this->dbId)
+                throw new Exception(jgettext('Invalid Project'));
 
-            if($this->isInstallable)
+            if($complete)
             {
-                $clientId = ($this->scope == 'admin') ? 1 : 0;
-
-                jimport('joomla.installer.installer');
-
-                //-- Get an installer object
-                $installer = JInstaller::getInstance();
-
                 //-- Uninstall the extension
-                if(! $installer->uninstall($this->type, $this->dbId, $clientId))
-                    throw new Exception(jgettext('JInstaller: Unable to remove project'));
-            }
-            else
-            {
-                // The extension is not "installable" - so just remove the files
 
-                if( ! JFolder::delete($this->getExtensionPath()))
-                    throw new Exception('Unable to remove the extension');
+                if($this->isInstallable)
+                {
+                    $clientId = ($this->scope == 'admin') ? 1 : 0;
+
+                    jimport('joomla.installer.installer');
+
+                    //-- Get an installer object
+                    $installer = JInstaller::getInstance();
+
+                    //-- Uninstall the extension
+                    if(! $installer->uninstall($this->type, $this->dbId, $clientId))
+                        throw new Exception(jgettext('JInstaller: Unable to remove project'));
+                }
+                else
+                {
+                    // The extension is not "installable" - so just remove the files
+
+                    if( ! JFolder::delete($this->getExtensionPath()))
+                        throw new Exception('Unable to remove the extension');
+                }
             }
         }
 
