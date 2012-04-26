@@ -174,7 +174,7 @@ class EcrProjectHelper
             )
             {
                 //-- Valid xml manifest found
-                return str_replace(JPATH_ROOT.DS, '', $fileName);
+                return str_replace(JPATH_ROOT.DS, '', JPath::clean($fileName));
             }
         }//foreach
 
@@ -593,7 +593,7 @@ class EcrProjectHelper
         else
         {
             //-- Look in J!s component directory
-            $base = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName;
+            $base = JPath::clean(JPATH_ADMINISTRATOR.'/components/'.$project->comName);
         }
 
         if( ! JFolder::exists($base))
