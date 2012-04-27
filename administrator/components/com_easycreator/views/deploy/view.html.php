@@ -64,8 +64,8 @@ class EasyCreatorViewDeploy extends JView
     protected function package()
     {
         $this->setLayout('package');
-
     }
+
     /**
      * Displays the submenu.
      *

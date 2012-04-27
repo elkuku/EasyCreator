@@ -41,14 +41,14 @@ class PartVariousInstall_Script
     {
         $project = EcrProjectHelper::getProject();
 
+        //-- @Joomla!-compat 1.5
         if('1.5' == $project->JCompat)
         {
-            EcrHtml::displayMessage(jgettext('Install scripts are avilable from Joomla! 1.6 + projects'), 'error');
+            EcrHtml::displayMessage(jgettext('Install scripts are available for Joomla! 1.6 + projects only'), 'error');
 
             return false;
         }
 
-//        var_dump($project);
         $ecr_project = JRequest::getCmd('ecr_project');
         $basePathDest = JPATH_ROOT.DS.'administrator'.DS.'components'.DS.$ecr_project;
 
@@ -62,6 +62,8 @@ class PartVariousInstall_Script
         EcrHtml::drawLoggingOptions();
 
         EcrHtml::drawSubmitParts();
+
+        return $this;
     }//function
 
     /**

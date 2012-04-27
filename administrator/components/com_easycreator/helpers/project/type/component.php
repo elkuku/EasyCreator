@@ -124,6 +124,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             return $paths;
         }
 
+        //-- @Joomla!-version-check
         switch($this->JCompat)
         {
             case '1.5':

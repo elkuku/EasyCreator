@@ -1,10 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 19.04.12
- * Time: 02:14
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Views
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2011
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 ?>
 

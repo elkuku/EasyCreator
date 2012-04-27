@@ -9,6 +9,8 @@
 
 //-- No direct access
 defined('_JEXEC') || die('=;)');
+
+//-- @Joomla!-compat 1.5
 if ($this->project->JCompat != 1.5)
     return;
 ?>

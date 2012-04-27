@@ -1,11 +1,12 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 17.04.12
- * Time: 14:27
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Views
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2011
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
+
 $path = $this->project->getZipPath();
 
 $base_href = (0 === strpos($path, ECRPATH_BUILDS))
@@ -25,6 +26,7 @@ $folders = JFolder::folders($path);
 natcasesort($folders);
 
 $folders = array_reverse($folders);
+$i = 0;
 
 foreach($folders as $folder) :
     echo '<div style="background-color: #B2CCE5; font-size: 1.3em; font-weight: bold; padding-left: 1em;">';
@@ -65,13 +67,17 @@ foreach($folders as $folder) :
             ?>
         <tr id="row<?php echo $file; ?>"
             class="<?php echo 'row'.$k; ?>">
-            <td><input type="checkbox" name="file[]" value="<?php echo $base_path.DS.$file; ?>"></td>
-            <td><a href="<?php echo $href; ?>"><?php echo $file; ?></a></td>
+            <td>
+                <input type="checkbox" name="file[]" id="file_<?php echo $i; ?>"
+                       value="<?php echo $base_path.DS.$file; ?>">
+            </td>
+            <td><label for="file_<?php echo $i; ?>"><?php echo $file; ?></label></td>
             <td nowrap="nowrap"><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
             <td><?php echo EcrHtml::byte_convert($info[7]); ?></td>
         </tr>
             <?php
             $k = 1 - $k;
+        $i ++;
         endforeach;
         ?>
     </tbody>

@@ -1,10 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 19.04.12
- * Time: 01:34
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Views
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2011
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 ?>
 <div class="ecr_floatbox">
@@ -33,7 +33,7 @@
            class="ecr_button img icon-16-notok" onclick="EcrDeploy.uncheckAll();"></a>
     </div>
 
-    <hr />
+    <hr/>
 
     <div id="ftpMessage"></div>
     <div id="ftpDebug"></div>
@@ -55,8 +55,7 @@
 
 <div class="clr"></div>
 
-<h3><?php echo jgettext('Log console'); ?></h3>
-<div id="pollStatus"></div>
-<pre id="ecrDebugBox"></pre>
+<?php echo EcrHtml::drawDebugConsole(); ?>
+<div style="height: 75px;"></div>
 
 <script type="text/javascript">EcrDeploy.getSyncList('ftp');</script>

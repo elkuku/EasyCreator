@@ -22,6 +22,7 @@ class EcrProjectTypeCliapp extends EcrProjectBase
      */
     public $prefix = 'cap_';
 
+    //-- @Joomla!-compat 1.6
     public $JCompat = '1.6';
 
     /**

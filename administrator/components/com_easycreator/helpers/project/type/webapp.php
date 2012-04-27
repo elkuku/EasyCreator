@@ -22,6 +22,7 @@ class EcrProjectTypeWebapp extends EcrProjectBase
      */
     public $prefix = 'wap_';
 
+    //-- @Joomla!-compat 1.6
     public $JCompat = '1.6';
 
     /**

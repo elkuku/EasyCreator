@@ -10,14 +10,15 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
+//-- @Joomla!-compat 1.5
 if('1.5' == $this->project->JCompat)
-return;
+    return;
 
 try
 {
     $updater = new EcrDbUpdater($this->project);
 }
-catch (Exception $e)
+catch(Exception $e)
 {
     EcrHtml::displayMessage($e);
 

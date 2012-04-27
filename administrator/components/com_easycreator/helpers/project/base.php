@@ -17,6 +17,11 @@ abstract class EcrProjectBase
 
     public $method = '';
 
+    /**
+     * Joomla! compatibility mode
+     * @Joomla!-compat 1.5
+     * @var string
+     */
     public $JCompat = '1.5';
 
     public $phpVersion = '4';
@@ -906,7 +911,10 @@ abstract class EcrProjectBase
         $this->scope = (string)$manifest->attributes()->scope;
         $this->name = (string)$manifest->name;
         $this->comName = (string)$manifest->comname;
+
+        //-- @Joomla!-compat 1.5
         $this->JCompat = ((string)$manifest->JCompat) ? (string)$manifest->JCompat : '1.5';
+
         $this->langFormat = (string)$manifest->langFormat;
         $this->zipPath = (string)$manifest->zipPath;
         $this->headerType = (string)$manifest->headerType;

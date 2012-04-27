@@ -571,8 +571,9 @@ class EasyCreatorControllerStuffer extends JController
         //-- Get the project
         try
         {
-            $project = EcrProjectHelper::getProject()
-                ->remove($complete);
+            $project = EcrProjectHelper::getProject();
+
+            $project->remove($complete);
 
             $this->setRedirect('index.php?option=com_easycreator'
                 , sprintf(jgettext('The Project %s has been removed'), $project->name));

@@ -29,6 +29,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
      */
     public $prefix = 'lib_';
 
+    //-- @Joomla!-compat 1.6
     public $JCompat = '1.6';
 
     /**

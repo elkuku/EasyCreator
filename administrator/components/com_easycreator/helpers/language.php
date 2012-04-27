@@ -1111,6 +1111,7 @@ case 'etc':
             if(JFolder::exists($copyItem))
             {
                 //--Add all PHP and XML files from a given folder
+                //-- @Joomla!-version-check
                 switch($this->project->JCompat)
                 {
                     case '1.5' :
@@ -1487,6 +1488,7 @@ case 'etc':
 
         $fileName = self::getFileName($lang, $scope, $project);
 
+        //-- @Joomla!-compat 1.5
         $commentChar =($project->JCompat == '1.5') ? '#' : ';';
 
         $fileContents = '';

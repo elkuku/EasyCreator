@@ -24,6 +24,7 @@ $chk_upgrade = ($this->project->method == 'upgrade') ? ' checked="checked"' : ''
 <br/>
 
 <p>
+    <!-- @Joomla!-version-check -->
     <input type="radio" id="jversion15" name="jcompat" value="1.5"
         <?php echo ($this->project->JCompat == '1.5') ? ' checked="checked"' : ''; ?>
         />

@@ -1,10 +1,10 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 17.04.12
- * Time: 13:25
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2011
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  *
  * @property-read EcrGithubDownloads $downloads
  */

@@ -49,17 +49,19 @@ class EcrProjectManifest extends JObject
 
         $rootTag = '';
 
+        //-- @Joomla!-version-check
         switch($this->project->JCompat)
         {
+            case '1.5':
+                $rootTag = 'install';
+                break;
+
             case '1.6':
             case '1.7':
             case '2.5':
                 $rootTag = 'extension';
                 break;
 
-            case '1.5':
-                $rootTag = 'install';
-                break;
             default:
                 JFactory::getApplication()->enqueueMessage(
                     __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
@@ -233,6 +235,7 @@ class EcrProjectManifest extends JObject
         $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         //-- PHP install scripts
+        //-- @Joomla!-version-check
         switch($this->project->JCompat)
         {
             case '1.5':
@@ -258,11 +261,13 @@ class EcrProjectManifest extends JObject
         $uninstall = $this->manifest->addChild('uninstall');
         $uninstallSql = $uninstall->addChild('sql');
 
+        //-- @Joomla!-version-check
         switch($this->project->JCompat)
         {
             case '1.6':
             case '1.7':
-                //-- J! 1.6 update stuff
+            case '2.5':
+                //-- J! 1.6+ update stuff
                 $update = $this->manifest->addChild('update');
                 $updateSql = $update->addChild('schemas');
 
@@ -279,6 +284,8 @@ class EcrProjectManifest extends JObject
                 break;
 
             default:
+                JFactory::getApplication()->enqueueMessage(
+                    __METHOD__.'Unknown JCompat: '.$this->project->JCompat, 'error');
                 break;
         }
 
@@ -475,6 +482,7 @@ class EcrProjectManifest extends JObject
             }
         }
 
+        //-- @Joomla!-compat 1.5
         if(count($languageFiles)
             && $this->project->JCompat == '1.5'
         )
@@ -539,6 +547,7 @@ class EcrProjectManifest extends JObject
                     $menu->addAttribute('img', $s);
                 }
 
+                //-- @Joomla!-compat 1.5
                 if(isset($def_menu['link'])
                     && $this->project->JCompat == '1.5'
                 )
@@ -578,6 +587,7 @@ class EcrProjectManifest extends JObject
                         $menu->addAttribute('img', $s);
                     }
 
+                    //-- @Joomla!-version-check
                     switch($this->project->JCompat)
                     {
                         case '1.5' :
@@ -644,6 +654,7 @@ class EcrProjectManifest extends JObject
             }
         }
 
+        //-- @Joomla!-compat 1.5
         if(count($languageFiles)
             && $this->project->JCompat == '1.5'
         )
@@ -800,6 +811,7 @@ class EcrProjectManifest extends JObject
 
             if('template' == $this->project->type)
             {
+                //-- @Joomla!-version-check
                 switch($this->project->JCompat)
                 {
                     case '1.5':
