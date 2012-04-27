@@ -50,6 +50,41 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-04-27
+ff09164 Docblocks and J version markers
+9cc13fa Move the debug console to a proper helper
+
+2012-04-26
+5acf544 Fix code eye system test not showing error when pear is not installed
+98b9102 Fix can not uninstall package extensions - Thanks dmwalk
+fc0ebc9 Fix EcrProjectManifest::processParameters : Undefined JVersion - Thanks dmwalk
+9e45dc7 Fix can not create package extensions, can not create packages for components - windows only - thanks dmwalk
+
+2012-04-25
+9a00a56 Add on screen logging to Packager
+617cb2b Refactoring deploy js
+8fcf22a Rename functions.php to loader.php
+
+2012-04-24
+c11be81 Add option to the autoloader to load a class file inside a directory with the same name
+cdfc24f Restructure deployer
+4c2ba1f Update install xml
+
+2012-04-23
+9e12acc Cleanups
+de5727c Deploy restructuring
+c871e22 Fix Upload GitHub package
+cb882a3 Remove obsolete index.html files in folders moved to "data"
+3a116dc Add readme files to data folder
+
+2012-04-21
+d38b7cd Slightly improved tree view
+ae2aef1 Cleanup JavaScript
+
+2012-04-20
+b3d8f38 Add new feature: Deploy files and packages
+ee02fec Add data directory to hold changing files
+
 2012-04-16
 e2c8a31 Fix: Unnecessary and ugly warning on a non existing build folder when creating packages - thanks fade2gray
 4196e22 Fix: Can't create language file - thanks fade2gray
@@ -380,8 +415,8 @@ f8010c4 Prepare for J! 2.5
 e874ad5 Merge remote branch 'elkuku/master'
 
 2011-10-29
-df75cc8 elkuku: First check if the g11n language library is installed as a PEAR package
-b1f08b3 elkuku: Switched template compat versions from 1.6 to 1.7
+df75cc8 First check if the g11n language library is installed as a PEAR package
+b1f08b3 Switched template compat versions from 1.6 to 1.7
 
 2011-10-21
 7661c8e Add link to ghpage
@@ -391,83 +426,83 @@ c251f68 Add Ohloh stats
 40e1d6c Add Transifex stats
 
 2011-10-18
-13ef33e elkuku: Add code preview to code sniffer
+13ef33e Add code preview to code sniffer
 
 2011-10-10
-40bcb04 elkuku: Remove Joomla coding standard
+40bcb04 Remove Joomla coding standard
 
 2011-10-03
-c02ca3a elkuku: Update language zh-CN
-36d1dc7 elkuku: Update language template headers
-be42131 elkuku: Add Transifex config file
-75d907d elkuku: Update language fr-FR
-87ade4b elkuku: Update language nl-NL
-679b461 elkuku: Add language pt-BR
-354d768 elkuku: Update language pl-PL
-ea0a544 elkuku: Update language zh-CN
-83d09b0 elkuku: Add language id-ID
-0984b7f elkuku: Add language hu-HU
-ad4de11 elkuku: Add language da-DK
-eb2fb8f elkuku: Add language ar-AR
-816eabb elkuku: Update language es-ES
-33af3c1 elkuku: Add language sv-SE
-02117cb elkuku: Garbage in language template :P
-aa5f61c elkuku: Update language
+c02ca3a Update language zh-CN
+36d1dc7 Update language template headers
+be42131 Add Transifex config file
+75d907d Update language fr-FR
+87ade4b Update language nl-NL
+679b461 Add language pt-BR
+354d768 Update language pl-PL
+ea0a544 Update language zh-CN
+83d09b0 Add language id-ID
+0984b7f Add language hu-HU
+ad4de11 Add language da-DK
+eb2fb8f Add language ar-AR
+816eabb Update language es-ES
+33af3c1 Add language sv-SE
+02117cb Garbage in language template :P
+aa5f61c Update language
 
 2011-09-30
-ed0579c elkuku: Add experimental ant script
+ed0579c Add experimental ant script
 
 2011-09-26
-4e94777 elkuku: Fix package names must be lower case
+4e94777 Fix package names must be lower case
 
 2011-09-18
-e0d447c elkuku: Fix g11n loading plugins and templates
-7fb58c9 elkuku: Modify icon
-21f8003 elkuku: Add nl-NL and sv-SE language - Thx Transifex =;)
-c9d4262 elkuku: Fix g11n lookup for templates and plugins
+e0d447c Fix g11n loading plugins and templates
+7fb58c9 Modify icon
+21f8003 Add nl-NL and sv-SE language - Thx Transifex =;)
+c9d4262 Fix g11n lookup for templates and plugins
 
 2011-08-28
-471cd81 elkuku: preference of JPATH_PLATFORM over JPATH_LIBRARIES
+471cd81 preference of JPATH_PLATFORM over JPATH_LIBRARIES
 
 2011-08-24
-49ea421 elkuku: Fixed "add elements" not working on Windows in J! 1.7 - Thanks Apfelkuchen
-684ad96 elkuku: +icons
-52fe266 elkuku: icons
+49ea421 Fixed "add elements" not working on Windows in J! 1.7 - Thanks Apfelkuchen
+684ad96 +icons
+52fe266 icons
 
 2011-08-19
-74b4c2d elkuku: test
+74b4c2d test
 
 2011-08-15
-652fd34 elkuku: Added automatic language file handling for po files using gettext utilities
+652fd34 Added automatic language file handling for po files using gettext utilities
 
 2011-08-12
-73f7adb elkuku: Added interface for PHPLOC
-d26f122 elkuku: formatting
+73f7adb Added interface for PHPLOC
+d26f122 formatting
 
 2011-08-11
-62daddf elkuku: moved defines and functions to includes folder
+62daddf moved defines and functions to includes folder
 
 2011-08-08
-7450f92 elkuku: new zipper view, work on db updates
+7450f92 new zipper view, work on db updates
 
 2011-08-07
-8ecc008 elkuku: removed jquery libs
+8ecc008 removed jquery libs
 
 2011-08-06
-4c1fab8 elkuku: strict standards
+4c1fab8 strict standards
 
 2011-08-05
-ea15491 elkuku: + readme for github
-469cf21 elkuku: + pagoda box file
-1a099ce elkuku: more eye candy
-aa3e19a elkuku: # errors on compressed md5 file
+ea15491 + readme for github
+469cf21 + pagoda box file
+1a099ce more eye candy
+aa3e19a # errors on compressed md5 file
 
 2011-08-04
-10ba8d3 elkuku: code style
-6c51f1a elkuku: adapting to JForm
+10ba8d3 code style
+6c51f1a adapting to JForm
 
 2011-08-03
-3354421 elkuku:  ^ Config now uses JForm
+3354421  ^ Config now uses JForm
 
 --------------- 0.0.14.3 BETA -- [29-Jun-2011] ---------------------
 Download: http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseView&release_id=15410
