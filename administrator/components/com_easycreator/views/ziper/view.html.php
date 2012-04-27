@@ -109,7 +109,7 @@ class EasyCreatorViewZiper extends JView
             array('title' => jgettext('Package')
             , 'description' => jgettext('Automatically create a package of your extension.')
             , 'icon' => 'package'
-            , 'task' => array('ziper', 'ziperzip')
+            , 'task' => array('ziper')
             )
             , array('title' => jgettext('Archive')
             , 'description' => jgettext('View archived versions of your extension.')

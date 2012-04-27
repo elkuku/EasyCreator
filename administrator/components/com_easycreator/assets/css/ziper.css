@@ -11,13 +11,6 @@ ul.downloadLinks {
     padding-left: 1em;
 }
 
-pre#ecrDebugBox {
-    background-color: black;
-    color: white;
-    font-family: monospace;
-    padding: 0.5em;
-    font-size: 12px;
-    height: 150px;
-    border-radius: 10px;
-    overflow: auto;
+ul.downloadLinks a {
+    font-size: 1.3em;
 }

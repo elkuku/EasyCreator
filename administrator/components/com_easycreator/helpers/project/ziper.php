@@ -38,6 +38,8 @@ class EcrProjectZiper extends JObject
 
     private $profiler = null;
 
+    private $runTime = 0;
+
     /**
      * Constructor.
      *
@@ -45,6 +47,8 @@ class EcrProjectZiper extends JObject
      */
     public function __construct($properties = null)
     {
+        $this->runTime = microtime(true);
+
         $this->setupLog();
 
         JLog::add('|¯¯¯ Starting');
@@ -57,7 +61,9 @@ class EcrProjectZiper extends JObject
      */
     public function __destruct()
     {
-        JLog::add('|___ Finished');
+        $time = number_format(microtime(true) - $this->runTime, 2);
+
+        JLog::add(sprintf('|___ Finished in %s sec.', $time));
 
         //-- Give the logger a chance to finish.
         sleep(2);
@@ -514,6 +520,7 @@ class EcrProjectZiper extends JObject
      */
     private function processInstall()
     {
+        //-- @Joomla!-compat 1.5
         if(! $this->project->JCompat == '1.5')
         {
             return $this;

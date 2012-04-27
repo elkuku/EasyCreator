@@ -26,14 +26,6 @@ JFactory::getDocument()->addScriptDeclaration(
 
 <div id="zipResult" style="display: none;">
 
-    <div id="ajaxMessage"></div>
-
-    <div id="zipResultLinks"></div>
-
-    <h3><?php echo jgettext('Log console'); ?></h3>
-    <div id="pollStatus"></div>
-    <pre id="ecrDebugBox"></pre>
-
 </div>
 <div style="clear: both;"></div>
 
@@ -58,8 +50,7 @@ JFactory::getDocument()->addScriptDeclaration(
 <div class="ecr_floatbox" style="background-color: #ccff99;">
     <h3><?php echo jgettext('Create the package'); ?></h3>
 
-    <div class="ecr_button"
-         onclick="EcrZiper.createPackage();return false;document.id('ecr_ajax_loader').className='ecr_ajax_loader_big'; submitbutton('ziperzip');"
+    <div class="ecr_button" onclick="EcrZiper.createPackage();"
          style="margin: 1em; padding: 1em; text-align: center;">
         <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
              style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
@@ -67,6 +58,12 @@ JFactory::getDocument()->addScriptDeclaration(
             <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
         </h1>
     </div>
+    <div id="ajaxMessage"></div>
+
+    <div id="zipResultLinks"></div>
 </div>
 
 <input type="hidden" name="old_task" value="<?php echo JRequest::getCmd('task'); ?>"/>
+
+<?php echo EcrHtml::drawDebugConsole(); ?>
+<div style="height: 75px;"></div>

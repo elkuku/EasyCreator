@@ -3,17 +3,6 @@ div.buttons {
     margin-bottom: 1em;
 }
 
-pre#ecrDebugBox {
-    background-color: black;
-    color: white;
-    font-family: monospace;
-    padding: 0.5em;
-    font-size: 12px;
-    height: 150px;
-    border-radius: 10px;
-    overflow: auto;
-}
-
 div#syncTree label.new {
     color: green;
 }
@@ -45,9 +34,11 @@ ul.packageList {
 ul.packageList li {
     list-style: none;
 }
+
 ul.packageList li:hover {
-background-color: #eee;
+    background-color: #eee;
 }
+
 ul.packageList div.actions {
     float: right;
 }

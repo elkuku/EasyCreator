@@ -1,12 +1,15 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 19.04.12
- * Time: 11:37
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2011
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+/**
+ * EasyCreator deployer.
+ */
 abstract class EcrDeployer
 {
     /**
@@ -20,6 +23,8 @@ abstract class EcrDeployer
     protected $github = null;
 
     protected $credentials = null;
+
+    private $runTime = 0;
 
     /**
      * @static
@@ -43,6 +48,8 @@ abstract class EcrDeployer
      */
     protected function __construct()
     {
+        $this->runTime = microtime(true);
+
         $this->setupLog();
 
         JLog::add('|¯¯¯ Starting');
@@ -55,7 +62,9 @@ abstract class EcrDeployer
      */
     public function __destruct()
     {
-        JLog::add('|___ Finished');
+        $time = number_format(microtime(true) - $this->runTime, 2);
+
+        JLog::add(sprintf('|___ Finished in %s sec.', $time));
 
         //-- Give the logger a chance to finish.
         sleep(1);
@@ -251,6 +260,7 @@ abstract class EcrDeployer
             array(
                 'text_file' => $fileName
             , 'text_entry_format' => '{DATETIME}	{PRIORITY}	{MESSAGE}'
+            , 'text_file_no_php' => true
             )
             , JLog::INFO | JLog::ERROR
         );

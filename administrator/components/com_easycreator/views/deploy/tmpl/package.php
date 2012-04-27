@@ -1,10 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * Created by JetBrains PhpStorm.
- * User: elkuku
- * Date: 17.04.12
- * Time: 13:33
- * To change this template use File | Settings | File Templates.
+ * @package    EasyCreator
+ * @subpackage Views
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2011
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 ecrScript('php2js');
@@ -31,6 +31,5 @@ ecrScript('php2js');
 
 <div class="clr"></div>
 
-<h3><?php echo jgettext('Log console'); ?></h3>
-<div id="pollStatus"></div>
-<pre id="ecrDebugBox"></pre>
+<?php echo EcrHtml::drawDebugConsole(); ?>
+<div style="height: 75px;"></div>

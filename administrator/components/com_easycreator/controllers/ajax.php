@@ -32,6 +32,11 @@ class EasyCreatorControllerAjax extends JController
      */
     private $responseJson;
 
+    /**
+     * Constructor.
+     *
+     * @param array $config
+     */
     public function __construct($config = array())
     {
         $this->responseJson = new EcrResponseJson;
@@ -40,7 +45,9 @@ class EasyCreatorControllerAjax extends JController
     }
 
     /**
+     * Poll a log file.
      *
+     * @return void
      */
     public function pollLog()
     {
@@ -48,7 +55,7 @@ class EasyCreatorControllerAjax extends JController
 
         if(JFile::exists($path))
         {
-            $s = JFile::read($path);
+            $s = $this->parseLog(JFile::read($path));
 
             $s .= "\n".'Time '.date('H:i:s');
 
@@ -61,6 +68,46 @@ class EasyCreatorControllerAjax extends JController
         }
 
         echo $this->responseJson;
+    }
+
+    /**
+     * @param $string
+     * @return string
+     */
+    private function parseLog($string)
+    {
+        $lines = explode("\n", $string);
+
+        foreach($lines as &$line)
+        {
+            $parts = explode("\t", $line);
+
+            if(3 == count($parts))
+            {
+                $t = $parts[0];
+
+                if(25 == strlen($t))
+                {
+                    $t = substr($t, 11, 8);
+                }
+
+                $prio = $parts[1];
+
+                switch($prio)
+                {
+                    case 'INFO':
+                        //$prio = '&lt;span style=" color: #00BFFF;&gt;INFO&lt;/span&gt;';
+                        break;
+                    case 'ERROR':
+                        $prio = '<ERROR>';//<span style=" color: #FF0000;>ERROR</span>';
+                        break;
+                }
+
+                $line = $t."\t".$prio."\t".$parts[2];
+            }
+        }
+
+        return implode("\n", $lines);
     }
 
     /**

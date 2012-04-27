@@ -130,6 +130,7 @@ class EasyCreatorControllerZIPer extends JController
                     $m .= jgettext('Your ZIPfile has been created sucessfully');
 
                     $m .= '<ul class="downloadLinks">';
+                    $m .= '<li><strong>'.jgettext('Downloads').'</strong></li>';
 
                     foreach($result->downloadLinks as $link)
                     {

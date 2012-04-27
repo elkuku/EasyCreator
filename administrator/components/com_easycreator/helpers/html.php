@@ -79,7 +79,7 @@ final class EcrHtml
             $tasks['ziper'] = new stdClass;
             $tasks['ziper']->title = jgettext('Package');
             $tasks['ziper']->image = 'ecr_archive';
-            $tasks['ziper']->tasks = array('ziper', 'ziperzip', 'delete', 'archive');
+            $tasks['ziper']->tasks = array('ziper', 'delete', 'archive');
 
             $tasks['deploy'] = new stdClass;
             $tasks['deploy']->title = jgettext('Deploy');
@@ -602,6 +602,38 @@ final class EcrHtml
                 .'value="'.$name.'" id="headerType'.$name.'"'.$checked.'>'
                 .'<label for="headerType'.$name.'">'.$name.'</label>';
         }
+
+        return implode(NL, $html);
+    }
+
+    /**
+     * Draws a debug console "window".
+     *
+     * @static
+     * @return string
+     */
+    public static function drawDebugConsole()
+    {
+        JFactory::getDocument()->addScriptDeclaration(
+            "window.addEvent('domready', function() {
+                document.id('ecrDebugBoxConsole').makeResizable({
+                    modifiers: {x: false, y: 'height'},
+                    limit: {y: [1, 600]},
+                    invert: true,
+                    handle: 'pollStatusGrip'
+                });
+            });");
+
+        ecrStylesheet('logconsole');
+
+        $html = array();
+
+        $html[] = '<div id="ecrDebugBoxConsole">';
+        $html[] = '   <div id="pollStatusGrip">&uArr;&dArr;</div>';
+        $html[] = '   <div id="pollStatus"></div>';
+        $html[] = '   <div class="debugTitle">'.jgettext('Log console').'</div>';
+        $html[] = '   <pre id="ecrDebugBox"></pre>';
+        $html[] = '</div>';
 
         return implode(NL, $html);
     }
