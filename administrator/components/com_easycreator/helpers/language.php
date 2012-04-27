@@ -497,6 +497,7 @@ class EcrLanguage
         $pos = 1;
         $found = false;
 
+        //-- @Joomla!-compat 1.5
         if(ECR_JVERSION != '1.5')
         {
             //-- For J > 1.5 we quote all translations

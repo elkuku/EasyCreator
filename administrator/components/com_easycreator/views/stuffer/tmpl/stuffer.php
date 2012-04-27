@@ -66,6 +66,7 @@ if($this->project->type == 'component'):
         endforeach;
     endif;
 
+    //-- @Joomla!-compat 1.5
     if('1.5' != ECR_JVERSION)
     {
         $js[] = "sortSubMenu = new Sortables('#divSubmenu', {

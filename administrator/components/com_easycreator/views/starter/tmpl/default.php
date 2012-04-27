@@ -92,6 +92,7 @@ $jVersions = array('15', '25');
         $htmlId = $extType.'_'.$template->folder;
         $action = "onclick=\"setTemplate('$extType', '$template->folder'); goWizard(2);\"";
 
+        //-- @Joomla!-compat 1.5
         if($template->jVersion != '1.5' && ECR_JVERSION == '1.5') :
             $action = '';
             $s = '<span class="img icon-16-logout"></span>';

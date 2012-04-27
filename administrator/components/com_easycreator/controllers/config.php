@@ -48,6 +48,7 @@ class EasyCreatorControllerConfig extends JController
     {
         try
         {
+            //-- @Joomla!-version-check
             switch(ECR_JVERSION)
             {
                 case '1.5':

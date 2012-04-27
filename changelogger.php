@@ -35,6 +35,7 @@ foreach($tags as $tag)
 
         //-- Remove myself =;)
         $message = str_replace('Nikolai Plath: ', '', $message);
+        $message = str_replace('elkuku: ', '', $message);
 
         if($date != $actDate)
         {

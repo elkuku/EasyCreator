@@ -104,6 +104,7 @@ function easy_creator_loader($className)
 {
     if(0 !== strpos($className, 'Ecr'))
     {
+        //-- @Joomla!-compat 1.5
         if('1.5' == ECR_JVERSION)
             JLoader::load($className);
 

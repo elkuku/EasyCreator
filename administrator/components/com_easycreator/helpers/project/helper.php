@@ -115,6 +115,7 @@ class EcrProjectHelper
             return false;
         }
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -397,6 +398,7 @@ class EcrProjectHelper
         , 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
         , 'template' => 'admin,site');
 
+        //-- @Joomla!-compat 1.5
         if('1.5' != ECR_JVERSION)
         {
             $scopes['library'] = '';

@@ -151,6 +151,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -199,6 +200,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
      */
     public function getJoomlaManifestPath()
     {
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -238,6 +240,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     {
         $db = JFactory::getDBO();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -288,6 +291,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     {
         $projects = array();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -328,6 +332,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     {
         $projects = array();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':

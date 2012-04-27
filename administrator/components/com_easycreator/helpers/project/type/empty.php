@@ -127,6 +127,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -137,6 +138,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
                 break;
 
             case '1.6':
+            case '1.7':
             case '2.5':
                 break;
 
@@ -220,22 +222,6 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     {
         JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
 
-        switch($scope)
-        {
-            case 'admin':
-                return JFolder::folders(JPATH_ADMINISTRATOR.DS.'modules');
-                break;
-
-            case 'site':
-                return JFolder::folders(JPATH_SITE.DS.'modules');
-                break;
-
-            default:
-                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
-
-                return array();
-                break;
-        }//switch
     }//function
 
     /**
@@ -248,62 +234,6 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getCoreProjects($scope)
     {
         JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
-
-        switch($scope)
-        {
-            case 'admin':
-                switch(ECR_JVERSION)
-                {
-                    case '1.5':
-                        return array('mod_custom', 'mod_feed', 'mod_footer', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_stats', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread');
-                        break;
-
-                    case '1.6':
-                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread');
-                        break;
-
-                    default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
-                        break;
-                }//switch
-
-            case 'site':
-                switch(ECR_JVERSION)
-                {
-                    case '1.5':
-                        return array('mod_archive', 'mod_banners', 'mod_breadcrumbs'
-                        , 'mod_custom', 'mod_feed', 'mod_footer', 'mod_latestnews', 'mod_login'
-                        , 'mod_mainmenu', 'mod_mostread', 'mod_newsflash', 'mod_poll', 'mod_random_image'
-                        , 'mod_related_items', 'mod_search', 'mod_sections', 'mod_stats'
-                        , 'mod_syndicate', 'mod_whosonline', 'mod_wrapper');
-                        break;
-
-                    case '1.6':
-                        return array('mod_articles_archive', 'mod_articles_categories'
-                        , 'mod_articles_category', 'mod_articles_latest', 'mod_articles_news'
-                        , 'mod_articles_popular', 'mod_banners', 'mod_breadcrumbs', 'mod_custom'
-                        , 'mod_feed', 'mod_footer', 'mod_languages', 'mod_login', 'mod_menu'
-                        , 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline'
-                        , 'mod_wrapper');
-                        break;
-                    default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
-                        break;
-                }//switch
-
-                break;
-
-            default:
-                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown scope', 'error');
-
-                return array();
-                break;
-        }//switch
 
         return array();
     }//function

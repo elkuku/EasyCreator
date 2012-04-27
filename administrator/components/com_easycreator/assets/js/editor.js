@@ -20,6 +20,7 @@ function save_file() {
     var box = $('ecr_status_msg');
     var title = $('ecr_title_file');
 
+    //-- @Joomla!-version-check
     switch(ECR_JVERSION)
     {
         case '1.5':

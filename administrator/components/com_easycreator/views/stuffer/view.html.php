@@ -261,6 +261,7 @@ class EasyCreatorViewStuffer extends JView
 
         if(in_array($selected_xml, $xmlFiles))
         {
+            //-- @Joomla!-version-check
             switch(ECR_JVERSION)
             {
                 //-- Get the project params
@@ -299,6 +300,7 @@ class EasyCreatorViewStuffer extends JView
 
         $layout = 'projectparams';
 
+        //-- @Joomla!-compat 1.5
         if('1.5' == ECR_JVERSION)
             $layout .= '_15';
 

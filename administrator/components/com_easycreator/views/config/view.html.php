@@ -29,6 +29,7 @@ class EasyCreatorViewConfig extends JView
      */
     public function display($tpl = null)
     {
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':

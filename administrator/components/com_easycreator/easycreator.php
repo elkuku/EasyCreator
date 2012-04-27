@@ -24,6 +24,10 @@ VALUES
 Use the new 'Discover' feature from the Joomla! installer - works great =;)
 */
 
+//-- When changing Joomla! versions look for:
+//-- @Joomla!-version-check
+//-- @Joomla!-compat XXXX
+
 //-- Dev mode - internal use =;)
 //-- @@DEBUG
 define('ECR_DEV_MODE', 1);
@@ -127,6 +131,7 @@ define('ECR_VERSION', EcrProjectHelper::parseXMLInstallFile(
 
 /**
  * Check the Joomla! version
+ * @Joomla!-version-check
  */
 switch(ECR_JVERSION)
 {
@@ -149,7 +154,6 @@ switch(ECR_JVERSION)
             , ECR_VERSION, ECR_JVERSION), 'warning');
         break;
 }
-//switch
 
 //-- Add CSS
 ecrStylesheet('default', 'toolbar', 'icon');

@@ -531,6 +531,7 @@ class EcrProjectManifest extends JObject
 
                 if(1.5 == ECR_JVERSION)
                 {
+                    //-- @Joomla!-compat 1.5
                     $menu->addAttribute('img', $def_menu['img']);
                 }
                 else
@@ -571,6 +572,7 @@ class EcrProjectManifest extends JObject
 
                     if(1.5 == ECR_JVERSION)
                     {
+                        //-- @Joomla!-compat 1.5
                         $menu->addAttribute('img', $item['img']);
                     }
                     else

@@ -203,6 +203,7 @@ class EcrTableHelper
 
         $dbPrefix = $db->getPrefix();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5' :
@@ -213,6 +214,7 @@ class EcrTableHelper
 
             case '1.6' :
             case '1.7' :
+            case '2.5' :
                 $fields = $db->getTableColumns($dbPrefix.$tableName, false);
 
                 return $fields[$dbPrefix.$tableName];

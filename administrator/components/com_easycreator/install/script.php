@@ -92,7 +92,7 @@ class Com_EasyCreatorInstallerScript
     /**
      * Method to run after an install/update/uninstall method.
      *
-     * @param string $type
+     * @param string             $type
      * @param  JAdapterInstance  $parent  The class calling this method
      *
      * @return bool
@@ -125,10 +125,15 @@ class Com_EasyCreatorInstallerScript
 
         foreach($files as $file)
         {
-            if(! trim($file))
+            $file = trim($file);
+
+            if(! $file)
                 continue;
 
-            if(! JFile::delete(trim($file)))
+            if(! JFile::exists($file))
+                continue;
+
+            if(! JFile::delete($file))
             {
                 echo '<li style="color: red;">Unable to delete obsolete file: '.$file.'</li>';
             }
@@ -156,7 +161,8 @@ class Com_EasyCreatorInstallerScript
      */
     public function uninstall($parent)
     {
-        echo '<h2>EasyCreator has been removed from your system -- you\'re on your own now... :(</h2>';
+        echo '<h2>EasyCreator has been removed from your system</h2>';
+        echo '<h3>you\'re on your own now... :(</h3>';
     }
 
     /**

@@ -51,6 +51,7 @@ Legend:
 ______________________________________________
 
 2012-04-27
+6828d04 Update changelog
 ff09164 Docblocks and J version markers
 9cc13fa Move the debug console to a proper helper
 

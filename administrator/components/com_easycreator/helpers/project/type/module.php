@@ -147,6 +147,7 @@ class EcrProjectTypeModule extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -221,6 +222,7 @@ class EcrProjectTypeModule extends EcrProjectBase
         $db = JFactory::getDBO();
         $clId =($this->scope == 'admin') ? 1 : 0;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -287,6 +289,7 @@ class EcrProjectTypeModule extends EcrProjectBase
         switch($scope)
         {
             case 'admin':
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
@@ -311,6 +314,7 @@ class EcrProjectTypeModule extends EcrProjectBase
                         return array();
                 }//switch
             case 'site':
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':

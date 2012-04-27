@@ -42,6 +42,7 @@ if($this->scope != 'menu')
 
     $searchTitle = jgettext('PHP XML file analysis');
 
+    //-- @Joomla!-version-check
     switch(ECR_JVERSION)
     {
         case '1.5':

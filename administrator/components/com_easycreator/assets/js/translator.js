@@ -47,6 +47,7 @@ var ecrTranslator = new Class({
 
                 doc.getElementById('trfield_' + fieldId).innerHTML='<strong style="color: red">' + jgettext('Empty') + '</strong>';
 
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
@@ -166,6 +167,7 @@ var ecrTranslator = new Class({
                     break;
                 }//switch
 
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':

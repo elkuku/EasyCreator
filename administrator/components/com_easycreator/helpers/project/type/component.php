@@ -234,6 +234,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
      */
     public function getJoomlaManifestName()
     {
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -265,6 +266,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -321,6 +323,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $db = JFactory::getDbo();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -380,6 +383,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $projects = array();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -432,6 +436,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         || ! $menu['text'])
             throw new Exception(__METHOD__.' - Empty admin menu');
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -483,6 +488,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             if(isset($menu['text'])
             && $menu['text'])
             {
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
@@ -508,6 +514,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
         $this->readMenu();
 
+        //-- @Joomla!-compat 1.5
         if('1.5' == ECR_JVERSION)
         {
             //-- Remove admin submenu items
@@ -572,6 +579,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $db = JFactory::getDBO();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -755,6 +763,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $db = JFactory::getDBO();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':

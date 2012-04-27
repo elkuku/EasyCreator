@@ -143,6 +143,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.6':
@@ -251,6 +252,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
      */
     public function getCoreProjects($scope)
     {
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.6':

@@ -138,6 +138,7 @@ class EcrProjectTypeWebapp extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.6':

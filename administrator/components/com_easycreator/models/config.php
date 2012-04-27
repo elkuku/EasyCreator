@@ -1,5 +1,6 @@
 <?php
 
+//-- @Joomla!-compat 1.5
 if('1.5' == ECR_JVERSION)
 {
     /**

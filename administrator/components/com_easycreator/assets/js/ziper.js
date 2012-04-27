@@ -59,6 +59,7 @@ var EcrZiper = new Class({
         var box = document.id('ajaxMessage');
         var debug = document.id('ajaxDebug');
 
+        //-- @Joomla!-version-check
         switch (ECR_JVERSION) {
             case '1.5':
                 var fx = box.effects({

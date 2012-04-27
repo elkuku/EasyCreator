@@ -154,6 +154,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
     {
         $dtd = false;
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -228,6 +229,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
     {
         $db = JFactory::getDbo();
 
+        //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
             case '1.5':
@@ -303,6 +305,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         switch($scope)
         {
             case 'admin':
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
@@ -321,6 +324,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                 break;
 
             case 'site':
+                //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':

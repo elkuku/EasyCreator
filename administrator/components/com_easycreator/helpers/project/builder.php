@@ -345,6 +345,7 @@ class EcrProjectBuilder extends JObject
         //-- Create build directory
         if('1.5' == ECR_JVERSION)
         {
+            //-- @Joomla!-compat 1.5
             $cfg = new JConfig;
             $this->buildDir = $cfg->tmp_path.DS.uniqid($this->project->comName.'_');
         }
