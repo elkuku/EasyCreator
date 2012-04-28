@@ -25,17 +25,17 @@ defined('NL') || define('NL', "\n");
 /**
  * Path for extension templates
  */
-define('ECRPATH_EXTENSIONTEMPLATES', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'templates');
+define('ECRPATH_EXTENSIONTEMPLATES', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/templates'));
 
 /**
  * Path for AutoCodes
  */
-define('ECRPATH_AUTOCODES', ECRPATH_EXTENSIONTEMPLATES.DIRECTORY_SEPARATOR.'autocodes');
+define('ECRPATH_AUTOCODES', JPath::clean(ECRPATH_EXTENSIONTEMPLATES.'/autocodes'));
 
 /**
  * Path for Parts
  */
-define('ECRPATH_PARTS', ECRPATH_EXTENSIONTEMPLATES.DIRECTORY_SEPARATOR.'parts');
+define('ECRPATH_PARTS', JPath::clean(ECRPATH_EXTENSIONTEMPLATES.'/parts'));
 
 /**
  * Path for Helpers
@@ -60,7 +60,7 @@ define('ECRPATH_SCRIPTS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'scripts');
 /**
  * Path for Builds
  */
-define('ECRPATH_BUILDS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'builds');
+define('ECRPATH_BUILDS', JPath::clean(ECRPATH_DATA.'/builds'));
 
 /**
  * Path for Exports

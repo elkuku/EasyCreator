@@ -10,10 +10,10 @@
 $path = $this->project->getZipPath();
 
 $base_href = (0 === strpos($path, ECRPATH_BUILDS))
-    ? JURI::Root().'administrator/components/com_easycreator/builds/'.$this->project->comName
+    ? JURI::Root().'administrator/components/com_easycreator/data/builds/'.$this->project->comName
     : 'file://'.$path;
 
-echo '<div class="img icon-16-server path">'.$path.'</div>';
+echo '<div class="img icon-16-server path">'.JPath::clean($path).'</div>';
 
 if(! JFolder::exists($path))
 {
