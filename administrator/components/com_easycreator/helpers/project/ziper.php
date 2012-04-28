@@ -8,7 +8,7 @@
  */
 
 /**
- * EcrZIPer.
+ * EcrZIPer - a packager.
  *
  * @package    EasyCreator
  * @subpackage Helpers
@@ -404,7 +404,8 @@ class EcrProjectZiper extends JObject
                     {
                         $ecrBase = $this->temp_dir.DS.'admin';
 
-                        $folders = array('data/builds', 'data/deploy', 'data/exports', 'data/logs', 'data/results', 'data/scripts', 'data/sync', 'tests');
+                        $folders = array('data/builds', 'data/deploy', 'data/exports', 'data/logs', 'data/results'
+                        , 'data/projects', 'data/sync', 'tests');
 
                         foreach($folders as $folder)
                         {

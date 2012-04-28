@@ -4,5 +4,5 @@
 deploy/*.xml
 logs/*.log
 results/*.xml
-scripts/*.xml
+projects/*.xml
 sync/*.txt

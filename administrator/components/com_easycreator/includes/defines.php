@@ -40,22 +40,22 @@ define('ECRPATH_PARTS', JPath::clean(ECRPATH_EXTENSIONTEMPLATES.'/parts'));
 /**
  * Path for Helpers
  */
-define('ECRPATH_HELPERS', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'helpers');
+define('ECRPATH_HELPERS', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/helpers'));
 
 /**
  * Path for Exports
  */
-define('ECRPATH_DATA', JPATH_COMPONENT_ADMINISTRATOR.DIRECTORY_SEPARATOR.'data');
+define('ECRPATH_DATA', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/data'));
 
 /**
 * Path for Logs
 */
-define('ECRPATH_LOGS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'logs');
+define('ECRPATH_LOGS', JPath::clean(ECRPATH_DATA.'/logs'));
 
 /**
 * Path for Scripts
 */
-define('ECRPATH_SCRIPTS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'scripts');
+define('ECRPATH_SCRIPTS', JPath::clean(ECRPATH_DATA.'/projects'));
 
 /**
  * Path for Builds
@@ -65,7 +65,7 @@ define('ECRPATH_BUILDS', JPath::clean(ECRPATH_DATA.'/builds'));
 /**
  * Path for Exports
  */
-define('ECRPATH_EXPORTS', ECRPATH_DATA.DIRECTORY_SEPARATOR.'exports');
+define('ECRPATH_EXPORTS', JPath::clean(ECRPATH_DATA.'/exports'));
 
 $parts = explode('.', JVERSION);
 
