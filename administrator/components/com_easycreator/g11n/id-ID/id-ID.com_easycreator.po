@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <uringinteristi@gmail.com>, 2011.
+#   <uringinteristi@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
 "POT-Creation-Date: 2012-03-16 19:09-0500\n"
-"PO-Revision-Date: 2012-03-17 08:22+0000\n"
+"PO-Revision-Date: 2012-04-02 14:37+0000\n"
 "Last-Translator: uring <uringinteristi@gmail.com>\n"
 "Language-Team: Indonesian (Indonesia) (http://www.transifex.net/projects/p/opentranslators/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
@@ -466,45 +466,45 @@ msgstr "Proyek %s tidak bisa disingkarkan"
 #: administrator/components/com_easycreator/controllers/stuffer.php:835
 #, php-format
 msgid "%s Install sql file updated"
-msgstr ""
+msgstr "%s Berkas sql pemasangan diperbarui"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:836
 #, php-format
 msgid "%s Install sql file created"
-msgstr ""
+msgstr "%s Berkas sql pemasangan dibuat"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:840
 #, php-format
 msgid "Can not create file at %s"
-msgstr ""
+msgstr "Tidak bisa membuat berkas pada %s"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:890
 #, php-format
 msgid "%s uninstall sql file updated"
-msgstr ""
+msgstr "%s Berkas sql pencabutan diperbarui"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:891
 #, php-format
 msgid "%s uninstall sql file created"
-msgstr ""
+msgstr "%s Berkas sql pencabutan dibuat"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:895
 msgid "Can not create file at "
-msgstr ""
+msgstr "Tidak bisa membuat berkas pada "
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:976
 #: administrator/components/com_easycreator/controllers/stuffer.php:1005
 msgid "Update sql file has been written"
-msgstr ""
+msgstr "Berkas sql perbaruan telah ditulis"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:980
 #: administrator/components/com_easycreator/controllers/stuffer.php:1011
 msgid "Can not create the update sql file"
-msgstr ""
+msgstr "Tidak bisa membuat berkas sql pembaruan"
 
 #: administrator/components/com_easycreator/controllers/stuffer.php:994
 msgid "Update sql already exists"
-msgstr ""
+msgstr "Sql pembaruan sudah ada"
 
 #: administrator/components/com_easycreator/controllers/templates.php:77
 msgid "Template has been deleted."
@@ -530,17 +530,17 @@ msgstr "Berkas telah dihapus"
 #, php-format
 msgid ""
 "EasyCreator version %s is in testing stage with your Joomla! version %s"
-msgstr ""
+msgstr "EasyCreator versi %s berada dalam tahap percobaan pada Joomla! anda versi %s"
 
 #: administrator/components/com_easycreator/easycreator.php:146
 #, php-format
 msgid "EasyCreator version %s may not work well with your Joomla! version %s"
-msgstr ""
+msgstr "EasyCreator versi %s kemungkinan tidak bisa bekerja dengan baik pada Joomla! anda versi %s"
 
 #: administrator/components/com_easycreator/easycreator.php:184
 msgid ""
 "Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager"
-msgstr ""
+msgstr "Silakan mengaktifkan Pengaya Upgrade Mootools dalam Estensions>Pengelola Pengaya"
 
 #: administrator/components/com_easycreator/helpers/debugger.php:80
 msgid "JDump not found"
@@ -562,7 +562,7 @@ msgstr "Controller %s tidak ditemukan"
 #: administrator/components/com_easycreator/helpers/easycreator.php:59
 #, php-format
 msgid "Controller class %s not found"
-msgstr ""
+msgstr "Class controller %s tidak ditemukan"
 
 #: administrator/components/com_easycreator/helpers/file.php:29
 msgid "Empty values in save"
@@ -597,15 +597,15 @@ msgstr "Berkas %s tidak bisa dihapus pada path: %s"
 
 #: administrator/components/com_easycreator/helpers/g11nhelper.php:136
 msgid "The language file has been created<br />"
-msgstr ""
+msgstr "Berkas bahasa telah dibuat<br />"
 
 #: administrator/components/com_easycreator/helpers/g11nhelper.php:142
 msgid "Updating language file..."
-msgstr ""
+msgstr "Memperbarui berkas bahasa..."
 
 #: administrator/components/com_easycreator/helpers/g11nhelper.php:195
 msgid "Can not create the language template folder"
-msgstr ""
+msgstr "Tidak bisa membuat folder templat bahasa"
 
 #: administrator/components/com_easycreator/helpers/g11nhelper.php:252
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:66
@@ -1112,7 +1112,7 @@ msgstr "Berkas tidak ditemukan %s"
 #: administrator/components/com_easycreator/helpers/project/base.php:1091
 #, php-format
 msgid "Unable to delete file at %s"
-msgstr ""
+msgstr "Tidak bisa menghapus berkas pada %s"
 
 #: administrator/components/com_easycreator/helpers/project/base.php:1164
 #, php-format
@@ -1304,17 +1304,17 @@ msgstr "Format belum ditentukan: %s"
 
 #: administrator/components/com_easycreator/helpers/project/type/cliapp.php:38
 msgid "CLI Application"
-msgstr ""
+msgstr "Aplikasi CLI"
 
 #: administrator/components/com_easycreator/helpers/project/type/cliapp.php:47
 msgid "CLI Applications"
-msgstr ""
+msgstr "Aplikasi CLI"
 
 #: administrator/components/com_easycreator/helpers/project/type/cliapp.php:59
 #, php-format
 msgid "%d CLI Application"
 msgid_plural "%d CLI Applications"
-msgstr[0] ""
+msgstr[0] "%d Aplikasi CLI"
 
 #: administrator/components/com_easycreator/helpers/project/type/component.php:38
 msgid "Component"
@@ -1332,7 +1332,7 @@ msgstr[0] "%d Komponen"
 
 #: administrator/components/com_easycreator/helpers/project/type/component.php:718
 msgid "There was a problem updating the admin menu"
-msgstr ""
+msgstr "Terjadi masalah memperbarui menu admin"
 
 #: administrator/components/com_easycreator/helpers/project/type/library.php:40
 msgid "Library"
@@ -1394,7 +1394,7 @@ msgstr[0] "%d Pengaya"
 #: administrator/components/com_easycreator/helpers/project/type/plugin.php:477
 #, php-format
 msgid "%s - Unknown scope: %s"
-msgstr ""
+msgstr "%s - Cakupan tidak diketahui: %s"
 
 #: administrator/components/com_easycreator/helpers/project/type/template.php:59
 #, php-format
@@ -1404,17 +1404,17 @@ msgstr[0] "%d Template"
 
 #: administrator/components/com_easycreator/helpers/project/type/webapp.php:38
 msgid "Web Application"
-msgstr ""
+msgstr "Aplikasi web"
 
 #: administrator/components/com_easycreator/helpers/project/type/webapp.php:47
 msgid "Web Applications"
-msgstr ""
+msgstr "Aplikasi web"
 
 #: administrator/components/com_easycreator/helpers/project/type/webapp.php:59
 #, php-format
 msgid "%d Web Application"
 msgid_plural "%d Web Applications"
-msgstr[0] ""
+msgstr[0] "%d Aplikasi web"
 
 #: administrator/components/com_easycreator/helpers/project/ziper.php:905
 #: administrator/components/com_easycreator/templates/std/md5check.po.php:40
@@ -1513,11 +1513,11 @@ msgstr "Harap menggunakan ekstensi ini hanya pada lingkungan pengembangan lokal.
 msgid ""
 "See: <a %s>docs.joomla.org/Setting up your workstation for Joomla! "
 "development</a>"
-msgstr ""
+msgstr "Lihat: <a %s>docs.joomla.org/Setting up your workstation for Joomla! development</a>"
 
 #: administrator/components/com_easycreator/models/config.php:43
 msgid "Unable to load the config form"
-msgstr ""
+msgstr "Tidak bisa memuat formulir konfigurasi"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:61
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:69
@@ -1607,7 +1607,7 @@ msgstr "Harap mendefinisikan ruang untuk table %s yang akan dibuat pada komponen
 #: administrator/components/com_easycreator/templates/component/mvc_9_16/options.php:68
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_dbtypes.php:12
 msgid "Database support"
-msgstr ""
+msgstr "Dukungan basisdata"
 
 #: administrator/components/com_easycreator/templates/library/custom/options.php:69
 #, php-format
@@ -1722,7 +1722,7 @@ msgstr "Proyek ini sudah mempunyai changelog"
 
 #: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:29
 msgid "Common install Script"
-msgstr ""
+msgstr "Skrip pemasangan umum"
 
 #: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:30
 msgid ""
@@ -1772,7 +1772,7 @@ msgstr "Memeriksa sum MD5..."
 #: administrator/components/com_easycreator/templates/std/md5check_call.po.php:22
 #, php-format
 msgid "%d files checked..."
-msgstr ""
+msgstr "%d berkas diperiksa..."
 
 #: administrator/components/com_easycreator/templates/std/md5check_call.po.php:28
 msgid "There have been errors"
@@ -1804,7 +1804,7 @@ msgstr "Konsol"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/git.php:16
 msgid "git status"
-msgstr ""
+msgstr "status git"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/git.php:19
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:50
@@ -1903,15 +1903,15 @@ msgstr "Kode sumber"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/runcli.php:15
 msgid "Run a CLI application"
-msgstr ""
+msgstr "Jalankan aplikasi CLI"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/runcli.php:27
 msgid "Execute"
-msgstr ""
+msgstr "Eksekusi"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/runwap.php:11
 msgid "Run a Web application"
-msgstr ""
+msgstr "Jalankan aplikasi Web"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:46
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:22
@@ -2017,11 +2017,11 @@ msgstr "Buat dokumentasi otomatis untuk proyek anda dengan PHPDocumentor."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:368
 msgid "PHPLOC"
-msgstr ""
+msgstr "PHPLOC"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:369
 msgid "Count the lines of code you have written."
-msgstr ""
+msgstr "Hitung barisan kode yang telah anda tulis."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:373
 msgid "Statistics"
@@ -2046,25 +2046,25 @@ msgstr "Menampilkan informasi mengenai proyek anda (eksperimen)."
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:399
 msgid "CLI Runner"
-msgstr ""
+msgstr "Pesuruh CLI"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:400
 msgid "Runs a CLI Application"
-msgstr ""
+msgstr "Jalankan aplikasi CLI"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:408
 msgid "Web Runner"
-msgstr ""
+msgstr "Pesuruh Web"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:409
 msgid "Runs a Web Application"
-msgstr ""
+msgstr "Jalannkan Aplikasi Web"
 
 #: administrator/components/com_easycreator/views/config/tmpl/default.php:27
 #: administrator/components/com_easycreator/views/config/tmpl/default_15.php:31
 #, php-format
 msgid "%s Configuration"
-msgstr ""
+msgstr "%s Konfigurasi"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:15
 msgid "Configuration settings"
@@ -2106,15 +2106,15 @@ msgstr "Periksa versi"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:68
 msgid "Git repository"
-msgstr ""
+msgstr "Gudang Git"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:73
 msgid "Recent commits"
-msgstr ""
+msgstr "Komit terbaru"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:78
 msgid "Help translating"
-msgstr ""
+msgstr "Bantu menterjemahkan"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:86
 msgid "Support EasyCreator by adding it to your stack at Ohloh"
@@ -2245,12 +2245,12 @@ msgstr ""
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:61
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:81
 msgid "Update file"
-msgstr ""
+msgstr "Memperbarui berkas"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:64
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:84
 msgid "Create file"
-msgstr ""
+msgstr "Membuat berkas"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/languages.php:17
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:15
@@ -2464,7 +2464,7 @@ msgstr "geser dan letakkan elemen untuk mengatur ulang. Tambah komentar baru."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:992
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:993
 msgid "Displays the status of your language files including cache."
@@ -2472,11 +2472,11 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:1004
 msgid "g11n"
-msgstr ""
+msgstr "g11n"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:1006
 msgid "Utility to create and update your language files."
-msgstr ""
+msgstr "Peralatalan untuk membuat dan memperbarui berkas-berkas bahasa anda."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:1031
 msgid "Language"
@@ -2515,16 +2515,16 @@ msgstr "Pilih tipe komponen dari template sebelum ditentukan"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:28
 msgid "Hide templates for Joomla! versions"
-msgstr ""
+msgstr "Sembunyikan templat-templat untuk Joomla! versi"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:50
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:76
 msgid "Notes"
-msgstr ""
+msgstr "Catatan"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:55
 msgid "See also..."
-msgstr ""
+msgstr "Juga lihat..."
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:58
 msgid "External infos"
@@ -2676,7 +2676,7 @@ msgstr "Piplih elemen"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install.php:13
 msgid "Install - Uninstall - Update"
-msgstr ""
+msgstr "Pasang - Cabut - Perbarui"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:21
 msgid "Install and Uninstall PHP"
@@ -2698,15 +2698,15 @@ msgstr "Pasang dan Cabut SQL"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:49
 msgid "Update install file"
-msgstr ""
+msgstr "Memperbarui berkas pemasangan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:59
 msgid "Update uninstall file"
-msgstr ""
+msgstr "Memperbarui berkas pencabutan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:39
 msgid "Update SQL"
-msgstr ""
+msgstr "Memperbarui SQL"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:43
 msgid "Package path"
@@ -2720,11 +2720,11 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:53
 #, php-format
 msgid "Current version: %s"
-msgstr ""
+msgstr "Versi saat ini: %s"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:63
 msgid "Found sql update files"
-msgstr ""
+msgstr "Ditemukan berkas-berkas sql pembaruan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:74
 msgid "Init database updates"
@@ -2923,7 +2923,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:31
 #, php-format
 msgid "The folder %s does not exist"
-msgstr ""
+msgstr "Folder %s tidak ada"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:37
 msgid "Compression"
@@ -2973,17 +2973,17 @@ msgstr "Nama berkas"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:92
 msgid "Default name"
-msgstr ""
+msgstr "Nama standar"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:97
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:102
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:107
 msgid "Custom name"
-msgstr ""
+msgstr "Nama kebiasaan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:113
 msgid "Reset to default"
-msgstr ""
+msgstr "Reset ke standar"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:27
 msgid "Update"
@@ -3005,11 +3005,11 @@ msgstr "Upgrade"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:38
 msgid "Update server"
-msgstr ""
+msgstr "Memperbarui server"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:42
 msgid "Add Server"
-msgstr ""
+msgstr "Tambah Server"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:174
 msgid "Relations"
@@ -3115,7 +3115,7 @@ msgstr "Hal ini akan menghapus proyek anda."
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:171
 msgid "Save the configuration"
-msgstr ""
+msgstr "Simpan konfigurasi"
 
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:399
 msgid "Infos on parameters (external)"
@@ -3188,19 +3188,19 @@ msgstr "Berkas-berkas standar"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:147
 msgid "Template constants"
-msgstr ""
+msgstr "Konstan templat"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:148
 msgid "Common constants"
-msgstr ""
+msgstr "Konstan umum"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:158
 msgid "Custom constants"
-msgstr ""
+msgstr "Konstan kebiasaan"
 
 #: administrator/components/com_easycreator/views/templates/tmpl/templates.php:159
 msgid "Custom constants may be defined in every template in options.php"
-msgstr ""
+msgstr "Konstan kebiasaan kemungkinan didefinisikan dalam tiap templat dalam options.php"
 
 #: administrator/components/com_easycreator/views/templates/view.html.php:142
 msgid "Manage EasyCreator Extension Templates"
@@ -3224,11 +3224,11 @@ msgstr "Tidak ditemukan berkas-berkas ZIP"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:16
 msgid "Please add some extensions to your package before creating it"
-msgstr ""
+msgstr "Silakan menambahkan beberapa ekstensi-ekstensi pada paket sebelum membuatnya"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:42
 msgid "Create the package"
-msgstr ""
+msgstr "Buat paket"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:50
 #, php-format
@@ -3237,11 +3237,11 @@ msgstr "Buat %s"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:16
 msgid "<br />If left blank the default folder will be used."
-msgstr ""
+msgstr "<br />Bila dibiarkan kosong maka akan menggunakan folder standar."
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:22
 msgid "The folder does not exist"
-msgstr ""
+msgstr "Folder tidak ada"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:14
 msgid "Packing format options"
@@ -3254,7 +3254,7 @@ msgstr "Format nama kustom"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:27
 msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
-msgstr ""
+msgstr "Gunakan:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
 
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:52
 msgid "Customize"
@@ -3278,7 +3278,7 @@ msgstr "Pembuat ZIP Komponen"
 
 #: administrator/components/com_easycreator/views/ziper/view.html.php:136
 msgid "Automatically create a package of your extension."
-msgstr ""
+msgstr "Otomatis membuat paket untuk ekstensi anda."
 
 #: administrator/components/com_easycreator/views/ziper/view.html.php:140
 msgid "Archive"
@@ -3286,4 +3286,4 @@ msgstr "Arsip"
 
 #: administrator/components/com_easycreator/views/ziper/view.html.php:141
 msgid "View archived versions of your extension."
-msgstr ""
+msgstr "Tampilkan versi yang telah tersimpan pada ekstensi anda."

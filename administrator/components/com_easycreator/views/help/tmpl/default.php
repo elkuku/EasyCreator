@@ -78,7 +78,7 @@
                 <li><strong>fr-FR</strong><br/>crony, 2008<br/>Marcos Peebles &lt;marcos.peebles@gmail.com&gt;, 2011.
                 </li>
                 <li><strong>hu-HU</strong><br/>Sándor Balikó &lt;vo101sanyo@gmail.com&gt;, 2011.</li>
-                <li><strong>id-ID</strong><br/>&lt;uringinteristi@gmail.com&gt;, 2011.</li>
+                <li><strong>id-ID</strong><br/>&lt;uringinteristi@gmail.com&gt;, 2011, 2012.</li>
                 <li><strong>nl-NL</strong><br/>Steven Zeegers &lt;steven.zeegers@gmail.com&gt;, 2011.</li>
                 <li><strong>pl-PL</strong><br/>keran, 2008<br/>Begina Felicysym &lt;begina.felicysym@wp.eu&gt;, 2012.
                 </li>
