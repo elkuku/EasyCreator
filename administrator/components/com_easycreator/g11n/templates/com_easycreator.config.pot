@@ -1,3 +1,4 @@
+# @version SVN: $Id$
 # com_easycreator.config - admin - The configuration language file.
 # Copyright (C) YEAR Nikolai Plath - elkuku.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -18,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: administrator/components/com_easycreator/easycreator.xml:description
-msgid "EasyCreator helps creating Extensions for Joomla"
+msgid "EasyCreator helps creating Extensions for Joomla!"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:label
-#: administrator/components/com_easycreator/models/forms/config_15.xml:spacer-default
+#: administrator/components/com_easycreator/models/forms/config_15.xml:param-default
 msgid "Personal information"
 msgstr ""
 
@@ -281,26 +282,6 @@ msgstr ""
 msgid "Which debugger to use"
 msgstr ""
 
-#: administrator/components/com_easycreator/models/forms/config.xml:spacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xml:spacer-default
-msgid "Package formats"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:spacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xml:spacer-default
-msgid "Custom file name"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:spacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xml:spacer-default
-msgid "Language"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:spacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xml:spacer-default
-msgid "EasyCreator only"
-msgstr ""
-
 #: administrator/components/com_easycreator/models/forms/config.xml:opt
 #: administrator/components/com_easycreator/models/forms/config_15.xml:opt
 msgid "No"
@@ -383,4 +364,20 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config_15.xml:group
 msgid "Personal"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xml:param-default
+msgid "Package formats"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xml:param-default
+msgid "Custom file name"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xml:param-default
+msgid "Language"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xml:param-default
+msgid "EasyCreator only"
 msgstr ""
