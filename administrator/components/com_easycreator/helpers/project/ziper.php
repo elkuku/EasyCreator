@@ -363,7 +363,7 @@ class EcrProjectZiper extends JObject
      */
     private function setTempDir()
     {
-        $this->temp_dir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName);
+        $this->temp_dir = JPath::clean(JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName));
 
         if(! JFolder::create($this->temp_dir))
             throw new EcrZiperException(__METHOD__.' - Can not create TempDir<br />'.$this->temp_dir);
@@ -991,6 +991,7 @@ class EcrProjectZiper extends JObject
 
         foreach($fileList as $file)
         {
+            $file = JPath::clean($file);
             if($this->buildopts['create_md5_compressed'])
             {
                 $path = str_replace($this->temp_dir.DS, '', $file);
@@ -1003,6 +1004,8 @@ class EcrProjectZiper extends JObject
             {
                 $md5Str .= md5_file($file).' '.str_replace($this->temp_dir.DS, '', $file).NL;
             }
+
+            $md5Str = str_replace('\\', '/', $md5Str);
         }
 
         $subDir = (JFolder::exists($this->temp_dir.DS.'admin')) ? 'admin' : 'site';
@@ -1129,10 +1132,12 @@ class EcrProjectZiper extends JObject
         {
             $hrefBase = JURI::root().str_replace(JPATH_ROOT, '', ECRPATH_BUILDS)
                 .'/'.$this->project->comName.'/'.$this->project->version;
+            $hrefBase = str_replace('/\\', '/', $hrefBase);
+            $hrefBase = str_replace('\\', '/', $hrefBase);
         }
         else
         {
-            $hrefBase = 'file://'.$this->project->getZipPath().'/'.$this->project->version;
+            $hrefBase = 'file://'.$this->project->getZipPath().DIRECTORY_SEPARATOR.$this->project->version;
         }
 
         $customFileName = EcrProjectHelper::formatFileName($this->project, JRequest::getVar('cst_format'));
