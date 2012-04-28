@@ -28,6 +28,7 @@ class Com_EasyCreatorInstallerScript
      */
     public function preflight($type, $parent)
     {
+        /* @var JInstaller $grandParent */
         $grandParent = $parent->getParent();
 
         $PHPMinVersion = '5.2.4';
@@ -40,15 +41,16 @@ class Com_EasyCreatorInstallerScript
             return false;
         }
 
+        //-- This does not work :( - css..
         JFactory::getDocument()->addStylesheet(JURI::root(true)
             .'/administrator/components/com_easycreator/assets/css/default.css');
 
         if('update' == $type)
         {
-            $xx = $grandParent->getPath('extension_administrator');
             $this->extensionPaths = array(
-                'admin' => JPATH_ADMINISTRATOR.DS.'components'.DS.'com_easycreator'
-            , 'site' => JPATH_SITE.DS.'components'.DS.'com_easycreator');
+                'admin' => $grandParent->getPath('extension_administrator')
+            , 'site' => $grandParent->getPath('extension_administrator')
+            );
 
             if(false === $this->updateWithMd5File($parent))
             {
@@ -56,6 +58,33 @@ class Com_EasyCreatorInstallerScript
                     'Can not update your current EasyCreator version - Please uninstall first - sry ;(', 'error');
 
                 return false;
+            }
+
+            $oldFolders = array(
+                'builds' => 'data/builds'
+            , 'exports' => 'data/exports'
+            , 'logs' => 'data/logs'
+            , 'results' => 'data/results'
+            , 'scripts' => 'data/projects'
+            );
+
+            $extensionPath = $grandParent->getPath('extension_administrator');
+
+            foreach($oldFolders as $oldName => $newName)
+            {
+                if(JFolder::exists($extensionPath.'/'.$oldName))
+                {
+                    if(JFolder::copy($extensionPath.'/'.$oldName, $extensionPath.'/'.$newName))
+                    {
+                        echo sprintf('The folder %s has been copied to %s', $oldName, $newName).'<br />';
+                    }
+                    else
+                    {
+                        echo '<strong style="color: red;">'
+                            .sprintf('The folder %s could not be copied to %s', $oldName, $newName)
+                            .'</strong><br />';
+                    }
+                }
             }
         }
 
@@ -92,7 +121,7 @@ class Com_EasyCreatorInstallerScript
     /**
      * Method to run after an install/update/uninstall method.
      *
-     * @param string             $type
+     * @param string             $type    is the type of change (install, update or discover_install)
      * @param  JAdapterInstance  $parent  The class calling this method
      *
      * @return bool
@@ -102,20 +131,29 @@ class Com_EasyCreatorInstallerScript
         if('update' != $type)
             return true;
 
-        // $parent is
-        // $type is the type of change (install, update or discover_install)
+        $extensionPath = $parent->getParent()->getPath('extension_administrator');
 
-        $path = $parent->getParent()->getPath('extension_root').'/to-be-removed.txt';
+        $this->removeObsoleteFiles($extensionPath.'/to-be-removed.txt');
 
+        return true;
+    }
+
+    /**
+     * @param $path
+     *
+     * @return Com_EasyCreatorInstallerScript
+     */
+    private function removeObsoleteFiles($path)
+    {
         if(! JFile::exists($path))
-            return true;
+            return $this;
 
         $contents = JFile::read($path);
 
         $files = explode("\n", trim($contents));
 
         if(! count($files))
-            return true;
+            return $this;
 
         echo '<h2>Cleaning up</h2>';
 
@@ -149,7 +187,7 @@ class Com_EasyCreatorInstallerScript
 
         echo sprintf('%d obsolete files deleted.', $count);
 
-        return true;
+        return $this;
     }
 
     /**
