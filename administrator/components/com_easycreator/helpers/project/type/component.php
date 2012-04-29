@@ -717,11 +717,17 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $query->where('`client_id` = 1');
         $query->where('`component_id` = '.(int)$id);
 
+        if('2.5' == ECR_JVERSION)
+        {
+            //-- In J! 2.5.x... a bug has been fixed that does not remove child nodes.
+            $query->where('`parent_id` = 1');
+        }
+
         $db->setQuery($query);
 
         $ids = $db->loadResultArray();
 
-        //-- Check for error
+        //-- Check for errors
         $error = $db->getErrorMsg();
 
         if($error || empty($ids))
