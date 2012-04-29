@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -6,9 +6,6 @@
  * @author     Created on 25-May-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 /**
  * Easy Logger.
@@ -37,8 +34,8 @@ class EcrLogger
      *
      * Get a logger instance.
      *
-     * @param string $name Custom name for the instance
-     * @param array $options Log options
+     * @param string $name    Custom name for the instance
+     * @param array  $options Log options
      *
      * @return EcrLogger
      *
@@ -49,37 +46,43 @@ class EcrLogger
         static $instances = array();
 
         if(isset($instances[$name]))
-        return $instances[$name];
+            return $instances[$name];
 
-        $fileName =(isset($options['fileName']) && $options['fileName'])
-        ? $options['fileName']
-        : '/log_'.time().'.log';
+        $fileName = (isset($options['fileName']) && $options['fileName'])
+            ? $options['fileName']
+            : '/log_'.time().'.log';
 
-        if( ! touch(ECRPATH_LOGS.DS.$fileName))
-        throw new EcrLogException('Can not create log file '.$fileName);
+        if(! JFolder::exists(ECRPATH_LOGS)
+            && ! JFolder::create(ECRPATH_LOGS)
+        )
+            throw new EcrLogException('Can not create log path '.ECRPATH_LOGS);
+
+        if(! touch(ECRPATH_LOGS.DS.$fileName))
+            throw new EcrLogException('Can not create log file '.$fileName);
 
         $instances[$name] = new EcrLogger($fileName, $options);
 
         return $instances[$name];
-    }//function
+    }
 
     /**
      * Constructor.
      *
      * @param string $fileName Log file name
-     * @param array $options Logging options
+     * @param array  $options  Logging options
      */
     protected function __construct($fileName, $options)
     {
         $this->fileName = $fileName;
 
-        $this->logging =(in_array('logging', $options)) ? true : false;
-        $this->hot =(in_array('hotlogging', $options)) ? true : false;
-        $this->fileContents =(in_array('files', $options)) ? true : false;
-        $this->profile =(in_array('profile', $options)) ? true : false;
+        $this->logging = (in_array('logging', $options)) ? true : false;
+        $this->hot = (in_array('hotlogging', $options)) ? true : false;
+        $this->fileContents = (in_array('files', $options)) ? true : false;
+        $this->profile = (in_array('profile', $options)) ? true : false;
 
         if($this->profile)
         {
+            //-- @Joomla!-compat 1.5
             if(version_compare(JVERSION, '1.6', '<'))
             {
                 //-- Load profiler for J! 1.5
@@ -88,33 +91,33 @@ class EcrLogger
 
             $this->profiler = EcrProfiler::getInstance('EcrLogger');
         }
-    }//function
+    }
 
     /**
      * Log a string.
      *
      * @param string $string The string to log
-     * @param string $error Error message
+     * @param string $error  Error message
      *
      * @return void
      */
     public function log($string, $error = '')
     {
-        if( ! $this->logging)
-        return;
+        if(! $this->logging)
+            return;
 
         $ret = '';
 
         if($this->profile)
-        $ret .= $this->profiler->mark('log');
+            $ret .= $this->profiler->mark('log');
 
-        $ret .=($error) ? '<div class="ebc_error">'.$error.'</div>' : '';
+        $ret .= ($error) ? '<div class="ebc_error">'.$error.'</div>' : '';
         $ret .= $string;
 
         $this->log[] = $ret;
 
         if($this->hot)
-        $this->writeLog();
+            $this->writeLog();
 
         if('cli' == PHP_SAPI)
         {
@@ -129,25 +132,25 @@ class EcrLogger
         $s = str_replace(JPATH_ROOT, 'JROOT', $s);
 
         JLog::add($s);
-    }//function
+    }
 
     /**
      * Logs file write attempts.
      *
-     * @param string $from Full path to template file
-     * @param string $to Full path to output file
+     * @param string $from         Full path to template file
+     * @param string $to           Full path to output file
      * @param string $fileContents File contents
-     * @param string $error Error message
+     * @param string $error        Error message
      *
      * @return void
      */
     public function logFileWrite($from = '', $to = '', $fileContents = '', $error = '')
     {
-        if( ! $this->logging)
-        return;
+        if(! $this->logging)
+            return;
 
         $noFileContents = array('php', 'css', 'js', 'xml', 'ini', 'po', 'sql');
-        $fileContents =(in_array(JFile::getExt($to), $noFileContents)) ? $fileContents : '';
+        $fileContents = (in_array(JFile::getExt($to), $noFileContents)) ? $fileContents : '';
 
         if($from)
         {
@@ -164,17 +167,17 @@ class EcrLogger
         }
 
         $ret = '';
-        $ret .=($this->profile) ? $this->profiler->mark('fileWrite') : '';
+        $ret .= ($this->profile) ? $this->profiler->mark('fileWrite') : '';
         $ret .= '<strong>Writing file</strong><br />';
-        $ret .=($error) ? '<div class="ebc_error">'.$error.'</div>' : '';
-        $ret .=($from) ? 'From: '.$from.BR.'<strong style="color: blue;">'.$fromFile.'</strong>'.BR : '';
-        $ret .=($to) ? 'To:   '.$to.BR.'<strong style="color: blue;">'.$toFile.'</strong>'.BR : '';
+        $ret .= ($error) ? '<div class="ebc_error">'.$error.'</div>' : '';
+        $ret .= ($from) ? 'From: '.$from.BR.'<strong style="color: blue;">'.$fromFile.'</strong>'.BR : '';
+        $ret .= ($to) ? 'To:   '.$to.BR.'<strong style="color: blue;">'.$toFile.'</strong>'.BR : '';
 
         if($fileContents)
         {
             $ret .= '<div class="ecr_codebox_header"'
-            .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
-            .jgettext('File Contents').'</div>';
+                .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
+                .jgettext('File Contents').'</div>';
             $ret .= '<div id="ecr_codebox_'.$this->cntCodeBoxes.'" style="display: none;">';
             $ret .= '<div class="ebc_code">'.highlight_string($fileContents, true).'</div>';
             $ret .= '</div>';
@@ -190,19 +193,19 @@ class EcrLogger
         {
             $this->writeLog();
         }
-    }//function
+    }
 
     /**
      * Log a database query.
      *
-     * @param string $query The query
+     * @param string  $query The query
      * @param boolean $error Error happened during execution
      *
      * @return void
      */
     public function logQuery($query, $error = false)
     {
-        if( ! $this->logging)
+        if(! $this->logging)
         {
             return;
         }
@@ -222,8 +225,8 @@ class EcrLogger
         }
 
         $ret .= '<div class="ecr_codebox_header"'
-        .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
-        .jgettext('Query').'</div>';
+            .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
+            .jgettext('Query').'</div>';
 
         $ret .= '<div id="ecr_codebox_'.$this->cntCodeBoxes.'" style="display: none;">';
         $ret .= '<pre class="ebc_code">'.htmlentities($query).'</pre>';
@@ -233,8 +236,8 @@ class EcrLogger
         if($error)
         {
             $ret .= '<div class="ecr_codebox_header"'
-            .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
-            .jgettext('Error').'</div>';
+                .' onclick="toggleDiv(\'ecr_codebox_'.$this->cntCodeBoxes.'\');">'
+                .jgettext('Error').'</div>';
 
             $ret .= '<div id="ecr_codebox_'.$this->cntCodeBoxes.'" style="display: none;">';
             $ret .= '<pre class="ebc_code">'.htmlentities($error).'</pre>';
@@ -250,7 +253,7 @@ class EcrLogger
         {
             $this->writeLog();
         }
-    }//function
+    }
 
     /**
      * Write the log to a file.
@@ -259,14 +262,15 @@ class EcrLogger
      */
     public function writeLog()
     {
-        if( ! $this->logging
-        || ! count($this->log)
-        || $this->hot)
-        return true;
+        if(! $this->logging
+            || ! count($this->log)
+            || $this->hot
+        )
+            return true;
 
         $log = implode("\n", $this->log);
 
-        if( ! JFile::write(ECRPATH_LOGS.DS.$this->fileName, $log))
+        if(! JFile::write(ECRPATH_LOGS.DS.$this->fileName, $log))
         {
             JFactory::getApplication()->enqueueMessage(
                 sprintf(jgettext('The file %s could not be written to path %s'), $this->fileName, ECRPATH_LOGS)
@@ -276,7 +280,7 @@ class EcrLogger
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Prints the log entries.
@@ -287,37 +291,42 @@ class EcrLogger
     {
         $html = '';
 
-        if( ! $this->logging
-        || ! count($this->log))
-        return $html;
+        if(! $this->logging
+            || ! count($this->log)
+        )
+            return $html;
 
         $html .= '<ul>';
 
         foreach($this->log as $entry)
         {
             $html .= '<li>'.$entry.'</li>';
-        }//foreach
+        }
 
         $html .= '</ul>';
 
         return $html;
-    }//function
+    }
 
+    /**
+     * @return string
+     */
     public function printLogBox()
     {
         $html = '';
 
-        if( ! $this->logging
-        || ! count($this->log))
-        return $html;
+        if(! $this->logging
+            || ! count($this->log)
+        )
+            return $html;
 
         $html .= '<div class="ecr_codebox_header" style="font-size: 1.4em;" onclick="toggleDiv(\'ecr_logdisplay\');">'
-        .jgettext('Log File')
-        .'</div>'
-        .'<div id="ecr_logdisplay" style="display: none;">'
+            .jgettext('Log File')
+            .'</div>'
+            .'<div id="ecr_logdisplay" style="display: none;">'
             .$this->printLog()
-        .'</div>';
+            .'</div>';
 
         return $html;
-    }//function
+    }
 }//class

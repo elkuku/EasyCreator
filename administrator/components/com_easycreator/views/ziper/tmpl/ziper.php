@@ -48,7 +48,9 @@ JFactory::getDocument()->addScriptDeclaration(
 </div>
 -->
 <div class="ecr_floatbox" style="background-color: #ccff99;">
-    <h3><?php echo jgettext('Create the package'); ?></h3>
+    <div class="infoHeader">
+        <?php echo jgettext('Create the package'); ?>
+    </div>
 
     <div class="ecr_button" onclick="EcrZiper.createPackage();"
          style="margin: 1em; padding: 1em; text-align: center;">
@@ -63,7 +65,6 @@ JFactory::getDocument()->addScriptDeclaration(
     <div id="zipResultLinks"></div>
 </div>
 
-<input type="hidden" name="old_task" value="<?php echo JRequest::getCmd('task'); ?>"/>
+<div class="clr" style="height: 75px;"></div>
 
-<?php echo EcrHtml::drawDebugConsole(); ?>
-<div style="height: 75px;"></div>
+<?php echo EcrHtml::drawLogConsole();

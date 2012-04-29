@@ -46,7 +46,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
         $files = $input->get('file', array(), 'array');
 
-        JLog::add(sprintf(jgettext('|    Upload directory: %s'), $this->credentials->downloads));
+        JLog::add('|    '.sprintf(jgettext('Upload directory: %s'), $this->credentials->downloads));
 
         foreach($files as $file)
         {
@@ -158,7 +158,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
         $file = $input->get('file');
 
-        JLog::add(sprintf(jgettext('| -- Deleting %s ...'), $file));
+        JLog::add('| -- '.sprintf(jgettext('Deleting %s ...'), $file));
 
         if(! $this->ftp->delete($this->credentials->downloads.'/'.$file))
             throw new Exception(JError::getError());
@@ -203,7 +203,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
     {
         static $list = array();
 
-        JLog::add(sprintf(jgettext('| ~~ Scanning %s ...'), $dir));
+        JLog::add('| ~~ '.sprintf(jgettext('Scanning %s ...'), $dir));
 
         $items = $this->ftp->listDetails($dir);
 

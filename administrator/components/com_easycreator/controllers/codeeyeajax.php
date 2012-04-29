@@ -716,14 +716,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         {
             ?>
 
-        <h3>Installed PEAR Packages</h3>
-
-
-
-
-
-        <?php echo sprintf(jgettext('See also: %s')
-            , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
+        <div class="infoHeader">Installed PEAR Packages</div>
+        <div style="margin-top: 1em;">
         <table class="adminlist">
 
             <thead>
@@ -786,10 +780,11 @@ class EasyCreatorControllerCodeEyeAjax extends JController
             </tbody>
 
         </table>
-
-
-
-
+</div>
+        <p style="margin-top: 1em; padding: 0.5em; background-color: #fff;">
+            <?php echo sprintf(jgettext('See also: %s')
+            , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>
+        </p>
 
         <?php
         }

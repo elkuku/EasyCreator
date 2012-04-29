@@ -87,7 +87,7 @@ class EcrCliBuilder extends JApplicationCli
         require JPATH_COMPONENT.'/includes/defines.php';
 
         //-- Global functions
-        require JPATH_COMPONENT.'/includes/functions.php';
+        require JPATH_COMPONENT.'/includes/loader.php';
 
         $buildOpts = array();
 

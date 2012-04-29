@@ -31,7 +31,7 @@ JFactory::getDocument()->addScriptDeclaration($js);
         <?php echo jgettext('Upgrade'); ?>
     </label>
 
-    <!-- @Joomla!-compat 1.5 -->
+    <?php //-- @Joomla!-compat XXXX ?>
     <?php if('1.5' != $this->project->JCompat) : ?>
         <h4><?php echo jgettext('Update server'); ?></h4>
         <div id="updateServers"></div>

@@ -224,10 +224,10 @@ class PartTablesSimple extends EcrProjectPart
     /**
      * Format variables to be displayed as docComment in class header.
      *
-     * @param string $var Variable name
-     * @param string $type Data type
-     * @param string $adds Additional comments
-     * @param string $varScope Variable scope
+     * @param string       $var      Variable name
+     * @param string       $type     Data type
+     * @param array|string $adds     Additional comments
+     * @param string       $varScope Variable scope
      *
      * @return string
      */

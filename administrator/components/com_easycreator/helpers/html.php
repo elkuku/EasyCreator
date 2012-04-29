@@ -612,7 +612,7 @@ final class EcrHtml
      * @static
      * @return string
      */
-    public static function drawDebugConsole()
+    public static function drawLogConsole()
     {
         JFactory::getDocument()->addScriptDeclaration(
             "window.addEvent('domready', function() {

@@ -31,5 +31,5 @@ ecrScript('php2js');
 
 <div class="clr"></div>
 
-<?php echo EcrHtml::drawDebugConsole(); ?>
+<?php echo EcrHtml::drawLogConsole(); ?>
 <div style="height: 75px;"></div>

@@ -121,7 +121,6 @@ catch(Exception $e)
 
     return;
 }
-//try
 
 /**
  * EasyCreator Version
@@ -131,6 +130,7 @@ define('ECR_VERSION', EcrProjectHelper::parseXMLInstallFile(
 
 /**
  * Check the Joomla! version
+ *
  * @Joomla!-version-check
  */
 switch(ECR_JVERSION)
@@ -194,38 +194,50 @@ else
     ecrLoadHelper('databasequery');
 }
 
-$controller = EcrEasycreator::getController();
-
-if('component' == JRequest::getCmd('tmpl'))
+try
 {
-    //-- Perform the Request task only - raw view
-    $controller->execute(JRequest::getCmd('task'));
-}
-else
-{
-    //-- Display the menu
-    EcrHtml::easyMenu();
 
-    //-- Perform the Request task
-    $controller->execute(JRequest::getCmd('task'));
+    $controller = EcrEasycreator::getController();
 
-    if(ECR_DEV_MODE && ECR_DEBUG_LANG
-        && class_exists('g11n')
-    )
+    if('component' == JRequest::getCmd('tmpl'))
     {
-        g11n::debugPrintTranslateds(true);
-        g11n::debugPrintTranslateds();
+        //-- Perform the Request task only - raw view
+        $controller->execute(JRequest::getCmd('task'));
+    }
+    else
+    {
+        //-- Display the menu
+        EcrHtml::easyMenu();
+
+        //-- Perform the Request task
+        $controller->execute(JRequest::getCmd('task'));
+
+        if(ECR_DEV_MODE && ECR_DEBUG_LANG
+            && class_exists('g11n')
+        )
+        {
+            g11n::debugPrintTranslateds(true);
+            g11n::debugPrintTranslateds();
+        }
+
+        //-- Display the footer
+        EcrHtml::footer();
+
+        JDEBUG ? $profiler->mark('com_easycreator finished') : null;
     }
 
-    //-- Display the footer
-    EcrHtml::footer();
+    //-- Restore error_reporting
+    error_reporting($prevErrorReporting);
 
-    JDEBUG ? $profiler->mark('com_easycreator finished') : null;
+//-- Redirect if set by the controller
+//-- We don't do this very often =;)
+    $controller->redirect();
+}
+catch(Exception $e)
+{
+    EcrHtml::displayMessage($e);
+    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 }
 
 //-- Restore error_reporting
 error_reporting($prevErrorReporting);
-
-//-- Redirect if set by the controller
-//-- We don't do this very often =;)
-$controller->redirect();

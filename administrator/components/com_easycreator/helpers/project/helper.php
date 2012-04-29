@@ -291,8 +291,15 @@ class EcrProjectHelper
 
         if( ! $projectList)
         {
-            $xmlfiles = JFolder::files(ECRPATH_SCRIPTS, '.xml$', true, true);
             $projectList = array();
+
+            if( ! JFolder::exists(ECRPATH_SCRIPTS))
+                return $projectList;
+
+            $xmlfiles = JFolder::files(ECRPATH_SCRIPTS, '.xml$', true, true);
+
+            if( ! $xmlfiles)
+                return $projectList;
 
             foreach($xmlfiles as $fileName)
             {

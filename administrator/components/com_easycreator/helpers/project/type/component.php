@@ -411,6 +411,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
                 , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
                 , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks', 'com_finder'
+                , 'com_joomlaupdate'
                 );
                 break;
 

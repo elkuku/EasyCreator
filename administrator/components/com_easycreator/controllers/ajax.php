@@ -122,14 +122,16 @@ class EasyCreatorControllerAjax extends JController
         $element = JRequest::getCmd('element');
         $scope = JRequest::getCmd('scope');
 
-        if( ! $EasyPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
+        $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope);
+
+        if( ! $ecrPart)
         {
             return;
         }
 
-        if(method_exists($EasyPart, 'info'))
+        if(method_exists($ecrPart, 'info'))
         {
-            $info = $EasyPart->info();
+            $info = $ecrPart->info();
 
             if( ! get_class($info) == 'EcrProjectPart')
             {
@@ -153,7 +155,7 @@ class EasyCreatorControllerAjax extends JController
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 
         //-- Additional options from part file
-        echo $EasyPart->getOptions();
+        echo $ecrPart->getOptions();
     }//function
 
     /**
@@ -182,31 +184,31 @@ class EasyCreatorControllerAjax extends JController
         $element = JRequest::getCmd('element');
         $scope = JRequest::getCmd('scope');
 
-        if( ! $EasyPart = EcrProjectHelper::getPart($group, $part, $element, $scope, true))
+        if( ! $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope, true))
         {
             echo '<h4 style="color: red;">PART not found</h4>';
 
             return;
         }
 
-        if( ! method_exists($EasyPart, 'edit'))
+        if( ! method_exists($ecrPart, 'edit'))
         {
             echo '<h4 style="color: red;">EDIT function not found</h4>';
 
             return;
         }
 
-        if( ! isset($EasyPart->key)
-        || ! isset($project->autoCodes[$EasyPart->key]))
+        if( ! isset($ecrPart->key)
+        || ! isset($project->autoCodes[$ecrPart->key]))
         {
             echo '<h4 style="color: red;">No AutoCode found</h4>';
 
             return;
         }
 
-        if(method_exists($EasyPart, 'info'))
+        if(method_exists($ecrPart, 'info'))
         {
-            $info = $EasyPart->info();
+            $info = $ecrPart->info();
 
             if( ! get_class($info) == 'EcrProjectPart')
             {
@@ -229,7 +231,7 @@ class EasyCreatorControllerAjax extends JController
         echo '<input type="hidden" name="group" value="'.$group.'" />';
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 
-        echo $EasyPart->edit($project->autoCodes[$EasyPart->key]);
+        echo $ecrPart->edit($project->autoCodes[$ecrPart->key]);
     }//function
 
     /**
@@ -433,14 +435,14 @@ class EasyCreatorControllerAjax extends JController
 
         $partTask = JRequest::getCmd('part_task');
 
-        if( ! $easyPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
+        if( ! $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
             EcrHtml::displayMessage(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
 
             return;
         }
 
-        if( ! method_exists($easyPart, $partTask))
+        if( ! method_exists($ecrPart, $partTask))
         {
             EcrHtml::displayMessage(array(jgettext('Function not found'), $partTask), 'error');
 
@@ -448,7 +450,7 @@ class EasyCreatorControllerAjax extends JController
         }
 
         //-- Execute the task
-        return $easyPart->$partTask($element);
+        return $ecrPart->$partTask($element);
     }//function
 
     /**

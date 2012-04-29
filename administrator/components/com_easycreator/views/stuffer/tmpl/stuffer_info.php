@@ -28,10 +28,7 @@
         <input type="radio" id="jversion16" name="jcompat" value="1.6"
             <?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5'))) ? ' checked="checked"' : ''; ?>
             />
-        <label for="jversion16" class="img32b icon-joomla-compat-16">
-            <span class="img32b icon-joomla-compat-17"></span>
-            <span class="img32b icon-joomla-compat-25"></span>
-        </label>
+        <label for="jversion16" class="img32b icon-joomla-compat-25"></label>
     </div>
 
     <div>
@@ -78,7 +75,7 @@
                     <?php echo jgettext('Description'); ?>
                 </label>
                 <textarea rows="2" cols="25" id="buildvars_description"
-                          name="buildvars[description]"><?php echo $this->project->description; ?>"</textarea>
+                          name="buildvars[description]"><?php echo $this->project->description; ?></textarea>
             </li>
             <li>
                 <label class="creditsLabel">

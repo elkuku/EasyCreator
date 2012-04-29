@@ -164,13 +164,17 @@ class EasyCreatorViewStarter extends JView
                 'JDocs - Package' => $docBase.'Package')
 
         , 'cliapp' => array(
-                'JDocs - Create a stand-alone application' => $docBase.'How_to_create_a_stand-alone_application_using_the_Joomla!_Platform'
-            , 'JDocs - Tips and Tericks' => $docBase.'Platform_Applications_Tips_and_Tricks'
+                'JDocs - Create a stand-alone application'
+                => $docBase.'How_to_create_a_stand-alone_application_using_the_Joomla!_Platform'
+            , 'JDocs - Tips and Tricks'
+                => $docBase.'Platform_Applications_Tips_and_Tricks'
             )
 
         , 'webapp' => array(
-                'JDocs - Create a stand-alone application' => $docBase.'How_to_create_a_stand-alone_application_using_the_Joomla!_Platform'
-            , 'JDocs - Tips and Tericks' => $docBase.'Platform_Applications_Tips_and_Tricks'
+                'JDocs - Create a stand-alone application'
+                => $docBase.'How_to_create_a_stand-alone_application_using_the_Joomla!_Platform'
+            , 'JDocs - Tips and Tricks'
+                => $docBase.'Platform_Applications_Tips_and_Tricks'
             )
         );
 

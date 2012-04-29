@@ -449,7 +449,7 @@ abstract class EcrProjectBase
             return false;
         }
 
-        if(0)//! $this->updateAdminMenu())
+        if( ! $this->updateAdminMenu())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
