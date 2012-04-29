@@ -1582,6 +1582,11 @@ case 'etc':
             return $paths[$scope].DS.$addPath;
         }
 
+        if(isset($paths[0]))
+        {
+            return $paths[0].DS.$addPath;
+        }
+
         //-- Found nothing :(
         return '';
     }//function
