@@ -50,7 +50,26 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.17 ----------
+
+2012-04-29
+74c57ef Add export archive sub template
+dd4cc01 Cleanup and formatting
+a0e1ae9 Add option to specify a local data path
+002d769 Fix can not save language ini files
+cf0dc9b Fix projects component admin menu lost on save
+
+2012-04-28
+2b63c38 Rename data/scripts folder to data/projects
+8aa954a Backup user data on extension update
+533eb49 Update language id-ID
+06c4550 Update language templates
+
+2012-04-28
+8362b96 Fix a bunch of path issues on windows
+
 2012-04-27
+23c277e More JVersion comments
 6828d04 Update changelog
 ff09164 Docblocks and J version markers
 9cc13fa Move the debug console to a proper helper
