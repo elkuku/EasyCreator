@@ -59,7 +59,7 @@
         <field name="editarea_font_size" type="text" size="3"
                label="Editor font size" description="The default font size for the code editor in pixel"
                default="8"/>
-        <field name="local_api_copy" type="text" size="40" label="Local API copy"
+        <field name="local_api_copy" type="text" size="30" label="Local API copy"
                description="Your copy of the Joomla! API - get it from http://api.joomla.org"/>
         <field name="warn_livesite" type="radio" default="1"
                label="Livesite warning"
@@ -72,7 +72,9 @@
             <option value="0">No</option>
             <option value="1">Yes</option>
         </field>
+
         <field name="spacer4_1" type="spacer" default="Language"/>
+
         <field name="use_google_trans_api" type="radio" default="1"
                label="Use Google translation API"
                description="Should we use the Google Translation API for helping in translations ?">
@@ -89,6 +91,11 @@
             <option value="0">No</option>
             <option value="1">Yes</option>
         </field>
+
+        <field name="spacer4_2" type="spacer" default="Data"/>
+
+        <field name="local_data_dir" type="text" label="Local data directory"
+               description="A directory where all user data will be saved. If left blank, a sub directory in the component directory will be used"/>
     </fieldset>
 
     <fieldset name="logging" label="Logging">
@@ -110,7 +117,9 @@
     </fieldset>
 
     <fieldset name="debug" label="Debug">
+
         <field name="spacer5_1" type="spacer" default="EasyCreator only"/>
+
         <field name="ecr_debug" type="radio" default="0" label="Debugger"
                description="Shall we use the Debug mode ?">
             <option value="0">Off</option>

@@ -7,6 +7,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+$params = JComponentHelper::getParams('com_easycreator');
+
 /**
  * The OS specific directory separator - @todo remove ?
  */
@@ -42,10 +44,22 @@ define('ECRPATH_PARTS', JPath::clean(ECRPATH_EXTENSIONTEMPLATES.'/parts'));
  */
 define('ECRPATH_HELPERS', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/helpers'));
 
-/**
- * Path for Exports
- */
-define('ECRPATH_DATA', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/data'));
+$dataDir = $params->get('local_data_dir');
+
+if($dataDir)
+{
+    /**
+     * Path for user data
+     */
+    define('ECRPATH_DATA', JPath::clean(JPATH_ROOT.DIRECTORY_SEPARATOR.$dataDir));
+}
+else
+{
+    /**
+    * Path for user data
+    */
+    define('ECRPATH_DATA', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/data'));
+}
 
 /**
 * Path for Logs
@@ -87,4 +101,4 @@ define('ECR_DOCU_LINK', 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutze
 /**
  * EasyCreator HELP mode.
  */
-define('ECR_HELP', JComponentHelper::getParams('com_easycreator')->get('ecr_help'));
+define('ECR_HELP', $params->get('ecr_help'));
