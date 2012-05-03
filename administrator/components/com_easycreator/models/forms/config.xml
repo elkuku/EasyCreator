@@ -75,12 +75,14 @@
 
         <field name="spacer4_1" type="spacer" default="Language"/>
 
+        <!--
         <field name="use_google_trans_api" type="radio" default="1"
                label="Use Google translation API"
                description="Should we use the Google Translation API for helping in translations ?">
             <option value="0">No</option>
             <option value="1">Yes</option>
         </field>
+        -->
         <field name="langfiles_chk_utf8" type="radio" default="0"
                label="Check for UTF8" description="Should languages files be checked for UTF-8">
             <option value="0">No</option>

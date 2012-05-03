@@ -70,6 +70,9 @@ if(strrpos($translation, '"') == strlen($translation) - 1)
     $translation = substr($translation, 0, strlen($translation) - 1);
 }
 
+/*
+ * Google translation API is now a paid service :(
+ *
 if($useGoogle && $this->trans_lang != 'en-GB') :
     JFactory::getDocument()->addScript('http://www.google.com/jsapi');
 ?>
@@ -84,7 +87,9 @@ if($useGoogle && $this->trans_lang != 'en-GB') :
 		var gbranding_displayed = false;
 		$('google_loader').innerHTML = '';
 	</script>
-<?php endif;?>
+<?php endif;
+*/
+?>
 
 <table width="100%">
 	<tr>
@@ -142,7 +147,7 @@ if($useGoogle && $this->trans_lang != 'en-GB') :
             	<?php echo jgettext('Copy'); ?>
             </a>
         </li>
-    	<?php if($useGoogle) : ?>
+    	<?php if(0) : //$useGoogle) : ?>
             <li>
             	<span id="gtranslate_branding" style="float: right; padding-left: 0.5em;"></span>
                 <a href="javascript:;" accesskey="g" onclick="ecrTranslator.google_translate('<?php echo $langTag; ?>');">

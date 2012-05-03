@@ -88,6 +88,10 @@ var ecrTranslator = new Class({
 
     /**
      * Translate with the Google translation API
+     *
+     * Not working any more :(
+     *
+     * @todo replace
      */
     google_translate : function(lang)
     {
