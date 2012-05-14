@@ -209,7 +209,7 @@ class PartTablesSimple extends EcrProjectPart
          *
          * Define keys that will be substitutes in the code
          */
-        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Tables');
+        $project->addSubstitute('ECR_SUBPACKAGE', 'Tables');
         $project->addSubstitute('_ECR_TABLE_NAME_', $table_name);
 
         foreach($AutoCode->codes as $key => $code)

@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * System Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgSystem_ECR_COM_NAME_ extends JPlugin
+class plgSystemECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor

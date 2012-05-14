@@ -5,12 +5,12 @@
 jimport('joomla.application.component.controllerform');
 
 /**
- * _ECR_COM_NAME_ Controller.
+ * ECR_COM_NAME Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_Controller_ECR_COM_NAME_ extends JControllerForm
+class ECR_COM_NAMEControllerECR_COM_NAME extends JControllerForm
 {
     /**
      * !!!
@@ -19,5 +19,5 @@ class _ECR_COM_NAME_Controller_ECR_COM_NAME_ extends JControllerForm
      *
      * @var string
      */
-    protected $view_list = '_ECR_COM_NAME__ECR_LIST_POSTFIX_';
+    protected $view_list = 'ECR_COM_NAMEECR_LIST_POSTFIX';
 }//class

@@ -13,7 +13,7 @@
 			<th width="20">
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->items); ?>);" />
 			</th>
-<!--admin.viewlist.table._ECR_COM_TBL_NAME_.header-->
+<!--admin.viewlist.table.ECR_COM_TBL_NAME.header-->
 		</tr>
 	</thead>
 	<?php
@@ -21,7 +21,7 @@
     for($i = 0, $n = count($this->items); $i < $n; $i++) :
         $row = &$this->items[$i];
         $checked = JHTML::_('grid.id', $i, $row->id);
-        $link = JRoute::_('index.php?option=_ECR_COM_COM_NAME_&controller=_ECR_COM_TBL_NAME_&task=edit&cid[]='.$row->id);
+        $link = JRoute::_('index.php?option=ECR_COM_COM_NAME&controller=ECR_COM_TBL_NAME&task=edit&cid[]='.$row->id);
 
         ?>
 		<tr class="<?php echo "row$k"; ?>">
@@ -33,7 +33,7 @@
 			<td>
 				<?php echo $checked; ?>
 			</td>
-<!--admin.viewlist.table._ECR_COM_TBL_NAME_.cell-->
+<!--admin.viewlist.table.ECR_COM_TBL_NAME.cell-->
 		</tr>
 		<?php
         $k = 1 - $k;
@@ -49,8 +49,8 @@
 	</table>
 </div>
 
-<input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />
+<input type="hidden" name="option" value="ECR_COM_COM_NAME" />
 <input type="hidden" name="task" value="" />
 <input type="hidden" name="boxchecked" value="0" />
-<input type="hidden" name="controller" value="_ECR_COM_TBL_NAME_" />
+<input type="hidden" name="controller" value="ECR_COM_TBL_NAME" />
 </form>

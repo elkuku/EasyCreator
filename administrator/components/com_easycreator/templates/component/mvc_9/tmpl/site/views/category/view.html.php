@@ -4,16 +4,16 @@
 jimport('joomla.application.component.view');
 
 /**
- * HTML View class for the _ECR_COM_NAME_ component.
+ * HTML View class for the ECR_COM_NAME component.
  *
  * @static
- * @package	_ECR_COM_NAME_
+ * @package	ECR_COM_NAME
  * @subpackage	Views
  */
-class _ECR_COM_NAME_ViewCategory extends JView
+class ECR_COM_NAMEViewCategory extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -38,7 +38,7 @@ class _ECR_COM_NAME_ViewCategory extends JView
         $state = $this->get('state');
 
         //-- Get the page/component configuration
-        $params = JComponentHelper::getParams('_ECR_COM_COM_NAME_');
+        $params = JComponentHelper::getParams('ECR_COM_COM_NAME');
 
         if( ! $category)
         {
@@ -55,7 +55,7 @@ class _ECR_COM_NAME_ViewCategory extends JView
             $category->total = $total;
         }
 
-        $model = JModel::getInstance('categories', '_ECR_COM_NAME_model');
+        $model = JModel::getInstance('categories', 'ECR_COM_NAMEmodel');
         $categories = $model->getData();
 
         //-- Add alternate feed link
@@ -104,7 +104,7 @@ class _ECR_COM_NAME_ViewCategory extends JView
         $lists['order'] = $state->get('filter_order');
 
         //-- Set some defaults if not set for params
-        $params->def('comp_description', JText::_('_ECR_COM_NAME__DESC'));
+        $params->def('comp_description', JText::_('ECR_COM_NAME_DESC'));
 
         //-- Define image tag attributes
         if(isset($category->image)
@@ -124,7 +124,7 @@ class _ECR_COM_NAME_ViewCategory extends JView
         {
             $item =& $items[$i];
 
-            $link = JRoute::_('index.php?view=_ECR_COM_NAME_&catid='.$category->slug.'&id='.$item->slug);
+            $link = JRoute::_('index.php?view=ECR_COM_NAME&catid='.$category->slug.'&id='.$item->slug);
 
             $menuclass = 'category'.$this->escape($params->get('pageclass_sfx'));
 
@@ -143,7 +143,7 @@ class _ECR_COM_NAME_ViewCategory extends JView
         for($i = 0; $i < $count; $i ++)
         {
             $cat =& $categories[$i];
-            $cat->link = JRoute::_('index.php?option=_ECR_COM_COM_NAME_&view=category&id='.$cat->slug);
+            $cat->link = JRoute::_('index.php?option=ECR_COM_COM_NAME&view=category&id='.$cat->slug);
         }//for
 
         $this->assignRef('lists', $lists);

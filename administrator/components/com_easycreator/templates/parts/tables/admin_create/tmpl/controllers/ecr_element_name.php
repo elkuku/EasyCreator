@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_ELEMENT_NAME_ controller.
+ * ECR_ELEMENT_NAME controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
+class ECR_COM_NAMEsControllerECR_ELEMENT_NAME extends JController
 {
     var $cid;
 
@@ -44,7 +44,7 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
     function cancel()
     {
         $msg = JText::_('Operation Cancelled');
-        $this->setRedirect('index.php?option=com__ECR_COM_NAME_&view=_ECR_LOWER_ELEMENT_NAME_s', $msg);
+        $this->setRedirect('index.php?option=com_ECR_COM_NAME&view=_ECR_LOWER_ELEMENT_NAME_s', $msg);
     }//function
 
     function publish()
@@ -71,7 +71,7 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
             JError::raiseError(500, $db->getError());
         }
 
-        $link = 'index.php?option=com__ECR_COM_NAME_&view=_ECR_LOWER_ELEMENT_NAME_s';
+        $link = 'index.php?option=com_ECR_COM_NAME&view=_ECR_LOWER_ELEMENT_NAME_s';
         $this->setRedirect($link, $msg);
     }
 
@@ -82,7 +82,7 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
         #_ECR_SMAT_DESCRIPTION_CONTROLLER1_
         $post['id'] = (int)$cid[0];
 
-        $model = $this->getModel('_ECR_ELEMENT_NAME_');
+        $model = $this->getModel('ECR_ELEMENT_NAME');
 
         if($model->store($post))
         {
@@ -93,13 +93,13 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
             $msg = JText::_('Error Saving Item');
         }
 
-        $link = 'index.php?option=com__ECR_COM_NAME_&view=_ECR_LOWER_ELEMENT_NAME_s';
+        $link = 'index.php?option=com_ECR_COM_NAME&view=_ECR_LOWER_ELEMENT_NAME_s';
         $this->setRedirect($link, $msg);
     }
 
     function remove()
     {
-        $model = $this->getModel('_ECR_ELEMENT_NAME_');
+        $model = $this->getModel('ECR_ELEMENT_NAME');
 
         if( ! $model->delete())
         {
@@ -115,7 +115,7 @@ class _ECR_COM_NAME_sController_ECR_ELEMENT_NAME_ extends JController
             }
         }
 
-        $this->setRedirect('index.php?option=com__ECR_COM_NAME_&view=_ECR_LOWER_ELEMENT_NAME_s', $msg);
+        $this->setRedirect('index.php?option=com_ECR_COM_NAME&view=_ECR_LOWER_ELEMENT_NAME_s', $msg);
     }//function
     ##ECR_MAT_ORDERING_CONTROLLER1##
 }//class

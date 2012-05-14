@@ -150,7 +150,7 @@ class PartViewsData_form extends EcrProjectPart
     {
         $this->_options = $options;
 
-        $EasyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Views');
+        $EasyProject->addSubstitute('ECR_SUBPACKAGE', 'Views');
 
         $element_name = JRequest::getCmd('element_name');
         $table_name = JRequest::getCmd('table_name');
@@ -187,7 +187,7 @@ class PartViewsData_form extends EcrProjectPart
         /*
          * Add substitutes
          */
-        $EasyProject->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
+        $EasyProject->addSubstitute('ECR_ELEMENT_NAME', $element_name);
         $EasyProject->addSubstitute('_ECR_LOWER_ELEMENT_NAME_', strtolower($element_name));
         $EasyProject->addSubstitute('_ECR_TABLE_NAME_', $table_name);
 

@@ -6,7 +6,7 @@
  */
 function com_uninstall()
 {
-    echo '<h2>'.JText::sprintf('%s Uninstaller', '_ECR_COM_NAME_').'</h2>';
+    echo '<h2>'.JText::sprintf('%s Uninstaller', 'ECR_COM_NAME').'</h2>';
 
     /*
      * Custom uninstall function

@@ -5,12 +5,12 @@
 jimport('joomla.application.component.modellist');
 
 /**
- * _ECR_COM_NAME__ECR_LIST_POSTFIX_ Model.
+ * ECR_COM_NAMEECR_LIST_POSTFIX Model.
  *
- * @package _ECR_COM_NAME_
+ * @package ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JModelList
+class ECR_COM_NAMEModelECR_COM_NAMEECR_LIST_POSTFIX extends JModelList
 {
     /**
      * Method to build an SQL query to load the list data.
@@ -26,7 +26,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JModelList
         // Ein neues (leeres) Queryobjekt beziehen.
         $query = $db->getQuery(true);
 
-        /*admin.models.model._ECR_COM_TBL_NAME_.buildquery16*/
+        /*admin.models.model.ECR_COM_TBL_NAME.buildquery16*/
 
         return $query;
     }//function

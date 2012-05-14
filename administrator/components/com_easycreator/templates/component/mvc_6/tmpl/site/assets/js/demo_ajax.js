@@ -2,7 +2,7 @@ window.addEvent("domready", function() {
     var fx=new Fx.Style($("consoleContainer"), "background-color", {duration:2000});
     $("ajaxLink").addEvent("click", function() {
         $("fieldsContainer").empty().addClass("ajax-loading").setHTML("<img src='"+assetsBase+"/images/ajax-loader.gif' border='0'> "+ _LOADING_ );
-        var url="index.php?option=_ECR_COM_COM_NAME_&task=getrandom&format=raw&justforrandom="+Math.floor(Math.random()*99999);
+        var url="index.php?option=ECR_COM_COM_NAME&task=getrandom&format=raw&justforrandom="+Math.floor(Math.random()*99999);
         var a=new Ajax(url,{
             method:"get",
             onComplete: function(response) {

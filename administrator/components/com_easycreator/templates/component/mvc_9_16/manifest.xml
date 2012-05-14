@@ -11,11 +11,11 @@
 	<author></author>
 	<authorUrl></authorUrl>
 	<menu
-		img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-16.png">_ECR_COM_NAME_</menu>
+		img="components/ECR_COM_COM_NAME/assets/images/ECR_COM_COM_NAME-16.png">ECR_COM_NAME</menu>
 	<submenu>
 		<menu img="article"
-			link="option=_ECR_COM_COM_NAME_&amp;view=_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_">_ECR_COM_NAME_</menu>
+			link="option=ECR_COM_COM_NAME&amp;view=ECR_COM_TBL_NAMEECR_LOWER_LIST_POSTFIX">ECR_COM_NAME</menu>
 		<menu img="category"
-			link="option=com_categories&amp;extension=_ECR_COM_COM_NAME_">Categories</menu>
+			link="option=com_categories&amp;extension=ECR_COM_COM_NAME">Categories</menu>
 	</submenu>
 </easyproject>

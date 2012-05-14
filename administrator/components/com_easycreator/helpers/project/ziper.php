@@ -591,7 +591,7 @@ class EcrProjectZiper extends JObject
                 $fileContents = str_replace('<?php', '', $fileContents);
                 $this->project->addSubstitute('##ECR_MD5CHECK##', $fileContents);
 
-                $this->project->addSubstitute('_ECR_COM_COM_NAME_', $this->project->comName);
+                $this->project->addSubstitute('ECR_COM_COM_NAME', $this->project->comName);
 
                 $fileContents = JFile::read($destPath.DS.$file->name);
                 $fileContents = $this->project->substitute($fileContents);

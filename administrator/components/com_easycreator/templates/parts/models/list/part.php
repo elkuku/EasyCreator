@@ -62,7 +62,7 @@ class PartModelsList
      */
     public function insert(EcrProjectBase $easyProject, $options, EcrLogger $logger)
     {
-        $easyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
+        $easyProject->addSubstitute('ECR_SUBPACKAGE', 'Models');
 
         return $easyProject->insertPart($options, $logger);
     }//function

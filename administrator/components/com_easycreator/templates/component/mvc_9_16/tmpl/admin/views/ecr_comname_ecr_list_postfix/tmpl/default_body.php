@@ -3,7 +3,7 @@
 
 ?>
 <?php foreach($this->items as $i => $row): ?>
-<?php $link = JRoute::_('index.php?option=_ECR_COM_COM_NAME_&view=_ECR_COM_TBL_NAME_&layout=edit&id='
+<?php $link = JRoute::_('index.php?option=ECR_COM_COM_NAME&view=ECR_COM_TBL_NAME&layout=edit&id='
         .$row->id); ?>
 <tr class="row<?php echo $i % 2; ?>">
     <td>
@@ -14,6 +14,6 @@
     <td>
         <?php echo JHtml::_('grid.id', $i, $row->id); ?>
     </td>
-<!--admin.viewlist.table._ECR_COM_TBL_NAME_.cell-->
+<!--admin.viewlist.table.ECR_COM_TBL_NAME.cell-->
 </tr>
 <?php endforeach;

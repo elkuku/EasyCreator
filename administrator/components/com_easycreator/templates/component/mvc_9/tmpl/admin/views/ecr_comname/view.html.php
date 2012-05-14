@@ -4,15 +4,15 @@
 jimport('joomla.application.component.view');
 
 /**
- * HTML View class for the _ECR_COM_NAME_ Component.
+ * HTML View class for the ECR_COM_NAME Component.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME_ extends JView
+class ECR_COM_NAMEECR_LIST_POSTFIXViewECR_COM_NAME extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -22,12 +22,12 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME_ extends JView
     {
         $option = JRequest::getCmd('option');
 
-        //-- Get the _ECR_COM_NAME_
-        $_ECR_COM_NAME_	=& $this->get('Data');
-        $isNew = ($_ECR_COM_NAME_->id < 1);
+        //-- Get the ECR_COM_NAME
+        $ECR_COM_NAME	=& $this->get('Data');
+        $isNew = ($ECR_COM_NAME->id < 1);
 
         $text = $isNew ? JText::_('New') : JText::_('Edit');
-        JToolBarHelper::title('_ECR_COM_NAME_: <small><small>[ '.$text.' ]</small></small>');
+        JToolBarHelper::title('ECR_COM_NAME: <small><small>[ '.$text.' ]</small></small>');
         JToolBarHelper::save();
 
         if($isNew)
@@ -41,9 +41,9 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME_ extends JView
         }
 
         $lists = array();
-        $lists['catid'] = JHTML::_('list.category', 'catid', $option, intval($_ECR_COM_NAME_->catid));
+        $lists['catid'] = JHTML::_('list.category', 'catid', $option, intval($ECR_COM_NAME->catid));
 
-        $this->assignRef('_ECR_COM_NAME_', $_ECR_COM_NAME_);
+        $this->assignRef('ECR_COM_NAME', $ECR_COM_NAME);
         $this->assignRef('lists', $lists);
 
         parent::display($tpl);

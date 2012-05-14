@@ -25,7 +25,7 @@ JHTML::_('behavior.tooltip');
 	##ECR_SMAT_DESCRIPTION_VIEW1##
 
 	<input type="hidden" name="cid[]" value="<?php echo $this->item->id; ?>" />
-	<input type="hidden" name="option" value="com__ECR_COM_NAME_" />
+	<input type="hidden" name="option" value="com_ECR_COM_NAME" />
 	<input type="hidden" name="task" value="" />
-	<input type="hidden" name="controller" value="_ECR_ELEMENT_NAME_" />
+	<input type="hidden" name="controller" value="ECR_ELEMENT_NAME" />
 </form>

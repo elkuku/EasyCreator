@@ -4,12 +4,12 @@
 jimport('joomla.application.component.modeladmin');
 
 /**
- * _ECR_COM_NAME_ Model.
+ * ECR_COM_NAME Model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
+class ECR_COM_NAMEModelECR_COM_NAME extends JModelAdmin
 {
     /**
      * Returns a reference to the a Table object, always creating it.
@@ -20,7 +20,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
      *
      * @return JTable A database object
      */
-    public function getTable($type = '_ECR_COM_NAME_', $prefix = '_ECR_COM_NAME_Table', $config = array())
+    public function getTable($type = 'ECR_COM_NAME', $prefix = 'ECR_COM_NAMETable', $config = array())
     {
         return JTable::getInstance($type, $prefix, $config);
     }//function
@@ -36,7 +36,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
     public function getForm($data = array(), $loadData = true)
     {
         // Get the form.
-        $form = $this->loadForm('_ECR_COM_COM_NAME_._ECR_LOWER_COM_NAME_', '_ECR_LOWER_COM_NAME_'
+        $form = $this->loadForm('ECR_COM_COM_NAME.ECR_LOWER_COM_NAME', 'ECR_LOWER_COM_NAME'
         , array('control' => 'jform', 'load_data' => $loadData));
 
         if(empty($form))
@@ -56,7 +56,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModelAdmin
     {
         // Check the session for previously entered form data.
         $data = JFactory::getApplication()
-        ->getUserState('_ECR_COM_COM_NAME_.edit._ECR_LOWER_COM_NAME_.data');
+        ->getUserState('ECR_COM_COM_NAME.edit.ECR_LOWER_COM_NAME.data');
 
         if(empty($data))
         {

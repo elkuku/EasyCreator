@@ -101,8 +101,8 @@ class Com_EasyCreatorInstallerScript
     public function install($parent)
     {
         // $parent is the class calling this method
-        //    $parent->getParent()->setRedirectURL('index.php?option=_ECR_COM_COM_NAME_');
-        //echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__INSTALL_TEXT').'</p>';
+        //    $parent->getParent()->setRedirectURL('index.php?option=ECR_COM_COM_NAME');
+        //echo '<p>'.JText::_('ECR_UPPER_COM_COM_NAME_INSTALL_TEXT').'</p>';
     }
 
     /**
@@ -115,7 +115,7 @@ class Com_EasyCreatorInstallerScript
     public function WTFupdate($parent)
     {
         // $parent is the class calling this method
-        echo '<p>'.JText::_('_ECR_UPPER_COM_COM_NAME__UPDATE_TEXT').'</p>';
+        echo '<p>'.JText::_('ECR_UPPER_COM_COM_NAME_UPDATE_TEXT').'</p>';
     }
 
     /**

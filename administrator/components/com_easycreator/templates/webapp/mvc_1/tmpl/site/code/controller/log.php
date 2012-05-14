@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ log controller.
+ * ECR_COM_NAME log controller.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Controller
  */
 class ECR_CLASS_PREFIXControllerLog extends JControllerBase

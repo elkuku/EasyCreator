@@ -4,12 +4,12 @@
 jimport('joomla.plugin.plugin');
 
 /**
- * _ECR_COM_NAME_ Search plugin.
+ * ECR_COM_NAME Search plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgSearch_ECR_COM_NAME_ extends JPlugin
+class plgSearchECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor.

@@ -4,15 +4,15 @@
 jimport('joomla.application.component.view');
 
 /**
- * _ECR_ELEMENT_NAME_ view.
+ * ECR_ELEMENT_NAME view.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class _ECR_COM_NAME_View_ECR_ELEMENT_NAME_ extends JView
+class ECR_COM_NAMEViewECR_ELEMENT_NAME extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *

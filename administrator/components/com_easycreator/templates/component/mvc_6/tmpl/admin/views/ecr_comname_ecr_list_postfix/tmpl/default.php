@@ -25,7 +25,7 @@
     {
     $row = &$this->items[$i];
     $checked = JHTML::_('grid.id', $i, $row->id);
-    $link = JRoute::_('index.php?option=_ECR_COM_COM_NAME_&controller=_ECR_COM_TBL_NAME_&task=edit&cid[]='.$row->id);
+    $link = JRoute::_('index.php?option=ECR_COM_COM_NAME&controller=ECR_COM_TBL_NAME&task=edit&cid[]='.$row->id);
 
     ?>
 		<tr class="<?php echo "row$k"; ?>">
@@ -55,8 +55,8 @@
 	</table>
 </div>
 
-<input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />
+<input type="hidden" name="option" value="ECR_COM_COM_NAME" />
 <input type="hidden" name="task" value="" />
 <input type="hidden" name="boxchecked" value="0" />
-<input type="hidden" name="controller" value="_ECR_COM_TBL_NAME_" />
+<input type="hidden" name="controller" value="ECR_COM_TBL_NAME" />
 </form>

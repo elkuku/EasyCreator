@@ -4,12 +4,12 @@
 jimport('joomla.plugin.plugin');
 
 /**
- * _ECR_COM_NAME_ Extension Plugin.
+ * ECR_COM_NAME Extension Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgExtension_ECR_COM_NAME_ extends JPlugin
+class plgExtensionECR_COM_NAME extends JPlugin
 {
     /**
      * Handle post extension install update sites

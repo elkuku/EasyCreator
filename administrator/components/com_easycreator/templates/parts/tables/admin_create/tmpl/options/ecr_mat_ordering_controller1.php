@@ -10,16 +10,16 @@ function _reOrder($direction)
 
     if(isset($cid[0]))
     {
-        $row = & JTable::getInstance('_ECR_ELEMENT_NAME_', 'Table');
+        $row = & JTable::getInstance('ECR_ELEMENT_NAME', 'Table');
         $row->load((int)$cid[0]);
         $row->move($direction);
 
-        $cache = & JFactory::getCache('com__ECR_COM_NAME_');
+        $cache = & JFactory::getCache('com_ECR_COM_NAME');
         $cache->clean();
     }
 
     $application = JFactory::getApplication();
-    $mainframe->redirect('index.php?option=com__ECR_COM_NAME_&view=_ECR_LOWER_ELEMENT_NAME_s');
+    $mainframe->redirect('index.php?option=com_ECR_COM_NAME&view=_ECR_LOWER_ELEMENT_NAME_s');
 }
 
 function saveorder()
@@ -57,7 +57,7 @@ function saveorder()
 
     $application = JFactory::getApplication();
     $msg = JText::_('New ordering saved');
-    $application->redirect('index.php?option=com__ECR_COM_NAME_&view=_ECR_LOWER_ELEMENT_NAME_s', $msg);
+    $application->redirect('index.php?option=com_ECR_COM_NAME&view=_ECR_LOWER_ELEMENT_NAME_s', $msg);
 }
 
 function orderup()

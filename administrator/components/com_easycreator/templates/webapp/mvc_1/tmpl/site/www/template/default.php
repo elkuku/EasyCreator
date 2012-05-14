@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>_ECR_COM_NAME_</title>
+    <title>ECR_COM_NAME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -28,13 +28,13 @@
                 <span class="icon-bar"></span>
             </a>
 
-            <a class="brand" href="#">_ECR_COM_NAME_</a>
+            <a class="brand" href="#">ECR_COM_NAME</a>
 
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active"><a href="<?= JURI::root(); ?>">Home</a></li>
-                    <li><a href="<?= JURI::root(); ?>?do=list">_ECR_COM_NAME_ List</a></li>
-                    <li><a href="<?= JURI::root(); ?>?do=_ECR_LOWER_COM_NAME_">New _ECR_COM_NAME_</a></li>
+                    <li><a href="<?= JURI::root(); ?>?do=list">ECR_COM_NAME List</a></li>
+                    <li><a href="<?= JURI::root(); ?>?do=ECR_LOWER_COM_NAME">New ECR_COM_NAME</a></li>
                     <li><a href="<?= JURI::root(); ?>?do=log">Log</a></li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
     <hr>
 
     <footer>
-        <p>_ECR_COM_NAME_ is powered by <a href="http://joomla.org">Joomla!</a></p>
+        <p>ECR_COM_NAME is powered by <a href="http://joomla.org">Joomla!</a></p>
     </footer>
 </div>
 <!-- /container -->

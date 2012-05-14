@@ -11,7 +11,7 @@
 defined('_JEXEC') || die('=;)');
 
 /**
- * _ECR_ELEMENT_NAME_ model.
+ * ECR_ELEMENT_NAME model.
  *
  * @package    EasyCreator
  * @subpackage Templates.Parts
@@ -96,10 +96,10 @@ class PartTablesAdmin_create
         /*
          * Add substitutes
          */
-        $easyProject->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
+        $easyProject->addSubstitute('ECR_ELEMENT_NAME', $element_name);
         $easyProject->addSubstitute('_ECR_LOWER_ELEMENT_NAME_', strtolower($element_name));
         $easyProject->addSubstitute('_ECR_TABLE_NAME_'
-        , strtolower($easyProject->getSubstitute('_ECR_COM_NAME_').'_'.$element_name));
+        , strtolower($easyProject->getSubstitute('ECR_COM_NAME').'_'.$element_name));
 
         /*
          * Read part options files

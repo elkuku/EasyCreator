@@ -4,7 +4,7 @@
 /**
  * A JApplicationWeb application.
  *
- * @package  _ECR_COM_NAME_
+ * @package  ECR_COM_NAME
  */
 class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
 {

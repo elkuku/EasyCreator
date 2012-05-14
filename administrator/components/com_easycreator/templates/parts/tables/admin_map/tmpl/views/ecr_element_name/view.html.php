@@ -4,15 +4,15 @@
 jimport('joomla.application.component.view');
 
 /**
- * _ECR_ELEMENT_NAME_ view.
+ * ECR_ELEMENT_NAME view.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_ELEMENT_NAME_ extends JView
+class ECR_COM_NAMEECR_LIST_POSTFIXViewECR_ELEMENT_NAME extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -20,15 +20,15 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_ELEMENT_NAME_ extends JView
      */
     public function display($tpl = null)
     {
-        JHTML::stylesheet('_ECR_COM_NAME_.css', 'administrator/components/com__ECR_COM_NAME_/assets/');
+        JHTML::stylesheet('ECR_COM_NAME.css', 'administrator/components/com_ECR_COM_NAME/assets/');
 
         //-- Data from model
         $item =& $this->get('Data');
         $isNew = ($item->id < 1);
         $text = $isNew ? JText::_('New') : JText::_('Edit');
 
-        JToolBarHelper::title('&nbsp;&nbsp;'.JText::_('_ECR_ELEMENT_NAME_')
-        .': <small><small>[ '.$text.' ]</small></small>', '_ECR_ELEMENT_NAME_');
+        JToolBarHelper::title('&nbsp;&nbsp;'.JText::_('ECR_ELEMENT_NAME')
+        .': <small><small>[ '.$text.' ]</small></small>', 'ECR_ELEMENT_NAME');
 
         JToolBarHelper::save();
         JToolBarHelper::cancel();

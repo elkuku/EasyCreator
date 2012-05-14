@@ -62,7 +62,7 @@ class PartViewsSimple
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Views');
+        $project->addSubstitute('ECR_SUBPACKAGE', 'Views');
 
         return $project->insertPart($options, $logger);
     }//function

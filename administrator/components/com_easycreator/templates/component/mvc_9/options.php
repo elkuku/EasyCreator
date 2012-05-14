@@ -106,7 +106,7 @@ class EasyTemplateOptions
 
         $tableName = strtolower($builder->project->name);
 
-        $builder->replacements->_ECR_COM_TBL_NAME_ = $tableName;
+        $builder->replacements->ECR_COM_TBL_NAME = $tableName;
 
         //-- Add the core categories table
         $table = new EcrTable('categories', true);

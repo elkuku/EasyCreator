@@ -77,7 +77,7 @@ class PartVariousInstall_Script
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Installer');
+        $project->addSubstitute('ECR_SUBPACKAGE', 'Installer');
 
         JRequest::setVar('element_scope', 'admin');
 

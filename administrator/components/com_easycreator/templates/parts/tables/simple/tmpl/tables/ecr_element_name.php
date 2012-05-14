@@ -4,7 +4,7 @@
 /**
  * Class for table _ECR_TABLE_NAME_.
  */
-class Table_ECR_ELEMENT_NAME_ extends JTable
+class TableECR_ELEMENT_NAME extends JTable
 {
 ##ECR_FIELD_1##
 ##ECR_TABLE_VARS##

@@ -58,7 +58,7 @@ function submitbutton(pressbutton) {
 	</div>
 	<div class="clr"></div>
 
-	<input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />
+	<input type="hidden" name="option" value="ECR_COM_COM_NAME" />
 	<input type="hidden" name="id" value="<?php echo $this->data->id; ?>" />
 	<input type="hidden" name="task" value="save" />
 	<input type="hidden" name="controller" value="" />

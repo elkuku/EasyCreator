@@ -17,7 +17,7 @@
             </td>
             <td>
                 <input class="text_area" type="text" name="greeting" id="greeting" size="32"
-                maxlength="250" value="<?php echo $this->_ECR_COM_NAME_->greeting;?>" />
+                maxlength="250" value="<?php echo $this->ECR_COM_NAME->greeting;?>" />
             </td>
         </tr>
         <tr>
@@ -29,7 +29,7 @@
             <td>
                 <?php
                 $editor =& JFactory::getEditor();
-                echo $editor->display('content', $this->_ECR_COM_NAME_->content, '550', '400', '60', '20', false);
+                echo $editor->display('content', $this->ECR_COM_NAME->content, '550', '400', '60', '20', false);
                 ?>
             </td>
         </tr>
@@ -38,8 +38,8 @@
 </div>
 <div class="clr"></div>
 
-<input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />
-<input type="hidden" name="id" value="<?php echo $this->_ECR_COM_NAME_->id; ?>" />
+<input type="hidden" name="option" value="ECR_COM_COM_NAME" />
+<input type="hidden" name="id" value="<?php echo $this->ECR_COM_NAME->id; ?>" />
 <input type="hidden" name="task" value="" />
-<input type="hidden" name="controller" value="_ECR_COM_TBL_NAME_" />
+<input type="hidden" name="controller" value="ECR_COM_TBL_NAME" />
 </form>

@@ -5,7 +5,7 @@
  */
 class ECR_CLASS_PREFIXTableECR_UCF_COM_NAME extends JTable
 {
-    private $pk = '_ECR_COM_TBL_NAME__id';
+    private $pk = 'ECR_COM_TBL_NAME_id';
 
     /**
      * Constructor
@@ -14,7 +14,7 @@ class ECR_CLASS_PREFIXTableECR_UCF_COM_NAME extends JTable
      */
     public function __construct($db)
     {
-        parent::__construct('#___ECR_COM_TBL_NAME_', $this->pk, $db);
+        parent::__construct('#__ECR_COM_TBL_NAME', $this->pk, $db);
     }
 
     /**

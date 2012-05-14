@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_COM_NAME_ Model.
+ * ECR_COM_NAME Model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModel
+class ECR_COM_NAMEModelECR_COM_NAME extends JModel
 {
     /**
      * Gets the Data.
@@ -22,7 +22,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModel
         $db = JFactory::getDBO();
 
         $query = 'SELECT a.*, cc.title AS category '
-        . ' FROM #___ECR_COM_TBL_NAME_ AS a '
+        . ' FROM #__ECR_COM_TBL_NAME AS a '
         . ' LEFT JOIN #__categories AS cc ON cc.id = a.catid '
         . ' WHERE a.id = '.$id;
 

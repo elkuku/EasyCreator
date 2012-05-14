@@ -9,14 +9,14 @@
         <legend><?php echo JText::_('Details'); ?></legend>
 
         <table class="admintable">
-<!--admin.viewform.table._ECR_COM_TBL_NAME_.row-->
+<!--admin.viewform.table.ECR_COM_TBL_NAME.row-->
 	</table>
 	</fieldset>
 </div>
 <div class="clr"></div>
 
-<input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />
-<input type="hidden" name="id" value="<?php echo $this->_ECR_COM_NAME_->id; ?>" />
+<input type="hidden" name="option" value="ECR_COM_COM_NAME" />
+<input type="hidden" name="id" value="<?php echo $this->ECR_COM_NAME->id; ?>" />
 <input type="hidden" name="task" value="" />
-<input type="hidden" name="controller" value="_ECR_COM_TBL_NAME_" />
+<input type="hidden" name="controller" value="ECR_COM_TBL_NAME" />
 </form>

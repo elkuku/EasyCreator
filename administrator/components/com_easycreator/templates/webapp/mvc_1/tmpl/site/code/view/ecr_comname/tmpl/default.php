@@ -1,7 +1,7 @@
 <?php
 ##*HEADER*##
 ?>
-<h1>_ECR_COM_NAME_ Item</h1>
+<h1>ECR_COM_NAME Item</h1>
 <form method="post" action="index.php?do=save" class="form-horizontal well">
     <fieldset>
         <div class="control-group">

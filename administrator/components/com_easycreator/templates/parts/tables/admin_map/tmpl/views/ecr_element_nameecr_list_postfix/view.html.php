@@ -4,15 +4,15 @@
 jimport('joomla.application.component.view');
 
 /**
- * _ECR_ELEMENT_NAME_ view.
+ * ECR_ELEMENT_NAME view.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_ extends JView
+class ECR_COM_NAMEECR_LIST_POSTFIXViewECR_ELEMENT_NAMEECR_LIST_POSTFIX extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -20,8 +20,8 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_ e
      */
     public function display($tpl = null)
     {
-        JHTML::stylesheet('_ECR_COM_NAME_.css', 'administrator/components/com__ECR_COM_NAME_/assets/');
-        JToolBarHelper::title('&nbsp;&nbsp;'.JText::_('_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_'), '_ECR_ELEMENT_NAME_');
+        JHTML::stylesheet('ECR_COM_NAME.css', 'administrator/components/com_ECR_COM_NAME/assets/');
+        JToolBarHelper::title('&nbsp;&nbsp;'.JText::_('ECR_ELEMENT_NAMEECR_LIST_POSTFIX'), 'ECR_ELEMENT_NAME');
 
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();

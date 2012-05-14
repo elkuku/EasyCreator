@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ delete controller.
+ * ECR_COM_NAME delete controller.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Controller
  */
 class ECR_CLASS_PREFIXControllerDelete extends JControllerBase
@@ -34,7 +34,7 @@ class ECR_CLASS_PREFIXControllerDelete extends JControllerBase
         }
         else
         {
-            echo '<div class="alert alert-success">Your _ECR_COM_NAME_ has been deleted</div>';
+            echo '<div class="alert alert-success">Your ECR_COM_NAME has been deleted</div>';
 
             JLog::add('A record has been deleted');
         }

@@ -1,7 +1,7 @@
 <?php
 ##*HEADER*##
 
-echo JText::sprintf('Random Users for %s', '_ECR_COM_NAME_');
+echo JText::sprintf('Random Users for %s', 'ECR_COM_NAME');
 ?>
 
 <ul>

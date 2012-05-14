@@ -2,11 +2,11 @@
 ##*HEADER*##
 
 /**
- * _ECR_COM_NAME_ Main installer
+ * ECR_COM_NAME Main installer
  */
 function com_install()
 {
-    echo '<h2>'.JText::sprintf('%s Installer', '_ECR_COM_NAME_').'</h2>';
+    echo '<h2>'.JText::sprintf('%s Installer', 'ECR_COM_NAME').'</h2>';
 ##ECR_MD5CHECK##
 
     /*

@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ default model.
+ * ECR_COM_NAME default model.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Model
  */
 class ECR_CLASS_PREFIXModelDefault extends JModelBase

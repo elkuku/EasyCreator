@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_ELEMENT_NAME_ controller
+ * ECR_ELEMENT_NAME controller
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends JController
+class ECR_COM_NAMEControllerECR_ELEMENT_NAME extends JController
 {
     public function __construct($config = array())
     {

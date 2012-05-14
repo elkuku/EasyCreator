@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_COM_NAME_ default Controller.
+ * ECR_COM_NAME default Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_Controller extends JController
+class ECR_COM_NAMEController extends JController
 {
     /**
      * Method to display the view.
@@ -19,10 +19,10 @@ class _ECR_COM_NAME_Controller extends JController
     public function display($cachable = false, $urlparams = false)
     {
         //-- Setting the default view
-        JRequest::setVar('view', JRequest::getCmd('view', '_ECR_COM_NAME__ECR_LOWER_LIST_POSTFIX_'));
+        JRequest::setVar('view', JRequest::getCmd('view', 'ECR_COM_NAMEECR_LOWER_LIST_POSTFIX'));
 
         parent::display($cachable, $urlparams);
 
-        _ECR_COM_NAME_Helper::addSubmenu('_ECR_COM_TBL_NAME__ECR_LOWER_LIST_POSTFIX_');
+        ECR_COM_NAMEHelper::addSubmenu('ECR_COM_TBL_NAMEECR_LOWER_LIST_POSTFIX');
     }//function
 }//class

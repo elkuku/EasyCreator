@@ -35,7 +35,7 @@ function tableOrdering(order, dir, task)
     		class="sectiontableheader<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
     		<?php echo JText::_('Id'); ?>
     	</td>
-<!--site.viewcategory.table._ECR_COM_TBL_NAME_.header-->
+<!--site.viewcategory.table.ECR_COM_TBL_NAME.header-->
 	</tr>
 <?php endif; ?>
 
@@ -47,7 +47,7 @@ function tableOrdering(order, dir, task)
     	<td height="20">
     		<?php echo $item->link; ?>
     	</td>
-<!--site.viewcategory.table._ECR_COM_TBL_NAME_.cell-->
+<!--site.viewcategory.table.ECR_COM_TBL_NAME.cell-->
 	</tr>
 <?php endforeach; ?>
 

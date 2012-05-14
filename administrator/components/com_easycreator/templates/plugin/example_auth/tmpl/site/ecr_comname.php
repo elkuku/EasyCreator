@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * Authentication Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgAuthentication_ECR_COM_NAME_ extends JPlugin
+class plgAuthenticationECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor.
@@ -22,7 +22,7 @@ class plgAuthentication_ECR_COM_NAME_ extends JPlugin
      * @param	array	$config		An array that holds the plugin configuration
      * @since	1.5
      */
-    function plgAuthentication_ECR_COM_NAME_(& $subject, $config)
+    function plgAuthenticationECR_COM_NAME(& $subject, $config)
     {
         parent::__construct($subject, $config);
     }//function

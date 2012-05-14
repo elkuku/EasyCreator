@@ -4,15 +4,15 @@
 jimport('joomla.application.component.view');
 
 /**
- * HTML View class for the _ECR_COM_NAME_ Component.
+ * HTML View class for the ECR_COM_NAME Component.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
+class ECR_COM_NAMEViewECR_COM_NAMEECR_LIST_POSTFIX extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method
      *
      * @param null $tpl
      *
@@ -51,17 +51,17 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
      */
     protected function addToolBar()
     {
-        JToolBarHelper::title(JText::_('_ECR_UPPER_COM_COM_NAME__MANAGER__ECR_UPPER_COM_NAME__ECR_UPPER_LIST_POSTFIX_')
-        , '_ECR_LOWER_COM_NAME_');
+        JToolBarHelper::title(JText::_('ECR_UPPER_COM_COM_NAME_MANAGER_ECR_UPPER_COM_NAMEECR_UPPER_LIST_POSTFIX')
+        , 'ECR_LOWER_COM_NAME');
 
-        JToolBarHelper::addNew('_ECR_LOWER_COM_NAME_.add');
-        JToolBarHelper::editList('_ECR_LOWER_COM_NAME_.edit');
-        JToolBarHelper::deleteList('', '_ECR_LOWER_COM_NAME__ECR_LOWER_LIST_POSTFIX_.delete');
+        JToolBarHelper::addNew('ECR_LOWER_COM_NAME.add');
+        JToolBarHelper::editList('ECR_LOWER_COM_NAME.edit');
+        JToolBarHelper::deleteList('', 'ECR_LOWER_COM_NAMEECR_LOWER_LIST_POSTFIX.delete');
 
         // CSS class for the 48x48 toolbar icon
         JFactory::getDocument()->addStyleDeclaration(
-       '.icon-48-_ECR_LOWER_COM_NAME_'
-       .' {background-image: url(components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_-48.png)}');
+       '.icon-48-ECR_LOWER_COM_NAME'
+       .' {background-image: url(components/ECR_COM_COM_NAME/assets/images/ECR_COM_COM_NAME-48.png)}');
     }//function
 
     /**
@@ -71,6 +71,6 @@ class _ECR_COM_NAME_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
      */
     protected function setDocument()
     {
-        JFactory::getDocument()->setTitle(JText::_('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__ADMINISTRATION'));
+        JFactory::getDocument()->setTitle(JText::_('ECR_UPPER_COM_COM_NAME_ECR_UPPER_COM_NAME_ADMINISTRATION'));
     }//function
 }//class

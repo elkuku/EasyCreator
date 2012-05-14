@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_COM_NAME_ Model.
+ * ECR_COM_NAME Model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_ModelCategory extends JModel
+class ECR_COM_NAMEModelCategory extends JModel
 {
     /**
      * Category id
@@ -57,7 +57,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
         parent::__construct();
 
         //-- Get the pagination request variables
-        $this->setState('limit', $app->getUserStateFromRequest('_ECR_COM_COM_NAME_.limit'
+        $this->setState('limit', $app->getUserStateFromRequest('ECR_COM_COM_NAME.limit'
         , 'limit', $config->getValue('config.list_limit'), 'int'));
 
         $this->setState('limitstart', JRequest::getVar('limitstart', 0, '', 'int'));
@@ -89,7 +89,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
     }//function
 
     /**
-     * Method to get _ECR_COM_NAME_ item data for the category
+     * Method to get ECR_COM_NAME item data for the category
      *
      * @access public
      * @return array
@@ -115,7 +115,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
     }//function
 
     /**
-     * Method to get the total number of _ECR_COM_NAME_ items for the category.
+     * Method to get the total number of ECR_COM_NAME items for the category.
      *
      * @return integer
      */
@@ -132,7 +132,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
     }//function
 
     /**
-     * Method to get a pagination object of the _ECR_COM_NAME_ items for the category
+     * Method to get a pagination object of the ECR_COM_NAME items for the category
      *
      * @return object JPagination
      */
@@ -205,7 +205,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
                 .' c.id as slug '
                 .' FROM #__categories AS c'
                 .' WHERE c.id = '.(int)$this->_id
-                .' AND c.section = "_ECR_COM_COM_NAME_"';
+                .' AND c.section = "ECR_COM_COM_NAME"';
 
             $this->_db->setQuery($query, 0, 1);
             $this->_category = $this->_db->loadObject();
@@ -229,7 +229,7 @@ class _ECR_COM_NAME_ModelCategory extends JModel
 
         // We need to get a list of all weblinks in the given category
         $query = 'SELECT *'
-            .' FROM #___ECR_COM_TBL_NAME_'
+            .' FROM #__ECR_COM_TBL_NAME'
             .' WHERE catid = '.(int)$this->_id
 //            .' AND published = 1'
             .' ORDER BY '.$filter_order.' '.$filter_order_dir;

@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_ELEMENT_NAME_ controller.
+ * ECR_ELEMENT_NAME controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JController
+class ECR_COM_NAMEECR_LIST_POSTFIXControllerECR_ELEMENT_NAME extends JController
 {
     var $cid;
 
@@ -26,7 +26,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
 
     private function _buildQuery()
     {
-        $this->_query = 'UPDATE #___ECR_COM_NAME___ECR_ELEMENT_NAME_'
+        $this->_query = 'UPDATE #__ECR_COM_NAME_ECR_ELEMENT_NAME'
         . ' SET published = '.(int)$this->publish
         . ' WHERE id IN ('.$this->cids.')';
 
@@ -35,7 +35,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
 
     function edit()
     {
-        JRequest::setVar('view', '_ECR_ELEMENT_NAME_');
+        JRequest::setVar('view', 'ECR_ELEMENT_NAME');
         JRequest::setVar('layout', 'form');
         JRequest::setVar('hidemainmenu', 1);
         parent::display();
@@ -44,7 +44,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
     function cancel()
     {
         $msg = JText::_('Operation Cancelled');
-        $this->setRedirect('index.php?option=com__ECR_COM_NAME_&view=_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_', $msg);
+        $this->setRedirect('index.php?option=com_ECR_COM_NAME&view=ECR_ELEMENT_NAMEECR_LIST_POSTFIX', $msg);
     }
 
     function publish()
@@ -71,7 +71,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
             JError::raiseError(500, $db->getError());
         }
 
-        $link = 'index.php?option=com__ECR_COM_NAME_&view=_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_';
+        $link = 'index.php?option=com_ECR_COM_NAME&view=ECR_ELEMENT_NAMEECR_LIST_POSTFIX';
         $this->setRedirect($link, $msg);
     }
 
@@ -82,7 +82,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
         #_ECR_SMAT_DESCRIPTION_CONTROLLER1_
         $post['id'] = (int)$cid[0];
 
-        $model = $this->getModel('_ECR_ELEMENT_NAME_');
+        $model = $this->getModel('ECR_ELEMENT_NAME');
 
         if($model->store($post))
         {
@@ -93,13 +93,13 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
             $msg = JText::_('Error Saving Item');
         }
 
-        $link = 'index.php?option=com__ECR_COM_NAME_&view=_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_';
+        $link = 'index.php?option=com_ECR_COM_NAME&view=ECR_ELEMENT_NAMEECR_LIST_POSTFIX';
         $this->setRedirect($link, $msg);
     }
 
     function remove()
     {
-        $model = $this->getModel('_ECR_ELEMENT_NAME_');
+        $model = $this->getModel('ECR_ELEMENT_NAME');
 
         if( ! $model->delete())
         {
@@ -115,7 +115,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_ELEMENT_NAME_ extends JCont
             }
         }
 
-        $this->setRedirect('index.php?option=com__ECR_COM_NAME_&view=_ECR_ELEMENT_NAME__ECR_LIST_POSTFIX_', $msg);
+        $this->setRedirect('index.php?option=com_ECR_COM_NAME&view=ECR_ELEMENT_NAMEECR_LIST_POSTFIX', $msg);
     }
 
     ##ECR_CONTROLLER1_OPTION1##

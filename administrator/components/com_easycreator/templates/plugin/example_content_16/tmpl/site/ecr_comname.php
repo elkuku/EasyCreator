@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * Content Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgContent_ECR_COM_NAME_ extends JPlugin
+class plgContentECR_COM_NAME extends JPlugin
 {
     /**
      * Example after delete method.

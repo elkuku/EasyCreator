@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS `#___ECR_COM_TBL_NAME_`;
+DROP TABLE IF EXISTS `#__ECR_COM_TBL_NAME`;
 
-CREATE TABLE `#___ECR_COM_TBL_NAME_` (
+CREATE TABLE `#__ECR_COM_TBL_NAME` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `greeting` VARCHAR(25) NOT NULL,
   `content` TEXT NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `#___ECR_COM_TBL_NAME_` (`greeting`, `content`)
+INSERT INTO `#__ECR_COM_TBL_NAME` (`greeting`, `content`)
 VALUES
 ('Hello, World!', '<p>The A \"hello world\" program is a computer program that prints out \"Hello, world!\"
  on a display device. It is used in many introductory tutorials for teaching a programming language. Such a program is typically one

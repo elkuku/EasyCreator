@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * User Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgUser_ECR_COM_NAME_ extends JPlugin
+class plgUserECR_COM_NAME extends JPlugin
 {
     /**
      * Method is called before user data is stored in the database.

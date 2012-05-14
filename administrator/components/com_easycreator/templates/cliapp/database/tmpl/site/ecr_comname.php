@@ -36,9 +36,9 @@ require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
  * This application shows how to override the constructor
  * and connect to the database.
  *
- * @package  _ECR_COM_NAME_
+ * @package  ECR_COM_NAME
  */
-class _ECR_COM_NAME_ extends JApplicationCli
+class ECR_COM_NAME extends JApplicationCli
 {
     /**
      * A database object for the application to use.
@@ -108,7 +108,7 @@ try
 {
     // Instantiate the application object, passing the class name to JApplicationCli::getInstance
     // and use chaining to execute the application.
-    JApplicationCli::getInstance('_ECR_COM_NAME_')->execute();
+    JApplicationCli::getInstance('ECR_COM_NAME')->execute();
 }
 catch(Exception $e)
 {

@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_ELEMENT_NAME_ model.
+ * ECR_ELEMENT_NAME model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_ELEMENT_NAME_ extends JModel
+class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_ELEMENT_NAME extends JModel
 {
     public function __construct()
     {
@@ -20,7 +20,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_ELEMENT_NAME_ extends JModel
 
     function store($data)
     {
-        $row =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $row =& $this->getTable('ECR_ELEMENT_NAME');
 
         if( ! $row->bind($data))
         {
@@ -43,7 +43,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_ELEMENT_NAME_ extends JModel
     function delete()
     {
         $cids = JRequest::getVar('cid', array(0), 'post', 'array');
-        $row =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $row =& $this->getTable('ECR_ELEMENT_NAME');
 
         if(count($cids))
         {
@@ -64,7 +64,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_ELEMENT_NAME_ extends JModel
     function getData()
     {
         $id = JRequest::getVar('cid');
-        $row =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $row =& $this->getTable('ECR_ELEMENT_NAME');
         $row->load($id[0]);
 
         return $row;

@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_COM_NAME_ Model.
+ * ECR_COM_NAME Model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
+class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
 {
     /**
      * Constructor that retrieves the ID from the request.
@@ -23,10 +23,10 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
     }//function
 
     /**
-     * Method to set the _ECR_COM_NAME_ identifier
+     * Method to set the ECR_COM_NAME identifier
      *
      * @access  public
-     * @param   int _ECR_COM_NAME_ identifier
+     * @param   int ECR_COM_NAME identifier
      * @return  void
      */
     function setId($id)
@@ -45,7 +45,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME_ extends JModel
         //-- Load the data
         if(empty($this->_data))
         {
-            $query = 'SELECT * FROM #___ECR_COM_TBL_NAME_ '
+            $query = 'SELECT * FROM #__ECR_COM_TBL_NAME '
             . ' WHERE id = '.$this->_id;
             $this->_db->setQuery($query);
             $this->_data = $this->_db->loadObject();

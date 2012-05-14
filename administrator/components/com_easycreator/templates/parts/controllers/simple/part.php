@@ -60,7 +60,7 @@ class PartControllersSimple
      */
     public function insert(EcrProjectBase $easyProject, $options, EcrLogger $easyLogger)
     {
-        $easyProject->addSubstitute('_ECR_SUBPACKAGE_', 'Controllers');
+        $easyProject->addSubstitute('ECR_SUBPACKAGE', 'Controllers');
 
         return $easyProject->insertPart($options, $easyLogger);
     }//function

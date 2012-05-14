@@ -57,7 +57,7 @@ class EasyTemplateOptions
         }
 
         $builder->setScope($ecr_folder_name);
-        $builder->replacements->_ECR_COM_SCOPE_ = ucfirst($ecr_folder_name);
+        $builder->replacements->ECR_COM_SCOPE = ucfirst($ecr_folder_name);
 
         return true;
     }//function

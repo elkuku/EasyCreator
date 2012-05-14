@@ -1,10 +1,10 @@
 <?php
 ##*HEADER*##
 ?>
-<h1>_ECR_COM_NAME_ List</h1>
+<h1>ECR_COM_NAME List</h1>
 <? if(! count($this->data)) : ?>
 <div class="alert">
-    Oops, no _ECR_COM_NAME_s found - let's <a href="index.php?do=_ECR_LOWER_COM_NAME_">create one</a>.
+    Oops, no ECR_COM_NAMEs found - let's <a href="index.php?do=ECR_LOWER_COM_NAME">create one</a>.
 </div>
 <? else: ?>
 <table class="table table-striped table-bordered table-condensed">
@@ -21,15 +21,15 @@
     <tbody>
         <? foreach($this->data as $item) : ?>
     <tr>
-        <td><?= $item->_ECR_COM_TBL_NAME__id ?></td>
+        <td><?= $item->ECR_COM_TBL_NAME_id ?></td>
         <td><?= $item->a ? : '&nbsp;' ?></td>
         <td><?= $item->b ? : '&nbsp;' ?></td>
         <td><?= $item->c ? : '&nbsp;' ?></td>
         <td nowrap="nowrap">
-            <a class="btn btn-mini" href="index.php?do=_ECR_LOWER_COM_NAME_&id=<?= $item->_ECR_COM_TBL_NAME__id ?>">
+            <a class="btn btn-mini" href="index.php?do=ECR_LOWER_COM_NAME&id=<?= $item->ECR_COM_TBL_NAME_id ?>">
                 <i class="icon-edit"></i>Edit
             </a>
-            <a class="btn btn-mini" href="index.php?do=delete&id=<?= $item->_ECR_COM_TBL_NAME__id ?>">
+            <a class="btn btn-mini" href="index.php?do=delete&id=<?= $item->ECR_COM_TBL_NAME_id ?>">
                 <i class="icon-remove"></i>Delete
             </a>
         </td>

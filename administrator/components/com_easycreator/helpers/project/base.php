@@ -1231,8 +1231,8 @@ abstract class EcrProjectBase
         /*
          * Define substitutes
          */
-        $this->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
-        $this->addSubstitute('_ECR_LIST_POSTFIX_', $this->listPostfix);
+        $this->addSubstitute('ECR_ELEMENT_NAME', $element_name);
+        $this->addSubstitute('ECR_LIST_POSTFIX', $this->listPostfix);
 
         /*
          * Process files
@@ -1286,7 +1286,7 @@ abstract class EcrProjectBase
                 $subPackage = str_replace(JFile::getName($file), '', $subPackage);
                 $subPackage = ($subPackage) ? $subPackage : 'Base';
 
-                $this->addSubstitute('_ECR_SUBPACKAGE_', ucfirst($subPackage));
+                $this->addSubstitute('ECR_SUBPACKAGE', ucfirst($subPackage));
             }
 
             $this->substitute($fileContents);
@@ -1342,12 +1342,12 @@ abstract class EcrProjectBase
         {
             $project = EcrProjectHelper::getProject($ecr_project);
 
-            $this->addSubstitute('_ECR_COM_NAME_', $project->name);
-            $this->addSubstitute('_ECR_COM_COM_NAME_', $project->comName);
-            $this->addSubstitute('_ECR_UPPER_COM_COM_NAME_', strtoupper($project->comName));
+            $this->addSubstitute('ECR_COM_NAME', $project->name);
+            $this->addSubstitute('ECR_COM_COM_NAME', $project->comName);
+            $this->addSubstitute('ECR_UPPER_COM_COM_NAME', strtoupper($project->comName));
             $this->addSubstitute('ECR_AUTHOR', $project->author);
-            $this->addSubstitute('AUTHORURL', $project->authorUrl);
-            $this->addSubstitute('_ECR_ACT_DATE_', date('d-M-Y'));
+            $this->addSubstitute('ECR_AUTHORURL', $project->authorUrl);
+            $this->addSubstitute('ECR_ACT_DATE', date('d-M-Y'));
 
             foreach($substitutes as $key => $value)
             {

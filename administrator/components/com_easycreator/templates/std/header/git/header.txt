@@ -1,8 +1,8 @@
 /**
- * @package    _ECR_COM_NAME_
- * @subpackage _ECR_SUBPACKAGE_
- * @author     ECR_AUTHOR {@link AUTHORURL}
- * @author     Created on _ECR_ACT_DATE_
+ * @package    ECR_COM_NAME
+ * @subpackage ECR_SUBPACKAGE
+ * @author     ECR_AUTHOR {@link ECR_AUTHORURL}
+ * @author     Created on ECR_ACT_DATE
  * @license    GNU/GPL
  */
 

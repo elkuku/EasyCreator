@@ -1,8 +1,8 @@
-#_ECR_COM_COM_NAME__content {
+#ECR_COM_COM_NAME_content {
     width: 50%;
 }
 
-#_ECR_COM_COM_NAME__content .title {
+#ECR_COM_COM_NAME_content .title {
     float: left;
     width: 50%;
     text-align: right;
@@ -10,7 +10,7 @@
     background-color: #eee;
 }
 
-#_ECR_COM_COM_NAME__content .cell {
+#ECR_COM_COM_NAME_content .cell {
     float: left;
     width: 45%;
     padding-left: 1em;

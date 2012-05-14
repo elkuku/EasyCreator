@@ -12,10 +12,10 @@ JHtml::_('behavior.tooltip');
     </table>
 
     <div>
-        <input type="hidden" name="option" value="_ECR_COM_COM_NAME_" />
+        <input type="hidden" name="option" value="ECR_COM_COM_NAME" />
         <input type="hidden" name="task" value="" />
         <input type="hidden" name="boxchecked" value="0" />
-        <input type="hidden" name="controller" value="_ECR_COM_TBL_NAME_" />
+        <input type="hidden" name="controller" value="ECR_COM_TBL_NAME" />
         <?php echo JHtml::_('form.token'); ?>
     </div>
 </form>

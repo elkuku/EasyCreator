@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * Example System Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage	Plugin
  */
-class plgSystem_ECR_COM_NAME_ extends JPlugin
+class plgSystemECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor
@@ -22,7 +22,7 @@ class plgSystem_ECR_COM_NAME_ extends JPlugin
      * @param       object  $subject The object to observe
      * @param       array   $config  An array that holds the plugin configuration
      */
-    function plgSystem_ECR_COM_NAME_(&$subject, $config)
+    function plgSystemECR_COM_NAME(&$subject, $config)
     {
         parent::__construct($subject, $config);
 

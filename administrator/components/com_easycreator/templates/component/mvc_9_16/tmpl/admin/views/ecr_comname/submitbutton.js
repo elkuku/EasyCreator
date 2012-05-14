@@ -27,7 +27,7 @@ Joomla.submitbutton = function (task) {
             return true;
         }
         else {
-            alert(Joomla.JText._('_ECR_UPPER_COM_COM_NAME___ECR_UPPER_COM_NAME__ERROR_UNACCEPTABLE'));
+            alert(Joomla.JText._('ECR_UPPER_COM_COM_NAME_ECR_UPPER_COM_NAME_ERROR_UNACCEPTABLE'));
 
             return false;
         }

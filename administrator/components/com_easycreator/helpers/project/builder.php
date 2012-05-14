@@ -246,43 +246,43 @@ class EcrProjectBuilder extends JObject
         $this->project->license = JRequest::getVar('license');
         $this->project->listPostfix = JRequest::getVar('list_postfix');
 
-        $this->replacements->_ECR_COM_NAME_ = $this->project->name;
-        $this->replacements->_ECR_LOWER_COM_NAME_ = strtolower($this->project->name);
-        $this->replacements->_ECR_UPPER_COM_NAME_ = strtoupper($this->project->name);
+        $this->replacements->ECR_COM_NAME = $this->project->name;
+        $this->replacements->ECR_LOWER_COM_NAME = strtolower($this->project->name);
+        $this->replacements->ECR_UPPER_COM_NAME = strtoupper($this->project->name);
         $this->replacements->ECR_UCF_COM_NAME = ucfirst(strtolower($this->project->name));
 
-        $this->replacements->_ECR_COM_COM_NAME_ = $this->project->comName;
+        $this->replacements->ECR_COM_COM_NAME = $this->project->comName;
 
         if('template' == $this->project->type
             || 'template' == $this->project->type
         )
         {
-            $this->replacements->_ECR_UPPER_COM_COM_NAME_ = strtoupper($this->project->prefix.$this->project->comName);
+            $this->replacements->ECR_UPPER_COM_COM_NAME = strtoupper($this->project->prefix.$this->project->comName);
         }
         else
         {
-            $this->replacements->_ECR_UPPER_COM_COM_NAME_ = strtoupper($this->project->comName);
+            $this->replacements->ECR_UPPER_COM_COM_NAME = strtoupper($this->project->comName);
         }
 
-        $this->replacements->_ECR_COM_TBL_NAME_ = strtolower($this->project->name);
-        $this->replacements->_ECR_ACT_DATE_ = date('d-M-Y');
+        $this->replacements->ECR_COM_TBL_NAME = strtolower($this->project->name);
+        $this->replacements->ECR_ACT_DATE = date('d-M-Y');
 
-        $this->replacements->VERSION = $this->project->version;
+        $this->replacements->ECR_VERSION = $this->project->version;
         $this->replacements->ECR_DESCRIPTION = $this->project->description;
         $this->replacements->ECR_AUTHOR = $this->project->author;
-        $this->replacements->AUTHOREMAIL = $this->project->authorEmail;
-        $this->replacements->AUTHORURL = $this->project->authorUrl;
-        $this->replacements->COPYRIGHT = $this->project->copyright;
-        $this->replacements->LICENSE = $this->project->license;
+        $this->replacements->ECR_AUTHOREMAIL = $this->project->authorEmail;
+        $this->replacements->ECR_AUTHORURL = $this->project->authorUrl;
+        $this->replacements->ECR_COPYRIGHT = $this->project->copyright;
+        $this->replacements->ECR_LICENSE = $this->project->license;
 
         $this->replacements->addCustom('$@@Id@@$', '$Id$');
 
         if('component' == $this->project->type)
         {
             //-- AutoCode
-            $this->replacements->_ECR_LIST_POSTFIX_ = $this->project->listPostfix;
-            $this->replacements->_ECR_LOWER_LIST_POSTFIX_ = strtolower($this->project->listPostfix);
-            $this->replacements->_ECR_UPPER_LIST_POSTFIX_ = strtoupper($this->project->listPostfix);
+            $this->replacements->ECR_LIST_POSTFIX = $this->project->listPostfix;
+            $this->replacements->ECR_LOWER_LIST_POSTFIX = strtolower($this->project->listPostfix);
+            $this->replacements->ECR_UPPER_LIST_POSTFIX = strtoupper($this->project->listPostfix);
 
             //-- Menu
             /* @var SimpleXMLElement $buildMenuElement */
@@ -399,7 +399,7 @@ class EcrProjectBuilder extends JObject
                 $subPack = ucfirst(substr($subPack, 0, strpos($subPack, DS)));
                 $subPack = ($subPack) ? $subPack : 'Base';
 
-                $this->replacements->_ECR_SUBPACKAGE_ = $subPack;
+                $this->replacements->ECR_SUBPACKAGE = $subPack;
 
                 $fContents = JFile::read($fileName);
                 $fContents = $this->replace($fContents);

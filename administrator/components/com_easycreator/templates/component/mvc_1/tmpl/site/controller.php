@@ -4,11 +4,11 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_COM_NAME_ Controller.
+ * ECR_COM_NAME Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_Controller extends JController
+class ECR_COM_NAMEController extends JController
 {
 }//class

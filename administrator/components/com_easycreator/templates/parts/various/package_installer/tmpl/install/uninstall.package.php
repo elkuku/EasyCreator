@@ -209,7 +209,7 @@ if(is_a($plugins, 'JSimpleXMLElement') && count($plugins->children()))
 $rows = 0;
 ?>
 
-<h2>_ECR_COM_NAME_ Removal</h2>
+<h2>ECR_COM_NAME Removal</h2>
 <table class="adminlist">
 	<thead>
 		<tr>
@@ -224,7 +224,7 @@ $rows = 0;
 	</tfoot>
 	<tbody>
 		<tr class="row0">
-			<td class="key" colspan="2"><?php echo '_ECR_COM_NAME_ '.JText::_('Component'); ?></td>
+			<td class="key" colspan="2"><?php echo 'ECR_COM_NAME '.JText::_('Component'); ?></td>
 			<td><img src="images/publish_g.png" alt="OK" /><strong><?php echo JText::_('Removed'); ?></strong></td>
 		</tr>
 		<?php if (count($status->modules)) : ?>

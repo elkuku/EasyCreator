@@ -5,8 +5,8 @@
     jimport('joomla.filesystem.file');
 
     $paths = array(
-    'admin' => JPATH_ADMINISTRATOR.DS.'components'.DS.'_ECR_COM_COM_NAME_'
-    , 'site' => JPATH_SITE.DS.'components'.DS.'_ECR_COM_COM_NAME_');
+    'admin' => JPATH_ADMINISTRATOR.DS.'components'.DS.'ECR_COM_COM_NAME'
+    , 'site' => JPATH_SITE.DS.'components'.DS.'ECR_COM_COM_NAME');
 
 //    $md5Path = $paths['admin'].DS.'MD5SUMS';
 

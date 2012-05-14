@@ -78,7 +78,7 @@ class EasyTemplateOptions
 
         $tableName = strtolower($builder->project->name);
 
-        $builder->replacements->_ECR_COM_TBL_NAME_ = $tableName;
+        $builder->replacements->ECR_COM_TBL_NAME = $tableName;
 
         //-- Prepare extension table
         $table = new EcrTable($tableName);

@@ -24,7 +24,7 @@ if('' != $controller)
 }
 
 //-- Create the controller
-$classname = '_ECR_COM_NAME_Controller'.$controller;
+$classname = 'ECR_COM_NAMEController'.$controller;
 $controller = new $classname;
 
 //-- Perform the Request task

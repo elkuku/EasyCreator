@@ -2,14 +2,14 @@
 /**
  * CHANGELOG
  *
- * This is the changelog for _ECR_COM_NAME_.<br>
+ * This is the changelog for ECR_COM_NAME.<br>
  * <b>Please</b> be patient =;)
  *
  * @version    SVN $Id$
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Documentation
- * @author     ECR_AUTHOR {@link AUTHORURL}
- * @author     Created on _ECR_ACT_DATE_
+ * @author     ECR_AUTHOR {@link ECR_AUTHORURL}
+ * @author     Created on ECR_ACT_DATE
  */
 
 //--No direct access to this changelog...
@@ -26,7 +26,7 @@ function CHANGELOG()
 _______________________________________________
 _______________________________________________
 
-This is the changelog for _ECR_COM_NAME_
+This is the changelog for ECR_COM_NAME
 
 Please be patient =;)
 _______________________________________________
@@ -42,7 +42,7 @@ Legend:
  ! -> Note
 ______________________________________________
 
-_ECR_ACT_DATE_ ECR_AUTHOR
+ECR_ACT_DATE ECR_AUTHOR
  ! Startup
 
 */

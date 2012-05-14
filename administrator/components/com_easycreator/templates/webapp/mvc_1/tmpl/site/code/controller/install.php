@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ install Controller.
+ * ECR_COM_NAME install Controller.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Controller
  */
 class ECR_CLASS_PREFIXControllerInstall extends JControllerBase

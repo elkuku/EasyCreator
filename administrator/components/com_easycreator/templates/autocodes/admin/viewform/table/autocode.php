@@ -204,7 +204,7 @@ class AutoCodeAdminViewformTable extends EcrProjectAutocode
          *
          * Define keys that will be substitutes in the code
          */
-        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Views');
+        $project->addSubstitute('ECR_SUBPACKAGE', 'Views');
         $project->addSubstitute('_ECR_TABLE_NAME_', $table_name);
 
         foreach($this->codes as $key => $code)

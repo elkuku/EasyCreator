@@ -7,10 +7,10 @@ jimport('joomla.application.component.view');
  * Enter description here ...@todo class doccomment.
  *
  */
-class _ECR_COM_NAME_sView_ECR_ELEMENT_NAME_s extends JView
+class ECR_COM_NAMEsViewECR_ELEMENT_NAMEs extends JView
 {
     /**
-     * _ECR_COM_NAME_ view display method.
+     * ECR_COM_NAME view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -18,8 +18,8 @@ class _ECR_COM_NAME_sView_ECR_ELEMENT_NAME_s extends JView
      */
     public function display($tpl = null)
     {
-        JHTML::stylesheet('_ECR_COM_NAME_.css', 'administrator/components/com__ECR_COM_NAME_/assets/');
-        JToolBarHelper::title('&nbsp;&nbsp;'.JText::_('_ECR_ELEMENT_NAME_s'), '_ECR_ELEMENT_NAME_');
+        JHTML::stylesheet('ECR_COM_NAME.css', 'administrator/components/com_ECR_COM_NAME/assets/');
+        JToolBarHelper::title('&nbsp;&nbsp;'.JText::_('ECR_ELEMENT_NAMEs'), 'ECR_ELEMENT_NAME');
 
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();

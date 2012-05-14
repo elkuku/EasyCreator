@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ default controller.
+ * ECR_COM_NAME default controller.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Controller
  */
 class ECR_CLASS_PREFIXControllerDefault extends JControllerBase

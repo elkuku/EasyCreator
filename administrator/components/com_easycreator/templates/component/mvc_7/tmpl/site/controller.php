@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_COM_NAME_ default Controller.
+ * ECR_COM_NAME default Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_Controller extends JController
+class ECR_COM_NAMEController extends JController
 {
     /**
      * Method to display the view
@@ -48,7 +48,7 @@ class _ECR_COM_NAME_Controller extends JController
         $post['content'] = JRequest::getVar('content', '', 'post', 'string', JREQUEST_ALLOWRAW);
 
         //--let the model save it
-        $link = 'index.php?option=_ECR_COM_COM_NAME_';
+        $link = 'index.php?option=ECR_COM_COM_NAME';
 
         if($model->store($post))
         {
@@ -68,6 +68,6 @@ class _ECR_COM_NAME_Controller extends JController
      */
     function cancel()
     {
-        $this->setRedirect('index.php?option=_ECR_COM_COM_NAME_');
+        $this->setRedirect('index.php?option=ECR_COM_COM_NAME');
     }//function
 }//class

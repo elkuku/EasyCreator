@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_ELEMENT_NAME_ Controller.
+ * ECR_ELEMENT_NAME Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controller
+class ECR_COM_NAMEControllerECR_ELEMENT_NAME extends ECR_COM_NAMEController
 {
     /**
      * Constructor (registers additional tasks to methods).
@@ -28,7 +28,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
      */
     function edit()
     {
-        JRequest::setVar('view', '_ECR_ELEMENT_NAME_');
+        JRequest::setVar('view', 'ECR_ELEMENT_NAME');
         JRequest::setVar('layout', 'form');
         JRequest::setVar('hidemainmenu', 1);
 
@@ -41,7 +41,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
      */
     function save()
     {
-        $model = $this->getModel('_ECR_ELEMENT_NAME_');
+        $model = $this->getModel('ECR_ELEMENT_NAME');
 
         if($model->store())
         {
@@ -52,7 +52,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
             $msg = JText::_('Error Saving Record');
         }
 
-        $link = 'index.php?option=_ECR_COM_COM_NAME_';
+        $link = 'index.php?option=ECR_COM_COM_NAME';
         $this->setRedirect($link, $msg);
     }//function
 
@@ -62,7 +62,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
      */
     function remove()
     {
-        $model = $this->getModel('_ECR_ELEMENT_NAME_');
+        $model = $this->getModel('ECR_ELEMENT_NAME');
 
         if( ! $model->delete())
         {
@@ -73,7 +73,7 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
             $msg = JText::_('Records Deleted');
         }
 
-        $this->setRedirect('index.php?option=_ECR_COM_COM_NAME_', $msg);
+        $this->setRedirect('index.php?option=ECR_COM_COM_NAME', $msg);
     }//function
 
     /**
@@ -83,6 +83,6 @@ class _ECR_COM_NAME_Controller_ECR_ELEMENT_NAME_ extends _ECR_COM_NAME_Controlle
     function cancel()
     {
         $msg = JText::_('Operation Cancelled');
-        $this->setRedirect('index.php?option=_ECR_COM_COM_NAME_', $msg);
+        $this->setRedirect('index.php?option=ECR_COM_COM_NAME', $msg);
     }//function
 }//class

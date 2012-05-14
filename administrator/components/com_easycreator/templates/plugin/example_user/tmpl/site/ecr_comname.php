@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * User Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgUser_ECR_COM_NAME_ extends JPlugin
+class plgUserECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor
@@ -22,7 +22,7 @@ class plgUser_ECR_COM_NAME_ extends JPlugin
      * @param 	array  $config  An array that holds the plugin configuration
      * @since 1.5
      */
-    function plgUser_ECR_COM_NAME_(& $subject, $config)
+    function plgUserECR_COM_NAME(& $subject, $config)
     {
         parent::__construct($subject, $config);
     }//function

@@ -20,9 +20,9 @@ require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
 /**
  * An example Joomla! web application class.
  *
- * @package _ECR_COM_NAME_
+ * @package ECR_COM_NAME
  */
-class _ECR_COM_NAME_ extends JApplicationWeb
+class ECR_COM_NAME extends JApplicationWeb
 {
     /**
      * Overrides the parent doExecute method to run the web application.
@@ -52,4 +52,4 @@ class _ECR_COM_NAME_ extends JApplicationWeb
 
 // Instantiate the application object, passing the class name to JApplicationWeb::getInstance
 // and use chaining to execute the application.
-JApplicationWeb::getInstance('_ECR_COM_NAME_')->execute();
+JApplicationWeb::getInstance('ECR_COM_NAME')->execute();

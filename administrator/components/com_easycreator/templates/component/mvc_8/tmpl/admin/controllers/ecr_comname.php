@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_COM_NAME_ Controller.
+ * ECR_COM_NAME Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller
+class ECR_COM_NAMEECR_LIST_POSTFIXControllerECR_COM_NAME extends ECR_COM_NAMEECR_LIST_POSTFIXController
 {
     /**
      * Constructor (registers additional tasks to methods).
@@ -28,7 +28,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_
      */
     function edit()
     {
-        JRequest::setVar('view', '_ECR_COM_NAME_');
+        JRequest::setVar('view', 'ECR_COM_NAME');
         JRequest::setVar('layout', 'form');
         JRequest::setVar('hidemainmenu', 1);
 
@@ -41,7 +41,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_
      */
     function save()
     {
-        $model = $this->getModel('_ECR_COM_NAME_');
+        $model = $this->getModel('ECR_COM_NAME');
 
         if($model->store())
         {
@@ -52,7 +52,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_
             $msg = JText::_('Error Saving Record');
         }
 
-        $link = 'index.php?option=_ECR_COM_COM_NAME_';
+        $link = 'index.php?option=ECR_COM_COM_NAME';
         $this->setRedirect($link, $msg);
     }//function
 
@@ -62,7 +62,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_
      */
     function remove()
     {
-        $model = $this->getModel('_ECR_COM_NAME_');
+        $model = $this->getModel('ECR_COM_NAME');
 
         if( ! $model->delete())
         {
@@ -73,7 +73,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_
             $msg = JText::_('Records Deleted');
         }
 
-        $this->setRedirect('index.php?option=_ECR_COM_COM_NAME_', $msg);
+        $this->setRedirect('index.php?option=ECR_COM_COM_NAME', $msg);
     }//function
 
     /**
@@ -83,6 +83,6 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller_ECR_COM_NAME_ extends _ECR_COM_
     function cancel()
     {
         $msg = JText::_('Operation Cancelled');
-        $this->setRedirect('index.php?option=_ECR_COM_COM_NAME_', $msg);
+        $this->setRedirect('index.php?option=ECR_COM_COM_NAME', $msg);
     }//function
 }//class

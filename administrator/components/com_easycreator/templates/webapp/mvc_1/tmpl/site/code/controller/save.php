@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ save controller.
+ * ECR_COM_NAME save controller.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Controller
  */
 class ECR_CLASS_PREFIXControllerSave extends JControllerBase
@@ -28,7 +28,7 @@ class ECR_CLASS_PREFIXControllerSave extends JControllerBase
         {
             $model->save();
 
-            echo '<div class="alert alert-success">Your _ECR_COM_NAME_ has been saved</div>';
+            echo '<div class="alert alert-success">Your ECR_COM_NAME has been saved</div>';
 
             $input->set('view', 'list');
 

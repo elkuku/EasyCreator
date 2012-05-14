@@ -1,3 +1,3 @@
 <?php
 //dummy
-//<!--viewform.table._ECR_COM_TBL_NAME_.admin.row-->
+//<!--viewform.table.ECR_COM_TBL_NAME.admin.row-->

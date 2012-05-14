@@ -4,15 +4,15 @@
 jimport('joomla.application.component.view');
 
 /**
- * HTML View class for the _ECR_COM_NAME_ Component.
+ * HTML View class for the ECR_COM_NAME Component.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
+class ECR_COM_NAMEViewECR_COM_NAME extends JView
 {
     /**
-     * _ECR_COM_NAME_ view display method.
+     * ECR_COM_NAME view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -25,7 +25,7 @@ class _ECR_COM_NAME_View_ECR_COM_NAME_ extends JView
         $this->assignRef('data', $data);
 
         //-- Creating a link to the edit form
-        $this->assignRef('editlink', JRoute::_('index.php?option=_ECR_COM_COM_NAME_&view=_ECR_COM_NAME_&task=edit'));
+        $this->assignRef('editlink', JRoute::_('index.php?option=ECR_COM_COM_NAME&view=ECR_COM_NAME&task=edit'));
 
         parent::display($tpl);
     }//function

@@ -9,18 +9,18 @@ $document =& JFactory::getDocument();
 
 //--Add javascript to document
 $js = "
-var assetsBase = '".JURI::root()."components/_ECR_COM_COM_NAME_/assets';
+var assetsBase = '".JURI::root()."components/ECR_COM_COM_NAME/assets';
 var _LOADING_ = '".JText::_('Loading')."';
 ";
 $document->addScriptDeclaration($js);
-$document->addScript(JURI::root(true).'/components/_ECR_COM_COM_NAME_/assets/js/demo_ajax.js');
-$document->addScript(JURI::root(true).'/components/_ECR_COM_COM_NAME_/assets/js/demo_sortables.js');
-$document->addScript(JURI::root(true).'/components/_ECR_COM_COM_NAME_/assets/js/demo_tooltip.js');
+$document->addScript(JURI::root(true).'/components/ECR_COM_COM_NAME/assets/js/demo_ajax.js');
+$document->addScript(JURI::root(true).'/components/ECR_COM_COM_NAME/assets/js/demo_sortables.js');
+$document->addScript(JURI::root(true).'/components/ECR_COM_COM_NAME/assets/js/demo_tooltip.js');
 
 //-- Add css
-$document->addStyleSheet('components/_ECR_COM_COM_NAME_/assets/css/demo_accordion.css');
-$document->addStyleSheet('components/_ECR_COM_COM_NAME_/assets/css/demo_sortables.css');
-$document->addStyleSheet('components/_ECR_COM_COM_NAME_/assets/css/demo_tooltip.css');
+$document->addStyleSheet('components/ECR_COM_COM_NAME/assets/css/demo_accordion.css');
+$document->addStyleSheet('components/ECR_COM_COM_NAME/assets/css/demo_sortables.css');
+$document->addStyleSheet('components/ECR_COM_COM_NAME/assets/css/demo_tooltip.css');
 
 echo '<h1>MooTools TestPage</h1>';
 

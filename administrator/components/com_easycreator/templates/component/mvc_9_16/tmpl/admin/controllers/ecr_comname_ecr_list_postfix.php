@@ -5,14 +5,14 @@
 jimport('joomla.application.component.controlleradmin');
 
 /**
- * _ECR_COM_NAME_ Controller.
+ * ECR_COM_NAME Controller.
  */
-class _ECR_COM_NAME_Controller_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JControllerAdmin
+class ECR_COM_NAMEControllerECR_COM_NAMEECR_LIST_POSTFIX extends JControllerAdmin
 {
     /**
      * Proxy for getModel.
      */
-    public function getModel($name = '_ECR_COM_NAME_', $prefix = '_ECR_COM_NAME_Model'
+    public function getModel($name = 'ECR_COM_NAME', $prefix = 'ECR_COM_NAMEModel'
     , $config = array('ignore_request' => true))
     {
         $doSomething = 'here';

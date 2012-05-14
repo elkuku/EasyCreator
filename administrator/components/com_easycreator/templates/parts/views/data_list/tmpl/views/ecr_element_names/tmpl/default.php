@@ -43,7 +43,7 @@ JHTML::_('behavior.tooltip');
             for($i = 0, $n = count($this->items); $i < $n; $i++)
             {
                 $row = &$this->items[$i];
-                $link = JRoute::_('index.php?option=com__ECR_COM_NAME_'
+                $link = JRoute::_('index.php?option=com_ECR_COM_NAME'
                 .'&controller=_ECR_LOWER_ELEMENT_NAME_&task=edit&cid[]='.$row->id);
 
                 $checked = JHTML::_('grid.id', $i, $row->id);
@@ -75,12 +75,12 @@ JHTML::_('behavior.tooltip');
             </tfoot>
         </table>
     </div>
-    <input type="hidden" name="option" value="com__ECR_COM_NAME_" />
+    <input type="hidden" name="option" value="com_ECR_COM_NAME" />
     <input type="hidden" name="task" value="" />
     <input type="hidden" name="boxchecked" value="0" />
     <input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
     <input type="hidden" name="filter_order_Dir" value="<?php echo $this->lists['order_Dir']; ?>" />
-    <input type="hidden" name="controller" value="_ECR_ELEMENT_NAME_" />
-    <input type="hidden" name="view" value="_ECR_ELEMENT_NAME_s" />
+    <input type="hidden" name="controller" value="ECR_ELEMENT_NAME" />
+    <input type="hidden" name="view" value="ECR_ELEMENT_NAMEs" />
     <?php echo JHTML::_('form.token'); ?>
 </form>

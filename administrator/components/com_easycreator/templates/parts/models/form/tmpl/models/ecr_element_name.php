@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_ELEMENT_NAME_ model.
+ * ECR_ELEMENT_NAME model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
+class ECR_COM_NAMEsModelECR_ELEMENT_NAME extends JModel
 {
     /**
      * Constructor.
@@ -30,7 +30,7 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
      */
     function store($data)
     {
-        $table =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $table =& $this->getTable('ECR_ELEMENT_NAME');
 
         if( ! $table->bind($data))
         {
@@ -58,7 +58,7 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
     function delete()
     {
         $cids = JRequest::getVar('cid', array(0), 'post', 'array');
-        $table =& $this->getTable('_ECR_ELEMENT_NAME_');
+        $table =& $this->getTable('ECR_ELEMENT_NAME');
 
         if(count($cids))
         {
@@ -83,7 +83,7 @@ class _ECR_COM_NAME_sModel_ECR_ELEMENT_NAME_ extends JModel
     function getData()
     {
         $id = JRequest::getVar('cid');
-        $table = $this->getTable('_ECR_ELEMENT_NAME_');
+        $table = $this->getTable('ECR_ELEMENT_NAME');
         $table->load($id[0]);
 
         return $table;

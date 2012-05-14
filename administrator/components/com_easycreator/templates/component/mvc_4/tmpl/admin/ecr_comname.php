@@ -2,7 +2,7 @@
 ##*HEADER*##
 
 //-- Add CSS
-JHTML::stylesheet('default.css', 'administrator/components/_ECR_COM_COM_NAME_/assets/css/');
+JHTML::stylesheet('default.css', 'administrator/components/ECR_COM_COM_NAME/assets/css/');
 
 /**
  *  Require the base controller.
@@ -27,7 +27,7 @@ if($controller)
 }
 
 //-- Create the controller
-$classname = '_ECR_COM_NAME__ECR_LIST_POSTFIX_Controller'.$controller;
+$classname = 'ECR_COM_NAMEECR_LIST_POSTFIXController'.$controller;
 $controller = new $classname;
 
 //-- Perform the Request task

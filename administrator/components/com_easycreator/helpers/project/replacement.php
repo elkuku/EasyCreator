@@ -15,17 +15,17 @@ class EcrProjectReplacement
     /**
      * @var string The component name (MyComponent)
      */
-    public $_ECR_COM_NAME_;
+    public $ECR_COM_NAME;
 
     /**
      * @var string The lower case component name (mycomponent)
      */
-    public $_ECR_LOWER_COM_NAME_;
+    public $ECR_LOWER_COM_NAME;
 
     /**
      * @var string The upper case component name (MYCOMPONENT)
      */
-    public $_ECR_UPPER_COM_NAME_;
+    public $ECR_UPPER_COM_NAME;
 
     /**
      * @var string The ucfirst case component name (Mycomponent)
@@ -35,45 +35,45 @@ class EcrProjectReplacement
     /**
      * @var string The internal component name (com_mycomponent)
      */
-    public $_ECR_COM_COM_NAME_;
+    public $ECR_COM_COM_NAME;
 
     /**
      * @var string The internal upper case component name (COM_MYCOMPONENT)
      */
-    public $_ECR_UPPER_COM_COM_NAME_;
+    public $ECR_UPPER_COM_COM_NAME;
 
     /**
      * @var string The actual date
      */
-    public $_ECR_ACT_DATE_;
+    public $ECR_ACT_DATE;
 
-    public $_ECR_COM_TBL_NAME_;
+    public $ECR_COM_TBL_NAME;
 
-    public $_ECR_COM_SCOPE_;
+    public $ECR_COM_SCOPE;
 
-    public $VERSION;
+    public $ECR_VERSION;
 
     public $ECR_DESCRIPTION;
 
     public $ECR_AUTHOR;
 
-    public $AUTHOREMAIL;
+    public $ECR_AUTHOREMAIL;
 
-    public $AUTHORURL;
+    public $ECR_AUTHORURL;
 
-    public $COPYRIGHT;
+    public $ECR_COPYRIGHT;
 
-    public $LICENSE;
+    public $ECR_LICENSE;
 
-    public $_ECR_LIST_POSTFIX_;
+    public $ECR_LIST_POSTFIX;
 
-    public $_ECR_LOWER_LIST_POSTFIX_;
+    public $ECR_LOWER_LIST_POSTFIX;
 
-    public $_ECR_UPPER_LIST_POSTFIX_;
+    public $ECR_UPPER_LIST_POSTFIX;
 
     public $ECR_CLASS_PREFIX;
 
-    public $_ECR_SUBPACKAGE_;
+    public $ECR_SUBPACKAGE;
 
     /**
      * @var array Custom replacements. May be set with the addCustom() function.

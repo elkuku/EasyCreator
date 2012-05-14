@@ -10,16 +10,16 @@ function _reOrder($direction)
 
     if(isset($cid[0]))
     {
-        $row = & JTable::getInstance('_ECR_ELEMENT_NAME_', 'Table');
+        $row = & JTable::getInstance('ECR_ELEMENT_NAME', 'Table');
         $row->load((int)$cid[0]);
         $row->move($direction);
 
-        $cache = & JFactory::getCache('com__ECR_COM_NAME_');
+        $cache = & JFactory::getCache('com_ECR_COM_NAME');
         $cache->clean();
     }
 
-    JFactory::getApplication()->redirect('index.php?option=_ECR_COM_COM_NAME_'
-    .'&view=_ECR_LOWER_ELEMENT_NAME__ECR_LIST_POSTFIX_');
+    JFactory::getApplication()->redirect('index.php?option=ECR_COM_COM_NAME'
+    .'&view=_ECR_LOWER_ELEMENT_NAME_ECR_LIST_POSTFIX');
 }//function
 
 function saveorder()
@@ -35,7 +35,7 @@ function saveorder()
     $order = JRequest::getVar('order', array(0), 'post', 'array');
     JArrayHelper::toInteger($order, array(0));
 
-    $row =& JTable::getInstance('_ECR_ELEMENT_NAME_', 'Table');
+    $row =& JTable::getInstance('ECR_ELEMENT_NAME', 'Table');
 
     // update ordering values
     for($i = 0; $i < $total; $i ++)
@@ -57,8 +57,8 @@ function saveorder()
 
     $msg = JText::_('New ordering saved');
 
-    JFactory::getApplication()->redirect('index.php?option=com__ECR_COM_NAME_'
-    .'&view=_ECR_LOWER_ELEMENT_NAME__ECR_LIST_POSTFIX_', $msg);
+    JFactory::getApplication()->redirect('index.php?option=com_ECR_COM_NAME'
+    .'&view=_ECR_LOWER_ELEMENT_NAME_ECR_LIST_POSTFIX', $msg);
 }//function
 
 function orderup()

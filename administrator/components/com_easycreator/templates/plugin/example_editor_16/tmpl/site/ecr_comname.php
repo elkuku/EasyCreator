@@ -4,12 +4,12 @@
 jimport('joomla.plugin.plugin');
 
 /**
- * _ECR_COM_NAME_ Editor plugin.
+ * ECR_COM_NAME Editor plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgEditor_ECR_COM_NAME_ extends JPlugin
+class plgEditorECR_COM_NAME extends JPlugin
 {
     /**
      * Method to handle the onInitEditor event.

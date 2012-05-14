@@ -214,7 +214,7 @@ class PartTablesAdmin_map
         /*
          * Add substitutes
          */
-        $project->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
+        $project->addSubstitute('ECR_ELEMENT_NAME', $element_name);
         $project->addSubstitute('_ECR_LOWER_ELEMENT_NAME_', strtolower($element_name));
         $project->addSubstitute('_ECR_TABLE_NAME_', $table_name);
         $project->addSubstitute('##ECR_TABLE_VARS##', $table_vars);
@@ -295,7 +295,7 @@ class PartTablesAdmin_map
         {
         }
 
-        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Tables');
+        $project->addSubstitute('ECR_SUBPACKAGE', 'Tables');
 
         JRequest::setVar('element_scope', 'admin');
 

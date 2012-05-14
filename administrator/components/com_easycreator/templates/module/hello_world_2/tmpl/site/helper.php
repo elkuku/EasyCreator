@@ -2,9 +2,9 @@
 ##*HEADER*##
 
 /**
- * Helper class for _ECR_COM_NAME_.
+ * Helper class for ECR_COM_NAME.
  */
-class Mod_ECR_COM_NAME_Helper
+class ModECR_COM_NAMEHelper
 {
     /**
      * Returns a list of random users.

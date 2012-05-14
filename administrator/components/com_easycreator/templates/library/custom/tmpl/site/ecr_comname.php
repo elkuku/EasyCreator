@@ -2,9 +2,9 @@
 ##*HEADER*##
 
 /**
- * _ECR_COM_NAME_ library.
+ * ECR_COM_NAME library.
  *
  */
-class _ECR_COM_NAME_
+class ECR_COM_NAME
 {
 }//class

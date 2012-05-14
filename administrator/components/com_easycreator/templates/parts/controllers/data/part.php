@@ -104,7 +104,7 @@ class PartControllersData
      */
     public function insert(EcrProjectBase $project, $options, $logger)
     {
-        $project->addSubstitute('_ECR_SUBPACKAGE_', 'Controllers');
+        $project->addSubstitute('ECR_SUBPACKAGE', 'Controllers');
 
         return $project->insertPart($options, $logger);
     }//function

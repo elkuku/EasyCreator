@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_COM_NAME_ Categories Model.
+ * ECR_COM_NAME Categories Model.
  *
- * @package _ECR_COM_NAME_
+ * @package ECR_COM_NAME
  * @subpackage	Models
  */
-class _ECR_COM_NAME_ModelCategories extends JModel
+class ECR_COM_NAMEModelCategories extends JModel
 {
     /**
      * Categories data array
@@ -42,7 +42,7 @@ class _ECR_COM_NAME_ModelCategories extends JModel
     }//function
 
     /**
-     * Method to get _ECR_COM_NAME_ item data for the category.
+     * Method to get ECR_COM_NAME item data for the category.
      *
      * @access public
      * @return array
@@ -60,7 +60,7 @@ class _ECR_COM_NAME_ModelCategories extends JModel
     }//function
 
     /**
-     * Method to get the total number of _ECR_COM_NAME_ items for the category.
+     * Method to get the total number of ECR_COM_NAME items for the category.
      *
      * @access public
      * @return integer
@@ -87,14 +87,14 @@ class _ECR_COM_NAME_ModelCategories extends JModel
         $user =& JFactory::getUser();
         $aid = $user->get('aid', 0);
 
-        //-- Query to retrieve all categories that belong under the _ECR_COM_NAME_ section
+        //-- Query to retrieve all categories that belong under the ECR_COM_NAME section
         //-- and that are published.
         $query = 'SELECT cc.*, COUNT(a.id) AS numitems,'
         .' cc.id as slug'
         .' FROM #__categories AS cc'
-        .' LEFT JOIN #___ECR_COM_TBL_NAME_ AS a ON a.catid = cc.id'
+        .' LEFT JOIN #__ECR_COM_TBL_NAME AS a ON a.catid = cc.id'
 //        .' WHERE a.published = 1'
-        .' WHERE section = \'_ECR_COM_COM_NAME_\''
+        .' WHERE section = \'ECR_COM_COM_NAME\''
         .' AND cc.published = 1'
         .' AND cc.access <= '.(int)$aid
         .' GROUP BY cc.id'

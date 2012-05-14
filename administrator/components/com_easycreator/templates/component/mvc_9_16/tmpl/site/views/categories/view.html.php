@@ -4,17 +4,17 @@
 jimport('joomla.application.component.view');
 
 /**
- * HTML View class for the _ECR_COM_NAME_ component.
+ * HTML View class for the ECR_COM_NAME component.
  *
  * @static
- * @package	_ECR_COM_NAME_
+ * @package	ECR_COM_NAME
  * @subpackage	Views
  * @since 1.0
  */
-class _ECR_COM_NAME_ViewCategories extends JView
+class ECR_COM_NAMEViewCategories extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -25,7 +25,7 @@ class _ECR_COM_NAME_ViewCategories extends JView
         $categories	= $this->get('data');
 
         //-- Get the page/component configuration
-        $params = JComponentHelper::getParams('_ECR_COM_COM_NAME_');
+        $params = JComponentHelper::getParams('ECR_COM_COM_NAME');
 
         $menu = JSite::getMenu()->getActive();
 
@@ -35,18 +35,18 @@ class _ECR_COM_NAME_ViewCategories extends JView
         {
             if( ! $menu->params->get('page_title'))
             {
-                $params->set('page_title', JText::_('_ECR_COM_NAME_'));
+                $params->set('page_title', JText::_('ECR_COM_NAME'));
             }
         }
         else
         {
-            $params->set('page_title', JText::_('_ECR_COM_NAME_'));
+            $params->set('page_title', JText::_('ECR_COM_NAME'));
         }
 
         JFactory::getDocument()->setTitle($params->get('page_title'));
 
         //-- Set some defaults if not set for params
-        $params->def('comp_description', JText::_('_ECR_COM_NAME__DESC'));
+        $params->def('comp_description', JText::_('ECR_COM_NAME_DESC'));
 
         //-- Define image tag attributes
         if($params->get('image') != -1)
@@ -55,13 +55,13 @@ class _ECR_COM_NAME_ViewCategories extends JView
             $attribs['hspace'] = 6;
 
             //-- Use the static HTML library to build the image tag
-            $image = JHTML::_('image', 'images/stories/'.$params->get('image'), JText::_('_ECR_COM_NAME_'), $attribs);
+            $image = JHTML::_('image', 'images/stories/'.$params->get('image'), JText::_('ECR_COM_NAME'), $attribs);
         }
 
         for($i = 0; $i < count($categories); $i++)
         {
             $category =& $categories[$i];
-            $category->link = JRoute::_('index.php?option=_ECR_COM_COM_NAME_&view=category&id='.$category->slug);
+            $category->link = JRoute::_('index.php?option=ECR_COM_COM_NAME&view=category&id='.$category->slug);
 
             //-- Prepare category description
             $category->description = JHTML::_('content.prepare', $category->description);

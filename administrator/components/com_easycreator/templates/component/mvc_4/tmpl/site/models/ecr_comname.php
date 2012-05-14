@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_COM_NAME_ Model.
+ * ECR_COM_NAME Model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModel
+class ECR_COM_NAMEModelECR_COM_NAME extends JModel
 {
     /**
      * Gets the data.
@@ -20,7 +20,7 @@ class _ECR_COM_NAME_Model_ECR_COM_NAME_ extends JModel
     {
         $db =& JFactory::getDBO();
 
-        $query = 'SELECT * FROM #___ECR_COM_TBL_NAME_';
+        $query = 'SELECT * FROM #__ECR_COM_TBL_NAME';
         $db->setQuery($query);
         $data = $db->loadObjectList();
 

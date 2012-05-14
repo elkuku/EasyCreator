@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * Content Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgContent_ECR_COM_NAME_ extends JPlugin
+class plgContentECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor
@@ -22,7 +22,7 @@ class plgContent_ECR_COM_NAME_ extends JPlugin
      * @param object $params  The object that holds the plugin parameters
      * @since 1.5
      */
-    function plgContent_ECR_COM_NAME_(&$subject, $params)
+    function plgContentECR_COM_NAME(&$subject, $params)
     {
         parent::__construct($subject, $params);
     }//function

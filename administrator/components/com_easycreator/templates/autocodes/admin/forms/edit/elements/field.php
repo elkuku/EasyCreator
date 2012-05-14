@@ -92,7 +92,7 @@ class AutoCodeAdminFormsEditElementField
         .' id="label_'.$this->field->name.'"'
         .' size="32"'
         .' maxlength="250"'
-        .' value="<?php echo $this->_ECR_COM_NAME_->'.$this->field->name.'; ?>"'
+        .' value="<?php echo $this->ECR_COM_NAME->'.$this->field->name.'; ?>"'
         .' />';
 
         return $s;
@@ -108,7 +108,7 @@ class AutoCodeAdminFormsEditElementField
         $s = '        <input type="hidden"'
         .' name="'.$this->field->name.'"'
         .' id="label_'.$this->field->name.'"'
-        .' value="<?php echo $this->_ECR_COM_NAME_->'.$this->field->name.'; ?>"'
+        .' value="<?php echo $this->ECR_COM_NAME->'.$this->field->name.'; ?>"'
         .' />';
 
         return $s;

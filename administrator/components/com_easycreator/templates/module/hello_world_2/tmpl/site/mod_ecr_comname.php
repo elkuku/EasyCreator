@@ -8,7 +8,7 @@ require_once dirname(__FILE__).DS.'helper.php';
 $userCount = $params->get('usercount', 10);
 
 //-- Get the items to display from the helper
-$items = Mod_ECR_COM_NAME_Helper::getItems($userCount);
+$items = ModECR_COM_NAMEHelper::getItems($userCount);
 
 //-- Include the template for display
-require JModuleHelper::getLayoutPath('_ECR_COM_COM_NAME_');
+require JModuleHelper::getLayoutPath('ECR_COM_COM_NAME');

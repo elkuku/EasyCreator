@@ -224,7 +224,7 @@ class PartViewsData_list extends EcrProjectPart
      */
     public function insert(EcrProjectBase $EcrProject, $options, EcrLogger $logger)
     {
-        $EcrProject->addSubstitute('_ECR_SUBPACKAGE_', 'Models');
+        $EcrProject->addSubstitute('ECR_SUBPACKAGE', 'Models');
 
         $element_name = JRequest::getCmd('element');
         $element_scope = JRequest::getCmd('element_scope');
@@ -260,7 +260,7 @@ class PartViewsData_list extends EcrProjectPart
         /*
          * Add substitutes
          */
-        $EcrProject->addSubstitute('_ECR_ELEMENT_NAME_', $element_name);
+        $EcrProject->addSubstitute('ECR_ELEMENT_NAME', $element_name);
         $EcrProject->addSubstitute('_ECR_LOWER_ELEMENT_NAME_', strtolower($element_name));
         $EcrProject->addSubstitute('_ECR_TABLE_NAME_', $table_name);
 

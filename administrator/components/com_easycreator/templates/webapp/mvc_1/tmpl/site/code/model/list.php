@@ -1,9 +1,9 @@
 <?php
 ##*HEADER*##
 /**
- * _ECR_COM_NAME_ list model.
+ * ECR_COM_NAME list model.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Model
  */
 class ECR_CLASS_PREFIXModelList extends JModelBase
@@ -18,7 +18,7 @@ class ECR_CLASS_PREFIXModelList extends JModelBase
         $db = JFactory::getDbo();
 
         $query = $db->getQuery(true)
-            ->from('#___ECR_COM_TBL_NAME_')
+            ->from('#__ECR_COM_TBL_NAME')
             ->select('*');
 
         $db->setQuery($query);

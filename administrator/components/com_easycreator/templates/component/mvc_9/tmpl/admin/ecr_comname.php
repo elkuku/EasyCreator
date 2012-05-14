@@ -24,7 +24,7 @@ if($controller)
 }
 
 //-- Create the controller
-$classname = '_ECR_COM_NAME__ECR_LIST_POSTFIX_Controller'.$controller;
+$classname = 'ECR_COM_NAMEECR_LIST_POSTFIXController'.$controller;
 
 $controller = new $classname;
 

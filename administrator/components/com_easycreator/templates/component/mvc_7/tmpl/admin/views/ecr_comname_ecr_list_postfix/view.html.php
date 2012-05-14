@@ -4,9 +4,9 @@
 jimport('joomla.application.component.view');
 
 /**
- * HTML View class for the _ECR_COM_NAME_ Component
+ * HTML View class for the ECR_COM_NAME Component
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Views
  */
 
@@ -14,10 +14,10 @@ jimport('joomla.application.component.view');
  * Enter description here ...@todo class doccomment.
  *
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JView
+class ECR_COM_NAMEECR_LIST_POSTFIXViewECR_COM_NAMEECR_LIST_POSTFIX extends JView
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ view display method.
+     * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
      *
      * @param string $tpl The name of the template file to parse;
      *
@@ -25,7 +25,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_View_ECR_COM_NAME__ECR_LIST_POSTFIX_ exten
      */
     public function display($tpl = null)
     {
-        JToolBarHelper::title(JText::_('_ECR_COM_NAME_ Manager'), 'generic.png');
+        JToolBarHelper::title(JText::_('ECR_COM_NAME Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editListX();
         JToolBarHelper::addNewX();

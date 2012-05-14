@@ -1,10 +1,10 @@
 <?php
 ##*HEADER*##
 
-JApplication::registerEvent('onBeforeDisplayContent', 'plgContent_ECR_COM_NAME_');
+JApplication::registerEvent('onBeforeDisplayContent', 'plgContentECR_COM_NAME');
 
 /**
- * This plugin will trigger the string {trigger_ECR_COM_NAME_}
+ * This plugin will trigger the string {triggerECR_COM_NAME}
  *
  * @param $row
  * @param $params
@@ -12,16 +12,16 @@ JApplication::registerEvent('onBeforeDisplayContent', 'plgContent_ECR_COM_NAME_'
  *
  * @return void
  */
-function plgContent_ECR_COM_NAME_(&$row, &$params, $page = 0)
+function plgContentECR_COM_NAME(&$row, &$params, $page = 0)
 {
-    if( ! strpos($row->text, '{trigger_ECR_COM_NAME_'))
+    if( ! strpos($row->text, '{triggerECR_COM_NAME'))
     {
         //--The tag is not found in content - abort..
         return;
     }
 
     //--Search for this tag in the content
-    $regex = '/{trigger_ECR_COM_NAME_\s*.*?}/i';
+    $regex = '/{triggerECR_COM_NAME\s*.*?}/i';
 
     $replacement = JText::_('My replacement');
 

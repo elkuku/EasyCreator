@@ -2,12 +2,12 @@
 ##*HEADER*##
 
 /**
- * _ECR_COM_NAME_ Table class.
+ * ECR_COM_NAME Table class.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Components
  */
-class _ECR_COM_NAME_Table_ECR_COM_NAME_ extends JTable
+class ECR_COM_NAMETableECR_COM_NAME extends JTable
 {
     /**
      * Constructor.
@@ -16,6 +16,6 @@ class _ECR_COM_NAME_Table_ECR_COM_NAME_ extends JTable
      */
     public function __construct(& $db)
     {
-        parent::__construct('#___ECR_COM_TBL_NAME_', 'id', $db);
+        parent::__construct('#__ECR_COM_TBL_NAME', 'id', $db);
     }//function
 }//class

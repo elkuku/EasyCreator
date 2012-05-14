@@ -10,5 +10,5 @@
   <dbTables>None</dbTables>
   <author>Ian McLennan</author>
   <authorUrl>http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1</authorUrl>
-  <menu img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_.png">_ECR_COM_NAME_</menu>
+  <menu img="components/ECR_COM_COM_NAME/assets/images/ECR_COM_COM_NAME.png">ECR_COM_NAME</menu>
 </easyproject>

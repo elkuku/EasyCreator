@@ -4,15 +4,15 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_COM_NAME_ Model.
+ * ECR_COM_NAME Model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ extends JModel
+class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JModel
 {
     /**
-     * _ECR_COM_NAME__ECR_LIST_POSTFIX_ data array
+     * ECR_COM_NAMEECR_LIST_POSTFIX data array
      *
      * @var array
      */
@@ -26,7 +26,7 @@ class _ECR_COM_NAME__ECR_LIST_POSTFIX_Model_ECR_COM_NAME__ECR_LIST_POSTFIX_ exte
     private function _buildQuery()
     {
         $query = 'SELECT * '
-        . ' FROM #___ECR_COM_TBL_NAME_ ';
+        . ' FROM #__ECR_COM_TBL_NAME ';
 
         return $query;
     }//function

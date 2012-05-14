@@ -6,10 +6,10 @@ jimport('joomla.plugin.plugin');
 /**
  * Authentication Plugin.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Plugin
  */
-class plgAuthentication_ECR_COM_NAME_ extends JPlugin
+class plgAuthenticationECR_COM_NAME extends JPlugin
 {
     /**
      * This method should handle any authentication and report back to the subject

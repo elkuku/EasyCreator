@@ -4,12 +4,12 @@
 jimport('joomla.application.component.model');
 
 /**
- * _ECR_ELEMENT_NAME_ model.
+ * ECR_ELEMENT_NAME model.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Models
  */
-class _ECR_COM_NAME_Model_ECR_ELEMENT_NAME_ extends JModel
+class ECR_COM_NAMEModelECR_ELEMENT_NAME extends JModel
 {
     /**
      * Constructor.

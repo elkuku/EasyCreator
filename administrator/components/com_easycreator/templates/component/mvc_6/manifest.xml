@@ -10,5 +10,5 @@
   <dbTables>Demo table</dbTables>
   <author>Ian McLennan</author>
   <authorUrl>http://community.joomla.org/magazine/article/531-developer-dynamic-loading-of-lists-using-ajax-in-a-mvc-component-mathieu-chauvinc.html</authorUrl>
-  <menu img="components/_ECR_COM_COM_NAME_/assets/images/_ECR_COM_COM_NAME_.png">_ECR_COM_NAME_</menu>
+  <menu img="components/ECR_COM_COM_NAME/assets/images/ECR_COM_COM_NAME.png">ECR_COM_NAME</menu>
 </easyproject>

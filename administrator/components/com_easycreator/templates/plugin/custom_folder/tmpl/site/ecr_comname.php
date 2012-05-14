@@ -2,12 +2,12 @@
 ##*HEADER*##
 
 /**
- * _ECR_COM_SCOPE_ Plugin.
+ * ECR_COM_SCOPE Plugin.
  *
- * @package     _ECR_COM_NAME_
+ * @package     ECR_COM_NAME
  * @subpackage  Plugin
  */
-class plg_ECR_COM_SCOPE__ECR_COM_NAME_ extends JPlugin
+class plgECR_COM_SCOPEECR_COM_NAME extends JPlugin
 {
     /**
      * Constructor.

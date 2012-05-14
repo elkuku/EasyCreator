@@ -4,12 +4,12 @@
 jimport('joomla.application.component.controller');
 
 /**
- * _ECR_COM_NAME_ default Controller.
+ * ECR_COM_NAME default Controller.
  *
- * @package    _ECR_COM_NAME_
+ * @package    ECR_COM_NAME
  * @subpackage Controllers
  */
-class _ECR_COM_NAME__ECR_LIST_POSTFIX_Controller extends JController
+class ECR_COM_NAMEECR_LIST_POSTFIXController extends JController
 {
     /**
      * Method to display the view.
