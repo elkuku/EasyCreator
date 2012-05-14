@@ -126,6 +126,15 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
 
         $args[] = $this->verboseLevel;
 
+        /*
+        $path = JFactory::getConfig()->get('log_path');
+
+        $fileName = 'ecr_log.php';
+        $log = $path.'/'.$fileName;
+
+        $args[] = ' >> '.$log;
+*/
+
         $results = $this->cliExec('phpcs', $args);
 
         /**

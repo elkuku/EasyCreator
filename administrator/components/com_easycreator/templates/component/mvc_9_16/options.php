@@ -1,13 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Templates
  * @author     Nikolai Plath (elkuku)
  * @author     Created on 09-May-2009
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 /**
  * Custom options for EasyCreator extension templates.
@@ -25,7 +22,6 @@ class EasyTemplateOptions
      */
     public function displayOptions(EcrProjectBase $project)
     {
-
         ecrScript('dbtables');
         ecrStylesheet('dbtables');
 
@@ -204,7 +200,6 @@ class EasyTemplateOptions
         $c->elements = array('divrow');
         $codes[] = $c;
 
-
         $c = EcrProjectHelper::getAutoCode('site.viewcategory.table.'.$tableName);
         $c->elements = array('header', 'cell');
         $codes[] = $c;
@@ -233,4 +228,4 @@ class EasyTemplateOptions
 
         return true;
     }
-}//class
+}

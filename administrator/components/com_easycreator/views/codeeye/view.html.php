@@ -48,7 +48,7 @@ class EasyCreatorViewCodeEye extends JView
     public function display($tpl = null)
     {
         //-- Add javascript
-        ecrScript('codeeye');
+        ecrScript('codeeye', 'pollrequest', 'logconsole');
 
         //-- Add css
         ecrStylesheet('codeeye');

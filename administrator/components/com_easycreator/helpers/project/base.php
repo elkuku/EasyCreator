@@ -81,6 +81,8 @@ abstract class EcrProjectBase
 
     public $listPostfix = 'List';
 
+    public $classPrefix = '';
+
     public $extensionPrefix = '';
 
     public $entryFile = '';

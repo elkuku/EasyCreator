@@ -207,7 +207,7 @@ try
     else
     {
         //-- Display the menu
-        EcrHtml::easyMenu();
+        EcrHtml::menu();
 
         //-- Perform the Request task
         $controller->execute(JRequest::getCmd('task'));

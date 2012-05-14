@@ -22,9 +22,10 @@ div#pollStatus {
     background-color: white;
 }
 div#pollStatusGrip {
-    float: left;
     background-color: yellow;
-    cursor: move;
+    cursor: s-resize;
+    text-align: center;
+    font-size: 4px;
 }
 
 pre#ecrDebugBox {

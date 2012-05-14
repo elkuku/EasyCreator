@@ -20,6 +20,7 @@ ecrScript('php2js');
 </div>
 
 <div class="clr"></div>
+
 <h3><?php echo jgettext('Destination'); ?></h3>
 
 <div class="ecr_floatbox">
@@ -27,6 +28,14 @@ ecrScript('php2js');
 </div>
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('github'); ?>
+</div>
+
+<div class="clr"></div>
+
+<h3><?php echo jgettext('Joomla! update'); ?></h3>
+
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('updatefiles'); ?>
 </div>
 
 <div class="clr"></div>

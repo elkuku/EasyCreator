@@ -78,8 +78,6 @@ var ecrStuffer = new Class({
 
                 var params = JSON.decode(resp.text);
 
-                console.log(params);
-
                 document.id('custom_name_1').set('value', params.custom_name_1);
                 document.id('custom_name_2').set('value', params.custom_name_2);
                 document.id('custom_name_3').set('value', params.custom_name_3);

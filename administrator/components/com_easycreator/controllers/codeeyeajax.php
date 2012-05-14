@@ -23,6 +23,23 @@ class EasyCreatorControllerCodeEyeAjax extends JController
     protected $testsBase;
 
     /**
+     * @var EcrResponseJson
+     */
+    private $response = null;
+
+    /**
+     * Constructor.
+     *
+     * @param array $config
+     */
+    public function __construct($config = array())
+    {
+        $this->response = new EcrResponseJson;
+
+        parent::__construct($config);
+    }
+
+    /**
      * Executes a PHPUnit test.
      *
      * @return void
@@ -397,24 +414,18 @@ class EasyCreatorControllerCodeEyeAjax extends JController
      *
      * @return void
      */
-    public function load_sniff()
+    public function phpcs()
     {
         $path = JRequest::getVar('path');
         $file = JRequest::getVar('file');
-
-        $response = array();
-
-        $response['status'] = 0;
-        $response['text'] = '';
-        $response['console'] = '';
 
         if(! $file)
         {
             if(! JFolder::exists(JPATH_ROOT.DS.$path))
             {
-                $response['text'] = '<b style="color: red">'.jgettext('Folder not found').'</b>';
+                $this->response->message = '<b style="color: red">'.jgettext('Folder not found').'</b>';
 
-                echo json_encode($response);
+                echo json_encode($this->response);
 
                 return;
             }
@@ -429,10 +440,10 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             if(! in_array($ext, $sniffExtensions))
             {
-                $response['text'] = '<b style="color: red">Sniffeable extensions:<br />'
+                $this->response->message = '<b style="color: red">Sniffeable extensions:<br />'
                     .implode(',', $sniffExtensions).'</b>';
 
-                echo json_encode($response);
+                echo json_encode($this->response);
 
                 return;
             }
@@ -441,9 +452,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             if(! JFile::exists($fullPath))
             {
-                $response['text'] = '<b style="color: red">'.jgettext('File not found').'</b>';
+                $this->response->message = '<b style="color: red">'.jgettext('File not found').'</b>';
 
-                echo json_encode($response);
+                echo json_encode($this->response);
 
                 return;
             }
@@ -481,44 +492,49 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         }
 
         $results = $sniffer->sniffFile($fullPath);
-        $response['text'] = ob_get_contents();
+        $this->response->message = ob_get_contents();
         ob_end_clean();
 
-        $response['console'] = htmlentities($results);
-        $response['status'] = 1;
+        $this->response->debug = htmlentities($results);
+        $this->response->status = 1;
 
         if($file
             && 'xml' == $format
         )
         {
             $xml = JFactory::getXML($results, false);
-
+            $warnings = array();
             $errors = array();
 
-            /* @var $error SimpleXMLElement */
-            foreach($xml->file->error as $error)
+            if($xml)
             {
-                $line = (int)$error->attributes()->line;
+                if(isset($xml->file->error))
+                {
+                    /* @var $error SimpleXMLElement */
+                    foreach($xml->file->error as $error)
+                    {
+                        $line = (int)$error->attributes()->line;
 
-                if(! isset($errors[$line]))
-                    $errors[$line] = array();
+                        if(! isset($errors[$line]))
+                            $errors[$line] = array();
 
-                $errors[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
+                        $errors[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
+                    }
+                }
+
+                if(isset($xml->file->warnings))
+                {
+                    foreach($xml->file->warning as $error)
+                    {
+                        $line = (int)$error->attributes()->line;
+
+                        if(! isset($warnings[$line]))
+                            $warnings[$line] = array();
+
+                        $warnings[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
+                    }
+                }
             }
-            //foreach
-
-            $warnings = array();
-
-            foreach($xml->file->warning as $error)
-            {
-                $line = (int)$error->attributes()->line;
-
-                if(! isset($warnings[$line]))
-                    $warnings[$line] = array();
-
-                $warnings[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
-            }
-            //foreach
 
             $highlight = '';
             $highlight .= '<pre>';
@@ -555,17 +571,14 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                 $highlight .= '</div>';
             }
-            //foreach
 
             $highlight .= '</pre>';
 
-            $response['text'] = $highlight.$response['text'];
+            $this->response->message = $highlight.$this->response->message;
         }
 
-        echo json_encode($response);
+        echo json_encode($this->response);
     }
-
-    //function
 
     /**
      * Runs PHP Copy & Paste detector.
@@ -718,69 +731,69 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         <div class="infoHeader">Installed PEAR Packages</div>
         <div style="margin-top: 1em;">
-        <table class="adminlist">
+            <table class="adminlist">
 
-            <thead>
-            <tr>
-                <th><?php echo jgettext('Package'); ?></th>
-                <th><?php echo jgettext('Version'); ?></th>
-                <th><?php echo jgettext('Recommended'); ?></th>
-                <th><?php echo jgettext('Info'); ?></th>
-            </tr>
-            </thead>
+                <thead>
+                <tr>
+                    <th><?php echo jgettext('Package'); ?></th>
+                    <th><?php echo jgettext('Version'); ?></th>
+                    <th><?php echo jgettext('Recommended'); ?></th>
+                    <th><?php echo jgettext('Info'); ?></th>
+                </tr>
+                </thead>
 
-            <tbody>
-            <tr class="row0">
-                <td>PHP_CodeSniffer</td>
-                <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
-                    ? $pearPackages['PHP_CodeSniffer']
-                    : $notFound; ?>
-                </td>
-                <td>1.2.0</td>
-                <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
-                       class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
-                    CSS files and detects violations of a defined set of coding
-                    standards.
-                </td>
-            </tr>
+                <tbody>
+                <tr class="row0">
+                    <td>PHP_CodeSniffer</td>
+                    <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
+                        ? $pearPackages['PHP_CodeSniffer']
+                        : $notFound; ?>
+                    </td>
+                    <td>1.2.0</td>
+                    <td><a href="http://pear.php.net/package/PHP_CodeSniffer"
+                           class="external">PHP_CodeSniffer</a> tokenises PHP, JavaScript and
+                        CSS files and detects violations of a defined set of coding
+                        standards.
+                    </td>
+                </tr>
 
-            <tr class="row1">
-                <td>phpcpd</td>
-                <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
-                <td>1.1.1</td>
-                <td><a href="http://github.com/sebastianbergmann/phpcpd"
-                       class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
-                    code.
-                </td>
-            </tr>
+                <tr class="row1">
+                    <td>phpcpd</td>
+                    <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
+                    <td>1.1.1</td>
+                    <td><a href="http://github.com/sebastianbergmann/phpcpd"
+                           class="external">phpcpd</a> is a Copy/Paste Detector (CPD) for PHP
+                        code.
+                    </td>
+                </tr>
 
-            <tr class="row0">
-                <td>PhpDocumentor</td>
-                <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
-                    ? $pearPackages['PhpDocumentor']
-                    : $notFound; ?>
-                </td>
-                <td>1.4.3</td>
-                <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
-                    is the world standard auto-documentation tool for PHP.
-                </td>
-            </tr>
+                <tr class="row0">
+                    <td>PhpDocumentor</td>
+                    <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
+                        ? $pearPackages['PhpDocumentor']
+                        : $notFound; ?>
+                    </td>
+                    <td>1.4.3</td>
+                    <td><a href="http://www.phpdoc.org/" class="external">PhpDocumentor</a>
+                        is the world standard auto-documentation tool for PHP.
+                    </td>
+                </tr>
 
-            <tr class="row1">
-                <td>PhpUnit</td>
-                <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
-                <td>3.4.0</td>
-                <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
-                    provides both a framework that makes the writing of tests easy as
-                    well as the functionality to easily run the tests and analyse their
-                    results.
-                </td>
-            </tr>
+                <tr class="row1">
+                    <td>PhpUnit</td>
+                    <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
+                    <td>3.4.0</td>
+                    <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
+                        provides both a framework that makes the writing of tests easy as
+                        well as the functionality to easily run the tests and analyse their
+                        results.
+                    </td>
+                </tr>
 
-            </tbody>
+                </tbody>
 
-        </table>
-</div>
+            </table>
+        </div>
         <p style="margin-top: 1em; padding: 0.5em; background-color: #fff;">
             <?php echo sprintf(jgettext('See also: %s')
             , '<a class="external" href="'.ECR_DOCU_LINK.'/EasyCodeEye">EasyCreator Doku: EasyCodeEye</a>'); ?>

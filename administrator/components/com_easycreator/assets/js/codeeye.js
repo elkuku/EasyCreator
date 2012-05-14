@@ -276,7 +276,7 @@ function loadSniff(folder, file)
     file = (file) ? file : $('dspl_sniff_file').innerHTML;
 
     url = ecrAJAXLink+'&controller=codeeyeajax';
-    url += '&task=load_sniff';
+    url += '&task=phpcs';
     url += '&path=' + folder;
     url += '&file=' + file;
     url += '&sniff_standard=' + $('sniff_standard').value;
@@ -284,16 +284,52 @@ function loadSniff(folder, file)
     url += '&sniff_verbose=' + $('sniff_verbose').checked;
 
     var sniffs = '';
-    for(var i=0; i < document.adminForm.sniff_sniffs.length; i++)
-    {
-        if(document.adminForm.sniff_sniffs[i].checked) {
-            sniffs += document.adminForm.sniff_sniffs[i].value + ',';
+
+    if(document.adminForm.sniff_sniffs){
+        for(var i=0; i < document.adminForm.sniff_sniffs.length; i++)
+        {
+            if(document.adminForm.sniff_sniffs[i].checked) {
+                sniffs += document.adminForm.sniff_sniffs[i].value + ',';
+            }
         }
-    }//for
+    }
 
     if(sniffs != '') {
         url += '&sniff_sniffs=' + sniffs;
     }
+
+
+
+
+    //////////////
+
+    var data = {};//this._getCredentials(deployTarget, 'deployPackages');
+
+    var containers = {
+        status:document.id('ecr_codeeye_output'),
+        debug:document.id('ecr_codeeye_console'),
+        display:document.id('ecr_codeeye_output')
+    };
+
+    startPoll();
+
+    /*
+    this._send(containers, data
+        , jgettext('CodeSniffer sniffing...')
+        , 'getPackageList', deployTarget
+    );
+*/
+
+    //EcrLogconsole = new EcrLogconsole;
+
+    EcrLogconsole.url = url;
+
+ //   alert(EcrLogconsole.url);
+
+    EcrLogconsole.send(containers, data
+        , jgettext('CodeSniffer sniffing...'));
+
+    return;
 
     new Request({
         url: url,
@@ -313,8 +349,8 @@ function loadSniff(folder, file)
             if( ! resp.status) {
                 //-- Error
             }
-            $('ecr_codeeye_output').innerHTML = resp.text;
-            $('ecr_codeeye_console').innerHTML = resp.console;
+            $('ecr_codeeye_output').innerHTML = resp.message;
+            $('ecr_codeeye_console').innerHTML = resp.debug;
         }
     }).send();
 }//function

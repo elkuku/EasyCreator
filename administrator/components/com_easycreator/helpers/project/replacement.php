@@ -28,6 +28,11 @@ class EcrProjectReplacement
     public $_ECR_UPPER_COM_NAME_;
 
     /**
+     * @var string The ucfirst case component name (Mycomponent)
+     */
+    public $ECR_UCF_COM_NAME;
+
+    /**
      * @var string The internal component name (com_mycomponent)
      */
     public $_ECR_COM_COM_NAME_;
@@ -65,6 +70,8 @@ class EcrProjectReplacement
     public $_ECR_LOWER_LIST_POSTFIX_;
 
     public $_ECR_UPPER_LIST_POSTFIX_;
+
+    public $ECR_CLASS_PREFIX;
 
     public $_ECR_SUBPACKAGE_;
 

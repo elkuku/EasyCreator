@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,12 +7,9 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 $sniffer = new EcrPearHelperCodesniffer;
 
-if( ! $sniffer->checkEnv()):
+if(! $sniffer->checkEnv()):
     echo 'Env check failed.. cannot continue :(';
 
     return;
@@ -33,87 +30,92 @@ $fileTree = drawFileTree($this->project);
 ?>
 
 <div class="ecr_floatbox">
-        <?php echo $fileTree; ?>
-        <div onclick="sniffFolder();" class="ecr_button img32 icon-32-nose"><?php echo jgettext('Sniff folder')?></div>
+    <?php echo $fileTree; ?>
+    <div onclick="sniffFolder();" class="ecr_button img32 icon-32-nose"><?php echo jgettext('Sniff folder')?></div>
 </div>
 
 <div class="ecr_floatbox">
-        Standard:<br />
-        <select name="sniff_standard" id="sniff_standard">
+    Standard:<br/>
+    <select name="sniff_standard" id="sniff_standard">
         <optgroup label="PEAR provided">
-<?php
-        foreach($standards as $standard):
-            echo '<option>'.$standard.'</option>';
-        endforeach;
-?>
+            <?php
+            foreach($standards as $standard):
+                echo '<option>'.$standard.'</option>';
+            endforeach;
+            ?>
         </optgroup>
 
         <optgroup label="EasyCreator provided">
-<?php
-        foreach($easyStandards as $standard):
-            echo '<option value="'.JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.'">'.$standard.'</option>';
-        endforeach;
-?>
+            <?php
+            foreach($easyStandards as $standard):
+                echo '<option value="'.JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.'">'.$standard.'</option>';
+            endforeach;
+            ?>
         </optgroup>
-        </select>
+    </select>
 
-        <br />
-        Format:<br />
-        <select name="sniff_format" id="sniff_format">
-<?php
+    <br/>
+    Format:<br/>
+    <select name="sniff_format" id="sniff_format">
+        <?php
         foreach($formats as $format):
             echo '<option >'.$format.'</option>';
         endforeach;
-?>
-        </select>
-        <br /><br />
-        <input type="checkbox" name="sniff_verbose" id="sniff_verbose" />
-        <label for="sniff_verbose">Verbose</label>
+        ?>
+    </select>
+    <br/><br/>
+    <input type="checkbox" name="sniff_verbose" id="sniff_verbose"/>
+    <label for="sniff_verbose">Verbose</label>
 
-        <?php
-        foreach($this->project->copies as $dir):
-            if(is_dir($dir)):
-                $d = str_replace(JPATH_ROOT.DS, '', $dir);
-                echo '<div onclick="setPath(\''.$d.'\'); sniffFolder();"'
+    <?php
+    foreach($this->project->copies as $dir):
+        if(is_dir($dir)):
+            $d = str_replace(JPATH_ROOT.DS, '', $dir);
+            echo '<div onclick="setPath(\''.$d.'\'); sniffFolder();"'
                 .' class="ecr_button img32 icon-32-nose" style="padding: left: 45px;">'.$d.'</div>';
-            endif;
-        endforeach;
+        endif;
+    endforeach;
 
-        echo '<br />';
-        echo jgettext('Perform only');
-        echo '<br />';
-        foreach($easyStandards as $standard):
-            echo '<h3>'.$standard.'</h3>';
+    echo '<br />';
+    echo jgettext('Perform only');
+    echo '<br />';
+    foreach($easyStandards as $standard):
+        echo '<h3>'.$standard.'</h3>';
 
-            $cats = JFolder::folders(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.DS.'Sniffs');
-            foreach($cats as $cat):
-                echo '<strong>'.$cat.'</strong>'.BR;
+        $cats = JFolder::folders(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.DS.'Sniffs');
+        foreach($cats as $cat):
+            echo '<strong>'.$cat.'</strong>'.BR;
 
-                $snfs = JFolder::files(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.DS.'Sniffs'.DS.$cat);
+            $snfs = JFolder::files(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.DS.'Sniffs'.DS.$cat);
 
-                foreach($snfs as $snf):
-                    $s = str_replace('Sniff.php', '', $snf);
-                    echo '<input type="checkbox" name="sniff_sniffs" value="'
+            foreach($snfs as $snf):
+                $s = str_replace('Sniff.php', '', $snf);
+                echo '<input type="checkbox" name="sniff_sniffs" value="'
                     .$standard.'.'.$cat.'.'.$s.'" id="'.$cat.'.'.$s.'"/>';
 
-                    echo ' <label for="'.$cat.'.'.$s.'">'.$s.'</label>'.BR;
-                endforeach;
+                echo ' <label for="'.$cat.'.'.$s.'">'.$s.'</label>'.BR;
             endforeach;
         endforeach;
-        ?>
+    endforeach;
+    ?>
 </div>
 
 <div class="ecr_floatbox"">
     <span id="dspl_sniff_folder"></span>
     <span id="dspl_sniff_file"></span>
-    <br />
+    <br/>
     <div id="ecr_title_file"></div>
 </div>
 
 <div style="clear: both;"></div>
 <div id="ecr_codeeye_output" style="padding-top: 0.2em;"><h2><?php echo jgettext('Output')?></h2></div>
 <pre id="ecr_codeeye_console"><?php echo jgettext('Console'); ?></pre>
+
+    <div class="clr" style="xheight: 75px;"></div>
+
 <?php
+
+echo EcrHtml::drawLogConsole();
 
 /**
  * Draws a file tree.
@@ -164,9 +166,10 @@ function drawFileTree(EcrProjectBase $project)
                 {
                     $show = false;
                 }
-            }//foreach
+            }
+            //foreach
 
-            if( ! $show)
+            if(! $show)
             {
                 continue;
             }
@@ -174,7 +177,7 @@ function drawFileTree(EcrProjectBase $project)
             //-- This shows a single file not included in anterior directory list ;) - hi plugins...
             $fileName = JFile::getName(JPath::clean($dir));
             $dirName = substr($dir, 0, strlen($dir) - strlen($fileName));
-            $oldDir =(isset($oldDir)) ? $oldDir : '';
+            $oldDir = (isset($oldDir)) ? $oldDir : '';
 
             if($dirName != $oldDir)
             {
@@ -184,7 +187,7 @@ function drawFileTree(EcrProjectBase $project)
 
             $oldDir = $dirName;
 
-            if( ! isset($fileTree))
+            if(! isset($fileTree))
             {
                 $fileTree = new EcrFileTree($dir, "javascript:", $javascript);
             }
@@ -199,7 +202,8 @@ function drawFileTree(EcrProjectBase $project)
 
             $ret .= '<br />';
         }
-    }//foreach
+    }
+    //foreach
 
     return $ret;
 }//function

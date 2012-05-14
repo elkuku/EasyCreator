@@ -11,7 +11,7 @@
  *
  * @package    EasyCreator
  */
-class EcrPearHelperConsole extends JObject
+class EcrPearHelperConsole extends EcrLogconsole
 {
     public $cliBase = '';
 
@@ -24,8 +24,10 @@ class EcrPearHelperConsole extends JObject
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->validEnv = $this->checkEnv();
-    }//function
+    }
 
     /**
      * Checks if the environment has PEAR..

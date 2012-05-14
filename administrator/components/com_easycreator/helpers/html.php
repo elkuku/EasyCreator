@@ -19,7 +19,7 @@ final class EcrHtml
     /**
      * Displays a menu based on Joomla! 1.5 Toolbar
      */
-    public static function easyMenu()
+    public static function menu()
     {
         /*   //                                                          //
          *  //--We start our form HERE ! this is for the whole app !    //
@@ -27,7 +27,8 @@ final class EcrHtml
          */
         EcrHtml::easyFormStart();
 
-        $task = JRequest::getCmd('task');
+        $task = JRequest::getCmd('task', 'stuffer');
+        $vvv = JRequest::getCmd('view');
         $ecr_project = JRequest::getCmd('ecr_project');
         $project = false;
 
@@ -242,7 +243,7 @@ final class EcrHtml
      */
     public static function getSubBar($subTasks, $rightTasks = array())
     {
-        $task = JRequest::getCmd('task');
+        $task = JRequest::getCmd('task', 'stuffer');
         $html = array();
         $htmlDescriptionDivs = '';
         $jsVars = '';
@@ -443,17 +444,28 @@ final class EcrHtml
      */
     public static function footer()
     {
-        $version = '<strong style="color: green;">'.EcrHtml::getVersionFromCHANGELOG('com_easycreator').'</strong>';
+        $v = EcrHtml::getVersionFromCHANGELOG('com_easycreator');
+
+        //-- If the version contains a hyphen, it must be a snapshot - color orange.
+        $color = (false === strpos($v, '-')) ? 'green' : 'orange';
+
+        $version = '<strong style="color: '.$color.';">'.$v.'</strong>';
         ?>
     <div class="ecrFooter">
         <span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
         <a href="http://www.mozilla-europe.org/firefox/" title="FireFox" class="external">
             <span class="img icon-16-firefox">Firefox</span></a>
         and <a href="http://opensuse.org" title="openSUSE" class="external">
-        <span class="img icon-16-opensuse">openSUSE</span></a>&nbsp;Developed with<a href="http://www.jetbrains.com/phpstorm/" title="PHPStorm" class="external"><span class="img icon-16-phpstorm">PHPStorm</span></a><br/>
+        <span class="img icon-16-opensuse">openSUSE</span>
+    </a>
+        <br/>
         Made and partially Copyright &copy; 2008 - 2012 by <a
         href="https://github.com/elkuku"
-        class="external">El KuKu</a><br/>
+        class="external">El KuKu</a> using <a href="http://www.jetbrains.com/phpstorm/" title="PHPStorm"
+                                              class="external">
+        <span class="img icon-16-phpstorm">PHPStorm</span>
+    </a>
+        <br/>
         <small><em style="color: silver;"><span class="img icon-16-joomla"></span>
             EasyCreator is not affiliated with or endorsed by the <a
                 href="http://joomla.org" class="external">Joomla! Project</a>. It is
@@ -1341,7 +1353,7 @@ EOF;
 
         ?>
     <script type="text/javascript">
-        SimpleContextMenu.setup({'preventDefault':true, 'preventForms':false});
+        SimpleContextMenu.setup({'preventDefault' : true, 'preventForms' : false});
         SimpleContextMenu.attach('pft-file', 'CM1');
         SimpleContextMenu.attach('pft-directory', 'CM2');
     </script>

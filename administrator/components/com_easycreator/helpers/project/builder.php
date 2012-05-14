@@ -249,6 +249,8 @@ class EcrProjectBuilder extends JObject
         $this->replacements->_ECR_COM_NAME_ = $this->project->name;
         $this->replacements->_ECR_LOWER_COM_NAME_ = strtolower($this->project->name);
         $this->replacements->_ECR_UPPER_COM_NAME_ = strtoupper($this->project->name);
+        $this->replacements->ECR_UCF_COM_NAME = ucfirst(strtolower($this->project->name));
+
         $this->replacements->_ECR_COM_COM_NAME_ = $this->project->comName;
 
         if('template' == $this->project->type
