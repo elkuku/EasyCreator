@@ -1,0 +1,228 @@
+<?php
+##*HEADER*##
+
+/**
+ * A JApplicationWeb application.
+ *
+ * @package  _ECR_COM_NAME_
+ */
+class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
+{
+    /**
+     * The "task".
+     *
+     * @var string
+     */
+    protected $do = '';
+
+    /**
+     * A database object for the application to use.
+     *
+     * @var    JDatabaseDriver
+     */
+    protected $db;
+
+    /**
+     * Overrides the parent doExecute method to run the web application.
+     *
+     * This method should include your custom code that runs the application.
+     *
+     * @throws RuntimeException
+     * @return  void
+     */
+    protected function doExecute()
+    {
+        try
+        {
+        // Load the database object if necessary.
+        if(empty($this->db))
+            $this->loadDatabase();
+
+        $this->do = $this->input->get('do', 'default');
+
+        $this->fetchController()
+            ->execute();
+
+        $output = $this->fetchView($this->fetchModel())
+            ->render();
+        }
+        catch(Exception $e)
+        {
+            $output = '<div class="alert alert-error">'.$e->getMessage().'</div>';
+
+            JLog::add($e->getMessage(), JLog::ERROR);
+        }
+
+        if('get' == $this->do)
+        {
+            // This is a JSON output
+
+            echo $output;
+
+            return;
+        }
+
+        ob_start();
+
+        include APP_PATH_TEMPLATE.'/default.php';
+
+        $html = ob_get_clean();
+
+        $html = str_replace('<!-- ApplicationOutput -->', $output, $html);
+
+        $this->appendBody($html);
+    }
+
+    /**
+     * Fetch the configuration data for the application.
+     *
+     * @param string $file
+     * @param string $class
+     *
+     * @throws RuntimeException
+     * @internal param $targetApplication
+     *
+     * @return ECR_CLASS_PREFIXConfig
+     */
+    public function fetchConfigurationData($file = '', $class = 'ECR_CLASS_PREFIXConfig')
+    {
+        // Ensure that required path constants are defined.
+        defined('JPATH_CONFIGURATION') || define('JPATH_CONFIGURATION', realpath(dirname(JPATH_BASE).'/config'));
+
+        // Set the configuration file path for the application.
+        $file = (file_exists(JPATH_CONFIGURATION.'/configuration.php'))
+            ? JPATH_CONFIGURATION.'/configuration.php'
+            // Default to the distribution configuration.
+            : JPATH_CONFIGURATION.'/configuration.dist.php';
+
+        if(! is_readable($file))
+            throw new RuntimeException('Configuration file does not exist or is unreadable.', 1);
+
+        include_once $file;
+
+        return new $class;
+    }
+
+    /**
+     * Method to get a controller object based on the command line input.
+     *
+     * @return  JControllerBase
+     *
+     * @since   1.0
+     * @throws  InvalidArgumentException
+     */
+    protected function fetchController()
+    {
+        $base = 'ECR_CLASS_PREFIXController';
+
+        $sub = strtolower($this->do);
+
+        $className = $base.ucfirst($sub);
+
+        // If the requested controller exists let's use it.
+        if(class_exists($className))
+        {
+            return new $className($this->input, $this);
+        }
+
+        // Nothing found. Panic.
+        throw new InvalidArgumentException('Controller not found: '.$sub, 400);
+    }
+
+    /**
+     * Method to get a controller object based on the command line input.
+     *
+     * @return  JControllerBase
+     *
+     * @since   1.0
+     * @throws  InvalidArgumentException
+     */
+    protected function fetchModel()
+    {
+        $base = 'ECR_CLASS_PREFIXModel';
+
+        $sub = $this->input->get('view') ? : strtolower($this->do);
+
+        $className = $base.ucfirst($sub);
+
+        // If the requested controller exists let's use it.
+        if(class_exists($className))
+            return new $className; //($this->input, $this);
+
+        // Nothing found. Don't Panic.
+        return new ECR_CLASS_PREFIXModelDefault(new JRegistry);
+
+        // Nothing found. Panic.
+        throw new InvalidArgumentException('Model not found: '.$sub, 400);
+    }
+
+    /**
+     * @param JModelBase $model
+     *
+     * @return JViewHtml
+     */
+    protected function fetchView(JModelBase $model)
+    {
+        $name = $this->input->get('view') ? : $this->do;
+
+        $className = 'ECR_CLASS_PREFIXView'.ucfirst($name).'View';
+
+        if(! class_exists($className))
+        {
+            $className = 'ECR_CLASS_PREFIXViewDefaultView';
+
+            $layouts = new SplPriorityQueue;
+            $layouts->insert(JPATH_BASE.'/view/default/tmpl', 0);
+        }
+        else
+        {
+            $layouts = new SplPriorityQueue;
+            $layouts->insert(JPATH_BASE.'/view/'.$name.'/tmpl', 0);
+        }
+
+        return new $className($model, $layouts);
+    }
+
+    /**
+     * @return object
+     */
+    public function getConfig()
+    {
+        return $this->config->toObject();
+    }
+
+    /**
+     * Method to create a database driver for the Web application.
+     *
+     * @return void
+     *
+     * @since 1.0
+     */
+    protected function loadDatabase()
+    {
+        $database = ('sqlite' == $this->get('db_driver'))
+            ? APP_PATH_DATA.'/'.$this->get('db_name')
+            : $this->get('db_name');
+
+        $this->db = JDatabaseDriver::getInstance(
+            array(
+                'driver' => $this->get('db_driver'),
+                'host' => $this->get('db_host'),
+                'user' => $this->get('db_user'),
+                'password' => $this->get('db_pass'),
+                'database' => $database,
+                'prefix' => $this->get('db_prefix')
+            )
+        );
+
+        // Select the database.
+        if('sqlite' != $this->get('db_driver'))
+            $this->db->select($this->get('db_name'));
+
+        // Set the debug flag.
+        $this->db->setDebug($this->get('debug'));
+
+        // Set the database to our static cache.
+        JFactory::$database = $this->db;
+    }
+}
