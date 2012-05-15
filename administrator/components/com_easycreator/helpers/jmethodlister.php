@@ -27,11 +27,11 @@ define('DS', DIRECTORY_SEPARATOR);
 define('BR', '<br />');
 define('NL', "\n");
 
-$J__ROOT = dirname(__FILE__).DS.'..'.DS.'..'.DS.'..'.DS.'..';
+$J__ROOT = realpath(dirname(__FILE__).DS.'..'.DS.'..'.DS.'..'.DS.'..');
 
 if( ! file_exists($J__ROOT.DS.'configuration.php'))
 {
-    die('NOT FOUND '.$J__ROOT.DS.'configuration.php');
+    die('Configuration file NOT FOUND in: '.$J__ROOT.DS.'configuration.php');
 }
 
 $basePath = $J__ROOT.DS.'libraries'.DS.'joomla';
