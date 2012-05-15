@@ -18,7 +18,7 @@ echo 'EasyCreator CSS and JavaScript minifier'.$NL;
 
 foreach($types as $type)
 {
-    echo 'minifying '.$type.' ...';
+    echo '** Minifying '.$type.' ...'.$NL;
 
     $cntA = 0;
 
@@ -33,9 +33,14 @@ foreach($types as $type)
         if(2 != count($parts))
             continue;
 
+        echo $fileInfo->getFilename().$NL;
+
         $path = $fileInfo->getRealPath();
 
         $outFile = $fileInfo->getPath().'/'.$parts[0].'.min.'.$parts[1];
+
+        if(file_exists($outFile))
+            unlink($outFile);
 
         $cmd = 'java -jar '.$yuiJar.' -o '.$outFile.' '.$path;
 
@@ -43,6 +48,7 @@ foreach($types as $type)
 
         $cntA ++;
     }
+
     echo sprintf('%d files have been minified', $cntA).$NL;
 
     $cnt += $cntA;
