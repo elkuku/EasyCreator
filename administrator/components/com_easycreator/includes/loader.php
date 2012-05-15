@@ -59,6 +59,7 @@ function ecrStylesheet()
 
     foreach($args as $name)
     {
+        $name = (ECR_DEBUG) ? $name : $name.'.min';
         $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.css');
     }
 }
@@ -79,6 +80,7 @@ function ecrScript()
 
     foreach($args as $name)
     {
+        $name = (ECR_DEBUG) ? $name : $name.'.min';
         $document->addScript(JURI::root(true).'/'.$path.'/assets/js/'.$name.'.js');
     }
 }
