@@ -132,7 +132,7 @@ class EasyCreatorViewCodeEye extends JView
     {
         $webPath = str_replace(JPATH_ROOT.DIRECTORY_SEPARATOR, '', $this->project->getExtensionPath());
 
-        $this->href = JURI::root().$webPath.'/'.$this->project->comName.'.php';
+        $this->href = JURI::root().$webPath;//.'/'.$this->project->comName.'.php';
 
         $this->setLayout('runwap');
     }
