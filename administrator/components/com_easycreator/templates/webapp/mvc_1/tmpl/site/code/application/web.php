@@ -34,17 +34,17 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
     {
         try
         {
-        // Load the database object if necessary.
-        if(empty($this->db))
-            $this->loadDatabase();
+            // Load the database object if necessary.
+            if(empty($this->db))
+                $this->loadDatabase();
 
-        $this->do = $this->input->get('do', 'default');
+            $this->do = $this->input->get('do', 'default');
 
-        $this->fetchController()
-            ->execute();
+            $this->fetchController()
+                ->execute();
 
-        $output = $this->fetchView($this->fetchModel())
-            ->render();
+            $output = $this->fetchView($this->fetchModel())
+                ->render();
         }
         catch(Exception $e)
         {

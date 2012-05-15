@@ -9,11 +9,14 @@ try
 {
     require_once realpath(__DIR__.'/../code/bootstrap.php');
 
-    // Set all loggers to echo.
-    JLog::addLogger(array('logger' => 'echo'), JLog::ALL);
-
     // Instantiate the application.
     $application = JApplicationWeb::getInstance('ECR_CLASS_PREFIXApplicationWeb');
+
+    defined('JDEBUG') || define('JDEBUG', $application->get('debug') ? 1 : 0);
+
+    // Set all loggers to echo.
+    if(JDEBUG)
+        JLog::addLogger(array('logger' => 'echo'), JLog::ALL);
 
     // Store the application.
     JFactory::$application = $application;

@@ -1,5 +1,7 @@
 <?php
 ##*HEADER*##
+$do = JFactory::getApplication()->input->get('do');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +34,14 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="<?= JURI::root(); ?>">Home</a></li>
-                    <li><a href="<?= JURI::root(); ?>?do=list">ECR_COM_NAME List</a></li>
-                    <li><a href="<?= JURI::root(); ?>?do=ECR_LOWER_COM_NAME">New ECR_COM_NAME</a></li>
-                    <li><a href="<?= JURI::root(); ?>?do=log">Log</a></li>
+                    <? $active = ('' == $do) ? ' active' : '' ?>
+                    <li class="<?= $active ?>"><a href="<?= JURI::root(); ?>">Home</a></li>
+                    <? $active = ('list' == $do) ? ' active' : '' ?>
+                    <li class="<?= $active ?>"><a href="<?= JURI::root(); ?>?do=list">ECR_COM_NAME List</a></li>
+                    <? $active = ('ECR_LOWER_COM_NAME' == $do) ? ' active' : '' ?>
+                    <li class="<?= $active ?>"><a href="<?= JURI::root(); ?>?do=ECR_LOWER_COM_NAME">New ECR_COM_NAME</a></li>
+                    <? $active = ('log' == $do) ? ' active' : '' ?>
+                    <li class="<?= $active ?>"><a href="<?= JURI::root(); ?>?do=log">Log</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
