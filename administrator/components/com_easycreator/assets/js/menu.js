@@ -13,7 +13,7 @@
         'menu', 'menumgr', 'messages', 'module', 'plugin', 'stats', 'themes',
         'trash', 'user ');
 
-function newSubmenu(x, x, x, x, x, parent)
+function newSubmenu(a, b, c, d, e, parent)
 {
     newLi = addSubmenu('', '', '', '', '', parent);
 
