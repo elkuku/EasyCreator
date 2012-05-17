@@ -93,8 +93,8 @@ class PartViewsData_form extends EcrProjectPart
         $db = JFactory::getDBO();
         $tables = $db->getTableList();
 
-        $requireds[] = EcrHtml::drawSelectName($tableName);
-        $requireds[] = EcrHtml::drawSelectScope($this->_scope);
+        $requireds[] = EcrHtmlSelect::name($tableName);
+        $requireds[] = EcrHtmlSelect::scope($this->_scope);
 
         if( ! $tableName)
         {
@@ -132,9 +132,9 @@ class PartViewsData_form extends EcrProjectPart
 //        echo '<label for="create_menu_link">'.jgettext('Create a menu link').'</label><br />';
         echo '<hr />';
 
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
-        EcrHtml::drawSubmitParts($requireds);
+        EcrHtmlButton::submitParts($requireds);
     }//function
 
     /**
@@ -267,11 +267,11 @@ $key = '##ECR_OPTIONS##';
      */
     public function edit($AutoCode)
     {
-        EcrHtml::drawSelectScope($this->_scope);
+        EcrHtmlSelect::scope($this->_scope);
         echo '<input type="hidden" name="element" value="'.$this->_element.'" />';
 
         /* Draws an input box for a name field */
-        EcrHtml::drawSelectName($this->_element, jgettext('Table'));
+        EcrHtmlSelect::name($this->_element, jgettext('Table'));
 
         $ecr_project = JRequest::getCmd('ecr_project');
         $element_name = JRequest::getCmd('element');
@@ -306,7 +306,7 @@ $key = '##ECR_OPTIONS##';
 
         $this->show_tablefields($table_name, $AutoCode->fields[$key]);
 
-        EcrHtml::drawSubmitParts();
+        EcrHtmlButton::submitParts();
     }//function
 
     /**

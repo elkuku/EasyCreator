@@ -17,7 +17,7 @@ echo '<div class="img icon16-server path">'.JPath::clean($path).'</div>';
 
 if(! JFolder::exists($path))
 {
-    EcrHtml::displayMessage(jgettext('Archive is empty'), 'warning');
+    EcrHtml::message(jgettext('Archive is empty'), 'warning');
 
     return;
 }

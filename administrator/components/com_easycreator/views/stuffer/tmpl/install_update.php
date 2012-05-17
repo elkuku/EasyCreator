@@ -20,7 +20,7 @@ try
 }
 catch(Exception $e)
 {
-    EcrHtml::displayMessage($e);
+    EcrHtml::message($e);
 
     return;
 }//try

@@ -12,7 +12,7 @@ defined('_JEXEC') || die('=;)');
 
 if( ! $this->easyLanguage)
 {
-    EcrHtml::displayMessage(jgettext('No languages defined'), 'error');
+    EcrHtml::message(jgettext('No languages defined'), 'error');
 
     return;
 }
@@ -55,7 +55,7 @@ if($this->scope != 'menu')
             break;
 
         default:
-            EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
+            EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
     }//switch
 

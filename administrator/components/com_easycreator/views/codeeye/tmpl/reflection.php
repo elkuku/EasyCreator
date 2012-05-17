@@ -78,7 +78,7 @@ function reflectFile(file_path, file_nameame)
                     $msgs[] = jgettext('Please click to');
                     $msgs[] = sprintf(jgettext('Reflect the %s project'), $this->project->comName);
                     $msgs[] = jgettext('Or click on an individual file on the left side');
-                    EcrHtml::displayMessage($msgs, 'notice');
+                    EcrHtml::message($msgs, 'notice');
                 }
             }
             else
@@ -488,7 +488,7 @@ function reflect($path, $file)
 
     if( ! JFile::exists($fullPathFileName))
     {
-        EcrHtml::displayMessage(array(jgettext('File not found'), $fullPathFileName), 'error');
+        EcrHtml::message(array(jgettext('File not found'), $fullPathFileName), 'error');
     }
     else
     {
@@ -519,7 +519,7 @@ function reflect($path, $file)
 
         if( ! count($foundClasses))
         {
-            EcrHtml::displayMessage(jgettext('No classes found'), 'error');
+            EcrHtml::message(jgettext('No classes found'), 'error');
         }
         else
        {

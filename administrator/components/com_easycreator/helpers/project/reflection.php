@@ -335,7 +335,7 @@ default:
 
             if( ! count($foundClasses))
             {
-                EcrHtml::displayMessage(array(jgettext('No classes found'), $fileName), 'error');
+                EcrHtml::message(array(jgettext('No classes found'), $fileName), 'error');
 
                 return false;
             }
@@ -625,7 +625,7 @@ default:
 
         if(ECR_DEBUG)
         {
-            EcrHtml::displayMessage(sprintf(jgettext('File %s not found'), $fileName), 'error');
+            EcrHtml::message(sprintf(jgettext('File %s not found'), $fileName), 'error');
         }
 
         return false;

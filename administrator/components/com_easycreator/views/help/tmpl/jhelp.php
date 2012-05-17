@@ -18,7 +18,7 @@ ecrScript('jhelp', 'php2js');
 
 if(! JFile::exists($pathHelp.DS.$fName.'.php')):
     //-- Class list not found
-    EcrHtml::drawButtonCreateClassList();
+    EcrHtmlButton::createClassList();
     echo '<div id="jsonDebug"></div>';
 
     return;

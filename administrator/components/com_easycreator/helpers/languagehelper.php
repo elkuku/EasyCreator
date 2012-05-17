@@ -143,7 +143,7 @@ class EcrLanguageHelper
         else
         {
             echo '<span class="img icon16-check_fail hasEasyTip" title="'.jgettext('Not found').'" />';
-            EcrHtml::drawButtonCreateLanguageFile($file->lang, $file->scope);
+            EcrHtmlButton::createLanguageFile($file->lang, $file->scope);
 
             return;
         }
@@ -162,7 +162,7 @@ class EcrLanguageHelper
         }
         else
         {
-            EcrHtml::displayMessage(array(jgettext('File is not UTF-8 encoded'), $file->name), 'error');
+            EcrHtml::message(array(jgettext('File is not UTF-8 encoded'), $file->name), 'error');
         }
 
         //--Detect BOM
@@ -174,7 +174,7 @@ class EcrLanguageHelper
             }
             else
             {
-                EcrHtml::drawButtonRemoveBOM($file->fileName);
+                EcrHtmlButton::removeBOM($file->fileName);
             }
         }
         else

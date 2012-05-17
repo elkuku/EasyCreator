@@ -78,7 +78,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             parent::display();
 
@@ -90,7 +90,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! $ePart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
-            EcrHtml::displayMessage(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
+            EcrHtml::message(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
             parent::display();
 
             return;
@@ -98,7 +98,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! $project->prepareAddPart($ecr_project))
         {
-            EcrHtml::displayMessage(array(jgettext('Unable to prepare part').' [group, part]', $group, $part), 'error');
+            EcrHtml::message(array(jgettext('Unable to prepare part').' [group, part]', $group, $part), 'error');
             parent::display();
 
             return;
@@ -129,12 +129,12 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! $ePart->insert($project, $options, $logger))
         {
-            EcrHtml::displayMessage(array(jgettext('Unable to insert part').' [group, part]', $group, $part), 'error');
+            EcrHtml::message(array(jgettext('Unable to insert part').' [group, part]', $group, $part), 'error');
             $logger->writeLog();
         }
         else
         {
-            EcrHtml::displayMessage(array(jgettext('Part added').' [group, part]', $group, $part));
+            EcrHtml::message(array(jgettext('Part added').' [group, part]', $group, $part));
             $logger->writeLog();
 
             $cache = JFactory::getCache();
@@ -188,7 +188,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
         }//try
 
         JRequest::setVar('view', 'stuffer');
@@ -259,11 +259,11 @@ class EasyCreatorControllerStuffer extends JController
             if( ! $AutoCode->insert($project, $options, $logger))
             throw new Exception(jgettext('Unable to update AutoCode').' [group, part]', $group, $part);
 
-            EcrHtml::displayMessage(array(jgettext('AutoCode updated').' [group, part]', $group, $part));
+            EcrHtml::message(array(jgettext('AutoCode updated').' [group, part]', $group, $part));
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             $logger->log($e->getMessage());
         }//try
@@ -287,14 +287,14 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! JFile::exists($path))
         {
-            EcrHtml::displayMessage(jgettext('invalid file'), 'error');
+            EcrHtml::message(jgettext('invalid file'), 'error');
             echo $path;
         }
         else
         {
             if(JFile::delete($path))
             {
-                EcrHtml::displayMessage(jgettext('File has been deleted'));
+                EcrHtml::message(jgettext('File has been deleted'));
 
                 //-- Clean the cache
                 $ecr_project = JRequest::getVar('ecr_project', NULL);
@@ -303,7 +303,7 @@ class EasyCreatorControllerStuffer extends JController
             }
             else
             {
-                EcrHtml::displayMessage(jgettext('Unable to deleted the file'), 'error');
+                EcrHtml::message(jgettext('Unable to deleted the file'), 'error');
             }
         }
 
@@ -536,7 +536,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             parent::display();
 
@@ -580,8 +580,8 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
-            EcrHtml::displayMessage(sprintf(jgettext('The Project %s could not be removed'), $project->name), 'error');
+            EcrHtml::message($e);
+            EcrHtml::message(sprintf(jgettext('The Project %s could not be removed'), $project->name), 'error');
 
             JRequest::setVar('view', 'stuffer');
             JRequest::setVar('task', 'stuffer');
@@ -618,7 +618,7 @@ class EasyCreatorControllerStuffer extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             parent::display();
 
@@ -697,7 +697,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if( ! $type1 || ! $type2)
         {
-            EcrHtml::displayMessage(__METHOD__.' - Missing values', 'error');
+            EcrHtml::message(__METHOD__.' - Missing values', 'error');
 
             parent::display();
 
@@ -736,11 +736,11 @@ class EasyCreatorControllerStuffer extends JController
                     switch($type2)
                     {
                         case 'install' :
-                            EcrHtml::displayMessage(__METHOD__.' Unfinished install php', 'notice');
+                            EcrHtml::message(__METHOD__.' Unfinished install php', 'notice');
                             break;
 
                         case 'uninstall' :
-                            EcrHtml::displayMessage(__METHOD__.' Unfinished uninstall php', 'notice');
+                            EcrHtml::message(__METHOD__.' Unfinished uninstall php', 'notice');
                             break;
                         default :
                             throw new Exception('Unknown type: '.$type1.' - '.$type2);
@@ -768,13 +768,13 @@ class EasyCreatorControllerStuffer extends JController
                     break;
 
                 default :
-                    EcrHtml::displayMessage('Unknown type: '.$type1, 'error');
+                    EcrHtml::message('Unknown type: '.$type1, 'error');
                     break;
             }//switch
         }
         catch(EcrLogException $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             parent::display();
 
@@ -782,7 +782,7 @@ class EasyCreatorControllerStuffer extends JController
         }//try
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             $this->logger->log($e->getMessage(), 'exception');
         }//try
@@ -845,13 +845,13 @@ class EasyCreatorControllerStuffer extends JController
 
             if( ! JFile::write($fullPath, $string))
             {
-                EcrHtml::displayMessage(sprintf(jgettext('Can not create file at %s'), $fullPath), 'error');
+                EcrHtml::message(sprintf(jgettext('Can not create file at %s'), $fullPath), 'error');
 
                 $this->logger->log($fullPath, 'Can not create file');
             }
             else
             {
-                EcrHtml::displayMessage($msg);
+                EcrHtml::message($msg);
 
                 $this->logger->logFileWrite('DB', $fullPath, $string);
             }
@@ -907,13 +907,13 @@ class EasyCreatorControllerStuffer extends JController
 
             if( ! JFile::write($fullPath, $string))
             {
-                EcrHtml::displayMessage(jgettext('Can not create file at '.$fullPath), 'error');
+                EcrHtml::message(jgettext('Can not create file at '.$fullPath), 'error');
 
                 $this->logger->log($fullPath, 'Can not create file');
             }
             else
             {
-                EcrHtml::displayMessage($msg);
+                EcrHtml::message($msg);
 
                 $this->logger->logFileWrite('DB', $fullPath, $string);
             }
@@ -986,11 +986,11 @@ class EasyCreatorControllerStuffer extends JController
 
             if($updater->buildFromECRBuildDir())
             {
-                EcrHtml::displayMessage(jgettext('Update sql file has been written'));
+                EcrHtml::message(jgettext('Update sql file has been written'));
             }
             else
             {
-                EcrHtml::displayMessage(jgettext('Can not create the update sql file'), 'error');
+                EcrHtml::message(jgettext('Can not create the update sql file'), 'error');
             }
 
             return;
@@ -1004,7 +1004,7 @@ class EasyCreatorControllerStuffer extends JController
 
         if(JFile::exists($fullPath))
         {
-            EcrHtml::displayMessage(jgettext('Update sql already exists'), 'error');
+            EcrHtml::message(jgettext('Update sql already exists'), 'error');
 
             $this->logger->log('Update sql already exists in '.$fullPath);
 
@@ -1015,13 +1015,13 @@ class EasyCreatorControllerStuffer extends JController
 
         if(JFile::write($fullPath, $contents))
         {
-            EcrHtml::displayMessage(jgettext('Update sql file has been written'));
+            EcrHtml::message(jgettext('Update sql file has been written'));
 
             $this->logger->logFileWrite('dbUpdate', $fullPath, $contents);
         }
         else
         {
-            EcrHtml::displayMessage(jgettext('Can not create the update sql file'), 'error');
+            EcrHtml::message(jgettext('Can not create the update sql file'), 'error');
 
             $this->logger->logFileWrite('dbUpdate', $fullPath, $contents, 'Can not create the update sql file');
         }

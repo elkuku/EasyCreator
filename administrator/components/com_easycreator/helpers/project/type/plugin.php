@@ -214,7 +214,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage('Unsupported JVersion', 'error');
+                EcrHtml::message('Unsupported JVersion', 'error');
 
                 return false;
                 break;
@@ -269,7 +269,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage('Unsupported JVersion in EcrProjectComponent::getId()');
+                EcrHtml::message('Unsupported JVersion in EcrProjectComponent::getId()');
 
                 return false;
                 break;
@@ -314,7 +314,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -365,7 +365,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                         $projects = array('blogger', 'joomla');
                         break;
                     default :
-                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
 
                         return array();
                 }//switch
@@ -401,7 +401,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                         $projects = array('example', 'contactcreator', 'joomla', 'profile');
                         break;
                     default :
-                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
 
                         return array();
                 }//switch
@@ -436,7 +436,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                         $projects = array('contactcreator', 'joomla', 'profile');
                         break;
                     default :
-                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
                 }//switch
                 break;
@@ -480,7 +480,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                         $projects = array('contactcreator', 'joomla', 'profile');
                         break;
                     default :
-                        EcrHtml::displayMessage(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
                 }//switch
                 break;

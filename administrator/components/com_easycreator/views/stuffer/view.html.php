@@ -59,7 +59,7 @@ class EasyCreatorViewStuffer extends JView
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             EcrHtml::formEnd();
 
@@ -174,7 +174,7 @@ class EasyCreatorViewStuffer extends JView
             , 'task' => 'save_config');
         }
 
-        return EcrHtml::subMenu($subtasks, $rightTasks);
+        return EcrHtmlMenu::sub($subtasks, $rightTasks);
     }
 
     /**
@@ -277,7 +277,7 @@ class EasyCreatorViewStuffer extends JView
                     break;
 
                 default:
-                    EcrHtml::displayMessage(__METHOD__.' - Undefined J! version', 'error');
+                    EcrHtml::message(__METHOD__.' - Undefined J! version', 'error');
 
                     return false;
                     break;

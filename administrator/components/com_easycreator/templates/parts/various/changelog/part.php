@@ -44,14 +44,14 @@ class PartVariousChangelog
 
         if(JFile::exists($basePathDest.DS.'CHANGELOG.php'))
         {
-            EcrHtml::displayMessage(jgettext('This project already has a changelog'), 'error');
+            EcrHtml::message(jgettext('This project already has a changelog'), 'error');
 
             return false;
         }
 
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
-        EcrHtml::drawSubmitParts();
+        EcrHtmlButton::submitParts();
     }//function
 
     /**

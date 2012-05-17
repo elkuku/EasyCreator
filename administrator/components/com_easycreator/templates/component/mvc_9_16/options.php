@@ -62,7 +62,7 @@ class EasyTemplateOptions
         $html[] = '</script>';
 
         $html[] = '<h3>'.jgettext('Database support').'</h3>';
-        $html[] = EcrHtml::drawDbOptions($project);
+        $html[] = EcrHtmlOptions::database($project);
 
         $html[] = '<h3>'.jgettext('User defined table fields').'</h3>';
         $html[] = '<strong>'.sprintf(

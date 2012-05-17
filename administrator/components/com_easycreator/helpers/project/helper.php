@@ -136,7 +136,7 @@ class EcrProjectHelper
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
+                EcrHtml::message(__METHOD__.' - Unknown JVersion', 'error');
 
             return false;
             break;
@@ -180,7 +180,7 @@ class EcrProjectHelper
         }//foreach
 
         //-- None of the xml files found were valid install files
-        EcrHtml::displayMessage(sprintf(jgettext('Manifest not found for type: %s - name: %s'), $project->type, $fileName), 'error');
+        EcrHtml::message(sprintf(jgettext('Manifest not found for type: %s - name: %s'), $project->type, $fileName), 'error');
 
         return false;
     }//function
@@ -268,7 +268,7 @@ class EcrProjectHelper
         && $manifest->getName() != 'extension'//J! 1.6
         )
         {
-            EcrHtml::displayMessage(sprintf('Invalid install manifest at %s', $path), 'error');
+            EcrHtml::message(sprintf('Invalid install manifest at %s', $path), 'error');
 
             unset($manifest);
 
@@ -545,7 +545,7 @@ class EcrProjectHelper
 
         if( ! JFile::exists($fileName))
         {
-            EcrHtml::displayMessage(array(jgettext('File not found'), $fileName), 'error');
+            EcrHtml::message(array(jgettext('File not found'), $fileName), 'error');
 
             return null;
         }
@@ -556,7 +556,7 @@ class EcrProjectHelper
 
         if( ! class_exists($className))
         {
-            EcrHtml::displayMessage(array(jgettext('Class not found'), $className), 'error');
+            EcrHtml::message(array(jgettext('Class not found'), $className), 'error');
 
             return null;
         }
@@ -607,7 +607,7 @@ class EcrProjectHelper
 
         if( ! JFolder::exists($base))
         {
-            EcrHtml::displayMessage(array(sprintf(jgettext('Project %s not found'), $project->comName)), 'error');
+            EcrHtml::message(array(sprintf(jgettext('Project %s not found'), $project->comName)), 'error');
 
             return $installFiles;
         }

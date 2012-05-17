@@ -16,7 +16,7 @@ $base_href = (0 === strpos($path, ECRPATH_BUILDS))
 echo '<div class="img icon16-server path">'.$path.'</div>';
 
 if(! JFolder::exists($path)) :
-    EcrHtml::displayMessage(jgettext('Archive is empty'), 'warning');
+    EcrHtml::message(jgettext('Archive is empty'), 'warning');
 
     return;
 endif;

@@ -170,7 +170,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -253,7 +253,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -318,7 +318,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                         break;
                 }//switch
                 break;
@@ -338,13 +338,13 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;
                     default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                         break;
                 }//switch
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown scope: '.$scope);
+                EcrHtml::message(__METHOD__.' - Unknown scope: '.$scope);
 
                 return array();
                 break;

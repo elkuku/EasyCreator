@@ -93,7 +93,7 @@ class EcrProjectManifest extends JObject
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             return false;
         }
@@ -826,7 +826,7 @@ class EcrProjectManifest extends JObject
                         break;
 
                     default:
-                        EcrHtml::displayMessage(__METHOD__.' : Undefined JVersion', 'error');
+                        EcrHtml::message(__METHOD__.' : Undefined JVersion', 'error');
                         break;
                 }
             }

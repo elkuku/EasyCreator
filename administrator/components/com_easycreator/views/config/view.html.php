@@ -51,7 +51,7 @@ class EasyCreatorViewConfig extends JView
                 }
                 catch(Exception $e)
                 {
-                    EcrHtml::displayMessage($e);
+                    EcrHtml::message($e);
 
                     EcrHtml::formEnd();
 
@@ -60,7 +60,7 @@ class EasyCreatorViewConfig extends JView
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version', 'error');
+                EcrHtml::message(__METHOD__.' - Unknown J! version', 'error');
 
                 EcrHtml::formEnd();
 

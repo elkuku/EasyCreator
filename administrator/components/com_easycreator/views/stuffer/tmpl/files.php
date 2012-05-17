@@ -11,7 +11,7 @@
 defined('_JEXEC') || die('=;)');
 
 if( ! count($this->project->copies)):
-    EcrHtml::displayMessage(jgettext('No files found'), 'error');
+    EcrHtml::message(jgettext('No files found'), 'error');
 
     return;
 endif;
@@ -85,7 +85,7 @@ $fileTree = $cache->call('drawFileTree', $this->project);
 
 <?php
 
-EcrHtml::contextMenu();
+EcrHtmlContextmenu::display();
 
 /**
  *

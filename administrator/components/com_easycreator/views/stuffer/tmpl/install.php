@@ -21,7 +21,7 @@ echo $this->loadTemplate('update');
 ?>
 <div class="ecr_floatbox">
     <strong><?php echo jgettext('Build options'); ?>:</strong>
-    <?php EcrHtml::drawLoggingOptions(); ?>
+    <?php EcrHtmlOptions::logging(); ?>
 </div>
 
 <input type="hidden" name="old_task" value="install"/>

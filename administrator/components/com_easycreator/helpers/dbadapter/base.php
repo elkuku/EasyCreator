@@ -38,7 +38,7 @@ class EcrDbadapterBase
             return '';
         }
 
-        EcrHtml::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+        EcrHtml::message(get_class($this).' - Undefined property: '.$what, 'error');
     }//function
 
     public function setQuery($query)

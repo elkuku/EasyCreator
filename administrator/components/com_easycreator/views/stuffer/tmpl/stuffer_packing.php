@@ -28,14 +28,14 @@ $options = new JObject($this->project->buildOpts);
            value="<?php echo $this->project->zipPath; ?>"/>
     <?php
     if($this->project->zipPath && ! JFolder::exists($this->project->zipPath)) :
-        EcrHtml::displayMessage(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'warning');
+        EcrHtml::message(sprintf(jgettext('The folder %s does not exist'), $this->project->zipPath), 'warning');
     endif;
     ?>
 
     <br/>
 
     <strong><?php echo jgettext('Compression'); ?></strong>
-    <?php EcrHtml::drawPackOpts($buildOpts); ?>
+    <?php EcrHtmlOptions::packing($buildOpts); ?>
 
     <br/><br/>
 

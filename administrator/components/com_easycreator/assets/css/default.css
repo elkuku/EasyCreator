@@ -20,12 +20,13 @@ h1 {
 }
 
 h1.ecrTitel {
-    margin-top:120px;
+    margin-top: 120px;
 }
 
 span.ecrTopTitle {
     text-shadow: orange -1px -1px 2px;
 }
+
 div.boxHeader {
     font-size: 1.3em;
     font-weight: bold;
@@ -39,8 +40,10 @@ pre.ebc_code {
 }
 
 pre {
-    white-space: pre-wrap; /* css-3 */ /*
-    white-space: -moz-pre-wrap !important;*/ /* Mozilla, seit 1999 */
+    white-space: pre-wrap; /* css-3 */
+    /*
+  white-space: -moz-pre-wrap !important;*/
+    /* Mozilla, seit 1999 */
     /*    white-space: -pre-wrap;  Opera 4-6 */
     /*    white-space: -o-pre-wrap;  Opera 7 */
     /*    word-wrap: break-word;  Internet Explorer 5.5+ */
@@ -176,7 +179,7 @@ div.ebc_error {
     border-radius: 10px;
 }
 
-.ecr_button a,.ecr_button a:visited {
+.ecr_button a, .ecr_button a:visited {
     text-decoration: none;
     color: black;
 }
@@ -332,7 +335,7 @@ div.debug_ON {
 /*
 * Tree
 */
-div.tree_link,a.tree_link:visited {
+div.tree_link, a.tree_link:visited {
     color: black;
     display: inline;
     cursor: pointer;
@@ -384,8 +387,7 @@ div.ecr_menu_box {
     padding: 0.4em;
 }
 
-table.ecrlist tbody tr.row0:hover td,table.ecrlist tbody tr.row1:hover td
-    {
+table.ecrlist tbody tr.row0:hover td, table.ecrlist tbody tr.row1:hover td {
     background-color: #e5ff99;
 }
 
@@ -485,7 +487,7 @@ div.ecr_floatbox.right {
 div.white_box {
     background-color: #fff;
     padding: 1em;
-    border:1px solid silver;
+    border: 1px solid silver;
     border-radius: 10px;
 }
 
@@ -540,7 +542,7 @@ div#jsourceDisplay div.path {
     font-weight: bold;
     text-align: center;
     font-size: 16px;
-    color:#505050;
+    color: #505050;
     text-shadow: 1px 1px 0px #fff;
     min-height: 20px;
     box-shadow: 0px 0px 2px #000;
@@ -594,7 +596,7 @@ div.ecrFooter a {
     outline: 2px solid orange ! important;
 }
 
-input:hover,select:hover,textarea:hover {
+input:hover, select:hover, textarea:hover {
     background-color: #eee;
 }
 
@@ -673,7 +675,7 @@ div#ecr_logdisplay {
     margin-bottom: 0;
 }
 
-label.inline {
+label.inline, span#EditAreaArroundInfos_ecr_code_area label {
     display: inline-block;
     min-width: 50px;
     padding-left: 0.2em;

@@ -152,7 +152,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
+                EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
         }//switch
 
@@ -265,7 +265,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown J! version');
+                EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
         }//switch
 

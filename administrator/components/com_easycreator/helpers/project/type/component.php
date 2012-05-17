@@ -162,7 +162,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion', 'error');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion', 'error');
 
                 return array();
                 break;
@@ -248,7 +248,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 return array();
                 break;
@@ -282,7 +282,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 break;
         }//switch
@@ -347,7 +347,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -416,7 +416,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -472,7 +472,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 return false;
                 break;
@@ -503,7 +503,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                         break;
 
                     default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return false;
                         break;
@@ -682,7 +682,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 return;
                 break;
@@ -840,7 +840,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown JVersion', 'error');
+                EcrHtml::message(__METHOD__.' - Unknown JVersion', 'error');
 
                 return false;
                 break;
@@ -850,7 +850,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
         if( ! $db->query())
         {
-            EcrHtml::displayMessage($db->stderr(true));
+            EcrHtml::message($db->stderr(true));
 
             return false;
         }
@@ -879,7 +879,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
         if( ! $db->query())
         {
-            EcrHtml::displayMessage($db->getErrorMsg(), 'error');
+            EcrHtml::message($db->getErrorMsg(), 'error');
 
             return false;
         }

@@ -44,7 +44,7 @@ class EasyCreatorViewZiper extends JView
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             EcrHtml::formEnd();
 
@@ -118,6 +118,6 @@ class EasyCreatorViewZiper extends JView
             )
         );
 
-        return EcrHtml::subMenu($subTasks);
+        return EcrHtmlMenu::sub($subTasks);
     }//function
 }//class

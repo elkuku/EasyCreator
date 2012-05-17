@@ -58,7 +58,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = EcrHtml::drawSelectScope($this->scope);
+        $requireds[] = EcrHtmlSelect::scope($this->scope);
 
         if( ! $this->element)
         {
@@ -85,7 +85,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
         }
 
         /* Draws an input box for a name field */
-        $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
+        $requireds[] = EcrHtmlSelect::name($this->element, jgettext('Table'));
 
         echo '<strong>Var Scope:</strong><br />';
 
@@ -102,10 +102,10 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
          */
 
         /* Displays options for logging */
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
         /* Draws the submit button */
-        EcrHtml::drawSubmitParts($requireds);
+        EcrHtmlButton::submitParts($requireds);
     }//function
 
     /**
@@ -122,12 +122,12 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = EcrHtml::drawSelectScope($this->scope);
+        $requireds[] = EcrHtmlSelect::scope($this->scope);
 
         echo '<input type="hidden" name="element" value="'.$this->element.'" />';
 
         /* Draws an input box for a name field */
-        $requireds[] = EcrHtml::drawSelectName($this->element, jgettext('Table'));
+        $requireds[] = EcrHtmlSelect::name($this->element, jgettext('Table'));
 
         echo '<strong>Var Scope:</strong><br />';
 
@@ -176,7 +176,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
         echo '</table>';
 
         /* Draws the submit button */
-        EcrHtml::drawSubmitAutoCode($requireds);
+        EcrHtmlButton::autoCode($requireds);
     }//function
 
     /**

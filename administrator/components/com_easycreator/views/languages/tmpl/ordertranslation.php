@@ -12,7 +12,7 @@ defined('_JEXEC') || die('=;)');
 
 if( ! $this->sel_language)
 {
-    EcrHtml::displayMessage(jgettext('Please choose a language'));
+    EcrHtml::message(jgettext('Please choose a language'));
 
     return;
 }

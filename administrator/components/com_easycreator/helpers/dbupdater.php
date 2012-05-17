@@ -103,7 +103,7 @@ class EcrDbUpdater
         if(in_array($what, array('versions', 'tmpPath')))
             return $this->$what;
 
-        EcrHtml::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+        EcrHtml::message(get_class($this).' - Undefined property: '.$what, 'error');
     }
 
     /**
@@ -257,7 +257,7 @@ class EcrDbUpdater
             }
             catch(Exception $e)
             {
-                EcrHtml::displayMessage($e);
+                EcrHtml::message($e);
 
                 $this->log('Exception: '.$e->getMessage());
             }

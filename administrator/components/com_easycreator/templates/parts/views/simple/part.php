@@ -42,13 +42,13 @@ class PartViewsSimple
      */
     public function getOptions()
     {
-        EcrHtml::drawSelectScope();
-        EcrHtml::drawSelectName();
+        EcrHtmlSelect::scope();
+        EcrHtmlSelect::name();
 
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
         $requireds = array('element_name', 'element_scope');
-        EcrHtml::drawSubmitParts($requireds);
+        EcrHtmlButton::submitParts($requireds);
     }//function
 
     /**

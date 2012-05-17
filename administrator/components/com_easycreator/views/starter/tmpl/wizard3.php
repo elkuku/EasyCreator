@@ -82,10 +82,10 @@ $requireds = $this->builder->customOptions('requireds');
                 <label class="inline" for="create_changelog"><?php echo jgettext('Create CHANGELOG.php'); ?></label>
 
                 <h3><?php echo jgettext('File header template') ?></h3>
-                <?php echo EcrHtml::drawHeaderOptions() ?>
+                <?php echo EcrHtmlOptions::header() ?>
             </div>
             <div class="ecr_table-cell">
-                <?php echo EcrHtml::drawLoggingOptions() ?>
+                <?php echo EcrHtmlOptions::logging() ?>
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@ $requireds = $this->builder->customOptions('requireds');
     </div>
 </div>
 <div class="ecr_floatbox right" style="width: 40%;">
-    <?php EcrHtml::displayResult($this->project); ?>
+    <?php EcrHtmlWizard::displayResult($this->project); ?>
 </div>
 
 <div style="clear: both; height: 1em;"></div>

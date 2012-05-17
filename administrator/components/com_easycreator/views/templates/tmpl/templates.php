@@ -172,4 +172,4 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
 <input type="hidden" name="old_controller" value="templates"/>
 
 <?php
-EcrHtml::contextMenu();
+EcrHtmlContextmenu::display();

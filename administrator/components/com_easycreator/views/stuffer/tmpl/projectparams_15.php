@@ -82,7 +82,7 @@ ecrScript('parameter');
 <?php
 if( ! $this->selected_xml)
 {
-    EcrHtml::displayMessage(jgettext('Please select a XML file'));
+    EcrHtml::message(jgettext('Please select a XML file'));
     $this->drawDocLinks();
 
     return;
@@ -90,7 +90,7 @@ if( ! $this->selected_xml)
 
 if( ! isset($this->params->_xml))
 {
-    EcrHtml::displayMessage(jgettext('No parameters defined'), 'notice');
+    EcrHtml::message(jgettext('No parameters defined'), 'notice');
     $this->drawDocLinks();
 
     return;

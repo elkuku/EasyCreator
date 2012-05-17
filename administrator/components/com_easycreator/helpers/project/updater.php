@@ -53,7 +53,7 @@ class EcrProjectUpdater
             return $this->$what;
         }
 
-        EcrHtml::displayMessage(get_class($this).' - Undefined property: '.$what, 'error');
+        EcrHtml::message(get_class($this).' - Undefined property: '.$what, 'error');
     }//function
 
     private function log($message)
@@ -86,7 +86,7 @@ class EcrProjectUpdater
 
         if( ! JFolder::create($tmpPath))
         {
-            EcrHtml::displayMessage('Unable to create temp folder for update', 'error');
+            EcrHtml::message('Unable to create temp folder for update', 'error');
             $this->log('Can not create the temp folder '.$tmpPath);
 
             return false;
@@ -123,7 +123,7 @@ class EcrProjectUpdater
 
             if( ! JArchive::extract($source, $destination))
             {
-                EcrHtml::displayMessage(sprintf('Unable to extract the package %s to %s'
+                EcrHtml::message(sprintf('Unable to extract the package %s to %s'
                 , $source, $destination), 'error');
 
                 return false;

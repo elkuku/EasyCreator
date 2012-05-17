@@ -236,7 +236,7 @@ class EcrProjectTypeModule extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
 
@@ -309,7 +309,7 @@ class EcrProjectTypeModule extends EcrProjectBase
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
 
                     default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
@@ -341,14 +341,14 @@ class EcrProjectTypeModule extends EcrProjectBase
                         , 'mod_finder');
 
                     default:
-                        EcrHtml::displayMessage(__METHOD__.' - Unsupported JVersion');
+                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();
                 }//switch
                 break;
 
             default:
-                EcrHtml::displayMessage(__METHOD__.' - Unknown scope');
+                EcrHtml::message(__METHOD__.' - Unknown scope');
 
                 return array();
         }//switch

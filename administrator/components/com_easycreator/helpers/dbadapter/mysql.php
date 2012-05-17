@@ -73,7 +73,7 @@ class EcrDbadapterMysql extends EcrDbadapterBase
                 .$this->quote($name).NL;
                 break;
 default :
-                EcrHtml::displayMessage(__METHOD__.': Unknown type '.$type);
+                EcrHtml::message(__METHOD__.': Unknown type '.$type);
 
                 return '';
                 break;
@@ -111,7 +111,7 @@ default :
                     break;
 
                 default:
-                    EcrHtml::displayMessage('Unknown field type '.$c['type'], 'error');
+                    EcrHtml::message('Unknown field type '.$c['type'], 'error');
                     break;
             }//switch
         }//foreach

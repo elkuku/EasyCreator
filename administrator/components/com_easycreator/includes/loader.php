@@ -31,7 +31,7 @@ function ecrLoadHelper($name)
 
     if(! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
     {
-        EcrHtml::displayMessage(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
+        EcrHtml::message(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
 
         $helpers[$name] = false;
 

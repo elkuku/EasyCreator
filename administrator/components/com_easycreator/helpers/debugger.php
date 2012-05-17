@@ -77,7 +77,7 @@ class EcrDebugger
                 //-- Test if JDump is installed
                 if( ! file_exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_dump'.DS.'helper.php'))
                 {
-                    EcrHtml::displayMessage(jgettext('JDump not found'), 'error');
+                    EcrHtml::message(jgettext('JDump not found'), 'error');
                 }
                 else
                 {
@@ -172,7 +172,7 @@ class EcrDebugger
                 break;
 
             case 'debugtools':
-                EcrHtml::displayMessage(jgettext('DebugTools not found'), 'error');
+                EcrHtml::message(jgettext('DebugTools not found'), 'error');
                 break;
 
             case 'krumo' :
@@ -199,7 +199,7 @@ class EcrDebugger
                 break;
 
             default:
-                EcrHtml::displayMessage(jgettext('No debugger set'), 'error');
+                EcrHtml::message(jgettext('No debugger set'), 'error');
                 break;
         }//switch
     }//function

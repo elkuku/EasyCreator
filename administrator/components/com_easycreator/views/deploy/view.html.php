@@ -37,7 +37,7 @@ class EasyCreatorViewDeploy extends JView
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             EcrHtml::formEnd();
 
@@ -86,6 +86,6 @@ class EasyCreatorViewDeploy extends JView
             )
         );
 
-        return EcrHtml::subMenu($subTasks);
+        return EcrHtmlMenu::sub($subTasks);
     }//function
 }//class

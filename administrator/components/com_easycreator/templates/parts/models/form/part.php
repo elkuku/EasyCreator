@@ -43,12 +43,12 @@ class PartModelsForm
         /* Array with required fields */
         $requireds = array();
 
-        $requireds[] = EcrHtml::drawSelectScope(JRequest::getCmd('scope'));
-        $requireds[] = EcrHtml::drawSelectName(JRequest::getCmd('table_name'));
+        $requireds[] = EcrHtmlSelect::scope(JRequest::getCmd('scope'));
+        $requireds[] = EcrHtmlSelect::name(JRequest::getCmd('table_name'));
 
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
-        EcrHtml::drawSubmitParts($requireds);
+        EcrHtmlButton::submitParts($requireds);
     }//function
 
     /**

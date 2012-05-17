@@ -94,7 +94,7 @@ class EcrTableHelper
             {
                 if( ! $fContents = JFile::read($file))
                 {
-                    EcrHtml::displayMessage('File read error', 'error');
+                    EcrHtml::message('File read error', 'error');
 
                     return $tables;
                 }

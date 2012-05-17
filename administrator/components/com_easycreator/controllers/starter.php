@@ -52,7 +52,7 @@ class EasyCreatorControllerStarter extends JController
         if( ! $newProject = $builder->build($type, $name, $comName))
         {
             //-- Error
-            EcrHtml::displayMessage('An error happened while creating your project', 'error');
+            EcrHtml::message('An error happened while creating your project', 'error');
             JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
             $builder->printErrors();
 

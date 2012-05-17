@@ -47,11 +47,11 @@ class EasyCreatorControllerTemplates extends JController
         {
             EcrFile::saveFile();
 
-            EcrHtml::displayMessage(jgettext('The file has been saved'));
+            EcrHtml::message(jgettext('The file has been saved'));
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -75,7 +75,7 @@ class EasyCreatorControllerTemplates extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -99,11 +99,11 @@ class EasyCreatorControllerTemplates extends JController
 
             EcrProjectTemplateHelper::exportTemplates($exports);
 
-            EcrHtml::displayMessage(jgettext('Templates have been exported.'));
+            EcrHtml::message(jgettext('Templates have been exported.'));
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
         }//try
 
         JRequest::setVar('view', 'templates');
@@ -123,13 +123,13 @@ class EasyCreatorControllerTemplates extends JController
         {
             EcrProjectTemplateHelper::installTemplates();
 
-            EcrHtml::displayMessage(jgettext('Templates have been installed.'));
+            EcrHtml::message(jgettext('Templates have been installed.'));
 
             JRequest::setVar('task', 'templates');
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             JRequest::setVar('task', 'tplinstall');
         }//try

@@ -172,7 +172,7 @@ class EasyCreatorControllerAjax extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             parent::display();
 
@@ -437,14 +437,14 @@ class EasyCreatorControllerAjax extends JController
 
         if( ! $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
-            EcrHtml::displayMessage(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
+            EcrHtml::message(array(jgettext('Unable to load part').' [group, part]', $group, $part), 'error');
 
             return;
         }
 
         if( ! method_exists($ecrPart, $partTask))
         {
-            EcrHtml::displayMessage(array(jgettext('Function not found'), $partTask), 'error');
+            EcrHtml::message(array(jgettext('Function not found'), $partTask), 'error');
 
             return;
         }
@@ -695,7 +695,7 @@ class EasyCreatorControllerAjax extends JController
 
             if( ! JFolder::exists($path))
             {
-                EcrHtml::displayMessage(array(jgettext('Wrong base folder'), $path), 'error');
+                EcrHtml::message(array(jgettext('Wrong base folder'), $path), 'error');
 
                 return;
             }
@@ -704,14 +704,14 @@ class EasyCreatorControllerAjax extends JController
 
             if(JFolder::exists($path))
             {
-                EcrHtml::displayMessage(array(jgettext('The folder already exists'), $path), 'error');
+                EcrHtml::message(array(jgettext('The folder already exists'), $path), 'error');
 
                 return;
             }
 
             if( ! JFolder::create($path))
             {
-                EcrHtml::displayMessage(array(jgettext('Unable to create folder'), $path), 'error');
+                EcrHtml::message(array(jgettext('Unable to create folder'), $path), 'error');
 
                 return;
             }
@@ -748,14 +748,14 @@ class EasyCreatorControllerAjax extends JController
 
             if(is_dir($path))
             {
-                EcrHtml::displayMessage(array(jgettext('This is a folder'), $path), 'error');
+                EcrHtml::message(array(jgettext('This is a folder'), $path), 'error');
 
                 return;
             }
 
             if(is_file($path))
             {
-                EcrHtml::displayMessage(array(jgettext('The file already exists'), $path), 'error');
+                EcrHtml::message(array(jgettext('The file already exists'), $path), 'error');
 
                 return;
             }
@@ -765,7 +765,7 @@ class EasyCreatorControllerAjax extends JController
 
             if( ! is_int(file_put_contents($path, $template)))
             {
-                EcrHtml::displayMessage(array(jgettext('Unable to create file'), $path), 'error');
+                EcrHtml::message(array(jgettext('Unable to create file'), $path), 'error');
 
                 return;
             }
@@ -795,7 +795,7 @@ class EasyCreatorControllerAjax extends JController
         {
             if( ! $act_path = JRequest::getVar('act_path'))
             {
-                EcrHtml::displayMessage(jgettext('Empty'), 'error');
+                EcrHtml::message(jgettext('Empty'), 'error');
 
                 return;
             }
@@ -804,14 +804,14 @@ class EasyCreatorControllerAjax extends JController
 
             if( ! JFolder::exists($path))
             {
-                EcrHtml::displayMessage(array(jgettext('Folder does not exist'), $path), 'error');
+                EcrHtml::message(array(jgettext('Folder does not exist'), $path), 'error');
 
                 return;
             }
 
             if( ! JFolder::delete($path))
             {
-                EcrHtml::displayMessage(array(jgettext('Unable to delete folder'), $path), 'error');
+                EcrHtml::message(array(jgettext('Unable to delete folder'), $path), 'error');
 
                 return;
             }
@@ -845,7 +845,7 @@ class EasyCreatorControllerAjax extends JController
             if( ! $act_path
             || ! $act_name)
             {
-                EcrHtml::displayMessage(jgettext('Empty'), 'error');
+                EcrHtml::message(jgettext('Empty'), 'error');
 
                 return;
             }
@@ -854,14 +854,14 @@ class EasyCreatorControllerAjax extends JController
 
             if( ! JFile::exists($path))
             {
-                EcrHtml::displayMessage(array(jgettext('File does not exist'), $path), 'error');
+                EcrHtml::message(array(jgettext('File does not exist'), $path), 'error');
 
                 return;
             }
 
             if( ! JFile::delete($path))
             {
-                EcrHtml::displayMessage(array(jgettext('Unable to delete file'), $path), 'error');
+                EcrHtml::message(array(jgettext('Unable to delete file'), $path), 'error');
 
                 return;
             }
@@ -896,7 +896,7 @@ class EasyCreatorControllerAjax extends JController
 
             if( ! JFolder::exists($path))
             {
-                EcrHtml::displayMessage(jgettext('Wrong base folder'), 'error');
+                EcrHtml::message(jgettext('Wrong base folder'), 'error');
 
                 return;
             }
@@ -906,7 +906,7 @@ class EasyCreatorControllerAjax extends JController
             if($ret !== true)
             {
                 $ret .= BR.$act_path.BR.$old_name.BR.$act_name;
-                EcrHtml::displayMessage($ret, 'error');
+                EcrHtml::message($ret, 'error');
 
                 return;
             }
@@ -941,7 +941,7 @@ class EasyCreatorControllerAjax extends JController
 
             if( ! JFile::exists($path.DS.$old_name))
             {
-                EcrHtml::displayMessage(jgettext('File not found'), 'error');
+                EcrHtml::message(jgettext('File not found'), 'error');
 
                 return;
             }
@@ -950,7 +950,7 @@ class EasyCreatorControllerAjax extends JController
 
             if($ret !== true)
             {
-                EcrHtml::displayMessage($ret, 'error');
+                EcrHtml::message($ret, 'error');
 
                 return;
             }
@@ -1181,7 +1181,7 @@ body {
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             parent::display();
 

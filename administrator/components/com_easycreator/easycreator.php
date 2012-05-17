@@ -207,7 +207,7 @@ try
     else
     {
         //-- Display the menu
-        EcrHtml::menu();
+        EcrHtmlMenu::main();
 
         //-- Perform the Request task
         $controller->execute(JRequest::getCmd('task'));
@@ -235,7 +235,7 @@ try
 }
 catch(Exception $e)
 {
-    EcrHtml::displayMessage($e);
+    EcrHtml::message($e);
     JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 }
 

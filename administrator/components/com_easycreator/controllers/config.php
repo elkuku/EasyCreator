@@ -85,7 +85,7 @@ class EasyCreatorControllerConfig extends JController
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             EcrHtml::formEnd();
         }

@@ -224,5 +224,5 @@ $tables .= '
 
         if( ! $languageFilesFound)
         {
-            EcrHtml::displayMessage(jgettext('No language files found in selected scope'), 'notice');
+            EcrHtml::message(jgettext('No language files found in selected scope'), 'notice');
         }

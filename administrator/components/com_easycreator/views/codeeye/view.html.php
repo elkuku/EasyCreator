@@ -67,7 +67,7 @@ class EasyCreatorViewCodeEye extends JView
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             EcrHtml::formEnd();
 
@@ -259,7 +259,7 @@ class EasyCreatorViewCodeEye extends JView
                     $btn = '&nbsp;<span class="ecr_button img icon16-add" onclick="submitbutton(\'copy_bootstrap\');">'
                         .jgettext('Copy bootstrap.php to Joomla root').'</span>';
 
-                    EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
+                    EcrHtml::message(jgettext('Bootstrap file not found').$btn, 'notice');
 
                     return;
                 }
@@ -272,7 +272,7 @@ class EasyCreatorViewCodeEye extends JView
                         .' onclick="submitbutton(\'create_test_dir_unit\');">'
                         .jgettext('Create Test directory').'</span>';
 
-                    EcrHtml::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
+                    EcrHtml::message(jgettext('No tests defined yet').$btn, 'notice');
 
                     return;
                 }
@@ -282,7 +282,7 @@ class EasyCreatorViewCodeEye extends JView
                 break;
 
             default:
-                EcrHtml::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
+                EcrHtml::message(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
                 break;
         }
     }
@@ -317,7 +317,7 @@ class EasyCreatorViewCodeEye extends JView
                         .' onclick="submitbutton(\'create_test_dir_selenium\');">'
                         .jgettext('Create Test directory').'</span>';
 
-                    EcrHtml::displayMessage(jgettext('No tests defined yet').$btn, 'notice');
+                    EcrHtml::message(jgettext('No tests defined yet').$btn, 'notice');
 
                     return;
                 }
@@ -327,7 +327,7 @@ class EasyCreatorViewCodeEye extends JView
                 break;
 
             default:
-                EcrHtml::displayMessage(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
+                EcrHtml::message(sprintf(jgettext('Unit tests for %s not available yet'), $this->project->type), 'error');
                 break;
         }
     }
@@ -412,6 +412,6 @@ class EasyCreatorViewCodeEye extends JView
             );
         }
 
-        return EcrHtml::subMenu($subTasks);
+        return EcrHtmlMenu::sub($subTasks);
     }
 }//class

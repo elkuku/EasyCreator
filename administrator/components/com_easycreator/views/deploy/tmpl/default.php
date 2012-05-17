@@ -68,7 +68,7 @@
 
 <div class="clr"></div>
 
-<?php echo EcrHtml::drawLogConsole(); ?>
+<?php echo EcrHtmlDebug::logConsole(); ?>
 <div style="height: 75px;"></div>
 
 <script type="text/javascript">EcrDeploy.getSyncList('ftp');</script>

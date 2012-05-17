@@ -70,7 +70,7 @@ class PartTablesAdmin_map
 
         echo '<div id="addPartTableFields"></div>';
 
-        EcrHtml::drawSelectName();
+        EcrHtmlSelect::name();
 
         echo '<strong>'.jgettext('Menu link').' :</strong><br />';
         echo '<input type="checkbox" name="create_menu_link" checked="checked"'
@@ -79,10 +79,10 @@ class PartTablesAdmin_map
         echo '<label for="create_menu_link">'.jgettext('Create a menu link').'</label><br />';
         echo '<hr />';
 
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
         $requireds = array('element_name', 'table_name');
-        EcrHtml::drawSubmitParts($requireds);
+        EcrHtmlButton::submitParts($requireds);
     }//function
 
     /**

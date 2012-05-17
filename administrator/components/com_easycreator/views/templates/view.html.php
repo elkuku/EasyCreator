@@ -155,6 +155,6 @@ class EasyCreatorViewTemplates extends JView
         )
         );
 
-        return EcrHtml::subMenu($subTasks);
+        return EcrHtmlMenu::sub($subTasks);
     }//function
 }//class

@@ -18,5 +18,5 @@ defined('_JEXEC') || die('=;)');
     <?php echo $this->project->listPostfix ?>
     <h4><?php echo jgettext('File header template') ?></h4>
 
-    <?php echo EcrHtml::drawHeaderOptions($this->project->headerType) ?>
+    <?php echo EcrHtmlOptions::header($this->project->headerType) ?>
 </div>

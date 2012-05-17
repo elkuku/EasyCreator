@@ -48,15 +48,15 @@ class PartVariousPackage_installer
         || JFile::exists($basePathDest.DS.'install'.DS.'uninstall.package.php')
         )
         {
-            EcrHtml::displayMessage(jgettext('This project already has an install file - consider removing it'), 'error');
+            EcrHtml::message(jgettext('This project already has an install file - consider removing it'), 'error');
 
             return false;
         }
 
-        EcrHtml::drawLoggingOptions();
+        EcrHtmlOptions::logging();
 
         $requireds = array();
-        EcrHtml::drawSubmitParts($requireds);
+        EcrHtmlButton::submitParts($requireds);
     }//function
 
     /**

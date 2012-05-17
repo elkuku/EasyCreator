@@ -119,7 +119,7 @@ $fileTree = drawFileTree($this->project);
 
 <?php
 
-echo EcrHtml::drawLogConsole();
+echo EcrHtmlDebug::logConsole();
 
 /**
  * Draws a file tree.

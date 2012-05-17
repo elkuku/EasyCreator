@@ -8,7 +8,7 @@
  */
 
 if(! count($this->logFiles)):
-    EcrHtml::displayMessage(jgettext('No logfiles found'), 'notice');
+    EcrHtml::message(jgettext('No logfiles found'), 'notice');
 
     return;
 endif;

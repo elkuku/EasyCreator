@@ -120,7 +120,7 @@ class EasyCreatorViewLanguages extends JView
         }
         catch(Exception $e)
         {
-            EcrHtml::displayMessage($e);
+            EcrHtml::message($e);
 
             EcrHtml::formEnd();
 
@@ -825,7 +825,7 @@ class EasyCreatorViewLanguages extends JView
 
         //@todo - unify..
         $html = '';
-        $html .= EcrHtml::subMenu($subTasks);
+        $html .= EcrHtmlMenu::sub($subTasks);
 
         $html .= '<div style="clear: both; height: 1em;"></div>';
 
@@ -928,7 +928,7 @@ class EasyCreatorViewLanguages extends JView
 
                     $html .= '</select>';
                     $html .= '</div>';
-                    $html .= EcrHtml::chkVersioned();
+                    $html .= EcrHtmlCheck::versioned();
                     $html .= '&nbsp;&nbsp;<span class="ecr_button img icon16-ecr_save"'
                     .' onclick="submitbutton(\'save_lang_corrected\');" style="display: inline !important;">';
                     $html .= jgettext('Save');
@@ -938,7 +938,7 @@ class EasyCreatorViewLanguages extends JView
 
             case 'langcorrectdeforder':
             case 'save_deflang_corrected':
-                $html .= EcrHtml::chkVersioned();
+                $html .= EcrHtmlCheck::versioned();
                 $html .= '<span class="ecr_button img icon16-ecr_save"';
                 $html .= 'onclick="submitbutton(\'save_deflang_corrected\');">'.jgettext('Save').'</span>';
                 $html .= '<br /><br /><div class="explanation">'
@@ -1009,7 +1009,7 @@ class EasyCreatorViewLanguages extends JView
         )
         );
 
-        return EcrHtml::subMenu($subTasks);
+        return EcrHtmlMenu::sub($subTasks);
     }//function
 
     /**

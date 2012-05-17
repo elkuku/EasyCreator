@@ -14,7 +14,7 @@ echo 'BUUU ?';
 
 if( ! $this->easyLanguage)
 {
-    EcrHtml::displayMessage(jgettext('No languages defined'), 'error');
+    EcrHtml::message(jgettext('No languages defined'), 'error');
 
     return;
 }

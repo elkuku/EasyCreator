@@ -1341,7 +1341,7 @@ case 'etc':
                 break;
 
             default :
-                EcrHtml::displayMessage('Unknown file extension: '.JFile::getExt($fileName), 'error');
+                EcrHtml::message('Unknown file extension: '.JFile::getExt($fileName), 'error');
                 break;
         }//switch
 
