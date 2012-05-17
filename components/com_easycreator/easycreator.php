@@ -9,7 +9,7 @@
 jimport('joomla.filesystem.file');
 
 //--Global functions
-require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/functions.php';
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/loader.php';
 
 //-- Global constants
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/defines.php';
