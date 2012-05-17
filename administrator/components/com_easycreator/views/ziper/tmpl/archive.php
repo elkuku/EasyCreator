@@ -15,12 +15,11 @@ $base_href = (0 === strpos($path, ECRPATH_BUILDS))
 
 echo '<div class="img icon16-server path">'.JPath::clean($path).'</div>';
 
-if(! JFolder::exists($path))
-{
+if(! JFolder::exists($path)) :
     EcrHtml::message(jgettext('Archive is empty'), 'warning');
 
     return;
-}
+endif;
 
 $folders = JFolder::folders($path);
 
@@ -59,8 +58,6 @@ foreach($folders as $folder) :
     </thead>
     <tbody>
         <?php
-        $k = 0;
-
         foreach($files as $file) :
             $info = lstat($base_path.DS.$file);
             $href = $base_href.'/'.$folder.'/'.$file;
@@ -69,8 +66,7 @@ foreach($folders as $folder) :
             $p = str_replace('\\', '/', $p);
 
             ?>
-        <tr id="row<?php echo $file; ?>"
-            class="<?php echo 'row'.$k; ?>">
+        <tr id="row<?php echo $file; ?>">
             <td><a href="<?php echo $href; ?>"><?php echo $file; ?></a></td>
             <td nowrap="nowrap"><?php echo JFactory::getDate($info[9])->format('Y-M-d H:i:s'); ?></td>
             <td><?php echo EcrHtml::byte_convert($info[7]); ?></td>
@@ -83,11 +79,8 @@ foreach($folders as $folder) :
             </td>
             <?php endif; ?>
         </tr>
-            <?php
-            $k = 1 - $k;
-        endforeach;
-        ?>
+        <?php endforeach; ?>
     </tbody>
 </table>
-<?php
-endforeach;
+
+<?php endforeach;

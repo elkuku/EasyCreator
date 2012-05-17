@@ -9,22 +9,28 @@
 
 $buildOpts = $this->project->buildOpts;
 $options = new JObject($this->project->buildOpts);
-?>
 
+$js = '';
+
+foreach($this->project->actions as $action) :
+    $js .= "   Stuffer.addAction('$action->type', '$action->script');\n";
+endforeach;
+
+JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() {\n".$js."\n});");
+
+?>
 <div class="ecr_floatbox">
 
     <div class="infoHeader img icon24-package_creation">
         <?php echo jgettext('Package'); ?>
     </div>
 
-    <br/>
-    <strong class="img icon16-installfolder"><?php echo jgettext('Build folder'); ?></strong>
+    <label for="buildFolder" class="inline"><?php echo jgettext('Build folder'); ?></label>
     <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Build folder').'::'
     .jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.')
     .sprintf(jgettext('<br />If left blank the folder <strong>%s</strong> wil be used'), ECRPATH_BUILDS));
     ?>
-    <br/>
-    <input type="text" name="buildvars[zipPath]" size="40"
+    <input type="text" name="buildvars[zipPath]" id="buildFolder" size="40"
            value="<?php echo $this->project->zipPath; ?>"/>
     <?php
     if($this->project->zipPath && ! JFolder::exists($this->project->zipPath)) :
@@ -32,15 +38,12 @@ $options = new JObject($this->project->buildOpts);
     endif;
     ?>
 
-    <br/>
+    <h4><?php echo jgettext('Compression'); ?></h4>
 
-    <strong><?php echo jgettext('Compression'); ?></strong>
     <?php EcrHtmlOptions::packing($buildOpts); ?>
 
-    <br/><br/>
+    <h4><?php echo jgettext('Options'); ?></h4>
 
-    <strong><?php echo jgettext('Options'); ?></strong>
-    <br/>
     <input type="checkbox" name="buildopts[]" id="lbl_create_index_html"
         <?php echo (isset($buildOpts['create_indexhtml'])
         && $buildOpts['create_indexhtml'] == 'ON') ? ' checked="checked"' : ''; ?>
@@ -62,11 +65,7 @@ $options = new JObject($this->project->buildOpts);
     <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Compress checksum file').'::'
     .jgettext('This will do a small compression on your checksum file')); ?>
 
-    <br/>
-    <br/>
-
-    <strong class="img icon16-easycreator"><?php echo jgettext('EasyCreator Options'); ?></strong>
-    <br/>
+    <h4 class="img icon16-easycreator"><?php echo jgettext('EasyCreator Options'); ?></h4>
 
     <input type="checkbox" name="buildopts[]" id="lbl_include_ecr_projectfile"
         <?php echo (isset($buildOpts['include_ecr_projectfile'])
@@ -85,7 +84,7 @@ $options = new JObject($this->project->buildOpts);
 
     <br/>
     <br/>
-    <strong><?php echo jgettext('File name'); ?></strong>
+    <h4><?php echo jgettext('File name'); ?></h4>
 
     <div class="control-group">
         <label class="control-label" for="custom_name_1"><?php echo jgettext('Default name'); ?></label>
@@ -121,5 +120,13 @@ $options = new JObject($this->project->buildOpts);
         </div>
     </div>
     <span class="btn" onclick="Stuffer.loadFilenameDefaults();"><?php echo jgettext('Reset to default'); ?></span>
+
+    <h4><?php echo jgettext('Prebuild Actions'); ?></h4>
+    <div id="actions"></div>
+    <div onclick="Stuffer.addAction('script', '');"
+         class="btn">
+        <i class="img icon16-add"></i>
+        <?php echo jgettext('Add Action');?>
+    </div>
 
 </div>

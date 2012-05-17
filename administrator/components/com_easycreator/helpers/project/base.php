@@ -19,6 +19,7 @@ abstract class EcrProjectBase
 
     /**
      * Joomla! compatibility mode
+     *
      * @Joomla!-compat 1.5
      * @var string
      */
@@ -105,6 +106,8 @@ abstract class EcrProjectBase
     public $elements = array();
 
     public $updateServers = array();
+
+    public $actions = array();
 
     private $basePath = '';
 
@@ -251,12 +254,14 @@ abstract class EcrProjectBase
 
     /**
      * Translate the type
+     *
      * @return string
      */
     abstract public function translateType();
 
     /**
      * Translate the plural type
+     *
      * @return string
      */
     abstract public function translateTypePlural();
@@ -413,7 +418,7 @@ abstract class EcrProjectBase
 
         $ooo = new JRegistry($buildOpts);
 
-        for($i = 1; $i < 5; $i++)
+        for($i = 1; $i < 5; $i ++)
         {
             $this->buildOpts['custom_name_'.$i] = $ooo->get('custom_name_'.$i);
         }
@@ -435,6 +440,20 @@ abstract class EcrProjectBase
             }
         }
 
+        $actions = JRequest::getVar('actions', array(), 'default', 'array');
+
+        if(isset($actions['type']))
+        {
+            foreach($actions['type'] as $i => $type)
+            {
+                $a = new stdClass;
+                $a->type = $type;
+                $a->script = (isset($actions['script'][$i])) ? $actions['script'][$i] : '';
+
+                $this->actions[$i] = $a;
+            }
+        }
+
         $this->JCompat = JRequest::getString('jcompat');
 
         if(! $this->writeProjectXml())
@@ -451,7 +470,7 @@ abstract class EcrProjectBase
             return false;
         }
 
-        if( ! $this->updateAdminMenu())
+        if(! $this->updateAdminMenu())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
@@ -513,7 +532,7 @@ abstract class EcrProjectBase
 
         $contents = $xml->asFormattedXML();
 
-        if( ! JFile::write($path, $contents))
+        if(! JFile::write($path, $contents))
             throw new Exception(__METHOD__.' - Unable to write deploy file to: '.$path);
 
         return $this;
@@ -532,12 +551,12 @@ abstract class EcrProjectBase
 
         $this->deployOptions = new JRegistry;
 
-        if( ! JFile::exists($path))
+        if(! JFile::exists($path))
             return $this;
 
         $xml = EcrProjectHelper::getXML($path);
 
-        if( ! $xml)
+        if(! $xml)
             throw new Exception(__METHOD__.' - Invalid deploy file');
 
         $this->deployOptions->set('ftp.host', (string)$xml->ftp->host);
@@ -546,7 +565,6 @@ abstract class EcrProjectBase
         $this->deployOptions->set('ftp.downloads', (string)$xml->ftp->downloads);
         $this->deployOptions->set('ftp.user', (string)$xml->ftp->user);
         $this->deployOptions->set('ftp.pass', (string)$xml->ftp->pass);
-
 
         $this->deployOptions->set('github.repoowner', (string)$xml->github->repoowner);
         $this->deployOptions->set('github.reponame', (string)$xml->github->reponame);
@@ -858,6 +876,21 @@ abstract class EcrProjectBase
             }
         }
 
+        //-- Actions
+        if(count($this->actions))
+        {
+            $element = $xml->addChild('actions');
+
+            foreach($this->actions as $action)
+            {
+                /* @var SimpleXMLElement $sElement */
+                $sElement = $element->addChild('action');
+
+                $sElement->addChild('type', $action->type);
+                $sElement->addChild('script', $action->script);
+            }
+        }
+
         $root = '';
         $root .= '<?xml version="1.0" encoding="UTF-8"?>'.NL;
         $root .= '<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project 1.0//EN"'.NL;
@@ -1134,6 +1167,21 @@ abstract class EcrProjectBase
             }
         }
 
+        /*
+         * Actions
+         */
+        if(isset($manifest->actions->action))
+        {
+            /* @var SimpleXMLElement $server */
+            foreach($manifest->actions->action as $action)
+            {
+                $a = new stdClass;
+                $a->type = (string)$action->type;
+                $a->script = (string)$action->script;
+                $this->actions[] = $a;
+            }
+        }
+
         return true;
     }
 
@@ -1185,7 +1233,7 @@ abstract class EcrProjectBase
                 {
                     // The extension is not "installable" - so just remove the files
 
-                    if( ! JFolder::delete($this->getExtensionPath()))
+                    if(! JFolder::delete($this->getExtensionPath()))
                         throw new Exception('Unable to remove the extension');
                 }
             }

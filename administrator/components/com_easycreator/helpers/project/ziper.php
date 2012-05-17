@@ -97,6 +97,7 @@ class EcrProjectZiper extends JObject
         try
         {
             $this
+                ->performPrebuildActions()
                 ->setTempDir()
                 ->copyCopies()
                 ->copyLanguage()
@@ -159,6 +160,41 @@ class EcrProjectZiper extends JObject
         }
 
         return true;
+    }
+
+    /**
+     * Performs the prebuild actions.
+     *
+     * @return EcrProjectZiper
+     *
+     * @throws UnexpectedValueException
+     */
+    private function performPrebuildActions()
+    {
+        $this->logger->log('Performing prebuild actions');
+
+        foreach($this->project->actions as $action)
+        {
+            switch($action->type)
+            {
+                case 'script' :
+                    $command = $action->script;
+                    $command = str_replace('${temp_dir}', $this->temp_dir, $command);
+                    $command = str_replace('${j_root}', JPATH_ROOT, $command);
+
+                    $this->logger->log('Executing: '.$command);
+
+                    $output = shell_exec($command.' 2>&1');
+
+                    $this->logger->log(trim($output));
+                    break;
+
+                default :
+                    throw new UnexpectedValueException(__METHOD__.' - unknown action: '.$action->type);
+            }
+        }
+
+        return $this;
     }
 
     /**

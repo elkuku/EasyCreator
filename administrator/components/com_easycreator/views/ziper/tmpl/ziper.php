@@ -22,11 +22,25 @@ JFactory::getDocument()->addScriptDeclaration(
     "window.addEvent('domready', function() { EcrZiper.updateName('{$this->ecr_project}'); });");
 
 ?>
-<div class="clr"></div>
+<div class="ecr_floatbox" style="float: right;">
+    <a href="javascript:;" class="btn btn-success btn-large" onclick="EcrZiper.createPackage();"
+       style="margin: 1em; padding: 1em;">
+        <i class="img32 icon32-ecr_package"></i>
+        <br/>
+        <br/>
+        <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
+    </a>
+
+    <div id="ajaxMessage"></div>
+
+    <div id="zipResultLinks"></div>
+
+</div>
+<div class="xclr"></div>
 
 <div id="zipResult" style="display: none;"></div>
 
-<div style="clear: both;"></div>
+<div style="xclear: both;"></div>
 
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('folder'); ?>
@@ -46,22 +60,20 @@ JFactory::getDocument()->addScriptDeclaration(
     <?php //echo $this->loadTemplate('database'); ?>
 </div>
 -->
-<div class="ecr_floatbox" style="background-color: #ccff99;">
+<div class="ecr_floatbox">
     <div class="infoHeader">
-        <?php echo jgettext('Create the package'); ?>
+        <?php echo jgettext('Prebuild actions'); ?>
     </div>
-
-    <a href="javascript:;" class="btn" onclick="EcrZiper.createPackage();"
-         style="margin: 1em; padding: 1em; text-align: center;">
-        <div class="img icon32-ecr_archive"
-             style="width: 100%; padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
-        <h1>
-            <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
-        </h1>
-    </a>
-    <div id="ajaxMessage"></div>
-
-    <div id="zipResultLinks"></div>
+    <?php if(count($this->project->actions)) : ?>
+    <dl class="dl-horizontal">
+        <?php foreach($this->project->actions as $action): ?>
+        <dt><?php echo $action->type ?></dt>
+        <dd><?php echo $action->script; ?></dd>
+        <?php endforeach; ?>
+    </dl>
+    <?php else : ?>
+    <p><?php echo jgettext('No prebuild actions defined'); ?></p>
+    <?php endif; ?>
 </div>
 
 <div class="clr" style="height: 75px;"></div>

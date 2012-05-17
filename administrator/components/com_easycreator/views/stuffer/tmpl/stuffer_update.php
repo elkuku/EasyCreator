@@ -36,7 +36,8 @@ JFactory::getDocument()->addScriptDeclaration($js);
         <h4><?php echo jgettext('Update server'); ?></h4>
         <div id="updateServers"></div>
         <div onclick="Stuffer.addUpdateServer('<?php echo $this->project->name?> update server', '', 'extension', '1');"
-             class="btn img icon16-add">
+             class="btn">
+            <i class="img icon16-add"></i>
             <?php echo jgettext('Add Server');?>
         </div>
     <?php endif; ?>

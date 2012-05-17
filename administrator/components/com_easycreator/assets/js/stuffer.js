@@ -14,7 +14,7 @@ function createFile(type1, type2) {
 }//function
 
 function submitStuffer(task) {
-    if (document.id('package-to') == null) {
+    if(document.id('package-to') == null) {
         submitbutton(task);
 
         return;
@@ -24,7 +24,7 @@ function submitStuffer(task) {
 
     var inserts = new Array();
 
-    elements.each(function (el) {
+    elements.each(function(el) {
         inserts.push(el.id);
     });
 
@@ -33,16 +33,16 @@ function submitStuffer(task) {
     submitbutton(task);
 }
 
-window.addEvent('domready', function () {
+window.addEvent('domready', function() {
     var mySortables = new Sortables('#package-from, #package-to', {
-        constrain:false,
-        clone:true,
-        revert:true
+        constrain : false,
+        clone : true,
+        revert : true
     });
 });
 
 var ecrStuffer = new Class({
-    addUpdateServer:function (name, url, type, priority) {
+    addUpdateServer : function(name, url, type, priority) {
         var container = document.id('updateServers');
         var html = '';
 
@@ -55,21 +55,39 @@ var ecrStuffer = new Class({
         html += jgettext('Delete');
         html += '</span>';
 
-        var div = new Element('div', {'style':'border: 1px dashed gray; padding: 0.4em; margin: 0.2em;'});
-
-        div.set('html', html);
-
-        div.inject(container);
+        new Element('div', {'style' : 'border: 1px solid silver; padding: 0.4em; margin: 0.2em;'})
+            .set('html', html)
+            .inject(container);
     },
 
-    loadFilenameDefaults:function () {
-        new Request({
-            url:ecrAJAXLink + '&controller=ajax&task=getEcrParams',
+    addAction : function(type, action) {
+        var container = document.id('actions');
+        var html = '';
 
-            onComplete:function (response) {
+
+        html += ' <input type="hidden" name="actions[type][]" value="' + type + '" />';
+
+        html += jgettext('Script');
+
+        html += ' <input type="text" name="actions[script][]" value="' + action + '" />';
+
+        html += '<span class="btn btn-mini" onclick="this.getParent().dispose();">';
+        html += jgettext('Delete');
+        html += '</span>';
+
+        new Element('div', {'style' : 'border: 1px solid silver; padding: 0.4em; margin: 0.2em;'})
+            .set('html', html)
+            .inject(container);
+    },
+
+    loadFilenameDefaults : function() {
+        new Request({
+            url : ecrAJAXLink + '&controller=ajax&task=getEcrParams',
+
+            onComplete : function(response) {
                 var resp = JSON.decode(response);
 
-                if (resp.status) {
+                if(resp.status) {
                     //-- Error
                     alert(resp.text);
 
