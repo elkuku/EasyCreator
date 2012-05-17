@@ -48,9 +48,9 @@ var ecrStuffer = new Class({
 
         html += jgettext('URL') + ': <input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
         html += jgettext('Name') + ': <input type="text" name="updateServers[name][]" value="' + name + '" /><br />';
-        html += jgettext('Priority') + ': <input type="text" size="2" name="updateServers[priority][]" value="' + priority + '" /> ';
-        html += jgettext('Type') + ': <input type="text" size="8" name="updateServers[type][]" value="' + type + '" /><br />';
-        html += '<br /><span class="ecr_button" onclick="this.getParent().dispose();">';
+        html += jgettext('Priority') + ': <input type="text" class="span1" name="updateServers[priority][]" value="' + priority + '" /> ';
+        html += jgettext('Type') + ': <input type="text" class="span1" name="updateServers[type][]" value="' + type + '" /><br />';
+        html += '<br /><span class="btn btn-mini" onclick="this.getParent().dispose();">';
 
         html += jgettext('Delete');
         html += '</span>';

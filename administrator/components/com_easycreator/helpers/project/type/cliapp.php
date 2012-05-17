@@ -70,7 +70,7 @@ class EcrProjectTypeCliapp extends EcrProjectBase
         if($this->copies)
             return $this->copies;
 
-        $this->copies = JFolder::files($this->getExtensionPath(), '.', true, true);
+        $this->copies = array($this->getExtensionPath());
 
         if(false == $this->copies)
             $this->copies = array();

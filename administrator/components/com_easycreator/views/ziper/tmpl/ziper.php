@@ -24,9 +24,8 @@ JFactory::getDocument()->addScriptDeclaration(
 ?>
 <div class="clr"></div>
 
-<div id="zipResult" style="display: none;">
+<div id="zipResult" style="display: none;"></div>
 
-</div>
 <div style="clear: both;"></div>
 
 <div class="ecr_floatbox">
@@ -37,14 +36,14 @@ JFactory::getDocument()->addScriptDeclaration(
     <?php echo $this->loadTemplate('format'); ?>
 </div>
 
-<div class="ecr_floatbox">
+<div class="ecr_floatbox" style="min-width: 300px;">
     <?php echo $this->loadTemplate('options'); ?>
 </div>
 
 <!--
 
 <div class="ecr_floatbox">
-    <?php echo $this->loadTemplate('database'); ?>
+    <?php //echo $this->loadTemplate('database'); ?>
 </div>
 -->
 <div class="ecr_floatbox" style="background-color: #ccff99;">
@@ -52,14 +51,14 @@ JFactory::getDocument()->addScriptDeclaration(
         <?php echo jgettext('Create the package'); ?>
     </div>
 
-    <div class="ecr_button" onclick="EcrZiper.createPackage();"
+    <a href="javascript:;" class="btn" onclick="EcrZiper.createPackage();"
          style="margin: 1em; padding: 1em; text-align: center;">
-        <div id="ecr_ajax_loader" class="img icon-32-ecr_archive"
-             style="padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
+        <div class="img icon32-ecr_archive"
+             style="width: 100%; padding-bottom: 32px; margin-top: 1em; margin-bottom: 1em; margin-left: 3em;"></div>
         <h1>
             <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
         </h1>
-    </div>
+    </a>
     <div id="ajaxMessage"></div>
 
     <div id="zipResultLinks"></div>

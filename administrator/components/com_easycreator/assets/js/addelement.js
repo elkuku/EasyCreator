@@ -35,9 +35,9 @@ function addNewElement(fields)
 
     if (!valid)
     {
-        $('addElementMessage').innerHTML = '<div style="color: red;">' + jgettext('Please review your input') + '</div>';
+        document.id('addElementMessage').innerHTML = '<div style="color: red;">' + jgettext('Please review your input') + '</div>';
 
-        var div = $('addElementMessage').setStyles(
+        var div = document.id('addElementMessage').setStyles(
         {
             display : 'block',
             opacity : 0
@@ -63,7 +63,7 @@ function removeElement(divNum, divName)
 
 function getTableFields(tableName)
 {
-    $('addPartTableFields').innerHTML = jgettext('Loading...');
+    document.id('addPartTableFields').innerHTML = jgettext('Loading...');
 
     link = 'index.php?option=com_easycreator&controller=ajax&task=show_tablefields&tmpl=component';
 
@@ -137,9 +137,9 @@ function addPackageElement(type, client, name, title, position, ordering)
     switch (type)
     {
         case 'module':
-            var ni = $('divPackageElementsModules');
-            var numi = $('totalPackageElementsModules');
-            var num = ($('totalPackageElementsModules').value - 1) + 2;
+            var ni = document.id('divPackageElementsModules');
+            var numi = document.id('totalPackageElementsModules');
+            var num = (document.id('totalPackageElementsModules').value - 1) + 2;
             numi.value = num;
             var divIdName = "divPackageElementsModules" + num + "Div";
             var divMain = 'divPackageElementsModules';
@@ -147,9 +147,9 @@ function addPackageElement(type, client, name, title, position, ordering)
             break;
 
         case 'plugin':
-            var ni = $('divPackageElementsPlugins');
-            var numi = $('totalPackageElementsPlugins');
-            var num = ($('totalPackageElementsPlugins').value - 1) + 2;
+            var ni = document.id('divPackageElementsPlugins');
+            var numi = document.id('totalPackageElementsPlugins');
+            var num = (document.id('totalPackageElementsPlugins').value - 1) + 2;
             numi.value = num;
             var divIdName = "divPackageElementsPlugins" + num + "Div";
             var divMain = 'divPackageElementsPlugins';
@@ -174,8 +174,10 @@ function addPackageElement(type, client, name, title, position, ordering)
     html += '<td>';
     html += projectSelector(type, num, title);
     html += '</td><td>';
-    html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\" onclick=\"removeElement(\'"
-            + divIdName + "\', '" + divMain + "')\">" + jgettext('Delete') + "</div>";
+    html += "<div style=\"float: right\" class=\"btn\" onclick=\"removeElement(\'"
+            + divIdName + "\', '" + divMain + "')\">"
+        + '<i class="img icon16-delete"></i>'
+        + jgettext('Delete') + "</div>";
     html += '</td>';
     html += '</tr><tr>';
     html += '<td>';

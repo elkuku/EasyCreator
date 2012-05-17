@@ -1034,7 +1034,7 @@ case 'etc':
     {
         echo '<p style="color: red">'.jgettext('File not found').'</p>';
         ?>
-        <div class="ecr_button"
+        <div class="btn"
             onclick="document.adminForm.lngcreate_lang.value='<?php echo $lang; ?>'; submitform('create_langfile');">
             <?php echo jgettext('Create language file'); ?></div>
             <?php

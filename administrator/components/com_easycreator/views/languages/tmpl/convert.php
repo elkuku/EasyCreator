@@ -56,12 +56,12 @@ if($selected_file
 
 if($this->diff)
 {
-    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');" class="ecr_button img icon-16-rename">';
+    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');" class="ecr_button img icon16-rename">';
     echo jgettext('Convert code and language file').'</span>';
 }
 else
 {
-    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');" class="ecr_button img icon-16-rename">';
+    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');" class="ecr_button img icon16-rename">';
     echo jgettext('Convert language file').'</span>';
     echo '</div>';
 }
@@ -139,7 +139,7 @@ $newLines = $this->converter->cleanLangFileErrors($newLines, array_keys($this->f
 $newFileContents = implode("\n", $newLines);
 
 $buttons .= '
-<div class="ecr_button img icon-16-add" style="float: left;" onclick="langfile_'.$sTag.'.toggle();">'.$tag.'</div>';
+<div class="ecr_button img icon16-add" style="float: left;" onclick="langfile_'.$sTag.'.toggle();">'.$tag.'</div>';
 
 $tables .= '
 <div id="langfile_'.$sTag.'" style="float: left">

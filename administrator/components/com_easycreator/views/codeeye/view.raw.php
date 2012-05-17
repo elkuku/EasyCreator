@@ -48,7 +48,7 @@ class EasyCreatorViewCodeEye extends JView
             $response['status'] = 0;
             $response['text'] = $e->getMessage();
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return;
         }//try

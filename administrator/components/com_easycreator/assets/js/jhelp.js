@@ -118,8 +118,8 @@ function changeFrame(className, methodName, packageName)
 
 function changeOutFormat(name, link)
 {
-    $(fId).setProperty('class', 'ecr_button');
-    $(name).setProperty('class', 'ecr_button_selected');
+    $(fId).setProperty('class', 'btn');
+    $(name).setProperty('class', 'btn active');
     fId = name;
     $('out_format').value = name;
     $('out_link').value = link;

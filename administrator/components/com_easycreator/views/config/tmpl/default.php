@@ -10,20 +10,19 @@
 ecrStylesheet('config');
 
 ?>
-<div class="ecr_easy_toolbar" style="float: right;">
-    <ul>
-        <li>
-            <a href="javascript:;" onclick="submitform('save_config');">
-                <span class="icon-32-save" title="<?php echo jgettext('Save'); ?>"></span>
-                <?php echo jgettext('Save'); ?>
-            </a>
-        </li>
-    </ul>
+<div style="float: right;">
+    <a class="btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;" onclick="submitform('save_config');">
+        <?php if(ECR_TBAR_ICONS) : ?>
+        <i class="img icon16-ecr_save"></i>
+        <br/>
+        <?php endif; ?>
+        <?php echo jgettext('Save'); ?>
+    </a>
 </div>
 
 <div align="center">
     <h1>
-        <span class="img32c icon-32-ecr_config"></span>
+        <span class="img32c icon32-ecr_config"></span>
         <?php echo sprintf(jgettext('%s Configuration'), 'EasyCreator'); ?>
     </h1>
 </div>
@@ -43,7 +42,7 @@ ecrStylesheet('config');
 <?php if('Debug' == $fieldSet->name && ! ECR_DEV_MODE) continue; ?>
 <div class="ecr_floatbox">
 
-    <div class="infoHeader imgbarleft icon-24-<?php echo $fieldSet->name; ?>">
+    <div class="infoHeader imgbarleft icon24-<?php echo $fieldSet->name; ?>">
         <?php echo jgettext($fieldSet->label); ?>
     </div>
 

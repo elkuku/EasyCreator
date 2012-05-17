@@ -174,7 +174,7 @@ function startParam(groupName, attribs, children)
     html += "            <table id='"+attribs.name+"-divOption' style='border: 1px solid blue;'>"+NL;
     html += "                <tr>";
     html += "                    <th>Options</th>";
-    html += "                <td class='ecr_button img icon-16-add' onclick=\"addOption('"+groupName+"', '"+attribs.name+"', '', '');\">";
+    html += "                <td class='btn img icon16-add' onclick=\"addOption('"+groupName+"', '"+attribs.name+"', '', '');\">";
     html += "                Add option";
     html += "                <input type='hidden' name='"+attribs.name+"-options' id='"+attribs.name+"-options' value='"+i+"' />";
     html += "                </td>";

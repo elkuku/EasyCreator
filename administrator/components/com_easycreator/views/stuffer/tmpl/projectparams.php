@@ -28,7 +28,7 @@ ecrScript('parameter');
             {
             ?>
 			<td>
-				<div class="ecr_button img icon-16-add" onclick="div_new_group.toggle(); $('addGroupName').focus();"><?php echo jgettext('New group') ?></div>
+				<div class="ecr_button img icon16-add" onclick="div_new_group.toggle(); $('addGroupName').focus();"><?php echo jgettext('New group') ?></div>
 				<div id="div_new_group" align="left">
 				<div style="background-color: #F2F2F2; padding-left: 2px;
 				padding-right: 2px; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9;">
@@ -39,7 +39,7 @@ ecrScript('parameter');
 					<br />
 
 					</div>
-					<div class="ecr_button img icon-16-add" onclick="addGroup($('addGroupName').value);"><?php echo jgettext('Add group'); ?></div>
+					<div class="ecr_button img icon16-add" onclick="addGroup($('addGroupName').value);"><?php echo jgettext('Add group'); ?></div>
 				</div>
 				<script type="text/javascript">
 					var div_new_group = new Fx.Slide('div_new_group');
@@ -47,7 +47,7 @@ ecrScript('parameter');
 				</script>
 			</td>
 			<td>
-				<div class="ecr_button img icon-16-add" onclick="div_new_parameter.toggle();$('addParamName').focus();"><?php echo jgettext('New parameter') ?></div>
+				<div class="ecr_button img icon16-add" onclick="div_new_parameter.toggle();$('addParamName').focus();"><?php echo jgettext('New parameter') ?></div>
 				<div id="div_new_parameter" align="left">
 				<div style="background-color: #F2F2F2; padding-left: 2px;
 				padding-right: 2px; border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9;">
@@ -62,7 +62,7 @@ ecrScript('parameter');
 					</select>
 					<br /><br />
 					</div>
-					<div class="ecr_button img icon-16-add" onclick="newParameter();"><?php echo jgettext('Add parameter'); ?></div>
+					<div class="ecr_button img icon16-add" onclick="newParameter();"><?php echo jgettext('Add parameter'); ?></div>
 				</div>
 				<script type="text/javascript">
 					var div_new_parameter = new Fx.Slide('div_new_parameter');
@@ -70,7 +70,7 @@ ecrScript('parameter');
 				</script>
 			</td>
 			<td>
-				<div class="ecr_button img icon-16-save" onclick="submitbutton('save_params');">
+				<div class="ecr_button img icon16-ecr_save" onclick="submitbutton('save_params');">
 				<?php echo jgettext('Save') ?>
 				</div>
 			</td>

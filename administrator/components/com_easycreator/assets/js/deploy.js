@@ -227,11 +227,11 @@ var EcrDeploy = new Class({
         */
 
         html += '<div class="buttons">';
-        html += '<a href="javascript:;" class="ecr_button" onclick="this.getParent().dispose();">';
+        html += '<a href="javascript:;" class="btn" onclick="this.getParent().dispose();">';
         html += jgettext('Delete');
 
         html += '</a>';
-        html += '<a href="javascript:;" class="ecr_button" onclick="EcrDeploy.addUpdateFiles(this);">'
+        html += '<a href="javascript:;" class="btn" onclick="EcrDeploy.addUpdateFiles(this);">'
         + jgettext('Add files')
         + '</a>';
         html += '</div>';

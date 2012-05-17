@@ -156,17 +156,17 @@ switch(ECR_JVERSION)
 }
 
 //-- Add CSS
-ecrStylesheet('default', 'toolbar', 'icon');
+ecrStylesheet('bootstrap', 'default', 'toolbar', 'icon');
+
+//-- Setup tooltips - used almost everywhere..
+JHTML::_('behavior.tooltip');
+//JHTML::_('behavior.tooltip', '.hasEasyTip', array('className' => 'easy'));
 
 //-- Add JavaScript
 ecrScript('global_vars', 'easycreator');
 
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
-
-//-- Setup tooltips - used almost everywhere..
-JHTML::_('behavior.tooltip');
-JHTML::_('behavior.tooltip', '.hasEasyTip', array('className' => 'easy'));
 
 if(version_compare(JVERSION, '1.6', '>'))
 {

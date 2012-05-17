@@ -10,7 +10,7 @@
 $buildPath = $this->project->getZipPath();
 ?>
 
-<div class="infoHeader img icon-16-installfolder"><?php echo jgettext('Build folder') ?></div>
+<div class="infoHeader img icon16-installfolder"><?php echo jgettext('Build folder') ?></div>
 <?php
 if(2 == ECR_HELP):
     echo JHTML::tooltip(jgettext('Build folder').'::'

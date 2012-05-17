@@ -348,7 +348,7 @@ class EcrFileTree
         $js = $this->parseLink($this->jsFile, $li, $file);
 
         if( ! $this->showExtension)
-        $file = JFile::stripExt($file);
+            $file = JFile::stripExt($file);
 
         $s = '';
         $s .= $this->idt();

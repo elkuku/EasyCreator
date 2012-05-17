@@ -8,7 +8,7 @@
  */
 ?>
 
-<div class="infoHeader img icon-24-ftp">
+<div class="infoHeader img icon24-ftp">
     <?php echo jgettext('FTP') ?>
 </div>
 
@@ -20,12 +20,13 @@
 <div id="ftpDeployDisplay"></div>
 
 <div class="buttons">
-    <a href="javascript:;" class="ecr_button img icon-16-export" onclick="EcrDeploy.deployPackage('ftp');">
+    <a href="javascript:;" class="btn" onclick="EcrDeploy.deployPackage('ftp');">
+        <i class="img icon16-export"></i>
         <?php echo jgettext('Deploy'); ?>
     </a>
 </div>
 
-<div class="infoHeader img icon-16-installfolder"><?php echo jgettext('Manage') ?></div>
+<div class="infoHeader img icon16-installfolder"><?php echo jgettext('Manage') ?></div>
 
 <div id="ajaxftpMessage"></div>
 <div id="ajaxftpDebug"></div>
@@ -33,7 +34,8 @@
 <div id="ftpDisplay"></div>
 
 <div class="buttons">
-    <a href="javascript:;" class="ecr_button img icon-16-import" onclick="EcrDeploy.getPackageList('ftp');">
+    <a href="javascript:;" class="btn" onclick="EcrDeploy.getPackageList('ftp');">
+        <i class="img icon16-import"></i>
         <?php echo jgettext('Get List'); ?>
     </a>
 </div>

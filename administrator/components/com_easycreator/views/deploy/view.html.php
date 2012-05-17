@@ -39,13 +39,13 @@ class EasyCreatorViewDeploy extends JView
         {
             EcrHtml::displayMessage($e);
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return;
         }//try
 
         //-- Draw h1 header
-        EcrHtml::header(jgettext('Deploy'), $this->project, 'ecr_deploy');
+        //EcrHtml::header(jgettext('Deploy'), $this->project, 'ecr_deploy');
 
         if(in_array($task, get_class_methods($this)))
         {
@@ -58,7 +58,7 @@ class EasyCreatorViewDeploy extends JView
 
         parent::display($tpl);
 
-        EcrHtml::easyFormEnd();
+        EcrHtml::formEnd();
     }//function
 
     protected function package()
@@ -76,16 +76,16 @@ class EasyCreatorViewDeploy extends JView
         $subTasks = array(
             array('title' => jgettext('Files')
             , 'description' => jgettext('Deploys the project files to your server.')
-            , 'icon' => 'package'
+            , 'icon' => 'deploy'
             , 'task' => array('deploy', 'files')
             )
             , array('title' => jgettext('Package')
             , 'description' => jgettext('This deploys you package to a server.')
-            , 'icon' => 'archive'
+            , 'icon' => 'package'
             , 'task' => 'package'
             )
         );
 
-        return EcrHtml::getSubBar($subTasks);
+        return EcrHtml::subMenu($subTasks);
     }//function
 }//class

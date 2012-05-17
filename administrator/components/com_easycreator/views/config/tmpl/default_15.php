@@ -18,7 +18,7 @@ $blacks = array('_default', 'Personal');
     <ul>
         <li>
             <a href="javascript:;" onclick="submitform('save_config');">
-                <span class="icon-32-save" title="<?php echo jgettext('Save'); ?>"></span>
+                <span class="icon32-save" title="<?php echo jgettext('Save'); ?>"></span>
                 <?php echo jgettext('Save'); ?>
             </a>
         </li>
@@ -27,7 +27,7 @@ $blacks = array('_default', 'Personal');
 
 <div align="center">
     <h1>
-        <span class="img32c icon-32-ecr_config"></span>
+        <span class="img32c icon32-ecr_config"></span>
         <?php echo sprintf(jgettext('%s Configuration'), 'EasyCreator'); ?>
     </h1>
 </div>
@@ -52,7 +52,7 @@ foreach(array_keys($groups) as $group):
     $style = str_replace(' ', '_', strtolower($group));
     ?>
     <div class="ecr_floatbox">
-		<div class="imgbar icon-24-<?php echo $style; ?>"></div>
+		<div class="imgbar icon24-<?php echo $style; ?>"></div>
 
     	<div class="table_name"><?php echo jgettext($group); ?></div>
     	<?php echo $this->parameters->render('params', $group); ?>

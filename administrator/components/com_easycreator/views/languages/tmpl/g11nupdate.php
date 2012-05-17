@@ -65,7 +65,9 @@ $item = $this->g11nInfo;
                             endif;
 
                             $js = "g11nCreate('g11nCreateTemplate', '', '$scope');";
-                            echo '<a class="ecr_button img icon-16-'.$class.'" href="javascript:;" onclick="'.$js.'">'.$s.'</a>';
+                            echo '<a class="btn" href="javascript:;" onclick="'.$js.'">'
+                                .'<i class="img icon16-'.$class.'"></i>'
+                                .$s.'</a>';
                         else :
                             echo $item->templateCommands[$scope];
                         endif;
@@ -85,7 +87,9 @@ $item = $this->g11nInfo;
                     endif;
 
                     $js = "g11nCreate('g11nUpdateLanguage', '".$lang['tag']."', '$scope');";
-                    echo '<a class="ecr_button img icon-16-'.$class.'" href="javascript:;" onclick="'.$js.'">'.$s.'</a>';
+                    echo '<a class="btn" href="javascript:;" onclick="'.$js.'">'
+                        .'<i class="img icon16-'.$class.'"></i>'
+                        .$s.'</a>';
 
                     echo '</td>';
                 endforeach;

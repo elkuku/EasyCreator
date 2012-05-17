@@ -12,11 +12,11 @@ $options = $this->project->deployOptions;
 
 <div class="ecr_floatbox">
 
-    <div class="infoHeader img icon-24-ecr_deploy">
+    <div class="infoHeader img icon24-ecr_deploy">
         <?php echo jgettext('Deploy') ?>
     </div>
 
-    <div class="img icon-16-warning">
+    <div class="img icon16-warning">
         <?php echo jgettext('Credentials are stored to disk.<br />You may leave some blank and enter them on usage.'); ?>
     </div>
 

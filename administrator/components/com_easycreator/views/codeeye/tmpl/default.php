@@ -15,12 +15,13 @@
 <div id="ecr_codeeye_output" style="text-align: center; padding: 2em;">
 
     <div class="infoHeader img32" style="width: 50%; margin: auto; margin-bottom: 1em;">
-        <span class="img32 icon-32-nose"></span>
+        <span class="img32 icon32-nose"></span>
         &nbsp;
         <?php echo jgettext('First Things First'); ?>
     </div>
 
-    <span class="img icon-16-apply ecr_button" onclick="checkEnvironment();">
+    <span class="btn" onclick="checkEnvironment();">
+        <i class="img icon16-apply"></i>
         <?php echo jgettext('Check your environment'); ?>
     </span>
 </div>

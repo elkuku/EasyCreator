@@ -16,7 +16,7 @@ if ($this->project->JCompat != 1.5)
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-package_creation">
+    <div class="infoHeader img icon24-package_creation">
         <?php echo jgettext('Add extensions'); ?>
     </div>
 
@@ -27,7 +27,7 @@ if ($this->project->JCompat != 1.5)
                     <tr>
                         <th class="infoHeader">
                             <?php if (isset($this->projectList['module']) && count($this->projectList['module'])) : ?>
-                            <span class="img icon-12-module">
+                            <span class="img icon12-module">
                             <?php echo jgettext('Modules'); ?>
                             </span>
                             <?php else : ?>
@@ -41,8 +41,8 @@ if ($this->project->JCompat != 1.5)
                     <!--                            -->
                 </table>
                 <?php if (isset($this->projectList['module']) && count($this->projectList['module'])) : ?>
-                <div style="float: right;" class="ecr_button img icon-16-add"
-                     onclick="addPackageElement('module', '', '', '', '', '');">
+                <div style="float: right;" class="btn" onclick="addPackageElement('module', '', '', '', '', '');">
+                    <i class="img icon16-add"></i>
                     <?php echo jgettext('Add Module'); ?>
                 </div>
                 <?php endif;?>
@@ -50,7 +50,7 @@ if ($this->project->JCompat != 1.5)
                     <tr>
                         <th class="infoHeader">
                             <?php if (isset($this->projectList['plugin']) && count($this->projectList['plugin'])) : ?>
-                            <span class="img icon-12-plugin">
+                            <span class="img icon12-plugin">
                             <?php echo jgettext('Plugins'); ?>
                             </span>
                             <?php else : ?>
@@ -64,8 +64,8 @@ if ($this->project->JCompat != 1.5)
                     <!--                            -->
                 </table>
                 <?php if (isset($this->projectList['plugin']) && count($this->projectList['plugin'])) : ?>
-                <div style="float: right;" class="ecr_button img icon-16-add"
-                     onclick="addPackageElement('plugin', '', '', '', '', '');">
+                <div style="float: right;" class="btn" onclick="addPackageElement('plugin', '', '', '', '', '');">
+                    <i class="img icon16-add"></i>
                     <?php echo jgettext('Add Plugin'); ?>
                 </div>
                 <?php endif;?>

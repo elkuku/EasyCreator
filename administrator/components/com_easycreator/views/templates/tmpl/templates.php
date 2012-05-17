@@ -41,7 +41,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
     <tr valign="top">
         <td width="20%">
             <div class="ecr_floatbox">
-                <span style="float: right;" class="img icon-16-info hasEasyTip"
+                <span style="float: right;" class="img icon16-info hasEasyTip"
                       title="<?php echo jgettext('File tree').'::'.jgettext('Left click files to edit.').'<br />'.jgettext('Right click files and folders for options.'); ?>">&nbsp;</span>
                 <?php echo $fileTree->startTree(); ?>
                 <ul>
@@ -71,7 +71,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                                             $js = " onmousedown=\"setAction('', '".$path.DS.$pTag."', '".$template->folder."');\"";
                                             echo '<li class="pft-directory">';
                                             echo '<div'.$js.' class="hasEasyTip" title="'.$template->info.'">';
-                                            echo '<span class="img icon-16-info" />'.$template->name;
+                                            echo '<span class="img icon16-info" />'.$template->name;
                                             echo '</div>';
                                             echo $fileTree->setDir($this->path.DS.$pTag.DS.$template->folder)->drawTree();
                                             echo '</li>';
@@ -116,7 +116,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                                                 $js = " onmousedown=\"setAction('', '".$path.DS.'parts'.DS.$group."', '".$part."');\"";
                                                 echo '<li class="pft-directory">';
                                                 echo '<div'.$js.' class="hasEasyTip" title="'.$toolTip.'">';
-                                                echo '<span class="img icon-16-info"/>'.$title;
+                                                echo '<span class="img icon16-info"/>'.$title;
                                                 echo '</div>';
                                                 echo $fileTree->setDir(ECRPATH_PARTS.DS.$group.DS.$part)->drawTree();
                                                 echo '</li>';

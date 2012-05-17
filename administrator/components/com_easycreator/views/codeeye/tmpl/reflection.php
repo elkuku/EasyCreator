@@ -225,7 +225,7 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
 
                                 if($comment)
                                 {
-                                    echo '<span class="hasEasyTip img icon-16-comment" title="'.$comment.'"></span>';
+                                    echo '<span class="hasEasyTip img icon16-comment" title="'.$comment.'"></span>';
                                 }
 
                                 $link = 'index.php?option=com_easycreator&amp;ecr_project='
@@ -235,7 +235,7 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
 
                                 $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
                                 .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
-                                    echo NL.'<a class="modal img icon-16-php hasEasyTip" title="'
+                                    echo NL.'<a class="modal img icon16-php hasEasyTip" title="'
                                     .jgettext('View Source').'::'.$fileLocation
                                     .'" rel="{handler: \'iframe\', size: {x: 950, y: 550}}" href="'.$link.'">';
                                     echo NL.'</a>';
@@ -295,7 +295,7 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
                                     if($method->docComment)
                                     {
                                         $comment = nl2br($method->docComment);
-                                        echo '<span class="hasEasyTip img icon-16-comment" title="docComment::'
+                                        echo '<span class="hasEasyTip img icon16-comment" title="docComment::'
                                         .$comment.'"></span>';
                                     }
 
@@ -307,7 +307,7 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
                                     $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
                                     .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
 
-                                    echo NL.'<a class="modal img icon-16-php hasEasyTip" title="'
+                                    echo NL.'<a class="modal img icon16-php hasEasyTip" title="'
                                     .jgettext('View Source').'::'.$fileLocation.'" rel="{handler: \'iframe\','
                                     .' size: {x: 950, y: 550}}" href="'.$link.'">';
 
@@ -361,7 +361,7 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
                                     foreach($templateVars as $templateVar)
                                     {
                                         echo '<strong style="color: orange;">'.$templateVar->name.'</strong>&nbsp;';
-                                        echo '<span class="hasEasyTip img icon-16-comment" title="Raw::'
+                                        echo '<span class="hasEasyTip img icon16-comment" title="Raw::'
                                         .html_entity_decode($templateVar->raw).'"></span>';
                                         echo $templateVar->params;
                                         echo '<br />';

@@ -31,7 +31,9 @@ $fileTree = drawFileTree($this->project);
 
 <div class="ecr_floatbox">
     <?php echo $fileTree; ?>
-    <div onclick="sniffFolder();" class="ecr_button img32 icon-32-nose"><?php echo jgettext('Sniff folder')?></div>
+    <div onclick="sniffFolder();" class="btn block left">
+        <i class="img32 icon32-nose"></i>
+        <?php echo jgettext('Sniff folder')?></div>
 </div>
 
 <div class="ecr_floatbox">
@@ -65,14 +67,16 @@ $fileTree = drawFileTree($this->project);
     </select>
     <br/><br/>
     <input type="checkbox" name="sniff_verbose" id="sniff_verbose"/>
-    <label for="sniff_verbose">Verbose</label>
+    <label class="inline" for="sniff_verbose">Verbose</label>
 
     <?php
     foreach($this->project->copies as $dir):
         if(is_dir($dir)):
             $d = str_replace(JPATH_ROOT.DS, '', $dir);
             echo '<div onclick="setPath(\''.$d.'\'); sniffFolder();"'
-                .' class="ecr_button img32 icon-32-nose" style="padding: left: 45px;">'.$d.'</div>';
+                .' class="btn block left" style="padding: left: 45px;">'
+                .'<i class="img32 icon32-nose"></i>'
+                .$d.'</div>';
         endif;
     endforeach;
 

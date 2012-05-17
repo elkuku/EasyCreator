@@ -18,7 +18,7 @@ foreach($this->project->copies as $dir):
     if(is_dir($dir)):
         $d = str_replace(JPATH_ROOT.DS, '', $dir);
         echo '<div onclick="phploc(\''.$d.'\');"'
-        .' class="ecr_button img32 icon-32-nose" style="padding: left: 45px;">'.$d.'</div>';
+        .' class="btn block" style="text-align: left;"><i class="img32a icon32-nose"></i>'.$d.'</div>';
     endif;
 endforeach;
 

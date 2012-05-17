@@ -17,7 +17,7 @@ $buildOpts = $this->project->buildOpts;
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader imgbarleft icon-24-locale">
+    <div class="infoHeader imgbarleft icon24-locale">
         <?php echo jgettext('Languages') ?>
     </div>
     <ul>
@@ -51,19 +51,19 @@ $buildOpts = $this->project->buildOpts;
     <input type="radio" id="langformat_ini" name="buildvars[langFormat]" value="ini"
         <?php echo ($this->project->langFormat == 'ini') ? ' checked="checked"' : ''; ?>
         />
-    <label for="langformat_ini">INI</label>
+    <label class="inline" for="langformat_ini">INI</label>
     <br/>
 
     <input type="radio" id="langformat_nafuini" name="buildvars[langFormat]" value="nafuini"
         <?php echo ($this->project->langFormat == 'nafuini') ? ' checked="checked"' : ''; ?>
         />
-    <label for="langformat_nafuini">NAFUINI *</label>
+    <label class="inline" for="langformat_nafuini">NAFUINI *</label>
     <br/>
 
     <input type="radio" id="langformat_po" name="buildvars[langFormat]" value="po"
         <?php echo ($this->project->langFormat == 'po') ? ' checked="checked"' : ''; ?>
         />
-    <label for="langformat_po">PO *</label>
+    <label class="inline" for="langformat_po">PO *</label>
 
 
     <br/>

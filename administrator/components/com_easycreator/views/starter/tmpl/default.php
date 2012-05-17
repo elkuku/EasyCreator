@@ -17,41 +17,44 @@ $jVersions = array('15', '25');
 ?>
 <div class="white_box">
     <div class="wizard-header">
-        <span id="wizard-loader" class="img32 icon-32-wizard"></span>
+        <span id="wizard-loader" class="img32 icon32-wizard"></span>
         <span class="wiz_step">1 / 3</span><?php echo jgettext('Extension type'); ?>
     </div>
     <div class="ecr_wiz_desc">
         <?php echo jgettext('Choose a component type from a predefined template'); ?>
     </div>
-    <?php
+    <div>
+        <?php
 
-    echo jgettext('Hide templates for Joomla! versions');
+        echo jgettext('Hide templates for Joomla! versions');
 
-    foreach($jVersions as $v) : ?>
-        <input type="checkbox" id="hideVersion<?php echo $v; ?>"
-               onchange="changeJVersion('<?php echo $v; ?>');">
-        <label for="hideVersion<?php echo $v; ?>"
-               class="img4 icon-joomla-compat-<?php echo $v; ?>">
-        </label>
-    <?php endforeach; ?>
-
+        foreach($jVersions as $v) : ?>
+            <input type="checkbox" id="hideVersion<?php echo $v; ?>"
+                   onchange="changeJVersion('<?php echo $v; ?>');">
+            <label for="hideVersion<?php echo $v; ?>"
+                   class="inline">
+                <i class="img4 iconjoomla-compat-<?php echo $v; ?>"></i>
+            </label>
+            <?php endforeach;
+        ?>
+    </div>
 </div>
 
 <div style="clear: both; height: 1em;"></div>
 
 <?php foreach(EcrProjectHelper::getProjectTypes() as $extType => $pType): ?>
 <div class="ecr_floatbox" style="width: 250px;">
-    <div class="ecr_floatbox_title img icon-12-<?php echo $extType; ?>">
+    <div class="ecr_floatbox_title img icon12-<?php echo $extType; ?>">
         <?php echo $pType->translateType(); ?>
     </div>
     <?php if(isset($this->templateList[$extType])): ?>
     <?php if('' != $this->notes[$extType]) : ?>
-        <span class="ecr_button"
+        <span class="btn<?php echo ECR_TBAR_SIZE; ?>"
               onclick="<?php echo $extType.'_notes'; ?>.toggle();"><?php echo jgettext('Notes'); ?>
         </span>
-    <?php endif; ?>
+        <?php endif; ?>
     <?php if(count($this->infoLinks[$extType])) : ?>
-        <span class="ecr_button"
+        <span class="btn<?php echo ECR_TBAR_SIZE; ?>"
               onclick="<?php echo $extType.'_links'; ?>.toggle();"><?php echo jgettext('See also...'); ?>
         </span>
         <div class="ecr_wiz_desc" id="<?php echo $extType.'_links'; ?>">
@@ -73,7 +76,7 @@ $jVersions = array('15', '25');
         <?php endif; ?>
     <?php if('' != $this->notes[$extType]) : ?>
         <div class="ecr_wiz_desc" id="<?php echo $extType.'_notes'; ?>">
-            <strong><?php echo jgettext('Notes'); ?></strong><br />
+            <strong><?php echo jgettext('Notes'); ?></strong><br/>
             <?php echo $this->notes[$extType]; ?>
         </div>
         <script type="text/javascript">
@@ -95,7 +98,7 @@ $jVersions = array('15', '25');
         //-- @Joomla!-compat 1.5
         if($template->jVersion != '1.5' && ECR_JVERSION == '1.5') :
             $action = '';
-            $s = '<span class="img icon-16-logout"></span>';
+            $s = '<span class="img icon16-logout"></span>';
             $m = '<strong style=\'color: red;\'>'
                 .jgettext('Joomla 1.6 extension templates can not be build on Joomla 1.5')
                 .'</strong>';
@@ -106,39 +109,48 @@ $jVersions = array('15', '25');
         endif;
         ?>
 
-        <div class="wizard-row jcompat_<?php echo str_replace('.', '', $template->jVersion);?>">
-            <div title="<?php echo jgettext('Info').'::'.jgettext('Click to view files'); ?>"
-                 class="ecr_button img icon-16-add hasEasyTip" style="float: right;"
-                 id="btn_<?php echo $htmlId; ?>"
-                 onclick="getExtensionTemplateInfo(<?php echo "'$extType', '$template->folder', $htmlId"; ?>)">
+        <div class="btn-group jcompat_<?php echo str_replace('.', '', $template->jVersion);?>">
+            <a title="<?php echo $template->info; ?>"
+               href="javascript:;"
+               class="btn hasTip"
+               style="display: block; min-width: 160px;"
+                <?php echo $action; ?>
+                >
+                <!--
+                <i style="float: left" class="img iconjoomla-compat-<?php echo str_replace('.', '', $template->jVersion); ?>"></i>
+                -->
+                <?php echo $template->name; ?>
+            </a>
+
+            <a title="<?php echo jgettext('Info').'::'.jgettext('Click to view files'); ?>"
+               class="btn hasTip" href="javascript:;"
+
+               id="btn_<?php echo $htmlId; ?>"
+               onclick="getExtensionTemplateInfo(<?php echo "'$extType', '$template->folder', $htmlId"; ?>)">
+                <?php if(ECR_TBAR_ICONS) : ?>
+                <i class="img icon16-add"></i>
+                <?php endif; ?>
                 <?php echo jgettext('Info') ?>
-            </div>
-            <div class="hasEasyTip" title="<?php echo $template->info; ?>">
-                <a href="javascript:;" style="display: block;"
-                   class="ecr_button img icon-joomla-compat-<?php
-                       echo str_replace('.', '', $template->jVersion); ?>" <?php echo $action; ?>>
-                    <?php echo $template->name; ?>
-                </a>
-
-                <div id="<?php echo $htmlId; ?>">
-                    <?php echo $template->description; ?><br/>
-                    <?php if($link) echo '<strong>'.jgettext('Link').'</strong> '.$link.'<br />'; ?>
-                    <?php if($template->author) echo '<strong>'.jgettext('Author').'</strong> '.$template->author.'<br />'; ?>
-                    <strong><?php echo jgettext('Version'); ?></strong>
-                    <?php echo $template->version; ?><br/>
-                    <strong><?php echo jgettext('PHP version'); ?></strong>
-                    <?php echo $template->phpVersion; ?><br/>
-                    <br/>
-                    <strong><?php echo jgettext('Files'); ?></strong>
-
-                    <div id="<?php echo $htmlId; ?>_files"></div>
-                </div>
-                <script type="text/javascript">
-                    <?php echo $htmlId.' = new Fx.Slide(\''.$htmlId.'\');'; ?>
-                    <?php echo $htmlId; ?>.hide();
-                </script>
-            </div>
+            </a>
         </div>
+
+        <div id="<?php echo $htmlId; ?>">
+            <?php echo $template->description; ?><br/>
+            <?php if($link) echo '<strong>'.jgettext('Link').'</strong> '.$link.'<br />'; ?>
+            <?php if($template->author) echo '<strong>'.jgettext('Author').'</strong> '.$template->author.'<br />'; ?>
+            <strong><?php echo jgettext('Version'); ?></strong>
+            <?php echo $template->version; ?><br/>
+            <strong><?php echo jgettext('PHP version'); ?></strong>
+            <?php echo $template->phpVersion; ?><br/>
+            <br/>
+            <strong><?php echo jgettext('Files'); ?></strong>
+
+            <div id="<?php echo $htmlId; ?>_files"></div>
+        </div>
+        <script type="text/javascript">
+                <?php echo $htmlId.' = new Fx.Slide(\''.$htmlId.'\');'; ?>
+                <?php echo $htmlId; ?>.hide();
+        </script>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>

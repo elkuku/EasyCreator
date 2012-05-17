@@ -7,12 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-$exportTypes = JFolder::folders(ECRPATH_EXPORTS);
+$exportTypes = JFolder::exists(ECRPATH_EXPORTS) ? JFolder::folders(ECRPATH_EXPORTS) : array();
 
-echo '<h2>'.jgettext('Exports').'</h2>';
+echo '<h3>'.jgettext('Exports').'</h3>';
 
 foreach($exportTypes as $exportType) :
-    echo '<h3>'.jgettext($exportType).'</h3>';
+    echo '<h4>'.jgettext($exportType).'</h4>';
     $exportFiles = JFolder::files(ECRPATH_EXPORTS.DS.$exportType, 'gz$');
 
     if(! count($exportFiles)) :
@@ -61,8 +61,9 @@ foreach($exportTypes as $exportType) :
             <td><?php echo EcrHtml::byte_convert($fsize); ?></td>
             <td width="2%">
                 <a href="javascript:" style="padding-left: 20px; height: 14px;"
-                   class="ecr_button img icon-16-delete hasEasyTip"
+                   class="btn hasEasyTip"
                    title="<?php echo jgettext('Delete').'::'.$fileName; ?>" <?php echo $js_delete; ?>>
+                    <i class="img icon16-delete"></i>
                 </a>
             </td>
         </tr>

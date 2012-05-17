@@ -45,7 +45,7 @@ class EcrProjectTemplateInfo
     public function format($format, $type = 'new')
     {
         $ret = '';
-        $ret .= '<span class="img icon-16-'.$type.'">';
+        $ret .= '<span class="img icon16-'.$type.'">';
 
         switch($type)
         {

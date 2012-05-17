@@ -13,13 +13,15 @@ $projectScopes = EcrProjectHelper::getProjectScopes();
 $task = JRequest::getCmd('task');
 $showCore = (JRequest::getCmd('show_core') == 'show_core') ? true : false;
 $checked = ($showCore) ? ' checked="checked"' : '';
+
 ?>
 <div class="projectListHeader unregistered">
     <div style="float: right;">
         <input type="checkbox" name="show_core"
                id="show_core" value="show_core" <?php echo $checked; ?>
                onchange="submitbutton('<?php echo $task; ?>');"/>
-        <label for="show_core" class="img icon-16-joomla"> <?php echo jgettext('Show Joomla core projects'); ?>
+        <label for="show_core" class="inline">
+            <i class="img icon16-joomla"></i><?php echo jgettext('Show Joomla core projects'); ?>
         </label>
     </div>
     <?php echo jgettext('Unregistered Projects'); ?>
@@ -32,7 +34,7 @@ foreach($projectScopes as $comType => $projectScope) :
 <div class="ecr_floatbox">
     <?php
 
-    echo '<div class="boxHeader img icon-12-'.$comType.'" style=" min-width: 150px;">';
+    echo '<div class="boxHeader img icon12-'.$comType.'" style=" min-width: 150px;">';
     echo $projectTypes[$comType]->translateTypePlural();
     echo '</div>';
 
@@ -60,10 +62,10 @@ foreach($projectScopes as $comType => $projectScope) :
 
         foreach($unregisteredProjects as $project) :
             ?>
-            <div class="ecr_button img icon-16-import hasEasyTip"
+            <div class="btn block hasEasyTip"
                  style="padding-left: 20px;; height: 14px; margin-top: 0.3em; margin-bottom: 0.3em;"
                  title="<?php
-                     echo jgettext('Register').'&lt;span class=\'img icon-16-import\''
+                     echo jgettext('Register').'&lt;span class=\'img icon16-import\''
                          .' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;::'
                          .jgettext(ucfirst($comType)).' - '.$project; ?>"
                  onclick="registerProject(<?php echo "'$comType', '$project', '$scope'"; ?>);">

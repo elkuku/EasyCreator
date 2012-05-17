@@ -100,7 +100,7 @@ foreach($colorFiles as $fileName)
 </ul>
 </div>
 <div class="ecr_floatbox">
-   <div class="ecr_button img32a icon-32-chart" id="control_btn"
+   <div class="ecr_button img32a icon32-chart" id="control_btn"
 	onclick="getStats('<?php echo $this->ecr_project; ?>');">
 	<?php echo jgettext('Generate statistics'); ?>
    </div>

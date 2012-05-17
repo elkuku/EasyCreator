@@ -9,7 +9,7 @@
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-menu"><?php echo jgettext('Menu'); ?></div>
+    <div class="infoHeader img icon24-menu"><?php echo jgettext('Menu'); ?></div>
 
     <input type="hidden" name="menu[menuid]" value="<?php echo $this->project->menu['menuid']; ?>"/>
     <span class="ecr_label2"><?php echo jgettext('Text'); ?></span>
@@ -30,10 +30,11 @@
     <input type="text" name="menu[img]" id="img-" size="35"
            value="<?php echo $this->project->menu['img']; ?>"/>
 
-    <div class="infoHeader img icon-24-menu"><?php echo jgettext('Submenu'); ?></div>
+    <div class="infoHeader img icon24-menu"><?php echo jgettext('Submenu'); ?></div>
 
-    <span style="float: right;" class="ecr_button img icon-16-add"
+    <span style="float: right;" class="btn"
           onclick="newSubmenu('', '', '', '', '', '<?php echo $this->project->menu['menuid']; ?>');">
+        <i class="img icon16-add"></i>
         <?php echo jgettext('Add Submenu'); ?>
     </span>
 

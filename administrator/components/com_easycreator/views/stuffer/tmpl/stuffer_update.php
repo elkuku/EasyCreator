@@ -21,12 +21,12 @@ JFactory::getDocument()->addScriptDeclaration($js);
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader imgbarleft icon-24-update"><?php echo jgettext('Update') ?></div>
+    <div class="infoHeader imgbarleft icon24-update"><?php echo jgettext('Update') ?></div>
     <strong><?php echo jgettext('Method'); ?></strong>
     <input type="checkbox" <?php echo $upgradeChecked; ?>
            name="buildvars[method]" id="buildvars_method" value="upgrade"/>
 
-    <label for="buildvars_method" class="hasEasyTip"
+    <label class="inline" for="buildvars_method" class="hasEasyTip"
            title="method=upgrade::<?php echo jgettext('This will perform an upgrade on installing your extension'); ?>">
         <?php echo jgettext('Upgrade'); ?>
     </label>
@@ -36,7 +36,7 @@ JFactory::getDocument()->addScriptDeclaration($js);
         <h4><?php echo jgettext('Update server'); ?></h4>
         <div id="updateServers"></div>
         <div onclick="Stuffer.addUpdateServer('<?php echo $this->project->name?> update server', '', 'extension', '1');"
-             class="ecr_button img icon-16-add">
+             class="btn img icon16-add">
             <?php echo jgettext('Add Server');?>
         </div>
     <?php endif; ?>

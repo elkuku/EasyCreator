@@ -59,11 +59,11 @@ function save_file() {
             box.style.display = "inline";
 
             if (resp.status) {
-                box.addClass('img icon-16-cancel');
+                box.addClass('img icon16-cancel');
                 box.style.color = 'red';
             } else {
-                box.removeClass('img icon-16-cancel')
-                box.addClass('img icon-16-apply');
+                box.removeClass('img icon16-cancel')
+                box.addClass('img icon16-apply');
                 box.style.color = 'green';
             }
 

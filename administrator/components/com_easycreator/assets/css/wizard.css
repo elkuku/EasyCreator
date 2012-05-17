@@ -63,11 +63,5 @@ div.wizard-header {
 }
 
 div.buttonBox {
-    margin: 1em;
     float: right;
-}
-
-a.ecr_button {
-    margin-left: 0.3em;
-    margin-right: 0.3em;
 }

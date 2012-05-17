@@ -19,7 +19,7 @@ $projectTypes = EcrProjectHelper::getProjectTypes();
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader imgbarleft icon-24-package_creation"><?php echo jgettext('Package elements') ?></div>
+    <div class="infoHeader imgbarleft icon24-package_creation"><?php echo jgettext('Package elements') ?></div>
     <input type="hidden" name="package_elements" id="packageElements"/>
 
     <div style="float: left;">
@@ -44,7 +44,7 @@ $projectTypes = EcrProjectHelper::getProjectTypes();
                         if ($project->scope)
                             $displayName .= ' (' . $project->scope . ')';
 
-                        echo NL . '<li class="img12 icon-12-' . $comType . '"'
+                        echo NL . '<li class="img12 icon12-' . $comType . '"'
                             . ' id="' . $project->fileName . '">' . $displayName . '</li>';
                     }
                     //foreach
@@ -79,7 +79,7 @@ $projectTypes = EcrProjectHelper::getProjectTypes();
                         if ($project->scope)
                             $displayName .= ' (' . $project->scope . ')';
 
-                        echo NL . '<li class="img12 icon-12-' . $comType . '"'
+                        echo NL . '<li class="img12 icon12-' . $comType . '"'
                             . ' id="' . $project->fileName . '">' . $displayName . '</li>';
                     }
                     //foreach

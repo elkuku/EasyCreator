@@ -996,8 +996,10 @@ body {
 </div>
 <br />
 <div style="text-align: center;">
-    <span class="ecr_button img icon-16-<?php echo $icon; ?>"
-        onclick="processForm();"> <?php echo $text ?> </span>
+    <span class="btn" onclick="processForm();">
+        <i class="img icon-16-<?php echo $icon; ?>"></i>
+        <?php echo $text ?>
+    </span>
 </div>
 <div id="log"></div>
 <input type="hidden" id="act_folder" />

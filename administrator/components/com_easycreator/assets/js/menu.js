@@ -70,8 +70,8 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += "<div id=\"prev-" + num + "\" style=\"display: inline;\"></div>";
     html += "<input type=\"text\" name=\"submenu[" + num
             + "][img]\" size=\"30\" value=\"" + image + "\" id=\"img-" + num + "\" />";
-    html += "<div style=\"float: right\" class=\"ecr_button img icon-16-delete\""
-        + " onclick=\"this.getParent().dispose();\">" + jgettext('Delete') + "</div>";
+    html += "<div style=\"float: right\" class=\"btn\""
+        + " onclick=\"this.getParent().dispose();\"><i class=\"img icon16-delete\"></i>" + jgettext('Delete') + "</div>";
 
     newdiv.set('html', html);
 

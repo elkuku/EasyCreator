@@ -12,7 +12,7 @@ $unInstallFile = null;
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-install"><?php echo jgettext('Install and Uninstall SQL') ?></div>
+    <div class="infoHeader img icon24-install"><?php echo jgettext('Install and Uninstall SQL') ?></div>
 <table>
     <?php if(count($this->installFiles['sql'])) :?>
         <tr>
@@ -40,22 +40,27 @@ $unInstallFile = null;
 </table>
 
     <?php if( ! $InstallFile) : ?>
-<div class="ecr_button img icon-16-add"
-    onclick="createFile('sql', 'install');"><?php echo jgettext('Create install file'); ?>
+<div class="btn block"
+    onclick="createFile('sql', 'install');">
+    <i class="img icon16-add"></i>
+    <?php echo jgettext('Create install file'); ?>
 </div>
     <?php else : ?>
-<div class="ecr_button img icon-16-update"
+<div class="btn block"
     onclick="createFile('sql', 'install');">
+    <i class="img icon16-update"></i>
     <?php echo jgettext('Update install file'); ?>
 </div>
     <?php endif; ?>
 
     <?php if( ! $unInstallFile) : ?>
-<div class="ecr_button img icon-16-add" onclick="createFile('sql', 'uninstall')">
+<div class="btn block" onclick="createFile('sql', 'uninstall')">
+    <i class="img icon16-add"></i>
     <?php echo jgettext('Create uninstall file'); ?>
 </div>
     <?php else : ?>
-<div class="ecr_button img icon-16-update" onclick="createFile('sql', 'uninstall')">
+<div class="btn block" onclick="createFile('sql', 'uninstall')">
+    <i class="img icon16-update"></i>
     <?php echo jgettext('Update uninstall file'); ?>
 </div>
     <?php endif; ?>

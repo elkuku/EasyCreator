@@ -36,7 +36,8 @@ $fileTree = $cache->call('drawFileTree', $this->project);
             switch($this->project->type):
                 case 'component':
                     ?>
-                    <div class="ecr_button img icon-16-add" onclick="div_new_element.toggle();">
+                    <div class="btn block" onclick="div_new_element.toggle();">
+                        <i class="img icon16-add"></i>
                         <?php echo jgettext('Add element') ?>
                     </div>
                     <?php
@@ -45,7 +46,7 @@ $fileTree = $cache->call('drawFileTree', $this->project);
                 default:
                 break;
             endswitch;
-        echo '<span style="float: right;" class="img icon-16-info hasEasyTip" title="'
+        echo '<span style="float: right;" class="img icon16-info hasEasyTip" title="'
         .jgettext('File tree').'::'.jgettext('Left click files to edit.').'<br />'
         .jgettext('Right click files and folders for options.').'">&nbsp;</span>';
 
@@ -138,8 +139,8 @@ function drawFileTree(EcrProjectBase $project)
 
                 if($dirName != $oldDir)
                 {
-                    $dspl = str_replace(JPATH_ROOT.DS, '', $dirName);
-                    $ret .= '<div class="file_tree_path"><strong>JROOT</strong>'.BR.$dspl.'</div>';
+                    $dspl = str_replace(JPATH_ROOT, '', $dirName);
+                    $ret .= '<div class="file_tree_path"><strong>JROOT</strong>'.$dspl.'</div>';
                 }
 
                 $oldDir = $dirName;
@@ -174,18 +175,18 @@ function drawFileTree(EcrProjectBase $project)
 <script type="text/javascript">
             function showPart(group, part)
             {
-                $('addPartShow').className = ' img ajax_loading16';
+                document.id('addPartShow').className = ' img ajax_loading16';
 
-                $('addPartShow').innerHTML = jgettext('Loading...');
-                $('addElementMessage').innerHTML = '';
+                document.id('addPartShow').innerHTML = jgettext('Loading...');
+                document.id('addElementMessage').innerHTML = '';
 
                 new Request({
                     url: '<?php echo $link; ?>&group='+group+'&part='+part,
                     onComplete: function(response)
                     {
-                        $('addPartShow').className = '';
-                        $('addPartShow').set('html', response);
-                        $('addElementMessage').innerHTML = '';
+                        document.id('addPartShow').className = '';
+                        document.id('addPartShow').set('html', response);
+                        document.id('addElementMessage').innerHTML = '';
                         div_new_element.show();
                     }
                 }).send();
@@ -220,7 +221,7 @@ foreach(EcrProjectHelper::getPartsGroups() as $group)
                 }
             }
 
-            echo '<div class="ecr_button hasEasyTip" title="'
+            echo '<div class="btn block hasEasyTip" title="'
             .$toolTip.'" onclick="showPart(\''.$group.'\', \''.$part.'\');">'.$title.'</div>';
         }
     }//foreach

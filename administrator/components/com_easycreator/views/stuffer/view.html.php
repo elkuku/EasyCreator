@@ -61,7 +61,7 @@ class EasyCreatorViewStuffer extends JView
         {
             EcrHtml::displayMessage($e);
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return;
         }
@@ -78,7 +78,7 @@ class EasyCreatorViewStuffer extends JView
         )
         {
             //-- Draw h1 header
-            EcrHtml::header(jgettext('Configure'), $this->project, 'ecr_config');
+            //EcrHtml::header(jgettext('Configure'), $this->project, 'ecr_settings');
 
             //-- Draw the submenu if task is not for a raw view
             echo $this->displayBar($task);
@@ -110,7 +110,7 @@ class EasyCreatorViewStuffer extends JView
 
         parent::display($tpl);
 
-        EcrHtml::easyFormEnd();
+        EcrHtml::formEnd();
     }
 
     /**
@@ -124,7 +124,8 @@ class EasyCreatorViewStuffer extends JView
     {
         $subtasks = array(
             array('title' => jgettext('Building')
-            , 'description' => jgettext('Shows options for building your project like credits, files and folders to copy, languages and admin menu.')
+            , 'description'
+            => jgettext('Shows options for building your project like credits, files and folders to copy, languages and admin menu.')
             , 'icon' => 'ecr_config'
             , 'task' => 'stuffer'
             )
@@ -173,7 +174,7 @@ class EasyCreatorViewStuffer extends JView
             , 'task' => 'save_config');
         }
 
-        return EcrHtml::getSubBar($subtasks, $rightTasks);
+        return EcrHtml::subMenu($subtasks, $rightTasks);
     }
 
     /**

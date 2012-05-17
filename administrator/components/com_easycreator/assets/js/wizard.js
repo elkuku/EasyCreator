@@ -30,7 +30,7 @@ function getExtensionTemplateInfo(extType, folder, e)
 
     var htmlId = extType + '_' + folder;
 
-    $('btn_' + htmlId).className = 'ecr_button ajax_loading16';
+    $('btn_' + htmlId).className = 'btn ajax_loading16';
 
     url = ecrAJAXLink + '&controller=starter&task=ajGetExtensionTemplateInfo';
     url += '&extType=' + extType;
@@ -60,7 +60,7 @@ function getExtensionTemplateInfo(extType, folder, e)
 
             e.toggle();
 
-            $('btn_' + htmlId).className = 'ecr_button img icon-16-add';
+            $('btn_' + htmlId).className = 'btn';
         }
     }).send();
 

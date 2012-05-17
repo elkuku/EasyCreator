@@ -13,7 +13,7 @@ $base_href = (0 === strpos($path, ECRPATH_BUILDS))
     ? JURI::Root().'administrator/components/com_easycreator/data/builds/'.$this->project->comName
     : 'file://'.$path;
 
-echo '<div class="img icon-16-server path">'.JPath::clean($path).'</div>';
+echo '<div class="img icon16-server path">'.JPath::clean($path).'</div>';
 
 if(! JFolder::exists($path))
 {
@@ -46,8 +46,8 @@ foreach($folders as $folder) :
     ?>
 <div id="ajaxMessage"></div>
 <div id="ajaxDebug"></div>
-<table class="adminlist">
-    <tbody>
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
     <tr style="background-color: #eee;">
         <th><?php echo jgettext('File'); ?></th>
         <th width="10%"><?php echo jgettext('Modified'); ?></th>
@@ -56,6 +56,8 @@ foreach($folders as $folder) :
         <th align="center"><?php echo jgettext('Action'); ?></th>
         <?php endif; ?>
     </tr>
+    </thead>
+    <tbody>
         <?php
         $k = 0;
 
@@ -74,10 +76,9 @@ foreach($folders as $folder) :
             <td><?php echo EcrHtml::byte_convert($info[7]); ?></td>
             <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
             <td width="2%">
-                <div style="padding-left: 20px; height: 14px;"
-                     class="ecr_button img icon-16-delete hasEasyTip"
-                     title="<?php echo jgettext('Delete'); ?>::"
-                     onclick="EcrZiper.deleteZipFile(<?php echo "'$p', '$file'"?>);">&nbsp;
+                <div class="btn btn-mini hasEasyTip" title="<?php echo jgettext('Delete'); ?>::"
+                     onclick="EcrZiper.deleteZipFile(<?php echo "'$p', '$file'"?>);">
+                    <i class="img icon16-delete"></i>
                 </div>
             </td>
             <?php endif; ?>

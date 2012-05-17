@@ -56,7 +56,7 @@ class EasyCreatorControllerStarter extends JController
             JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
             $builder->printErrors();
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return false;
         }
@@ -70,7 +70,7 @@ class EasyCreatorControllerStarter extends JController
 
             $builder->printErrors();
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return true;
         }
@@ -104,7 +104,7 @@ class EasyCreatorControllerStarter extends JController
 
             $builder->printErrors();
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return false;
         }

@@ -29,28 +29,28 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 ?>
 
 <ul style="list-style: none; margin: 0; padding: 0;">
-    <li class="img icon-16-forum">
+    <li class="img icon16-forum">
         <a href="index.php?option=com_easycreator&amp;controller=help">
             <?php echo jgettext('Credits'); ?>
         </a>
     </li>
-    <li class="img icon-16-sig">
+    <li class="img icon16-sig">
     <a href="<?php echo ECR_DOCU_LINK; ?>" class="external">
             <?php echo jgettext('Documentation'); ?>
         </a>
     </li>
-    <li class="img icon-16-forum">
+    <li class="img icon16-forum">
         <a href="<?php echo $link->forum; ?>" class="external">
             <?php echo jgettext('Forum'); ?>
         </a>
     </li>
-    <li class="img icon-16-bug">
+    <li class="img icon16-bug">
         <a href="<?php echo $link->bugTracker; ?>"
         class="external">
             <?php echo jgettext('Bugtracker'); ?>
         </a>
     </li>
-    <li class="img icon-16-add">
+    <li class="img icon16-add">
         <a href="<?php echo $link->features; ?>"
         class="external">
             <?php echo jgettext('Feature requests'); ?>
@@ -58,24 +58,24 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
     </li>
 
     <!--
-    <li class="img icon-16-rename">
+    <li class="img icon16-rename">
      <a href="<?php echo $link->versionCheck; ?>" class="modal external">
         <a href="<?php echo $link->versionCheck; ?>" target="_blank" class="external">
     <?php echo jgettext('Version check'); ?>
     </a>
     </li>
      -->
-    <li class="img icon-16-git">
+    <li class="img icon16-git">
     <a href="<?php echo $link->repo; ?>" class="external">
         <?php echo jgettext('Git repository'); ?>
     </a>
     </li>
-    <li class="img icon-16-rss">
+    <li class="img icon16-rss">
         <a href="<?php echo $link->latestVersion; ?>" class="external">
             <?php echo jgettext('Recent commits'); ?>
         </a>
     </li>
-    <li class="img icon-16-locale">
+    <li class="img icon16-locale">
         <a href="<?php echo $link->translations; ?>" class="external">
             <?php echo jgettext('Help translating'); ?>
         </a>

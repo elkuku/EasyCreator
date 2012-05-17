@@ -97,7 +97,23 @@
         <field name="spacer4_2" type="spacer" default="Data"/>
 
         <field name="local_data_dir" type="text" label="Local data directory"
-               description="A directory where all user data will be saved. If left blank, a sub directory in the component directory will be used"/>
+        description="A directory where all user data will be saved. If left blank, a sub directory in the component directory will be used"/>
+
+        <field name="spacer4_3" type="spacer" default="User interface"/>
+
+        <field name="toolbar_icons" type="radio" default="1"
+               label="Show icons" description="Show icons on toolbar buttons">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </field>
+
+        <field name="toolbar_size" type="list" default=" btn-mini"
+               label="Font size" description="The text font size">
+            <option value=" ">Standard size</option>
+            <option value=" btn-mini">Mini size</option>
+            <option value=" btn-small">Small size</option>
+            <option value=" btn-large">Large size</option>
+        </field>
     </fieldset>
 
     <fieldset name="logging" label="Logging">

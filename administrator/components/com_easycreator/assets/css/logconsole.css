@@ -26,6 +26,7 @@ div#pollStatusGrip {
     cursor: s-resize;
     text-align: center;
     font-size: 4px;
+    line-height: 1em;
 }
 
 pre#ecrDebugBox {

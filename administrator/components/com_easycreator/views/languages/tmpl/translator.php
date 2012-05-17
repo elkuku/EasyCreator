@@ -123,14 +123,14 @@ if($useGoogle && $this->trans_lang != 'en-GB') :
             <a href="javascript:;" onclick="ecrTranslator.translate(<?php
             echo "'$baseLink', '$fieldID', '$this->trans_lang', '$ret_type', '$adIds'"; ?>
             );" accesskey="s" title="<?php echo jgettext('Translate [s]'); ?>">
-                <span class="icon-32-ecr_save"></span>
+                <span class="icon32-ecr_save"></span>
                 <?php echo jgettext('Translate'); ?>
             </a>
         </li>
         <?php if($this->translation) : ?>
         <li>
             <a href="javascript:;" onclick="ecrTranslator.deleteTranslation(<?php echo "'$baseLink', '$fieldID'"; ?>);">
-            	<span class="icon-32-ecr_delete"></span>
+            	<span class="icon32-ecr_delete"></span>
             	<?php echo jgettext('Delete'); ?>
             </a>
         </li>
@@ -143,7 +143,7 @@ if($useGoogle && $this->trans_lang != 'en-GB') :
     <ul>
         <li>
             <a href="javascript:;" accesskey="c" onclick="ecrTranslator.copyTrans();">
-            	<span class="icon-16-copytrans"></span>
+            	<span class="icon16-copytrans"></span>
             	<?php echo jgettext('Copy'); ?>
             </a>
         </li>
@@ -151,7 +151,7 @@ if($useGoogle && $this->trans_lang != 'en-GB') :
             <li>
             	<span id="gtranslate_branding" style="float: right; padding-left: 0.5em;"></span>
                 <a href="javascript:;" accesskey="g" onclick="ecrTranslator.google_translate('<?php echo $langTag; ?>');">
-                	<span class="icon-16-copytrans"></span>
+                	<span class="icon16-copytrans"></span>
                 	<?php echo jgettext('Google translate'); ?>
                 </a>
         	</li>

@@ -36,7 +36,7 @@ endif;
     foreach($this->project->copies as $dir):
         if(is_dir($dir)):
             $d = str_replace(JPATH_ROOT.DS, '', $dir);
-            echo '<div onclick="setPath(\''.$d.'\'); doPHPCPD();" class="ecr_button">'.$d.'</div>';
+            echo '<a href="javascript:;" onclick="setPath(\''.$d.'\'); doPHPCPD();" class="btn block left">'.$d.'</a>';
         endif;
     endforeach;
     ?>

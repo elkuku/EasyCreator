@@ -13,7 +13,7 @@ defined('_JEXEC') || die('=;)');
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-easycreator">AutoCode</div>
+    <div class="infoHeader img icon24-easycreator">AutoCode</div>
     <h4><?php echo jgettext('List postfix') ?></h4>
     <?php echo $this->project->listPostfix ?>
     <h4><?php echo jgettext('File header template') ?></h4>

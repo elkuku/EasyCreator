@@ -87,7 +87,7 @@ class EasyCreatorControllerConfig extends JController
         {
             EcrHtml::displayMessage($e);
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
         }
     }
 }//class

@@ -8,7 +8,7 @@
  */
 ?>
 
-<div class="infoHeader img icon-24-ftp">
+<div class="infoHeader img icon24-ftp">
     <?php echo jgettext('FTP') ?>
 </div>
 

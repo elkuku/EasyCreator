@@ -82,7 +82,7 @@ $dfString = '&nbsp;';
 </div>
 <p>
 #<input name="newElement" id="newElement" type="text" value=""/>
-<span class="ecr_button img icon-16-add" onclick="addElement();"><?php echo jgettext('Add Comment'); ?></span>
+<span class="ecr_button img icon16-add" onclick="addElement();"><?php echo jgettext('Add Comment'); ?></span>
 </p>
 <div id="msg"></div>
 

@@ -10,27 +10,37 @@
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('ftp'); ?>
 
-    <div class="infoHeader img icon-24-ftp">
+    <div class="infoHeader img icon24-ftp">
         <?php echo jgettext('Status') ?>
     </div>
 
     <div id="syncList"></div>
 
-    <div class="buttons">
+    <div class="btn-group">
         <a title="<?php echo jgettext('Check all'); ?>" href="javascript:;"
-           class="ecr_button img icon-16-ok" onclick="EcrDeploy.checkAll();"></a>
+           class="btn" onclick="EcrDeploy.checkAll();">
+            <i class="img icon16-ok"></i>
+        </a>
 
         <a title="<?php echo jgettext('Check all new'); ?>" href="javascript:;"
-           class="ecr_button img icon-16-greenled" onclick="EcrDeploy.checkAll('new');"></a>
+           class="btn" onclick="EcrDeploy.checkAll('new');">
+            <i class="img icon16-greenled"></i>
+        </a>
 
         <a title="<?php echo jgettext('Check all modified'); ?>" href="javascript:;"
-           class="ecr_button img icon-16-yellowled" onclick="EcrDeploy.checkAll('changed');"></a>
+           class="btn" onclick="EcrDeploy.checkAll('changed');">
+            <i class="img icon16-yellowled"></i>
+        </a>
 
         <a title="<?php echo jgettext('Check all deleted'); ?>" href="javascript:;"
-           class="ecr_button img icon-16-redled" onclick="EcrDeploy.checkAll('deleted');"></a>
+           class="btn" onclick="EcrDeploy.checkAll('deleted');">
+            <i class="img icon16-redled"></i>
+        </a>
 
         <a title="<?php echo jgettext('Uncheck all'); ?>" href="javascript:;"
-           class="ecr_button img icon-16-notok" onclick="EcrDeploy.uncheckAll();"></a>
+           class="btn" onclick="EcrDeploy.uncheckAll();">
+            <i class="img icon16-notok"></i>
+        </a>
     </div>
 
     <hr/>
@@ -40,14 +50,17 @@
 
     <div id="ftpDisplay"></div>
 
-    <div class="buttons">
-        <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.syncFiles('ftp');">
+    <div class="btn-group">
+        <a href="javascript:;" class="btn" onclick="EcrDeploy.syncFiles('ftp');">
+            <i class="img icon16-update"></i>
             <?php echo jgettext('Synchronize remote'); ?>
         </a>
-        <a href="javascript:;" class="ecr_button img icon-16-update" onclick="EcrDeploy.getSyncList('ftp');">
+        <a href="javascript:;" class="btn" onclick="EcrDeploy.getSyncList('ftp');">
+            <i class="img icon16-update"></i>
             <?php echo jgettext('Reload local'); ?>
         </a>
-        <a href="javascript:;" class="ecr_button img icon-16-export" onclick="EcrDeploy.deployFiles('ftp');">
+        <a href="javascript:;" class="btn" onclick="EcrDeploy.deployFiles('ftp');">
+            <i class="img icon16-export"></i>
             <?php echo jgettext('Deploy'); ?>
         </a>
     </div>

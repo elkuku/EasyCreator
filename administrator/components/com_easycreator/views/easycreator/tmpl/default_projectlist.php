@@ -11,7 +11,7 @@ $projectCount = 0;
 
 $projects = EcrProjectHelper::getProjectList();
 
-$toolImgBase = '&lt;span class=\'img icon-16-%s\' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;';
+$toolImgBase = '&lt;span class=\'img icon16-%s\' style=\'padding-left: 20px; height: 14px;\'&gt;&lt;/span&gt;';
 
 $toolImg = new stdClass;
 $toolImg->package = sprintf($toolImgBase, 'installfolder');
@@ -29,30 +29,41 @@ foreach(EcrProjectHelper::getProjectTypes() as $pTag => $pType) :
     <?php
     $count = (isset($projects[$pTag])) ? count($projects[$pTag]) : 0;
 
-    echo '<div class="boxHeader img icon-12-'.$pTag.'">';
+    echo '<div class="boxHeader img icon12-'.$pTag.'">';
     echo sprintf($pType->translateTypeCount($count), $count);
     echo '</div>';
 
     foreach($projects[$pTag] as $project) :
         ?>
-        <div class="projectListRow ecr_button hasEasyTip"
+        <div class="projectListRow btn hasEasyTip"
              title="<?php echo jgettext('Configure').$toolImg->config.'::'.$project->name; ?>"
-             style="height: 20px; min-width: 200px; text-align: left; margin-top: 0.3em; margin-bottom: 0.3em;"
-             onclick="configureProject('<?php echo $project->fileName; ?>');">
-            <div style="float: right;">
-                <a class="ecr_button img icon-16-language hasEasyTip"
-                   style="margin-right: 5px; padding-left: 20px; height: 14px;"
+             style="text-align: left; width: 90%"
+             onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'stuffer');">
+            <div class="btn-group" style="float: right; margin-left:5px;">
+                <a class="btn btn-mini hasEasyTip"
                    title="<?php echo jgettext('Languages').$toolImg->language.'::'.$project->name; ?>"
-                   onclick="translateProject('<?php echo $project->fileName; ?>');">&nbsp;
+                onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'languages');">
+                    <i class="img16 icon16-locale"></i>
                 </a>
-                <a class="ecr_button img icon-16-installfolder hasEasyTip"
-                   style="margin-right: 5px; padding-left: 20px;; height: 14px;"
+                <a class="btn btn-mini hasEasyTip"
+                   title="<?php echo jgettext('CodeEye').$toolImg->package.'::'.$project->name; ?>"
+                   onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'codeeye');">
+                    <i class="img16 icon16-xeyes"></i>
+                </a>
+                <a class="btn btn-mini hasEasyTip"
                    title="<?php echo jgettext('Package').$toolImg->package.'::'.$project->name; ?>"
-                   onclick="packProject('<?php echo $project->fileName; ?>');">&nbsp;
+                   onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'ziper');">
+                    <i class="img16 icon16-package"></i>
+                </a>
+                <a class="btn btn-mini hasEasyTip"
+                   title="<?php echo jgettext('Deploy').$toolImg->package.'::'.$project->name; ?>"
+                   onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'deploy');">
+                    <i class="img16 icon16-deploy"></i>
                 </a>
             </div>
             <strong><?php echo $project->name;?></strong>
         </div>
+            <br />
         <?php
         $projectCount += count($projects[$pTag]);
     endforeach;
@@ -65,7 +76,8 @@ foreach(EcrProjectHelper::getProjectTypes() as $pTag => $pType) :
     <?php echo jgettext('None found'); ?>
 </div>
 <div style="padding: 1em; font-size: 1.3em; font-weight: bold;"
-     class="ecr_button img icon-16-add" onclick="easySubmit('starter', 'starter');">
+     class="btn" onclick="easySubmit('starter', 'starter');">
+    <i class="img icon16-add"></i>
     <?php echo jgettext('Create your first project'); ?>
 </div>
 <div style="padding: 2em;"></div>

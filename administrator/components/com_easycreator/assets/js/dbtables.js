@@ -147,7 +147,7 @@ function newRow(elName) {
         .injectInside(fieldComment);
 
     var onclick = 'document.id(\'dbRow' + obCount + '\').dispose()';
-    new Element('span', {'class':'ecr_button', 'onclick':onclick, 'text':jgettext('Delete')})
+    new Element('span', {'class':'btn btn-mini', 'onclick':onclick, 'text':jgettext('Delete')})
         .injectInside(div);
 
     div.injectInside($(elName));
@@ -170,7 +170,7 @@ function addField() {
 
     var div = new Element('div');
     div.innerHTML = add_field_name + s;
-    $('addField').adopt(div);
+    document.id('addField').adopt(div);
 }//function
 
 /**
@@ -179,7 +179,7 @@ function addField() {
  * @return
  */
 function addRelation(tableName) {
-    $('table_name').value = tableName;
+    document.id('table_name').value = tableName;
 
     submitform('new_relation');
 }//function

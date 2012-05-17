@@ -367,7 +367,9 @@ class EcrTableHelper
         $html = '';
         $html .= '
 <div class="addRow">
-        <span class="ecr_button img icon-16-add" onclick="newRow(\'db_table_fields\');">'.jgettext('Add row').'</span>
+        <span class="btn" onclick="newRow(\'db_table_fields\');">'
+            .'<i class="img icon16-add"></i>'
+            .jgettext('Add row').'</span>
 </div>
 <div class="ecr_dbRow">
 

@@ -11,12 +11,12 @@
 
 <div class="white_box">
 
-    <div style="float: right" class="img128 icon-128-easycreator"></div>
+    <div style="float: right" class="img128 icon128-easycreator"></div>
 
     <h1><?php echo jgettext('Help'); ?></h1>
 
     <p>
-    <span class="img32a icon-32-help">
+    <span class="img32a icon32-ecr_help">
         EasyCreator documentation can be found on the unofficial german Joomla! wiki Joomla-Nafu.de. in english only.
         <br/>
         As this is a wiki (just like wikipedia) - your are hereby invited to contribute or correct any errors - <big>BIG</big> thanks !
@@ -30,7 +30,7 @@
     <ul>
         <li>
             <strong>The icon</strong> belongs to the very funny constructor game <a
-            href="http://games.kde.org/game.php?game=ktuberling" class="external"><span class="img icon-16-easycreator">KTuberling</span></a>.
+            href="http://games.kde.org/game.php?game=ktuberling" class="external"><span class="img icon16-easycreator">KTuberling</span></a>.
             I would call EasyCreator also a "potato editor" <tt>=;)</tt>
         </li>
         <li>

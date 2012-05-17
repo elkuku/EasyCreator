@@ -10,7 +10,6 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 ?>
-<h2><?php echo jgettext('Install - Uninstall - Update'); ?></h2>
 <?php
 
 echo $this->loadTemplate('php');

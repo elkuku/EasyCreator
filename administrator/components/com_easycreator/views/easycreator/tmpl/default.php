@@ -20,7 +20,8 @@ endif;
 //<div onclick="checkVersion();">Check</div>
 ?>
 <div class="ecrInfoBoxContainer">
-    <div class="ecr_button img icon-16-easycreator" onclick="ecrInfoBox.toggle();">
+    <div class="btn block" onclick="ecrInfoBox.toggle();">
+        <i class="img icon16-easycreator"></i>
         <?php echo jgettext('EasyCreator Information'); ?>
     </div>
     <div id="ecrInfoBox" style="background-color: #ccc;">
@@ -45,7 +46,7 @@ endif;
 */
 ?>
 <div style="text-align: center">
-    <span class="img128 icon-128-easycreator"></span>
+    <span class="img128 icon128-easycreator"></span>
     <h1 class="ecrTitel">What do you want to Create today ?</h1>
 </div>
 

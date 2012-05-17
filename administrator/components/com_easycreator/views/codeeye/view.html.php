@@ -69,7 +69,7 @@ class EasyCreatorViewCodeEye extends JView
         {
             EcrHtml::displayMessage($e);
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return;
         }
@@ -94,14 +94,14 @@ class EasyCreatorViewCodeEye extends JView
         }
 
         //--Draw h1 header
-        EcrHtml::header(jgettext('CodeEye'), $this->project, 'xeyes');
+        //EcrHtml::header(jgettext('CodeEye'), $this->project, 'xeyes');
 
         //--Draw the submenu
         echo $this->displayBar();
 
         parent::display($tpl);
 
-        EcrHtml::easyFormEnd();
+        EcrHtml::formEnd();
     }
 
     /**
@@ -256,7 +256,7 @@ class EasyCreatorViewCodeEye extends JView
             case 'component':
                 if(! JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
                 {
-                    $btn = '&nbsp;<span class="ecr_button img icon-16-add" onclick="submitbutton(\'copy_bootstrap\');">'
+                    $btn = '&nbsp;<span class="ecr_button img icon16-add" onclick="submitbutton(\'copy_bootstrap\');">'
                         .jgettext('Copy bootstrap.php to Joomla root').'</span>';
 
                     EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
@@ -268,7 +268,7 @@ class EasyCreatorViewCodeEye extends JView
 
                 if(! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
                 {
-                    $btn = '&nbsp;<span class="ecr_button img icon-16-add"'
+                    $btn = '&nbsp;<span class="ecr_button img icon16-add"'
                         .' onclick="submitbutton(\'create_test_dir_unit\');">'
                         .jgettext('Create Test directory').'</span>';
 
@@ -302,7 +302,7 @@ class EasyCreatorViewCodeEye extends JView
             case 'component':
                 //                if( ! JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
                 //                {
-//                    $btn = '&nbsp;<span class="ecr_button img icon-16-add" onclick="submitbutton(\'copy_bootstrap\');">'
+//                    $btn = '&nbsp;<span class="ecr_button img icon16-add" onclick="submitbutton(\'copy_bootstrap\');">'
 //.jgettext('Copy bootstrap.php to Joomla root').'</span>';
 //                    EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
                 //
@@ -313,7 +313,7 @@ class EasyCreatorViewCodeEye extends JView
 
                 if(! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
                 {
-                    $btn = '&nbsp;<span class="ecr_button img icon-16-add"'
+                    $btn = '&nbsp;<span class="ecr_button img icon16-add"'
                         .' onclick="submitbutton(\'create_test_dir_selenium\');">'
                         .jgettext('Create Test directory').'</span>';
 
@@ -412,6 +412,6 @@ class EasyCreatorViewCodeEye extends JView
             );
         }
 
-        return EcrHtml::getSubBar($subTasks);
+        return EcrHtml::subMenu($subTasks);
     }
 }//class

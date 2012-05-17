@@ -97,7 +97,7 @@ class EasyCreatorViewStarter extends JView
 
         parent::display($tpl);
 
-        EcrHtml::easyFormEnd();
+        EcrHtml::formEnd();
     }
 
     private function starter()

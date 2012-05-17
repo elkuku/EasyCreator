@@ -1,10 +1,10 @@
 <?php
 /**
- * @package    EasyCreator
- * @subpackage Views
- * @author		Nikolai Plath
- * @author		Created on 10-Oct-2009
- * @license    GNU/GPL, see JROOT/LICENSE.php
+ * @package       EasyCreator
+ * @subpackage    Views
+ * @author        Nikolai Plath
+ * @author        Created on 10-Oct-2009
+ * @license       GNU/GPL, see JROOT/LICENSE.php
  */
 
 //-- No direct access
@@ -26,38 +26,38 @@ $scopes = $this->project->getLanguagePaths();
 ?>
 
 <table class="adminlist">
-<thead>
+    <thead>
     <tr>
         <td></td>
-    <?php
-    foreach($scopes as $scope => $path) :
-        echo '<th>'.jgettext($scope).'</th>';
-    endforeach;
-    ?>
+        <?php
+        foreach($scopes as $scope => $path) :
+            echo '<th>'.jgettext($scope).'</th>';
+        endforeach;
+        ?>
     </tr>
-</thead>
+    </thead>
 
-<tbody>
+    <tbody>
     <?php
     $k = 0;
 
     foreach($langs as $tag => $lang): ?>
-    	<tr class="row<?php echo $k; ?>">
-        	<td width="10%" nowrap="nowrap">
-        		<strong><?php echo $tag; ?></strong>
-        		<br />
-		        <?php echo $lang['name']; ?>
-        	</td>
-  	        <?php foreach($scopes as $scope => $path) : ?>
-                <td>
-                    <?php EcrLanguageHelper::checkFile($this->project, $tag, $scope); ?>
-                </td>
-            <?php endforeach;
-            $k = 1 - $k; ?>
-        </tr>
-    <?php endforeach; ?>
-</tbody>
+    <tr class="row<?php echo $k; ?>">
+        <td width="10%" nowrap="nowrap">
+            <strong><?php echo $tag; ?></strong>
+            <br/>
+            <?php echo $lang['name']; ?>
+        </td>
+        <?php foreach($scopes as $scope => $path) : ?>
+        <td>
+            <?php EcrLanguageHelper::checkFile($this->project, $tag, $scope); ?>
+        </td>
+        <?php endforeach;
+        $k = 1 - $k; ?>
+    </tr>
+        <?php endforeach; ?>
+    </tbody>
 </table>
 
-<input type="hidden" id="lng_scope" name="lng_scope" value="" />
-<input type="hidden" id="lngcreate_lang" name="lngcreate_lang" value="" />
+<input type="hidden" id="lng_scope" name="lng_scope" value=""/>
+<input type="hidden" id="lngcreate_lang" name="lngcreate_lang" value=""/>

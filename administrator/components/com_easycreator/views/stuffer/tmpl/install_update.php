@@ -37,7 +37,7 @@ $files = JFolder::files($path);
 
 ?>
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-update"><?php echo jgettext('Update SQL') ?></div>
+    <div class="infoHeader img icon24-update"><?php echo jgettext('Update SQL') ?></div>
 
     <strong><?php echo jgettext('Versions'); ?></strong>
     <br />
@@ -71,7 +71,8 @@ $files = JFolder::files($path);
      <?php endif; ?>
 
      <?php if( ! $files) : ?>
-         <div class="ecr_button img icon-16-add" onclick="createFile('sql', 'update');">
+         <div class="btn block" onclick="createFile('sql', 'update');">
+             <i class="img icon16-add"></i>
              <?php echo jgettext('Init database updates'); ?>
          </div>
      <?php endif; ?>
@@ -79,7 +80,8 @@ $files = JFolder::files($path);
      <?php if($versions) :?>
          <?php if(count($versions) > 1
         || $versions[0] != $this->project->version) : ?>
-         <div class="ecr_button img icon-16-update" onclick="createFile('sql', 'update');">
+         <div class="btn block" onclick="createFile('sql', 'update');">
+             <i class="img icon16-update"></i>
              <?php echo jgettext('Update database update files'); ?>
          </div>
          <?php endif; ?>

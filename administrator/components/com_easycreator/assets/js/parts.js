@@ -8,18 +8,18 @@
 
 function showPart(group, part)
 {
-    $('addPartShow').className = ' img ajax_loading16';
+    document.id('addPartShow').className = ' img ajax_loading16';
 
-    $('addPartShow').innerHTML = jgettext('Loading...');
-    $('addElementMessage').innerHTML = '';
+    document.id('addPartShow').innerHTML = jgettext('Loading...');
+    document.id('addElementMessage').innerHTML = '';
 
     new Request({
         url: ecrAJAXLink+'&controller=ajax'+'&group='+group+'&part='+part,
         update: 'addPartShow',
         onComplete: function()
         {
-            $('addPartShow').className = '';
-            $('addElementMessage').innerHTML = '';
+            document.id('addPartShow').className = '';
+            document.id('addElementMessage').innerHTML = '';
             div_new_element.show();
         }
     }).send();

@@ -87,7 +87,7 @@ function ecrScript()
 
 if(version_compare(PHP_VERSION, '5.3', '<'))
 {
-    //-- @todo php 5.3
+    //-- @todo php 5.2
     spl_autoload_register('easy_creator_loader', true);
 }
 else

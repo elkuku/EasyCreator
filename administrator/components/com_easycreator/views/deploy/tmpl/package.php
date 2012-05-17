@@ -13,7 +13,7 @@ ecrScript('php2js');
 <h3><?php echo jgettext('Source files'); ?></h3>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader img icon-24-ftp">
+    <div class="infoHeader img icon24-ftp">
         <?php echo jgettext('Files to deploy') ?>
     </div>
     <?php echo $this->loadTemplate('archive'); ?>

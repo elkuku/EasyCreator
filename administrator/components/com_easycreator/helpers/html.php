@@ -25,10 +25,9 @@ final class EcrHtml
          *  //--We start our form HERE ! this is for the whole app !    //
          * //                                                          //
          */
-        EcrHtml::easyFormStart();
+        EcrHtml::formStart();
 
         $task = JRequest::getCmd('task', 'stuffer');
-        $vvv = JRequest::getCmd('view');
         $ecr_project = JRequest::getCmd('ecr_project');
         $project = false;
 
@@ -57,7 +56,7 @@ final class EcrHtml
 
             $tasks['stuffer'] = new stdClass;
             $tasks['stuffer']->title = jgettext('Project');
-            $tasks['stuffer']->image = 'ecr_config';
+            $tasks['stuffer']->image = 'ecr_settings';
             $tasks['stuffer']->tasks = array('stuffer', 'stufferstuff', 'projectinfo', 'files', 'save_config'
             , 'projectparams', 'projectdelete', 'tables', 'install');
 
@@ -73,13 +72,13 @@ final class EcrHtml
                 $tasks['codeeye'] = new stdClass;
                 $tasks['codeeye']->title = jgettext('CodeEye');
                 $tasks['codeeye']->image = 'xeyes';
-                $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpdoc', 'phpunit', 'stats', 'runcli'
-                , 'runwap');
+                $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpunit', 'selenium', 'phpdoc'
+                , 'phploc', 'stats', 'stats2', 'reflection', 'runcli', 'runwap');
             }
 
             $tasks['ziper'] = new stdClass;
             $tasks['ziper']->title = jgettext('Package');
-            $tasks['ziper']->image = 'ecr_archive';
+            $tasks['ziper']->image = 'ecr_package';
             $tasks['ziper']->tasks = array('ziper', 'delete', 'archive');
 
             $tasks['deploy'] = new stdClass;
@@ -89,9 +88,8 @@ final class EcrHtml
 
             foreach($tasks as $k => $v)
             {
-                $actives[$k] = (in_array($task, $v->tasks)) ? 'active' : '';
+                $actives[$k] = (in_array($task, $v->tasks)) ? ' active' : '';
             }
-
         }
 
         //-- Right bar
@@ -108,17 +106,17 @@ final class EcrHtml
 
         $rightTasks['logfiles'] = new stdClass;
         $rightTasks['logfiles']->title = jgettext('Logfiles');
-        $rightTasks['logfiles']->image = 'menus';
+        $rightTasks['logfiles']->image = 'text';
         $rightTasks['logfiles']->tasks = array('logfiles');
 
         $rightTasks['help'] = new stdClass;
         $rightTasks['help']->title = jgettext('Help');
-        $rightTasks['help']->image = 'help';
+        $rightTasks['help']->image = 'ecr_help';
         $rightTasks['help']->tasks = array('help', 'quicky', 'credits');
 
         $rightTasks['sandbox'] = new stdClass;
         $rightTasks['sandbox']->title = jgettext('Sandbox');
-        $rightTasks['sandbox']->image = 'default';
+        $rightTasks['sandbox']->image = 'sandbox';
         $rightTasks['sandbox']->tasks = array();
         $rightTasks['sandbox']->href = JURI::root().'index.php?option=com_easycreator';
         $rightTasks['sandbox']->class = ' external';
@@ -129,29 +127,40 @@ final class EcrHtml
 
         foreach($rightTasks as $k => $v)
         {
-            $actives[$k] = (in_array($task, $v->tasks)) ? 'active' : '';
+            $actives[$k] = (in_array($task, $v->tasks)) ? ' active' : '';
             $rTasks = array_merge($rTasks, $v->tasks);
         }
 
+        $helpActive = ('jhelp' == $task) ? ' active' : '';
+
         ?>
-    <div class="white_box" style="margin-bottom: 0.5em;">
-        <div class="ecr_easy_toolbar">
-            <ul>
-                <li><a href="javascript:;"
-                       onclick="document.id('file_name').value=''; easySubmit('jhelp', 'help');"> <span
-                    class="icon-32-JHelp_btn" title="J Help"></span> <?php echo jgettext('J! API'); ?>
-                </a></li>
-            </ul>
+    <div class="white_box">
+        <div style="float: right;">
+            <a class="btn<?php echo ECR_TBAR_SIZE.$helpActive; ?>" href="javascript:;"
+               onclick="document.id('file_name').value=''; easySubmit('jhelp', 'help');">
+                <?php if(ECR_TBAR_ICONS) : ?>
+                <div class="img32d icon32-JHelp_btn"></div>
+                <?php endif; ?>
+                <?php echo jgettext('J! API'); ?>
+            </a>
         </div>
+
         <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debug</div>' : ''; ?>
+
         <div style="float: left; margin-top: -7px;"><img
             src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
-            alt="EasyCreator Logo"/></div>
-        <div style="float: left; padding-left: 0.5em;"><span class="ecrTopTitle"
-                                                             style="font-size: 1.4em; font-weight: bold;">EasyCreator</span>
+            alt="EasyCreator Logo"/>
+        </div>
+
+        <div style="float: left; padding-left: 0.5em;">
+            <span class="ecrTopTitle" style="font-size: 1.4em; font-weight: bold;">EasyCreator</span>
             <br/>
             <?php self::drawProjectSelector(); ?> <br/>
-            <span id="ecr_stat_project"></span></div>
+            <span id="ecr_stat_project"></span>
+        </div>
+
+        <div style="float: left; width: 0.5em;">&nbsp;</div>
+
         <div style="float: left;"><?php
             if($ecr_project
                 && $ecr_project != 'ecr_new_project'
@@ -159,33 +168,36 @@ final class EcrHtml
             )
             {
                 ?>
-                <div class="ecr_easy_toolbar">
-                    <ul>
-                        <?php
-                        foreach($tasks as $k => $v)
-                        {
-                            ?>
-                            <li class="<?php echo $actives[$k]; ?>"><?php
-                                echo '<a href="javascript:;" onclick="$(\'file_name\').value=\'\'; easySubmit(\''.$k.'\', \''.$k.'\');">';
-                                echo '<span class="icon-32-'.$v->image.'" title="'.$v->title.'"></span>';
-                                echo $v->title.NL;
-                                echo '</a>';
-                                ?></li>
-                            <?php
-                        }//foreach
-                        ?>
-                    </ul>
+                <div class="btn-group">
+                    <?php
+                    foreach($tasks as $k => $v)
+                    {
+                        echo '<a class="btn'.ECR_TBAR_SIZE.$actives[$k].'" href="javascript:;"'
+                            .'onclick="$(\'file_name\').value=\'\'; easySubmit(\''.$k.'\', \''.$k.'\');">';
+                        if(ECR_TBAR_ICONS) :
+                            echo '<div class="img32d icon32-'.$v->image.'" title="'.$v->title.'"></div>';
+                        endif;
+                        echo $v->title.NL;
+                        echo '</a>';
+                    }
+                    ?>
                 </div>
                 <?php
-            }//endif
-            ?></div>
+            }
+            ?>
+        </div>
+
+        <div style="float: left; width: 0.5em;">&nbsp;</div>
+
         <?php
         if(! in_array($task, $rTasks))
         {
-            ?> <a href="javascript:;" style="float: left; margin-left: 5px;"
-                  class="ecr_button img icon-16-add hasTip"
+            ?> <a class="btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;"
                   title="<?php echo jgettext('More...'); ?>::<?php echo jgettext('Click for more options'); ?>"
                   onclick="this.setStyle('display', 'none'); ecr_options_box.toggle();">
+            <?php if(ECR_TBAR_ICONS) : ?>
+            <i class="img icon16-add hasTip"></i>
+            <?php endif; ?>
             <?php echo jgettext('More...'); ?> </a> <?php
         }
 
@@ -193,29 +205,26 @@ final class EcrHtml
         $stdJS .= "$('adminForm').value='';";
         $stdJS .= "$('file_name').value='';";
         ?>
-        <div id="ecr_options_box" class="ecr_easy_toolbar right">
-            <ul>
-                <li class="divider"></li>
-                <?php
-                foreach($rightTasks as $k => $v)
-                {
-                    $controller = (isset($v->controller)) ? $v->controller : $k;
-                    $cJS = " easySubmit('".$k."', '".$controller."');";
-                    $class = (isset($v->class)) ? $v->class : '';
-                    $href = (isset($v->href)) ? $v->href : 'javascript:;';
-                    $rel = (isset($v->rel)) ? $v->rel : '';
-                    $js = (isset($v->js)) ? $v->js : 'onclick="'.$stdJS.$cJS.'"';
-                    ?>
-                    <li class="<?php echo $actives[$k]; ?>"><?php
-                        echo '<a href="'.$href.'" '.$js.$rel.' class="'.$class.'">'.NL;
-                        echo '<span class="icon-32-'.$v->image.'" title="'.$v->title.'"></span>'.NL;
-                        echo $v->title.NL;
-                        echo '</a>'.NL;
-                        ?></li>
-                    <?php
-                }//foreach
+        <div id="ecr_options_box" class="btn-group" style="margin-left: 1em;">
+            <?php
+            foreach($rightTasks as $k => $v)
+            {
+                $controller = (isset($v->controller)) ? $v->controller : $k;
+                $cJS = " easySubmit('".$k."', '".$controller."');";
+                $class = (isset($v->class)) ? $v->class : '';
+                $href = (isset($v->href)) ? $v->href : 'javascript:;';
+                $rel = (isset($v->rel)) ? $v->rel : '';
+                $js = (isset($v->js)) ? $v->js : 'onclick="'.$stdJS.$cJS.'"';
+                echo '<a class="btn '.$class.ECR_TBAR_SIZE.$actives[$k].'" href="'.$href.'" '.$js.$rel.' >'.NL;
+                if(ECR_TBAR_ICONS) :
+                    echo '<div class="img32d icon32-'.$v->image.'" title="'.$v->title.'"></div>'.NL;
+                endif;
+                echo $v->title.NL;
+                echo '</a>'.NL;
                 ?>
-            </ul>
+                <?php
+            }
+            ?>
         </div>
         <?php
         if(! in_array($task, $rTasks))
@@ -241,7 +250,7 @@ final class EcrHtml
      *
      * @return string
      */
-    public static function getSubBar($subTasks, $rightTasks = array())
+    public static function subMenu($subTasks, $rightTasks = array())
     {
         $task = JRequest::getCmd('task', 'stuffer');
         $html = array();
@@ -249,31 +258,22 @@ final class EcrHtml
         $jsVars = '';
         $jsEvents = '';
 
-        if($rightTasks)
-        {
-            $html[] = '<div class="ecr_easy_toolbar" style="float: right;">';
-
-            foreach($rightTasks as $rTask)
-            {
-                $html[] = '<div class="ecr_button img icon-16-'.$rTask['icon'].'"';
-                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\');">';
-                $html[] = $rTask['title'].'</div>';
-            }
-
-            $html[] = '</div>';
-        }
-
-        $html[] = '<div id="ecr_sub_toolbar" style="margin-bottom: 1em; margin-top: 0.5em;">';
+        $html[] = '<div id="ecr_sub_toolbar" class="btn-group">';
 
         foreach($subTasks as $sTask)
         {
             $tasks = (array)$sTask['task'];
 
-            $selected = (in_array($task, $tasks)) ? '_selected' : '';
-            $html[] = '<span id="btn_'.$tasks[0].'" style="margin-left: 0.3em;"';
-            $html[] = ' class="ecr_button'.$selected.' img icon-16-'.$sTask['icon'].'"';
+            $selected = (in_array($task, $tasks)) ? ' active' : '';
+
+            $html[] = '<a id="btn_'.$tasks[0].'" href="javascript:;"';
+            $html[] = ' class="btn'.ECR_TBAR_SIZE.$selected.'"';
             $html[] = ' onclick="submitbutton(\''.$tasks[0].'\');">';
-            $html[] = $sTask['title'].'</span>';
+
+            if(ECR_TBAR_ICONS)
+                $html[] = '<i class="img-btn icon16-'.$sTask['icon'].'"></i><br />';
+
+            $html[] = $sTask['title'].'</a>';
 
             if(ECR_HELP > 1)
             {
@@ -307,6 +307,25 @@ final class EcrHtml
         }
 
         $html[] = '</div>';
+
+        if($rightTasks)
+        {
+            $html[] = '<div style="float: right;">';
+
+            foreach($rightTasks as $rTask)
+            {
+                $html[] = '<a class="btn'.ECR_TBAR_SIZE.'"';
+                $html[] = ' href="javascript:;"';
+                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\');">';
+
+                if(ECR_TBAR_ICONS)
+                    $html[] = '<i class="img16a icon16-ecr_'.$rTask['icon'].'"></i><br />';
+
+                $html[] = $rTask['title'].'</a>';
+            }
+
+            $html[] = '</div>';
+        }
 
         return implode(NL, $html);
     }
@@ -394,7 +413,7 @@ final class EcrHtml
     {
         $js = ($javascript) ? $javascript : 'onclick="javascript: submitbutton(\''.$task.'\')"';
         echo NL.'<a href="#" class="toolbar" '.$js.'>';
-        echo NL.'<span class="icon-32-'.$img.'" title="'.$title.'"></span>';
+        echo NL.'<span class="icon32-'.$img.'" title="'.$title.'"></span>';
         echo NL.$title;
         echo NL.'</a>';
     }
@@ -407,10 +426,12 @@ final class EcrHtml
      */
     public static function drawButtonCreateLanguageFile($lang, $scope)
     {
-        $button = '<span class="ecr_button img icon-16-add" ';
+        $button = '<a class="btn" href="javascript:;" ';
         $button .= 'onclick="document.adminForm.lngcreate_lang.value=\''.$lang.'\'; ';
         $button .= 'document.adminForm.lng_scope.value=\''.$scope.'\'; ';
-        $button .= 'submitform(\'create_langfile\');">'.jgettext('Create language file').'</span>';
+        $button .= 'submitform(\'create_langfile\');">'
+            .'<i class="img icon16-add"></i>'
+            .jgettext('Create language file').'</a>';
         echo $button;
     }
 
@@ -422,19 +443,28 @@ final class EcrHtml
     public static function drawButtonRemoveBOM($fileName)
     {
         $tPath = substr($fileName, strlen(JPATH_ROOT));
+
         $link = 'See: <a href="http://www.w3.org/International/questions/qa-utf8-bom" '
             .'target="_blank">W3C FAQ: Display problems caused by the UTF-8 BOM</a>';
-        $button = '<br /><span class="ecr_button img icon-16-delete" '
+
+        $button = '<br /><span class="btn" '
             .'onclick="document.adminForm.file.value=\''.addslashes($tPath)
-            .'\';easySubmit(\'remove_bom\', \'languages\');">Remove BOM</span>';
+            .'\';easySubmit(\'remove_bom\', \'languages\');">'
+            .'<i class="img icon16-delete"></i>'
+            .'Remove BOM</span>';
+
         self::displayMessage(array(jgettext('Found a BOM in languagefile'), $fileName, $link, $button), 'notice');
     }
 
     public static function drawButtonCreateClassList()
     {
-        $button = '<br /><span class="ecr_button img icon-16-add" ';
-        $button .= 'onclick="create_class_list();">'.jgettext('Create class list file').'</span>';
-        self::displayMessage(array(sprintf(jgettext('The class file for your Joomla version %s has not been build yet.'), JVERSION)
+        $button = '<span class="btn" onclick="create_class_list();">'
+            .'<i class="img icon16-add"></i>'
+            .jgettext('Create class list file')
+            .'</span>';
+
+        self::displayMessage(array(
+            sprintf(jgettext('The class file for your Joomla version %s has not been build yet.'), JVERSION)
         , $button), 'notice');
     }
 
@@ -452,21 +482,21 @@ final class EcrHtml
         $version = '<strong style="color: '.$color.';">'.$v.'</strong>';
         ?>
     <div class="ecrFooter">
-        <span class="img icon-16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
+        <span class="img icon16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
         <a href="http://www.mozilla-europe.org/firefox/" title="FireFox" class="external">
-            <span class="img icon-16-firefox">Firefox</span></a>
+            <span class="img icon16-firefox">Firefox</span></a>
         and <a href="http://opensuse.org" title="openSUSE" class="external">
-        <span class="img icon-16-opensuse">openSUSE</span>
+        <span class="img icon16-opensuse">openSUSE</span>
     </a>
         <br/>
         Made and partially Copyright &copy; 2008 - 2012 by <a
         href="https://github.com/elkuku"
         class="external">El KuKu</a> using <a href="http://www.jetbrains.com/phpstorm/" title="PHPStorm"
                                               class="external">
-        <span class="img icon-16-phpstorm">PHPStorm</span>
+        <span class="img icon16-phpstorm">PHPStorm</span>
     </a>
         <br/>
-        <small><em style="color: silver;"><span class="img icon-16-joomla"></span>
+        <small><em style="color: silver;"><span class="img icon16-joomla"></span>
             EasyCreator is not affiliated with or endorsed by the <a
                 href="http://joomla.org" class="external">Joomla! Project</a>. It is
             not supported or warranted by the <a href="http://joomla.org"
@@ -504,7 +534,7 @@ final class EcrHtml
         $pType = ($project) ? $project->translateType() : '';
         $pVersion = ($project) ? $project->version : '';
 
-        $icon = ($class) ? '<span class="img32c icon-32-'.$class.'"></span>' : '';
+        $icon = ($class) ? '<span class="img32c icon32-'.$class.'"></span>' : '';
 
         $html = '';
         $html .= $icon;
@@ -520,14 +550,14 @@ final class EcrHtml
      * This will write the 'opening' tags for our form.
      * we also provide an id tag - as the name tag will be deprecated..
      */
-    public static function easyFormStart()
+    public static function formStart()
     {
         echo '<!-- EasyCreator START -->'.NL;
 
         echo '<div id="ecr_box">'.NL;
 
         echo '<form action="index.php?option=com_easycreator" method="post" '
-            .'name="adminForm" id="adminForm">'.NL;
+            .'name="adminForm" id="adminForm" class="form-horizontal">'.NL;
     }
 
     /**
@@ -535,7 +565,7 @@ final class EcrHtml
      *
      * @param bool $closeDiv
      */
-    public static function easyFormEnd($closeDiv = true)
+    public static function formEnd($closeDiv = true)
     {
         echo '<input type="hidden" name="task" value="" />'.NL;
         echo '<input type="hidden" name="controller" '
@@ -571,7 +601,7 @@ final class EcrHtml
 
         $checked = ($params->get('logging')) ? ' checked="checked"' : '';
         echo NL.'<input type="checkbox" onchange="'.$js.'" name="buildopts[]"'.$checked.' value="logging" id="logging" />';
-        echo NL.'<label for="logging">'.jgettext('Activate logging').'</label>';
+        echo NL.'<label class="inline" for="logging">'.jgettext('Activate logging').'</label>';
 
         $style = ($params->get('logging')) ? '' : ' style="display: none;"';
         echo NL.'   <div id="div_buildopts"'.$style.'>';
@@ -583,7 +613,7 @@ final class EcrHtml
 
             echo NL.'&nbsp;|__';
             echo NL.'<input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
-            echo NL.'<label for="'.$name.'">'.$titel.'</label><br />';
+            echo NL.'<label class="inline" for="'.$name.'">'.$titel.'</label><br />';
         }
 
         echo NL.'   </div>';
@@ -612,7 +642,7 @@ final class EcrHtml
             $checked = ($name == $selected) ? ' checked="checked"' : '';
             $html[] = '<input type="radio" name="headerType"'
                 .'value="'.$name.'" id="headerType'.$name.'"'.$checked.'>'
-                .'<label for="headerType'.$name.'">'.$name.'</label>';
+                .'<label class="inline" for="headerType'.$name.'">'.$name.'</label>';
         }
 
         return implode(NL, $html);
@@ -674,7 +704,7 @@ final class EcrHtml
             $checked = (in_array($f, $project->dbTypes)) ? ' checked="checked"' : '';
 
             $options[] = '<input type="checkbox" name="dbtypes[]"'.$checked.' value="'.$f.'" id="dbopt_'.$f.'" />';
-            $options[] = '<label for="dbopt_'.$f.'">'.ucfirst($f).'</label>';
+            $options[] = '<label class="inline" for="dbopt_'.$f.'">'.ucfirst($f).'</label>';
         }
 
         return implode(NL, $options);
@@ -720,7 +750,7 @@ final class EcrHtml
             $checked = ($opts[$name]) ? ' checked="checked"' : '';
 
             echo NL.'   <input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
-            echo NL.'   <label for="'.$name.'">'.$ext.'</label>';
+            echo NL.'   <label class="inline" for="'.$name.'">'.$ext.'</label>';
         }
     }
 
@@ -822,8 +852,9 @@ EOF;
     </div>
     <div id="sld_edit_area">
         <div style="float: right; margin-top: 10px;"><span id="ecr_status_msg"></span>
-<span class="ecr_button img icon-16-save" onclick="save_file('save');">
-        <?php echo jgettext('Save'); ?> </span></div>
+<span class="btn" onclick="save_file('save');">
+    <i class="img icon16-ecr_save"></i>
+    <?php echo jgettext('Save'); ?> </span></div>
         <br/>
 <span class="ecr_title_file" id="ecr_title_file"> <?php echo jgettext('Select a file'); ?>
 </span>
@@ -1030,11 +1061,11 @@ EOF;
 
         if($ecr_project == 'ecr_new_project')
         {
-            $class = 'img3 icon-16-add';
+            $class = 'img3 icon16-add';
         }
         else if($ecr_project == 'ecr_register_project')
         {
-            $class = 'img3 icon-16-import';
+            $class = 'img3 icon16-import';
         }
         else if($ecr_project)
         {
@@ -1042,7 +1073,7 @@ EOF;
             {
                 $project = EcrProjectHelper::getProject();
 
-                $class = 'img3 icon-12-'.$project->type;
+                $class = 'img3 icon12-'.$project->type;
             }
             catch(Exception $e)
             {
@@ -1054,11 +1085,11 @@ EOF;
         echo NL.'<option value="">'.jgettext('Project').'...</option>';
 
         $selected = ($ecr_project == 'ecr_new_project') ? ' selected="selected"' : '';
-        $class = ' class="img3 icon-16-add"';
+        $class = ' class="img3 icon16-add"';
         echo NL.'<option'.$class.' value="ecr_new_project"'.$selected.'>'.jgettext('New Project').'</option>';
 
         $selected = ($ecr_project == 'ecr_register_project') ? ' selected="selected"' : '';
-        $class = ' class="img3 icon-16-import"';
+        $class = ' class="img3 icon16-import"';
         echo NL.'<option'.$class.' value="ecr_register_project"'.$selected.'>'.jgettext('Register Project').'</option>';
 
         /* @var EcrProjectBase $pType */
@@ -1079,7 +1110,7 @@ EOF;
                         $displayName .= ' ('.$project->scope.')';
 
                     $selected = ($project->fileName == $ecr_project) ? ' selected="selected"' : '';
-                    $class = ' class="img12 icon-12-'.$pTag.'"';
+                    $class = ' class="img12 icon12-'.$pTag.'"';
                     echo NL.'<option'.$class.' value="'.$project->fileName.'" label="'.$project->name.'"'.$selected.'>'
                         .$displayName.'</option>';
                 }
@@ -1162,7 +1193,8 @@ EOF;
         $requireds = (array)$requireds;
         $requireds = implode(',', $requireds);
         echo '<br />';
-        echo '<div class="ecr_button img icon-16-save" onclick="addNewElement(\''.$requireds.'\');">'
+        echo '<div class="btn block" onclick="addNewElement(\''.$requireds.'\');">'
+            .'<i class="img icon16-ecr_save"></i>'
             .jgettext('Save').'</div>';
     }
 
@@ -1176,7 +1208,8 @@ EOF;
         $requireds = (array)$requireds;
         $requireds = implode(',', $requireds);
         echo '<br />';
-        echo '<div class="ecr_button img icon-16-save" onclick="updateAutoCode(\''.$requireds.'\');">'
+        echo '<div class="btn" onclick="updateAutoCode(\''.$requireds.'\');">'
+            .'<i class="img icon16-ecr_save"></i>'
             .jgettext('Save').'</div>';
     }
 
@@ -1214,34 +1247,26 @@ EOF;
             $type = 'error';
         }
 
-        if(! is_array($messages))
-        {
-            $messages = array($messages);
-        }
-        ?>
-    <dl id="system-message">
-        <dt class="<?php echo $type; ?>"><?php echo $type; ?></dt>
-        <dd class="<?php echo $type; ?> message fade">
-            <ul>
-                <?php
-                foreach($messages as $message)
-                {
-                    echo '<li>'.$message.'</li>';
-                }//foreach
+        $type = ($type) ? ' alert'.$type : ' alert-info';
 
-                if($callFile)
-                {
-                    echo '<li><strong>'.$callFile.'</strong></li>';
-                }
-                ?>
-            </ul>
-        </dd>
-    </dl>
-    <?php
-        if(ECR_DEBUG && $type == 'error')
+        if(! is_array($messages))
+            $messages = array($messages);
+
+        echo '<div class="alert'.$type.'">';
+
+        foreach($messages as $message)
         {
-            self::printTrace($trace);
+            echo '<p>'.$message.'</p>';
         }
+        //foreach
+
+        if($callFile)
+            echo '<p><strong>'.$callFile.'</strong></p>';
+
+        echo '</div>';
+
+        if(ECR_DEBUG && $type == 'error')
+            self::printTrace($trace);
     }
 
     /**
@@ -1417,7 +1442,7 @@ EOF;
     <li><a class="modal" onclick="SimpleContextMenu._hide();"
            rel="{handler: 'iframe', size: {x: 600, y: 150}}"
            href="<?php echo $ajaxLink.'&task='.$task; ?>"> <span
-        class="img icon-16-<?php echo $icon; ?>"> <?php echo $title; ?> </span>
+        class="img icon16-<?php echo $icon; ?>"> <?php echo $title; ?> </span>
     </a></li>
     <?php
     }

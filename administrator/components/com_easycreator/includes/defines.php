@@ -102,3 +102,7 @@ define('ECR_DOCU_LINK', 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutze
  * EasyCreator HELP mode.
  */
 define('ECR_HELP', $params->get('ecr_help'));
+
+define('ECR_TBAR_ICONS', $params->get('toolbar_icons', 1));
+
+define('ECR_TBAR_SIZE', $params->get('toolbar_size', ' btn-mini'));

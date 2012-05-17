@@ -16,6 +16,7 @@
 
 h1 {
     text-shadow: #999 2px 2px 2px;
+    margin: 0;
 }
 
 h1.ecrTitel {
@@ -660,4 +661,29 @@ div.path {
 
 div#ecr_logdisplay {
     border: 1px dashed gray;
+}
+
+/* add.. */
+.btn-selected {
+    border-top: 2px solid #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+}
+
+.form-horizontal .control-group {
+    margin-bottom: 0;
+}
+
+label.inline {
+    display: inline-block;
+    min-width: 50px;
+    padding-left: 0.2em;
+    clear: none;
+}
+
+.btn.block {
+    display: block;
+}
+
+.btn.left {
+    text-align: left;
 }

@@ -12,7 +12,7 @@ $params = JComponentHelper::getParams('com_easycreator');
 $buildOpts = new JRegistry($this->project->buildOpts);
 ?>
 
-<div class="infoHeader img icon-24-package_creation">
+<div class="infoHeader img icon24-package_creation">
     <?php echo jgettext('File name'); ?>
 </div>
 <span id="ajMessage" style="float: right;"></span>
@@ -33,25 +33,25 @@ font-size: 1.3em; font-family: monospace;">
        checked="checked"
        onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_1'); ?>"/>
-<label for="opt_format_1"><tt><?php echo $buildOpts->get('custom_name_1'); ?></tt></label>
+<label class="inline" for="opt_format_1"><tt><?php echo $buildOpts->get('custom_name_1'); ?></tt></label>
 <br/>
 <input type="radio" name="opt_format" id="opt_format_2" class="custom_opt"
        onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_2'); ?>"/>
-<label for="opt_format_2"><tt><?php echo $buildOpts->get('custom_name_2'); ?></tt></label>
+<label class="inline" for="opt_format_2"><tt><?php echo $buildOpts->get('custom_name_2'); ?></tt></label>
 <br/>
 <input type="radio" name="opt_format" id="opt_format_3" class="custom_opt"
        onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_3'); ?>"/>
-<label for="opt_format_3"><tt><?php echo $buildOpts->get('custom_name_3'); ?></tt></label>
+<label class="inline" for="opt_format_3"><tt><?php echo $buildOpts->get('custom_name_3'); ?></tt></label>
 <br/>
 <input type="radio" name="opt_format" id="opt_format_4" class="custom_opt"
        onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
        value="<?php echo $buildOpts->get('custom_name_4'); ?>"/>
-<label for="opt_format_4"><tt><?php echo $buildOpts->get('custom_name_4'); ?></tt></label>
+<label class="inline" for="opt_format_4"><tt><?php echo $buildOpts->get('custom_name_4'); ?></tt></label>
 <br/>
 <br/>
-<label for="cst_format">
+<label class="inline" for="cst_format">
     <?php echo jgettext('Customize'); ?>&nbsp;
 </label>
 <br/>

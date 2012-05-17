@@ -12,7 +12,7 @@ defined('_JEXEC') || die('=;)');
 ?>
 
 <div class="ecr_floatbox">
-    <div class="infoHeader imgbarleft icon-24-personal">
+    <div class="infoHeader imgbarleft icon24-personal">
         <?php echo jgettext('Credits') ?>
     </div>
     <ul>

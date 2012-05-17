@@ -46,13 +46,13 @@ class EasyCreatorViewZiper extends JView
         {
             EcrHtml::displayMessage($e);
 
-            EcrHtml::easyFormEnd();
+            EcrHtml::formEnd();
 
             return;
         }//try
 
         //-- Draw h1 header
-        EcrHtml::header(jgettext('Component ZIPer'), $this->project, 'ecr_archive');
+        //EcrHtml::header(jgettext('Component ZIPer'), $this->project, 'ecr_package');
 
         if(in_array($task, get_class_methods($this)))
         {
@@ -65,7 +65,7 @@ class EasyCreatorViewZiper extends JView
 
         parent::display($tpl);
 
-        EcrHtml::easyFormEnd();
+        EcrHtml::formEnd();
     }//function
 
     /**
@@ -113,11 +113,11 @@ class EasyCreatorViewZiper extends JView
             )
             , array('title' => jgettext('Archive')
             , 'description' => jgettext('View archived versions of your extension.')
-            , 'icon' => 'archive'
+            , 'icon' => 'ecr_archive'
             , 'task' => 'archive'
             )
         );
 
-        return EcrHtml::getSubBar($subTasks);
+        return EcrHtml::subMenu($subTasks);
     }//function
 }//class

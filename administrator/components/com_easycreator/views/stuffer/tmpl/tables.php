@@ -151,14 +151,14 @@ foreach($tables as $table) :
 
                     if(array_key_exists($k, $this->project->autoCodes))
                     {
-                       echo "<div class=\"ecr_button img icon-16-edit\" onclick=\"loadAutoCode('"
+                       echo "<div class=\"ecr_button img icon16-edit\" onclick=\"loadAutoCode('"
                        .$this->ecr_project."', 'edit', '$name', '$table->name', '$scope', '$element');\">";
                        echo $name;
                        echo '</div>'.NL;
                     }
                     else
                     {
-                       echo "<div class=\"ecr_button img icon-16-add\" onclick=\"loadAutoCode('"
+                       echo "<div class=\"ecr_button img icon16-add\" onclick=\"loadAutoCode('"
                        .$this->ecr_project."', 'new', '$name', '".$table->name."', '$scope', '$element');\">";
                        echo $name;
                        echo '</div>'.NL;
@@ -191,7 +191,7 @@ foreach($tables as $table) :
             }
         ?>
         <p style="text-align: right;">
-        	<span class="ecr_button img icon-16-edit" onclick="editRelation('<?php echo $table->name; ?>');">Edit</span>
+        	<span class="ecr_button img icon16-edit" onclick="editRelation('<?php echo $table->name; ?>');">Edit</span>
         </p>
         <?php
         }//foreach
@@ -199,7 +199,7 @@ foreach($tables as $table) :
 
         <hr />
         <!--
-        <div class="ecr_button img icon-16-add" style="float: right;" onclick="new_relation_container.show();">
+        <div class="ecr_button img icon16-add" style="float: right;" onclick="new_relation_container.show();">
             <?php echo jgettext('Add relation') ?>
         </div>
          -->
@@ -258,7 +258,7 @@ foreach($tables as $table) :
         <br />
 
         <p style="text-align: right;">
-        	<span class="ecr_button img icon-16-save" onclick="addRelation('<?php echo $table->name; ?>');">Save</span>
+        	<span class="ecr_button img icon16-ecr_save" onclick="addRelation('<?php echo $table->name; ?>');">Save</span>
         </p>
         </div><!-- New relation container -->
         <script type="text/javascript">
@@ -303,7 +303,7 @@ endforeach;
             if( ! $table->isRegistered)
             {
                 echo '<div id="res-'.$table->name.'"></div>';
-                echo '<div class="ecr_button img icon-16-add" id="addbtn-'.$table->name.'"';
+                echo '<div class="ecr_button img icon16-add" id="addbtn-'.$table->name.'"';
                 echo " onclick=\"document.adminForm.table_name.value='$table->name'; submitbutton('register_table');\">";
                 //registerTable('$this->ecr_project', '$table->name', 'res-$table->name');\">";
                 echo jgettext('Register').'</div>';
@@ -316,7 +316,7 @@ endforeach;
 
             if( ! $table->inDB)
             {
-                echo '</div><div class="ecr_button img icon-16-add" onclick="createTable(\''
+                echo '</div><div class="ecr_button img icon16-add" onclick="createTable(\''
                 .$table->name.'\', \'res-'.$table->name.'\');">CREATE</div>';
             }
             ?>
@@ -332,12 +332,12 @@ endforeach;
                      {
                         if( in_array($sType, $table->$typeName) )
                         {
-                            echo "<div class=\"ecr_button img icon-16-edit\"
+                            echo "<div class=\"ecr_button img icon16-edit\"
  onclick=\"loadPart('".$this->ecr_project."', 'edit', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
                         }
                         else
                         {
-                            echo "<div class=\"ecr_button img icon-16-add\"
+                            echo "<div class=\"ecr_button img icon16-add\"
  onclick=\"loadPart('".$this->ecr_project."', 'new', '$typeName', '$table->name', '$sType');\">$sName</div>".NL;
                         }
                      }//foreach

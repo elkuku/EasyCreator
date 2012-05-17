@@ -17,7 +17,7 @@ $hasUnInstall = false;
 <div class="ecr_floatbox">
 <table>
     <tr>
-        <th colspan="2" class="infoHeader imgbarleft icon-24-install">
+        <th colspan="2" class="infoHeader imgbarleft icon24-install">
             <?php echo jgettext('Install and Uninstall PHP') ?>
         </th>
     </tr>
@@ -47,13 +47,15 @@ $hasUnInstall = false;
     <?php endif; ?>
 </table>
 <?php if( ! $hasInstall) : ?>
-	<div class="ecr_button img icon-16-add" onclick="createFile('php', 'install')">
+	<div class="btn block" onclick="createFile('php', 'install')">
+        <i class="img icon16-add"></i>
 	    <?php echo jgettext('Create install file'); ?>
-	</div>
-<?php endif; ?>
-<?php if( ! $hasUnInstall) : ?>
-	<div class="ecr_button img icon-16-add" onclick="createFile('php', 'uninstall')">
-	    <?php echo jgettext('Create uninstall file'); ?>
+    </div>
+    <?php endif; ?>
+    <?php if( ! $hasUnInstall) : ?>
+    <div class="btn block" onclick="createFile('php', 'uninstall')">
+        <i class="img icon16-add"></i>
+        <?php echo jgettext('Create uninstall file'); ?>
 	</div>
 <?php endif; ?>
 </div>
