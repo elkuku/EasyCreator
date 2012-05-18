@@ -963,7 +963,7 @@ class EcrLanguage
                                         {
                                             echo '<span style="background-color: #FFFFB2;">'
                                             .JFile::getName($fName).'('.$fCount.') '
-                                            .'(<strong class="hasEasyTip" style="color:blue;" title="'.$fName.'">'
+                                            .'(<strong class="hasTip" style="color:blue;" title="'.$fName.'">'
                                             .'aaaXXW'.jgettext('PATH').'</strong>)</span><br />';
                                         }
                                     }//foreach

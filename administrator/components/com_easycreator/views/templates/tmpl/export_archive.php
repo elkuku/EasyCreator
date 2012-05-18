@@ -61,7 +61,7 @@ foreach($exportTypes as $exportType) :
             <td><?php echo EcrHtml::byte_convert($fsize); ?></td>
             <td width="2%">
                 <a href="javascript:" style="padding-left: 20px; height: 14px;"
-                   class="btn hasEasyTip"
+                   class="btn hasTip"
                    title="<?php echo jgettext('Delete').'::'.$fileName; ?>" <?php echo $js_delete; ?>>
                     <i class="img icon16-delete"></i>
                 </a>

@@ -99,7 +99,7 @@ function drawTable($langFile, $title, $cutAfter, $displayFormField)
 }//function
 
 /**
- * displays a span class="hasEasyTip" which will be rendered as a moootools tooltip
+ * displays a span class="hasTip" which will be rendered as a moootools tooltip
  *
  * @param string $string the (html) string to display
  * @param integer $cutAfter numer of letters to display
@@ -111,7 +111,7 @@ function displayCuttedTT($string, $cutAfter)
 
     if(strlen($string) > strlen($ret))
     {
-        $ret .= '<span class="hasEasyTip" style="border-bottom: 1px dotted orange" title="'.$string.'">...</span>';
+        $ret .= '<span class="hasTip" style="border-bottom: 1px dotted orange" title="'.$string.'">...</span>';
     }
 
     return $ret;

@@ -218,7 +218,7 @@ foreach($this->default_file as $line)
                                 else
                                 {
                                     echo '<span style="background-color: #FFFFB2;">'.JFile::getName($fName)
-                                    .'('.$fCount.') (<strong class="hasEasyTip" style="color:blue;" title="'
+                                    .'('.$fCount.') (<strong class="hasTip" style="color:blue;" title="'
                                     .$fName.'">'.jgettext('PATH').'</strong>)</span><br />';
                                 }
                             }//foreach

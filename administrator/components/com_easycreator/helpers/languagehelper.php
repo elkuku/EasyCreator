@@ -138,11 +138,11 @@ class EcrLanguageHelper
         //--Check if file exists
         if($file->exists)
         {
-            echo '<span class="img icon16-check_ok hasEasyTip" title="'.jgettext('Found').'"/>';
+            echo '<span class="img icon16-check_ok hasTip" title="'.jgettext('Found').'"/>';
         }
         else
         {
-            echo '<span class="img icon16-check_fail hasEasyTip" title="'.jgettext('Not found').'" />';
+            echo '<span class="img icon16-check_fail hasTip" title="'.jgettext('Not found').'" />';
             EcrHtmlButton::createLanguageFile($file->lang, $file->scope);
 
             return;
@@ -153,11 +153,11 @@ class EcrLanguageHelper
         {
             if($file->isUFT8 == 'NOT CHECKED')
             {
-                echo '<span class="img icon16-yellowled hasEasyTip" title="'.jgettext('Not checked for UTF-8').'" />';
+                echo '<span class="img icon16-yellowled hasTip" title="'.jgettext('Not checked for UTF-8').'" />';
             }
             else
             {
-                echo '<span class="img icon16-check_ok hasEasyTip" title="'.jgettext('UTF-8').'" />';
+                echo '<span class="img icon16-check_ok hasTip" title="'.jgettext('UTF-8').'" />';
             }
         }
         else
@@ -170,7 +170,7 @@ class EcrLanguageHelper
         {
             if($file->hasBOM == 'NOT CHECKED')
             {
-                echo '<span class="img icon16-yellowled hasEasyTip" title="'.jgettext('Not checked for BOM').'" />';
+                echo '<span class="img icon16-yellowled hasTip" title="'.jgettext('Not checked for BOM').'" />';
             }
             else
             {
@@ -179,7 +179,7 @@ class EcrLanguageHelper
         }
         else
         {
-            echo '<span class="img icon16-check_ok hasEasyTip" title="'.jgettext('No BOM').'" />';
+            echo '<span class="img icon16-check_ok hasTip" title="'.jgettext('No BOM').'" />';
         }
     }//function
 

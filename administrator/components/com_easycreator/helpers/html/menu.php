@@ -272,7 +272,7 @@ class EcrHtmlMenu
 
             if(ECR_HELP > 1)
             {
-                $htmlDescriptionDivs .= '<div class="hidden_div ecr_description" id="desc_'.$tasks[0].'">'
+                $htmlDescriptionDivs .= '<div class="clr hidden_div ecr_description" id="desc_'.$tasks[0].'">'
                     .$sTask['description'].'</div>';
                 $jsVars .= "var desc_".$tasks[0]." = $('desc_".$tasks[0]."');\n";
 
@@ -290,10 +290,10 @@ class EcrHtmlMenu
             $html[] = "<script type='text/javascript'>"
                 ."window.addEvent('domready', function() {\n"
                 ."function showTaskDesc(name) {\n"
-                ."this.setStyle('display', 'block');\n"
+                ."   this.setStyle('display', 'block');\n"
                 ."}\n"
                 ."function hideTaskDesc(name) {\n"
-                ."	this.setStyle('display', 'none');\n"
+                ."   this.setStyle('display', 'none');\n"
                 ."}\n"
                 .$jsVars
                 .$jsEvents

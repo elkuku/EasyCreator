@@ -10,9 +10,14 @@
 $blackList = array('EMAIL@ADDRESS', 'Nikolai Plath', 'nik-it.de');
 $list = array();
 
+//-- they did not get caught by the machine...
+$list['fr-FR'] = array('crony, 2008');
+$list['pl-PL'] = array('keran, 2008');
+$list['zh-CN'] = array('baijianpeng, 2008');
+
 /** @var SplFileInfo $fileInfo */
 foreach(new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator(__DIR__.'/administrator/components/com_easycreator/g11n'))
+            new RecursiveDirectoryIterator(dirname(__DIR__).'/administrator/components/com_easycreator/g11n'))
         as $fileInfo
 )
 {
@@ -27,48 +32,12 @@ foreach(new RecursiveIteratorIterator(
 
     $langTag = array_pop($parts);
 
-    if(! isset($list[$langTag]))
-        $list[$langTag] = array();
+    isset($list[$langTag]) || $list[$langTag] = array();
 
-    $translators = getTranslators($fileInfo->getRealPath());
+    $translators = array();
 
-    foreach($translators as $translator)
-    {
-        foreach($blackList as $black)
-        {
-            if(false !== strpos($translator, $black))
-                continue 2;
-        }
+    $f = fopen($fileInfo->getRealPath(), 'r');
 
-        if(! in_array($translator, $list[$langTag]))
-            $list[$langTag][] = $translator;
-    }
-}
-
-foreach($list as $langTag => $translators)
-{
-    echo '<li>';
-    $br = '<br />';
-    echo '<strong>'.$langTag.'</strong>'.$br;
-
-    $clean = str_replace(array('<', '>'), array('&lt;', '&gt;'), $translators);
-
-    echo implode($br, $clean);
-
-    echo '</li>';
-    echo "\n\n";
-}
-
-/**
- * @param $file
- *
- * @return array
- */
-function getTranslators($file)
-{
-    $ret = array();
-
-    $f = fopen($file, 'r');
     $line = '#';
 
     while($line)
@@ -86,10 +55,33 @@ function getTranslators($file)
 
         $line = trim($line, "# \n");
 
-        $ret[] = $line;
+        $translators[] = $line;
     }
 
     fclose($f);
 
-    return $ret;
+    foreach($translators as $translator)
+    {
+        foreach($blackList as $black)
+        {
+            if(false !== strpos($translator, $black))
+                continue 2;
+        }
+
+        in_array($translator, $list[$langTag]) || $list[$langTag][] = $translator;
+    }
 }
+
+ksort($list);
+
+foreach($list as $langTag => $translators)
+{
+    $clean = str_replace(array('<', '>'), array('&lt;', '&gt;'), $translators);
+
+    echo '<dt>'.$langTag.'</dt>';
+    echo '<dd>'.implode('<br />', $clean).'</dd>';
+
+    echo "\n";
+}
+
+echo 'Finished'."\n";

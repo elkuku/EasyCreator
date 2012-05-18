@@ -26,7 +26,7 @@ JFactory::getDocument()->addScriptDeclaration($js);
     <input type="checkbox" <?php echo $upgradeChecked; ?>
            name="buildvars[method]" id="buildvars_method" value="upgrade"/>
 
-    <label class="inline" for="buildvars_method" class="hasEasyTip"
+    <label class="inline" for="buildvars_method" class="hasTip"
            title="method=upgrade::<?php echo jgettext('This will perform an upgrade on installing your extension'); ?>">
         <?php echo jgettext('Upgrade'); ?>
     </label>

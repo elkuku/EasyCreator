@@ -72,7 +72,7 @@ foreach($folders as $folder) :
             <td><?php echo EcrHtml::byte_convert($info[7]); ?></td>
             <?php if(0 === strpos($path, ECRPATH_BUILDS)) : ?>
             <td width="2%">
-                <div class="btn btn-mini hasEasyTip" title="<?php echo jgettext('Delete'); ?>::"
+                <div class="btn btn-mini hasTip" title="<?php echo jgettext('Delete'); ?>::"
                      onclick="EcrZiper.deleteZipFile(<?php echo "'$p', '$file'"?>);">
                     <i class="img icon16-delete"></i>
                 </div>

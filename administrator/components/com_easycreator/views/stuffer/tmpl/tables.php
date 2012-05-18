@@ -115,7 +115,7 @@ foreach($tables as $table) :
         	       	<?php echo $table->name; ?>
     	       	</div>
     	    </th>
-    	    <th class="hasEasyTip" title="<?php echo nl2br(print_r($table->status, true)); ?>">
+    	    <th class="hasTip" title="<?php echo nl2br(print_r($table->status, true)); ?>">
     	    &bull;I&bull;
     	    </th>
 	    </tr>
@@ -127,7 +127,7 @@ foreach($tables as $table) :
         foreach($table->getFields() as $field) :
             echo '<tr>';
             printf('<td>%s</td><td style="color: gray;">%s</td>', $field->name, $field->type);
-            echo '<th class="hasEasyTip" style="background-color: #b2cce5;" title="'
+            echo '<th class="hasTip" style="background-color: #b2cce5;" title="'
             .nl2br(print_r($field, true)).'">&bull;I&bull;</th>';
             echo '</tr>';
         endforeach;
@@ -351,7 +351,7 @@ endforeach;
              }
              ?>
         <td><?php echo $table->hasInstall; ?></td>
-        <td><div class="hasEasyTip" title="<?php echo $table->name; ?> Info::<pre><?php
+        <td><div class="hasTip" title="<?php echo $table->name; ?> Info::<pre><?php
         print_r($table->status); ?></pre>">INFO</div></td>
     </tr>
 <?php

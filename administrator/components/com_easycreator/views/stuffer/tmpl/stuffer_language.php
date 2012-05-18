@@ -22,7 +22,7 @@ $buildOpts = $this->project->buildOpts;
     </div>
     <ul>
         <li>
-            <label for="extension_prefix" class="creditsLabel hasEasyTip"
+            <label for="extension_prefix" class="creditsLabel hasTip"
                    title="<?php echo jgettext('Extension prefix').'::'.jgettext('A custom prefix for your extension.'); ?>">
                 <?php echo jgettext('Extension prefix'); ?>
             </label>
@@ -31,7 +31,7 @@ $buildOpts = $this->project->buildOpts;
         </li>
 
         <li>
-            <label for="lng_separate_javascript" class="creditsLabel hasEasyTip"
+            <label for="lng_separate_javascript" class="creditsLabel hasTip"
                    title="<?php echo jgettext('Separate JavaScript').'::'.jgettext('Separate JavaScript from PHP translations'); ?>">
                 <?php echo jgettext('Separate JavaScript'); ?>
             </label>

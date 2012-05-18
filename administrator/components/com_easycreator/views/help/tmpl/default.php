@@ -17,35 +17,26 @@
 
     <p>
     <span class="img32a icon32-ecr_help">
-        EasyCreator documentation can be found on the unofficial german Joomla! wiki Joomla-Nafu.de. in english only.
+        EasyCreator documentation can be found on the unofficial german Joomla-Wiki.de - in english only.
         <br/>
-        As this is a wiki (just like wikipedia) - your are hereby invited to contribute or correct any errors - <big>BIG</big> thanks !
-        <br/>
-        <br/>
-        So... here it is: <a class="external" href="<?php echo ECR_DOCU_LINK; ?>">EasyCreator Documentation</a> (WIP)
+        As this is a wiki (just like wikipedia) - your are hereby invited to contribute or correct any errors -
+        <big>BIG</big> thanks !
+        <h3>
+            <a class="external" href="<?php echo ECR_DOCU_LINK; ?>">EasyCreator Documentation</a>
+        </h3>
     </span>
     </p>
 
-    <h1>EasyCreator Credits</h1>
+    <h1>Credits</h1>
     <ul>
         <li>
-            <strong>The icon</strong> belongs to the very funny constructor game <a
-            href="http://games.kde.org/game.php?game=ktuberling" class="external"><span class="img icon16-easycreator">KTuberling</span></a>.
-            I would call EasyCreator also a "potato editor" <tt>=;)</tt>
-        </li>
-        <li>
-            <strong>EditArea</strong> The great code editor by Christophe Dolivet. <a
-            href="http://www.cdolivet.com/index.php?page=editArea" class="external">www.cdolivet.net/editarea</a>
-        </li>
-        <li>
-            <strong>PHP File Tree</strong> The beautiful File tree is build on an idea by Cory S.N. LaViska - <a
-            href="http://abeautifulsite.net/2007/06/php-file-tree/" class="external">abeautifulsite.net</a> - <em>heavily
-            modified</em>
+            <strong>Extension templates</strong> see individual templates and most of all <a
+            href="http://docs.joomla.org/" class="external">docs.joomla.org</a>
         </li>
         <li>
             <strong>Manifest maker class</strong> by Ian MacLennan <a href="http://joomlacode.org/gf/project/ianstools/"
                                                                       class="external">joomlacode.org/gf/project/ianstools</a>
-            - <em>slightly modified</em>
+            - <em>modified</em>
         </li>
         <li>
             <strong>Package creation</strong> is done with <a href="http://pear.php.net" class="external">PEAR</a>
@@ -57,41 +48,65 @@
             href="http://jxtended.com/" class="external">jxtended.com</a>
         </li>
         <li>
+            <strong>EditArea</strong> The great code editor by Christophe Dolivet. <a
+            href="http://www.cdolivet.com/index.php?page=editArea" class="external">www.cdolivet.net/editarea</a>
+        </li>
+        <li>
+            <strong>PHP File Tree</strong> The beautiful File tree is build on an idea by Cory S.N. LaViska - <a
+            href="http://abeautifulsite.net/2007/06/php-file-tree/" class="external">abeautifulsite.net</a>
+            - <em>modified</em>
+        </li>
+        <li>
             <strong>Diff engine</strong> comes from <a href="http://www.dokuwiki.org" class="external">Dokuwiki</a> -
             see &copy; + License in helpers/DifferenceEngine.php
         </li>
         <li>
-            <strong>Extension templates</strong> see individual templates and most of all <a
-            href="http://docs.joomla.org/" class="external">docs.joomla.org</a>
+            <strong>The icons</strong> used all over the place are from the <a href="http://www.everaldo.com/crystal/"
+                                                                               class="external">Crystal project</a>.
+        </li>
+        <li>
+            <strong>The EasyCreator icon</strong> belongs to the very funny constructor game
+            <a href="http://games.kde.org/game.php?game=ktuberling" class="external">
+                <span class="img icon16-easycreator">KTuberling</span>
+            </a>.
+            I would call EasyCreator also a "potato editor" <tt>=;)</tt>
         </li>
         <li>
             <strong>Fellow translators:</strong>
-            <ul>
-                <li><strong>ar-AR</strong><br/>&lt;ahmadalfy@gmail.com&gt;, 2011.<br/>&lt;m-amine-1995@hotmail.com&gt;,
-                    2012.
-                </li>
-                <li><strong>da-DK</strong><br/>Brian Rønnow &lt;info@b-ronnow.dk&gt;, 2011.</li>
-                <li><strong>de-DE</strong><br/>Michael &lt;michael.pohlhaus@googlemail.com&gt;, 2011.<br/>&lt;bvp@gmx.de&gt;,
-                    2011.
-                </li>
-                <li><strong>es-ES</strong><br/>javier Fernández Llata &lt;jfllata@gmail.com&gt;, 2011.</li>
-                <li><strong>fr-FR</strong><br/>crony, 2008<br/>Marcos Peebles &lt;marcos.peebles@gmail.com&gt;, 2011.
-                </li>
-                <li><strong>hu-HU</strong><br/>Sándor Balikó &lt;vo101sanyo@gmail.com&gt;, 2011.</li>
-                <li><strong>id-ID</strong><br/>&lt;uringinteristi@gmail.com&gt;, 2011, 2012.</li>
-                <li><strong>nl-NL</strong><br/>Steven Zeegers &lt;steven.zeegers@gmail.com&gt;, 2011.</li>
-                <li><strong>pl-PL</strong><br/>keran, 2008<br/>Begina Felicysym &lt;begina.felicysym@wp.eu&gt;, 2012.
-                </li>
-                <li><strong>pt-BR</strong><br/>Manoel iikozen &lt;iikozen@yahoo.com&gt;, 2011.</li>
-                <li><strong>sv-SE</strong><br/>Joel Hansen &lt;johaswe@gmail.com&gt;, 2011.<br/>&lt;linus.pettersson@gmail.com&gt;,
-                    2011.<br/>Tess Neale &lt;tess@prothemer.com&gt;, 2011.
-                </li>
-                <li><strong>zh-CN</strong><br/>baijianpeng, 2008</li>
-            </ul>
+            <dl class="dl-horizontal">
+                <dt>ar-AR</dt>
+                <dd>&lt;ahmadalfy@gmail.com&gt;, 2011.<br/>&lt;m-amine-1995@hotmail.com&gt;, 2012.</dd>
+                <dt>da-DK</dt>
+                <dd>Brian Rønnow &lt;info@b-ronnow.dk&gt;, 2011.</dd>
+                <dt>de-DE</dt>
+                <dd>Michael &lt;michael.pohlhaus@googlemail.com&gt;, 2011.<br/>&lt;bvp@gmx.de&gt;, 2011.</dd>
+                <dt>es-ES</dt>
+                <dd>javier Fernández Llata &lt;jfllata@gmail.com&gt;, 2011.</dd>
+                <dt>fr-FR</dt>
+                <dd>crony, 2008<br/>Marcos Peebles &lt;marcos.peebles@gmail.com&gt;, 2011.</dd>
+                <dt>hu-HU</dt>
+                <dd>Sándor Balikó &lt;vo101sanyo@gmail.com&gt;, 2011.</dd>
+                <dt>id-ID</dt>
+                <dd>&lt;uringinteristi@gmail.com&gt;, 2011, 2012.</dd>
+                <dt>nl-NL</dt>
+                <dd>Steven Zeegers &lt;steven.zeegers@gmail.com&gt;, 2011.</dd>
+                <dt>pl-PL</dt>
+                <dd>keran, 2008<br/>Begina Felicysym &lt;begina.felicysym@wp.eu&gt;, 2012.</dd>
+                <dt>pt-BR</dt>
+                <dd>Manoel iikozen &lt;iikozen@yahoo.com&gt;, 2011.</dd>
+                <dt>sv-SE</dt>
+                <dd>Joel Hansen &lt;johaswe@gmail.com&gt;, 2011.<br/>&lt;linus.pettersson@gmail.com&gt;, 2011.<br/>Tess
+                    Neale &lt;tess@prothemer.com&gt;, 2011.
+                </dd>
+                <dt>zh-CN</dt>
+                <dd>baijianpeng, 2008</dd>
+            </dl>
         </li>
-        <li>Who's missing ? ... ah, me - Nikolai Plath (aka elkuku) - <a href="https://github.com/elkuku"
-                                                                         class="external">github.com/elkuku</a> -
-            responsible for the <strong>rest</strong> <tt style="color: green;">=;)</tt></li>
+        <li>Responsible for the rest: Nikolai Plath (aka elkuku) -
+            <a href="https://github.com/elkuku" class="external">github.com/elkuku</a>
+            <br/>
+            <tt style="color: green;">=;)</tt>
+        </li>
     </ul>
 
 </div>

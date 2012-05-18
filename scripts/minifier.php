@@ -24,7 +24,7 @@ foreach($types as $type)
     $cntA = 0;
 
     /* @var DirectoryIterator $fileInfo */
-    foreach(new DirectoryIterator(__DIR__.'/administrator/components/com_easycreator/assets/'.$type) as $fileInfo)
+    foreach(new DirectoryIterator(dirname(__DIR__).'/administrator/components/com_easycreator/assets/'.$type) as $fileInfo)
     {
         if($fileInfo->isDir())
             continue;

@@ -83,7 +83,7 @@ div.plumbBox {
     padding: 0.3em;
 }
 
-th.hasEasyTip {
+th.hasTip {
     background-color: #b2cce5;
     cursor: help;
 }

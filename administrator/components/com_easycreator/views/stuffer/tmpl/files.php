@@ -46,7 +46,7 @@ $fileTree = $cache->call('drawFileTree', $this->project);
                 default:
                 break;
             endswitch;
-        echo '<span style="float: right;" class="img icon16-info hasEasyTip" title="'
+        echo '<span style="float: right;" class="img icon16-info hasTip" title="'
         .jgettext('File tree').'::'.jgettext('Left click files to edit.').'<br />'
         .jgettext('Right click files and folders for options.').'">&nbsp;</span>';
 
@@ -221,7 +221,7 @@ foreach(EcrProjectHelper::getPartsGroups() as $group)
                 }
             }
 
-            echo '<div class="btn block hasEasyTip" title="'
+            echo '<div class="btn block hasTip" title="'
             .$toolTip.'" onclick="showPart(\''.$group.'\', \''.$part.'\');">'.$title.'</div>';
         }
     }//foreach

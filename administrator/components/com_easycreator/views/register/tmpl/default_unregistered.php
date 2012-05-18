@@ -62,7 +62,7 @@ foreach($projectScopes as $comType => $projectScope) :
 
         foreach($unregisteredProjects as $project) :
             ?>
-            <div class="btn block hasEasyTip"
+            <div class="btn block hasTip"
                  style="padding-left: 20px;; height: 14px; margin-top: 0.3em; margin-bottom: 0.3em;"
                  title="<?php
                      echo jgettext('Register').'&lt;span class=\'img icon16-import\''

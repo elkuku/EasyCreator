@@ -17,7 +17,7 @@ if( ! $this->easyLanguage)
     return;
 }
 
-JHTML::_('behavior.modal', 'a.modal');
+JHTML::_('behavior.modal', 'a.ecr_modal');
 
 $allFiles = array();
 $languages = array_diff($this->languages, $this->hideLangs);
@@ -102,13 +102,13 @@ endif;
 			</th>
 			<th>
 			    <?php echo jgettext('Translated'); ?>
-			    <span style="background-color: green; cursor: pointer;" class="hasEasyTip"
+			    <span style="background-color: green; cursor: pointer;" class="hasTip"
 				title="<?php echo jgettext('Translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<span style="background-color: red; cursor: pointer;"
-				class="hasEasyTip" title="<?php echo jgettext('Not translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				class="hasTip" title="<?php echo jgettext('Not translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<?php if($this->showCore) : ?>
     				<span style="background-color: orange; cursor: pointer;"
-    				class="hasEasyTip"
+    				class="hasTip"
     				title="<?php echo jgettext('Translated in core'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<?php endif; ?>
 			</th>
@@ -183,7 +183,7 @@ endif;
                     $display =($lang != 'en-GB') ? 'display: none;' : '';
                     $txt =($lang != 'en-GB') ? $lang : jgettext('Not translated');
                     ?>
-		            <a class="ecr_button modal"
+		            <a class="ecr_button ecr_modal"
 		            style="color: red; <?php echo $display; ?>"
 		            title="<?php echo jgettext('Click to translate'); ?>"
         			href="<?php echo $tmpLink; ?>"
@@ -204,7 +204,7 @@ endif;
                 $tmpLink .= '&amp;field_id='.$fieldID;
                 $style =(array_key_exists($lang, $this->strings[$def])) ? 'green' : 'red';
                 ?>
-		        <a class="ecr_button modal" style="color: <?php echo $style; ?>"
+		        <a class="ecr_button ecr_modal" style="color: <?php echo $style; ?>"
 		        title="<?php echo jgettext('Click to translate'); ?>"
 			    href="<?php echo $tmpLink; ?>"
 			    rel="{handler: 'iframe', size: {x: 920, y: 330}}"
