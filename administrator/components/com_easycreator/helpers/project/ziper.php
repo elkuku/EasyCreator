@@ -171,7 +171,12 @@ class EcrProjectZiper extends JObject
      */
     private function performPrebuildActions()
     {
+        if(0 == count($this->project->actions))
+            return $this;
+
         $this->logger->log('Performing prebuild actions');
+
+        $logPath = JFactory::getConfig()->get('log_path').'/ecr_log.php';
 
         foreach($this->project->actions as $action)
         {
@@ -184,7 +189,7 @@ class EcrProjectZiper extends JObject
 
                     $this->logger->log('Executing: '.$command);
 
-                    $output = shell_exec($command.' 2>&1');
+                    $output = shell_exec($command.' 2>&1 | tee -a '.$logPath.'');
 
                     $this->logger->log(trim($output));
                     break;

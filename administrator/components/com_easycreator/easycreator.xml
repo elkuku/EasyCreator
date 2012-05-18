@@ -28,7 +28,7 @@
     <filename>easycreator.php</filename>
   </files>
   <administration>
-    <menu img="components/com_easycreator/assets/images/ico/icon-16-easycreator.png" link="index.php?option=com_easycreator">EasyCreator
+    <menu img="media/com_easycreator/admin/images/ico/icon-16-easycreator.png" link="index.php?option=com_easycreator">EasyCreator
         </menu>
     <files folder="admin">
       <folder>assets</folder>

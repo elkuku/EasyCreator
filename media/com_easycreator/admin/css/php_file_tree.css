@@ -14,7 +14,7 @@
 }
 
 .php-file-tree ul {
-    padding-left: 12px;
+    padding-left: 0;/*12px;*/
 }
 
 .php-file-tree div {
@@ -26,6 +26,10 @@
 .php-file-tree div:hover {
     background-color: #eee;
     cursor: pointer;
+}
+
+.php-file-tree li {
+    /*line-height: 1em;*/
 }
 
 .php-file-tree li.pft-file {

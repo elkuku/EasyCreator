@@ -50,6 +50,44 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-05-17
+e53f72e Move media to a media folder
+7a82ef5 Fix tooltips
+3f54ca2 Move the scripts to a scripts folder
+647eb9c Add option to execute custom scripts prior to build the extension
+06a9699 Refactor html class
+
+2012-05-16
+22490e4 UI redesign based on Twitter Bootstrap
+91b0a16 Fix include path in sandbox loader
+
+2012-05-15
+f149389 Update minifier.php
+e118c94 Fix a JS strict error
+5c5de65 Add a minifier PHP wrapper
+827aa1e Add loading minified css and javascript if debug is not enabled
+ee6689b Add minified javascript
+c2eed8f Add minified css
+2673729 Fix webapp path in codeeye view
+d5202ec Fix extension template webapp mvc_1
+4137901 Fix jmethodlister config path
+
+2012-05-14
+e79197b Rename all replacement vriables
+
+2012-05-13
+1349c10 Add application extension template - Web application MVC
+e29d776 Add template extension template - Twitter Bootstrap
+
+2012-05-03
+9bb504c Remove google translate option - it is now a paid service :(
+
+2012-05-02
+6afcbb1 Fix: Can not add update urls - Thanks Greg Keys
+
+2012-04-29
+f5550f3 Update changelog
+
 ---------- 0.0.17 ----------
 
 2012-04-29

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -6,9 +6,6 @@
  * @author     Created on 02-Oct-2009
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 jimport('joomla.application.component.controller');
 
@@ -95,8 +92,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         echo json_encode($response);
     }
 
-    //function
-
     /**
      * Execute a selenium test.
      *
@@ -156,8 +151,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         echo json_encode($response);
     }
-
-    //function
 
     /**
      * Create a skeleton for a unit test.
@@ -278,8 +271,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         echo json_encode($response);
     }
 
-    //function
-
     /**
      * Displays the content of the test directory.
      *
@@ -314,8 +305,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         echo json_encode($response);
     }
-
-    //function
 
     /**
      * Executes a 'sniff'.
@@ -406,8 +395,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         echo json_encode($response);
     }
-
-    //function
 
     /**
      * Executes a 'sniff'.
@@ -620,8 +607,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         echo json_encode($response);
     }
 
-    //function
-
     /**
      * Runs PHPDocumentor.
      *
@@ -654,7 +639,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         {
             $a[] = JPATH_ROOT.DS.$n;
         }
-        //foreach
 
         $parseDirs = implode(',', $a);
 
@@ -665,7 +649,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         {
             $a[] = JPATH_ROOT.DS.$n;
         }
-        //foreach
 
         $parseFiles = implode(',', $a);
 
@@ -702,8 +685,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         echo json_encode($response);
     }
 
-    //function
-
     /**
      * Checks for installed PEAR packages.
      *
@@ -731,19 +712,22 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         <div class="infoHeader">Installed PEAR Packages</div>
         <div style="margin-top: 1em;">
-            <table class="adminlist">
+            <table class="table table-striped table-bordered table-condensed">
 
                 <thead>
+
                 <tr>
                     <th><?php echo jgettext('Package'); ?></th>
                     <th><?php echo jgettext('Version'); ?></th>
-                    <th><?php echo jgettext('Recommended'); ?></th>
+                    <th><?php echo jgettext('Minimun'); ?></th>
                     <th><?php echo jgettext('Info'); ?></th>
                 </tr>
+
                 </thead>
 
                 <tbody>
-                <tr class="row0">
+
+                <tr>
                     <td>PHP_CodeSniffer</td>
                     <td><?php echo (array_key_exists('PHP_CodeSniffer', $pearPackages))
                         ? $pearPackages['PHP_CodeSniffer']
@@ -756,8 +740,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                         standards.
                     </td>
                 </tr>
-
-                <tr class="row1">
+                <tr>
                     <td>phpcpd</td>
                     <td><?php echo $pearConsole->testVersion('phpcpd', '1.2.0'); ?></td>
                     <td>1.1.1</td>
@@ -766,8 +749,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                         code.
                     </td>
                 </tr>
-
-                <tr class="row0">
+                <tr>
                     <td>PhpDocumentor</td>
                     <td><?php echo (array_key_exists('PhpDocumentor', $pearPackages))
                         ? $pearPackages['PhpDocumentor']
@@ -778,10 +760,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                         is the world standard auto-documentation tool for PHP.
                     </td>
                 </tr>
-
-                <tr class="row1">
+                <tr>
                     <td>PhpUnit</td>
-                    <td><?php  echo $pearConsole->testVersion('phpunit', '3.4.0'); ?></td>
+                    <td><?php  echo $pearConsole->testVersion('phpunit', '3.6.0'); ?></td>
                     <td>3.4.0</td>
                     <td><a href="http://www.phpunit.de/" class="external">PhpUnit</a>
                         provides both a framework that makes the writing of tests easy as
@@ -824,8 +805,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         echo json_encode($response);
     }
 
-    //function
-
     /**
      * Display statistics.
      *
@@ -839,8 +818,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         return;
     }
-
-    //function
 
     /**
      * Displays a chart.
@@ -907,5 +884,4 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         return;
     }
-    //function
-}//class
+}

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package       EasyCreator
  * @subpackage    Views
@@ -6,9 +6,6 @@
  * @author        Created on 10-Oct-2009
  * @license       GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 $langs = JFactory::getLanguage()->getKnownLanguages();
 
@@ -25,10 +22,10 @@ endif;
 $scopes = $this->project->getLanguagePaths();
 ?>
 
-<table class="adminlist">
+<table class="table table-striped table-bordered table-condensed">
     <thead>
     <tr>
-        <td></td>
+        <td>&nbsp;</td>
         <?php
         foreach($scopes as $scope => $path) :
             echo '<th>'.jgettext($scope).'</th>';
@@ -38,11 +35,8 @@ $scopes = $this->project->getLanguagePaths();
     </thead>
 
     <tbody>
-    <?php
-    $k = 0;
-
-    foreach($langs as $tag => $lang): ?>
-    <tr class="row<?php echo $k; ?>">
+    <?php foreach($langs as $tag => $lang): ?>
+    <tr>
         <td width="10%" nowrap="nowrap">
             <strong><?php echo $tag; ?></strong>
             <br/>
@@ -52,10 +46,9 @@ $scopes = $this->project->getLanguagePaths();
         <td>
             <?php EcrLanguageHelper::checkFile($this->project, $tag, $scope); ?>
         </td>
-        <?php endforeach;
-        $k = 1 - $k; ?>
-    </tr>
         <?php endforeach; ?>
+    </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>
 

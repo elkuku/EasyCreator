@@ -159,7 +159,6 @@ class EasyCreatorControllerZIPer extends JController
                     .'</div>';
                 $this->response->message .= $m;
             }
-
         }
         catch(Exception $e)
         {
@@ -178,5 +177,4 @@ class EasyCreatorControllerZIPer extends JController
 
         echo $this->response;
     }
-
-}//class
+}

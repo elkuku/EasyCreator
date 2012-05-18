@@ -85,15 +85,15 @@ function com_install()
 
     require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_easycreator'.DS.'helpers'.DS.'html.php';
 
-    JFactory::getDocument()->addStyleSheet(JURI::root().'administrator/components/com_easycreator/assets/css/default.css');
-    JFactory::getDocument()->addStyleSheet(JURI::root().'administrator/components/com_easycreator/assets/css/icon.css');
+    JFactory::getDocument()->addStyleSheet(JURI::root().'media/com_easycreator/admin/css/default.css');
+    JFactory::getDocument()->addStyleSheet(JURI::root().'media/com_easycreator/admin/css/icon.css');
     ?>
 
 <div>
 
     <div style="float: right">
         <img
-            src="<?php echo JURI::root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-128-easycreator.png"
+            src="<?php echo JURI::root(true); ?>/media/com_easycreator/admin/images/ico/icon-128-easycreator.png"
             alt="EasyCreator Logo" title="EasyCreator Logo"/>
     </div>
 

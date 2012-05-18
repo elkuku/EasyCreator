@@ -187,11 +187,11 @@ class EcrHtmlMenu
         <?php
         if(! in_array($task, $rTasks))
         {
-            ?> <a class="btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;"
+            ?> <a class="hasTip btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;"
                   title="<?php echo jgettext('More...'); ?>::<?php echo jgettext('Click for more options'); ?>"
                   onclick="this.setStyle('display', 'none'); ecr_options_box.toggle();">
             <?php if(ECR_TBAR_ICONS) : ?>
-            <i class="img icon16-add hasTip"></i>
+            <i class="img icon16-add"></i>
             <?php endif; ?>
             <?php echo jgettext('More...'); ?> </a> <?php
         }

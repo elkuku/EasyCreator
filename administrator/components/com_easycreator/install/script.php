@@ -43,7 +43,7 @@ class Com_EasyCreatorInstallerScript
 
         //-- This does not work :( - css..
         JFactory::getDocument()->addStylesheet(JURI::root(true)
-            .'/administrator/components/com_easycreator/assets/css/default.css');
+            .'/media/com_easycreator/admin/css/default.css');
 
         if('update' == $type)
         {

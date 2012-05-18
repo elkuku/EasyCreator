@@ -10,11 +10,14 @@
 
 $yuiJar = '/home/elkuku/libs/yui/yuicompressor-2.4.7.jar';
 
+$baseDir = dirname(__DIR__).'/media/com_easycreator';
+
 $types = array('admin/css', 'admin/js', 'site/css', 'site/js');
 
 $cnt = 0;
 
 $NL = "\n";
+
 echo 'EasyCreator CSS and JavaScript minifier'.$NL;
 
 foreach($types as $type)
@@ -24,7 +27,7 @@ foreach($types as $type)
     $cntA = 0;
 
     /* @var DirectoryIterator $fileInfo */
-    foreach(new DirectoryIterator(dirname(__DIR__).'/media/com_easycreator/'.$type) as $fileInfo)
+    foreach(new DirectoryIterator($baseDir.'/'.$type) as $fileInfo)
     {
         if($fileInfo->isDir())
             continue;
@@ -34,7 +37,7 @@ foreach($types as $type)
         if(2 != count($parts))
             continue;
 
-        echo $fileInfo->getFilename().$NL;
+        echo $fileInfo->getFilename().'... ';//.$NL;
 
         $path = $fileInfo->getRealPath();
 
