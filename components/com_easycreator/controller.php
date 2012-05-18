@@ -1,13 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Frontend-Controller
  * @author     Nikolai Plath (elkuku)
  * @author     Created on 24-Sep-2008
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 jimport('joomla.application.component.controller');
 
@@ -19,4 +16,4 @@ jimport('joomla.application.component.controller');
  */
 class EasyCreatorController extends JController
 {
-}//class
+}

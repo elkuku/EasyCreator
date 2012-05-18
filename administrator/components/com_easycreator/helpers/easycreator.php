@@ -41,8 +41,8 @@ class EcrEasycreator
             //-- Require specific controller if requested
             $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
 
-            if( ! file_exists($path))
-            throw new Exception(sprintf(jgettext('Controller %s not found'), $controller));
+            if(! file_exists($path))
+                throw new Exception(sprintf(jgettext('Controller %s not found'), $controller));
 
             require_once $path;
         }
@@ -55,28 +55,9 @@ class EcrEasycreator
         //-- Create the controller
         $classname = 'EasyCreatorController'.$controller;
 
-        if( ! class_exists($classname))
-        throw new Exception(sprintf(jgettext('Controller class %s not found'), $classname));
+        if(! class_exists($classname))
+            throw new Exception(sprintf(jgettext('Controller class %s not found'), $classname));
 
         return new $classname;
-    }//function
-
-    /**
-     *  We do this if the administrator folder is named somewhat other than 'administrator'.
-     *
-     *  @return string Relative URL path of components administration
-     */
-    public static function getAdminComponentUrlPath()
-    {
-        static $adminPath = '';
-
-        if($adminPath)
-        return $adminPath;
-
-        $root = str_replace(DS, '/', JPATH_ROOT);
-        $component = str_replace(DS, '/', JPATH_COMPONENT_ADMINISTRATOR);
-        $adminPath = str_replace($root.'/', '', $component);
-
-        return $adminPath;
-    }//function
-}//class
+    }
+}

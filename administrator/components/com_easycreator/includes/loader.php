@@ -29,7 +29,7 @@ function ecrLoadHelper($name)
         return $helpers[$name];
     }
 
-    if(! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
+    if( ! JFile::exists(JPATH_COMPONENT_ADMINISTRATOR.'/helpers/'.str_replace('.', '/', $name).'.php'))
     {
         EcrHtml::message(sprintf(jgettext('Helper file not found : %s'), $name), 'error');
 
@@ -55,12 +55,11 @@ function ecrStylesheet()
     $args = func_get_args();
 
     $document = JFactory::getDocument();
-    $path = EcrEasycreator::getAdminComponentUrlPath();
 
     foreach($args as $name)
     {
         $name = (ECR_DEBUG) ? $name : $name.'.min';
-        $document->addStylesheet(JURI::root(true).'/'.$path.'/assets/css/'.$name.'.css');
+        $document->addStylesheet(JUri::root(true).'/media/com_easycreator/admin/css/'.$name.'.css');
     }
 }
 
@@ -76,12 +75,11 @@ function ecrScript()
     $args = func_get_args();
 
     $document = JFactory::getDocument();
-    $path = EcrEasycreator::getAdminComponentUrlPath();
 
     foreach($args as $name)
     {
         $name = (ECR_DEBUG) ? $name : $name.'.min';
-        $document->addScript(JURI::root(true).'/'.$path.'/assets/js/'.$name.'.js');
+        $document->addScript(JURI::root(true).'/media/com_easycreator/admin/js/'.$name.'.js');
     }
 }
 

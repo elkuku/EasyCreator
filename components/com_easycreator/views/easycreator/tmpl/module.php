@@ -1,13 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Frontent
  * @author     Nikolai Plath (elkuku)
  * @author     Created on 24-Sep-2008
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 JHTML::_('behavior.tooltip');
 
@@ -19,19 +16,19 @@ $parameter = new JParameter($module->params, $xmlfile);
 
 ?>
 <table style="width: 100%">
-  <tr valign="top">
-    <td>
-    	<?php easyHTML::projectSelector(); ?>
-    </td>
-    <td>
-    	<div style="border: 1px solid red; padding: 5px;">
-    	<?php
-        echo JModuleHelper::renderModule($module); ?>
-		</div>
+    <tr valign="top">
+        <td>
+            <?php easyHTML::projectSelector(); ?>
+        </td>
+        <td>
+            <div style="border: 1px solid red; padding: 5px;">
+                <?php
+                echo JModuleHelper::renderModule($module); ?>
+            </div>
 
-		<h2><?php echo jgettext('Parameters'); ?></h2>
-		<?php echo $parameter->render(); ?>
+            <h2><?php echo jgettext('Parameters'); ?></h2>
+            <?php echo $parameter->render(); ?>
 
-    </td>
-  </tr>
+        </td>
+    </tr>
 </table>

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,10 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-if( ! $this->easyLanguage)
+if(! $this->easyLanguage)
 {
     EcrHtml::message(jgettext('No languages defined'), 'error');
 
@@ -30,12 +27,12 @@ if($this->scope != 'menu')
     {
         foreach($definition->files as $fName => $fCount)
         {
-            if( ! in_array($fName, $allFiles))
+            if(! in_array($fName, $allFiles))
             {
                 $allFiles[] = $fName;
             }
-        }//foreach
-    }//foreach
+        }
+    }
 
     //-- TODO improve sorting.. on filenames only
     sort($allFiles);
@@ -57,7 +54,8 @@ if($this->scope != 'menu')
         default:
             EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
-    }//switch
+    }
+    //switch
 
     echo '<h2>'.$searchTitle.' :: <span style="color: green;">'.ucfirst($this->scope).'</span></h2>';
 }
@@ -76,16 +74,19 @@ $fieldID = 0;
 $k = 0;
 
 if($this->scope != 'menu') :
-    $style =($lang_filter_file) ? ' style="color: red"' : ''; ?>
-<div style="background-color: #ffffdd;"><span <?php echo $style; ?>><?php echo jgettext('Filter'); ?></span>
-: <select name="lang_filter_file"
-	onchange="submitbutton('searchfiles', 1)">
-	<option value=""><?php echo jgettext('Select'); ?>...</option>
-	<?php
+    $style = ($lang_filter_file) ? ' style="color: red"' : ''; ?>
+<div style="background-color: #ffffdd;">
+    <span <?php echo $style; ?>>
+        <?php echo jgettext('Filter'); ?>
+    </span>
+    : <select name="lang_filter_file"
+              onchange="submitbutton('searchfiles', 1)">
+    <option value=""><?php echo jgettext('Select'); ?>...</option>
+    <?php
     foreach($allFiles as $fName) :
         $parts = explode($ecr_project, $fName);
         $displayName = substr($fName, strpos($fName, $ecr_project) + strlen($ecr_project) + 1);
-        $selected =($fName == $lang_filter_file) ? ' selected="selected"' : '';
+        $selected = ($fName == $lang_filter_file) ? ' selected="selected"' : '';
         echo NL.'<option value="'.$fName.'"'.$selected.'>'.$displayName.'</option>';
     endforeach;
     ?>
@@ -95,32 +96,33 @@ endif;
 ?>
 
 <table class="adminlist">
-	<thead>
-		<tr>
-			<th style="background-color: #CCE5FF;"><?php echo jgettext('KEY'); ?></th>
-			<th style="background-color: #FFFFB2;"><?php echo jgettext('Used in File'); ?>
-			</th>
-			<th>
-			    <?php echo jgettext('Translated'); ?>
-			    <span style="background-color: green; cursor: pointer;" class="hasTip"
-				title="<?php echo jgettext('Translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span style="background-color: red; cursor: pointer;"
-				class="hasTip" title="<?php echo jgettext('Not translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<?php if($this->showCore) : ?>
-    				<span style="background-color: orange; cursor: pointer;"
-    				class="hasTip"
-    				title="<?php echo jgettext('Translated in core'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<?php endif; ?>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php
+    <thead>
+    <tr>
+        <th style="background-color: #CCE5FF;"><?php echo jgettext('KEY'); ?></th>
+        <th style="background-color: #FFFFB2;"><?php echo jgettext('Used in File'); ?>
+        </th>
+        <th>
+            <?php echo jgettext('Translated'); ?>
+            <span style="background-color: green; cursor: pointer;" class="hasTip"
+                  title="<?php echo jgettext('Translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span style="background-color: red; cursor: pointer;"
+                  class="hasTip" title="<?php echo jgettext('Not translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <?php if($this->showCore) : ?>
+            <span style="background-color: orange; cursor: pointer;"
+                  class="hasTip"
+                  title="<?php echo jgettext('Translated in core'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <?php endif; ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
 
     foreach($this->definitions as $definition)
     {
         if($lang_filter_file
-        && ! array_key_exists($lang_filter_file, $definition->files))
+            && ! array_key_exists($lang_filter_file, $definition->files)
+        )
         {
             $k = 0;
             continue;
@@ -132,95 +134,95 @@ endif;
         $link = $baseLink.'&amp;trans_key='.$s;
         ?>
     <tr class="row<?php echo $k; ?>">
-    	<td><span style="color: gray;"><?php echo $def; ?></span></td>
-    	<td>
-    	<?php
-        foreach($definition->files as $fName => $fCount) :
-            echo '<span style="background-color: #FFFFB2;">';
-            echo substr($fName, strpos($fName, $ecr_project) + strlen($ecr_project) + 1).' ('.$fCount.')';
-            echo '</span><br />';
-        endforeach;
-        ?>
-    	</td>
+        <td><span style="color: gray;"><?php echo $def; ?></span></td>
+        <td>
+            <?php
+            foreach($definition->files as $fName => $fCount) :
+                echo '<span style="background-color: #FFFFB2;">';
+                echo substr($fName, strpos($fName, $ecr_project) + strlen($ecr_project) + 1).' ('.$fCount.')';
+                echo '</span><br />';
+            endforeach;
+            ?>
+        </td>
 
-		<td>
-		<?php
-        if($this->showCore)
-        {
-            foreach($languages as $lang)
+        <td>
+            <?php
+            if($this->showCore)
             {
-                if(array_key_exists($def, $this->coreStrings))
+                foreach($languages as $lang)
                 {
-                    echo '<span style="color: orange;">'.$lang.'</span>&nbsp;';
-                    $coreCount = true;
+                    if(array_key_exists($def, $this->coreStrings))
+                    {
+                        echo '<span style="color: orange;">'.$lang.'</span>&nbsp;';
+                        $coreCount = true;
+                    }
                 }
-            }//foreach
-        }
+            }
 
-        if( ! array_key_exists($def, $this->strings))
-        {
-            if( ! $coreCount)
+            if(! array_key_exists($def, $this->strings))
+            {
+                if(! $coreCount)
+                {
+                    foreach($languages as $lang)
+                    {
+                        $fieldID ++;
+                        $tmpLink = $link.'&amp;trans_lang='.$lang;
+                        $tmpLink .= '&amp;field_id='.$fieldID;
+
+                        if($lang == 'en-GB')
+                        {
+                            $adIDs = '&amp;ad_ids=';
+
+                            for($i = 1; $i < count($languages); $i ++)
+                            {
+                                $adIDs .= $fieldID + $i;
+                                $adIDs .= ($i < count($languages) - 1) ? ',' : '';
+                            }
+
+                            $tmpLink .= $adIDs;
+                        }
+
+                        $display = ($lang != 'en-GB') ? 'display: none;' : '';
+                        $txt = ($lang != 'en-GB') ? $lang : jgettext('Not translated');
+                        ?>
+                        <a class="ecr_button ecr_modal"
+                           style="color: red; <?php echo $display; ?>"
+                           title="<?php echo jgettext('Click to translate'); ?>"
+                           href="<?php echo $tmpLink; ?>"
+                           rel="{handler: 'iframe', size: {x: 820, y: 310}}"
+                           id="trfield_<?php echo $fieldID; ?>">
+                            <?php echo $txt; ?>
+                        </a>
+                        <?php
+                    }
+                }
+            }
+            else
             {
                 foreach($languages as $lang)
                 {
                     $fieldID ++;
                     $tmpLink = $link.'&amp;trans_lang='.$lang;
                     $tmpLink .= '&amp;field_id='.$fieldID;
-
-                    if($lang == 'en-GB')
-                    {
-                        $adIDs = '&amp;ad_ids=';
-
-                        for($i = 1; $i < count($languages); $i ++)
-                        {
-                            $adIDs .= $fieldID + $i;
-                            $adIDs .=($i < count($languages) - 1) ? ',' : '';
-                        }//for
-
-                        $tmpLink .= $adIDs;
-                    }
-
-                    $display =($lang != 'en-GB') ? 'display: none;' : '';
-                    $txt =($lang != 'en-GB') ? $lang : jgettext('Not translated');
+                    $style = (array_key_exists($lang, $this->strings[$def])) ? 'green' : 'red';
                     ?>
-		            <a class="ecr_button ecr_modal"
-		            style="color: red; <?php echo $display; ?>"
-		            title="<?php echo jgettext('Click to translate'); ?>"
-        			href="<?php echo $tmpLink; ?>"
-        			rel="{handler: 'iframe', size: {x: 820, y: 310}}"
-        			id="trfield_<?php echo $fieldID; ?>">
-        				<?php echo $txt; ?>
-        			</a>
-        			<?php
-                }//foreach
+                    <a class="ecr_button ecr_modal" style="color: <?php echo $style; ?>"
+                       title="<?php echo jgettext('Click to translate'); ?>"
+                       href="<?php echo $tmpLink; ?>"
+                       rel="{handler: 'iframe', size: {x: 920, y: 330}}"
+                       id="trfield_<?php echo $fieldID; ?>">
+                        <?php echo $lang; ?>
+                    </a>
+                    <?php
+                }
             }
-        }
-        else
-        {
-            foreach($languages as $lang)
-            {
-                $fieldID ++;
-                $tmpLink = $link.'&amp;trans_lang='.$lang;
-                $tmpLink .= '&amp;field_id='.$fieldID;
-                $style =(array_key_exists($lang, $this->strings[$def])) ? 'green' : 'red';
-                ?>
-		        <a class="ecr_button ecr_modal" style="color: <?php echo $style; ?>"
-		        title="<?php echo jgettext('Click to translate'); ?>"
-			    href="<?php echo $tmpLink; ?>"
-			    rel="{handler: 'iframe', size: {x: 920, y: 330}}"
-			    id="trfield_<?php echo $fieldID; ?>">
-			        <?php echo $lang; ?>
-			    </a>
-			    <?php
-            }//foreach
-        }
-        ?>
-    	</td>
+            ?>
+        </td>
 
-	</tr>
-	<?php
-    $k = 1 - $k;
-}//foreach
-?>
-</tbody>
+    </tr>
+        <?php
+        $k = 1 - $k;
+    }
+    ?>
+    </tbody>
 </table>

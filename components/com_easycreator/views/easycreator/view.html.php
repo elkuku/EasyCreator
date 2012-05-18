@@ -1,13 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Frontent
  * @author     Nikolai Plath (elkuku)
  * @author     Created on 24-Sep-2008
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 jimport('joomla.application.component.view');
 
@@ -24,7 +21,7 @@ class EasyCreatorViewEasyCreator extends JView
      *
      * @param string $tpl The name of the template file to parse.
      *
-     * @return void
+     * @return mixed|void
      */
     public function display($tpl = null)
     {
@@ -50,11 +47,11 @@ class EasyCreatorViewEasyCreator extends JView
                     echo '<h3 style="color: blue;">not yet...</h3>';
                     echo 'render: '.$selectedProject;
                     break;
-            }//switch
+            }
         }
 
         $this->assignRef('selectedProject', $selectedProject);
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

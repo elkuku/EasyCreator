@@ -210,7 +210,7 @@ EOF;
         $editAreaVersion = '0_8_1_1';
 
         EcrHtml::loadEditArea(array(
-            'path' => '/administrator/components/com_easycreator/assets/js/editarea_'.$editAreaVersion,
+            'path' => '/media/com_easycreator/admin/js/editarea_'.$editAreaVersion,
             'type' => $editarea_type,
             'syntax' => '',
             'form' => 'adminForm',

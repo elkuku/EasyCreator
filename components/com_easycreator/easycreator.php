@@ -47,10 +47,10 @@ catch(Exception $e)
 $document = JFactory::getDocument();
 
 //-- Add css
-$document->addStyleSheet('components/com_easycreator/assets/css/default.css');
+$document->addStyleSheet('media/com_easycreator/site/css/default.css');
 
 //-- Add javascript
-$document->addScript(JURI::root().'components/com_easycreator/assets/js/easycreator.js');
+$document->addScript('media/com_easycreator/site/js/easycreator.js');
 
 //-- Include standard html
 JLoader::import('helpers.html', JPATH_COMPONENT);

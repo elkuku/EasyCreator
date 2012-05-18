@@ -143,7 +143,7 @@ class EcrHtmlMenu
         <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debug</div>' : ''; ?>
 
         <div style="float: left; margin-top: -7px;"><img
-            src="<?php echo JURI::Root(); ?>administrator/components/com_easycreator/assets/images/ico/icon-64-easycreator.png"
+            src="<?php echo JURI::Root(); ?>media/com_easycreator/admin/images/ico/icon-64-easycreator.png"
             alt="EasyCreator Logo"/>
         </div>
 
