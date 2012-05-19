@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-JHtml::_('behavior.modal');
+//JHtml::_('behavior.modal');
 
 $link = new stdClass;
 
@@ -25,7 +25,7 @@ $link->latestVersion = 'https://github.com/elkuku/EasyCreator/commits/master.ato
 $link->repo = 'https://github.com/elkuku/EasyCreator/';
 $link->translations = 'https://opentranslators.transifex.net/projects/p/easycreator/';
 
-$ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_static_logo.png';
+$ohlohImg = '/media/com_easycreator/admin/images/ohloh_static_logo.png';
 ?>
 
 <ul style="list-style: none; margin: 0; padding: 0;">
@@ -59,7 +59,7 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 
     <!--
     <li class="img icon16-rename">
-     <a href="<?php echo $link->versionCheck; ?>" class="modal external">
+     <a href="<?php echo $link->versionCheck; ?>" class="ecr_modal external">
         <a href="<?php echo $link->versionCheck; ?>" target="_blank" class="external">
     <?php echo jgettext('Version check'); ?>
     </a>
@@ -84,10 +84,10 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
         <!-- Ohloh button -->
         <a class="ohloh" href="http://www.ohloh.net/stack_entries/new?project_id=EasyCreator&amp;ref=WidgetProjectUsersLogo"
          style="border-bottom:none; text-decoration:none; display:block; background:url(<?php
-         echo JURI::root(true).$ohlohImg; ?>) 0px 0px no-repeat;width:73px;height:23px;"
+         echo JURI::root(true).$ohlohImg; ?>) 0 0 no-repeat;width:73px;height:23px;"
          title="<?php echo jgettext('Support EasyCreator by adding it to your stack at Ohloh'); ?>"
          onmouseout="this.style.background = 'url(<?php
-         echo JURI::root(true).$ohlohImg; ?>) 0px 0px no-repeat'"
+         echo JURI::root(true).$ohlohImg; ?>) 0 0 no-repeat'"
          onmouseover="this.style.background = 'url(<?php
          echo JURI::root(true).$ohlohImg; ?>) 0 -23px no-repeat'"
           ></a>
@@ -96,7 +96,7 @@ $ohlohImg = '/administrator/components/com_easycreator/assets/images/ohloh_stati
 
 <div style="clear: both;"></div>
 
-<script>
+<script type="text/javascript">
 var ecrInfoBox = new Fx.Slide(document.id('ecrInfoBox'));
 ecrInfoBox.hide();
 </script>

@@ -18,7 +18,7 @@ INSERT INTO `#__components`
 VALUES
 ('EasyCreator', 'option=com_easycreator', 0, 0, 'option=com_easycreator'
 , 'EasyCreator', 'com_easycreator', 0
-, 'components/com_easycreator/assets/images/ico/icon-16-easycreator.png', 0, '', 1);
+, '../media/com_easycreator/admin/images/ico/icon-16-easycreator.png', 0, '', 1);
 
 ** J! >= 1.6 +
 Use the new 'Discover' feature from the Joomla! installer - works great =;)

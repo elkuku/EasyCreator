@@ -19,7 +19,7 @@ ecrStylesheet('contextmenu');
 //-- Add javascript
 ecrScript('contextmenu', 'templates');
 
-JHTML::_('behavior.modal');
+JHTML::_('behavior.modal', 'a.ecr_modal');
 
 //-- Allowed extensions
 //-- TODO set somewhere else...
@@ -130,34 +130,36 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                     </li>
                 </ul>
                 <ul>
-                    <li class="pft-directoryX">
+                    <li class="pft-directory">
                         <div style="font-size: 1.3em;">
                             <?php echo jgettext('Standard files'); ?>
                         </div>
-                        <ul>
                             <?php
                             echo $fileTree->setDir(ECRPATH_EXTENSIONTEMPLATES.DS.'std')->drawTree();
                             ?>
-                        </ul>
                     </li>
                 </ul>
                 <?php echo $fileTree->endTree(); ?>
             </div>
 
             <div class="ecr_floatbox">
-                <h2><?php echo jgettext('Template constants'); ?></h2>
+                <h3><?php echo jgettext('Template variables'); ?></h3>
 
-                <h3><?php echo jgettext('Common constants')?></h3>
+                <h4><?php echo jgettext('Common variables')?></h4>
                 <ul>
                     <?php foreach(EcrProjectTemplateHelper::getReplacementInfo() as $infoKey => $infoText) : ?>
                     <li>
-                        <?php echo '<strong>'.$infoKey.'</strong>'; ?>
-                        <?php if($infoText) echo '('.$infoText.')'; ?>
+                        <?php
+                            echo ('' == $infoText)
+                            ? '<strong>'
+                            : '<strong class="hasTip img icon16-info" title="'.$infoKey.'::'.$infoText.'">';
+                        ?>
+                        <?php echo $infoKey.'</strong>'; ?>
                     </li>
                     <?php endforeach; ?>
                 </ul>
-                <h3><?php echo jgettext('Custom constants')?></h3>
-                <?php echo jgettext('Custom constants may be defined in every template in options.php'); ?>
+                <h4><?php echo jgettext('Custom variables')?></h4>
+                <?php echo jgettext('Custom variables may be defined in every template using the file options.php'); ?>
             </div>
         </td>
         <td>

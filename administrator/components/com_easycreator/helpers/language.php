@@ -603,7 +603,9 @@ class EcrLanguage
             }
         }
 
-        if( ! JFile::write($fileName, implode("\n", $resultFile)))
+        $contents = implode("\n", $resultFile);
+
+        if( ! JFile::write($fileName, $contents))
         {
             throw new Exception(sprintf(jgettext('Unable to write file %s'), $fileName));
         }
@@ -916,10 +918,10 @@ class EcrLanguage
                                 $link .= '&amp;trans_key='.$skey;
                                 $link .= '&amp;field_id='.$fieldID;
 
-                                JHTML::_('behavior.modal', 'a.modal');
+                                JHTML::_('behavior.modal', 'a.ecr_modal');
                                 ?>
 
-<a class="modal" title="<?php echo jgettext('Click to translate'); ?>"
+<a class="ecr_modal" title="<?php echo jgettext('Click to translate'); ?>"
     href="<?php echo $link; ?>"
     rel="{handler: 'iframe', size: {x: 900, y: 310}}"
     id="trfield_<?php echo $fieldID; ?>"> <?php

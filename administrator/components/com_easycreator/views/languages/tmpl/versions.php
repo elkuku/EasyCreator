@@ -28,7 +28,7 @@ if( ! count($this->versions))
 }
 
 //-- Add css
-JHTML::stylesheet('diff.css', 'administrator/components/com_easycreator/assets/css/');
+ecrStylesheet('diff');
 
 //-- Add Javascript
 ecrScript('versions');

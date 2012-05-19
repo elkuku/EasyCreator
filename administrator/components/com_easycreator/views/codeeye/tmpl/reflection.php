@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-JHTML::_('behavior.modal');
+JHTML::_('behavior.modal', 'a.ecr_modal');
 
 ecrStylesheet('doccomment');
 ecrScript('doccomment');
@@ -27,8 +27,8 @@ var divCount = 0;
 
 function reflectFile(file_path, file_nameame)
 {
-	$('file_path').value = file_path;
-    $('file_name').value = file_nameame;
+    document.id('file_path').value = file_path;
+    document.id('file_name').value = file_nameame;
     submitform('reflect');
 }
 </script>
@@ -87,7 +87,7 @@ function reflectFile(file_path, file_nameame)
             }
 
             echo '<div class="ecr_button" onclick="submitbutton(\'reflect\');">';
-            echo '<img src="'.JURI::root().'administrator/components/com_easycreator/assets/images/splash_green.png" />';
+            echo '<img src="'.JURI::root().'media/com_easycreator/admin/images/splash_green.png" />';
             echo '<br />';
             echo sprintf(jgettext('Reflect the %s project'), $this->project->comName);
             echo '</div>';
@@ -149,6 +149,11 @@ function aj_drawProject(EcrProjectBase $project)
 	*/
 }//function
 
+/**
+ * @param EcrProjectBase $project
+ *
+ * @return mixed
+ */
 function drawProject(EcrProjectBase $project)
 {
     echo '<h1>'.$project->name.'</h1>';
@@ -199,6 +204,11 @@ function drawProject(EcrProjectBase $project)
 	<?php
 }//function
 
+/**
+ * @param                $reflections
+ * @param                $type
+ * @param EcrProjectBase $project
+ */
 function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
 {
     switch ($type)
@@ -235,12 +245,12 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
 
                                 $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
                                 .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
-                                    echo NL.'<a class="modal img icon16-php hasTip" title="'
+                                    echo NL.'<a class="ecr_modal img icon16-php hasTip" title="'
                                     .jgettext('View Source').'::'.$fileLocation
                                     .'" rel="{handler: \'iframe\', size: {x: 950, y: 550}}" href="'.$link.'">';
                                     echo NL.'</a>';
 //echo NL.'<span class="doccomment_sourcecode hasTip" title="'.$fileLocation.'">';
-//echo NL.'<a class="modal" rel="{handler: \'iframe\', size: {x: 950, y: 550},
+//echo NL.'<a class="ecr_modal" rel="{handler: \'iframe\', size: {x: 950, y: 550},
 //effects:Fx.Transitions.Bounce.easeOut}" href="'.$link.'">';
 //echo jgettext('Source');
 //echo NL.'</a></span>';
@@ -307,7 +317,7 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
                                     $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
                                     .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
 
-                                    echo NL.'<a class="modal img icon16-php hasTip" title="'
+                                    echo NL.'<a class="ecr_modal img icon16-php hasTip" title="'
                                     .jgettext('View Source').'::'.$fileLocation.'" rel="{handler: \'iframe\','
                                     .' size: {x: 950, y: 550}}" href="'.$link.'">';
 
@@ -381,6 +391,11 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
     }//switch
 }//function
 
+/**
+ * @param EcrProjectBase $project
+ *
+ * @return string
+ */
 function drawFileTree(EcrProjectBase $project)
 {
     EcrHtml::initFileTree();
@@ -715,7 +730,7 @@ function reflect($path, $file)
                     .'<br />'.jgettext('Lines').' # '.$cMethod->getStartLine().' - '.$cMethod->getEndLine();
 
                     echo NL.'<span class="doccomment_sourcecode hasTip" title="'.$fileLocation.'">';
-                    echo NL.'<a class="modal" rel="{handler: \'iframe\', size: {x: 950, y: 550}'
+                    echo NL.'<a class="ecr_modal" rel="{handler: \'iframe\', size: {x: 950, y: 550}'
                     .', effects:Fx.Transitions.Bounce.easeOut}"    href="'.$link.'">';
 
                     echo jgettext('Source code');

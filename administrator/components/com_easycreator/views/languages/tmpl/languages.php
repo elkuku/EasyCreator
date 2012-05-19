@@ -19,7 +19,7 @@ if( ! $this->easyLanguage)
     return;
 }
 
-JHTML::_('behavior.modal', 'a.modal');
+JHTML::_('behavior.modal', 'a.ecr_modal');
 
 $lang_first_line_comment = 3;
 $lang_first_line_comment_cnt = 0;
@@ -172,7 +172,7 @@ foreach($this->default_file as $line)
 
                         echo '<td>';
                         ?>
-						<a class="modal" title="<?php echo jgettext('Click to translate'); ?>"
+						<a class="ecr_modal" title="<?php echo jgettext('Click to translate'); ?>"
 						  href="<?php echo $link; ?>"
 						  rel="{handler: 'iframe', size: {x: 900, y: 310}}"
 						  id="trfield_<?php echo $fieldID; ?>">
@@ -252,6 +252,13 @@ if($sliderDrawed)
     echo $pane2->endPane();
 }
 
+/**
+ * @param $lang
+ * @param $key
+ * @param $value
+ *
+ * @return mixed
+ */
 function displayField($lang, $key, $value)
 {
     if( ! $value)

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Help
@@ -7,15 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 jimport('joomla.application.component.view');
 
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Views
  */
 class EasyCreatorViewHelp extends JView
@@ -25,28 +22,25 @@ class EasyCreatorViewHelp extends JView
      *
      * @param string $tpl The name of the template file to parse;
      *
-     * @return void
+     * @return mixed|void
      */
     public function display($tpl = null)
     {
         $task = JRequest::getCmd('task');
 
-        $help_path = JPATH_COMPONENT.DS.'assets'.DS.'help';
-
         switch($task)
         {
             case 'jhelp':
-                $help_file = '';
                 $this->setLayout('jhelp');
                 break;
 
             case 'help':
             default:
-                $help_file = 'help.php';
                 break;
-        }//switch
+        }
 
         parent::display($tpl);
+
         EcrHtml::formEnd();
-    }//function
-}//class
+    }
+}

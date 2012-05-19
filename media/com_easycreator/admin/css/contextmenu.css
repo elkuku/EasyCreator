@@ -40,6 +40,6 @@ ul.SimpleContextMenu li a {
 
 ul.SimpleContextMenu li a:hover {
    text-decoration: none;
-   color: #000000;
-   background: #ccff99;
+   color: #fff;
+   background: #aaa;
 }

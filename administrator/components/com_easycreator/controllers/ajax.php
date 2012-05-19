@@ -329,7 +329,7 @@ class EasyCreatorControllerAjax extends JController
                 $docComment = preg_replace($pattern, '<strong>$1</strong>', $docComment);
                 echo "<h1>$rClass - $rMethod</h1>";
                 echo '<div class="path">';
-                echo '<span class="img icon-16-directory" style="font-size: 1.3em; font-weight: bold;">'
+                echo '<span class="img icon16-directory" style="font-size: 1.3em; font-weight: bold;">'
                 .str_replace(JPATH_ROOT, '', $method->getFileName())
                 .'</span> - # '.$method->getStartLine().' - '.$method->getEndline();
                 echo '</div>';
@@ -986,9 +986,9 @@ body {
     background-color: #eee;
 }
 </style>
-<h2 class="img icon-16-<?php echo $icon; ?>">
-
-<?php echo $title ?></h2>
+<h3 class="img icon16-<?php echo $icon; ?>">
+    <?php echo $title ?>
+</h3>
 <div
     style="background-color: #ffff99; border: 1px solid gray; padding: 0.5em;">
     <div id="displ_folder" style="display: inline;"></div>
@@ -997,7 +997,7 @@ body {
 <br />
 <div style="text-align: center;">
     <span class="btn" onclick="processForm();">
-        <i class="img icon-16-<?php echo $icon; ?>"></i>
+        <i class="img icon16-<?php echo $icon; ?>"></i>
         <?php echo $text ?>
     </span>
 </div>
@@ -1032,7 +1032,7 @@ body {
         $ajaxLink .= '&task='.$task.'&do_action='.$task;
         ?>
 
-<script>
+<script type="text/javascript">
             var FBPresent = true;
             if(window.console == undefined)
             {
@@ -1112,16 +1112,16 @@ body {
             * Javascript again..
             */
 
-            $('displ_folder').innerHTML = display;
-            $('act_folder').value = path;
+            document.id('displ_folder').innerHTML = display;
+            document.id('act_folder').value = path;
 
             function processForm()
             {
                 post = '';
-                post += '&act_path='+$('act_folder').value;
+                post += '&act_path=' + document.id('act_folder').value;
                 post += '&ecr_project=<?php echo $ecr_project; ?>';
 
-                act_name = $('act_name').value;
+                act_name = document.id('act_name').value;
                 post += '&act_name='+act_name;
 
                 <?php
@@ -1137,7 +1137,7 @@ body {
 
                     if( ! act_name)
                     {
-                        $('act_name').setStyle('background-color', 'red');
+                        document.id('act_name').setStyle('background-color', 'red');
 
                         return false;
                     }
@@ -1156,7 +1156,7 @@ body {
                         }
                         else
                         {
-                            $('log').innerHTML = result;
+                            document.id('log').innerHTML = result;
                         }
                     }
                 }).send();

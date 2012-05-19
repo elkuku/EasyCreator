@@ -44,7 +44,7 @@ abstract class EcrHtmlContextmenu
             array(jgettext('New folder'), 'new_folder', 'add')
         , array(jgettext('New file'), 'new_file', 'add')
         , array(jgettext('Rename'), 'rename_file', 'rename')
-        , array(jgettext('Delete'), 'delete_file', 'logout')
+        , array(jgettext('Delete'), 'delete_file', 'delete')
         );
         ?>
     <ul id="CM1" class="SimpleContextMenu">
@@ -63,7 +63,7 @@ abstract class EcrHtmlContextmenu
             array(jgettext('New folder'), 'new_folder', 'add')
         , array(jgettext('New file'), 'new_file', 'add')
         , array(jgettext('Rename'), 'rename_folder', 'rename')
-        , array(jgettext('Delete'), 'delete_folder', 'logout')
+        , array(jgettext('Delete'), 'delete_folder', 'delete')
         );
         ?>
     <ul id="CM2" class="SimpleContextMenu">
@@ -94,8 +94,8 @@ abstract class EcrHtmlContextmenu
     private static function addEntry($ajaxLink, $title, $task, $icon)
     {
         ?>
-    <li><a class="modal" onclick="SimpleContextMenu._hide();"
-           rel="{handler: 'iframe', size: {x: 600, y: 150}}"
+    <li><a class="ecr_modal" onclick="SimpleContextMenu._hide();"
+           rel="{handler: 'iframe', size: {x: 600, y: 180}}"
            href="<?php echo $ajaxLink.'&task='.$task; ?>"> <span
         class="img icon16-<?php echo $icon; ?>"> <?php echo $title; ?> </span>
     </a></li>

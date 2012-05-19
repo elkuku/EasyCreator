@@ -16,7 +16,7 @@ if( ! count($this->project->copies)):
     return;
 endif;
 
-JHTML::_('behavior.modal', 'a.modal');
+JHTML::_('behavior.modal', 'a.ecr_modal');
 
 EcrHtml::initFileTree();
 

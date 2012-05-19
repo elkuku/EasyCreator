@@ -24,7 +24,7 @@ class easyHTML
     {
         ?>
 <h1><img
-	src="<?php echo JURI::root(); ?>components/com_easycreator/assets/images/easylogo_t.png"
+	src="<?php echo JURI::root(); ?>media/com_easycreator/admin/images/easylogo_t.png"
 	alt="easy-joomla logo" /> EasyCreator :: <small style="color: green;"><?php echo jgettext('Sandbox'); ?></small>
 </h1>
 

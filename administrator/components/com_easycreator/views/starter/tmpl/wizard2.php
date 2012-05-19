@@ -11,7 +11,7 @@
 defined('_JEXEC') || die('=;)');
 
 $formFieldNames = array();
-$img_base = JURI::root().'administrator/components/com_easycreator/assets/images';
+$img_base = JURI::root().'media/com_easycreator/admin/images';
 
 ecrScript('wizard2');
 ?>

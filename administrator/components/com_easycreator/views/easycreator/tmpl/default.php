@@ -16,7 +16,7 @@ if( ! JComponentHelper::getParams('com_easycreator')->get('cred_author')) :
     JFactory::getApplication()->enqueueMessage(
         sprintf(jgettext('Please set your personal information in %s'), $link), 'warning');
 endif;
-//<a class="modal" href="http://joomla.org">@TEST</a>
+//<a class="ecr_modal" href="http://joomla.org">@TEST</a>
 //<div onclick="checkVersion();">Check</div>
 ?>
 <div class="ecrInfoBoxContainer">

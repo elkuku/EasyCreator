@@ -48,7 +48,7 @@ class EasyCreatorViewStarter extends JView
         ecrScript('wizard');
 
         //-- JS for changing loader pic
-        $img_base = JURI::root().'administrator/components/com_easycreator/assets/images';
+        $img_base = JURI::root().'../media/com_easycreator/admin/images';
 
         JFactory::getDocument()->addScriptDeclaration(
             "var loaderPic = new Image(); loaderPic.src = '$img_base/ajax-loader2.gif';");

@@ -260,6 +260,10 @@
     background-image: url(../images/ico/icon-16-icon.png);
 }
 
+.icon16-info {
+    background-image: url(../images/ico/icon-16-info.png);
+}
+
 .icon16-import {
     background-image: url(../images/ico/icon-16-import.png);
 }
