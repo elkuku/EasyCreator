@@ -66,14 +66,12 @@ class EasyCreatorControllerDeploy extends JController
         try
         {
             $downloads = EcrDeployer::getInstance()->getPackageList();
-//            $downloads = EcrDeployer::getPackageList();
 
             $deployTarget = JFactory::getApplication()->input->get('deployTarget');
 
-
             $html = array();
 
-            if(! count($downloads))
+            if( ! count($downloads))
             {
                 $html[] = '<div class="warning">'.jgettext('No downloads found').'</div>';
             }
@@ -380,5 +378,4 @@ class EasyCreatorControllerDeploy extends JController
 
         sleep(1);
     }
-
 }

@@ -14,8 +14,8 @@ $min = (JDEBUG) ? '.min' : '';
     <head>
         <jdoc:include type="head" />
         <link rel="stylesheet" href="<?php echo $baseLink.'/css/bootstrap'.$min.'.css'; ?>" type="text/css" />
-        <link rel="stylesheet" href="<?php echo $baseLink.'/css/template'.$min.'.css'; ?>" type="text/css" />
         <link rel="stylesheet" href="<?php echo $baseLink.'/css/bootstrap-responsive'.$min.'.css'; ?>" type="text/css" />
+        <link rel="stylesheet" href="<?php echo $baseLink.'/css/template'.$min.'.css'; ?>" type="text/css" />
     </head>
     <body>
 

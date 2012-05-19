@@ -1,9 +1,9 @@
 <?php
 /**
  * @package        EasyCreator
- * @subpackage    Templates
- * @author        Nikolai Plath (elkuku)
- * @author        Created on 09-May-2009
+ * @subpackage     Templates
+ * @author         Nikolai Plath (elkuku)
+ * @author         Created on 09-May-2009
  */
 
 //-- No direct access
@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package     EasyCreator
  */
-class EasyTemplateOptions
+class TemplateOptions extends EcrProjectTemplateOptions
 {
     private $reservedNames = array();
 
@@ -41,16 +41,19 @@ class EasyTemplateOptions
             default:
                 EcrHtml::message(__METHOD__.' - Unknown J! version');
                 break;
-        }//switch
-    }//function
+        }
+    }
+
     /**
-    * Displays available options with input fields.
-    *
-    * @return string HTML
-    */
-    public function displayOptions()
+     * Displays available options with input fields.
+     *
+     * @param EcrProjectBase $project
+     *
+     * @return string HTML
+     */
+    public function displayOptions(EcrProjectBase $project)
     {
-        $exclude = array_merge(array('.svn', 'CVS','.DS_Store','__MACOSX'), $this->reservedNames);
+        $exclude = array_merge(array('.svn', 'CVS', '.DS_Store', '__MACOSX'), $this->reservedNames);
 
         $libraries = JFolder::folders(JPATH_LIBRARIES, '.', false, false, $exclude);
 
@@ -63,7 +66,7 @@ class EasyTemplateOptions
         foreach($libraries as $library)
         {
             $select .= '<option>'.$library.'</option>';
-        }//foreach
+        }
 
         $select .= '</select>';
 
@@ -72,7 +75,7 @@ class EasyTemplateOptions
         $html .= jgettext('Folder name').' : <input type="text" name="ecr_folder_name" id="ecr_folder_name" />';
 
         return $html;
-    }//function
+    }
 
     /**
      * Get the required fields.
@@ -84,7 +87,7 @@ class EasyTemplateOptions
         $requireds = array('ecr_folder_name');
 
         return $requireds;
-    }//function
+    }
 
     /**
      * Process custom options.
@@ -97,7 +100,7 @@ class EasyTemplateOptions
     {
         $ecr_folder_name = JRequest::getCmd('ecr_folder_name');
 
-        if( ! $ecr_folder_name)
+        if('' == $ecr_folder_name)
         {
             JFactory::getApplication()->enqueueMessage(jgettext('No folder given'), 'error');
 
@@ -117,5 +120,5 @@ class EasyTemplateOptions
         $builder->replacements->ECR_COM_SCOPE = ucfirst($ecr_folder_name);
 
         return true;
-    }//function
-}//class
+    }
+}

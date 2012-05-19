@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package EasyCreator
  */
-class EasyTemplateOptions
+class TemplateOptions extends EcrProjectTemplateOptions
 {
     /**
      * Displays available options with input fields.
@@ -30,7 +30,7 @@ class EasyTemplateOptions
 
         $html = '';
         $html .= '
-<script>
+<script type="text/javascript">
 	//--Set object count to 3 - 0 is the standard field "id"
 	//-- 1 is "catid" and 2 is "checked_out"
 	var obCount = 3;

@@ -42,7 +42,7 @@ class EcrProjectTemplateHelper
             {
                 $info = self::getTemplateInfo($tplType, $tplName);
 
-                if(! $info)
+                if(false == $info)
                     continue;
 
                 $list[$tplType][$info->folder] = $info;
@@ -62,7 +62,7 @@ class EcrProjectTemplateHelper
      */
     public static function getTemplateInfo($tplType, $tplName)
     {
-        if(! JFile::exists(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml'))
+        if(false == JFile::exists(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml'))
             return false;
 
         $xml = EcrProjectHelper::getXML(ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName.DS.'manifest.xml');
@@ -78,6 +78,21 @@ class EcrProjectTemplateHelper
         $info->dbTables = (string)$xml->dbTables;
         $info->author = (string)$xml->author;
         $info->authorUrl = (string)$xml->authorUrl;
+        $info->complements = array();
+
+        if(isset($xml->complements->complement))
+        {
+            foreach($xml->complements->complement as $complement)
+            {
+                $c = new stdClass;
+
+                $c->folder = (string)$complement->folder;
+                $c->version = (string)$complement->version;
+                $c->targetDir = (string)$complement->targetDir;
+
+                $info->complements[] = $c;
+            }
+        }
 
         $info->info = '';
         $info->info .= jgettext(ucfirst($tplType)).' '.$info->name.' '.$info->version.'::'.$info->description;

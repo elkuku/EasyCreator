@@ -50,12 +50,14 @@ $jVersions = array('15', '25');
     <?php if(isset($this->templateList[$extType])): ?>
     <?php if('' != $this->notes[$extType]) : ?>
         <span class="btn<?php echo ECR_TBAR_SIZE; ?>"
-              onclick="<?php echo $extType.'_notes'; ?>.toggle();"><?php echo jgettext('Notes'); ?>
+              onclick="<?php echo $extType.'_notes'; ?>.toggle();">
+            <?php echo jgettext('Notes'); ?>
         </span>
         <?php endif; ?>
     <?php if(count($this->infoLinks[$extType])) : ?>
         <span class="btn<?php echo ECR_TBAR_SIZE; ?>"
-              onclick="<?php echo $extType.'_links'; ?>.toggle();"><?php echo jgettext('See also...'); ?>
+              onclick="<?php echo $extType.'_links'; ?>.toggle();">
+            <?php echo jgettext('See also...'); ?>
         </span>
         <div class="ecr_wiz_desc" id="<?php echo $extType.'_links'; ?>">
             <strong><?php echo jgettext('External infos'); ?></strong>
@@ -143,6 +145,19 @@ $jVersions = array('15', '25');
             <strong><?php echo jgettext('PHP version'); ?></strong>
             <?php echo $template->phpVersion; ?><br/>
             <br/>
+            <?php if(count($template->complements)) : ?>
+            <strong><?php echo jgettext('Complements'); ?></strong>
+            <ul>
+
+            <?php foreach($template->complements as $complement) : ?>
+                <li>
+                    <?php echo $complement->folder.' ('.$complement->version.')'; ?>
+                    <br />
+                    &rArr; <tt><?php echo $complement->targetDir; ?></tt>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
             <strong><?php echo jgettext('Files'); ?></strong>
 
             <div id="<?php echo $htmlId; ?>_files"></div>

@@ -50,6 +50,20 @@ foreach($tags as $tag)
 
     $contents[] = '';
     $contents[] = '---------- '.$tag.' ----------';
+
+    /*
+    $tagInfo = explode("\n", shell_exec('git show '.$tag));
+
+    foreach($tagInfo as $line)
+    {
+        if(0 === strpos($line, 'Date'))
+        {
+            $contents[] = $line;
+
+            break;
+        }
+    }
+    */
 }
 
 echo implode("\n", $contents);

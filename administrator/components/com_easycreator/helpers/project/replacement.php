@@ -55,7 +55,7 @@ class EcrProjectReplacement
 
     public $ECR_DESCRIPTION;
 
-    public $ECR_AUTHOR;
+    public $ECR_AUTHORNAME;
 
     public $ECR_AUTHOREMAIL;
 

@@ -11,7 +11,7 @@
  *
  * @package EasyCreator
  */
-class EasyTemplateOptions
+class TemplateOptions extends EcrProjectTemplateOptions
 {
     /**
      * Displays available options with input fields.
@@ -25,7 +25,7 @@ class EasyTemplateOptions
         ecrScript('dbtables');
         ecrStylesheet('dbtables');
 
-        if(! in_array('mysql', $project->dbTypes))
+        if(false == in_array('mysql', $project->dbTypes))
         {
             $project->dbTypes = array_merge(array('mysql'), $project->dbTypes);
         }
@@ -54,7 +54,7 @@ class EasyTemplateOptions
 
         $html = array();
 
-        $html[] = '<script>';
+        $html[] = '<script type="text/javascript">';
         $html[] = '//--Set object count to 3 - 0 is the standard field "id"';
         $html[] = '//-- 1 is "catid" and 2 is "checked_out"';
         $html[] = 'var obCount = 3;';
@@ -104,7 +104,7 @@ class EasyTemplateOptions
     {
         $fields = JRequest::getVar('fields');
 
-        if(! is_array($fields))
+        if(false == is_array($fields))
         {
             JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
 

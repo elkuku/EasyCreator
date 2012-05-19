@@ -14,14 +14,16 @@ defined('_JEXEC') || die('=;)');
  *
  * @package EasyCreator
  */
-class EasyTemplateOptions
+class TemplateOptions extends EcrProjectTemplateOptions
 {
     /**
      * Displays available options with nput fields.
      *
+     * @param EcrProjectBase $project
+     *
      * @return string HTML
      */
-    public function displayOptions()
+    public function displayOptions(EcrProjectBase $project)
     {
         $html = jgettext('Folder name').' : <input type="text" name="ecr_folder_name" id="ecr_folder_name" />';
 

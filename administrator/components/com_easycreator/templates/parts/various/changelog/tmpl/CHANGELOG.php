@@ -8,7 +8,7 @@
  * @version    SVN $Id$
  * @package    ECR_COM_NAME
  * @subpackage Documentation
- * @author     ECR_AUTHOR {@link ECR_AUTHORURL}
+ * @author     ECR_AUTHORNAME {@link ECR_AUTHORURL}
  * @author     Created on ECR_ACT_DATE
  */
 
@@ -42,7 +42,7 @@ Legend:
  ! -> Note
 ______________________________________________
 
-ECR_ACT_DATE ECR_AUTHOR
+ECR_ACT_DATE ECR_AUTHORNAME
  ! Startup
 
 */

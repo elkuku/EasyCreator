@@ -78,7 +78,7 @@ class EcrProjectBuilder extends JObject
 
         $projectTypes = EcrProjectHelper::getProjectTypesTags();
 
-        if(! in_array($type, $projectTypes))
+        if( ! in_array($type, $projectTypes))
         {
             $this->logger->log(sprintf('Unknown project type [%s]', $type));
             $this->logger->writeLog();
@@ -107,12 +107,10 @@ class EcrProjectBuilder extends JObject
         foreach(EcrEasycreator::$packFormats as $name => $ext)
         {
             if($comParams->get($name))
-            {
                 $this->project->buildOpts[$name] = 'ON';
-            }
         }
 
-        if(! $this->customOptions('process'))
+        if(false == $this->customOptions('process'))
         {
             $this->logger->log('Custom options failed');
             $this->logger->writeLog();
@@ -128,6 +126,7 @@ class EcrProjectBuilder extends JObject
                 ->setUpProject()
                 ->readHeader()
                 ->createBuildDir()
+                ->addComplements()
                 ->copyFiles()
                 ->processMoreOptions()
                 ->createJoomlaManifest()
@@ -158,16 +157,16 @@ class EcrProjectBuilder extends JObject
      */
     private function setUp()
     {
-        if(! JFile::exists($this->buildBase.DS.'manifest.xml'))
+        if(false == JFile::exists($this->buildBase.DS.'manifest.xml'))
             throw new EcrBuilderException('Failed to open: '.$this->buildBase.DS.'manifest.xml');
 
-        if(! JFolder::exists($this->buildBase.DS.'tmpl'))
+        if(false == JFolder::exists($this->buildBase.DS.'tmpl'))
             throw new EcrBuilderException('Template must be in folder named tmpl - '
                 .$this->buildBase.DS.'tmpl');
 
         $folders = JFolder::folders($this->buildBase.DS.'tmpl');
 
-        if(! in_array('site', $folders) && ! in_array('admin', $folders))
+        if(false == in_array('site', $folders) && ! in_array('admin', $folders))
             throw new EcrBuilderException('Template must contain folders named admin or site');
 
         $this->buildManifest = EcrProjectHelper::getXML($this->buildBase.DS.'manifest.xml');
@@ -269,7 +268,7 @@ class EcrProjectBuilder extends JObject
 
         $this->replacements->ECR_VERSION = $this->project->version;
         $this->replacements->ECR_DESCRIPTION = $this->project->description;
-        $this->replacements->ECR_AUTHOR = $this->project->author;
+        $this->replacements->ECR_AUTHORNAME = $this->project->author;
         $this->replacements->ECR_AUTHOREMAIL = $this->project->authorEmail;
         $this->replacements->ECR_AUTHORURL = $this->project->authorUrl;
         $this->replacements->ECR_COPYRIGHT = $this->project->copyright;
@@ -359,7 +358,7 @@ class EcrProjectBuilder extends JObject
         //-- Clean the path @since J 1.7
         $this->buildDir = JPath::clean($this->buildDir);
 
-        if(! JFolder::create($this->buildDir))
+        if(false == JFolder::create($this->buildDir))
             throw new EcrBuilderException('Failed to create build directory: '.$this->buildDir);
 
         $this->logger->log('TempDir created at: '.$this->buildDir);
@@ -367,6 +366,35 @@ class EcrProjectBuilder extends JObject
             .'aka "'.$this->project->comName.'"<br />Template: '.$this->project->fromTpl);
 
         $this->project->buildPath = $this->buildDir;
+
+        return $this;
+    }
+
+    /**
+     * Add complements.
+     *
+     * @return EcrProjectBuilder
+     *
+     * @throws RuntimeException
+     * @throws DomainException
+     */
+    private function addComplements()
+    {
+        if(false == isset($this->buildManifest->complements->complement))
+            return $this;
+
+        foreach($this->buildManifest->complements->complement as $complement)
+        {
+            $this->logger->log('Adding complement: '.$complement->folder);
+
+            $path = ECRPATH_EXTENSIONTEMPLATES.'/complements/'.$complement->folder.'/'.$complement->version;
+
+            if(false == JFolder::exists($path))
+                throw new DomainException(__METHOD__.' - Complement not found in path: '.$path);
+
+            if(false == JFolder::copy($path, $this->buildDir.'/'.$complement->targetDir))
+                throw new RuntimeException(sprintf('Unable to copy %s to %s', $path, $this->buildDir));
+        }
 
         return $this;
     }
@@ -386,7 +414,7 @@ class EcrProjectBuilder extends JObject
         //-- Copy files
         foreach($scopes as $scope)
         {
-            if(! in_array($scope, $tplFolders))
+            if( ! in_array($scope, $tplFolders))
                 continue;
 
             JFolder::create($this->buildDir.DS.$scope);
@@ -408,7 +436,7 @@ class EcrProjectBuilder extends JObject
                 $path = str_replace('ecr_comname', strtolower($this->project->name), $path);
                 $path = str_replace('_ecr_list_postfix', strtolower($this->project->listPostfix), $path);
 
-                if(! JFile::write($path, $fContents))
+                if( ! JFile::write($path, $fContents))
                     throw new EcrBuilderException(sprintf(jgettext('Can not write the file at %s'), $path));
 
                 $this->logger->logFileWrite($fileName, $path, $fContents);
@@ -426,7 +454,7 @@ class EcrProjectBuilder extends JObject
      */
     private function processMoreOptions()
     {
-        if(! JRequest::getVar('create_changelog'))
+        if( ! JRequest::getVar('create_changelog'))
         {
             //-- No changelog requested
             return $this;
@@ -550,9 +578,9 @@ class EcrProjectBuilder extends JObject
         )
         {
             $src = $this->buildDir.'/site';
-            $dest = $this->project->getExtensionPath(); // JPATH_COMPONENT_ADMINISTRATOR.'/cliapps/'.$this->project->comName;
+            $dest = $this->project->getExtensionPath();
 
-            if(! JFolder::copy($src, $dest))
+            if(false == JFolder::copy($src, $dest))
                 throw new EcrBuilderException(
                     sprintf('Failed to copy the JApplication from %s to %s', $src, $dest));
 
@@ -562,7 +590,7 @@ class EcrProjectBuilder extends JObject
             $src = $this->buildDir.DS.$this->project->getJoomlaManifestName();
             $dest = $this->project->getJoomlaManifestPath().DS.$this->project->getJoomlaManifestName();
 
-            if(! JFile::copy($src, $dest))
+            if(false == JFile::copy($src, $dest))
                 throw new EcrBuilderException(
                     sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
 
@@ -575,7 +603,7 @@ class EcrProjectBuilder extends JObject
             $src = $this->buildDir.DS.$this->project->getJoomlaManifestName();
             $dest = $this->project->getJoomlaManifestPath().DS.$this->project->getJoomlaManifestName();
 
-            if(! JFile::copy($src, $dest))
+            if(false == JFile::copy($src, $dest))
                 throw new EcrBuilderException(
                     sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
 
@@ -591,7 +619,9 @@ class EcrProjectBuilder extends JObject
         $this->logger->log('Starting Install');
 
         //-- Did you give us a valid package ?
-        if(! $type = JInstallerHelper::detectType($this->buildDir))
+        $type = JInstallerHelper::detectType($this->buildDir);
+
+        if(false == $type)
             throw new EcrBuilderException(jgettext('Path does not have a valid package'));
 
         //-- Get an installer instance
@@ -607,7 +637,7 @@ class EcrProjectBuilder extends JObject
         ECR_DEBUG ? null : JInstallerHelper::cleanupInstall('', $this->buildDir);
 
         //-- There was an error installing the package
-        if(! $result)
+        if(false == $result)
             throw new EcrBuilderException(sprintf(jgettext('An error happened while installing your %s'), jgettext($type)));
 
         return $this;
@@ -625,14 +655,14 @@ class EcrProjectBuilder extends JObject
     {
         static $templateOptions = null;
 
-        if(! $templateOptions)
+        if(null == $templateOptions)
         {
             $tplType = JRequest::getVar('tpl_type');
             $tplName = JRequest::getVar('tpl_name');
 
             $template_path = ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName;
 
-            if(! JFile::exists($template_path.DS.'options.php'))
+            if(false == JFile::exists($template_path.DS.'options.php'))
             {
                 if($action == 'requireds')
                     return array();
@@ -645,9 +675,9 @@ class EcrProjectBuilder extends JObject
 
             include_once $template_path.DS.'options.php';
 
-            if(! class_exists('EasyTemplateOptions'))
+            if(false == class_exists('TemplateOptions'))
             {
-                echo sprintf(jgettext('Required class %s not found'), 'EasyTemplateOptions');
+                echo sprintf(jgettext('Required class %s not found'), 'TemplateOptions');
 
                 if($action == 'requireds')
                     return array();
@@ -655,13 +685,13 @@ class EcrProjectBuilder extends JObject
                 return false;
             }
 
-            $templateOptions = new EasyTemplateOptions;
+            $templateOptions = new TemplateOptions;
         }
 
         switch($action)
         {
             case 'display':
-                if(! method_exists('EasyTemplateOptions', 'displayOptions'))
+                if(false == method_exists('TemplateOptions', 'displayOptions'))
                 {
                     echo sprintf(jgettext('Required method %s not found'), 'displayOptions');
 
@@ -677,7 +707,7 @@ class EcrProjectBuilder extends JObject
                 echo '<br /><br />';
                 break;
             case 'process':
-                if(! method_exists('EasyTemplateOptions', 'processOptions'))
+                if(false == method_exists('TemplateOptions', 'processOptions'))
                 {
                     echo sprintf(jgettext('Required method %s not found'), 'processOptions');
 
@@ -687,7 +717,7 @@ class EcrProjectBuilder extends JObject
                 return $templateOptions->processOptions($this);
                 break;
             case 'requireds':
-                if(! method_exists('EasyTemplateOptions', 'getRequireds'))
+                if(false == method_exists('TemplateOptions', 'getRequireds'))
                 {
                     echo sprintf(jgettext('Required method %s not found'), 'getRequireds');
 
@@ -737,7 +767,7 @@ class EcrProjectBuilder extends JObject
 
         $this->logger = EcrLogger::getInstance('ecr', $options);
 
-        if(! array_key_exists($type, EcrProjectHelper::getProjectTypes()))
+        if(false == array_key_exists($type, EcrProjectHelper::getProjectTypes()))
         {
             JFactory::getApplication()->enqueueMessage(sprintf(jgettext('The project type %s is not defined yet'), $type), 'error');
             $this->setError(sprintf(jgettext('The project type %s is not defined yet'), $type));
@@ -766,7 +796,9 @@ class EcrProjectBuilder extends JObject
         //-- Set the Joomla! compatibility version to the version we are actually running on
         $project->JCompat = ECR_JVERSION;
 
-        if(! $xmlPath = EcrProjectHelper::findManifest($project))
+        $xmlPath = EcrProjectHelper::findManifest($project);
+
+        if(false == $xmlPath)
         {
             JFactory::getApplication()->enqueueMessage(jgettext('No manifest file found'), 'error');
 
@@ -818,12 +850,21 @@ class EcrProjectBuilder extends JObject
         {
             $path = ECRPATH_EXTENSIONTEMPLATES.'/std/header/'.$format.'/header'.$type.'.txt';
 
-            if(! JFile::exists($path))
+            if(false == JFile::exists($path))
                 continue;
 
             $header = JFile::read($path);
 
-            $this->replacements->addCustomPrio('##*HEADER'.strtoupper($type).'*##', $header);
+            switch($type)
+            {
+                case 'js':
+                    $this->replacements->addCustomPrio('//##*HEADER'.strtoupper($type).'*##', $header);
+                    break;
+
+                default:
+                    $this->replacements->addCustomPrio('##*HEADER'.strtoupper($type).'*##', $header);
+                    break;
+            }
         }
 
         return $this;

@@ -14,7 +14,7 @@ defined('_JEXEC') || die('=;)');
  *
  * @package EasyCreator
  */
-class EasyTemplateOptions
+class TemplateOptions extends EcrProjectTemplateOptions
 {
     /**
      * Displays available options with input fields.
@@ -30,7 +30,7 @@ class EasyTemplateOptions
 
         $html = array();
 
-        $html[] = '<script>';
+        $html[] = '<script type="text/javascript">';
         $html[] = '//--Set object count to 1 - 0 is the standard field "id"';
         $html[] = 'var obCount = 1;';
         $html[] = 'var obCountOrig = 1';
@@ -69,7 +69,7 @@ class EasyTemplateOptions
     {
         $fields = JRequest::getVar('fields');
 
-        if(! is_array($fields))
+        if(false == is_array($fields))
         {
             JFactory::getApplication()->enqueueMessage('No fields to process', 'error');
 
@@ -120,6 +120,7 @@ class EasyTemplateOptions
         $c->elements = array('divrow');
         $codes[] = $c;
 
+        /* @var EcrProjectAutocode $autoCode */
         foreach($codes as $autoCode)
         {
             foreach($autoCode->elements as $acElement)

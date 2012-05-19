@@ -1393,7 +1393,7 @@ abstract class EcrProjectBase
             $this->addSubstitute('ECR_COM_NAME', $project->name);
             $this->addSubstitute('ECR_COM_COM_NAME', $project->comName);
             $this->addSubstitute('ECR_UPPER_COM_COM_NAME', strtoupper($project->comName));
-            $this->addSubstitute('ECR_AUTHOR', $project->author);
+            $this->addSubstitute('ECR_AUTHORNAME', $project->author);
             $this->addSubstitute('ECR_AUTHORURL', $project->authorUrl);
             $this->addSubstitute('ECR_ACT_DATE', date('d-M-Y'));
 

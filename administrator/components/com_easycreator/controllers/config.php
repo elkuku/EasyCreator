@@ -68,7 +68,7 @@ class EasyCreatorControllerConfig extends JController
                     break;
             }
 
-            if(! $table->bind(JRequest::get('post'))
+            if( ! $table->bind(JRequest::get('post'))
                 || ! $table->check()
                 || ! $table->store()
             )

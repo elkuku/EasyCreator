@@ -2,7 +2,7 @@
  * @version SVN: $@@Id@@$
  * @package    ECR_COM_NAME
  * @subpackage JavaScript
- * @author     ECR_AUTHOR {@link ECR_AUTHORURL}
+ * @author     ECR_AUTHORNAME {@link ECR_AUTHORURL}
  * @author     Created on ECR_ACT_DATE
  * @license    GNU/GPL
  */

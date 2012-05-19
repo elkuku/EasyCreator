@@ -9,4 +9,11 @@
 	<phpVersion>5</phpVersion>
 	<author>Twitter</author>
 	<authorUrl>http://twitter.github.com/bootstrap/</authorUrl>
+    <complements>
+        <complement>
+            <folder>twitter-bootstrap</folder>
+            <version>2.0.3</version>
+            <targetDir>site</targetDir>
+        </complement>
+    </complements>
 </easyproject>
