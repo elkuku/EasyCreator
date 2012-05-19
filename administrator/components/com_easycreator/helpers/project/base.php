@@ -868,7 +868,7 @@ abstract class EcrProjectBase
             foreach($this->updateServers as $server)
             {
                 /* @var SimpleXMLElement $sElement */
-                $sElement = $element->addChild('server', $server->url);
+                $sElement = $element->addChild('server', htmlentities($server->url));
 
                 $sElement->addAttribute('name', $server->name);
                 $sElement->addAttribute('type', $server->type);
@@ -903,14 +903,10 @@ abstract class EcrProjectBase
 
         $path = ECRPATH_SCRIPTS.DS.$this->getEcrXmlFileName();
 
-        if(! $testMode)
+        if(false == $testMode)
         {
-            if(! JFile::write(JPath::clean($path), $output))
-            {
-                $this->setError('Could not save XML file!');
-
-                return false;
-            }
+            if(false == JFile::write(JPath::clean($path), $output))
+                throw new DomainException('Could not save XML file.', 1);
         }
 
         return $output;
