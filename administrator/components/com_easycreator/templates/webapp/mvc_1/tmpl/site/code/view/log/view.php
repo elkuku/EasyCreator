@@ -1,7 +1,14 @@
 <?php
 ##*HEADER*##
+
+/**
+ * Html log view class.
+ */
 class ECR_CLASS_PREFIXViewLogView extends JViewHtml
 {
+    /**
+     * @var string
+     */
     protected $log = '';
 
     /**

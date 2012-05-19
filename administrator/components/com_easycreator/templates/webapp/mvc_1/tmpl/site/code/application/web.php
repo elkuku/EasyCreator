@@ -22,6 +22,41 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      */
     protected $db;
 
+    private $messages = array();
+
+    /**
+     * @param        $message
+     * @param string $type
+     */
+    public function addMessage($message, $type = 'info')
+    {
+        if(false == array_key_exists($type, $this->messages))
+            $this->messages[$type] = array();
+
+        $this->messages[$type][] = $message;
+    }
+
+    private function renderMessages()
+    {
+        $html = array();
+
+        foreach($this->messages as $type => $messages)
+        {
+            $html[] = '<div class="alert alert-'.$type.'">';
+            $html[] = '<ul>';
+
+            foreach($messages as $message)
+            {
+                $html[] = '<li>'.$message.'</li>';
+            }
+
+            $html[] = '</ul>';
+            $html[] = '</div>';
+        }
+
+        return implode("\n", $html);
+    }
+
     /**
      * Overrides the parent doExecute method to run the web application.
      *
@@ -32,6 +67,11 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      */
     protected function doExecute()
     {
+        ob_start();
+
+        $message = '';
+        $debugOutput = '';
+
         try
         {
             // Load the database object if necessary.
@@ -48,10 +88,12 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
         }
         catch(Exception $e)
         {
-            $output = '<div class="alert alert-error">'.$e->getMessage().'</div>';
+            $output = '<div class="alert alert-error"> '.$e->getMessage().'</div> ';
 
             JLog::add($e->getMessage(), JLog::ERROR);
         }
+
+        $debugOutput = ob_get_clean();
 
         if('get' == $this->do)
         {
@@ -68,7 +110,9 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
 
         $html = ob_get_clean();
 
-        $html = str_replace('<!-- ApplicationOutput -->', $output, $html);
+        $html = str_replace(' <!--ApplicationOutput-->', $output, $html);
+        $html = str_replace('<!--ApplicationMessage-->', $this->renderMessages(), $html);
+        $html = str_replace('<!--ApplicationDebug-->', $debugOutput, $html);
 
         $this->appendBody($html);
     }
@@ -82,7 +126,7 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      * @throws RuntimeException
      * @internal param $targetApplication
      *
-     * @return ECR_CLASS_PREFIXConfig
+     * @return \ECR_CLASS_PREFIXConfig|mixed
      */
     public function fetchConfigurationData($file = '', $class = 'ECR_CLASS_PREFIXConfig')
     {
@@ -95,7 +139,7 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
             // Default to the distribution configuration.
             : JPATH_CONFIGURATION.'/configuration.dist.php';
 
-        if(! is_readable($file))
+        if(false == is_readable($file))
             throw new RuntimeException('Configuration file does not exist or is unreadable.', 1);
 
         include_once $file;
@@ -137,7 +181,8 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      * @since   1.0
      * @throws  InvalidArgumentException
      */
-    protected function fetchModel()
+    protected
+    function fetchModel()
     {
         $base = 'ECR_CLASS_PREFIXModel';
 
@@ -161,7 +206,8 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      *
      * @return JViewHtml
      */
-    protected function fetchView(JModelBase $model)
+    protected
+    function fetchView(JModelBase $model)
     {
         $name = $this->input->get('view') ? : $this->do;
 
@@ -186,7 +232,8 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
     /**
      * @return object
      */
-    public function getConfig()
+    public
+    function getConfig()
     {
         return $this->config->toObject();
     }
@@ -198,7 +245,8 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      *
      * @since 1.0
      */
-    protected function loadDatabase()
+    protected
+    function loadDatabase()
     {
         $database = ('sqlite' == $this->get('db_driver'))
             ? APP_PATH_DATA.'/'.$this->get('db_name')

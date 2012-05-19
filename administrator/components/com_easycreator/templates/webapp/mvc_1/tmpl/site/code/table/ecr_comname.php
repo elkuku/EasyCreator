@@ -68,6 +68,7 @@ class ECR_CLASS_PREFIXTableECR_UCF_COM_NAME extends JTable
      */
     public function bind($src, $ignore = array())
     {
+        /* @var JInput $src */
         if(is_array($src))
             return parent::bind($src, $ignore);
 

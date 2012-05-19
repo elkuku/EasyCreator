@@ -11,7 +11,7 @@
  *
  * @package EasyCreator
  */
-class EasyTemplateOptions
+class TemplateOptions extends EcrProjectTemplateOptions
 {
     /**
      * Displays available options with input fields.

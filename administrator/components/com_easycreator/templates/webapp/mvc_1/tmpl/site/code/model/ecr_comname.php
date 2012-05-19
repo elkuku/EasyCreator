@@ -65,19 +65,12 @@ class ECR_CLASS_PREFIXModelECR_UCF_COM_NAME extends JModelBase
      */
     public function save()
     {
-        //$db = JFactory::getDbo();
-        //$table = new ECR_CLASS_PREFIXTableECR_UCF_COM_NAME($db);
-
         $input = JFactory::getApplication()->input;
-
-       // $ret = $this->table->save($input);
 
         if(false === $this->table->save($input))
             throw new UnexpectedValueException($this->table->getError(), 1);
 
         return true;
-
-//		return $this;
     }
 
     /**
@@ -88,6 +81,7 @@ class ECR_CLASS_PREFIXModelECR_UCF_COM_NAME extends JModelBase
     public function delete()
     {
         $db = JFactory::getDbo();
+
         $table = new ECR_CLASS_PREFIXTableECR_UCF_COM_NAME($db);
 
         $input = JFactory::getApplication()->input;

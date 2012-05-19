@@ -24,17 +24,20 @@ class ECR_CLASS_PREFIXControllerDelete extends JControllerBase
         // TODO: Implement execute() method.
 
         $model = new ECR_CLASS_PREFIXModelECR_UCF_COM_NAME;
-        $input = JFactory::getApplication()->input;
+
+        /* @var ECR_CLASS_PREFIXApplicationWeb $application */
+        $application = JFactory::getApplication();
+        $input = $application->input;
 
         if(false === $model->delete())
         {
-            echo '<div class="alert alert-error">mother...</div>';
+            $application->addMessage('mother...', 'error');
 
             JLog::add('An error occured while deleting a record', JLog::ERROR);
         }
         else
         {
-            echo '<div class="alert alert-success">Your ECR_COM_NAME has been deleted</div>';
+            $application->addMessage('Your ECR_COM_NAME has been deleted', 'success');
 
             JLog::add('A record has been deleted');
         }

@@ -1,6 +1,7 @@
 <?php
 ##*HEADER*##
 $do = JFactory::getApplication()->input->get('do');
+$debug = JFactory::getApplication()->get('debug');
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,9 @@ $do = JFactory::getApplication()->input->get('do');
 
     <link href="<?= JURI::root(true); ?>/template/css/bootstrap.css" rel="stylesheet">
     <link href="<?= JURI::root(true); ?>/template/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="<?= JURI::root(true); ?>/template/css/custom.css" rel="stylesheet">
+    <link href="<?= JURI::root(true); ?>/template/css/ECR_LOWER_COM_NAME.css" rel="stylesheet">
+
+    <script src="<?= JURI::root(true); ?>/template/js/ECR_LOWER_COM_NAME.js" type="text/javascript"></script>
 
     <link rel="shortcut icon" href="<?= JURI::root(true); ?>/template/img/favicon.ico">
 </head>
@@ -44,14 +47,21 @@ $do = JFactory::getApplication()->input->get('do');
                     <li class="<?= $active ?>"><a href="<?= JURI::root(); ?>?do=log">Log</a></li>
                 </ul>
             </div>
+            <?php if($debug) : ?>
+            <span class="label label-important">Debug</span>
+            <?php endif; ?>
             <!--/.nav-collapse -->
         </div>
     </div>
 </div>
 
 <div class="container">
-    <!-- ApplicationOutput -->
+    <!--ApplicationMessage-->
+    <!--ApplicationOutput-->
 
+    <?php if($debug) : ?>
+    <pre><!--ApplicationDebug--></pre>
+    <?php endif; ?>
     <hr>
 
     <footer>

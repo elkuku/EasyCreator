@@ -22,13 +22,17 @@ class ECR_CLASS_PREFIXControllerSave extends JControllerBase
     public function execute()
     {
         $model = new ECR_CLASS_PREFIXModelECR_UCF_COM_NAME;
-        $input = JFactory::getApplication()->input;
+
+        /* @var ECR_CLASS_PREFIXApplicationWeb $application */
+        $application = JFactory::getApplication();
+
+        $input = $application->input;
 
         try
         {
             $model->save();
 
-            echo '<div class="alert alert-success">Your ECR_COM_NAME has been saved</div>';
+            $application->addMessage('Your ECR_COM_NAME has been saved', 'success');
 
             $input->set('view', 'list');
 
@@ -36,7 +40,7 @@ class ECR_CLASS_PREFIXControllerSave extends JControllerBase
         }
         catch(UnexpectedValueException $e)
         {
-            echo '<div class="alert alert-error">'.$e->getMessage().'</div>';
+            $application->addMessage($e->getMessage(), 'error');
 
             $input->set('view', 'item');
 

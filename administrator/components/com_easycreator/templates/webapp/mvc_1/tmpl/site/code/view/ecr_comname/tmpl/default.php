@@ -1,5 +1,6 @@
 <?php
 ##*HEADER*##
+
 ?>
 <h1>ECR_COM_NAME Item</h1>
 <form method="post" action="index.php?do=save" class="form-horizontal well">
@@ -16,7 +17,6 @@
             <label class="control-label">A</label>
 
             <div class="controls">
-                <input name="a" type="text" class="" value="<?= $this->data->a ?>"/>
             </div>
         </div>
         <div class="control-group">

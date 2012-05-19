@@ -6,8 +6,16 @@
     <description>This uses a MVC structure and a SQLite database - Uses Platform 12.1 !</description>
     <version>1.0</version>
     <jVersion>2.5</jVersion>
+    <jPlatformVersion>12.1</jPlatformVersion>
     <phpVersion>5.3</phpVersion>
     <dbTables>None</dbTables>
     <author>elkuku</author>
     <authorUrl>https://github.com/elkuku</authorUrl>
+    <complements>
+        <complement>
+            <folder>twitter-bootstrap</folder>
+            <version>2.0.3</version>
+            <targetDir>site/www/template</targetDir>
+        </complement>
+    </complements>
 </easyproject>

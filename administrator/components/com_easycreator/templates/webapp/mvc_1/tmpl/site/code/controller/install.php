@@ -11,9 +11,9 @@ class ECR_CLASS_PREFIXControllerInstall extends JControllerBase
     /**
      * Method to execute the controller.
      *
-     * @return  void
+     * @throws RuntimeException
      *
-     * @throws  RuntimeException
+     * @return bool|void
      */
     public function execute()
     {
@@ -48,7 +48,11 @@ class ECR_CLASS_PREFIXControllerInstall extends JControllerBase
             $db->setQuery($query)->execute();
         }
 
-        echo '<div class="alert alert-success">Your database has been created</div>';
+        /* @var ECR_CLASS_PREFIXApplicationWeb $application */
+        $application = JFactory::getApplication();
+
+
+        $application->addMessage('Your database has been created', 'success');
 
         JFactory::getApplication()->input->set('view', 'list');
 
