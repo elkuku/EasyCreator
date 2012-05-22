@@ -221,7 +221,6 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getAllProjects($scope)
     {
         JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
-
     }//function
 
     /**

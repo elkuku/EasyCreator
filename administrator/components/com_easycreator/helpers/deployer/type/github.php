@@ -8,7 +8,7 @@
  */
 
 /**
- *
+ * GitHub deployer class.
  */
 class EcrDeployerTypeGithub extends EcrDeployer
 {
@@ -25,7 +25,7 @@ class EcrDeployerTypeGithub extends EcrDeployer
 
         $downloads = $this->github->downloads->getList($input->get('owner'), $input->get('repo'));
 
-        if(! $downloads)
+        if( ! $downloads)
             return array();
 
         foreach($downloads as & $download)
@@ -38,8 +38,7 @@ class EcrDeployerTypeGithub extends EcrDeployer
 
     /**
      * @static
-     * @throws Exception
-     * @return int
+     * @return int|mixed
      */
     public function deployPackage()
     {
@@ -60,6 +59,7 @@ class EcrDeployerTypeGithub extends EcrDeployer
     /**
      * @static
      * @throws Exception
+     * @return mixed|void
      */
     public function deployFiles()
     {
@@ -86,6 +86,7 @@ class EcrDeployerTypeGithub extends EcrDeployer
 
     /**
      * @throws Exception
+     * @return mixed|void
      */
     protected function connect()
     {
@@ -108,5 +109,4 @@ class EcrDeployerTypeGithub extends EcrDeployer
 
         $this->credentials = $credentials;
     }
-
 }

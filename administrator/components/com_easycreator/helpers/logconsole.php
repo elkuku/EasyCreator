@@ -6,7 +6,7 @@
  */
 
 /**
- *
+ * EasyCreator log console.
  */
 class EcrLogconsole
 {
@@ -72,5 +72,4 @@ class EcrLogconsole
 
         return $this;
     }
-
 }

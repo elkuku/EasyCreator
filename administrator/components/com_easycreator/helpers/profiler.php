@@ -29,7 +29,7 @@ class EcrProfiler extends JProfiler
      *
      * @param string $prefix Prefix used to distinguish profiler objects.
      *
-     * @return EcrProfiler The Profiler object.
+     * @return \EcrProfiler|\JProfiler The Profiler object.
      */
     public static function getInstance($prefix = '')
     {
@@ -60,6 +60,7 @@ class EcrProfiler extends JProfiler
     public function mark($label)
     {
         $current = self::getmicrotime() - $this->_start;
+        $current_mem = 0;
 
         if(function_exists('memory_get_usage'))
         {

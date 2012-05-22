@@ -9,7 +9,7 @@
 
 $sniffer = new EcrPearHelperCodesniffer;
 
-if(! $sniffer->checkEnv()):
+if(false == $sniffer->checkEnv()):
     echo 'Env check failed.. cannot continue :(';
 
     return;
@@ -171,9 +171,8 @@ function drawFileTree(EcrProjectBase $project)
                     $show = false;
                 }
             }
-            //foreach
 
-            if(! $show)
+            if( ! $show)
             {
                 continue;
             }
@@ -191,7 +190,7 @@ function drawFileTree(EcrProjectBase $project)
 
             $oldDir = $dirName;
 
-            if(! isset($fileTree))
+            if(false == isset($fileTree))
             {
                 $fileTree = new EcrFileTree($dir, "javascript:", $javascript);
             }
@@ -207,7 +206,6 @@ function drawFileTree(EcrProjectBase $project)
             $ret .= '<br />';
         }
     }
-    //foreach
 
     return $ret;
-}//function
+}

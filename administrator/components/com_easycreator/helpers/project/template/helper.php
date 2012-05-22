@@ -129,10 +129,10 @@ class EcrProjectTemplateHelper
                 {
                     $path = str_replace(ECRPATH_EXTENSIONTEMPLATES.DS, '', $path);
 
-                    if(! JFolder::exists(dirname($tempDir.DS.$path)))
+                    if(false == JFolder::exists(dirname($tempDir.DS.$path)))
                         JFolder::create(dirname($tempDir.DS.$path));
 
-                    if(! JFile::copy(ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path))
+                    if(false == JFile::copy(ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path))
                         throw new Exception(sprintf(jgettext('Unable to copy the file %s to %s')
                             , ECRPATH_EXTENSIONTEMPLATES.DS.$path, $tempDir.DS.$path));
 
@@ -152,7 +152,7 @@ class EcrProjectTemplateHelper
 
         $result = $doc->saveXML();
 
-        if(! JFile::write($tempDir.DS.'manifest.xml', $result))
+        if(false == JFile::write($tempDir.DS.'manifest.xml', $result))
             throw new Exception(sprintf(jgettext('Unable to write file %s'), $tempDir.DS.'manifest.xml'));
 
         $files[] = $tempDir.DS.'manifest.xml';
@@ -165,7 +165,7 @@ class EcrProjectTemplateHelper
         $result = EcrArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
 
         //-- This means error
-        if(! $result->listContent())
+        if( ! $result->listContent())
             throw new Exception(jgettext('Error creating archive'));
 
         return true;
@@ -181,7 +181,9 @@ class EcrProjectTemplateHelper
     {
         jimport('joomla.installer.helper');
 
-        if(! $package = self::_getPackageFromUpload())
+        $package = self::_getPackageFromUpload();
+
+        if(false == $package)
             throw new Exception(jgettext('Unable to find install package'));
 
         if($package['type'] != 'ecrextensiontemplate')
@@ -210,7 +212,7 @@ class EcrProjectTemplateHelper
                 {
                     $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $folder);
 
-                    if(! JFolder::create(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
+                    if(false == JFolder::create(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
                         throw new Exception(sprintf(jgettext('Can not create folder %s'), $folder));
                 }
 
@@ -221,7 +223,7 @@ class EcrProjectTemplateHelper
                 {
                     $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $file);
 
-                    if(! JFile::copy($file, ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
+                    if(false == JFile::copy($file, ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
                         throw new Exception(jgettext('Can not copy file %s', $s));
                 }
             }
@@ -242,7 +244,7 @@ class EcrProjectTemplateHelper
         $userfile = JRequest::getVar('install_package', null, 'files', 'array');
 
         //-- If there is no uploaded file, we have a problem...
-        if(! is_array($userfile))
+        if(false == is_array($userfile))
             throw new Exception(jgettext('No file selected'));
 
         //-- Check if there was a problem uploading the file.

@@ -56,7 +56,7 @@ class EasyCreatorViewLanguages extends JView
         {
             $this->project = EcrProjectHelper::getProject();
 
-            if('ini' !=  $this->project->langFormat
+            if('ini' != $this->project->langFormat
                 && ! class_exists('g11nExtensionHelper'))
             {
                 throw new Exception(

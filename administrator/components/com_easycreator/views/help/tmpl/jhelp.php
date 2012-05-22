@@ -16,7 +16,7 @@ $fName = 'jclasslist_'.str_replace('.', '_', JVERSION);
 //-- Add javascript
 ecrScript('jhelp', 'php2js');
 
-if(! JFile::exists($pathHelp.DS.$fName.'.php')):
+if(false == JFile::exists($pathHelp.DS.$fName.'.php')):
     //-- Class list not found
     EcrHtmlButton::createClassList();
     echo '<div id="jsonDebug"></div>';

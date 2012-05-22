@@ -38,7 +38,7 @@ class EcrProjectManifest extends JObject
      */
     public function create(EcrProjectBase $project)
     {
-        if(! $project->type)
+        if( ! $project->type)
         {
             $this->setError(__METHOD__.' - Invalid project given');
 
@@ -70,7 +70,7 @@ class EcrProjectManifest extends JObject
 
         $this->manifest = new EcrXMLElement('<?xml version="1.0" encoding="utf-8" ?><'.$rootTag.' />');
 
-        if(! $this->manifest instanceof EcrXMLElement)
+        if(false == $this->manifest instanceof EcrXMLElement)
         {
             $this->setError('Could not create XML builder');
 
@@ -113,7 +113,7 @@ class EcrProjectManifest extends JObject
 
         $xml = $this->formatXML();
 
-        if(! JFile::write($path, $xml))
+        if(false == JFile::write($path, $xml))
         {
             $this->setError('Could not save XML file!');
 
@@ -378,7 +378,7 @@ class EcrProjectManifest extends JObject
      */
     private function processUpdates()
     {
-        if(! count($this->project->updateServers))
+        if(0 == count($this->project->updateServers))
             return $this;
 
         //-- Update site
@@ -405,13 +405,13 @@ class EcrProjectManifest extends JObject
     {
         $baseFolders = JFolder::folders($this->project->basepath);
 
-        if(! in_array('media', $baseFolders))
+        if(false == in_array('media', $baseFolders))
             return $this;
 
         $folders = JFolder::folders($this->project->basepath.DS.'media');
         $files = JFolder::files($this->project->basepath.DS.'media');
 
-        if(! count($folders)
+        if(0 == count($folders)
             && ! count($files)
         )
             return $this;
@@ -513,7 +513,7 @@ class EcrProjectManifest extends JObject
         $folders = JFolder::folders($basepath);
         $mediaFiles = array();
 
-        if(! in_array('admin', $folders))
+        if(false == in_array('admin', $folders))
         {
             return $this;
         }
@@ -743,7 +743,7 @@ class EcrProjectManifest extends JObject
 
             $fileName = $path.'/templateDetails.xml';
 
-            if(! JFile::exists($fileName))
+            if(false == JFile::exists($fileName))
                 return $this;
 
             $refXml = EcrProjectHelper::getXML($fileName);
@@ -767,7 +767,7 @@ class EcrProjectManifest extends JObject
         {
             $cfgXml = EcrProjectHelper::getXML($fileName);
 
-            if(! $cfgXml
+            if( ! $cfgXml
                 || ! $cfgXml->params
             )
             {
@@ -873,7 +873,7 @@ class EcrProjectManifest extends JObject
      */
     private function processPackageModules()
     {
-        if(! count($this->project->modules))
+        if(0 == count($this->project->modules))
             return $this;
 
         $modulesElement = $this->manifest->addChild('modules');
@@ -951,7 +951,7 @@ class EcrProjectManifest extends JObject
 
             $xml = EcrProjectHelper::getXML($path);
 
-            if(! $xml)
+            if(false == $xml)
                 throw new Exception(sprintf(jgettext('Unable to load the xml file %s'), $path));
 
             if(isset($xml->params->param))
@@ -996,7 +996,7 @@ class EcrProjectManifest extends JObject
      */
     private function processPackagePlugins()
     {
-        if(! count($this->project->plugins))
+        if(0 == count($this->project->plugins))
         {
             return $this;
         }

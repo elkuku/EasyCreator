@@ -10,7 +10,7 @@
 jimport('joomla.client.ftp');
 
 /**
- *
+ * FTP class.
  */
 class EcrFtp extends JFTP
 {
@@ -35,7 +35,6 @@ class EcrFtp extends JFTP
      */
     public static function getClient($host = '127.0.0.1', $port = '21', $options = null, $user = null, $pass = null)
     {
-
         //-- Avoid all this mess by declaring JFtp::getInstance() as "static" !!
 
         $x = new JFTP;
@@ -57,7 +56,7 @@ class EcrFtp extends JFTP
     {
         //-- Avoid all this mess by throwing appropriate exceptions !!
 
-        if(! parent::store($local, $remote))
+        if( ! parent::store($local, $remote))
             throw new Exception(JError::getError());
     }
 }

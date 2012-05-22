@@ -55,10 +55,10 @@ abstract class EcrHtmlDebug
      */
     public static function printTrace($trace = null)
     {
-        if(! function_exists('debug_backtrace'))
+        if(false == function_exists('debug_backtrace'))
             return '';
 
-        if(! $trace)
+        if( ! $trace)
             $trace = debug_backtrace();
 
         $traces = array();
@@ -135,5 +135,4 @@ abstract class EcrHtmlDebug
             echo $s;
         }
     }
-
 }

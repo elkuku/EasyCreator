@@ -73,23 +73,20 @@ if ($this->project->JCompat != 1.5)
         </tr>
     </table>
     <?php
-    if ($this->project->modules
-        || $this->project->plugins
-    )
+    if($this->project->modules || $this->project->plugins)
     {
         $found = false;
 
-        foreach ($this->installFiles['php'] as $file)
+        foreach($this->installFiles['php'] as $file)
         {
-            if ($file->name == 'install.package.php')
+            if($file->name == 'install.package.php')
             {
                 $found = true;
                 break;
             }
         }
-        //foreach
 
-        if (!$found)
+        if(false == $found)
         {
             ?>
             <div style="color: orange;">

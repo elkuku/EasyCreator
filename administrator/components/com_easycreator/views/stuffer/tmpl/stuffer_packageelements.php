@@ -10,7 +10,7 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-if ('package' != $this->project->type)
+if('package' != $this->project->type)
     return;
 
 $projects = EcrProjectHelper::getProjectList();
@@ -26,31 +26,26 @@ $projectTypes = EcrProjectHelper::getProjectTypes();
         <h4><?php echo jgettext('Your package'); ?></h4>
         <ul id="package-to" class="sortable">
             <?php
-            foreach ($this->project->elements as $element)
-            {
-                foreach ($projectTypes as $comType => $display)
-                {
-                    if ($comType == 'package') continue;
+            foreach($this->project->elements as $element) :
+                foreach($projectTypes as $comType => $display) :
+                    if($comType == 'package') continue;
 
-                    if (!isset($projects[$comType])) continue;
-                    if (!count($projects[$comType])) continue;
+                    if(false == isset($projects[$comType])) continue;
+                    if(0 == count($projects[$comType])) continue;
 
-                    foreach ($projects[$comType] as $project)
-                    {
-                        if ($project->fileName != $element) continue;
+                    foreach($projects[$comType] as $project) :
+                        if($project->fileName != $element) continue;
 
                         $displayName = $project->name;
 
-                        if ($project->scope)
-                            $displayName .= ' (' . $project->scope . ')';
+                        if($project->scope)
+                            $displayName .= ' ('.$project->scope.')';
 
-                        echo NL . '<li class="img12 icon12-' . $comType . '"'
-                            . ' id="' . $project->fileName . '">' . $displayName . '</li>';
-                    }
-                    //foreach
-                }
-                //foreach
-            }//foreach
+                        echo NL.'<li class="img12 icon12-'.$comType.'"'
+                            .' id="'.$project->fileName.'">'.$displayName.'</li>';
+                    endforeach;
+                endforeach;
+            endforeach;
             ?>
         </ul>
     </div>
@@ -59,32 +54,26 @@ $projectTypes = EcrProjectHelper::getProjectTypes();
         <h4><?php echo jgettext('Available projects'); ?></h4>
         <ul id="package-from" class="sortable">
             <?php
-            foreach ($projectTypes as $comType => $display)
-            {
-                if ($comType == 'package') continue;
+            foreach($projectTypes as $comType => $display) :
+                if($comType == 'package') continue;
 
-                if (isset($projects[$comType])
-                    && count($projects[$comType])
-                )
-                {
-                    $class = '' . $comType . '"';
+                if(isset($projects[$comType]) && count($projects[$comType])) :
+                    $class = ''.$comType.'"';
 
-                    foreach ($projects[$comType] as $project)
-                    {
-                        if (in_array($project->fileName, $this->project->elements))
+                    foreach($projects[$comType] as $project) :
+                        if(in_array($project->fileName, $this->project->elements))
                             continue;
 
                         $displayName = $project->name;
 
-                        if ($project->scope)
-                            $displayName .= ' (' . $project->scope . ')';
+                        if($project->scope)
+                            $displayName .= ' ('.$project->scope.')';
 
-                        echo NL . '<li class="img12 icon12-' . $comType . '"'
-                            . ' id="' . $project->fileName . '">' . $displayName . '</li>';
-                    }
-                    //foreach
-                }
-            }//foreach
+                        echo NL.'<li class="img12 icon12-'.$comType.'"'
+                            .' id="'.$project->fileName.'">'.$displayName.'</li>';
+                    endforeach;
+                endif;
+            endforeach;
             ?>
         </ul>
     </div>

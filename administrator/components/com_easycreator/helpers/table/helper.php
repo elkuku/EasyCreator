@@ -399,7 +399,6 @@ class EcrTableHelper
         $field->null = 'NOT_NULL';
         $field->extra = 'AUTO_INCREMENT';
 
-
         $html .= self::drawPredefinedRow($field, 0);
 
  //       $html .= '</div>';

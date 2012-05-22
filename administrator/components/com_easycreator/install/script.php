@@ -145,14 +145,14 @@ class Com_EasyCreatorInstallerScript
      */
     private function removeObsoleteFiles($path)
     {
-        if(! JFile::exists($path))
+        if(false == JFile::exists($path))
             return $this;
 
         $contents = JFile::read($path);
 
         $files = explode("\n", trim($contents));
 
-        if(! count($files))
+        if(0 == count($files))
             return $this;
 
         echo '<h2>Cleaning up</h2>';
@@ -165,13 +165,13 @@ class Com_EasyCreatorInstallerScript
         {
             $file = trim($file);
 
-            if(! $file)
+            if('' == $file)
                 continue;
 
-            if(! JFile::exists($file))
+            if(false == JFile::exists($file))
                 continue;
 
-            if(! JFile::delete($file))
+            if(false == JFile::delete($file))
             {
                 echo '<li style="color: red;">Unable to delete obsolete file: '.$file.'</li>';
             }
@@ -213,18 +213,18 @@ class Com_EasyCreatorInstallerScript
         $pathsOld = $this->readMd5File($parent->getParent()->getPath('extension_root').'/'.$this->md5PathOld);
         $pathsNew = $this->readMd5File($parent->getParent()->getPath('source').'/'.$this->md5PathNew);
 
-        if(! count($pathsOld) || ! count($pathsNew))
+        if(0 == count($pathsOld) || ! count($pathsNew))
             return false;
 
         $results = array();
 
         foreach(array_keys($pathsOld) as $shortPath)
         {
-            if(! array_key_exists($shortPath, $pathsNew))
+            if(false == array_key_exists($shortPath, $pathsNew))
             {
                 $parts = explode('/', $shortPath);
 
-                if(! array_key_exists($parts[0], $this->extensionPaths))
+                if(false == array_key_exists($parts[0], $this->extensionPaths))
                     continue;
 
                 $path = $this->extensionPaths[$parts[0]].'/'.substr($shortPath, strlen($parts[0]) + 1);
@@ -254,14 +254,14 @@ class Com_EasyCreatorInstallerScript
 
         $paths = array();
 
-        if(! JFile::exists($path))
+        if(false == JFile::exists($path))
             return $paths;
 
         $lines = explode("\n", JFile::read($path));
 
         foreach($lines as $line)
         {
-            if(! trim($line))
+            if('' == trim($line))
                 continue;
 
             list($md5, $subPath) = explode(' ', $line);
@@ -294,7 +294,7 @@ class Com_EasyCreatorInstallerScript
     {
         static $previous = '';
 
-        if(! $previous) //-- Init
+        if('' == $previous) //-- Init
         {
             $previous = $path;
 
@@ -342,5 +342,4 @@ class Com_EasyCreatorInstallerScript
 
         return $decompressed;
     }
-
 }//class

@@ -7,6 +7,9 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+/**
+ * EasyCreator FTP deployer.
+ */
 class EcrDeployerTypeFtp extends EcrDeployer
 {
     /**
@@ -22,7 +25,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
         {
             $downloads = JArrayHelper::toObject($downloads);
 
-            if(! $downloads)
+            if( ! $downloads)
                 return array();
 
             foreach($downloads as &$download)
@@ -37,8 +40,9 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
     /**
      * @static
+     *
      * @throws Exception
-     * @return int
+     * @return int|mixed
      */
     public function deployPackage()
     {
@@ -54,10 +58,10 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
             JLog::add('| >> '.sprintf(jgettext('Uploading %s ...'), $fName));
 
-            if(! $this->ftp->chdir($this->credentials->downloads))
+            if( ! $this->ftp->chdir($this->credentials->downloads))
                 throw new Exception(jgettext('Download directory not found on server'));
 
-            if(! $this->ftp->store($file, $this->credentials->downloads.'/'.$fName))
+            if( ! $this->ftp->store($file, $this->credentials->downloads.'/'.$fName))
                 throw new Exception(JError::getError());
         }
 
@@ -67,6 +71,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
     /**
      * @static
      * @throws Exception
+     * @return mixed|void
      */
     public function deployFiles()
     {
@@ -94,7 +99,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
                 if(in_array($d, $knownDirs))
                     continue;
 
-                if(! $this->ftp->chdir($d))
+                if( ! $this->ftp->chdir($d))
                 {
                     if($this->ftp->mkdir($d))
                     {
@@ -109,7 +114,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
                 $knownDirs[] = $d;
             }
 
-            if(! $this->ftp->store(JPATH_ROOT.'/'.$file, $this->credentials->directory.'/'.$file))
+            if( ! $this->ftp->store(JPATH_ROOT.'/'.$file, $this->credentials->directory.'/'.$file))
                 throw new Exception(JError::getError());
         }
 
@@ -117,7 +122,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
         {
             JLog::add('| -- '.sprintf(jgettext('Deleting %s ...'), $file));
 
-            if(! $this->ftp->delete($this->credentials->directory.'/'.$file))
+            if( ! $this->ftp->delete($this->credentials->directory.'/'.$file))
                 throw new Exception(JError::getError());
         }
 
@@ -125,7 +130,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
         foreach($files as $file)
         {
-            if(! array_key_exists($file, $syncList))
+            if( ! array_key_exists($file, $syncList))
             {
                 $f = new stdClass;
                 $f->path = $file;
@@ -160,7 +165,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
         JLog::add('| -- '.sprintf(jgettext('Deleting %s ...'), $file));
 
-        if(! $this->ftp->delete($this->credentials->downloads.'/'.$file))
+        if( ! $this->ftp->delete($this->credentials->downloads.'/'.$file))
             throw new Exception(JError::getError());
 
         return;
@@ -231,6 +236,7 @@ class EcrDeployerTypeFtp extends EcrDeployer
 
     /**
      * @throws Exception
+     * @return mixed|void
      */
     protected function connect()
     {
@@ -254,10 +260,9 @@ class EcrDeployerTypeFtp extends EcrDeployer
         $this->ftp = EcrFtp::getClient($credentials->host, $credentials->port, $options
             , $credentials->user, $credentials->pass);
 
-        if(! $this->ftp->isConnected())
+        if( ! $this->ftp->isConnected())
             throw new Exception(jgettext('Unable to connect to FTP server'));
 
         $this->credentials = $credentials;
     }
-
 }

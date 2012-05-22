@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -6,9 +6,6 @@
  * @author     Created on 26-Mar2010
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 JHTML::_('behavior.modal', 'a.ecr_modal');
 
@@ -23,44 +20,47 @@ $the_file = JRequest::getString('file_name');
 ?>
 
 <script type="text/javascript">
-var divCount = 0;
+    var divCount = 0;
 
-function reflectFile(file_path, file_nameame)
-{
-    document.id('file_path').value = file_path;
-    document.id('file_name').value = file_nameame;
-    submitform('reflect');
-}
+    function reflectFile(file_path, file_nameame) {
+        document.id('file_path').value = file_path;
+        document.id('file_name').value = file_nameame;
+        submitform('reflect');
+    }
 </script>
 
 <div id="ecr_title_file"></div>
 <table width="100%">
-	<tr valign="top">
-    	<td>
-        	<div class="ecr_floatbox">
+    <tr valign="top">
+        <td>
+            <div class="ecr_floatbox">
                 <?php echo drawFileTree($this->project); ?>
-        	</div>
-    	</td>
+            </div>
+        </td>
 
-		<td>
+        <td>
             <?php
             if( ! $the_path || ! $the_file)
             {
                 if($this->task != 'reflect'
-                && $this->task != 'aj_reflect')
+                    && $this->task != 'aj_reflect'
+                )
                 {
-                ?>
-					<h3 style="color: red" align="center">ALPHA testing with PHP 5 reflection class to inspect classes.</h3>
-					<h3 style="color: red" align="center">The files will be included to inspect them !!</h3>
-					<h3 style="color: red" align="center">Only try to include files containing classes !!!</h3>
-					<div align="center">
-					See: <a href="http://de.php.net/manual/en/language.oop5.reflection.php" class="external">php.net/manual/reflection</a>
-					</div>
-					<div style="border: 1px dotted red;" align="center">
-					<h4>Or use your browsers <span style="background-color: green; color: white; padding: 5px;">BACK</span>
-					&nbsp;button in case of <span style="background-color: red; padding: 5px;">FATAL ERROR</span>s....</h4>
-					</div>
-				<?php
+                    ?>
+                    <h3 style="color: red" align="center">ALPHA testing with PHP 5 reflection class to inspect
+                        classes.</h3>
+                    <h3 style="color: red" align="center">The files will be included to inspect them !!</h3>
+                    <h3 style="color: red" align="center">Only try to include files containing classes !!!</h3>
+                    <div align="center">
+                        See: <a href="http://de.php.net/manual/en/language.oop5.reflection.php" class="external">php.net/manual/reflection</a>
+                    </div>
+                    <div style="border: 1px dotted red;" align="center">
+                        <h4>Or use your browsers <span
+                            style="background-color: green; color: white; padding: 5px;">BACK</span>
+                            &nbsp;button in case of <span
+                                style="background-color: red; padding: 5px;">FATAL ERROR</span>s....</h4>
+                    </div>
+                    <?php
                 }
 
                 if($this->task == 'reflect')
@@ -72,7 +72,7 @@ function reflectFile(file_path, file_nameame)
                     aj_drawProject($this->project);
                 }
                 else
-              {
+                {
                     echo '<br /><br />';
                     $msgs = array();
                     $msgs[] = jgettext('Please click to');
@@ -82,7 +82,7 @@ function reflectFile(file_path, file_nameame)
                 }
             }
             else
-           {
+            {
                 reflect($the_path, $the_file);
             }
 
@@ -93,8 +93,8 @@ function reflectFile(file_path, file_nameame)
             echo '</div>';
 //            #echo '<div class="ecr_button" onclick="submitbutton(\'aj_reflect\');">AJ Reflect</div>';
             ?>
-		</td>
-	</tr>
+        </td>
+    </tr>
 </table>
 <?php
 
@@ -117,14 +117,15 @@ function aj_drawProject(EcrProjectBase $project)
 
 //			$reflections = $reflection->getReflections();
 //			if(ECR_DEBUG) EcrDebugger::dPrint($reflections, 'Reflection');
-        break;
+            break;
 
         default:
             echo 'Sorry '.$project->type.' not supported yet..';
 
             return;
-        break;
-    }//switch
+            break;
+    }
+
     /*
 	?>
 	<table width="100%" class="adminlist">
@@ -147,7 +148,9 @@ function aj_drawProject(EcrProjectBase $project)
 	</table>
 	<?php
 	*/
-}//function
+}
+
+//function
 
 /**
  * @param EcrProjectBase $project
@@ -180,29 +183,31 @@ function drawProject(EcrProjectBase $project)
             echo 'Sorry '.$project->type.' not supported yet..';
 
             return;
-        break;
+            break;
     }//switch
     ?>
-	<table width="100%" class="adminlist">
-		<tr>
-			<th>Controllers</th>
-			<th>Views</th>
-		</tr>
-		<tr valign="top">
-			<td><?php displayReflectedFiles($reflections, 'controllers', $project); ?></td>
-			<td><?php displayReflectedFiles($reflections, 'views', $project); ?></td>
-		</tr>
-		<tr>
-			<th>Models</th>
-			<th>Tables</th>
-		</tr>
-		<tr valign="top">
-			<td><?php displayReflectedFiles($reflections, 'models', $project); ?></td>
-			<td><?php displayReflectedFiles($reflections, 'tables', $project); ?></td>
-		</tr>
-	</table>
-	<?php
-}//function
+<table width="100%" class="adminlist">
+    <tr>
+        <th>Controllers</th>
+        <th>Views</th>
+    </tr>
+    <tr valign="top">
+        <td><?php displayReflectedFiles($reflections, 'controllers', $project); ?></td>
+        <td><?php displayReflectedFiles($reflections, 'views', $project); ?></td>
+    </tr>
+    <tr>
+        <th>Models</th>
+        <th>Tables</th>
+    </tr>
+    <tr valign="top">
+        <td><?php displayReflectedFiles($reflections, 'models', $project); ?></td>
+        <td><?php displayReflectedFiles($reflections, 'tables', $project); ?></td>
+    </tr>
+</table>
+<?php
+}
+
+//function
 
 /**
  * @param                $reflections
@@ -211,185 +216,187 @@ function drawProject(EcrProjectBase $project)
  */
 function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
 {
-    switch ($type)
+    switch($type)
     {
         case 'controllers':
         case 'models':
         case 'tables':
             foreach($reflections[$type] as $name => $refl)
             {
-            ?>
-				<table style="border: 1px solid grey;" width="100%">
-					<tr valign="top">
-						<td>
-							<strong><?php echo $name; ?></strong><br />
-							props
-						</td>
-						<td>
-							<?php
-                            foreach($refl->methods as $method)
+                ?>
+            <table style="border: 1px solid grey;" width="100%">
+                <tr valign="top">
+                    <td>
+                        <strong><?php echo $name; ?></strong><br/>
+                        props
+                    </td>
+                    <td>
+                        <?php
+                        foreach($refl->methods as $method)
+                        {
+                            echo $method->name;
+                            $comment = str_replace("\t", ' ', $method->docComment);
+                            $comment = str_replace("\n", '<br />', $method->docComment);
+
+                            if($comment)
                             {
-                                echo $method->name;
-                                $comment = str_replace("\t", ' ', $method->docComment);
-                                $comment = str_replace("\n", '<br />', $method->docComment);
+                                echo '<span class="hasTip img icon16-comment" title="'.$comment.'"></span>';
+                            }
 
-                                if($comment)
-                                {
-                                    echo '<span class="hasTip img icon16-comment" title="'.$comment.'"></span>';
-                                }
-
-                                $link = 'index.php?option=com_easycreator&amp;ecr_project='
+                            $link = 'index.php?option=com_easycreator&amp;ecr_project='
                                 .$project->comName.'&amp;tmpl=component&amp;controller=stuffer&amp;task=display_snip';
-                                $link .= '&amp;file_path='.$method->fileName;//.'&amp;the_file='.$file;
-                                $link .= '&amp;start='.$method->startLine.'&amp;end='.$method->endLine;
+                            $link .= '&amp;file_path='.$method->fileName; //.'&amp;the_file='.$file;
+                            $link .= '&amp;start='.$method->startLine.'&amp;end='.$method->endLine;
 
-                                $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
+                            $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
                                 .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
-                                    echo NL.'<a class="ecr_modal img icon16-php hasTip" title="'
-                                    .jgettext('View Source').'::'.$fileLocation
-                                    .'" rel="{handler: \'iframe\', size: {x: 950, y: 550}}" href="'.$link.'">';
-                                    echo NL.'</a>';
+                            echo NL.'<a class="ecr_modal img icon16-php hasTip" title="'
+                                .jgettext('View Source').'::'.$fileLocation
+                                .'" rel="{handler: \'iframe\', size: {x: 950, y: 550}}" href="'.$link.'">';
+                            echo NL.'</a>';
 //echo NL.'<span class="doccomment_sourcecode hasTip" title="'.$fileLocation.'">';
 //echo NL.'<a class="ecr_modal" rel="{handler: \'iframe\', size: {x: 950, y: 550},
 //effects:Fx.Transitions.Bounce.easeOut}" href="'.$link.'">';
 //echo jgettext('Source');
 //echo NL.'</a></span>';
 
+                            echo '<br />';
+
+                            if(count($method->jcommands))
+                            {
+                                foreach($method->jcommands as $jcommand)
+                                {
+                                    echo "|-";
+                                    echo $jcommand->name;
+                                    echo '&nbsp;'; //<br />';
+                                    echo $jcommand->params;
+                                    echo '<br />';
+                                }
+                            }
+
+                            echo '<pre>';
+//                        #		print_r($method);
+                            echo '</pre>';
+                        }
+                        ?>
+                    </td>
+                </tr>
+            </table>
+            <?php
+            }
+
+            break;
+        case 'views':
+            foreach($reflections[$type] as $name => $types)
+            {
+                $cPath = '';
+                ?>
+            <table style="border: 1px solid grey;" width="100%">
+                <tr valign="top">
+                    <td>
+                        <strong><?php echo $name; ?></strong><br/>
+                        props
+                    </td>
+                    <td>
+                        <?php
+                        foreach($types as $tName => $refl)
+                        {
+                            echo '<strong>'.$tName.'</strong><br />';
+
+                            foreach($refl->methods as $method)
+                            {
+                                echo '<strong style="color: blue;">'.$method->name.'</strong>';
+
+                                if($method->docComment)
+                                {
+                                    $comment = nl2br($method->docComment);
+                                    echo '<span class="hasTip img icon16-comment" title="docComment::'
+                                        .$comment.'"></span>';
+                                }
+
+                                $link = 'index.php?option=com_easycreator&amp;ecr_project='
+                                    .$project->comName.'&amp;tmpl=component&amp;controller=stuffer&amp;task=display_snip';
+                                $link .= '&amp;file_path='.$method->fileName; //.'&amp;the_file='.$file;
+                                $link .= '&amp;start='.$method->startLine.'&amp;end='.$method->endLine;
+
+                                $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
+                                    .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
+
+                                echo NL.'<a class="ecr_modal img icon16-php hasTip" title="'
+                                    .jgettext('View Source').'::'.$fileLocation.'" rel="{handler: \'iframe\','
+                                    .' size: {x: 950, y: 550}}" href="'.$link.'">';
+
+                                echo NL.'</a>';
+
                                 echo '<br />';
+                                $jViewCommands = array('assignRef' => 'orange', 'setLayout' => 'red');
 
                                 if(count($method->jcommands))
                                 {
                                     foreach($method->jcommands as $jcommand)
-                                    {
-                                        echo "|-";
-                                        echo $jcommand->name;
-                                        echo '&nbsp;';//<br />';
-                                        echo $jcommand->params;
-                                        echo '<br />';
-                                    }//foreach
-                                }
-
-                                echo '<pre>';
-//                        #		print_r($method);
-                                echo '</pre>';
-                            }//foreach
-                            ?>
-						</td>
-					</tr>
-				</table>
-				<?php
-            }//foreach
-
-        break;
-        case 'views':
-            foreach($reflections[$type] as $name => $types)
-            {
-            $cPath = '';
-            ?>
-				<table style="border: 1px solid grey;" width="100%">
-					<tr valign="top">
-						<td>
-							<strong><?php echo $name; ?></strong><br />
-							props
-						</td>
-						<td>
-							<?php
-                            foreach($types as $tName => $refl)
-                            {
-                                echo '<strong>'.$tName.'</strong><br />';
-
-                                foreach($refl->methods as $method)
-                                {
-                                    echo '<strong style="color: blue;">'.$method->name.'</strong>';
-
-                                    if($method->docComment)
-                                    {
-                                        $comment = nl2br($method->docComment);
-                                        echo '<span class="hasTip img icon16-comment" title="docComment::'
-                                        .$comment.'"></span>';
-                                    }
-
-                                    $link = 'index.php?option=com_easycreator&amp;ecr_project='
-                                    .$project->comName.'&amp;tmpl=component&amp;controller=stuffer&amp;task=display_snip';
-                                    $link .= '&amp;file_path='.$method->fileName;//.'&amp;the_file='.$file;
-                                    $link .= '&amp;start='.$method->startLine.'&amp;end='.$method->endLine;
-
-                                    $fileLocation = substr($method->fileName, strlen(JPATH_SITE))
-                                    .'<br />'.jgettext('Lines').' # '.$method->startLine.' - '.$method->endLine;
-
-                                    echo NL.'<a class="ecr_modal img icon16-php hasTip" title="'
-                                    .jgettext('View Source').'::'.$fileLocation.'" rel="{handler: \'iframe\','
-                                    .' size: {x: 950, y: 550}}" href="'.$link.'">';
-
-                                    echo NL.'</a>';
-
-                                    echo '<br />';
-                                    $jViewCommands = array('assignRef' => 'orange', 'setLayout' => 'red');
-
-                                    if(count($method->jcommands))
-                                    {
-                                        foreach($method->jcommands as $jcommand)
                                         if(array_key_exists($jcommand->name, $jViewCommands))
                                         {
-                                        {
-                                            echo "|-";
-                                            echo '<strong style="color: '.$jViewCommands[$jcommand->name].';">'
-                                            .$jcommand->name.'</strong>';
+                                            {
+                                                echo "|-";
+                                                echo '<strong style="color: '.$jViewCommands[$jcommand->name].';">'
+                                                    .$jcommand->name.'</strong>';
 
-                                            echo '&nbsp;';//<br />';
-                                            echo $jcommand->params;
-                                            echo '<br />';
-                                        }//foreach
-                                    }
-                                    }
+                                                echo '&nbsp;'; //<br />';
+                                                echo $jcommand->params;
+                                                echo '<br />';
+                                            }
+                                        }
+                                }
 
-                                    if( ! $cPath)
-                                    {
-                                        $cPath = substr($method->fileName, 0
-                                        , strlen($method->fileName) - strlen(JFile::getName($method->fileName)));
-                                    }
-                                }//foreach
-                            }//foreach
-                            ?>
-						</td>
-						<?php
-                        $templates = JFolder::files($cPath.DS.'tmpl');
-
-                        if(count($templates))
-                        {
-                            echo '<td>';
-                            echo '<strong>'.jgettext('Templates').'</strong>';
-                            echo '<br />';
-
-                            foreach($templates as $template)
-                            {
-                                echo $template.'<br />';
-                                $templateVars = EcrProjectReflection::inspectTemplate($cPath.DS.'tmpl'.DS.$template);
-
-                                if(count($templateVars))
+                                if( ! $cPath)
                                 {
-                                    foreach($templateVars as $templateVar)
-                                    {
-                                        echo '<strong style="color: orange;">'.$templateVar->name.'</strong>&nbsp;';
-                                        echo '<span class="hasTip img icon16-comment" title="Raw::'
-                                        .html_entity_decode($templateVar->raw).'"></span>';
-                                        echo $templateVar->params;
-                                        echo '<br />';
-                                    }//foreach
+                                    $cPath = substr($method->fileName, 0
+                                        , strlen($method->fileName) - strlen(JFile::getName($method->fileName)));
+                                }
                             }
-                            }//foreach
-                            echo '</td>';
+                        }
+                        ?>
+                    </td>
+                    <?php
+                    $templates = JFolder::files($cPath.DS.'tmpl');
+
+                    if(count($templates))
+                    {
+                        echo '<td>';
+                        echo '<strong>'.jgettext('Templates').'</strong>';
+                        echo '<br />';
+
+                        foreach($templates as $template)
+                        {
+                            echo $template.'<br />';
+                            $templateVars = EcrProjectReflection::inspectTemplate($cPath.DS.'tmpl'.DS.$template);
+
+                            if(count($templateVars))
+                            {
+                                foreach($templateVars as $templateVar)
+                                {
+                                    echo '<strong style="color: orange;">'.$templateVar->name.'</strong>&nbsp;';
+                                    echo '<span class="hasTip img icon16-comment" title="Raw::'
+                                        .html_entity_decode($templateVar->raw).'"></span>';
+                                    echo $templateVar->params;
+                                    echo '<br />';
+                                }
+                            }
                         }
 
-                        ?>
-					</tr>
-				</table>
-				<br />
-				<?php
-            }//foreach
-        break;
-    }//switch
-}//function
+                        echo '</td>';
+                    }
+
+                    ?>
+                </tr>
+            </table>
+            <br/>
+            <?php
+            }
+
+            break;
+    }
+}
 
 /**
  * @param EcrProjectBase $project
@@ -438,14 +445,14 @@ function drawFileTree(EcrProjectBase $project)
                 {
                     $show = false;
                 }
-            }//foreach
+            }
 
             if($show)
             {
                 //--This shows a single file not included in anterior directory list ;) - hi plugins...
                 $fileName = JFile::getName(JPath::clean($dir));
                 $dirName = substr($dir, 0, strlen($dir) - strlen($fileName));
-                $oldDir =(isset($oldDir)) ? $oldDir : '';
+                $oldDir = (isset($oldDir)) ? $oldDir : '';
 
                 if($dirName != $oldDir)
                 {
@@ -456,32 +463,26 @@ function drawFileTree(EcrProjectBase $project)
 
                 $oldDir = $dirName;
 
-            if( ! isset($fileTree))
-            {
-                $fileTree = new EcrFileTree($dir, "javascript:", $javascript);
-            }
-            else
-          {
-                $fileTree->setDir($dir);
-            }
+                if(false == isset($fileTree))
+                {
+                    $fileTree = new EcrFileTree($dir, "javascript:", $javascript);
+                }
+                else
+                {
+                    $fileTree->setDir($dir);
+                }
 
-                 $ret .= $fileTree->startTree();
-                 $ret .= $fileTree->getLink($dirName, $fileName);
-                 $ret .= $fileTree->endTree();
+                $ret .= $fileTree->startTree();
+                $ret .= $fileTree->getLink($dirName, $fileName);
+                $ret .= $fileTree->endTree();
 
-                 $ret .= '<br />';
+                $ret .= '<br />';
             }
         }
-    }//foreach
+    }
 
     return $ret;
-}//function
-
-
-/**
- *
- *
- */
+}
 
 /**
  * reflect a class
@@ -501,7 +502,7 @@ function reflect($path, $file)
 
 //#	echo $path.'<br />'.$file.'<br />';
 
-    if( ! JFile::exists($fullPathFileName))
+    if(false == JFile::exists($fullPathFileName))
     {
         EcrHtml::message(array(jgettext('File not found'), $fullPathFileName), 'error');
     }
@@ -532,23 +533,23 @@ function reflect($path, $file)
 
         $foundClasses = array_diff(get_declared_classes(), $allClasses);
 
-        if( ! count($foundClasses))
+        if(0 == count($foundClasses))
         {
             EcrHtml::message(jgettext('No classes found'), 'error');
         }
         else
-       {
+        {
             foreach($foundClasses as $clas)
             {
                 $theClass = new ReflectionClass($clas);
                 $parentName = $theClass->getParentClass();
-                $parentName =($parentName) ? 'Extends: <span style="color: orange;">'.$parentName->name.'</span>':'';
+                $parentName = ($parentName) ? 'Extends: <span style="color: orange;">'.$parentName->name.'</span>' : '';
                 echo '<h1>';
                 printf("%s%s%s %s"
-                       , $theClass->isInternal() ? 'internal' : 'user-defined'
-                       , $theClass->isAbstract() ? ' abstract' : ''
-                       , $theClass->isFinal() ? ' final' : ''
-                       , $theClass->isInterface() ? 'Interface' : 'Class'
+                    , $theClass->isInternal() ? 'internal' : 'user-defined'
+                    , $theClass->isAbstract() ? ' abstract' : ''
+                    , $theClass->isFinal() ? ' final' : ''
+                    , $theClass->isInterface() ? 'Interface' : 'Class'
                 );
                 echo ' <span style="color: green;">'.$clas.'</span> '.$parentName;
                 echo '</h1>';
@@ -562,16 +563,17 @@ function reflect($path, $file)
                     $property = $theClass->getProperty($prop->name);
 
                     printf(
-                       "%s%s%s%s property <strong>%s</strong>"
-                           , $property->isPublic() ? ' <strong style="color: green">public</strong>' : ''
-                           , $property->isPrivate() ? ' <strong style="color: orange">private</strong>' : ''
-                           , $property->isProtected() ? ' <strong style="color: red">protected</strong>' : ''
-                           , $property->isStatic() ? ' <strong style="color: black">static</strong>' : ''
-                           , $property->getName()
+                        "%s%s%s%s property <strong>%s</strong>"
+                        , $property->isPublic() ? ' <strong style="color: green">public</strong>' : ''
+                        , $property->isPrivate() ? ' <strong style="color: orange">private</strong>' : ''
+                        , $property->isProtected() ? ' <strong style="color: red">protected</strong>' : ''
+                        , $property->isStatic() ? ' <strong style="color: black">static</strong>' : ''
+                        , $property->getName()
                     );
 
                     echo '<br />';
-                }//foreach
+                }
+
                 echo NL.'</pre>';
 
                 echo NL.'</td><td>';
@@ -632,21 +634,21 @@ function reflect($path, $file)
                     //..also marks the extended extended classes orange.. TODO !
 //                    #$color =( $mPath == $fullPathFileName ) ? 'green' : 'orange';
                     $titel = sprintf(
-                       "%s%s%s%s%s%s Method <strong style='color: orange;'>%s</strong>",
-                           $cMethod->isAbstract()	? ' abstract' : '',
-                           $cMethod->isFinal() 		? ' final' : '',
-                           $cMethod->isPublic()		? ' <strong style="color: green">public</strong>' : '',
-                           $cMethod->isPrivate()	? ' <strong style="color: orange">private</strong>' : '',
-                           $cMethod->isProtected()	? ' <strong style="color: red">protected</strong>' : '',
-                           $cMethod->isStatic()		? ' <strong style="color: black">static</strong>' : '',
-                           $cMethod->getName()
+                        "%s%s%s%s%s%s Method <strong style='color: orange;'>%s</strong>",
+                        $cMethod->isAbstract() ? ' abstract' : '',
+                        $cMethod->isFinal() ? ' final' : '',
+                        $cMethod->isPublic() ? ' <strong style="color: green">public</strong>' : '',
+                        $cMethod->isPrivate() ? ' <strong style="color: orange">private</strong>' : '',
+                        $cMethod->isProtected() ? ' <strong style="color: red">protected</strong>' : '',
+                        $cMethod->isStatic() ? ' <strong style="color: black">static</strong>' : '',
+                        $cMethod->getName()
                     );
                     $pClass = $cMethod->getDeclaringClass();
                     $s = $pClass->getName();
 
                     if($s != $displayClassName)
                     {
-                        $indent++;
+                        $indent ++;
                         echo '<h1>';
                         echo ($displayClassName) ? '<span style="color: orange">Extends</span>&nbsp;'.$s : $s;
                         echo '</h1>';
@@ -662,9 +664,9 @@ function reflect($path, $file)
                         $s = '';
                         $s .= sprintf("%s<strong style='color: brown;'>$%s</strong>",
 //#					       $parameter->isOptional() ? '<strong style="color: blue;">optional</strong> ' : '',
-                           $parameter->isPassedByReference() ? '<strong style="color: blue;"> & </strong>' : '',
-                           $parameter->getName()
-                       );
+                            $parameter->isPassedByReference() ? '<strong style="color: blue;"> & </strong>' : '',
+                            $parameter->getName()
+                        );
 
                         if($parameter->isDefaultValueAvailable())
                         {
@@ -691,13 +693,14 @@ function reflect($path, $file)
                                 $s .= '=\'\'';
                             }
                             else
-                         {
+                            {
                                 $s .= '='.$parameter->getDefaultValue();
                             }
-                       }
+                        }
 
-                       $paramString[] = $s;
-                    }//foreach
+                        $paramString[] = $s;
+                    }
+
                     $paramString = implode(', ', $paramString);
                     $titel .= '( '.$paramString.' )';
 //				#	echo '<h3>'.$titel.'</h3>';
@@ -707,7 +710,7 @@ function reflect($path, $file)
                     echo $pane->startPanel($titel, 'one-page');
                     //--draw a link to the source code
                     $link = 'index.php?option=com_easycreator&amp;ecr_project='.$ecr_project
-                    .'&amp;tmpl=component&amp;controller=stuffer&amp;task=display_snip';
+                        .'&amp;tmpl=component&amp;controller=stuffer&amp;task=display_snip';
 
                     $link .= '&amp;file_path='.$mPath.'&amp;the_file='.$file;
                     $link .= '&amp;start='.$cMethod->getStartLine().'&amp;end='.$cMethod->getEndLine();
@@ -716,7 +719,7 @@ function reflect($path, $file)
                     if($comment)
                     {
                         echo NL.'<div style="border: 1px dotted grey; background-color: white;"'
-                        .' class="doccomment_doccomment">';
+                            .' class="doccomment_doccomment">';
 //                    #	echo '<pre>';
 //                    #	echo $comment;
 //                    	#$comment = str_replace("\n", '<br />', $comment);
@@ -727,11 +730,11 @@ function reflect($path, $file)
                     }
 
                     $fileLocation = substr($cMethod->getFileName(), strlen(JPATH_SITE))
-                    .'<br />'.jgettext('Lines').' # '.$cMethod->getStartLine().' - '.$cMethod->getEndLine();
+                        .'<br />'.jgettext('Lines').' # '.$cMethod->getStartLine().' - '.$cMethod->getEndLine();
 
                     echo NL.'<span class="doccomment_sourcecode hasTip" title="'.$fileLocation.'">';
                     echo NL.'<a class="ecr_modal" rel="{handler: \'iframe\', size: {x: 950, y: 550}'
-                    .', effects:Fx.Transitions.Bounce.easeOut}"    href="'.$link.'">';
+                        .', effects:Fx.Transitions.Bounce.easeOut}"    href="'.$link.'">';
 
                     echo jgettext('Source code');
                     echo NL.'</a></span>';
@@ -746,10 +749,11 @@ function reflect($path, $file)
 //#					printf("---> Dokumentation:\n %s\n", var_export($cMethod->getDocComment(), 1));
 
                     // Statische Variablen ausgeben, falls welche existieren
-	                $statics = $cMethod->getStaticVariables();
+                    $statics = $cMethod->getStaticVariables();
+
                     if($statics)
                     {
-                       printf("---> Statische Variablen: %s\n", var_export($statics, 1));
+                        printf("---> Statische Variablen: %s\n", var_export($statics, 1));
                     }
 
 //                    #					echo '<hr />';
@@ -757,9 +761,10 @@ function reflect($path, $file)
                     echo NL.'</pre>';
 //                    #					echo '<hr />';
                     echo $pane->endPanel();
-                }//foreach
-                    echo $pane->endPane();
-            }//foreach
+                }
+
+                echo $pane->endPane();
+            }
         }
     }
-}//function
+}

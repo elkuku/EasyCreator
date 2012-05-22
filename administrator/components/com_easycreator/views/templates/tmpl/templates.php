@@ -53,7 +53,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                             <?php
                             /* @var EcrProjectBase $pType */
                             foreach($this->comTypes as $pTag => $pType):
-                                if(! isset($this->templates[$pTag])):
+                                if(false == isset($this->templates[$pTag])):
                                     continue;
                                 endif;
 

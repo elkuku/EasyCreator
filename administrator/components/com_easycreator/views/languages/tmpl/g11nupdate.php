@@ -31,6 +31,7 @@ $item = $this->g11nInfo;
         </thead>
         <?php
         $k = 0;
+
         foreach(array_keys($this->languages) as $scope)
         {
             if($scope == 'all')

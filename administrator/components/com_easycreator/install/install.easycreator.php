@@ -40,7 +40,7 @@ function com_install()
     try
     {
         //-- @todo remove JFolder::exists when dropping 1.5 support
-        if(! JFolder::exists(JPATH_LIBRARIES.'/g11n')
+        if(false == JFolder::exists(JPATH_LIBRARIES.'/g11n')
             || ! jimport('g11n.language')
         )
         {
@@ -67,7 +67,9 @@ function com_install()
             g11n::loadLanguage('com_easycreator');
         }
 
-        if(! $xml = simplexml_load_file(ECR_XML_LOCATION))
+        $xml = simplexml_load_file(ECR_XML_LOCATION);
+
+        if(false == $xml)
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Install manifest not found'), 'error');
 

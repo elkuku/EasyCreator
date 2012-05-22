@@ -45,6 +45,8 @@ abstract class EcrHtmlSelect
             }
             catch(Exception $e)
             {
+                $do = 'nothing';
+                unset($do);
             }
         }
 
@@ -129,7 +131,7 @@ abstract class EcrHtmlSelect
      */
     public static function name($name = '', $title = '')
     {
-        if(! $title)
+        if('' == $title)
         {
             $title = jgettext('Name');
         }
@@ -150,5 +152,4 @@ abstract class EcrHtmlSelect
     <?php
         return 'element_name';
     }
-
 }

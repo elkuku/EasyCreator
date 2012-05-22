@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-if(! $this->easyLanguage)
+if( ! $this->easyLanguage)
 {
     EcrHtml::message(jgettext('No languages defined'), 'error');
 
@@ -27,7 +27,7 @@ if($this->scope != 'menu')
     {
         foreach($definition->files as $fName => $fCount)
         {
-            if(! in_array($fName, $allFiles))
+            if(false == in_array($fName, $allFiles))
             {
                 $allFiles[] = $fName;
             }
@@ -55,7 +55,6 @@ if($this->scope != 'menu')
             EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
     }
-    //switch
 
     echo '<h2>'.$searchTitle.' :: <span style="color: green;">'.ucfirst($this->scope).'</span></h2>';
 }
@@ -159,9 +158,9 @@ endif;
                 }
             }
 
-            if(! array_key_exists($def, $this->strings))
+            if(false == array_key_exists($def, $this->strings))
             {
-                if(! $coreCount)
+                if( ! $coreCount)
                 {
                     foreach($languages as $lang)
                     {

@@ -12,4 +12,4 @@
     <?php echo jgettext('FTP') ?>
 </div>
 
-<?php echo $this->loadTemplate('ftpcredentials'); ?>
+<?php echo $this->loadTemplate('ftpcredentials');

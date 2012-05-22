@@ -97,7 +97,8 @@ abstract class EcrHtmlContextmenu
     <li><a class="ecr_modal" onclick="SimpleContextMenu._hide();"
            rel="{handler: 'iframe', size: {x: 600, y: 180}}"
            href="<?php echo $ajaxLink.'&task='.$task; ?>"> <span
-        class="img icon16-<?php echo $icon; ?>"> <?php echo $title; ?> </span>
+        class="img icon16-<?php echo $icon; ?>">
+        <?php echo $title; ?> </span>
     </a></li>
     <?php
     }

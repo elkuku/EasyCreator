@@ -22,7 +22,7 @@ endif; ?>
 
 <div class="path"><?php echo JPath::clean($buildPath.DS.$this->project->version); ?></div>
 <?php
-if(! JFolder::exists($buildPath.DS.$this->project->version)) :
+if( ! JFolder::exists($buildPath.DS.$this->project->version)) :
 
     //-- The build folder does not exist - let's create it
 

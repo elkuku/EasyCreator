@@ -135,7 +135,7 @@ class EcrHtmlOptions
             }
         }
 
-        if(! $opts['archive_zip']
+        if( ! $opts['archive_zip']
             && ! $opts['archive_tgz']
             && ! $opts['archive_bz2']
         )
@@ -154,5 +154,4 @@ class EcrHtmlOptions
             echo NL.'   <label class="inline" for="'.$name.'">'.$ext.'</label>';
         }
     }
-
 }

@@ -15,7 +15,7 @@ foreach($exportTypes as $exportType) :
     echo '<h4>'.jgettext($exportType).'</h4>';
     $exportFiles = JFolder::files(ECRPATH_EXPORTS.DS.$exportType, 'gz$');
 
-    if(! count($exportFiles)) :
+    if(0 == count($exportFiles)) :
         EcrHtml::message(jgettext('Archive is empty'));
 
         continue;

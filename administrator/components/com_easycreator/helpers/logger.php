@@ -52,12 +52,12 @@ class EcrLogger
             ? $options['fileName']
             : '/log_'.time().'.log';
 
-        if(! JFolder::exists(ECRPATH_LOGS)
+        if(false == JFolder::exists(ECRPATH_LOGS)
             && ! JFolder::create(ECRPATH_LOGS)
         )
             throw new EcrLogException('Can not create log path '.ECRPATH_LOGS);
 
-        if(! touch(ECRPATH_LOGS.DS.$fileName))
+        if(false == touch(ECRPATH_LOGS.DS.$fileName))
             throw new EcrLogException('Can not create log file '.$fileName);
 
         $instances[$name] = new EcrLogger($fileName, $options);
@@ -103,7 +103,7 @@ class EcrLogger
      */
     public function log($string, $error = '')
     {
-        if(! $this->logging)
+        if(false == $this->logging)
             return;
 
         $ret = '';
@@ -146,7 +146,7 @@ class EcrLogger
      */
     public function logFileWrite($from = '', $to = '', $fileContents = '', $error = '')
     {
-        if(! $this->logging)
+        if(false == $this->logging)
             return;
 
         $noFileContents = array('php', 'css', 'js', 'xml', 'ini', 'po', 'sql');
@@ -205,7 +205,7 @@ class EcrLogger
      */
     public function logQuery($query, $error = false)
     {
-        if(! $this->logging)
+        if(false == $this->logging)
         {
             return;
         }
@@ -262,7 +262,7 @@ class EcrLogger
      */
     public function writeLog()
     {
-        if(! $this->logging
+        if(false == $this->logging
             || ! count($this->log)
             || $this->hot
         )
@@ -270,7 +270,7 @@ class EcrLogger
 
         $log = implode("\n", $this->log);
 
-        if(! JFile::write(ECRPATH_LOGS.DS.$this->fileName, $log))
+        if(false == JFile::write(ECRPATH_LOGS.DS.$this->fileName, $log))
         {
             JFactory::getApplication()->enqueueMessage(
                 sprintf(jgettext('The file %s could not be written to path %s'), $this->fileName, ECRPATH_LOGS)
@@ -291,7 +291,7 @@ class EcrLogger
     {
         $html = '';
 
-        if(! $this->logging
+        if(false == $this->logging
             || ! count($this->log)
         )
             return $html;
@@ -315,7 +315,7 @@ class EcrLogger
     {
         $html = '';
 
-        if(! $this->logging
+        if(false == $this->logging
             || ! count($this->log)
         )
             return $html;

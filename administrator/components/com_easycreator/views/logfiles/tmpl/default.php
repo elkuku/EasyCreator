@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-if(! count($this->logFiles)):
+if( ! count($this->logFiles)):
     EcrHtml::message(jgettext('No logfiles found'), 'notice');
 
     return;

@@ -55,7 +55,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         //-- Joomla! bootstrap
         $arguments[] = '--bootstrap '.JPATH_ROOT.DS.'bootstrap.php';
 
-        if(! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
+        if( ! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
         {
             JFolder::create(JPATH_ROOT.DS.$resultsBase);
         }
@@ -112,7 +112,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $arguments[] = '--bootstrap '.JPATH_ROOT.'/tests/system/servers/config-def.php';
 
         //-- C $arguments[] = '--singleWindow';
-        if(! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
+        if( ! JFolder::exists(JPATH_ROOT.DS.$resultsBase))
         {
             //-- C     JFolder::create(JPATH_ROOT.DS.$resultsBase);
         }
@@ -168,7 +168,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response = new stdClass;
         $arguments = array();
 
-        if(! JFile::exists($path))
+        if( ! JFile::exists($path))
         {
             $response->text = jgettext('File not found');
             $response->status = 1;
@@ -191,7 +191,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                 $foundClasses = array_diff(get_declared_classes(), $classes);
 
-                if(! count($foundClasses))
+                if( ! count($foundClasses))
                 {
                     $response->text = jgettext('No classes found');
                     $response->console = $response->text;
@@ -245,7 +245,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
                         $destFileName = $class.'Test.php';
 
-                        if(! JFolder::exists($destFolder))
+                        if( ! JFolder::exists($destFolder))
                         {
                             JFolder::create($destFolder);
                         }
@@ -362,7 +362,6 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = $results;
 
         echo json_encode($response);
-
     }
 
     public function phploc()
@@ -371,7 +370,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response = new stdClass;
 
-        if(! $dir || 'undefined' == $dir)
+        if('' == $dir || 'undefined' == $dir)
         {
             $response->status = 1;
             $response->text = 'No directory given';
@@ -406,9 +405,9 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $path = JRequest::getVar('path');
         $file = JRequest::getVar('file');
 
-        if(! $file)
+        if('' == $file)
         {
-            if(! JFolder::exists(JPATH_ROOT.DS.$path))
+            if(false == JFolder::exists(JPATH_ROOT.DS.$path))
             {
                 $this->response->message = '<b style="color: red">'.jgettext('Folder not found').'</b>';
 
@@ -425,7 +424,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $sniffExtensions = array('php', 'js');
 
-            if(! in_array($ext, $sniffExtensions))
+            if(false == in_array($ext, $sniffExtensions))
             {
                 $this->response->message = '<b style="color: red">Sniffeable extensions:<br />'
                     .implode(',', $sniffExtensions).'</b>';
@@ -437,7 +436,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
             $fullPath = JPATH_ROOT.DS.$path.DS.$file;
 
-            if(! JFile::exists($fullPath))
+            if(false == JFile::exists($fullPath))
             {
                 $this->response->message = '<b style="color: red">'.jgettext('File not found').'</b>';
 
@@ -502,7 +501,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                     {
                         $line = (int)$error->attributes()->line;
 
-                        if(! isset($errors[$line]))
+                        if(false == isset($errors[$line]))
                             $errors[$line] = array();
 
                         $errors[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
@@ -515,7 +514,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
                     {
                         $line = (int)$error->attributes()->line;
 
-                        if(! isset($warnings[$line]))
+                        if( ! isset($warnings[$line]))
                             $warnings[$line] = array();
 
                         $warnings[$line][] = htmlentities((string)$error.' ('.(string)$error->attributes()->source.')');
@@ -582,7 +581,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response = array();
 
-        if(! $path)
+        if( ! $path)
         {
             $response['status'] = 0;
             $response['text'] = jgettext('No path set');
@@ -664,7 +663,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
 
         $response['console'] = htmlentities($results);
 
-        if(! JFile::exists(JPATH_ROOT.DS.$targetDir.DS.'index.html'))
+        if( ! JFile::exists(JPATH_ROOT.DS.$targetDir.DS.'index.html'))
         {
             $response['status'] = 0;
             $response['text'] = jgettext('Something went wrong...');
@@ -700,7 +699,7 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $pearPackages = $pearConsole->getPackages();
         $notFound = '<strong style="color: red;">'.jgettext('Not found').'</strong>';
 
-        if(! count($pearPackages))
+        if( ! count($pearPackages))
         {
             echo '<h2 style="color: red;">'.jgettext('No PEAR packages found - Please check your Paths').'</h2>';
             echo sprintf(jgettext('For more information see: %s')

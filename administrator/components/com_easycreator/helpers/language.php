@@ -1293,7 +1293,7 @@ case 'etc':
 
             case 'xml':
                 //--Search XML files
-	            $xmlDoc = EcrProjectHelper::getXML($fileName);
+                $xmlDoc = EcrProjectHelper::getXML($fileName);
 
                 if($xmlDoc)
                 {

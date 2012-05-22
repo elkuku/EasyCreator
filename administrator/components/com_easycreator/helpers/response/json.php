@@ -4,6 +4,10 @@
  * Date: 25.04.12
  * Time: 14:01
  */
+
+/**
+ * JSON response class.
+ */
 class EcrResponseJson
 {
     public $status = 0;

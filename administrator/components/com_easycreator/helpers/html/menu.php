@@ -140,7 +140,7 @@ class EcrHtmlMenu
             </a>
         </div>
 
-        <?php echo(ECR_DEBUG) ? '<div class="debug_ON">Debug</div>' : ''; ?>
+        <?php echo (ECR_DEBUG) ? '<div class="debug_ON">Debug</div>' : ''; ?>
 
         <div style="float: left; margin-top: -7px;"><img
             src="<?php echo JURI::Root(); ?>media/com_easycreator/admin/images/ico/icon-64-easycreator.png"
@@ -185,10 +185,10 @@ class EcrHtmlMenu
         <div style="float: left; width: 0.5em;">&nbsp;</div>
 
         <?php
-        if(! in_array($task, $rTasks))
+        if(false == in_array($task, $rTasks))
         {
             ?> <a class="hasTip btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;"
-                  title="<?php echo jgettext('More...'); ?>::<?php echo jgettext('Click for more options'); ?>"
+                  title="<?php echo jgettext('More...').'::'.jgettext('Click for more options'); ?>"
                   onclick="this.setStyle('display', 'none'); ecr_options_box.toggle();">
             <?php if(ECR_TBAR_ICONS) : ?>
             <i class="img icon16-add"></i>
@@ -222,7 +222,7 @@ class EcrHtmlMenu
             ?>
         </div>
         <?php
-        if(! in_array($task, $rTasks))
+        if(false == in_array($task, $rTasks))
         {
             ?>
             <script type="text/javascript">

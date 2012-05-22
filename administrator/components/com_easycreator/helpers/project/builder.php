@@ -200,7 +200,7 @@ class EcrProjectBuilder extends JObject
             case 'plugin':
                 $this->project->comName = strtolower($this->project->name);
 
-                if(! $this->project->scope)
+                if( ! $this->project->scope)
                 {
                     //-- Scope has been set previously by temlate options
                     $this->project->scope = (string)$this->buildManifest->attributes()->scope;
@@ -215,7 +215,7 @@ class EcrProjectBuilder extends JObject
             case 'library':
                 $this->project->comName = strtolower($this->project->name);
 
-                if(! $this->project->scope)
+                if( ! $this->project->scope)
                     throw new EcrBuilderException(__METHOD__.': Missing scope for library');
                 break;
 

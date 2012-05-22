@@ -351,7 +351,9 @@ class EasyCreatorViewStuffer extends JView
         $start = JRequest::getInt('start');
         $end = JRequest::getInt('end');
 
-        if(! JFile::exists($path))
+        $fileContents = '';
+
+        if( ! JFile::exists($path))
         {
             echo '<div class="ebc_error" align="center">'.jgettext('File not found').'</div>';
             echo $path;
@@ -364,7 +366,7 @@ class EasyCreatorViewStuffer extends JView
             $fileContents = JFile::read($path);
         }
 
-        if($fileContents)
+        if('' != $fileContents)
         {
             $fileContents = explode("\n", $fileContents);
 

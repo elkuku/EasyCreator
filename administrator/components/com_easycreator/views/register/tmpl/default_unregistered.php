@@ -49,7 +49,7 @@ foreach($projectScopes as $comType => $projectScope) :
             <?php
         endif;
 
-        if(! count($unregisteredProjects)) :
+        if(0 == count($unregisteredProjects)) :
             ?>
             <div style="color: orange; text-align: center;">
                 <?php echo jgettext('None found'); ?>

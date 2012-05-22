@@ -15,7 +15,7 @@ $base_href = (0 === strpos($path, ECRPATH_BUILDS))
 
 echo '<div class="img icon16-server path">'.$path.'</div>';
 
-if(! JFolder::exists($path)) :
+if(false == JFolder::exists($path)) :
     EcrHtml::message(jgettext('Archive is empty'), 'warning');
 
     return;
@@ -36,7 +36,7 @@ foreach($folders as $folder) :
     $base_path = $path.DS.$folder;
     $files = JFolder::files($base_path.DS);
 
-    if(! count($files)) :
+    if(0 == count($files)) :
         echo '<strong style="color: red;">'.jgettext('No ZIP files found').'</strong>';
 
         continue;

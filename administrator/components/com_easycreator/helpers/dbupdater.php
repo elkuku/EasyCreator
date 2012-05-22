@@ -39,21 +39,21 @@ class EcrDbUpdater
         if(class_exists('easyLogger'))
             $this->logger = EcrLogger::getInstance('ecr');
 
-        if(! $this->setAdapter($adapter))
+        if( ! $this->setAdapter($adapter))
             return false;
 
         $buildsPath = $project->getZipPath();
 
         $this->log('Looking for versions in '.$buildsPath);
 
-        if(! JFolder::exists($buildsPath))
+        if(false == JFolder::exists($buildsPath))
             return;
 
         $folders = JFolder::folders($buildsPath);
 
         $this->log(sprintf('Found %d version(s) ', count($folders)));
 
-        if(! $folders)
+        if( ! $folders)
             return;
 
         $this->versions = $folders;
@@ -69,7 +69,7 @@ class EcrDbUpdater
      */
     private function log($message)
     {
-        if(! $this->logger)
+        if( ! $this->logger)
             return;
 
         $this->logger->log($message);
@@ -85,7 +85,7 @@ class EcrDbUpdater
      */
     private function logFile($path, $contents)
     {
-        if(! $this->logger)
+        if( ! $this->logger)
             return;
 
         $this->logger->logFileWrite('dbUpdate', $path, $contents);
@@ -114,14 +114,14 @@ class EcrDbUpdater
      */
     public function buildFromECRBuildDir()
     {
-        if(! $this->project)
+        if( ! $this->project)
             return false;
 
         $dbType = 'mysql';
 
         $updater = new EcrProjectUpdater($this->project, $this->logger);
 
-        if(! $updater->hasUpdates)
+        if( ! $updater->hasUpdates)
         {
             $this->log('No updates found');
 
@@ -134,7 +134,7 @@ class EcrDbUpdater
 
             $fileName = $this->findInstallFile($updater->tmpPath.'/'.$version.'/admin/install/sql');
 
-            if(! $fileName)
+            if( ! $fileName)
             {
                 echo 'No install.sql file for '.$version;
 
@@ -144,13 +144,13 @@ class EcrDbUpdater
             $this->fileList[$version] = $fileName;
         }
 
-        if(! array_key_exists($this->project->version, $this->fileList))
+        if(false == array_key_exists($this->project->version, $this->fileList))
         {
             //-- Search for current install file
             $fileName = $this->findInstallFile(JPATH_ADMINISTRATOR.'/components/'
                 .$this->project->comName.'/install/sql');
 
-            if(! $fileName)
+            if( ! $fileName)
             {
                 echo 'No install.sql file for '.$this->project->version;
             }
@@ -172,7 +172,7 @@ class EcrDbUpdater
         {
             $fileName = $file->version.'.sql';
 
-            if(! JFile::write($path.'/'.$fileName, $file->query))
+            if(false == JFile::write($path.'/'.$fileName, $file->query))
             {
                 echo 'Can not write file to '.$path.'/'.$fileName;
 
@@ -194,7 +194,7 @@ class EcrDbUpdater
      */
     public function parseFiles()
     {
-        if(! $this->fileList)
+        if( ! $this->fileList)
             return array();
 
         $creates = array();
@@ -203,7 +203,7 @@ class EcrDbUpdater
 
         foreach($this->fileList as $version => $path)
         {
-            if(! JFile::exists($path))
+            if(false == JFile::exists($path))
                 continue;
 
             $this->log('Parsing file at: '.$path);
@@ -226,7 +226,7 @@ class EcrDbUpdater
                 {
                     $q = trim($q);
 
-                    if(! $q)
+                    if('' == $q)
                         continue;
 
                     $this->adapter->setQuery($q);
@@ -251,7 +251,6 @@ class EcrDbUpdater
 
                     $item->tables[$parsed->name] = $parsed;
                 }
-                //foreach
 
                 $creates[$version] = $item;
             }
@@ -272,14 +271,14 @@ class EcrDbUpdater
             $statement = '';
 
             //-- @todo: bad coder :(
-            if(! is_object($item))
+            if(false == is_object($item))
                 continue;
 
             $qq = new stdClass;
             $qq->version = $item->version;
             $qq->query = '';
 
-            if(! $previous)
+            if( ! $previous)
             {
                 $previous = $item;
 
@@ -290,7 +289,7 @@ class EcrDbUpdater
 
             foreach($item->tables as $table)
             {
-                if(! array_key_exists($table->name, $previous->tables))
+                if(false == array_key_exists($table->name, $previous->tables))
                 {
                     //-- New table
                     $this->log('Found a new table '.$table->name);
@@ -307,7 +306,7 @@ class EcrDbUpdater
 
                 foreach($table->fields as $fName => $field)
                 {
-                    if(! array_key_exists($fName, $previous->tables[$table->name]->fields))
+                    if(false == array_key_exists($fName, $previous->tables[$table->name]->fields))
                     {
                         //-- New column
                         $this->log(sprintf('Found a new column %s in table %s', $fName, $table->name));
@@ -335,7 +334,7 @@ class EcrDbUpdater
                         {
                             foreach($pField->constraints as $pC)
                             {
-                                if(! isset($pC['type']) || ! isset($c['type']))
+                                if( ! isset($pC['type']) || ! isset($c['type']))
                                     continue;
 
                                 if($pC['type'] == $c['type'])
@@ -358,7 +357,7 @@ class EcrDbUpdater
 
                 foreach($previous->tables[$table->name]->fields as $fName => $field)
                 {
-                    if(! array_key_exists($fName, $table->fields))
+                    if(false == array_key_exists($fName, $table->fields))
                     {
                         $alters[] = $this->adapter->getStatement('dropColumn', $fName, $field);
 
@@ -398,7 +397,7 @@ class EcrDbUpdater
         //-- ucfirst is only for the eye
         $className = 'EcrDbadapter'.ucfirst($adapter);
 
-        if(! class_exists($className))
+        if(false == class_exists($className))
             throw new Exception(__METHOD__.': Class name not found '.$className);
 
         $this->adapter = new $className;
@@ -417,7 +416,7 @@ class EcrDbUpdater
     {
         $files = JFolder::files($path);
 
-        if(! $files)
+        if( ! $files)
             return false;
 
         $fileName = '';

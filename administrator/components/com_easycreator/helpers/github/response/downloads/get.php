@@ -8,6 +8,8 @@
  */
 
 /**
+ * GitHub response class.
+ *
  * @link http://developer.github.com/v3/repos/downloads/
  */
 class EcrGithubResponseDownloadsGet

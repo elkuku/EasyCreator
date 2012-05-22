@@ -41,7 +41,7 @@ class EcrEasycreator
             //-- Require specific controller if requested
             $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
 
-            if(! file_exists($path))
+            if(false == file_exists($path))
                 throw new Exception(sprintf(jgettext('Controller %s not found'), $controller));
 
             require_once $path;
@@ -55,7 +55,7 @@ class EcrEasycreator
         //-- Create the controller
         $classname = 'EasyCreatorController'.$controller;
 
-        if(! class_exists($classname))
+        if(false == class_exists($classname))
             throw new Exception(sprintf(jgettext('Controller class %s not found'), $classname));
 
         return new $classname;

@@ -39,7 +39,7 @@ class EcrProfiler extends JProfiler
      * @param string $prefix Prefix used to distinguish profiler objects.
      *
      * @access public
-     * @return EcrProfiler  The Profiler object.
+     * @return \EcrProfiler|\JProfiler The Profiler object.
      */
     public function getInstance($prefix = '')
     {

@@ -6,6 +6,11 @@
  * @author     Created on 25-Apr-2011
  * @license    GNU/GPL, see JROOT/LICENSE.php
  *
+ */
+
+/**
+ * GitHub helper class.
+ *
  * @property-read EcrGithubDownloads $downloads
  */
 class EcrGithub extends JGithub
@@ -38,9 +43,9 @@ class EcrGithub extends JGithub
      */
     public function __get($name)
     {
-        if ($name == 'downloads')
+        if($name == 'downloads')
         {
-            if ($this->downloads == null)
+            if($this->downloads == null)
             {
                 $this->downloads = new EcrGithubDownloads($this->options, $this->client);
             }
@@ -49,6 +54,5 @@ class EcrGithub extends JGithub
         }
 
         return parent::__get($name);
-
     }
 }

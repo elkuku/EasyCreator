@@ -84,12 +84,12 @@ else
 
 try
 {
-    if(! class_exists('g11n'))
+    if( ! class_exists('g11n'))
     {
         //-- 2) Check the libraries folder
 
         //-- @todo remove JFolder::exists when dropping 1.5 support
-        if(! JFolder::exists(JPATH_LIBRARIES.'/g11n')
+        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')
             || ! jimport('g11n.language')
         )
         {
@@ -185,7 +185,7 @@ else
 
     $MTVersion = JFactory::getApplication()->get('MooToolsVersion');
 
-    if(! $MTVersion)
+    if( ! $MTVersion)
         JFactory::getApplication()->enqueueMessage(
             jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'), 'error');
 
@@ -195,7 +195,6 @@ else
 
 try
 {
-
     $controller = EcrEasycreator::getController();
 
     if('component' == JRequest::getCmd('tmpl'))

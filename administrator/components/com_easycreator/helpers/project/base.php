@@ -139,7 +139,7 @@ abstract class EcrProjectBase
      */
     public function __construct($name = '')
     {
-        if(! $name
+        if( ! $name
             || ! $this->readProjectXml($name)
         )
         {
@@ -303,7 +303,7 @@ abstract class EcrProjectBase
     {
         $fileName = EcrProjectHelper::findManifest($this);
 
-        if(! $fileName)
+        if( ! $fileName)
         {
             $this->isValid = false;
 
@@ -312,7 +312,7 @@ abstract class EcrProjectBase
 
         $data = EcrProjectHelper::parseXMLInstallFile(JPATH_ROOT.DS.$fileName);
 
-        if(! $data)
+        if( ! $data)
             return false;
 
         $this->method = (string)$data->attributes()->method;
@@ -456,21 +456,21 @@ abstract class EcrProjectBase
 
         $this->JCompat = JRequest::getString('jcompat');
 
-        if(! $this->writeProjectXml())
+        if( ! $this->writeProjectXml())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update EasyCreator manifest'), 'error');
 
             return false;
         }
 
-        if(! $this->writeJoomlaManifest())
+        if( ! $this->writeJoomlaManifest())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Joomla! manifest'), 'error');
 
             return false;
         }
 
-        if(! $this->updateAdminMenu())
+        if( ! $this->updateAdminMenu())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
@@ -489,7 +489,7 @@ abstract class EcrProjectBase
         $this->deployOptions->set('github.user', JRequest::getVar('githubUser'));
         $this->deployOptions->set('github.pass', JRequest::getVar('githubPass'));
 
-        if(! $this->writeDeployFile())
+        if( ! $this->writeDeployFile())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
 
@@ -532,7 +532,7 @@ abstract class EcrProjectBase
 
         $contents = $xml->asFormattedXML();
 
-        if(! JFile::write($path, $contents))
+        if(false == JFile::write($path, $contents))
             throw new Exception(__METHOD__.' - Unable to write deploy file to: '.$path);
 
         return $this;
@@ -551,12 +551,12 @@ abstract class EcrProjectBase
 
         $this->deployOptions = new JRegistry;
 
-        if(! JFile::exists($path))
+        if(false == JFile::exists($path))
             return $this;
 
         $xml = EcrProjectHelper::getXML($path);
 
-        if(! $xml)
+        if(false == $xml)
             throw new Exception(__METHOD__.' - Invalid deploy file');
 
         $this->deployOptions->set('ftp.host', (string)$xml->ftp->host);
@@ -595,7 +595,7 @@ abstract class EcrProjectBase
 
         $manifest = EcrProjectHelper::getXML(JPATH_ROOT.DS.$installXML);
 
-        if(! $manifest)
+        if(false == $manifest)
         {
             JFactory::getApplication()->enqueueMessage(
                 sprintf(jgettext('Can not load xml file %s'), $installXML), 'error');
@@ -642,7 +642,7 @@ abstract class EcrProjectBase
         $output = $root.$manifest->asFormattedXML();
 
         //-- Write XML file to disc
-        if(! JFile::write(JPATH_ROOT.DS.$installXML, $output))
+        if(false == JFile::write(JPATH_ROOT.DS.$installXML, $output))
         {
             JFactory::getApplication()->enqueueMessage(
                 jgettext('Unable to write file'), 'error');
@@ -827,7 +827,7 @@ abstract class EcrProjectBase
 
                             foreach($oVars as $oKey => $oValue)
                             {
-                                if(! $oValue)
+                                if( ! $oValue)
                                     continue;
 
                                 $fieldElement->addChild($oKey, $oValue);
@@ -924,12 +924,12 @@ abstract class EcrProjectBase
     {
         $fileName = ECRPATH_SCRIPTS.DS.$projectName.'.xml';
 
-        if(! JFile::exists($fileName))
+        if(false == JFile::exists($fileName))
             throw new Exception('Project manifest not found');
 
         $manifest = EcrProjectHelper::getXML($fileName);
 
-        if(! $manifest instanceof SimpleXMLElement
+        if( ! $manifest instanceof SimpleXMLElement
             || $manifest->getName() != 'easyproject'
         )
         {
@@ -1070,7 +1070,7 @@ abstract class EcrProjectBase
 
                 $EasyAutoCode = EcrProjectHelper::getAutoCode($key);
 
-                if(! $EasyAutoCode)
+                if( ! $EasyAutoCode)
                 {
                     continue;
                 }
@@ -1205,7 +1205,7 @@ abstract class EcrProjectBase
     {
         if('package' != $this->type)
         {
-            if(! $this->dbId)
+            if( ! $this->dbId)
                 throw new Exception(jgettext('Invalid Project'));
 
             if($complete)
@@ -1222,14 +1222,14 @@ abstract class EcrProjectBase
                     $installer = JInstaller::getInstance();
 
                     //-- Uninstall the extension
-                    if(! $installer->uninstall($this->type, $this->dbId, $clientId))
+                    if( ! $installer->uninstall($this->type, $this->dbId, $clientId))
                         throw new Exception(jgettext('JInstaller: Unable to remove project'));
                 }
                 else
                 {
                     // The extension is not "installable" - so just remove the files
 
-                    if(! JFolder::delete($this->getExtensionPath()))
+                    if(false == JFolder::delete($this->getExtensionPath()))
                         throw new Exception('Unable to remove the extension');
                 }
             }
@@ -1238,10 +1238,10 @@ abstract class EcrProjectBase
         //-- Remove the config script
         $fileName = $this->getEcrXmlFileName();
 
-        if(! JFile::exists(ECRPATH_SCRIPTS.DS.$fileName))
+        if(false == JFile::exists(ECRPATH_SCRIPTS.DS.$fileName))
             throw new Exception(sprintf(jgettext('File not found %s'), ECRPATH_SCRIPTS.DS.$fileName));
 
-        if(! JFile::delete(ECRPATH_SCRIPTS.DS.$fileName))
+        if(false == JFile::delete(ECRPATH_SCRIPTS.DS.$fileName))
             throw new Exception(sprintf(jgettext('Unable to delete file at %s'), ECRPATH_SCRIPTS.DS.$fileName));
 
         return $this;
@@ -1262,7 +1262,7 @@ abstract class EcrProjectBase
         $element_name = JRequest::getVar('element_name', null);
         $element = JRequest::getVar('element', null);
 
-        if(! isset($options->pathSource)
+        if(false == isset($options->pathSource)
             || ! $options->pathSource
         )
         {
@@ -1335,7 +1335,7 @@ abstract class EcrProjectBase
 
             $this->substitute($fileContents);
 
-            if(! JFile::write($basePathDest.DS.$fName, $fileContents))
+            if(false == JFile::write($basePathDest.DS.$fName, $fileContents))
             {
                 JFactory::getApplication()->enqueueMessage(jgettext('Unable to write file'), 'error');
 
@@ -1345,7 +1345,7 @@ abstract class EcrProjectBase
             $logger->logFileWrite($file, $basePathDest.DS.$fName, $fileContents);
         }
 
-        if(! $this->writeProjectXml())
+        if( ! $this->writeProjectXml())
         {
             return false;
         }
@@ -1362,7 +1362,7 @@ abstract class EcrProjectBase
      */
     public function addTable(EcrTable $table)
     {
-        if(! in_array($table->name, $this->tables))
+        if(false == in_array($table->name, $this->tables))
         {
             $this->tables[$table->name] = $table;
         }

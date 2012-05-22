@@ -123,13 +123,9 @@ abstract class EcrHtml
         echo '<input type="hidden" name="file_path" id="file_path" '
             .'value="'.JRequest::getVar('file_path').'" />'.NL;
         echo '</form>'.NL;
-        echo($closeDiv) ? '</div>'.NL : '';
+        echo ($closeDiv) ? '</div>'.NL : '';
         echo '<div style="clear: both"></div>'.NL;
     }
-
-
-
-
 
     /**
      * Load the great code editor EditArea.
@@ -274,7 +270,7 @@ EOF;
 
             $parts = explode('-', $contents);
 
-            if(! isset($parts[1]))
+            if(false == isset($parts[1]))
                 return trim($contents);
 
             //-- If the second part is '0' we have a tagged version
@@ -286,7 +282,7 @@ EOF;
 
         $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.'CHANGELOG.php';
 
-        if(! file_exists($file))
+        if(false == file_exists($file))
         {
             return false;
         }
@@ -323,7 +319,6 @@ EOF;
 
         return $ret;
     }
-
 
     /**
      * replaces opening and closing tags with entities - nothing else..
@@ -378,7 +373,7 @@ EOF;
 
         $type = ($type) ? ' alert'.$type : ' alert-info';
 
-        if(! is_array($messages))
+        if(false == is_array($messages))
             $messages = array($messages);
 
         echo '<div class="alert'.$type.'">';
@@ -387,7 +382,6 @@ EOF;
         {
             echo '<p>'.$message.'</p>';
         }
-        //foreach
 
         if($callFile)
             echo '<p><strong>'.$callFile.'</strong></p>';

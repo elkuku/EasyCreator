@@ -17,6 +17,7 @@ class EcrFile extends JFile
      *
      * File name and path set from request.
      *
+     * @throws Exception
      * @return string - 'saved' on success / error string
      */
     public static function saveFile()
@@ -94,6 +95,7 @@ class EcrFile extends JFile
      *
      * File name and path set from request.
      *
+     * @throws Exception
      * @return string Message.
      */
     public static function deleteFile()

@@ -8,6 +8,8 @@
  */
 
 /**
+ * GitHub downloads class.
+ *
  * @link http://developer.github.com/v3/repos/downloads/
  */
 class EcrGithubDownloads extends JGithubObject
@@ -61,7 +63,6 @@ class EcrGithubDownloads extends JGithubObject
      */
     public function add($user, $repo, $path, $description = '')
     {
-
         /*
          * First part: Create the download resource
          */
@@ -100,7 +101,7 @@ class EcrGithubDownloads extends JGithubObject
 
         $respData = json_decode($response->body);
 
-        if(! $respData)
+        if( ! $respData)
             throw new Exception('Invalid response');
 
         $data = array(

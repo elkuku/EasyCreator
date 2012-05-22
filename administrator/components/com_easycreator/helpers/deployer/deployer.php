@@ -35,7 +35,7 @@ abstract class EcrDeployer
     {
         $deployTarget = JFactory::getApplication()->input->get('deployTarget');
 
-        if(! $deployTarget)
+        if( ! $deployTarget)
             throw new Exception(__METHOD__.' - No type given');
 
         $className = 'EcrDeployerType'.ucfirst($deployTarget);
@@ -121,7 +121,7 @@ abstract class EcrDeployer
 
         $contents = implode("\n", $lines);
 
-        if(! JFile::write($path, $contents))
+        if(false == JFile::write($path, $contents))
             throw new Exception('Can not write the sync file');
     }
 
@@ -140,14 +140,14 @@ abstract class EcrDeployer
 
         $path = JPATH_COMPONENT.'/data/sync/'.$project->comName.'.sync.txt';
 
-        if(! JFile::exists($path))
+        if(false == JFile::exists($path))
             return false;
 
         $lines = explode("\n", JFile::read($path));
 
         foreach($lines as $line)
         {
-            if(! trim($line))
+            if('' == trim($line))
                 continue;
 
             $parts = explode("\t", $line);
@@ -193,7 +193,7 @@ abstract class EcrDeployer
                 $fShort = str_replace(JPATH_ROOT.'/', '', $file);
 
                 //-- File does not exist
-                if(! array_key_exists($fShort, $syncList))
+                if( ! array_key_exists($fShort, $syncList))
                 {
                     $f = new stdClass;
                     $f->path = $fShort;
@@ -218,7 +218,7 @@ abstract class EcrDeployer
 
         foreach($syncList as $item)
         {
-            if(! in_array(JPATH_ROOT.'/'.$item->path, $allCopies))
+            if( ! in_array(JPATH_ROOT.'/'.$item->path, $allCopies))
             {
                 $f = new stdClass;
                 $f->path = $item->path;
@@ -251,7 +251,7 @@ abstract class EcrDeployer
         {
             $entry = '----------------------------------------------';
         }
-        elseif(JFile::exists($path.'/'.$fileName))
+        else if(JFile::exists($path.'/'.$fileName))
         {
             JFile::delete($path.'/'.$fileName);
         }
@@ -270,5 +270,4 @@ abstract class EcrDeployer
 
         return $this;
     }
-
 }

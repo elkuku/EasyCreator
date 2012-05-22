@@ -75,7 +75,7 @@ abstract class EcrHtmlWizard
     private static function displayRow($title, $property, $formFieldName
         , EcrProjectBase $project, $formFieldNames)
     {
-        if(! $project->$property)
+        if( ! $project->$property)
             return '';
 
         $return = array();
@@ -86,7 +86,7 @@ abstract class EcrHtmlWizard
         $return[] = '<div class="ecr_table-cell">';
         $return[] = $project->$property;
 
-        if(! in_array($formFieldName, $formFieldNames))
+        if(false == in_array($formFieldName, $formFieldNames))
         {
             $return[] = '<input type="hidden" name="'.$formFieldName.'"'
                 .' value="'.$project->$property.'" />';

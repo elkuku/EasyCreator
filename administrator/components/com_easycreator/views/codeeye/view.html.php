@@ -62,7 +62,7 @@ class EasyCreatorViewCodeEye extends JView
         {
             $this->project = EcrProjectHelper::getProject();
 
-            if(! count($this->project->copies))
+            if(0 == count($this->project->copies))
                 throw new Exception(jgettext('No files found'));
         }
         catch(Exception $e)
@@ -254,7 +254,7 @@ class EasyCreatorViewCodeEye extends JView
         switch($this->project->type)
         {
             case 'component':
-                if(! JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
+                if(false == JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
                 {
                     $btn = '&nbsp;<span class="ecr_button img icon16-add" onclick="submitbutton(\'copy_bootstrap\');">'
                         .jgettext('Copy bootstrap.php to Joomla root').'</span>';
@@ -266,7 +266,7 @@ class EasyCreatorViewCodeEye extends JView
 
                 $this->testsBase = 'administrator'.DS.'components'.DS.$this->project->comName.DS.'tests'.DS.'unit';
 
-                if(! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
+                if(false == JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
                 {
                     $btn = '&nbsp;<span class="ecr_button img icon16-add"'
                         .' onclick="submitbutton(\'create_test_dir_unit\');">'
@@ -311,7 +311,7 @@ class EasyCreatorViewCodeEye extends JView
 
                 $this->testsBase = 'administrator'.DS.'components'.DS.$this->project->comName.DS.'tests'.DS.'system';
 
-                if(! JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
+                if(false == JFolder::exists(JPATH_ROOT.DS.$this->testsBase))
                 {
                     $btn = '&nbsp;<span class="ecr_button img icon16-add"'
                         .' onclick="submitbutton(\'create_test_dir_selenium\');">'

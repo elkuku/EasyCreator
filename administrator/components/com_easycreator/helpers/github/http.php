@@ -8,7 +8,7 @@
  */
 
 /**
- *
+ * GitHub http class.
  */
 class EcrGithubHttp extends JGithubHttp
 {
