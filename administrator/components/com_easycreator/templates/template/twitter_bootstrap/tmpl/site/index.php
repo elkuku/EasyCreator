@@ -52,12 +52,9 @@ $min = (JDEBUG) ? '.min' : '';
         </div>
     </div>
 
-
     <div class="error">
         <jdoc:include type="message" />
     </div>
-
-
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -88,8 +85,6 @@ $min = (JDEBUG) ? '.min' : '';
 
                 </div><!--/.well -->
             </div><!--/span-->
-
-
 
             <div class="span9">
                 <div class="hero-unit">
@@ -154,8 +149,6 @@ $min = (JDEBUG) ? '.min' : '';
         </footer>
 
     </div><!--/.fluid-container-->
-
-
 
     </body>
 </html>
