@@ -18,7 +18,16 @@ $cnt = 0;
 
 $NL = "\n";
 
+echo $NL;
 echo 'EasyCreator CSS and JavaScript minifier'.$NL;
+echo '======================================='.$NL.$NL;
+
+if(0)
+{
+    echo '******* DEACTIVATED ********'.$NL;
+
+    return;
+}
 
 foreach($types as $type)
 {
@@ -37,7 +46,7 @@ foreach($types as $type)
         if(2 != count($parts))
             continue;
 
-        echo $fileInfo->getFilename().'... ';//.$NL;
+        echo $fileInfo->getFilename().'... '; //.$NL;
 
         $path = $fileInfo->getRealPath();
 
