@@ -146,7 +146,8 @@ class EcrProjectZiper extends JObject
 
         foreach($stdOpts as $opt)
         {
-            $this->buildopts[$opt] = (in_array($opt, $buildopts)) ? true : false;
+            $this->buildopts[$opt] =(array_key_exists($opt, $buildopts) && (true === $buildopts[$opt]))
+                    ? true : false;
         }
 
         //-- Init profiler
@@ -334,6 +335,32 @@ class EcrProjectZiper extends JObject
                 return $this;
             }
         }
+
+        //-- Clean up language version files
+        $paths = array('admin/language', 'site/language');
+
+        $cnt = 0;
+
+        foreach($paths as $path)
+        {
+            if(false == JFolder::exists($this->temp_dir.'/'.$path))
+                continue;
+
+            $files = JFolder::files($this->temp_dir.'/'.$path, '.', true, true);
+
+            foreach($files as $file)
+            {
+                if('ini' != JFile::getExt($file) && 'html' != JFile::getExt($file))
+                {
+                    if(false == JFile::delete($file))
+                     throw new EcrZiperException(__METHOD__.' - Can not delete language version file: '.$file);
+
+                    $cnt ++;
+                }
+            }
+        }
+
+        $this->logger->log(sprintf('%d language version files deleted', $cnt));
 
         return $this;
     }
@@ -879,7 +906,7 @@ class EcrProjectZiper extends JObject
         if(0 == count($this->project->elements))
             return $this;
 
-        $this->logger->log('<strong style="color: blue;">Copying Package elements</strong>');
+        $this->logger->log('Copying Package elements');
 
         foreach($this->project->elements as $element => $path)
         {
