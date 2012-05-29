@@ -168,6 +168,11 @@
     background-image: url(../images/ico/icon-16-git.png);
 }
 
+.icon16-ecr-help {
+    background-image: url(../images/ico/icon-16-help.png);
+    cursor: help;
+}
+
 .img.outdated {
     background-image: url(../images/ico/cancel.png);
 }

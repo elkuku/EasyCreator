@@ -10,7 +10,7 @@ var pollRequest = new Request.JSON({
     method: 'post',
     url: 'index.php?option=com_easycreator&controller=ajax&task=pollLog&tmpl=component&format=raw',
     initialDelay: 100,
-    delay: 1000,
+    delay: 500,
     limit: 15000,
 
     onRequest: function(){

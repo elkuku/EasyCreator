@@ -120,12 +120,8 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
     switch(found) {
         case 'file':
             cl = $('ecr_title_file').className;
-            //   $('ecr_title_file').innerHTML = jgettext('Loading...');
-            $('ecr_title_file').className = cl + ' ajax_loading16';
 
-            if(FBPresent) {
-                console.log('set lastId(' + lastId + ') to: ' + link_id);
-            }
+            $('ecr_title_file').className = cl + ' ajax_loading16';
 
             new Request({
                 url : url + '&task=loadFile',
@@ -175,10 +171,6 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
                     $('ecr_title_pic').innerHTML = jgettext('Loading...');
                 },
                 'onComplete' : function(response) {
-                    if(FBPresent) {
-                        console.log('set lastId(' + lastId + ') to: ' + link_id);
-                    }
-
                     if(lastId != undefined) {
                         $(lastId).setStyle('color', 'black');
                     }
@@ -276,17 +268,13 @@ function xcheckVersion() {
     url += '?myVersion=' + ECR_VERSION;
 
     url = 'http://joomla.org';
-//    url += '&format=raw';
-//    alert(url);
+
     new Request({
         url : url,
         'onRequest' : function() {
             $('ecr_versionCheck').innerHTML = jgettext('Checking...');
         },
         'onFailure' : function(rr) {
-//            console.log(rr);
-//            var resp = JSON.decode(rr);
-//            console.log(resp);
             $('ecr_versionCheck').innerHTML = '<b style="color: red;">'
                 + jgettext('Server error') + '</b>' + url;
 

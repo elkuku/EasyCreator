@@ -87,3 +87,10 @@ th.hasTip {
     background-color: #b2cce5;
     cursor: help;
 }
+
+div.actionTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #eee;
+    padding: 0.2em;
+}

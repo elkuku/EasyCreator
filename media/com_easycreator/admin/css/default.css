@@ -682,6 +682,13 @@ label.inline, span#EditAreaArroundInfos_ecr_code_area label {
     clear: none;
 }
 
+label.inline2 {
+    display: inline-block;
+    min-width: 150px;
+    padding-left: 0.2em;
+    clear: none;
+}
+
 .btn.block {
     display: block;
 }

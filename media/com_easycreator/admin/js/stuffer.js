@@ -42,6 +42,8 @@ window.addEvent('domready', function() {
 });
 
 var ecrStuffer = new Class({
+    cnt_update : 0,
+
     addUpdateServer : function(name, url, type, priority) {
         var container = document.id('updateServers');
         var html = '';
@@ -60,24 +62,73 @@ var ecrStuffer = new Class({
             .inject(container);
     },
 
-    addAction : function(type, action) {
-        var container = document.id('actions');
+    newAction : function() {
+        var e = document.id('sel_actions');
+
+        var type = e.options[e.selectedIndex].value;
+
+        if('' == type) {
+            alert(jgettext('Please select a type'));
+
+            return false;
+        }
+
+        trigger = '';
+
+        Stuffer.addAction(type, trigger, {});
+    },
+
+    addAction : function(type, trigger, options) {
+
+        this.cnt_update += 1;
+        trigger = (undefined == trigger) ? '' : trigger;
+        options.trigger = trigger;
+
+        var container = document.id('container_actions');
+
         var html = '';
+        var cnt = this.cnt_update;
 
+        html += '<input type="hidden" name="actions[' + this.cnt_update + ']" value="' + type + '" />';
 
-        html += ' <input type="hidden" name="actions[type][]" value="' + type + '" />';
+        html += '<div class="actionTitle">'+type+'</div>';
 
-        html += jgettext('Script');
+        html += '<label class="inline" for="fields_' + cnt + '_trigger">' + jgettext('Trigger') + '</label>'
+            //+ '<input class="span2" type="text" name="fields[' + cnt + '][trigger]"'
+            //+ ' id="fields_' + cnt + '_trigger" value="' + trigger + '">' +
+            + '<select class="span2" name="fields[' + cnt + '][trigger]">'
+            + '<option value="precopy"' + ('precopy' == trigger ? ' selected="selected"' : '') + '>Pre Copy</option>'
+            + '<option value="postcopy"' + ('postcopy' == trigger ? ' selected="selected"' : '') + '>Post Copy</option>'
+            + '</select>'
+            + '<br />';
 
-        html += ' <input type="text" name="actions[script][]" value="' + action + '" />';
+        new Request({
+            url : ecrAJAXLink + '&controller=ajax&task=getAction'
+                + '&type=' + type
+                + '&options=' + JSON.stringify(options)
+                + '&cnt=' + this.cnt_update,
 
-        html += '<span class="btn btn-mini" onclick="this.getParent().dispose();">';
-        html += jgettext('Delete');
-        html += '</span>';
+            onComplete : function(response) {
+                var r = JSON.decode(response);
 
-        new Element('div', {'style' : 'border: 1px solid silver; padding: 0.4em; margin: 0.2em;'})
-            .set('html', html)
-            .inject(container);
+                if(r.status) {
+                    //-- Error
+                    alert(r.message + r.debug);
+
+                    return false;
+                }
+
+                html += r.message;
+
+                html += '<br /><span class="btn btn-mini" onclick="this.getParent().dispose();">';
+                html += jgettext('Delete');
+                html += '</span>';
+
+                new Element('div', {'style' : 'border: 1px solid silver; padding: 0.4em; margin: 0.2em;'})
+                    .set('html', html)
+                    .inject(container);
+            }
+        }).send();
     },
 
     loadFilenameDefaults : function() {
