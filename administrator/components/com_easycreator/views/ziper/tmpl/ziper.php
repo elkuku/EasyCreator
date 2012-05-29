@@ -40,8 +40,6 @@ JFactory::getDocument()->addScriptDeclaration(
 
 <div id="zipResult" style="display: none;"></div>
 
-<div style="xclear: both;"></div>
-
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('folder'); ?>
 </div>
@@ -55,25 +53,13 @@ JFactory::getDocument()->addScriptDeclaration(
 </div>
 
 <!--
-
 <div class="ecr_floatbox">
     <?php //echo $this->loadTemplate('database'); ?>
 </div>
 -->
+
 <div class="ecr_floatbox">
-    <div class="infoHeader">
-        <?php echo jgettext('Prebuild actions'); ?>
-    </div>
-    <?php if(count($this->project->actions)) : ?>
-    <dl class="dl-horizontal">
-        <?php foreach($this->project->actions as $action): ?>
-        <dt><?php echo $action->type ?></dt>
-        <dd><?php echo $action->script; ?></dd>
-        <?php endforeach; ?>
-    </dl>
-    <?php else : ?>
-    <p><?php echo jgettext('No prebuild actions defined'); ?></p>
-    <?php endif; ?>
+    <?php echo $this->loadTemplate('actions'); ?>
 </div>
 
 <div class="clr" style="height: 75px;"></div>

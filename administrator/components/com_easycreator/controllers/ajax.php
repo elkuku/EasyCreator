@@ -64,7 +64,7 @@ class EasyCreatorControllerAjax extends JController
         else
         {
             $this->responseJson->status = 1;
-            $this->responseJson->message = jgettext('Log file not found');
+            $this->responseJson->message = jgettext('Log file not found').' --- '.date('H:i:s');
         }
 
         echo $this->responseJson;
@@ -481,7 +481,9 @@ class EasyCreatorControllerAjax extends JController
 
             $easyLanguage = new EcrLanguage($project, $scope, array());
 
-            $easyLanguage->saveTranslation(JRequest::getCmd('trans_lang'), JRequest::getString('trans_key'), $translation);
+            $easyLanguage->saveTranslation(
+                JRequest::getCmd('trans_lang'), JRequest::getString('trans_key')
+                , $translation);
         }
         catch(Exception $e)
         {
@@ -1258,5 +1260,27 @@ body {
         $response->text = json_encode(JComponentHelper::getParams('com_easycreator')->toArray());
 
         echo json_encode($response);
+    }
+
+    public function getAction()
+    {
+        try
+        {
+            $options = json_decode(JRequest::getVar('options', '', 'default'));
+            $options = $options ?: array();
+
+            $cnt = JRequest::getInt('cnt');
+
+            $this->responseJson->message = EcrProjectAction::getInstance(JRequest::getCmd('type'))
+                ->setOptions($options)
+                ->getFields($cnt);
+        }
+        catch(Exception $e)
+        {
+            $this->responseJson->debug = $e->getMessage();
+            $this->responseJson->status = $e->getCode() ? : 1;
+        }
+
+        echo $this->responseJson;
     }
 }//class

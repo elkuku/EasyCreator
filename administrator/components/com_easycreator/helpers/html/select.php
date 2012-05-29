@@ -152,4 +152,56 @@ abstract class EcrHtmlSelect
     <?php
         return 'element_name';
     }
+
+    /**
+     * @static
+     * @return string
+     */
+    public static function actions()
+    {
+        jimport('joomla.filesystem.file');
+        JHtml::_('select.option', 'foo');
+
+        $options = array();
+
+        $options[] = JHtmlSelect::option('', jgettext('Select...'));
+
+        /* @var DirectoryIterator $fileInfo */
+        foreach(new DirectoryIterator(JPATH_COMPONENT.'/helpers/project/action') as $fileInfo)
+        {
+            if($fileInfo->isDot())
+                continue;
+
+            $type = JFile::stripExt($fileInfo->getFilename());
+
+            $options[] = JHtmlSelect::option($type, EcrProjectAction::getInstance($type)->name);
+        }
+
+        return JHtmlSelect::genericlist($options, 'sel_actions', array('list.attr' => array('class' => 'span2')));
+    }
+
+    /**
+     * @static
+     *
+     * @param $name
+     * @param $selected
+     *
+     * @return string
+     */
+    public static function yesno($name, $selected)
+    {
+        JHtml::_('select.option', 'foo');
+
+        $options = array();
+
+//        $options[] = JHtmlSelect::option('', jgettext('Select...'));
+
+
+            $options[] = JHtmlSelect::option(0, jgettext('No'));
+            $options[] = JHtmlSelect::option(1, jgettext('Yes'));
+
+        return JHtmlSelect::genericlist($options, $name
+            , array('list.attr' => array('class' => 'span1'))
+            , 'value', 'text', $selected);
+    }
 }

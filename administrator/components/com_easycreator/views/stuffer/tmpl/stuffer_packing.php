@@ -12,8 +12,9 @@ $options = new JObject($this->project->buildOpts);
 
 $js = '';
 
+/* @var EcrProjectAction $action */
 foreach($this->project->actions as $action) :
-    $js .= "   Stuffer.addAction('$action->type', '$action->script');\n";
+    $js .= "   Stuffer.addAction('$action->type', '$action->trigger', ".json_encode($action->getProperties()).");\n";
 endforeach;
 
 JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', function() {\n".$js."\n});");
@@ -26,9 +27,10 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
     </div>
 
     <label for="buildFolder" class="inline"><?php echo jgettext('Build folder'); ?></label>
-    <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Build folder').'::'
-    .jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.')
-    .sprintf(jgettext('<br />If left blank the folder <strong>%s</strong> wil be used'), ECRPATH_BUILDS));
+    <?php echo EcrHelp::info(
+    jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.')
+    .sprintf(jgettext('<br />If left blank the folder <strong>%s</strong> wil be used'), ECRPATH_BUILDS)
+    , jgettext('Build folder'));
     ?>
     <input type="text" name="buildvars[zipPath]" id="buildFolder" size="40"
            value="<?php echo $this->project->zipPath; ?>"/>
@@ -62,8 +64,8 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
     && $buildOpts['create_md5_compressed'] == 'ON') ? ' checked="checked"' : ''; ?>
                                 value="create_md5_compressed"/>
     <label class="inline" for="lbl_create_md5_compressed"><?php echo jgettext('Compress checksum file'); ?></label>
-    <?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Compress checksum file').'::'
-    .jgettext('This will do a small compression on your checksum file')); ?>
+    <?php echo EcrHelp::info(jgettext('This will do a small compression on your checksum file')
+    , jgettext('Compress checksum file')); ?>
 
     <h4 class="img icon16-easycreator"><?php echo jgettext('EasyCreator Options'); ?></h4>
 
@@ -83,7 +85,7 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
     <label class="inline" for="lbl_remove_autocode"><?php echo jgettext('Remove EasyCreator AutoCode'); ?></label>
 
     <br/>
-    <br/>
+    <hr />
     <h4><?php echo jgettext('File name'); ?></h4>
 
     <div class="control-group">
@@ -121,12 +123,19 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
     </div>
     <span class="btn" onclick="Stuffer.loadFilenameDefaults();"><?php echo jgettext('Reset to default'); ?></span>
 
-    <h4><?php echo jgettext('Prebuild Actions'); ?></h4>
-    <div id="actions"></div>
-    <div onclick="Stuffer.addAction('script', '');"
-         class="btn">
-        <i class="img icon16-add"></i>
+    <?php echo EcrHelp::info(jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*'), jgettext('Custom name format')); ?>
+
+    <hr />
+
+    <h4><?php echo jgettext('Build Actions'); ?></h4>
+    <div id="container_actions"></div>
+    <hr />
+    <label class="inline"><?php echo jgettext('New action'); ?></label>
+    <?php echo EcrHtmlSelect::actions(); ?>
+    <div class="btn" onclick="Stuffer.newAction();">
+    <i class="img icon16-add"></i>
         <?php echo jgettext('Add Action');?>
     </div>
+    <?php echo EcrHelp::info('${temp_dir}<br />${j_root}', jgettext('Available replacements')); ?>
 
 </div>

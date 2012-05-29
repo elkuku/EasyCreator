@@ -13,12 +13,18 @@
  * @package    EasyCreator
  * @subpackage Helpers
  *
+ * @property-read string $temp_dir
+ * @property-read string $logFile
+ * @property-read EcrLogger $logger
+ * @property-read EcrProjectBase $project
  */
 class EcrProjectZiper extends JObject
 {
     private $build_dir = '';
 
     private $temp_dir = '';
+
+    private $logFile = '';
 
     private $downloadLinks = array();
 
@@ -39,6 +45,10 @@ class EcrProjectZiper extends JObject
     private $profiler = null;
 
     private $runTime = 0;
+
+    private $validBuild = true;
+
+    private $failures = array();
 
     /**
      * Constructor.
@@ -70,6 +80,23 @@ class EcrProjectZiper extends JObject
     }
 
     /**
+     * Get a property.
+     *
+     * @param string $property
+     *
+     * @return mixed|string
+     */
+    public function __get($property)
+    {
+        if(in_array($property, array('temp_dir', 'logFile', 'logger', 'project')))
+        {
+            return $this->$property;
+        }
+
+        return '';
+    }
+
+    /**
      * Create the package.
      *
      * @param EcrProjectBase $project The project
@@ -97,8 +124,8 @@ class EcrProjectZiper extends JObject
         try
         {
             $this
-                ->performPrebuildActions()
                 ->setTempDir()
+                ->performActions('precopy')
                 ->copyCopies()
                 ->copyLanguage()
                 ->copyMedia()
@@ -107,6 +134,7 @@ class EcrProjectZiper extends JObject
                 ->copyPackageElements()
                 ->processInstall()
                 ->cleanProject()
+                ->performActions('postcopy')
                 ->deleteManifest()
                 ->createMD5()
                 ->createManifest()
@@ -125,9 +153,33 @@ class EcrProjectZiper extends JObject
 
         $this->logger->log('FINISHED');
 
+        if(false == $this->validBuild)
+        {
+            $this->logger->log('*** FAILURE ***', '', JLog::ERROR);
+            $this->logger->log('The package has NOT been build due to the following errors:', 'error', JLog::ERROR);
+
+            foreach($this->failures as $failure)
+            {
+                $this->logger->log($failure, '', JLog::ERROR);
+            }
+        }
+
         $this->logger->writeLog();
 
         return true;
+    }
+
+    /**
+     * @param $message
+     */
+    public function addFailure($message)
+    {
+        $this->failures[] = (string)$message;
+    }
+
+    public function setInvalid()
+    {
+        $this->validBuild = false;
     }
 
     /**
@@ -164,41 +216,36 @@ class EcrProjectZiper extends JObject
     }
 
     /**
-     * Performs the prebuild actions.
+     * Performs the build actions.
      *
-     * @return EcrProjectZiper
+     * @param $trigger
      *
      * @throws UnexpectedValueException
+     * @internal param $type
+     *
+     * @return \EcrProjectZiper
      */
-    private function performPrebuildActions()
+    private function performActions($trigger)
     {
         if(0 == count($this->project->actions))
             return $this;
 
-        $this->logger->log('Performing prebuild actions');
+        $this->logger->log('Performing build actions type: '.$trigger);
 
-        $logPath = JFactory::getConfig()->get('log_path').'/ecr_log.php';
+        $cnt = 0;
 
+        /* @var EcrProjectAction $action */
         foreach($this->project->actions as $action)
         {
-            switch($action->type)
-            {
-                case 'script' :
-                    $command = $action->script;
-                    $command = str_replace('${temp_dir}', $this->temp_dir, $command);
-                    $command = str_replace('${j_root}', JPATH_ROOT, $command);
+            if($action->trigger != $trigger)
+                continue;
 
-                    $this->logger->log('Executing: '.$command);
+            $action->run($this);
 
-                    $output = shell_exec($command.' 2>&1 | tee -a '.$logPath.'');
-
-                    $this->logger->log(trim($output));
-                    break;
-
-                default :
-                    throw new UnexpectedValueException(__METHOD__.' - unknown action: '.$action->type);
-            }
+            $cnt ++;
         }
+
+        $this->logger->log(sprintf('%d actions executed', $cnt));
 
         return $this;
     }
@@ -272,13 +319,15 @@ class EcrProjectZiper extends JObject
             }
 
             if(false == JFile::copy($src, $dst))
-                throw new EcrZiperException(__METHOD__.' - '.$src.' => '.$dst, 'Failed to copy EasyCreator project xml');
+                throw new EcrZiperException(sprintf('%s - %s &rArr; %s Failed to copy EasyCreator project xml'
+                , __METHOD__, $src, $dst));
 
             $this->logger->log('EasyCreator project xml copied');
         }
 
         //-- Look for unwanted files
         $unwanted = array(
+            // Windows :(
             'Thumbs.db'
         );
 
@@ -298,6 +347,32 @@ class EcrProjectZiper extends JObject
                 }
             }
         }
+
+        //-- Clean up language version files
+        $paths = array('admin/language', 'site/language');
+
+        $cnt = 0;
+
+        foreach($paths as $path)
+        {
+            if(false == JFolder::exists($this->temp_dir.'/'.$path))
+                continue;
+
+            $files = JFolder::files($this->temp_dir.'/'.$path, '.', true, true);
+
+            foreach($files as $file)
+            {
+                if('ini' != JFile::getExt($file) && 'html' != JFile::getExt($file))
+                {
+                    if(false == JFile::delete($file))
+                     throw new EcrZiperException(__METHOD__.' - Can not delete language version file: '.$file);
+
+                    $cnt ++;
+                }
+            }
+        }
+
+        $this->logger->log(sprintf('%d language version files deleted', $cnt));
 
         return $this;
     }
@@ -335,32 +410,6 @@ class EcrProjectZiper extends JObject
                 return $this;
             }
         }
-
-        //-- Clean up language version files
-        $paths = array('admin/language', 'site/language');
-
-        $cnt = 0;
-
-        foreach($paths as $path)
-        {
-            if(false == JFolder::exists($this->temp_dir.'/'.$path))
-                continue;
-
-            $files = JFolder::files($this->temp_dir.'/'.$path, '.', true, true);
-
-            foreach($files as $file)
-            {
-                if('ini' != JFile::getExt($file) && 'html' != JFile::getExt($file))
-                {
-                    if(false == JFile::delete($file))
-                     throw new EcrZiperException(__METHOD__.' - Can not delete language version file: '.$file);
-
-                    $cnt ++;
-                }
-            }
-        }
-
-        $this->logger->log(sprintf('%d language version files deleted', $cnt));
 
         return $this;
     }
@@ -465,37 +514,6 @@ class EcrProjectZiper extends JObject
                 {
                     $this->logger->log('COPY DIR<br />SRC: '.$copy.'<br />DST: '.$tmp_dest);
 
-                    /*
-                     * We are packing EasyCreator.. need to strip off some stuff =;)
-                    */
-                    if($this->project->comName == 'com_easycreator' && $dest == 'admin')
-                    {
-                        $ecrBase = $this->temp_dir.DS.'admin';
-
-                        $folders = array('data/builds', 'data/deploy', 'data/exports', 'data/logs', 'data/results'
-                        , 'data/projects', 'data/sync', 'tests');
-
-                        foreach($folders as $folder)
-                        {
-                            if(false == JFolder::exists($ecrBase.DS.$folder))
-                                continue;
-
-                            $files = JFolder::files($ecrBase.DS.$folder, '.', true, true, array('.svn', 'readme.md'));
-
-                            foreach($files as $file)
-                            {
-                                if(JFile::delete($file))
-                                {
-                                    $this->logger->log('EasyCreator file deleted '.$file);
-                                }
-                                else
-                                {
-                                    $this->logger->log('error removing EasyCreator file :(<br />'.$file, 'ERROR');
-                                }
-                            }
-                        }
-                    }
-
                     if($this->buildopts['remove_autocode'])
                     {
                         $files = JFolder::files($tmp_dest, '.', true, true);
@@ -591,9 +609,7 @@ class EcrProjectZiper extends JObject
     {
         //-- @Joomla!-compat 1.5
         if('1.5' != $this->project->JCompat)
-        {
             return $this;
-        }
 
         $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
@@ -651,7 +667,8 @@ class EcrProjectZiper extends JObject
             {
                 $format = ('po' == $this->project->langFormat) ? '.po' : '';
                 $compressed = ($this->buildopts['create_md5_compressed']) ? '_compressed' : '';
-                $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.$format.'.php');
+                $fileContents = JFile::read(
+                    ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.$format.'.php');
                 $fileContents = str_replace('<?php', '', $fileContents);
                 $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
 
@@ -711,11 +728,10 @@ class EcrProjectZiper extends JObject
     private function copyPackageModules()
     {
         if(0 == count($this->project->modules))
-        {
             return $this;
-        }
 
         $this->logger->log('<strong style="color: blue;">Copying Package modules</strong>');
+        $tmp_dest = '';
 
         foreach($this->project->modules as $module)
         {
@@ -789,9 +805,7 @@ class EcrProjectZiper extends JObject
     private function copyPackagePlugins()
     {
         if(0 == count($this->project->plugins))
-        {
             return $this;
-        }
 
         $this->logger->log('<strong style="color: blue;">Copying Package plugins</strong>');
 
@@ -988,6 +1002,8 @@ class EcrProjectZiper extends JObject
                     continue;
 
                 $found = false;
+                $srcPath = '';
+                $srcFileName = '';
 
                 foreach($paths as $path)
                 {
@@ -1049,12 +1065,10 @@ class EcrProjectZiper extends JObject
      */
     private function createMD5()
     {
-        $md5Str = '';
-
         if( ! $this->buildopts['create_md5'])
-        {
             return $this;
-        }
+
+        $md5Str = '';
 
         $fileList = JFolder::files($this->temp_dir, '.', true, true);
 
@@ -1172,6 +1186,9 @@ class EcrProjectZiper extends JObject
      */
     private function createArchive()
     {
+        if(false == $this->validBuild)
+            return $this;
+
         $zipTypes = array(
             'zip' => 'zip'
         , 'tgz' => 'tar.gz'
@@ -1357,20 +1374,29 @@ class EcrProjectZiper extends JObject
      */
     private function setupLog()
     {
+        static $setUp = false;
+
+        if(true == $setUp)
+            return $this;
+
+        $setUp = true;
+
         $path = JFactory::getConfig()->get('log_path');
 
         $fileName = 'ecr_log.php';
         $entry = '';
 
+        $this->logFile = $path.DIRECTORY_SEPARATOR.$fileName;
+
         if('preserve' == JFactory::getApplication()->input->get('logMode')
-            && JFile::exists($path.'/'.$fileName)
+            && JFile::exists($this->logFile)
         )
         {
             $entry = '----------------------------------------------';
         }
-        else if(JFile::exists($path.'/'.$fileName))
+        else if(JFile::exists($this->logFile))
         {
-            JFile::delete($path.'/'.$fileName);
+            JFile::delete($this->logFile);
         }
 
         JLog::addLogger(

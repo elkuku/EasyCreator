@@ -440,18 +440,17 @@ abstract class EcrProjectBase
             }
         }
 
+        $this->actions = array();
+
         $actions = JRequest::getVar('actions', array(), 'default', 'array');
+        $actionFields = JRequest::getVar('fields', array(), 'default', 'array');
 
-        if(isset($actions['type']))
+        foreach($actions as $i => $type)
         {
-            foreach($actions['type'] as $i => $type)
-            {
-                $a = new stdClass;
-                $a->type = $type;
-                $a->script = (isset($actions['script'][$i])) ? $actions['script'][$i] : '';
+            $a = EcrProjectAction::getInstance($type, $actionFields[$i]['trigger'])
+                ->setOptions($actionFields[$i]);
 
-                $this->actions[$i] = $a;
-            }
+            $this->actions[$i] = $a;
         }
 
         $this->JCompat = JRequest::getString('jcompat');
@@ -669,6 +668,7 @@ abstract class EcrProjectBase
      *
      * @param boolean $testMode If set to 'true' xml file will be generated but not written to disk
      *
+     * @throws DomainException
      * @return mixed [string xml string on success | boolean false on error]
      */
     public function writeProjectXml($testMode = false)
@@ -881,13 +881,19 @@ abstract class EcrProjectBase
         {
             $element = $xml->addChild('actions');
 
+            /* @var EcrProjectAction $action */
             foreach($this->actions as $action)
             {
                 /* @var SimpleXMLElement $sElement */
                 $sElement = $element->addChild('action');
 
-                $sElement->addChild('type', $action->type);
-                $sElement->addChild('script', $action->script);
+                $sElement->addAttribute('type', $action->type);
+                $sElement->addAttribute('trigger', $action->trigger);
+
+                foreach($action->getProperties() as $k => $v)
+                {
+                    $sElement->addChild($k, $v);
+                }
             }
         }
 
@@ -1168,17 +1174,18 @@ abstract class EcrProjectBase
          */
         if(isset($manifest->actions->action))
         {
-            /* @var SimpleXMLElement $server */
+            /* @var SimpleXMLElement $action */
             foreach($manifest->actions->action as $action)
             {
-                $a = new stdClass;
-                $a->type = (string)$action->type;
-                $a->script = (string)$action->script;
+                $a = EcrProjectAction::getInstance(
+                    (string)$action->attributes()->type, (string)$action->attributes()->trigger)
+                ->setOptions($action);
+
                 $this->actions[] = $a;
             }
         }
 
-        return true;
+        return $this;
     }
 
     /**
