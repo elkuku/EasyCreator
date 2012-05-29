@@ -7,7 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-$skull = JURI::root().'administrator/components/com_easycreator/assets/images/skull.png';
+$skull = JURI::root(true).'/media/com_easycreator/admin/images/skull.png';
 
 ?>
 <div style="text-align: center; padding: 1em;">

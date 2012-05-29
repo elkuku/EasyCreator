@@ -54,26 +54,23 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
 
             $affinity = '';
 
-            if(! $affinity)
+            foreach($affinityTypes as $aType => $cTypes)
             {
-                foreach($affinityTypes as $aType => $cTypes)
+                if($affinity)
+                    continue;
+
+                foreach($cTypes as $cType)
                 {
-                    if($affinity)
-                        continue;
-
-                    foreach($cTypes as $cType)
+                    if(false !== strpos($type, $cType))
                     {
-                        if(false !== strpos($type, $cType))
-                        {
-                            $affinity = $aType;
+                        $affinity = $aType;
 
-                            continue 2;
-                        }
+                        continue 2;
                     }
                 }
             }
 
-            if(! $affinity)
+            if('' == $affinity)
             {
                 $affinity = 'NUMERIC';
             }
@@ -128,7 +125,7 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
      */
     public function formatInsert(SimpleXMLElement $insert)
     {
-        if(! isset($insert->row->field))
+        if(false == isset($insert->row->field))
             return '';
 
         $tableName = (string)$insert->attributes()->name;
@@ -166,7 +163,7 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
                 $vs[] = ($started) ? "'".$f."'" : "'".$f."' AS ".$keys[$i ++];
             }
 
-            if(! $started)
+            if(false == $started)
             {
                 $s[] = '      SELECT '.implode(', ', $vs);
             }
@@ -210,5 +207,4 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
 
         return 'DROP TABLE '.$tableName.";\n";
     }
-
 }//class

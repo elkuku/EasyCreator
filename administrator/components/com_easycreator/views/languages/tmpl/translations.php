@@ -30,9 +30,7 @@ $tableHeader .= '<th style="background-color: #CCE5FF;">'.jgettext('KEY').'</th>
 foreach($this->languages as $lang)
 {
     if(in_array($lang, $this->hideLangs))
-    {
         continue;
-    }
 
     $tableHeader .= '<th width="'.(100 / (count($this->languages) + 2)).'%">'.$lang.'</th>';
 }//foreach
@@ -58,7 +56,8 @@ if($checked)
 <?php echo ucfirst($this->scope); ?></span></h2>
 <div style="background-color: #ffffdd;">
 <?php
-    $selector = '<select name="lang_fileanalysis_comment_num" onchange="submitbutton(\'translations\');">';
+    $selector = '<select class="span1" name="lang_fileanalysis_comment_num"'
+    .' onchange="submitbutton(\'translations\');">';
 
     for($i = 0; $i < 10; $i++)
     {
@@ -72,7 +71,7 @@ if($checked)
     <input type="checkbox" name="lang_fileanalysis_fold"
         id="lang_fileanalysis_fold" value="lang_fileanalysis_fold"
         onclick="submitbutton('translations');" <?php echo $checked; ?>>
-    <label for="lang_fileanalysis_fold"><?php echo jgettext('Fold'); ?></label>
+    <label class="inline" for="lang_fileanalysis_fold"><?php echo jgettext('Fold'); ?></label>
 </div>
 <hr />
 <?php
@@ -177,7 +176,10 @@ foreach($this->default_file as $line)
                           rel="{handler: 'iframe', size: {x: 820, y: 310}}"
                           id="trfield_<?php echo $fieldID; ?>">
                                 <?php
-                                $tmpStrings =(isset($this->strings[$skey][$lang])) ? $this->strings[$skey][$lang] : array();
+                                $tmpStrings =(isset($this->strings[$skey][$lang]))
+                                    ? $this->strings[$skey][$lang]
+                                    : array();
+
                                 displayField($lang, $skey, $tmpStrings);
                                 ?>
                         </a>

@@ -99,7 +99,9 @@ class EcrProjectTemplateHelper
         $info->info .= ($info->author) ? '<br /><span style=\'color: blue;\'>Author:</span> '.$info->author : '';
         $info->info .= '<br /><strong>Joomla!:</strong> '.$info->jVersion;
         $info->info .= '<br /><strong>PHP:</strong> '.$info->phpVersion;
-        $info->info .= ($info->dbTables) ? '<br /><span style=\'color: orange;\'>dbTables:</span> '.$info->dbTables : '';
+        $info->info .= ($info->dbTables)
+            ? '<br /><span style=\'color: orange;\'>dbTables:</span> '.$info->dbTables
+            : '';
         $info->info .= '<br />ECR Folder: '.$info->folder;
 
         return $info;

@@ -293,7 +293,8 @@ class EcrProjectManifest extends JObject
         if(count($installFiles['php']))
         {
             if(count($installFiles['php']) > 2)
-                throw new Exception(__METHOD__.' - Too many PHP install/uninstall files ('.count($installFiles['php']).')');
+                throw new Exception(sprintf('%s - Too many PHP install/uninstall files (%d)'
+                    , __METHOD__, count($installFiles['php'])));
 
             foreach($installFiles['php'] as $file)
             {
@@ -803,7 +804,8 @@ class EcrProjectManifest extends JObject
         }
         else if(JFile::exists(JPath::clean(JPATH_ROOT.DS.EcrProjectHelper::findManifest($this->project))))
         {
-            $refXml = EcrProjectHelper::getXML(JPath::clean(JPATH_ROOT.DS.EcrProjectHelper::findManifest($this->project)));
+            $refXml = EcrProjectHelper::getXML(
+                JPath::clean(JPATH_ROOT.DS.EcrProjectHelper::findManifest($this->project)));
 
             $params = $this->manifest->addChild('params');
             $this->appendXML($params, $refXml->params);

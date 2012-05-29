@@ -270,7 +270,7 @@ class EcrHtmlMenu
 
             $html[] = $sTask['title'].'</a>';
 
-            if(ECR_HELP > 1)
+            if(ECR_HELP >= EcrHelp::ALL)
             {
                 $htmlDescriptionDivs .= '<div class="clr hidden_div ecr_description" id="desc_'.$tasks[0].'">'
                     .$sTask['description'].'</div>';
@@ -285,7 +285,7 @@ class EcrHtmlMenu
 
         $html[] = $htmlDescriptionDivs;
 
-        if(ECR_HELP > 1)
+        if(ECR_HELP >= EcrHelp::ALL)
         {
             $html[] = "<script type='text/javascript'>"
                 ."window.addEvent('domready', function() {\n"

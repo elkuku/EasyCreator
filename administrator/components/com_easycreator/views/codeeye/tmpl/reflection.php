@@ -52,7 +52,8 @@ $the_file = JRequest::getString('file_name');
                     <h3 style="color: red" align="center">The files will be included to inspect them !!</h3>
                     <h3 style="color: red" align="center">Only try to include files containing classes !!!</h3>
                     <div align="center">
-                        See: <a href="http://de.php.net/manual/en/language.oop5.reflection.php" class="external">php.net/manual/reflection</a>
+                        See: <a href="http://de.php.net/manual/en/language.oop5.reflection.php"
+                                class="external">php.net/manual/reflection</a>
                     </div>
                     <div style="border: 1px dotted red;" align="center">
                         <h4>Or use your browsers <span
@@ -315,7 +316,9 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
                                 }
 
                                 $link = 'index.php?option=com_easycreator&amp;ecr_project='
-                                    .$project->comName.'&amp;tmpl=component&amp;controller=stuffer&amp;task=display_snip';
+                                    .$project->comName.'&amp;tmpl=component&amp;controller=stuffer'
+                                    .'&amp;task=display_snip';
+
                                 $link .= '&amp;file_path='.$method->fileName; //.'&amp;the_file='.$file;
                                 $link .= '&amp;start='.$method->startLine.'&amp;end='.$method->endLine;
 

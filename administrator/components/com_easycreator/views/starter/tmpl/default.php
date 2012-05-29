@@ -119,7 +119,8 @@ $jVersions = array('15', '25');
                 <?php echo $action; ?>
                 >
                 <!--
-                <i style="float: left" class="img iconjoomla-compat-<?php echo str_replace('.', '', $template->jVersion); ?>"></i>
+                <i style="float: left" class="img iconjoomla-compat-<?php
+                    echo str_replace('.', '', $template->jVersion); ?>"></i>
                 -->
                 <?php echo $template->name; ?>
             </a>

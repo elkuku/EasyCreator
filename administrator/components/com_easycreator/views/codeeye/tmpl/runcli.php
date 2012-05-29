@@ -18,14 +18,13 @@ ecrStylesheet()
 
     <li class="pft-file ext-php">
 
-<label for="cliargs"><?php echo $this->project->comName.'.php'; ?></label>
+        <label class="inline" for="cliargs"><?php echo $this->project->comName.'.php'; ?></label>
+        <input type="text" size="50" id="cliargs" class="cliargs"/>
 
-<input type="text" size="50" id="cliargs" class="cliargs"/>
-
-<a href="javascript:;" class="ecr_button"
-   onclick="runCli('<?php echo $this->project->getFilename(); ?>');">
-    <?php echo jgettext('Execute'); ?>
-</a>
+        <a href="javascript:;" class="btn"
+           onclick="runCli('<?php echo $this->project->getFilename(); ?>');">
+            <?php echo jgettext('Execute'); ?>
+        </a>
     </li>
 </ul>
 

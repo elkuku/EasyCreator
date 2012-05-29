@@ -43,7 +43,7 @@ class EasyCreatorViewCodeEye extends JView
      * @param string $tpl The name of the template file to parse;
      *
      * @throws Exception
-     * @return void
+     * @return mixed|void
      */
     public function display($tpl = null)
     {
@@ -302,7 +302,7 @@ class EasyCreatorViewCodeEye extends JView
             case 'component':
                 //                if( ! JFile::exists(JPATH_ROOT.DS.'bootstrap.php'))
                 //                {
-//                    $btn = '&nbsp;<span class="ecr_button img icon16-add" onclick="submitbutton(\'copy_bootstrap\');">'
+//        $btn = '&nbsp;<span class="ecr_button img icon16-add" onclick="submitbutton(\'copy_bootstrap\');">'
 //.jgettext('Copy bootstrap.php to Joomla root').'</span>';
 //                    EcrHtml::displayMessage(jgettext('Bootstrap file not found').$btn, 'notice');
                 //

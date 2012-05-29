@@ -33,7 +33,8 @@ class EcrHtmlOptions
         $js .= "$('div_buildopts').setStyle('display', v);";
 
         $checked = ($params->get('logging')) ? ' checked="checked"' : '';
-        echo NL.'<input type="checkbox" onchange="'.$js.'" name="buildopts[]"'.$checked.' value="logging" id="logging" />';
+        echo NL.'<input type="checkbox" onchange="'.$js.'" name="buildopts[]"'
+            .$checked.' value="logging" id="logging" />';
         echo NL.'<label class="inline" for="logging">'.jgettext('Activate logging').'</label>';
 
         $style = ($params->get('logging')) ? '' : ' style="display: none;"';
@@ -142,7 +143,7 @@ class EcrHtmlOptions
         {
             EcrHtml::message(jgettext('Please set a compression type'), 'notice');
             echo '<div style="float: right;">'
-                .JHTML::tooltip(jgettext('You can set a default compression type in configuration'))
+                .EcrHelp::helpTip(jgettext('You can set a default compression type in configuration'))
                 .'</div>';
         }
 

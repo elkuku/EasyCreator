@@ -103,13 +103,20 @@ class EasyCreatorControllerZIPer extends JController
         {
             $result = new stdClass;
 
-            $buildopts = JRequest::getVar('buildopts', array());
+            $opts = JRequest::getVar('buildopts', array());
+
+            $buildOpts = array();
+
+            foreach($opts as $v)
+            {
+                $buildOpts[$v] = true;
+            }
 
             $project = EcrProjectHelper::getProject();
 
             $ziper = new EcrProjectZiper;
 
-            $result->result = $ziper->create($project, $buildopts);
+            $result->result = $ziper->create($project, $buildOpts);
             $result->errors = $ziper->getErrors();
 
             $result->downloadLinks = $ziper->getDownloadLinks();
@@ -151,7 +158,8 @@ class EasyCreatorControllerZIPer extends JController
             if($result->log)
             {
                 $m = '';
-                $m .= '<div class="ecr_codebox_header" style="font-size: 1.4em;" onclick="toggleDiv(\'ecr_logdisplay\');">'
+                $m .= '<div class="ecr_codebox_header" style="font-size: 1.4em;"'
+                .'onclick="toggleDiv(\'ecr_logdisplay\');">'
                     .jgettext('Log File')
                     .'</div>';
                 $m .= '<div id="ecr_logdisplay" style="display: none;">'

@@ -169,7 +169,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         }//switch
 
         if($scope && ! array_key_exists($scope, $paths))
-            throw new Exception('Unknown scope: '.$scope);
+            throw new Exception(__METHOD__.' - Unknown scope: '.$scope);
 
         if($scope && isset($paths[$scope]))
             return $paths[$scope];
@@ -389,9 +389,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.5':
                 $projects = array(
                 'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                , 'com_contact', 'com_content', 'com_cpanel', 'com_frontpage', 'com_installer', 'com_languages', 'com_login'
-                , 'com_massmail', 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                , 'com_poll', 'com_search', 'com_sections', 'com_templates', 'com_trash', 'com_users', 'com_weblinks'
+                , 'com_contact', 'com_content', 'com_cpanel', 'com_frontpage', 'com_installer', 'com_languages'
+                , 'com_login' , 'com_massmail', 'com_media', 'com_menus', 'com_messages', 'com_modules'
+                , 'com_newsfeeds', 'com_plugins' , 'com_poll', 'com_search', 'com_sections', 'com_templates'
+                , 'com_trash', 'com_users', 'com_weblinks'
                 );
                 break;
 

@@ -122,7 +122,7 @@ class EcrProjectMatrix extends JFolder
     /**
      * Setup - Prevent notices.
      *
-     * @return void
+     * @return \EcrProjectMatrix
      */
     private function setUp()
     {
@@ -198,7 +198,8 @@ class EcrProjectMatrix extends JFolder
         {
             foreach($scopes as $scope)
             {
-                $fileName = $langPaths[$scope].DS.'language'.DS.$tag.DS.$tag.'.'.$this->project->getLanguageFileName($scope);
+                $fileName = $langPaths[$scope].DS.'language'.DS.$tag.DS.$tag
+                    .'.'.$this->project->getLanguageFileName($scope);
 
                 $data = $this->getCodeLines($fileName, 'ini');
 

@@ -195,7 +195,9 @@ class EasyCreatorControllerLanguages extends JController
     {
         JRequest::setVar('task', 'convert');
 
-        $options = JArrayHelper::toObject(JRequest::getVar('options', array()), 'JObject');
+        $options = JRequest::getVar('options', array());
+
+        $options = JArrayHelper::toObject($options, 'JObject');
 
         //-- Get the project
         try

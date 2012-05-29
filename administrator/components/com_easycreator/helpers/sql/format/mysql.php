@@ -81,7 +81,7 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 
             if('PRIMARY' == $n)
                 $primaries[] = $c;
-            elseif('0' == (string)$key->attributes()->Non_unique)
+            else if('0' == (string)$key->attributes()->Non_unique)
                 $uniques[$n][] = $c;
 //             elseif('1' == (string)$key->attributes()->Seq_in_index)
 //             $indices[$n][] = $c;
@@ -134,7 +134,7 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
      */
     public function formatInsert(SimpleXMLElement $insert)
     {
-        if(! isset($insert->row->field))
+        if(false == isset($insert->row->field))
             return '';
 
         $tableName = (string)$insert->attributes()->name;
@@ -163,6 +163,7 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
         foreach($insert->row as $row)
         {
             $vs = array();
+
             foreach($row->field as $field)
             {
                 $f = (string)$field;
@@ -212,5 +213,4 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 
         return 'DROP TABLE '.$tableName.";\n";
     }
-
 }//class

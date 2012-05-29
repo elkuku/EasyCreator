@@ -21,11 +21,13 @@ jimport('joomla.application.component.view');
 class EasyCreatorViewEasyCreator extends JView
 {
     /**
-     * Standard display method.
+     * Execute and display a template script.
      *
-     * @param string $tpl The name of the template file to parse;
+     * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
      *
-     * @return void
+     * @return  mixed  A string if successful, otherwise a JError object.
+     *
+     * @see     fetch()
      */
     public function display($tpl = null)
     {

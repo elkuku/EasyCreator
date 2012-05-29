@@ -10,7 +10,9 @@
 //-- Add CSS
 ecrStylesheet('menu', 'stuffer');
 
-$extProps['module'] = array('name' => 'comName', 'client' => 'scope', 'position' => 'position', 'ordering' => 'ordering');
+$extProps['module'] = array('name' => 'comName', 'client' => 'scope', 'position' => 'position'
+, 'ordering' => 'ordering');
+
 $extProps['plugin'] = array('name' => 'comName', 'client' => 'scope', 'order' => 'ordering');
 
 $js = array();

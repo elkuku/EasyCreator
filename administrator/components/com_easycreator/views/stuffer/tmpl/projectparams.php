@@ -160,7 +160,8 @@ foreach($this->params->params as $group)
     }//foreach
 }//foreach
 ?>
-<!-- draws a js function call with a js object array from config xml as argument for drawing the html parameter - hu.. -->
+<!-- draws a js function call with a js object array from config xml as argument
+ for drawing the html parameter - hu.. -->
 <script type="text/javascript">
     <?php echo $js; ?>
 </script>

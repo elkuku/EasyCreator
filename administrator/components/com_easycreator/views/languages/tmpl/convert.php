@@ -56,12 +56,14 @@ if($selected_file
 
 if($this->diff)
 {
-    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');" class="ecr_button img icon16-rename">';
+    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');"'
+    .' class="ecr_button img icon16-rename">';
     echo jgettext('Convert code and language file').'</span>';
 }
 else
 {
-    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');" class="ecr_button img icon16-rename">';
+    echo '<span style="margin-left: 0.3em;" onclick="submitform(\'do_convert\');"'
+    .' class="ecr_button img icon16-rename">';
     echo jgettext('Convert language file').'</span>';
     echo '</div>';
 }

@@ -31,7 +31,8 @@
             </label>
 
             <input type="radio" id="jversion16" name="jcompat" value="2.5"
-                <?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5'))) ? ' checked="checked"' : ''; ?>
+                <?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5')))
+                ? ' checked="checked"' : ''; ?>
                 />
             <label style="display: inline;" class="inline" for="jversion16">
                 <i class="img32b iconjoomla-compat-25"></i>

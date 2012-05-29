@@ -99,7 +99,7 @@ class EcrLanguageHelper
         //-- Get component parameters
         $params = JComponentHelper::getParams('com_easycreator');
 
-        $file = new JObject;
+        $file = new stdClass;
 
         $file->fileName = $fileName;
         $file->lang = $lang;
@@ -133,7 +133,7 @@ class EcrLanguageHelper
      *
      * @return void
      */
-    public static function displayResults(JObject $file)
+    public static function displayResults(stdClass $file)
     {
         //--Check if file exists
         if($file->exists)

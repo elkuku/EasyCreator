@@ -1,4 +1,4 @@
-<?php defined('JPATH_PLATFORM') or die;
+<?php defined('JPATH_PLATFORM') || die;
 /**
  * @package     Joomla.Platform
  * @subpackage  Database
@@ -99,7 +99,7 @@ class EcrSqlMysqlexporter
         $buffer = '';
 
         // Get the format.
-        switch ($this->asFormat)
+        switch($this->asFormat)
         {
             case 'xml':
             default:
@@ -161,7 +161,7 @@ class EcrSqlMysqlexporter
         $buffer = array();
         $query = $this->db->getQuery(true);
 
-        foreach ($this->from as $table)
+        foreach($this->from as $table)
         {
             // Replace the magic prefix if found.
             $table = $this->getGenericTableName($table);
@@ -174,36 +174,36 @@ class EcrSqlMysqlexporter
             $fields = $this->db->getTableColumns($table, false);
             $keys = $this->db->getTableKeys($table);
 
-            $buffer[] = '  <table_structure name="' . $table . '">';
+            $buffer[] = '  <table_structure name="'.$table.'">';
 
-            foreach ($fields as $field)
+            foreach($fields as $field)
             {
                 $buffer[] = '   <field'
-                    . ' Field="' . $field->Field . '"'
-                    . ' Type="' . $field->Type . '"'
-                    . ' Null="' . $field->Null . '"'
-                    . ' Key="' . $field->Key . '"'
-                    . (isset($field->Default) ? ' Default="' . $field->Default . '"' : '')
-                    . ' Extra="' . $field->Extra . '"'
-                    . ' Comment="' . htmlspecialchars($field->Comment) . '"'
-                    . ' />';
+                    .' Field="'.$field->Field.'"'
+                    .' Type="'.$field->Type.'"'
+                    .' Null="'.$field->Null.'"'
+                    .' Key="'.$field->Key.'"'
+                    .(isset($field->Default) ? ' Default="'.$field->Default.'"' : '')
+                    .' Extra="'.$field->Extra.'"'
+                    .' Comment="'.htmlspecialchars($field->Comment).'"'
+                    .' />';
             }
 
-            foreach ($keys as $key)
+            foreach($keys as $key)
             {
                 $buffer[] = '   <key'
-                    . ' Table="' . $table . '"'
-                    . ' Non_unique="' . $key->Non_unique . '"'
-                    . ' Key_name="' . $key->Key_name . '"'
-                    . ' Seq_in_index="' . $key->Seq_in_index . '"'
-                    . ' Column_name="' . $key->Column_name . '"'
-                    . ' Collation="' . $key->Collation . '"'
-                    . ' Null="' . $key->Null . '"'
-                    . ' Index_type="' . $key->Index_type . '"'
-                    . ' Comment="' . htmlspecialchars($key->Comment) . '"'
+                    .' Table="'.$table.'"'
+                    .' Non_unique="'.$key->Non_unique.'"'
+                    .' Key_name="'.$key->Key_name.'"'
+                    .' Seq_in_index="'.$key->Seq_in_index.'"'
+                    .' Column_name="'.$key->Column_name.'"'
+                    .' Collation="'.$key->Collation.'"'
+                    .' Null="'.$key->Null.'"'
+                    .' Index_type="'.$key->Index_type.'"'
+                    .' Comment="'.htmlspecialchars($key->Comment).'"'
 //@todo fix unit tests to enable this feature..
 //					. ' Index_comment="' . htmlspecialchars($key->Index_comment) . '"'
-                    . ' />';
+                    .' />';
             }
 
             $buffer[] = '  </table_structure>';
@@ -211,7 +211,7 @@ class EcrSqlMysqlexporter
             /*
                 * Table data
                 */
-            if (!$this->options->get('with-data'))
+            if( ! $this->options->get('with-data'))
             {
                 continue;
             }
@@ -222,18 +222,18 @@ class EcrSqlMysqlexporter
 
             $rows = $this->db->setQuery($query)->loadObjectList();
 
-            $buffer[] = '  <table_data name="' . $table . '">';
+            $buffer[] = '  <table_data name="'.$table.'">';
 
-            foreach ($rows as $row)
+            foreach($rows as $row)
             {
                 $buffer[] = '    <row>';
 
-                foreach ($row as $fieldName => $fieldValue)
+                foreach($row as $fieldName => $fieldValue)
                 {
                     $buffer[] = '      <field'
-                        . ' name="' . $fieldName . '">'
-                        . htmlspecialchars($fieldValue)
-                        . '</field>';
+                        .' name="'.$fieldName.'">'
+                        .htmlspecialchars($fieldValue)
+                        .'</field>';
                 }
 
                 $buffer[] = '    </row>';
@@ -257,13 +257,13 @@ class EcrSqlMysqlexporter
     public function check()
     {
         // Check if the db connector has been set.
-        if (!($this->db instanceof JDatabaseMySQL))
+        if(false == $this->db instanceof JDatabaseMySQL)
         {
             throw new Exception('JPLATFORM_ERROR_DATABASE_CONNECTOR_WRONG_TYPE');
         }
 
         // Check if the tables have been specified.
-        if (empty($this->from))
+        if(empty($this->from))
         {
             throw new Exception('JPLATFORM_ERROR_NO_TABLES_SPECIFIED');
         }
@@ -289,7 +289,7 @@ class EcrSqlMysqlexporter
         $table = preg_replace("|^$prefix|", '#__', $table);
 
         return $table;
-    }//function
+    }
 
     /**
      * Specifies a list of table names to export.
@@ -317,7 +317,7 @@ class EcrSqlMysqlexporter
         }
 
         return $this;
-    }//function
+    }
 
     /**
      * Sets the database connector to use for exporting structure and/or data from MySQL.
@@ -333,7 +333,7 @@ class EcrSqlMysqlexporter
         $this->db = $db;
 
         return $this;
-    }//function
+    }
 
     /**
      * Sets an internal option to export the structure of the input table(s).
@@ -349,7 +349,7 @@ class EcrSqlMysqlexporter
         $this->options->set('with-structure', (boolean)$setting);
 
         return $this;
-    }//function
+    }
 
     /**
      * Sets an internal option to export the data of the input table(s).
@@ -365,6 +365,5 @@ class EcrSqlMysqlexporter
         $this->options->set('with-data', (boolean)$setting);
 
         return $this;
-    }//function
-
+    }
 }//class

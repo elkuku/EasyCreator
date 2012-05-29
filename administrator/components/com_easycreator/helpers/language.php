@@ -945,12 +945,14 @@ class EcrLanguage
                                             continue;
                                         }
 
-                                        if(isset($this->_strings[$skey][$lang]) && $this->_strings[$skey][$lang])
+                                        if(isset($this->_strings[$skey][$lang])
+                                            && $this->_strings[$skey][$lang])
                                         {
                                             $definition->translated[] = $lang;
                                         }
 
-                                        if(isset($this->_coreStrings[$skey][$lang]) && $this->_coreStrings[$skey][$lang])
+                                        if(isset($this->_coreStrings[$skey][$lang])
+                                            && $this->_coreStrings[$skey][$lang])
                                         {
                                             $definition->coreTranslated[] = $lang;
                                         }

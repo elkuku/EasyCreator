@@ -81,7 +81,8 @@ $colorFiles = JFolder::files($colorPath);
 
                 foreach($colours as $colour)
                 {
-                    echo '<span class="colorBox" style="background-color: rgb('.$colour.');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';
+                    echo '<span class="colorBox"
+                    style="background-color: rgb('.$colour.');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';
                 }
 
                 echo '</label>';

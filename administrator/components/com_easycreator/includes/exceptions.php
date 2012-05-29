@@ -1,5 +1,6 @@
 <?php
 /**
+ *
  * @package    EasyCreator
  * @subpackage Base
  * @author     Nikolai Plath (elkuku)
@@ -7,17 +8,19 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+// @codingStandardsIgnoreFile
+
 /**
  * EcrLogException class.
  */
-class EcrLogException extends Exception {};
+class EcrLogException extends Exception {}
 
 /**
  * EcrBuilderException class.
  */
-class EcrBuilderException extends Exception {};
+class EcrBuilderException extends Exception {}
 
 /**
  * EcrZiperException class.
  */
-class EcrZiperException extends Exception {};
+class EcrZiperException extends Exception {}

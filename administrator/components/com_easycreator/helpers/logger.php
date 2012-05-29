@@ -98,10 +98,11 @@ class EcrLogger
      *
      * @param string $string The string to log
      * @param string $error  Error message
+     * @param int    $priority
      *
      * @return void
      */
-    public function log($string, $error = '')
+    public function log($string, $error = '', $priority = JLog::INFO)
     {
         if(false == $this->logging)
             return;
@@ -131,7 +132,7 @@ class EcrLogger
         $s = str_replace(array('<strong>', '</strong>'), '', $s);
         $s = str_replace(JPATH_ROOT, 'JROOT', $s);
 
-        JLog::add($s);
+        JLog::add($s, $priority);
     }
 
     /**

@@ -50,7 +50,8 @@ $fileTree = drawFileTree($this->project);
         <optgroup label="EasyCreator provided">
             <?php
             foreach($easyStandards as $standard):
-                echo '<option value="'.JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.'">'.$standard.'</option>';
+                echo '<option value="'.JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.'">'
+                    .$standard.'</option>';
             endforeach;
             ?>
         </optgroup>

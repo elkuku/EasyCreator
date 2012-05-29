@@ -117,7 +117,9 @@ $fileTree->showExtension = false;
                                         natcasesort($ms);
                                         echo EcrHtml::idt()
                                             .'<li class="pft-file ext-joo" onclick="changeFrame('
-                                            ."'$cName', 'NULL', '$cl[0]'".');" style="font-weight: bold;">'.$cName.'</li>';
+                                            ."'$cName', 'NULL', '$cl[0]'".');" style="font-weight: bold;">'
+                                            .$cName
+                                            .'</li>';
 
                                         foreach($ms as $m):
                                             echo EcrHtml::idt()

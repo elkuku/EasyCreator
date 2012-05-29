@@ -34,8 +34,10 @@
             href="http://docs.joomla.org/" class="external">docs.joomla.org</a>
         </li>
         <li>
-            <strong>Manifest maker class</strong> by Ian MacLennan <a href="http://joomlacode.org/gf/project/ianstools/"
-                                                                      class="external">joomlacode.org/gf/project/ianstools</a>
+            <strong>Manifest maker class</strong> by Ian MacLennan
+            <a href="http://joomlacode.org/gf/project/ianstools/" class="external">
+                joomlacode.org/gf/project/ianstools
+            </a>
             - <em>modified</em>
         </li>
         <li>

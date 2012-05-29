@@ -89,10 +89,9 @@ if($this->scope != 'menu') :
         echo NL.'<option value="'.$fName.'"'.$selected.'>'.$displayName.'</option>';
     endforeach;
     ?>
-</select></div>
-<?php
-endif;
-?>
+</select>
+</div>
+<?php endif; ?>
 
 <table class="adminlist">
     <thead>
@@ -184,7 +183,7 @@ endif;
                         $display = ($lang != 'en-GB') ? 'display: none;' : '';
                         $txt = ($lang != 'en-GB') ? $lang : jgettext('Not translated');
                         ?>
-                        <a class="ecr_button ecr_modal"
+                        <a class="btn btn-mini ecr_modal"
                            style="color: red; <?php echo $display; ?>"
                            title="<?php echo jgettext('Click to translate'); ?>"
                            href="<?php echo $tmpLink; ?>"
@@ -205,7 +204,7 @@ endif;
                     $tmpLink .= '&amp;field_id='.$fieldID;
                     $style = (array_key_exists($lang, $this->strings[$def])) ? 'green' : 'red';
                     ?>
-                    <a class="ecr_button ecr_modal" style="color: <?php echo $style; ?>"
+                    <a class="btn btn-mini ecr_modal" style="color: <?php echo $style; ?>"
                        title="<?php echo jgettext('Click to translate'); ?>"
                        href="<?php echo $tmpLink; ?>"
                        rel="{handler: 'iframe', size: {x: 920, y: 330}}"

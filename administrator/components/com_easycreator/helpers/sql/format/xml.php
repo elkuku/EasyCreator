@@ -10,3 +10,5 @@
 /**
  * This is just a dummy file...
  */
+
+$foo = 'bar';

@@ -25,7 +25,8 @@ class EcrFtp extends JFTP
      *
      * @param   string  $host     Host to connect to
      * @param   string  $port     Port to connect to
-     * @param   array   $options  Array with any of these options: type=>[FTP_AUTOASCII|FTP_ASCII|FTP_BINARY], timeout=>(int)
+     * @param   array   $options  Array with any of these options:
+     *                            type=>[FTP_AUTOASCII|FTP_ASCII|FTP_BINARY], timeout=>(int)
      * @param   string  $user     Username to use for a connection
      * @param   string  $pass     Password to use for a connection
      *

@@ -118,11 +118,17 @@ myEffect.start();
 
     <tr style="font-size: 1.4em;">
         <th><?php echo jgettext('TOTAL'); ?></th>
-        <th class="preCell" style="background-color: #ffffb2;"><?php echo number_format($matrix->totalFiles); ?></th>
+        <th class="preCell" style="background-color: #ffffb2;">
+            <?php echo number_format($matrix->totalFiles); ?>
+        </th>
         <td>&nbsp;</td>
-        <th class="preCell" style="background-color: #e5ff33;"><?php echo EcrHtml::byte_convert($matrix->totalSize); ?></th>
+        <th class="preCell" style="background-color: #e5ff33;">
+            <?php echo EcrHtml::byte_convert($matrix->totalSize); ?>
+        </th>
         <td>&nbsp;</td>
-        <th class="preCell" style="background-color: #e5ff99;"><?php echo number_format($matrix->totalLines); ?></th>
+        <th class="preCell" style="background-color: #e5ff99;">
+            <?php echo number_format($matrix->totalLines); ?>
+        </th>
         <td colspan="7">&nbsp;</td>
     </tr>
 

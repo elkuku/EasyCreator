@@ -25,6 +25,7 @@ class EasyCreatorViewLanguages extends JView
 
     protected $hideLangs = array();
 
+    //-- @Joomla!-compat 1.5
     protected $showCore = false;
 
     private $paths = array(
@@ -32,17 +33,17 @@ class EasyCreatorViewLanguages extends JView
     , 'site' => JPATH_SITE);
 
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     protected $project;
 
     /**
-     * Standard display method.
+     * Execute and display a template script.
      *
-     * @param string $tpl The name of the template file to parse;
+     * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
      *
      * @throws Exception
-     * @return void
+     * @return  mixed  A string if successful, otherwise a JError object.
      */
     public function display($tpl = null)
     {
@@ -50,6 +51,8 @@ class EasyCreatorViewLanguages extends JView
 
         $this->hideLangs = JRequest::getVar('hide_langs', array());
         $this->scope = JRequest::getCmd('scope');
+
+        //-- @Joomla!-compat 1.5
         $this->showCore = JRequest::getCmd('showCore');
 
         try
@@ -91,7 +94,8 @@ class EasyCreatorViewLanguages extends JView
                 }
                 else
                 {
-                    $this->easyLanguage = new EcrLanguage($this->project, $this->scope, $this->hideLangs, $this->showCore);
+                    $this->easyLanguage = new EcrLanguage(
+                        $this->project, $this->scope, $this->hideLangs, $this->showCore);
 
                     if(JRequest::getCmd('tmpl') != 'component')
                     {
@@ -393,7 +397,7 @@ class EasyCreatorViewLanguages extends JView
                 $s1 = htmlspecialchars(str_replace('"', '__QQ__', $errorKey));
                 $html .= '<input type="hidden" name="file_errors['.$s1.']" value="'.$s.'" />';
                 $html .= '<input type="checkbox" checked="checked" id="error_'.$s1.'" name="selected_errors['
-                .$s1.']" /><label for="error_'.$s1.'">'.$s1.'</label>'.BR;
+                .$s1.']" /><labellabel class="inline" for="error_'.$s1.'">'.$s1.'</label>'.BR;
 
                 $newJText = str_replace($errorKey, $this->converter->cleanKey($errorKey), $errorJText);
                 $newCode = str_replace($errorJText, $newJText, $newCode);
@@ -609,22 +613,27 @@ class EasyCreatorViewLanguages extends JView
         $checked =($this->buildOpts->get('includeLineNumbers')) ? 'checked="checked"' : '';
         $c .= '<input type="checkbox"'.$checked.' id="chkincludeLineNumbers"'
         .'name="buildOpts[includeLineNumbers]" onchange="submitform();" />';
-        $c .= '<label for="chkincludeLineNumbers">Include line numbers</label>';
+        $c .= '<label class="inline" for="chkincludeLineNumbers">Include line numbers</label>';
 
         $this->checks->includeLineNumbers = $c;
 
-        $c = '';
-        $checked =($this->buildOpts->get('includeCoreLanguage')) ? 'checked="checked"' : '';
-        $c .= '<input type="checkbox"'.$checked.' id="chkIncludeCoreLanguage"'
-        .' name="buildOpts[includeCoreLanguage]" onchange="submitform();" />';
-        $c .= '<label for="chkIncludeCoreLanguage">Include Joomla! core language</label>';
+        //-- @Joomla!-compat 1.5
+        if('1.5' == $this->project->JCompat)
+        {
+            $c = '';
+            $checked =($this->buildOpts->get('includeCoreLanguage')) ? 'checked="checked"' : '';
+            $c .= '<input type="checkbox"'.$checked.' id="chkIncludeCoreLanguage"'
+            .' name="buildOpts[includeCoreLanguage]" onchange="submitform();" />';
+            $c .= '<label class="inline" for="chkIncludeCoreLanguage">Include Joomla! core language</label>';
 
-        $this->checks->includeCoreLanguage = $c;
+            $this->checks->includeCoreLanguage = $c;
+        }
 
         $c = '';
         $checked =($this->buildOpts->get('markFuzzy')) ? 'checked="checked"' : '';
-        $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy" name="buildOpts[markFuzzy]" onchange="submitform();" />';
-        $c .= '<label for="chkMarkFuzzy">Mark fuzzy</label>';
+        $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy"'
+        .' name="buildOpts[markFuzzy]" onchange="submitform();" />';
+        $c .= '<label class="inline" for="chkMarkFuzzy">Mark fuzzy</label>';
 
         $this->checks->markFuzzy = $c;
 
@@ -633,7 +642,7 @@ class EasyCreatorViewLanguages extends JView
         $c .= '<input type="checkbox"'.$checked.' id="chkMarkKeyDiffers"'
         .' name="buildOpts[markKeyDiffers]" onchange="submitform();" />';
 
-        $c .= '<label for="chkMarkKeyDiffers">Mark key difference(s)</label>';
+        $c .= '<label class="inline" for="chkMarkKeyDiffers">Mark key difference(s)</label>';
 
         $this->checks->markKeyDiffers = $c;
     }//function
@@ -645,12 +654,12 @@ class EasyCreatorViewLanguages extends JView
      */
     private function prepareTranslation()
     {
-        $workPath = $this->project->getLanguagePaths($this->scope);
-
+        //-- @Joomla!-compat 1.5
         $this->showCore = JRequest::getCmd('showCore');
 
         $this->easyLanguage->_readStrings();
 
+        //-- @Joomla!-compat 1.5
         if($this->showCore)
         {
             $this->easyLanguage->_readStrings(true);
@@ -660,6 +669,8 @@ class EasyCreatorViewLanguages extends JView
         $this->hideLangs = $this->easyLanguage->getHideLangs();
         $this->definitions = $this->easyLanguage->getDefinitions();
         $this->strings = $this->easyLanguage->getStrings();
+
+        //-- @Joomla!-compat 1.5
         $this->coreStrings = $this->easyLanguage->getCoreStrings();
     }//function
 
@@ -874,12 +885,16 @@ class EasyCreatorViewLanguages extends JView
                         .' value="'.$lang.'" '.$checked
                         .' onclick="submitbutton(\''.$task.'\');">';
 
-                        $html .= '<label for="hide_langs_'.$lang.'" style="color: '.$color.';">'.$lang.'</label>';
-                    }//foreach
+                        $html .= '<label class="inline" for="hide_langs_'.$lang.'" style="color: '.$color.';">'
+                            .$lang
+                            .'</label>';
+                    }
+
                     $html .= '</div>';
                 }
 
-                if($task == 'searchfiles')
+                //-- @Joomla!-compat 1.5
+                if('1.5' == $this->project->JCompat && $task == 'searchfiles')
                 {
                     $html .= '<div class="ecr_menu_box">';
 
@@ -897,7 +912,7 @@ class EasyCreatorViewLanguages extends JView
                     $html .= '<input type="checkbox" name="showCore" id="showCore"'
                     .' value="show_core" onclick="submitbutton(\'searchfiles\');" '.$checked.'>';
 
-                    $html .= '<label for="showCore" '.$style.'>'.jgettext('Load core language').'</label>';
+                    $html .= '<label class="inline" for="showCore" '.$style.'>'.jgettext('Load core language').'</label>';
 
                     $html .= JHtml::tooltip(
                     jgettext('Also load the core language file to check for translations (displayed in orange)')
@@ -1066,7 +1081,7 @@ class EasyCreatorViewLanguages extends JView
         $html .= '<div class="ecr_menu_box" style="background-color: #ccc; margin-left: 0.3em;">';
         $html .= '<input type="checkbox" id="'.$task.'" name="options['.$task.']"'
         .' onclick="submitform(\'convert\');" '.$checked.'" />';
-        $html .= '<label for="'.$task.'">'.$title.'</label>';
+        $html .= '<label class="inline" for="'.$task.'">'.$title.'</label>';
         $html .= '</div>';
 
         return $html;

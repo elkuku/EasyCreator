@@ -304,7 +304,8 @@ endforeach;
             {
                 echo '<div id="res-'.$table->name.'"></div>';
                 echo '<div class="ecr_button img icon16-add" id="addbtn-'.$table->name.'"';
-                echo " onclick=\"document.adminForm.table_name.value='$table->name'; submitbutton('register_table');\">";
+                echo " onclick=\"document.adminForm.table_name.value='$table->name';"
+                 ."submitbutton('register_table');\">";
                 //registerTable('$this->ecr_project', '$table->name', 'res-$table->name');\">";
                 echo jgettext('Register').'</div>';
             }

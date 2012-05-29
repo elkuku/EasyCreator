@@ -95,7 +95,8 @@ $requireds = $this->builder->customOptions('requireds');
         <label class="inline" for="ecr_test_mode">TEST only</label>
     <?php endif; ?>
 
-    <div class="btn" style="clear: both; display: block; margin-top: 1em; text-align: center;" onclick="submitbutton('starterstart');">
+    <div class="btn" style="clear: both; display: block; margin-top: 1em; text-align: center;"
+         onclick="submitbutton('starterstart');">
         <p style="padding-bottom: 1em;">
             <span id="wizard-loader" class="img32 icon32-wizard"></span>
         </p>

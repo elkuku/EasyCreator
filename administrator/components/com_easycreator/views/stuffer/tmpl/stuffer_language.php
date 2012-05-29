@@ -36,7 +36,8 @@ $buildOpts = $this->project->buildOpts;
                 <?php echo jgettext('Separate JavaScript'); ?>
             </label>
             <input type="checkbox" name="buildopts[]" value="lng_separate_javascript" id="lng_separate_javascript"
-                <?php echo (isset($buildOpts['lng_separate_javascript']) && $buildOpts['lng_separate_javascript'] == 'ON')
+                <?php echo (isset($buildOpts['lng_separate_javascript'])
+                && $buildOpts['lng_separate_javascript'] == 'ON')
                 ? ' checked="checked"'
                 : ''; ?>
                 />

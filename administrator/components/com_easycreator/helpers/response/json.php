@@ -16,6 +16,11 @@ class EcrResponseJson
 
     public $message = '';
 
+    /**
+     * Convert to string.
+     *
+     * @return string
+     */
     public function __toString()
     {
         return json_encode($this);

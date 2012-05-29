@@ -177,7 +177,7 @@ class EcrProjectReflection
                     {
                         foreach($files as $file)
                         {
-                            //                        #    $this->addReflectionFile($type, $scopePath.DS.$type.DS.$file);
+                            // $this->addReflectionFile($type, $scopePath.DS.$type.DS.$file);
                             $this->aj_addFile($type, $type.DS.$file);
                         }//foreach
                     }
@@ -242,7 +242,8 @@ default:
         ?>
 <script type="text/javascript">
 
-            url = "index.php?option=com_easycreator&controller=stuffer&task=aj_reflection&tmpl=component&el_num="+divCount;
+            url = 'index.php?option=com_easycreator&controller=stuffer&task=aj_reflection'
+                +'&tmpl=component&el_num='+divCount;
 
             name = 'insertDiv_'+divCount;
 //            html = '<div id="'+name+'"><strong style="color: red;">Loading...</strong>'+divCount+'</div>';

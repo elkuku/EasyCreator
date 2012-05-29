@@ -82,7 +82,8 @@ $ohlohImg = '/media/com_easycreator/admin/images/ohloh_static_logo.png';
     </li>
     <li>
         <!-- Ohloh button -->
-        <a class="ohloh" href="http://www.ohloh.net/stack_entries/new?project_id=EasyCreator&amp;ref=WidgetProjectUsersLogo"
+        <a class="ohloh"
+           href="http://www.ohloh.net/stack_entries/new?project_id=EasyCreator&amp;ref=WidgetProjectUsersLogo"
          style="border-bottom:none; text-decoration:none; display:block; background:url(<?php
          echo JURI::root(true).$ohlohImg; ?>) 0 0 no-repeat;width:73px;height:23px;"
          title="<?php echo jgettext('Support EasyCreator by adding it to your stack at Ohloh'); ?>"

@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ * SQL format class.
  */
 abstract class EcrSqlFormat
 {
@@ -19,7 +19,7 @@ abstract class EcrSqlFormat
     public function __construct(array $options = array())
     {
         $this->options = new JRegistry($options);
-    }//function
+    }
 
     /**
      * Format a SQL CREATE TABLE statement
@@ -41,14 +41,14 @@ abstract class EcrSqlFormat
      */
     abstract public function formatInsert(SimpleXMLElement $tableData);
 
-	/**
-	 * Format a SQL TRUNCATE TABLE statement
-	 *
-	 * @param SimpleXMLElement $insert The INSERT block
-	 *
-	 * @return string Formatted SQL statement
-	 */
-	abstract public function formatTruncate(SimpleXMLElement $tableStructure);
+    /**
+     * Format a SQL TRUNCATE TABLE statement
+     *
+     * @param SimpleXMLElement $tableStructure
+     *
+     * @return string Formatted SQL statement
+     */
+    abstract public function formatTruncate(SimpleXMLElement $tableStructure);
 
     /**
      * Format a SQL DROP TABLE statement

@@ -66,15 +66,16 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
                     {
                         $type = 'smallint';
                     }
+
                     if(0 === strpos(strtolower($matches[1]), 'int'))
                     {
                         $type = ($matches[2] > 10) ? 'bigint' : 'integer';
                     }
-                    elseif(0 === strpos(strtolower($matches[1]), 'varchar'))
+                    else if(0 === strpos(strtolower($matches[1]), 'varchar'))
                     {
                         $type = 'character varying('.$matches[2].')';
                     }
-                    elseif(0 === strpos(strtolower($matches[1]), 'char'))
+                    else if(0 === strpos(strtolower($matches[1]), 'char'))
                     {
                         $type = 'character('.$matches[2].')';
                     }
@@ -106,7 +107,6 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
             $fields[] = $f;
         }
-        //foreach
 
         $primaries = array();
         $uniques = array();
@@ -120,14 +120,13 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
             if('PRIMARY' == $n)
                 $primaries[] = $c;
-            elseif('0' == (string)$key->attributes()->Non_unique)
+            else if('0' == (string)$key->attributes()->Non_unique)
                 $uniques[$n][] = $c;
             //             elseif('1' == (string)$key->attributes()->Seq_in_index)
             //             $indices[$n][] = $c;
             else
                 $keys[$n][] = $c;
         }
-        //foreach
 
         $s[] = implode(",\n", $fields);
 
@@ -143,15 +142,15 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
         foreach($uniques as $kName => $columns)
         {
-            $s[] = 'UNIQUE KEY '.$this->quote($kName).' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
+            $s[] = 'UNIQUE KEY '.$this->quote($kName)
+                .' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
         }
-        //foreach
 
         foreach($keys as $kName => $columns)
         {
-            $s[] = 'KEY '.$this->quote($kName).' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
+            $s[] = 'KEY '.$this->quote($kName)
+                .' ('.$this->quote(implode($this->quoteString.','.$this->quoteString, $columns)).'),';
         }
-        //foreach
 
         /*
        $collation = (string)$create->options->attributes()->Collation;
@@ -179,7 +178,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
      */
     public function formatInsert(SimpleXMLElement $insert)
     {
-        if(! isset($insert->row->field))
+        if(false == isset($insert->row->field))
             return '';
 
         $tableName = (string)$insert->attributes()->name;
@@ -218,11 +217,9 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
                 $vs[] = $f;
             }
-            //foreach
 
             $values[] = '('.implode(', ', $vs).')';
         }
-        //foreach
 
         $s[] = 'VALUES';
 
@@ -262,5 +259,4 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
         return 'DROP TABLE '.$tableName.";\n";
     }
-
 }//class
