@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage ProjectTypes
@@ -6,9 +6,6 @@
  * @author     Created on 24-Mar-2010
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 /**
  * EasyCreator project type template.
@@ -31,6 +28,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 
     /**
      * Translate the type
+     *
      * @return string
      */
     public function translateType()
@@ -40,6 +38,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 
     /**
      * Translate the plural type
+     *
      * @return string
      */
     public function translateTypePlural()
@@ -81,7 +80,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         }
 
         return $this->copies;
-    }//function
+    }
 
     /**
      * Gets the language scopes for the extension type.
@@ -99,7 +98,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         }
 
         return $scopes;
-    }//function
+    }
 
     /**
      * Get the extension base path.
@@ -108,26 +107,81 @@ class EcrProjectTypeTemplate extends EcrProjectBase
      */
     public function getExtensionPath()
     {
-        $scope =('admin' == $this->scope) ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        $scope = ('admin' == $this->scope) ? JPATH_ADMINISTRATOR : JPATH_SITE;
 
         return $scope.'/templates/'.$this->comName;
-    }//function
+    }
 
     /**
      * Gets the paths to language files.
      *
      * @param string $scope
      *
+     * @throws Exception
      * @return array
      */
     public function getLanguagePaths($scope = '')
     {
-        $paths = array();
-        $scope =($this->scope == 'admin') ? 'admin' : 'site';
-        $paths[$scope] =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        static $paths = array();
+
+        if($paths)
+        {
+            if($scope && isset($paths[$scope]))
+                return $paths[$scope];
+
+            return $paths;
+        }
+
+        //-- @Joomla!-version-check
+        switch($this->JCompat)
+        {
+            case '1.5':
+                $paths['admin'][] = JPATH_ADMINISTRATOR;
+                $paths['site'][] = JPATH_SITE;
+                break;
+            case '1.6':
+            case '1.7':
+            case '2.5':
+                //-- @Joomla!-compat 1.5
+                $paths['admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
+                $paths['site'][] = JPATH_SITE.'/templates/'.$this->comName;
+
+                $s = ($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+                $paths['sys'][] = $s.'/templates/'.$this->comName;
+
+                if(isset($this->buildOpts['lng_separate_javascript'])
+                    && ($this->buildOpts['lng_separate_javascript']) == 'ON'
+                )
+                {
+                    $paths['js_admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
+                    $paths['js_site'][] = JPATH_SITE.'/templates/'.$this->comName;
+                }
+                break;
+
+            default:
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion', 'error');
+
+                return array();
+                break;
+        }
+
+        if($scope && ! array_key_exists($scope, $paths))
+            throw new Exception(__METHOD__.' - Unknown scope: '.$scope);
+
+        if('admin' == $this->scope)
+        {
+            unset($paths['site']);
+        }
+        else
+        {
+            unset($paths['admin']);
+        }
+
+        if($scope && isset($paths[$scope]))
+            return $paths[$scope];
 
         return $paths;
-    }//function
+    }
 
     /**
      * Get the name for language files.
@@ -138,8 +192,22 @@ class EcrProjectTypeTemplate extends EcrProjectBase
      */
     public function getLanguageFileName($scope = '')
     {
-        return 'tpl_'.$this->comName.'.ini';
-    }//function
+        switch($scope)
+        {
+            case 'sys' :
+                return $this->prefix.$this->comName.'.sys.'.$this->langFormat;
+                break;
+
+            case 'js_admin' :
+            case 'js_site' :
+                return $this->prefix.$this->comName.'.js.'.$this->langFormat;
+                break;
+
+            default :
+                return $this->prefix.$this->comName.'.'.$this->langFormat;
+                break;
+        }
+    }
 
     /**
      * Gets the DTD for the extension type.
@@ -159,10 +227,10 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         {
             case '1.5':
                 $dtd = array(
-                 'type' => 'install'
-                 , 'public' => '-//Joomla! 1.5//DTD template 1.0//EN'
-                 , 'uri' => 'http://joomla.org/xml/dtd/1.5/template-install.dtd');
-                 break;
+                    'type' => 'install'
+                , 'public' => '-//Joomla! 1.5//DTD template 1.0//EN'
+                , 'uri' => 'http://joomla.org/xml/dtd/1.5/template-install.dtd');
+                break;
 
             case '1.6':
             case '1.7':
@@ -172,10 +240,10 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
-        }//switch
+        }
 
         return $dtd;
-    }//function
+    }
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -185,7 +253,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
     public function getEcrXmlFileName()
     {
         return $this->getFileName().'.xml';
-    }//function
+    }
 
     /**
      * Get a common file name.
@@ -194,8 +262,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
      */
     public function getFileName()
     {
-        return 'tpl_'.$this->scope.'_'.$this->comName;
-    }//function
+        return $this->prefix.$this->scope.'_'.$this->comName;
+    }
 
     /**
      * Get the path for the Joomla! XML manifest file.
@@ -204,11 +272,11 @@ class EcrProjectTypeTemplate extends EcrProjectBase
      */
     public function getJoomlaManifestPath()
     {
-        $path =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        $path = ($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
         $path .= DS.'templates'.DS.$this->comName;
 
         return $path;
-    }//function
+    }
 
     /**
      * Get a Joomla! manifest XML file name.
@@ -218,7 +286,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
     public function getJoomlaManifestName()
     {
         return 'templateDetails.xml';
-    }//function
+    }
 
     /**
      * Get the project Id.
@@ -257,14 +325,14 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 
                 return false;
                 break;
-        }//switch
+        }
 
         $db->setQuery($query);
 
         $id = $db->loadResult();
 
         return $id;
-    }//function
+    }
 
     /**
      * Discover all projects.
@@ -286,10 +354,10 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case 'site':
                 $projects = JFolder::folders(JPATH_SITE.DS.'templates');
                 break;
-        }//switch
+        }
 
         return $projects;
-    }//function
+    }
 
     /**
      * Get a list of known core projects.
@@ -320,7 +388,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                         break;
-                }//switch
+                }
                 break;
 
             case 'site':
@@ -340,7 +408,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                         break;
-                }//switch
+                }
                 break;
 
             default:
@@ -348,8 +416,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 
                 return array();
                 break;
-        }//switch
+        }
 
         return $projects;
-    }//function
+    }
 }//class

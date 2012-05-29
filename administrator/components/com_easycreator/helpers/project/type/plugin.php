@@ -62,8 +62,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
     /**
      * Find all files and folders belonging to the project.
      *
-     * @todo changes in 1.6
-     *
      * @return array
      */
     public function findCopies()
@@ -71,16 +69,17 @@ class EcrProjectTypePlugin extends EcrProjectBase
         if($this->copies)
             return $this->copies;
 
-        //-- J! 1.5
         $base = JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
 
         //-- J! 1.6
         if(JFolder::exists($base))
             $this->copies[] = $base;
 
+        //-- @Joomla!-compat 1.5
         if(JFile::exists($base.'.php'))
             $this->copies[] = $base.'.php';
 
+        //-- @Joomla!-compat 1.5
         if(JFile::exists($base.'.xml'))
             $this->copies[] = $base.'.xml';
 
@@ -124,6 +123,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- This is NOT an error but a strange J! behavior....
         //-- Language files for plugins always "live" in the "administrator" section.
         $paths['admin'] = JPATH_ADMINISTRATOR;
+        $paths['sys'] = JPATH_ADMINISTRATOR;
 
         return $paths;
     }//function
@@ -137,8 +137,24 @@ class EcrProjectTypePlugin extends EcrProjectBase
      */
     public function getLanguageFileName($scope = '')
     {
-        return 'plg_'.$this->scope.'_'.$this->comName.'.ini';
-    }//function
+        $base = $this->prefix.$this->scope.'_'.$this->comName;
+
+        switch($scope)
+        {
+            case 'sys' :
+                return $base.'.sys.'.$this->langFormat;
+                break;
+
+            case 'js_admin' :
+            case 'js_site' :
+                return $base.'.js.'.$this->langFormat;
+                break;
+
+            default :
+                return $base.'.'.$this->langFormat;
+                break;
+        }
+    }
 
     /**
      * Gets the DTD for the extension type.

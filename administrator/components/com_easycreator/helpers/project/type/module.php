@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage ProjectTypes
@@ -6,9 +6,6 @@
  * @author     Created on 24-Mar-2010
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 /**
  * EasyCreator project type module.
@@ -31,6 +28,7 @@ class EcrProjectTypeModule extends EcrProjectBase
 
     /**
      * Translate the type
+     *
      * @return string
      */
     public function translateType()
@@ -40,6 +38,7 @@ class EcrProjectTypeModule extends EcrProjectBase
 
     /**
      * Translate the plural type
+     *
      * @return string
      */
     public function translateTypePlural()
@@ -81,7 +80,7 @@ class EcrProjectTypeModule extends EcrProjectBase
         }
 
         return $this->copies;
-    }//function
+    }
 
     /**
      * Gets the language scopes for the extension type.
@@ -91,10 +90,10 @@ class EcrProjectTypeModule extends EcrProjectBase
     public function getLanguageScopes()
     {
         $scopes = array();
-        $scopes[] =($this->scope) == 'admin' ? 'admin' : 'site';
+        $scopes[] = ($this->scope) == 'admin' ? 'admin' : 'site';
 
         return $scopes;
-    }//function
+    }
 
     /**
      * Get the extension base path.
@@ -103,26 +102,82 @@ class EcrProjectTypeModule extends EcrProjectBase
      */
     public function getExtensionPath()
     {
-        $scope =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        $scope = ($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
 
         return $scope.'/modules/'.$this->comName;
-    }//function
+    }
 
     /**
      * Gets the paths to language files.
      *
      * @param string $scope
      *
+     * @throws Exception
+     *
      * @return array
      */
     public function getLanguagePaths($scope = '')
     {
-        $paths = array();
-        $scope =($this->scope == 'admin') ? 'admin' : 'site';
-        $paths[$scope] =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        static $paths = array();
+
+        if($paths)
+        {
+            if($scope && isset($paths[$scope]))
+                return $paths[$scope];
+
+            return $paths;
+        }
+
+        //-- @Joomla!-version-check
+        switch($this->JCompat)
+        {
+            case '1.5':
+                $paths['admin'][] = JPATH_ADMINISTRATOR;
+                $paths['site'][] = JPATH_SITE;
+                break;
+            case '1.6':
+            case '1.7':
+            case '2.5':
+            //-- @Joomla!-compat 1.5
+                $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
+                $paths['site'][] = JPATH_SITE.'/modules/'.$this->comName;
+
+                $s = ($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+                $paths['sys'][] = $s.'/modules/'.$this->comName;
+
+                if(isset($this->buildOpts['lng_separate_javascript'])
+                    && ($this->buildOpts['lng_separate_javascript']) == 'ON'
+                )
+                {
+                    $paths['js_admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
+                    $paths['js_site'][] = JPATH_SITE.'/modules/'.$this->comName;
+                }
+                break;
+
+            default:
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion', 'error');
+
+                return array();
+                break;
+        }
+
+        if($scope && ! array_key_exists($scope, $paths))
+            throw new Exception(__METHOD__.' - Unknown scope: '.$scope);
+
+        if('admin' == $this->scope)
+        {
+            unset($paths['site']);
+        }
+        else
+        {
+            unset($paths['admin']);
+        }
+
+        if($scope && isset($paths[$scope]))
+            return $paths[$scope];
 
         return $paths;
-    }//function
+    }
 
     /**
      * Get the name for language files.
@@ -133,8 +188,22 @@ class EcrProjectTypeModule extends EcrProjectBase
      */
     public function getLanguageFileName($scope = '')
     {
-        return $this->comName.'.ini';
-    }//function
+        switch($scope)
+        {
+            case 'sys' :
+                return $this->comName.'.sys.'.$this->langFormat;
+                break;
+
+            case 'js_admin' :
+            case 'js_site' :
+                return $this->comName.'.js.'.$this->langFormat;
+                break;
+
+            default :
+                return $this->comName.'.'.$this->langFormat;
+                break;
+        }
+    }
 
     /**
      * Gets the DTD for the extension type.
@@ -152,7 +221,7 @@ class EcrProjectTypeModule extends EcrProjectBase
         {
             case '1.5':
                 $dtd = array(
-                'type' => 'install'
+                    'type' => 'install'
                 , 'public' => '-//Joomla! 1.5//DTD module 1.0//EN'
                 , 'uri' => 'http://joomla.org/xml/dtd/1.5/module-install.dtd');
                 break;
@@ -164,10 +233,10 @@ class EcrProjectTypeModule extends EcrProjectBase
 
             default:
                 break;
-        }//switch
+        }
 
         return $dtd;
-    }//function
+    }
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -177,7 +246,7 @@ class EcrProjectTypeModule extends EcrProjectBase
     public function getEcrXmlFileName()
     {
         return $this->getFileName().'.xml';
-    }//function
+    }
 
     /**
      * Get a common file name.
@@ -187,7 +256,7 @@ class EcrProjectTypeModule extends EcrProjectBase
     public function getFileName()
     {
         return str_replace('mod_', 'mod_'.$this->scope.'_', $this->comName);
-    }//function
+    }
 
     /**
      * Get the path for the Joomla! XML manifest file.
@@ -196,11 +265,11 @@ class EcrProjectTypeModule extends EcrProjectBase
      */
     public function getJoomlaManifestPath()
     {
-        $path =($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
+        $path = ($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
         $path .= DS.'modules'.DS.$this->comName;
 
         return $path;
-    }//function
+    }
 
     /**
      * Get a Joomla! manifest XML file name.
@@ -210,7 +279,7 @@ class EcrProjectTypeModule extends EcrProjectBase
     public function getJoomlaManifestName()
     {
         return $this->comName.'.xml';
-    }//function
+    }
 
     /**
      * Get the project Id.
@@ -220,7 +289,7 @@ class EcrProjectTypeModule extends EcrProjectBase
     public function getId()
     {
         $db = JFactory::getDBO();
-        $clId =($this->scope == 'admin') ? 1 : 0;
+        $clId = ($this->scope == 'admin') ? 1 : 0;
 
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
@@ -238,7 +307,7 @@ class EcrProjectTypeModule extends EcrProjectBase
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
-        }//switch
+        }
 
         /* @var JDatabaseQuery $query */
 
@@ -250,7 +319,7 @@ class EcrProjectTypeModule extends EcrProjectBase
         $db->setQuery((string)$query);
 
         return $db->loadResult();
-    }//function
+    }
 
     /**
      * Discover all projects.
@@ -274,8 +343,8 @@ class EcrProjectTypeModule extends EcrProjectBase
 
                 return array();
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Get a list of known core projects.
@@ -294,8 +363,8 @@ class EcrProjectTypeModule extends EcrProjectBase
                 {
                     case '1.5':
                         return array('mod_custom', 'mod_feed', 'mod_footer', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_stats', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread');
+                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_stats', 'mod_status'
+                        , 'mod_submenu', 'mod_title', 'mod_toolbar', 'mod_unread');
 
                     case '1.6':
                     case '1.7':
@@ -312,7 +381,8 @@ class EcrProjectTypeModule extends EcrProjectBase
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();
-                }//switch
+                }
+
             case 'site':
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
@@ -344,13 +414,13 @@ class EcrProjectTypeModule extends EcrProjectBase
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();
-                }//switch
+                }
                 break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unknown scope');
 
                 return array();
-        }//switch
-    }//function
+        }
+    }
 }//class
