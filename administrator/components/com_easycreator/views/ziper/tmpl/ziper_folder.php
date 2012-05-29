@@ -11,18 +11,17 @@ $buildPath = $this->project->getZipPath();
 ?>
 
 <div class="infoHeader img icon16-installfolder"><?php echo jgettext('Build folder') ?></div>
-<?php
-if(2 == ECR_HELP):
-    echo JHTML::tooltip(jgettext('Build folder').'::'
-        .jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.'
-            .'<br />'
-            .'If left blank the default folder will be used.'));
-    echo '<br/><br/>';
-endif; ?>
 
 <div class="path"><?php echo JPath::clean($buildPath.DS.$this->project->version); ?></div>
+
+<?php echo EcrHelp::info(
+    jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.'
+        .'<br />'
+        .'If left blank the default folder will be used.')
+        , jgettext('Build folder')); ?>
+
 <?php
-if( ! JFolder::exists($buildPath.DS.$this->project->version)) :
+if(false == JFolder::exists($buildPath.DS.$this->project->version)) :
 
     //-- The build folder does not exist - let's create it
 

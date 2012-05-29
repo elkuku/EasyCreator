@@ -25,8 +25,7 @@ font-size: 1.3em; font-family: monospace;">
 
 <strong><?php echo jgettext('Custom name format'); ?></strong>
 
-<?php if(2 == ECR_HELP) echo JHTML::tooltip(jgettext('Custom name format').'::'
-    .jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*')); ?>
+<?php echo EcrHelp::info(jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*'), jgettext('Custom name format')); ?>
 
 <br/>
 <input type="radio" name="opt_format" id="opt_format_1" class="custom_opt"
