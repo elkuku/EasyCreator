@@ -36,6 +36,11 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
         $this->messages[$type][] = $message;
     }
 
+    /**
+     * Render messages from the internal message queue.
+     *
+     * @return string
+     */
     private function renderMessages()
     {
         $html = array();

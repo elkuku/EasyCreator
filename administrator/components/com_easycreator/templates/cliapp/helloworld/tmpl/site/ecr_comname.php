@@ -10,7 +10,7 @@ define('_JEXEC', 1);
 
 // Increase error reporting to that any errors are displayed.
 // Note, you would not use these settings in production.
-error_reporting(-1);
+error_reporting(- 1);
 ini_set('display_errors', true);
 
 // Setup the base path related constant.
@@ -36,7 +36,7 @@ class ECR_COM_NAME extends JApplicationCli
      *
      * @return void
      */
-    public function execute()
+    public function doExecute()
     {
         // Send a string to standard output.
         $this->out('Hello world!');
@@ -50,9 +50,9 @@ try
     // and use chaining to execute the application.
     JApplicationCli::getInstance('ECR_COM_NAME')->execute();
 }
-catch (Exception $e)
+catch(Exception $e)
 {
     // An exception has been caught, just echo the message.
-    fwrite(STDOUT, $e->getMessage() . "\n");
+    fwrite(STDOUT, $e->getMessage()."\n");
     exit($e->getCode());
 }

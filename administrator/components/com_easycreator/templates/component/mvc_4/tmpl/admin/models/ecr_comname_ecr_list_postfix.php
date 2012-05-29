@@ -16,14 +16,14 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
      *
      * @var array
      */
-    var $_data;
+    protected $_data;
 
     /**
      * Retrieves the hello data.
      *
      * @return array Array of objects containing the data from the database
      */
-    function getData()
+    public function getData()
     {
         //-- Lets load the data if it doesn't already exist
         if(empty($this->_data))

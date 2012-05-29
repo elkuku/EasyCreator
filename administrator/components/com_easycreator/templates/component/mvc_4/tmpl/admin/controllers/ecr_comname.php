@@ -27,7 +27,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXControllerECR_COM_NAME extends ECR_COM_NAMEECR
      *
      * @return void
      */
-    function edit()
+    public function edit()
     {
         JRequest::setVar('view', 'ECR_COM_NAME');
         JRequest::setVar('layout', 'form');
@@ -41,7 +41,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXControllerECR_COM_NAME extends ECR_COM_NAMEECR
      *
      * @return void
      */
-    function save()
+    public function save()
     {
         $model = $this->getModel('ECR_COM_NAME');
         $link = 'index.php?option=ECR_COM_COM_NAME';
@@ -63,7 +63,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXControllerECR_COM_NAME extends ECR_COM_NAMEECR
      *
      * @return void
      */
-    function remove()
+    public function remove()
     {
         $model = $this->getModel('ECR_COM_NAME');
         $link = 'index.php?option=ECR_COM_COM_NAME';
@@ -85,7 +85,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXControllerECR_COM_NAME extends ECR_COM_NAMEECR
      *
      * @return void
      */
-    function cancel()
+    public function cancel()
     {
         $msg = JText::_('Operation Cancelled');
         $this->setRedirect('index.php?option=ECR_COM_COM_NAME', $msg, 'notice');

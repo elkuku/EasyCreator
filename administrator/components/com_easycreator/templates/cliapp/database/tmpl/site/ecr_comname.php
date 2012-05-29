@@ -81,10 +81,8 @@ class ECR_COM_NAME extends JApplicationCli
      * Execute the application.
      *
      * @return  void
-     *
-     * @since   11.3
      */
-    public function execute()
+    public function doExecute()
     {
         // Get the query builder class from the database and set it up
         // to select everything in the 'db' table.

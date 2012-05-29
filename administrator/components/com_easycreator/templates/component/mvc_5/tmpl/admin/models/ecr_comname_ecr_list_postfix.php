@@ -16,20 +16,25 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
      *
      * @var array
      */
-    var $_data;
+    protected $_data;
 
     /**
      * Items total
+     *
      * @var integer
      */
-    var $_total = null;
+    protected $_total = null;
 
     /**
      * Pagination object
+     *
      * @var object
      */
-    var $_pagination = null;
+    protected $_pagination = null;
 
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -45,7 +50,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
 
         $this->setState('limit', $limit);
         $this->setState('limitstart', $limitstart);
-    }//function
+    }
 
     /**
      * Returns the query.
@@ -55,17 +60,17 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
     private function _buildQuery()
     {
         $query = 'SELECT * '
-        . ' FROM #__ECR_COM_TBL_NAME ';
+            .' FROM #__ECR_COM_TBL_NAME ';
 
         return $query;
-    }//function
+    }
 
     /**
      * Retrieves the data.
      *
      * @return array Array of objects containing the data from the database
      */
-    function getData()
+    public function getData()
     {
         //-- Lets load the data if it doesn't already exist
         if(empty($this->_data))
@@ -75,14 +80,14 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
         }
 
         return $this->_data;
-    }//function
+    }
 
     /**
      * Get the items total.
      *
      * @return integer
      */
-    function getTotal()
+    public function getTotal()
     {
         //-- Load the content if it doesn't already exist
         if(empty($this->_total))
@@ -92,14 +97,14 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
         }
 
         return $this->_total;
-    }//function
+    }
 
     /**
      * Get the pagination object.
      *
      * @return object JPagination
      */
-    function getPagination()
+    public function getPagination()
     {
         //-- Load the pagination object if it doesn't already exist
         if(empty($this->_pagination))
@@ -109,5 +114,5 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAMEECR_LIST_POSTFIX extends JMod
         }
 
         return $this->_pagination;
-    }//function
+    }
 }//class

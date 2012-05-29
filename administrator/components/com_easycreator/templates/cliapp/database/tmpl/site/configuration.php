@@ -10,7 +10,7 @@
  */
 
 // Prevent direct access to this file outside of a calling application.
-defined('_JEXEC') or die;
+defined('_JEXEC') || die;
 
 /**
  * CLI configuration class.
@@ -20,51 +20,51 @@ defined('_JEXEC') or die;
  */
 final class JConfig
 {
-	/**
-	 * The database driver.
-	 *
-	 * @var    string
-	 * @since  11.3
-	 */
-	public $dbDriver = 'mysqli';
+    /**
+     * The database driver.
+     *
+     * @var    string
+     * @since  11.3
+     */
+    public $dbDriver = 'mysqli';
 
-	/**
-	 * Database host.
-	 *
-	 * @var    string
-	 * @since  11.3
-	 */
-	public $dbHost = 'localhost';
+    /**
+     * Database host.
+     *
+     * @var    string
+     * @since  11.3
+     */
+    public $dbHost = 'localhost';
 
-	/**
-	 * The database connection user.
-	 *
-	 * @var    string
-	 * @since  11.3
-	 */
-	public $dbUser = 'root';
+    /**
+     * The database connection user.
+     *
+     * @var    string
+     * @since  11.3
+     */
+    public $dbUser = 'root';
 
-	/**
-	 * The database connection password.
-	 *
-	 * @var    string
-	 * @since  11.3
-	 */
-	public $dbPass = '';
+    /**
+     * The database connection password.
+     *
+     * @var    string
+     * @since  11.3
+     */
+    public $dbPass = '';
 
-	/**
-	 * The database name.
-	 *
-	 * @var    string
-	 * @since  11.3
-	 */
-	public $dbName = 'mysql';
+    /**
+     * The database name.
+     *
+     * @var    string
+     * @since  11.3
+     */
+    public $dbName = 'mysql';
 
-	/**
-	 * The database table prefix, if necessary.
-	 *
-	 * @var    string
-	 * @since  11.3
-	 */
-	public $dbPrefix = '';
+    /**
+     * The database table prefix, if necessary.
+     *
+     * @var    string
+     * @since  11.3
+     */
+    public $dbPrefix = '';
 }

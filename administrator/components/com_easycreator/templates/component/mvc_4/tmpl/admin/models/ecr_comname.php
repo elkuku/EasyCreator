@@ -29,7 +29,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
      * @param	int $id ECR_COM_NAME identifier
      * @return	void
      */
-    function setId($id)
+    public function setId($id)
     {
         // Set id and wipe data
         $this->_id = $id;
@@ -41,7 +41,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
      *
      * @return object with data
      */
-    function &getData()
+    public function &getData()
     {
         // Load the data
         if(empty($this->_data))
@@ -66,7 +66,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
      * @access	public
      * @return	boolean	True on success
      */
-    function store()
+    public function store()
     {
         $row =& $this->getTable();
 
@@ -76,6 +76,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
         if( ! $row->bind($data))
         {
             $this->setError($this->_db->getError());
+
             return false;
         }
 
@@ -83,6 +84,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
         if( ! $row->check())
         {
             $this->setError($this->_db->getError());
+
             return false;
         }
 
@@ -90,6 +92,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
         if( ! $row->store())
         {
             $this->setError($row->getError());
+
             return false;
         }
 
@@ -102,7 +105,7 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_COM_NAME extends JModel
      * @access	public
      * @return	boolean	True on success
      */
-    function delete()
+    public function delete()
     {
         $cids = JRequest::getVar('cid', array(0), 'post', 'array');
 

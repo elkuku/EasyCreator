@@ -16,7 +16,7 @@ class ECR_COM_NAMEModelECR_COM_NAME extends JModel
      *
      * @return string The data to be displayed to the user
      */
-    function getData()
+    public function getData()
     {
         $db =& JFactory::getDBO();
 

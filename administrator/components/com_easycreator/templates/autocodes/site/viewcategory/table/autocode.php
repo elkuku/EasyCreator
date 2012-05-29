@@ -50,7 +50,7 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
      */
     public function edit(EcrProjectAutocode $AutoCode)
     {
-	    JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'warning');
+        JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'warning');
         /* Array with required fields */
         $requireds = array();
 
@@ -190,14 +190,14 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-	    JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'error');
+        JFactory::getApplication()->enqueueMessage(__METHOD__.' not finished', 'error');
 
         $table_name = JRequest::getCmd('element');
         $element_scope = JRequest::getCmd('element_scope');
 
         if( ! $table_name)
         {
-	        JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
+            JFactory::getApplication()->enqueueMessage(jgettext('No table given'), 'error');
 
             return false;
         }
@@ -214,7 +214,7 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
 
         if( ! count($fields))
         {
-	        JFactory::getApplication()->enqueueMessage('No table fields found', 'error');
+            JFactory::getApplication()->enqueueMessage('No table fields found', 'error');
 
             return false;
         }

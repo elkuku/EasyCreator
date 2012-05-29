@@ -10,7 +10,7 @@ define('_JEXEC', 1);
 
 // Increase error reporting to that any errors are displayed.
 // Note, you would not use these settings in production.
-error_reporting(-1);
+error_reporting(- 1);
 ini_set('display_errors', true);
 
 /**
@@ -43,87 +43,85 @@ require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
  */
 class ECR_COM_NAME extends JApplicationCli
 {
-	/**
-	 * Execute the application.
-	 *
-	 * @return  void
-	 *
-	 * @since   11.3
-	 */
-	public function execute()
-	{
-		// Print a blank line and new heading.
-		$this->out();
-		$this->out('Configuration settings loaded from configuration.php:');
+    /**
+     * Execute the application.
+     *
+     * @return  void
+     */
+    public function doExecute()
+    {
+        // Print a blank line and new heading.
+        $this->out();
+        $this->out('Configuration settings loaded from configuration.php:');
 
-		// JApplicationCli will automatically look for and load 'configuration.php'.
-		// Use the 'get' method to access any configuration properties.
-		$this->out(
-			sprintf(
-				'%-25s = %2d', 'Default weapon strength',
-				$this->get('weapons')
-			)
-		);
+        // JApplicationCli will automatically look for and load 'configuration.php'.
+        // Use the 'get' method to access any configuration properties.
+        $this->out(
+            sprintf(
+                '%-25s = %2d', 'Default weapon strength',
+                $this->get('weapons')
+            )
+        );
 
-		$this->out(
-			sprintf(
-				'%-25s = %2d', 'Default armour rating',
-				$this->get('armour')
-			)
-		);
+        $this->out(
+            sprintf(
+                '%-25s = %2d', 'Default armour rating',
+                $this->get('armour')
+            )
+        );
 
-		$this->out(
-			sprintf(
-				'%-25s = %4.1f', 'Default health level',
-				$this->get('health')
-			)
-		);
+        $this->out(
+            sprintf(
+                '%-25s = %4.1f', 'Default health level',
+                $this->get('health')
+            )
+        );
 
-		// Print a blank line and new heading.
-		$this->out();
-		$this->out('System settings:');
+        // Print a blank line and new heading.
+        $this->out();
+        $this->out('System settings:');
 
-		// There are also a number of built in properties available, for example:
-		$this->out(
-			sprintf(
-				'%-25s = %s', 'cwd',
-				$this->get('cwd')
-			)
-		);
+        // There are also a number of built in properties available, for example:
+        $this->out(
+            sprintf(
+                '%-25s = %s', 'cwd',
+                $this->get('cwd')
+            )
+        );
 
-		$this->out(
-			sprintf(
-				'%-25s = %s', 'execution.timestamp',
-				$this->get('execution.timestamp')
-			)
-		);
+        $this->out(
+            sprintf(
+                '%-25s = %s', 'execution.timestamp',
+                $this->get('execution.timestamp')
+            )
+        );
 
-		$this->out(
-			sprintf(
-				'%-25s = %s', 'execution.timestamp',
-				$this->get('execution.timestamp')
-			)
-		);
+        $this->out(
+            sprintf(
+                '%-25s = %s', 'execution.timestamp',
+                $this->get('execution.timestamp')
+            )
+        );
 
-		// Print a blank line and new heading.
-		$this->out();
-		$this->out('Custom settings:');
+        // Print a blank line and new heading.
+        $this->out();
+        $this->out('Custom settings:');
 
-		// We can also make custom settings during the execution of the the application using the 'set' method.
-		$this->set('race', 'elf');
+        // We can also make custom settings during the execution of the the application using the 'set' method.
+        $this->set('race', 'elf');
 
-		$this->out(
-			sprintf(
-				'%-25s = %s', 'Race',
-				$this->get('race')
-			)
-		);
+        $this->out(
+            sprintf(
+                '%-25s = %s', 'Race',
+                $this->get('race')
+            )
+        );
 
-		// Finish up.
-		$this->out();
-		$this->out('Thanks for playing!');
-		$this->out();
-	}
+        // Finish up.
+        $this->out();
+        $this->out('Thanks for playing!');
+        $this->out();
+    }
 }
 
 // Wrap the execution in a try statement to catch any exceptions thrown anywhere in the script.
@@ -133,10 +131,10 @@ try
     // and use chaining to execute the application.
     JApplicationCli::getInstance('ECR_COM_NAME')->execute();
 }
-catch (Exception $e)
+catch(Exception $e)
 {
     // An exception has been caught, just echo the message.
-    fwrite(STDOUT, $e->getMessage() . "\n");
+    fwrite(STDOUT, $e->getMessage()."\n");
 
     exit($e->getCode());
 }

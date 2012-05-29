@@ -10,7 +10,7 @@
  */
 
 // Prevent direct access to this file outside of a calling application.
-defined('_JEXEC') or die;
+defined('_JEXEC') || die;
 
 /**
  * An example configuration class for a Joomla Platform application.
@@ -22,27 +22,27 @@ defined('_JEXEC') or die;
  */
 final class JConfig
 {
-	/**
-	 * A configuration value.
-	 *
-	 * @var    integer
-	 * @since  11.3
-	 */
-	public $weapons = 10;
+    /**
+     * A configuration value.
+     *
+     * @var    integer
+     * @since  11.3
+     */
+    public $weapons = 10;
 
-	/**
-	 * A configuration value.
-	 *
-	 * @var    integer
-	 * @since  11.3
-	 */
-	public $armour = 9;
+    /**
+     * A configuration value.
+     *
+     * @var    integer
+     * @since  11.3
+     */
+    public $armour = 9;
 
-	/**
-	 * A configuration value.
-	 *
-	 * @var    float
-	 * @since  11.3
-	 */
-	public $health = 8.0;
+    /**
+     * A configuration value.
+     *
+     * @var    float
+     * @since  11.3
+     */
+    public $health = 8.0;
 }

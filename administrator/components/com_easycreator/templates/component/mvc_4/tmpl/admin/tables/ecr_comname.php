@@ -14,19 +14,19 @@ class TableECR_COM_NAME extends JTable
      *
      * @var int
      */
-    var $id = null;
+    public $id = null;
 
     /**
      * @var string
      */
-    var $greeting = null;
+    public $greeting = null;
 
     /**
      * Constructor
      *
      * @param object $db Database connector object
      */
-    function TableECR_COM_NAME(& $db)
+    public function __construct($db)
     {
         parent::__construct('#__ECR_COM_TBL_NAME', 'id', $db);
     }//function
