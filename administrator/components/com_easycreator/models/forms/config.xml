@@ -36,11 +36,13 @@
     </fieldset>
 
     <fieldset name="various" label="Various">
+        <!--
         <field name="versionCheck" type="radio" default="0"
                label="Check EasyCreator version" description="Automatically check for the latest EasyCreator version.">
             <option value="0">No</option>
             <option value="1">Yes</option>
         </field>
+        -->
         <field name="ecr_help" type="list" default="2" label="Help Type"
                description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
             <option value="2">All</option>
