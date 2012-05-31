@@ -200,17 +200,6 @@ div.ebc_error {
     box-shadow: 0 0 6px orange;
 }
 
-.ecr_button_selected {
-    background-color: #fff ! important;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    border-bottom: 2px solid #ffcc00;
-    border-top: 2px solid #ffcc00;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
-}
-
 .ecr_toggle {
     text-align: left;
     font-weight: bold;
@@ -592,7 +581,7 @@ div.ecrFooter a {
     background-color: #eeeeff;
 }
 
-:focus {
+input:focus, textarea:focus  {
     outline: 2px solid orange ! important;
 }
 

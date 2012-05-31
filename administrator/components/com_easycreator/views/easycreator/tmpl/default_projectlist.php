@@ -78,8 +78,8 @@ foreach(EcrProjectHelper::getProjectTypes() as $pTag => $pType) :
 <div class="ecr_noproject" style="color: orange; text-align: center;">
     <?php echo jgettext('None found'); ?>
 </div>
-<div style="padding: 1em; font-size: 1.3em; font-weight: bold;"
-     class="btn" onclick="easySubmit('starter', 'starter');">
+<div
+     class="btn btn-large btn-success" onclick="easySubmit('starter', 'starter');">
     <i class="img icon16-add"></i>
     <?php echo jgettext('Create your first project'); ?>
 </div>

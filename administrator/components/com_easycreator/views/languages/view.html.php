@@ -38,6 +38,11 @@ class EasyCreatorViewLanguages extends JView
     protected $project;
 
     /**
+     * @var EcrLanguage
+     */
+    protected $easyLanguage;
+
+    /**
      * Execute and display a template script.
      *
      * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
@@ -77,7 +82,7 @@ class EasyCreatorViewLanguages extends JView
             }
             else
             {
-                if( ! $this->scope)
+                if('' == $this->scope)
                 {
                     $this->scope = 'site';
 
@@ -88,7 +93,7 @@ class EasyCreatorViewLanguages extends JView
                     }
                 }
 
-                if( ! count($this->project->langs))
+                if(0 == count($this->project->langs))
                 {
                     $this->easyLanguage = false;
                 }
@@ -841,12 +846,11 @@ class EasyCreatorViewLanguages extends JView
         $html .= '<div style="clear: both; height: 1em;"></div>';
 
         //-- Scope selector
-        if($this->project->type == 'component'
-        && $task != 'languages')
+        if($task != 'languages')
         {
             $html .= '<div class="ecr_menu_box" style="margin-left: 0.3em;">';
             $html .= jgettext('Scope').'&nbsp;';
-            $html .= '<select name="scope" onchange="submitbutton(\''.$task.'\');">';
+            $html .= '<select name="scope" class="span1" onchange="submitbutton(\''.$task.'\');">';
 
             foreach($this->project->getLanguagePaths() as $scope => $p)
             {
@@ -854,7 +858,7 @@ class EasyCreatorViewLanguages extends JView
                 $html .=($this->scope == $scope) ? ' selected="selected"': '';
                 $html .= '>';
                 $html .= $scope.'</option>';
-            }//foreach
+            }
 
             $html .= '</select>';
             $html .= '</div>';
@@ -954,7 +958,7 @@ class EasyCreatorViewLanguages extends JView
             case 'langcorrectdeforder':
             case 'save_deflang_corrected':
                 $html .= EcrHtmlCheck::versioned();
-                $html .= '<span class="ecr_button img icon16-ecr_save"';
+                $html .= '<span class="btn img icon16-ecr_save"';
                 $html .= 'onclick="submitbutton(\'save_deflang_corrected\');">'.jgettext('Save').'</span>';
                 $html .= '<br /><br /><div class="explanation">'
                 .jgettext('Drag and drop elements to rearrange. Add new comments.').'</div>';

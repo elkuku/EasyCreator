@@ -26,7 +26,7 @@ abstract class EcrHtmlCheck
         $save_versioned = JRequest::getInt('save_versioned', $params->get('save_versioned'));
         $checked = ($save_versioned) ? ' checked="checked"' : '';
         $html = '<input type="checkbox" name="save_versioned" id="save_versioned" value="1"'.$checked.'>'
-            .'<label for="save_versioned">'.jgettext('Save versioned').'</label>';
+            .'<label class="inline" for="save_versioned">'.jgettext('Save versioned').'</label>';
 
         return $html;
     }

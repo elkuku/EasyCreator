@@ -23,7 +23,7 @@ $started = false;
 <?php
 foreach($this->default_language as $lang)
 {
-    if($lang->key == '#')
+    if($lang->key == '#' || $lang->key == ';')
     {
         $dString = $lang->value;
 
@@ -81,8 +81,8 @@ $dfString = '&nbsp;';
 
 </div>
 <p>
-#<input name="newElement" id="newElement" type="text" value=""/>
-<span class="ecr_button img icon16-add" onclick="addElement();"><?php echo jgettext('Add Comment'); ?></span>
+<input name="newElement" id="newElement" type="text" value=""/>
+<span class="btn img icon16-add" onclick="addElement();"><?php echo jgettext('Add Comment'); ?></span>
 </p>
 <div id="msg"></div>
 

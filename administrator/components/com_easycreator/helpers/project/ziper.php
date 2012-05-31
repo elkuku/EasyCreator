@@ -1025,7 +1025,14 @@ class EcrProjectZiper extends JObject
                     continue;
                 }
 
-                $s = ($scope === 'menu' || $scope === 'sys') ? 'admin' : $scope;
+                $s = $scope;
+
+                if(in_array($scope, array('menu', 'sys')))
+                {
+                    $s = ('admin' == $this->project->scope) ? 'admin' : 'site';
+                }
+
+                //$s = ($scope === 'menu' || $scope === 'sys') ? 'admin' : $scope;
                 $tmp_dest = $this->temp_dir.DS.$s.DS.'language'.DS.$language;
 
                 if($this->project->type == 'plugin')
