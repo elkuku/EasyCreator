@@ -50,6 +50,44 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-05-31
+3084c20 Fix g11nHelper js and xml language file creation
+3e61e46 Update language files
+602fd4b Update language template - site
+9c73ab4 Update language templates
+
+2012-05-30
+2c6cf20 Formating
+2787dcc Deactivate an unused setting
+
+2012-05-29
+0c8ac42 Fix language file creation for modules, templates and plugins
+6590756 Improve help system
+8c43d93 Add build actions
+94127f8 Formatting + Docblocks
+ba9990b Add new media files
+4f440c6 Update scripts
+861818b Add buildhelper
+6d62b97 Update media files
+e0ed380 Update extension templates
+91d2536 Fix various errors when creating packages for multiple extensions (superfluous files)
+
+2012-05-28
+d373790 Move test files to a tests folder
+
+2012-05-27
+9b70498 Update extension template twitter_bootstrap
+
+2012-05-19
+87c2305 Fix media paths and modal links
+1612854 Update manifest file
+5f13fa8 Fix fail to save update server url containing ampersands
+88de6a8 Add extension template complements
+118a00b Update webapp mvc_1
+
+2012-05-18
+334b321 Fix paths, tootips / formatting
+
 2012-05-17
 e53f72e Move media to a media folder
 7a82ef5 Fix tooltips
