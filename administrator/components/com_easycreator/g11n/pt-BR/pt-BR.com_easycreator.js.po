@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Lucas Vieceli <vieceli46@hotmail.com>, 2012.
 # Manoel iikozen <iikozen@yahoo.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
-"POT-Creation-Date: 2012-03-16 19:15-0500\n"
-"PO-Revision-Date: 2012-03-07 08:38+0000\n"
-"Last-Translator: Manoel Silva <iikozen@yahoo.com>\n"
+"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"POT-Creation-Date: 2012-04-28 01:51-0500\n"
+"PO-Revision-Date: 2012-05-26 14:41+0000\n"
+"Last-Translator: Lucas Vieceli <vieceli46@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.net/projects/p/opentranslators/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,19 +32,19 @@ msgstr "Favor rever seu input"
 #: administrator/components/com_easycreator/assets/js/log.js:38
 #: administrator/components/com_easycreator/assets/js/parts.js:13
 #: administrator/components/com_easycreator/assets/js/wizard.js:44
-#: administrator/components/com_easycreator/assets/js/ziper.js:81
+#: administrator/components/com_easycreator/assets/js/ziper.js:124
 msgid "Loading..."
 msgstr "Carregando..."
 
 #: administrator/components/com_easycreator/assets/js/addelement.js:178
 #: administrator/components/com_easycreator/assets/js/dbtables.js:150
-#: administrator/components/com_easycreator/assets/js/menu.js:72
+#: administrator/components/com_easycreator/assets/js/menu.js:74
 #: administrator/components/com_easycreator/assets/js/stuffer.js:55
 msgid "Delete"
 msgstr "Apagar"
 
 #: administrator/components/com_easycreator/assets/js/addelement.js:216
-#: administrator/components/com_easycreator/assets/js/menu.js:118
+#: administrator/components/com_easycreator/assets/js/menu.js:120
 msgid "Select..."
 msgstr "Selecione..."
 
@@ -59,6 +60,36 @@ msgstr "Este não é um número"
 msgid "Please add at least one field"
 msgstr "Favor adicionar ao menos um campo"
 
+#: administrator/components/com_easycreator/assets/js/deploy.js:44
+#: administrator/components/com_easycreator/assets/js/deploy.js:88
+msgid "Please choose one or more files to deploy"
+msgstr "Por favor, escolha um ou mais arquivos para implantar"
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:62
+#: administrator/components/com_easycreator/assets/js/deploy.js:106
+#, python-format
+msgid "Deploying to %s"
+msgstr "Implantando em %s"
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:128
+#, python-format
+msgid "Obtaining downloads from: %s"
+msgstr "Obtendo downloads a partir de: %s"
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:144
+msgid "Generating synchronization list..."
+msgstr "Gerando lista de sincronização ..."
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:179
+#, python-format
+msgid "Deleting files on: %s"
+msgstr "Excluindo arquivos em: %s"
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:205
+#, python-format
+msgid "Synchronizing files on: %s"
+msgstr "Sincronizando arquivos em: %s"
+
 #: administrator/components/com_easycreator/assets/js/easycreator.js:24
 msgid "New project..."
 msgstr "Novo projeto..."
@@ -69,32 +100,32 @@ msgstr "Registrar projeto..."
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:41
 msgid "Loading project..."
-msgstr ""
+msgstr "Carregando projeto..."
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:285
 #: administrator/components/com_easycreator/assets/js/easycreator.js:309
 msgid "Checking..."
-msgstr ""
+msgstr "Verificando"
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:317
 msgid "Server error"
-msgstr ""
+msgstr "Erro de servidor"
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:340
 #, python-format
 msgid "The Latest EasyCreator version is: %s"
-msgstr ""
+msgstr "A versão mais recente EasyCreator: %s"
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:345
 msgid "Your version is up-to-date"
-msgstr ""
+msgstr "Sua versão é up-to-date"
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:349
 msgid "Unknown version - maybe SVN ?"
-msgstr ""
+msgstr "Versão Desconhecido - talvez SVN?"
 
-#: administrator/components/com_easycreator/assets/js/editor.js:47
-#: administrator/components/com_easycreator/assets/js/translator.js:121
+#: administrator/components/com_easycreator/assets/js/editor.js:48
+#: administrator/components/com_easycreator/assets/js/translator.js:122
 msgid "Saving..."
 msgstr "Salvando..."
 
@@ -106,23 +137,23 @@ msgstr "Favor digitar uma descrição para o elemento"
 msgid "The element has been added"
 msgstr "O elemento foi adicionado"
 
-#: administrator/components/com_easycreator/assets/js/menu.js:50
+#: administrator/components/com_easycreator/assets/js/menu.js:51
 msgid "Text"
 msgstr "Texto"
 
-#: administrator/components/com_easycreator/assets/js/menu.js:54
+#: administrator/components/com_easycreator/assets/js/menu.js:55
 msgid "Link"
 msgstr "Link"
 
-#: administrator/components/com_easycreator/assets/js/menu.js:60
+#: administrator/components/com_easycreator/assets/js/menu.js:62
 msgid "Ordering"
 msgstr "Organizando"
 
-#: administrator/components/com_easycreator/assets/js/menu.js:66
+#: administrator/components/com_easycreator/assets/js/menu.js:68
 msgid "Image"
 msgstr "Imagem"
 
-#: administrator/components/com_easycreator/assets/js/menu.js:142
+#: administrator/components/com_easycreator/assets/js/menu.js:144
 msgid "User defined"
 msgstr "Definido pelo usuário"
 
@@ -133,26 +164,26 @@ msgstr "Você deve prover um nome"
 
 #: administrator/components/com_easycreator/assets/js/stuffer.js:49
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: administrator/components/com_easycreator/assets/js/stuffer.js:50
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: administrator/components/com_easycreator/assets/js/stuffer.js:51
 msgid "Priority"
-msgstr ""
+msgstr "Prioridade"
 
 #: administrator/components/com_easycreator/assets/js/stuffer.js:52
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: administrator/components/com_easycreator/assets/js/templates.js:33
 msgid "Please select a package to upload"
 msgstr "Favor selecionar um pacote para subir"
 
 #: administrator/components/com_easycreator/assets/js/translator.js:29
-#: administrator/components/com_easycreator/assets/js/ziper.js:39
+#: administrator/components/com_easycreator/assets/js/ziper.js:83
 msgid "Deleting..."
 msgstr "Apagando..."
 
@@ -160,11 +191,11 @@ msgstr "Apagando..."
 msgid "Empty"
 msgstr "Vazio"
 
-#: administrator/components/com_easycreator/assets/js/translator.js:63
+#: administrator/components/com_easycreator/assets/js/translator.js:64
 msgid "Undefined Joomla! version"
 msgstr "Versão Joomla! não definida"
 
-#: administrator/components/com_easycreator/assets/js/translator.js:93
+#: administrator/components/com_easycreator/assets/js/translator.js:94
 msgid "Translating..."
 msgstr "Traduzindo..."
 
@@ -176,7 +207,11 @@ msgstr "Você deve prover um número de versão"
 msgid "You must provide a list postfix"
 msgstr "Você deve prover uma lista pós-fixa"
 
-#: administrator/components/com_easycreator/assets/js/ziper.js:32
+#: administrator/components/com_easycreator/assets/js/ziper.js:28
+msgid "Creating your package..."
+msgstr "Criar o seu pacote ..."
+
+#: administrator/components/com_easycreator/assets/js/ziper.js:76
 #, python-format
 msgid "Undefined Joomla! version: %s"
 msgstr "Versão Joomla! não definida: %s"

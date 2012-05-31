@@ -1,3 +1,4 @@
+# @version SVN: $Id$
 # com_easycreator.config - admin - The configuration language file.
 # Copyright (C) YEAR Nikolai Plath - elkuku.
 # 
@@ -6,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
+"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
 "POT-Creation-Date: 2012-03-16 19:15 -500\n"
-"PO-Revision-Date: 2012-03-17 08:40+0000\n"
+"PO-Revision-Date: 2012-04-30 08:31+0000\n"
 "Last-Translator: Joel Hansen <johaswe@gmail.com>\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.net/projects/p/opentranslators/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +20,11 @@ msgstr ""
 "X-Generator: g11n\n"
 
 #: administrator/components/com_easycreator/easycreator.xmldescription
-msgid "EasyCreator helps creating Extensions for Joomla"
-msgstr "EasyCreator Hjälper dig skapa komponenter till Joomla"
+msgid "EasyCreator helps creating Extensions for Joomla!"
+msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
-#: administrator/components/com_easycreator/models/forms/config_15.xmlspacer-default
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Personal information"
 msgstr "Personlig information"
 
@@ -294,26 +295,6 @@ msgstr "Ska vi felsöka vår speciella språkfiler?"
 msgid "Which debugger to use"
 msgstr "Vilken debugger vill du använda"
 
-#: administrator/components/com_easycreator/models/forms/config.xmlspacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xmlspacer-default
-msgid "Package formats"
-msgstr "Paketformat"
-
-#: administrator/components/com_easycreator/models/forms/config.xmlspacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xmlspacer-default
-msgid "Custom file name"
-msgstr "Anpassat filnamn"
-
-#: administrator/components/com_easycreator/models/forms/config.xmlspacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xmlspacer-default
-msgid "Language"
-msgstr "Språk"
-
-#: administrator/components/com_easycreator/models/forms/config.xmlspacer-default
-#: administrator/components/com_easycreator/models/forms/config_15.xmlspacer-default
-msgid "EasyCreator only"
-msgstr ""
-
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "No"
@@ -397,3 +378,19 @@ msgstr "Krumo"
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Personal"
 msgstr "Personlig"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Package formats"
+msgstr "Paketformat"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Custom file name"
+msgstr "Anpassat filnamn"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Language"
+msgstr "Språk"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "EasyCreator only"
+msgstr ""

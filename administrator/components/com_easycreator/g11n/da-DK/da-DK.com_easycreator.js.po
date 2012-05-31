@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: http://joomlacode.org/gf/project/elkuku/tracker/?action=TrackerItemBrowse&tracker_id=10284\n"
-"POT-Creation-Date: 2012-03-16 19:15-0500\n"
+"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"POT-Creation-Date: 2012-04-28 01:51-0500\n"
 "PO-Revision-Date: 2011-07-20 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.net/projects/p/opentranslators/language/da_DK/)\n"
@@ -30,19 +30,19 @@ msgstr ""
 #: administrator/components/com_easycreator/assets/js/log.js:38
 #: administrator/components/com_easycreator/assets/js/parts.js:13
 #: administrator/components/com_easycreator/assets/js/wizard.js:44
-#: administrator/components/com_easycreator/assets/js/ziper.js:81
+#: administrator/components/com_easycreator/assets/js/ziper.js:124
 msgid "Loading..."
 msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/addelement.js:178
 #: administrator/components/com_easycreator/assets/js/dbtables.js:150
-#: administrator/components/com_easycreator/assets/js/menu.js:72
+#: administrator/components/com_easycreator/assets/js/menu.js:74
 #: administrator/components/com_easycreator/assets/js/stuffer.js:55
 msgid "Delete"
 msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/addelement.js:216
-#: administrator/components/com_easycreator/assets/js/menu.js:118
+#: administrator/components/com_easycreator/assets/js/menu.js:120
 msgid "Select..."
 msgstr ""
 
@@ -56,6 +56,36 @@ msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/dbtables.js:78
 msgid "Please add at least one field"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:44
+#: administrator/components/com_easycreator/assets/js/deploy.js:88
+msgid "Please choose one or more files to deploy"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:62
+#: administrator/components/com_easycreator/assets/js/deploy.js:106
+#, python-format
+msgid "Deploying to %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:128
+#, python-format
+msgid "Obtaining downloads from: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:144
+msgid "Generating synchronization list..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:179
+#, python-format
+msgid "Deleting files on: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/deploy.js:205
+#, python-format
+msgid "Synchronizing files on: %s"
 msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/easycreator.js:24
@@ -92,8 +122,8 @@ msgstr ""
 msgid "Unknown version - maybe SVN ?"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/editor.js:47
-#: administrator/components/com_easycreator/assets/js/translator.js:121
+#: administrator/components/com_easycreator/assets/js/editor.js:48
+#: administrator/components/com_easycreator/assets/js/translator.js:122
 msgid "Saving..."
 msgstr ""
 
@@ -105,23 +135,23 @@ msgstr ""
 msgid "The element has been added"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:50
+#: administrator/components/com_easycreator/assets/js/menu.js:51
 msgid "Text"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:54
+#: administrator/components/com_easycreator/assets/js/menu.js:55
 msgid "Link"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:60
+#: administrator/components/com_easycreator/assets/js/menu.js:62
 msgid "Ordering"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:66
+#: administrator/components/com_easycreator/assets/js/menu.js:68
 msgid "Image"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/menu.js:142
+#: administrator/components/com_easycreator/assets/js/menu.js:144
 msgid "User defined"
 msgstr ""
 
@@ -151,7 +181,7 @@ msgid "Please select a package to upload"
 msgstr ""
 
 #: administrator/components/com_easycreator/assets/js/translator.js:29
-#: administrator/components/com_easycreator/assets/js/ziper.js:39
+#: administrator/components/com_easycreator/assets/js/ziper.js:83
 msgid "Deleting..."
 msgstr ""
 
@@ -159,11 +189,11 @@ msgstr ""
 msgid "Empty"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/translator.js:63
+#: administrator/components/com_easycreator/assets/js/translator.js:64
 msgid "Undefined Joomla! version"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/translator.js:93
+#: administrator/components/com_easycreator/assets/js/translator.js:94
 msgid "Translating..."
 msgstr ""
 
@@ -175,7 +205,11 @@ msgstr ""
 msgid "You must provide a list postfix"
 msgstr ""
 
-#: administrator/components/com_easycreator/assets/js/ziper.js:32
+#: administrator/components/com_easycreator/assets/js/ziper.js:28
+msgid "Creating your package..."
+msgstr ""
+
+#: administrator/components/com_easycreator/assets/js/ziper.js:76
 #, python-format
 msgid "Undefined Joomla! version: %s"
 msgstr ""
