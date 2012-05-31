@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: com_easycreator 0.0.17\n"
+"Project-Id-Version: com_easycreator 0.0.18\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 01:53-0500\n"
+"POT-Creation-Date: 2012-05-31 01:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,15 +29,15 @@ msgstr ""
 msgid "Registered projects"
 msgstr ""
 
-#: components/com_easycreator/views/easycreator/tmpl/component.php:45
+#: components/com_easycreator/views/easycreator/tmpl/component.php:42
 msgid "Sorry, your browser cannot display frames"
 msgstr ""
 
-#: components/com_easycreator/views/easycreator/tmpl/component.php:49
-#: components/com_easycreator/views/easycreator/tmpl/module.php:32
+#: components/com_easycreator/views/easycreator/tmpl/component.php:46
+#: components/com_easycreator/views/easycreator/tmpl/module.php:29
 msgid "Parameters"
 msgstr ""
 
-#: components/com_easycreator/views/easycreator/tmpl/default.php:20
+#: components/com_easycreator/views/easycreator/tmpl/default.php:17
 msgid "Please select a project"
 msgstr ""
