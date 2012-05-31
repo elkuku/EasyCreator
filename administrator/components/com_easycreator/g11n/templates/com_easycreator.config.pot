@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
-"POT-Creation-Date: 2012-03-16 19:15 -500\n"
+"POT-Creation-Date: 2012-05-31 02:00 -500\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,11 +94,6 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:label
 #: administrator/components/com_easycreator/models/forms/config_15.xml:label
-msgid "Check EasyCreator version"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:label
-#: administrator/components/com_easycreator/models/forms/config_15.xml:label
 msgid "Help Type"
 msgstr ""
 
@@ -129,17 +124,24 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:label
 #: administrator/components/com_easycreator/models/forms/config_15.xml:label
-msgid "Use Google translation API"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:label
-#: administrator/components/com_easycreator/models/forms/config_15.xml:label
 msgid "Check for UTF8"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:label
 #: administrator/components/com_easycreator/models/forms/config_15.xml:label
 msgid "Check for BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:label
+msgid "Local data directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:label
+msgid "Show icons"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:label
+msgid "Font size"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:label
@@ -204,11 +206,6 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:description
 #: administrator/components/com_easycreator/models/forms/config_15.xml:description
-msgid "Automatically check for the latest EasyCreator version."
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:description
-#: administrator/components/com_easycreator/models/forms/config_15.xml:description
 msgid "Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here."
 msgstr ""
 
@@ -239,17 +236,24 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:description
 #: administrator/components/com_easycreator/models/forms/config_15.xml:description
-msgid "Should we use the Google Translation API for helping in translations ?"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:description
-#: administrator/components/com_easycreator/models/forms/config_15.xml:description
 msgid "Should languages files be checked for UTF-8"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:description
 #: administrator/components/com_easycreator/models/forms/config_15.xml:description
 msgid "Should languages files be checked for a BOM"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:description
+msgid "A directory where all user data will be saved. If left blank, a sub directory in the component directory will be used"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:description
+msgid "Show icons on toolbar buttons"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:description
+msgid "The text font size"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:description
@@ -280,16 +284,6 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xml:description
 #: administrator/components/com_easycreator/models/forms/config_15.xml:description
 msgid "Which debugger to use"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:opt
-#: administrator/components/com_easycreator/models/forms/config_15.xml:opt
-msgid "No"
-msgstr ""
-
-#: administrator/components/com_easycreator/models/forms/config.xml:opt
-#: administrator/components/com_easycreator/models/forms/config_15.xml:opt
-msgid "Yes"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:opt
@@ -330,6 +324,32 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xml:opt
 #: administrator/components/com_easycreator/models/forms/config_15.xml:opt
 msgid "edit_area_loader.js"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:opt
+#: administrator/components/com_easycreator/models/forms/config_15.xml:opt
+msgid "No"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:opt
+#: administrator/components/com_easycreator/models/forms/config_15.xml:opt
+msgid "Yes"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:opt
+msgid "Standard size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:opt
+msgid "Mini size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:opt
+msgid "Small size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xml:opt
+msgid "Large size"
 msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xml:opt
@@ -380,4 +400,12 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config_15.xml:param-default
 msgid "EasyCreator only"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xml:label
+msgid "Use Google translation API"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xml:description
+msgid "Should we use the Google Translation API for helping in translations ?"
 msgstr ""
