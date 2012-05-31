@@ -214,10 +214,13 @@ class Ecrg11nHelper
                 '/editarea_0_8_1_1/'
         , '/highcharts-2.0.5/'
         , '/php2js.js'
+            , 'krumo_0_2'
         );
 
         $title = $extension.' - '.$scope;
         $search = 'php';
+
+        $path = $base.DS.$extensionDir;
 
         switch($subType)
         {
@@ -230,6 +233,19 @@ class Ecrg11nHelper
                 $search = 'js';
                 $buildOpts .= ' -L python';
                 $title .= ' - The javascript language file.';
+
+                $parts = g11nExtensionHelper::split($extension);
+
+                $p = JPATH_ROOT.'/media/'.$parts[0].'/'.$scope;
+
+                if(JFolder::exists($p))
+                {
+                    //-- Change the path to the media folder
+                    $path = $p;
+                }
+
+                $excludes[] = '/templates/';
+                $excludes[] = '.min.';
                 break;
 
             case 'config':
@@ -239,14 +255,15 @@ class Ecrg11nHelper
 
                 $excludes[] = '/templates/';
                 $excludes[] = '/scripts/';
+                $excludes[] = '/data/';
                 $title .= ' - The configuration language file.';
                 break;
 
             default:
                 break;
-        }//switch
+        }
 
-        $files = JFolder::files($base.DS.$extensionDir, '.'.$search.'$', true, true);
+        $files = JFolder::files($path, '.'.$search.'$', true, true);
 
         if( ! $files)
         throw new Exception(jgettext('No files found'));
@@ -261,11 +278,11 @@ class Ecrg11nHelper
             {
                 if(strpos($file, $exclude))
                     $found = true;
-            }//foreach
+            }
 
             if( ! $found)
                 $cleanFiles[] = $file;
-        }//foreach
+        }
 
         if('config' == $subType)
         {
