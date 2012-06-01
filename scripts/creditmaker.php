@@ -1,7 +1,7 @@
 <?php
 /**
  * @package    EasyCreator
- * @subpackage Helpers.others
+ * @subpackage Helpers.Scripts
  * @author     Nikolai Plath (elkuku)
  * @author     Created on 08-Mar-2012
  * @license    GNU/GPL, see JROOT/LICENSE.php
