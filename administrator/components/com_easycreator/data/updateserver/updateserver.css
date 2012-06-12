@@ -1,0 +1,79 @@
+h1 {
+    background-color: #eee;
+    padding: 0.5em;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+
+h2 {
+    background-color: #eee;
+    padding: 0.3em;
+    border-radius: 5px;
+}
+
+div.container {
+    margin: 1em;
+}
+
+div.footer {
+    background-color: #eee;
+    font-size: 0.8em;
+    padding: 0.5em;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+}
+
+a, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.channelUrl {
+    display: block;
+    background-color: #003300;
+    color: #fff;
+    padding: 0.5em;
+    border: 1px solid silver;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 1.3em;
+}
+
+div.debug {
+    margin-top: 1em;
+    border: 1px dashed silver;
+}
+
+h3.debug {
+    font-family: monospace;
+    font-size: 1.3em;
+    padding-left: 1em;
+}
+
+div.path {
+    background-color: #555;
+    color: #00BFFF;
+    padding: 0.2em;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+pre.code {
+    background-color: #555;
+    color: #fff;
+    padding: 0.2em;
+}
+
+a.feedLink {
+    color: orange;
+    font-weight: bold;
+}
