@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerConfig extends JController
+class EasyCreatorControllerConfig extends EcrBaseController
 {
     /**
      * Standard display method.
@@ -90,4 +90,66 @@ class EasyCreatorControllerConfig extends JController
             EcrHtml::formEnd();
         }
     }
-}//class
+
+    public function cleanJoomlaCache()
+    {
+        $this->response->message = __METHOD__.' - Not imnplemented yet :(';
+
+        echo $this->response;
+
+        jexit();
+
+    }
+
+    public function cleanJoomlaTemp()
+    {
+        $tempPath = JFactory::getConfig()->get('tmp_path');
+
+        $folders = JFolder::folders($tempPath);
+
+        $cntFolders = 0;
+
+        foreach($folders as $folder)
+        {
+            JFolder::delete($tempPath.'/'.$folder);
+
+            $cntFolders ++;
+        }
+
+        $this->response->message = sprintf(
+            jngettext('1 folder has been deleted', '%d folders have been deleted', $cntFolders)
+            , $cntFolders);
+
+        echo $this->response;
+
+        jexit();
+    }
+
+    public function cleanEcrLogs()
+    {
+        $logfiles = JFolder::files(ECRPATH_LOGS, 'log', false, true);
+
+        if(count($logfiles))
+        {
+            if(JFile::delete($logfiles))
+            {
+                $this->response->message = sprintf(
+                    jngettext('1 logfile has been deleted', '%d logfiles have been deleted', count($logfiles))
+                    , count($logfiles));
+            }
+            else
+            {
+                $this->response->message = jgettext('The logfiles could not be deleted');
+                $this->response->status = 1;
+            }
+        }
+        else
+        {
+            $this->response->message = jgettext('No logfiles found');
+        }
+
+        echo $this->response;
+
+        jexit();
+    }
+}

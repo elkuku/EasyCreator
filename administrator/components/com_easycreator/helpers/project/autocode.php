@@ -41,10 +41,6 @@ class EcrProjectAutocode
 
     protected $enclose = false;
 
-    private $_startTag = '//*** ECR AUTOCODE START [TTTT] ***//';
-
-    private $_endTag = '//*** ECR AUTOCODE END [TTTT] ***//';
-
     /**
      * Constructor.
      *

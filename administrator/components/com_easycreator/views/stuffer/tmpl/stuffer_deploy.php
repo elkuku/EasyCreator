@@ -17,7 +17,9 @@ $options = $this->project->deployOptions;
     </div>
 
     <div class="img icon16-warning">
-        <?php echo jgettext('Credentials are stored to disk.<br />You may leave some blank and enter them on usage.'); ?>
+        <?php echo jgettext('Credentials are stored to disk.'); ?>
+        <br />
+        <?php echo jgettext('You may leave some fields blank and enter them on usage.'); ?>
     </div>
 
     <fieldset class="adminform">

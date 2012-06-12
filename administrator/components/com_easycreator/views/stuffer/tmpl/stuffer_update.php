@@ -33,12 +33,16 @@ JFactory::getDocument()->addScriptDeclaration($js);
 
     <?php //-- @Joomla!-compat 1.5 ?>
     <?php if('1.5' != $this->project->JCompat) : ?>
-        <h4><?php echo jgettext('Update server'); ?></h4>
-        <div id="updateServers"></div>
+    <h4><?php echo jgettext('Update server'); ?></h4>
+    <div id="updateServers"></div>
+
+    <div class="btn-toolbar">
+
         <div onclick="Stuffer.addUpdateServer('<?php echo $this->project->name?> update server', '', 'extension', '1');"
              class="btn">
             <i class="img icon16-add"></i>
             <?php echo jgettext('Add Server');?>
         </div>
+    </div>
     <?php endif; ?>
 </div>

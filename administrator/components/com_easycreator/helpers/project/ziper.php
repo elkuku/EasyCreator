@@ -13,10 +13,11 @@
  * @package    EasyCreator
  * @subpackage Helpers
  *
- * @property-read string $temp_dir
- * @property-read string $logFile
- * @property-read EcrLogger $logger
- * @property-read EcrProjectBase $project
+ * @property-read string                     $temp_dir
+ * @property-read string                     $logFile
+ * @property-read EcrLogger                  $logger
+ * @property-read EcrProjectBase             $project
+ * @property-read EcrProjectModelBuildpreset $preset
  */
 class EcrProjectZiper extends JObject
 {
@@ -36,6 +37,11 @@ class EcrProjectZiper extends JObject
     private $project;
 
     private $buildopts = array();
+
+    /**
+     * @var EcrProjectModelBuildpreset
+     */
+    private $preset = null;
 
     /**
      * @var EcrLogger
@@ -63,7 +69,7 @@ class EcrProjectZiper extends JObject
 
         JLog::add('|¯¯¯ Starting');
 
-        parent::__construct();
+        parent::__construct($properties);
     }
 
     /**
@@ -76,7 +82,7 @@ class EcrProjectZiper extends JObject
         JLog::add(sprintf('|___ Finished in %s sec.', $time));
 
         //-- Give the logger a chance to finish.
-        sleep(2);
+        sleep(1);
     }
 
     /**
@@ -88,7 +94,7 @@ class EcrProjectZiper extends JObject
      */
     public function __get($property)
     {
-        if(in_array($property, array('temp_dir', 'logFile', 'logger', 'project')))
+        if(in_array($property, array('temp_dir', 'logFile', 'logger', 'project', 'preset')))
         {
             return $this->$property;
         }
@@ -99,16 +105,20 @@ class EcrProjectZiper extends JObject
     /**
      * Create the package.
      *
-     * @param EcrProjectBase $project The project
-     * @param array          $buildOpts
+     * @param EcrProjectBase             $project The project
+     * @param EcrProjectModelBuildpreset $preset
+     * @param array                      $buildOpts
      *
      * @return bool true on success
      */
-    public function create(EcrProjectBase $project, array $buildOpts)
+    public function create(EcrProjectBase $project, EcrProjectModelBuildpreset $preset, array $buildOpts)
     {
         $this->project = $project;
 
-        $this->build_dir = $this->project->getZipPath();
+        $this->preset = $preset;//snew EcrProjectModelBuildpreset($buildOpts);
+
+        //@todo PHP 5.3
+        $this->build_dir = $preset->buildFolder ? $preset->buildFolder : $this->project->getZipPath();
 
         //-- Init buildopts
         $this->initBuildOpts($buildOpts);
@@ -124,26 +134,27 @@ class EcrProjectZiper extends JObject
         try
         {
             $this
-                ->setTempDir()
-                ->performActions('precopy')
+                ->setTempDir()->logStep(1)
+                ->performActions('precopy')->logStep(2)
                 ->copyCopies()
                 ->copyLanguage()
-                ->copyMedia()
+                ->copyMedia()->logStep(3)
                 ->copyPackageModules()
                 ->copyPackagePlugins()
-                ->copyPackageElements()
-                ->processInstall()
-                ->cleanProject()
-                ->performActions('postcopy')
+                ->copyPackageElements()->logStep(4)
+                ->processInstall()->logStep(5)
+                ->cleanProject()->logStep(6)
+                ->performActions('postcopy')->logStep(7)
                 ->deleteManifest()
                 ->createMD5()
-                ->createManifest()
-                ->createArchive()
-                ->removeBuildDir();
+                ->createManifest()->logStep(8)
+                ->createArchive()->logStep(9)
+                ->performActions('postbuild')
+                ->removeBuildDir()->logStep(10);
         }
         catch(EcrZiperException $e)
         {
-            $this->logger->log('ERROR', $e->getMessage());
+            $this->logger->log('ABORT: '.$e->getMessage(), 'ERROR', JLog::ERROR);
             $this->logger->writeLog();
 
             $this->setError('ERROR: '.$e->getMessage());
@@ -192,7 +203,7 @@ class EcrProjectZiper extends JObject
     private function initBuildOpts($buildopts)
     {
         $stdOpts = array('verbose', 'files'
-        , 'archive_zip', 'archive_tgz', 'archive_bz'
+        , 'archiveZip', 'archiveTgz', 'archiveBz2'
         , 'create_indexhtml', 'remove_autocode', 'include_ecr_projectfile'
         , 'create_md5', 'create_md5_compressed');
 
@@ -218,26 +229,31 @@ class EcrProjectZiper extends JObject
     /**
      * Performs the build actions.
      *
-     * @param $trigger
+     * @param $event
      *
      * @throws UnexpectedValueException
      * @internal param $type
      *
      * @return \EcrProjectZiper
      */
-    private function performActions($trigger)
+    private function performActions($event)
     {
-        if(0 == count($this->project->actions))
+        if(0 == count($this->preset->actions))
             return $this;
 
-        $this->logger->log('Performing build actions type: '.$trigger);
+        $this->logger->log('Performing build actions type: '.$event);
 
         $cnt = 0;
 
+        $reqActions = JRequest::getVar('actions', array(), 'default', 'array');
+
         /* @var EcrProjectAction $action */
-        foreach($this->project->actions as $action)
+        foreach($this->preset->actions as $i => $action)
         {
-            if($action->trigger != $trigger)
+            if($action->event != $event)
+                continue;
+
+            if(false == in_array($i, $reqActions))
                 continue;
 
             $action->run($this);
@@ -268,7 +284,7 @@ class EcrProjectZiper extends JObject
         $cntIndex = 0;
         $cntAautoCode = 0;
 
-        if($this->buildopts['create_indexhtml'])
+        if($this->preset->createIndexhtml)
         {
             foreach($folders as $folder)
             {
@@ -283,14 +299,14 @@ class EcrProjectZiper extends JObject
             $this->logger->log(sprintf('%s index.html files created', $cntIndex));
         }
 
-        if($this->buildopts['remove_autocode'])
+        if($this->preset->removeAutocode)
         {
             /**
              * @todo remove AutoCode
              */
         }
 
-        if($this->buildopts['include_ecr_projectfile'])
+        if($this->preset->includeEcrProjectfile)
         {
             $src = ECRPATH_SCRIPTS.DS.$this->project->getEcrXmlFileName();
 
@@ -514,7 +530,7 @@ class EcrProjectZiper extends JObject
                 {
                     $this->logger->log('COPY DIR<br />SRC: '.$copy.'<br />DST: '.$tmp_dest);
 
-                    if($this->buildopts['remove_autocode'])
+                    if($this->preset->removeAutocode)
                     {
                         $files = JFolder::files($tmp_dest, '.', true, true);
 
@@ -719,6 +735,7 @@ class EcrProjectZiper extends JObject
     /**
      * Copy the package modules.
      *
+     * @Joomla!-compat 1.5
      * @deprecated in favor for J! 1.6 packages
      * @see        EasyZIPer::copyPackageElements
      *
@@ -939,7 +956,7 @@ class EcrProjectZiper extends JObject
             }
 
             $ziper = new EcrProjectZiper;
-            $result = $ziper->create($project, $this->buildopts);
+            $result = $ziper->create($project, $project->getPreset(), $this->buildopts);
             $files = $ziper->getCreatedFiles();
 
             if(0 == count($files))
@@ -1072,7 +1089,7 @@ class EcrProjectZiper extends JObject
      */
     private function createMD5()
     {
-        if( ! $this->buildopts['create_md5'])
+        if( ! $this->preset->createMD5)
             return $this;
 
         $md5Str = '';
@@ -1083,7 +1100,7 @@ class EcrProjectZiper extends JObject
         {
             $file = JPath::clean($file);
 
-            if($this->buildopts['create_md5_compressed'])
+            if($this->preset->createMD5Compressed)
             {
                 $path = str_replace($this->temp_dir.DS, '', $file);
                 $parts = explode(DS, $path);
@@ -1197,9 +1214,9 @@ class EcrProjectZiper extends JObject
             return $this;
 
         $zipTypes = array(
-            'zip' => 'zip'
-        , 'tgz' => 'tar.gz'
-        , 'bz' => 'bz2');
+            'Zip' => 'zip'
+        , 'Tgz' => 'tar.gz'
+        , 'Bz2' => 'bz2');
 
         $this->logger->log('Start adding files');
 
@@ -1240,10 +1257,8 @@ class EcrProjectZiper extends JObject
 
         foreach($zipTypes as $zipType => $ext)
         {
-            if( ! $this->buildopts['archive_'.$zipType])
-            {
+            if(false == $this->preset->{'archive'.$zipType})
                 continue;
-            }
 
             $this->logger->log('creating '.$zipType);
 
@@ -1314,8 +1329,9 @@ class EcrProjectZiper extends JObject
     /**
      * Remove the build directory.
      *
+     *
      * @throws EcrZiperException
-     * @return boolean true on success
+     * @return \EcrProjectZiper
      */
     private function removeBuildDir()
     {
@@ -1418,6 +1434,29 @@ class EcrProjectZiper extends JObject
         if('' != $entry)
             JLog::add($entry);
 
+        //-- Init progress bar log file
+        $s = '0';
+
+        JFile::write($path.'ecr_steplog.txt', $s);
+
         return $this;
     }
-}//class
+
+    /**
+     * Log a step for the progress bar.
+     *
+     * @param $num
+     *
+     * @return \EcrProjectZiper
+     */
+    private function logStep($num)
+    {
+        $path = JFactory::getConfig()->get('log_path');
+
+        $s = (int)$num * 10;
+
+        JFile::write($path.'/ecr_steplog.txt', $s);
+
+        return $this;
+    }
+}

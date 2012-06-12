@@ -14,3 +14,22 @@ ul.downloadLinks {
 ul.downloadLinks a {
     font-size: 1.3em;
 }
+
+ul.buildActions li {
+    border-bottom: 1px solid silver;
+}
+
+div.customPath {
+    border: 1px dotted gray;
+    padding: 0.5em;
+    background-color: #ffc;
+    margin: 0.5em;
+    font-size: 1.3em;
+    font-family: monospace;
+}
+
+div.customPath span {
+    color: blue;
+    margin: 2px;
+    font-weight: bold;
+}

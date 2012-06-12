@@ -7,53 +7,68 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-$params = JComponentHelper::getParams('com_easycreator');
+$chk_upgrade = ($this->project->method == 'upgrade') ? ' checked="checked"' : '';
 
-$buildOpts = new JRegistry($this->project->buildOpts);
+/* @var EcrProjectModelBuildpreset $preset */
+$preset = $this->preset;
+
 ?>
-
-<div class="infoHeader img icon24-package_creation">
-    <?php echo jgettext('File name'); ?>
-</div>
-<span id="ajMessage" style="float: right;"></span>
-
-<div style="border: 1px dotted gray; padding: 0.5em; background-color: #ffc; margin: 0.5em;
-font-size: 1.3em; font-family: monospace;">
-    <?php echo $this->project->comName; ?><span id="ajName" style="color: blue; display: inline;
-    margin: 0; font-weight: bold;"></span>.zip
+<div class="infoHeader imgbarleft icon24-info">
+    <?php echo jgettext('Options') ?>
 </div>
 
-<strong><?php echo jgettext('Custom name format'); ?></strong>
+<p>
+    <strong><?php echo jgettext('Packing format options'); ?>:</strong>
+    <?php EcrHtmlOptions::packing($this->project->presets['default']); ?>
+</p>
+<p>
+    <strong class="img icon16-joomla">
+        <?php echo jgettext('Joomla! version'); ?>
+    </strong>
+</p>
 
-<?php echo EcrHelp::info(jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*'), jgettext('Custom name format')); ?>
+<p>
+    <!-- @Joomla!-version-check -->
+    <input type="radio" id="jversion15" name="jcompat" value="1.5"
+        <?php echo ($this->project->JCompat == '1.5') ? ' checked="checked"' : ''; ?>
+        />
+    <label for="jversion15" class="inline img32b iconjoomla-compat-15">&nbsp;</label>
 
-<br/>
-<input type="radio" name="opt_format" id="opt_format_1" class="custom_opt"
-       checked="checked"
-       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
-       value="<?php echo $buildOpts->get('custom_name_1'); ?>"/>
-<label class="inline" for="opt_format_1"><tt><?php echo $buildOpts->get('custom_name_1'); ?></tt></label>
-<br/>
-<input type="radio" name="opt_format" id="opt_format_2" class="custom_opt"
-       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
-       value="<?php echo $buildOpts->get('custom_name_2'); ?>"/>
-<label class="inline" for="opt_format_2"><tt><?php echo $buildOpts->get('custom_name_2'); ?></tt></label>
-<br/>
-<input type="radio" name="opt_format" id="opt_format_3" class="custom_opt"
-       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
-       value="<?php echo $buildOpts->get('custom_name_3'); ?>"/>
-<label class="inline" for="opt_format_3"><tt><?php echo $buildOpts->get('custom_name_3'); ?></tt></label>
-<br/>
-<input type="radio" name="opt_format" id="opt_format_4" class="custom_opt"
-       onclick="document.id('cst_format').value=this.value; EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
-       value="<?php echo $buildOpts->get('custom_name_4'); ?>"/>
-<label class="inline" for="opt_format_4"><tt><?php echo $buildOpts->get('custom_name_4'); ?></tt></label>
-<br/>
-<br/>
-<label class="inline" for="cst_format">
-    <?php echo jgettext('Customize'); ?>&nbsp;
-</label>
-<br/>
-<input type="text" size="50" onkeyup="EcrZiper.updateName('<?php echo $this->ecr_project; ?>');"
-       name="cst_format" id="cst_format" value="<?php echo $buildOpts->get('custom_name_1'); ?>"
-       style="font-family: monospace; font-size: 1.2em;"/>
+    <input type="radio" id="jversion16" name="jcompat" value="1.6"
+        <?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5'))) ? ' checked="checked"' : ''; ?>
+        />
+    <label for="jversion16" class="inline img32b iconjoomla-compat-25">&nbsp;</label>
+</p>
+
+<p>
+    <strong><?php echo jgettext('Options'); ?>:</strong>
+    <br/>
+
+    <input type="checkbox" <?php echo $chk_upgrade; ?> name="buildvars[method]" id="buildvars_method"
+           value="upgrade"/>
+    <label class="inline" for="buildvars_method"><?php echo jgettext('Upgrade'); ?></label>
+    <?php echo EcrHelp::info(jgettext('This will perform an upgrade on installing your extension'), 'method=upgrade'); ?>
+    <br/>
+
+    <input type="checkbox" name="buildopts[]" id="createIndexhtml"
+        <?php echo ($preset->createIndexhtml == 'ON') ? ' checked="checked"' : ''; ?>
+           value="createIndexhtml"/>
+    <label class="inline" for="createIndexhtml"><?php echo jgettext('Create index.html files'); ?></label>
+    <br/>
+
+    <?php if($this->project->type == 'component') : ?>
+    <input type="checkbox" name="buildopts[]" id="createMD5"
+        <?php echo ($preset->createMD5 == 'ON') ? ' checked="checked"' : ''; ?>
+           value="createMD5"/>
+    <label class="inline" for="createMD5"><?php echo jgettext('Create MD5 checksum file'); ?></label>
+    <br/>
+    &nbsp;&nbsp;&nbsp;|__<input type="checkbox" name="buildopts[]" id="createMD5Compressed"
+        <?php echo ($preset->createMD5Compressed == 'ON') ? ' checked="checked"' : ''; ?>
+                                value="createMD5Compressed"/>
+    <label class="inline" for="createMD5Compressed">
+        <?php echo jgettext('Compress checksum file'); ?>
+    </label>
+
+    <?php echo EcrHelp::info(jgettext('This will do a small compression on your checksum file'), jgettext('Compress checksum file')); ?>
+    <?php endif; ?>
+</p>

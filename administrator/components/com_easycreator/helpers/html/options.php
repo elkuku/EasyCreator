@@ -113,11 +113,11 @@ class EcrHtmlOptions
     }
 
     /**
-     * Display options for packing format
+     * Display options for packing format.
      *
-     * @param array $projectParams
+     * @param EcrProjectModelBuildpreset $projectParams
      */
-    public static function packing($projectParams = array())
+    public static function packing(EcrProjectModelBuildpreset $projectParams)
     {
         //--Get component parameters
         $params = JComponentHelper::getParams('com_easycreator');
@@ -126,9 +126,9 @@ class EcrHtmlOptions
 
         foreach(EcrEasycreator::$packFormats as $name => $ext)
         {
-            if(isset($projectParams[$name]))
+            if(isset($projectParams->$name))
             {
-                $opts[$name] = ($projectParams[$name] == 'ON') ? true : false;
+                $opts[$name] = ('1' == $projectParams->$name) ? true : false;
             }
             else
             {
@@ -136,9 +136,9 @@ class EcrHtmlOptions
             }
         }
 
-        if( ! $opts['archive_zip']
-            && ! $opts['archive_tgz']
-            && ! $opts['archive_bz2']
+        if( ! $opts['archiveZip']
+            && ! $opts['archiveTgz']
+            && ! $opts['archiveBz2']
         )
         {
             EcrHtml::message(jgettext('Please set a compression type'), 'notice');
@@ -149,7 +149,7 @@ class EcrHtmlOptions
 
         foreach(EcrEasycreator::$packFormats as $name => $ext)
         {
-            $checked = ($opts[$name]) ? ' checked="checked"' : '';
+            $checked = ('1' == $projectParams->$name) ? ' checked="checked"' : '';
 
             echo NL.'   <input type="checkbox" name="buildopts[]"'.$checked.' value="'.$name.'" id="'.$name.'" />';
             echo NL.'   <label class="inline" for="'.$name.'">'.$ext.'</label>';

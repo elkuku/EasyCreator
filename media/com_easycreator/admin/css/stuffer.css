@@ -28,6 +28,7 @@ label.creditsLabel {
 ul.sortable {
     min-height: 18px;
     border: 1px solid gray;
+    border-radius: 5px;
 }
 
 ul.sortable li {
@@ -35,8 +36,9 @@ ul.sortable li {
 }
 
 ul.sortable li:hover {
-    background-color: #ddd;
+/*    background-color: #ddd;
     cursor: move;
+    */
 }
 
 ul#package-to {
@@ -93,4 +95,18 @@ div.actionTitle {
     font-weight: bold;
     background-color: #eee;
     padding: 0.2em;
+}
+
+div.arrowSeparator {
+    float: left;
+    display: table;
+    height: 100px;
+    margin: 0.5em;
+    font-family: monospace;
+    font-size: 25px;
+}
+
+div.arrowSeparator span {
+    display: table-cell;
+    vertical-align: middle;
 }

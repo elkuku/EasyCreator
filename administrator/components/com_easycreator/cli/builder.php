@@ -16,7 +16,7 @@
  *
  * @todo        to be implemented:
  *         'files'
-, 'archive_zip', 'archive_tgz', 'archive_bz'
+, 'archiveZip', 'archiveTgz', 'archiveBz2'
 , 'create_indexhtml', 'remove_autocode', 'include_ecr_projectfile'
 , 'create_md5', 'create_md5_compressed');
  *
@@ -111,13 +111,15 @@ class EcrCliBuilder extends JApplicationCli
         foreach($project->buildOpts as $opt => $v)
         {
             //-- @todo this is ugly..
-            if('ON' == $v)
+            if('1' == $v)
                 $buildOpts[] = $opt;
         }
 
         $ziper = new EcrProjectZiper;
 
-        $ziper->create($project, $buildOpts);
+        $preset = new EcrProjectModelBuildpreset;
+
+        $ziper->create($project, $preset, $buildOpts);
 
         $this->out('Finished =;)');
     }

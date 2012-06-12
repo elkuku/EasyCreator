@@ -45,72 +45,6 @@ class EasyCreatorControllerAjax extends JController
     }
 
     /**
-     * Poll a log file.
-     *
-     * @return void
-     */
-    public function pollLog()
-    {
-        $path = JFactory::getConfig()->get('log_path').'/ecr_log.php';
-
-        if(JFile::exists($path))
-        {
-            $s = $this->parseLog(JFile::read($path));
-
-            $s .= "\n".'Time '.date('H:i:s');
-
-            $this->responseJson->message = $s;
-        }
-        else
-        {
-            $this->responseJson->status = 1;
-            $this->responseJson->message = jgettext('Log file not found').' --- '.date('H:i:s');
-        }
-
-        echo $this->responseJson;
-    }
-
-    /**
-     * @param $string
-     * @return string
-     */
-    private function parseLog($string)
-    {
-        $lines = explode("\n", $string);
-
-        foreach($lines as &$line)
-        {
-            $parts = explode("\t", $line);
-
-            if(3 == count($parts))
-            {
-                $t = $parts[0];
-
-                if(25 == strlen($t))
-                {
-                    $t = substr($t, 11, 8);
-                }
-
-                $prio = $parts[1];
-
-                switch($prio)
-                {
-                    case 'INFO':
-                        //$prio = '&lt;span style=" color: #00BFFF;&gt;INFO&lt;/span&gt;';
-                        break;
-                    case 'ERROR':
-                        $prio = '<ERROR>';//<span style=" color: #FF0000;>ERROR</span>';
-                        break;
-                }
-
-                $line = $t."\t".$prio."\t".$parts[2];
-            }
-        }
-
-        return implode("\n", $lines);
-    }
-
-    /**
      * Shows a part from templates/parts folder. Calls the 'getOptions' function in part class.
      *
      * @return void
@@ -156,7 +90,7 @@ class EasyCreatorControllerAjax extends JController
 
         //-- Additional options from part file
         echo $ecrPart->getOptions();
-    }//function
+    }
 
     /**
      * Calls the 'edit' function in part class.
@@ -232,7 +166,7 @@ class EasyCreatorControllerAjax extends JController
         echo '<input type="hidden" name="part" value="'.$part.'" />';
 
         echo $ecrPart->edit($project->autoCodes[$ecrPart->key]);
-    }//function
+    }
 
     /**
      * For JHelp.
@@ -547,32 +481,6 @@ class EasyCreatorControllerAjax extends JController
         }
 
         echo json_encode($this->response);
-    }//function
-
-    /**
-     * Display contents of a log file.
-     *
-     * @return void
-     */
-    public function show_logfile()
-    {
-        $response = array();
-
-        $fileName = JRequest::getCmd('file_name');
-
-        if( ! JFile::exists(ECRPATH_LOGS.DS.$fileName))
-        {
-            $response['status'] = 0;
-            $response['message'] = jgettext('File not found');
-        }
-        else
-        {
-            $response['status'] = 1;
-            $response['message'] = jgettext('File loaded');
-            $response['text'] = JFile::read(ECRPATH_LOGS.DS.$fileName);
-        }
-
-        echo json_encode($response);
     }//function
 
     /**
@@ -1169,31 +1077,6 @@ body {
     }//function
 
     /**
-     * Format a file name.
-     *
-     * @return void
-     * @todo error handling
-     */
-    public function update_project_name()
-    {
-        //-- Get the project
-        try
-        {
-            $project = EcrProjectHelper::getProject();
-        }
-        catch(Exception $e)
-        {
-            EcrHtml::message($e);
-
-            parent::display();
-
-            return;
-        }//try
-
-        echo EcrProjectHelper::formatFileName($project, JRequest::getVar('cst_format', 'post'));
-    }//function
-
-    /**
      * Dislays the fields of a given table in a <select> box.
      *
      * @return void
@@ -1240,47 +1123,5 @@ body {
         }
 
         echo json_encode($response);
-    }//function
-
-    public function checkVersion()
-    {
-        $response = array();
-
-        $response['text'] = 'fubisdubi';
-
-        echo json_encode($response);
-    }//function
-
-    public function getEcrParams()
-    {
-        $response = new stdClass;
-
-        $response->status = 0;
-
-        $response->text = json_encode(JComponentHelper::getParams('com_easycreator')->toArray());
-
-        echo json_encode($response);
     }
-
-    public function getAction()
-    {
-        try
-        {
-            $options = json_decode(JRequest::getVar('options', '', 'default'));
-            $options = $options ?: array();
-
-            $cnt = JRequest::getInt('cnt');
-
-            $this->responseJson->message = EcrProjectAction::getInstance(JRequest::getCmd('type'))
-                ->setOptions($options)
-                ->getFields($cnt);
-        }
-        catch(Exception $e)
-        {
-            $this->responseJson->debug = $e->getMessage();
-            $this->responseJson->status = $e->getCode() ? : 1;
-        }
-
-        echo $this->responseJson;
-    }
-}//class
+}

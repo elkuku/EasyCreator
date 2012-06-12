@@ -93,6 +93,8 @@ class EasyCreatorControllerZIPer extends JController
         }
 
         echo $this->response;
+
+        jexit();
     }
 
     public function createPackage()
@@ -103,11 +105,12 @@ class EasyCreatorControllerZIPer extends JController
         {
             $result = new stdClass;
 
-            $opts = JRequest::getVar('buildopts', array());
+            $buildopts = JRequest::getVar('buildopts', array());
+            $presetName = JRequest::getCmd('preset');
 
             $buildOpts = array();
 
-            foreach($opts as $v)
+            foreach($buildopts as $v)
             {
                 $buildOpts[$v] = true;
             }
@@ -116,7 +119,9 @@ class EasyCreatorControllerZIPer extends JController
 
             $ziper = new EcrProjectZiper;
 
-            $result->result = $ziper->create($project, $buildOpts);
+            $preset = $project->getPreset($presetName)->loadValues($buildopts);
+
+            $result->result = $ziper->create($project, $preset, $buildOpts);
             $result->errors = $ziper->getErrors();
 
             $result->downloadLinks = $ziper->getDownloadLinks();
@@ -159,7 +164,7 @@ class EasyCreatorControllerZIPer extends JController
             {
                 $m = '';
                 $m .= '<div class="ecr_codebox_header" style="font-size: 1.4em;"'
-                .'onclick="toggleDiv(\'ecr_logdisplay\');">'
+                    .'onclick="toggleDiv(\'ecr_logdisplay\');">'
                     .jgettext('Log File')
                     .'</div>';
                 $m .= '<div id="ecr_logdisplay" style="display: none;">'
@@ -184,5 +189,33 @@ class EasyCreatorControllerZIPer extends JController
         }
 
         echo $this->response;
+
+        jexit();
+    }
+
+    /**
+     * Format a file name.
+     *
+     * @return void
+     * @todo error handling
+     */
+    public function updateProjectName()
+    {
+        try
+        {
+            $project = EcrProjectHelper::getProject();
+            $this->response->message = EcrProjectHelper::formatFileName(
+                $project, JRequest::getVar('cst_format'));
+        }
+        catch(Exception $e)
+        {
+            $this->response->status = 1;
+            $this->response->message = $e->getMessage();
+            $this->response->debug = $e->getTraceAsString();
+        }
+
+        echo $this->response;
+
+        jexit();
     }
 }

@@ -26,6 +26,14 @@ class EcrProjectModelBuildpreset
 
     public $createMD5Compressed = false;
 
+    public $custom_name_1 = '';
+
+    public $custom_name_2 = '';
+
+    public $custom_name_3 = '';
+
+    public $custom_name_4 = '';
+
     public $includeEcrProjectfile = false;
 
     public $removeAutocode = false;
@@ -61,8 +69,8 @@ class EcrProjectModelBuildpreset
             if(array_key_exists($k, $values))
                 $this->$k = $values[$k];
 
-            if(in_array($k, $values))
-                $this->$k = true;
+            if(is_bool($this->$k))
+                $this->$k =(in_array($k, $values)) ? true : false;
         }
 
         return $this;

@@ -41,9 +41,11 @@ if ($this->project->JCompat != 1.5)
                     <!--                            -->
                 </table>
                 <?php if (isset($this->projectList['module']) && count($this->projectList['module'])) : ?>
-                <div style="float: right;" class="btn" onclick="addPackageElement('module', '', '', '', '', '');">
-                    <i class="img icon16-add"></i>
-                    <?php echo jgettext('Add Module'); ?>
+                <div class="btn-toolbar">
+                    <div class="btn" onclick="addPackageElement('module', '', '', '', '', '');">
+                        <i class="img icon16-add"></i>
+                        <?php echo jgettext('Add Module'); ?>
+                    </div>
                 </div>
                 <?php endif;?>
                 <table id="divPackageElementsPlugins">
@@ -64,9 +66,11 @@ if ($this->project->JCompat != 1.5)
                     <!--                            -->
                 </table>
                 <?php if (isset($this->projectList['plugin']) && count($this->projectList['plugin'])) : ?>
-                <div style="float: right;" class="btn" onclick="addPackageElement('plugin', '', '', '', '', '');">
-                    <i class="img icon16-add"></i>
-                    <?php echo jgettext('Add Plugin'); ?>
+                <div class="btn-toolbar">
+                    <div class="btn" onclick="addPackageElement('plugin', '', '', '', '', '');">
+                        <i class="img icon16-add"></i>
+                        <?php echo jgettext('Add Plugin'); ?>
+                    </div>
                 </div>
                 <?php endif;?>
             </td>

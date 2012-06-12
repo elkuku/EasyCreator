@@ -7,6 +7,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+/* @var EasyCreatorViewStuffer $this */
+
 //-- Add CSS
 ecrStylesheet('menu', 'stuffer');
 
@@ -72,7 +74,17 @@ if($this->project->type == 'component'):
     if('1.5' != ECR_JVERSION)
     {
         $js[] = "sortSubMenu = new Sortables('#divSubmenu', {
-        clone: true
+            constrain: true,
+            clone: true,
+            revert: true,
+
+            onStart: function(el) {
+                el.setStyle('background','#add8e6');
+            },
+            onComplete: function(el) {
+                el.setStyle('background','#fff');
+            }
+
         });";
     }
 

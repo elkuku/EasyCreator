@@ -23,6 +23,7 @@
     <br/>
 
     <span class="ecr_label2"><?php echo jgettext('Image'); ?></span>
+
     <div id="menuPic-" style="display: inline;">
         <!-- To be filled by javascript -->
     </div>
@@ -32,19 +33,19 @@
 
     <div class="infoHeader img icon24-menu"><?php echo jgettext('Submenu'); ?></div>
 
-    <span style="float: right;" class="btn"
-          onclick="newSubmenu('', '', '', '', '', '<?php echo $this->project->menu['menuid']; ?>');">
-        <i class="img icon16-add"></i>
-        <?php echo jgettext('Add Submenu'); ?>
-    </span>
-
-    <div style="clear: both"></div>
-
     <ul id="divSubmenu" class="sortable">
         <!--                            -->
         <!--          Submenu           -->
         <!-- To be filled by javascript -->
         <!--                            -->
     </ul>
+
+    <div class="btn-toolbar">
+        <span class="btn" onclick="newSubmenu('', '', '', '', '', '<?php
+        echo $this->project->menu['menuid']; ?>');">
+            <i class="img icon16-add"></i>
+            <?php echo jgettext('Add Submenu'); ?>
+        </span>
+    </div>
 </div>
 

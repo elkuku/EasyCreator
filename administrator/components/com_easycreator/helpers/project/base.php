@@ -9,6 +9,8 @@
 
 /**
  * Project base class.
+ *
+ * @property-read array $presets
  */
 abstract class EcrProjectBase
 {
@@ -107,9 +109,13 @@ abstract class EcrProjectBase
 
     public $updateServers = array();
 
-    public $actions = array();
+   // public $actions = array();
 
     private $basePath = '';
+
+    private $presets = array();
+
+    public $defaultPreset = 'default';
 
     /** Special : g11n Language handling */
     public $langFormat = 'ini';
@@ -155,6 +161,22 @@ abstract class EcrProjectBase
         $this->readJoomlaXml();
         $this->dbId = $this->getId();
         $this->readDeployFile();
+    }
+
+    /**
+     * @param $property
+     *
+     * @return mixed
+     * @throws UnexpectedValueException
+     */
+    public function __get($property)
+    {
+        if(in_array($property, array('presets')))
+            return $this->$property;
+
+        //return $property;
+
+        EcrHtml::message(__METHOD__.' - Undefined property: '.$property, 'error');
     }
 
     /**
@@ -342,7 +364,7 @@ abstract class EcrProjectBase
      *
      * @return boolean true on success
      */
-    public function updateProjectFromRequest()
+    public function updateFromRequest()
     {
         $buildVars = JRequest::getVar('buildvars', array());
         $buildOpts = JRequest::getVar('buildopts', array());
@@ -404,17 +426,18 @@ abstract class EcrProjectBase
 
         //-- Method special treatment for checkboxes
         $this->method = (isset($buildVars['method'])) ? $buildVars['method'] : '';
-        $this->buildOpts['lng_separate_javascript'] = (in_array('lng_separate_javascript', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['lng_separate_javascript'] = (in_array('lng_separate_javascript', $buildOpts)) ? '1' : '0';
 
+        /*
         //-- Build options
-        $this->buildOpts['archive_zip'] = (in_array('archive_zip', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['archive_tgz'] = (in_array('archive_tgz', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['archive_bz2'] = (in_array('archive_bz2', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_indexhtml'] = (in_array('create_indexhtml', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_md5'] = (in_array('create_md5', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_md5_compressed'] = (in_array('create_md5_compressed', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['include_ecr_projectfile'] = (in_array('include_ecr_projectfile', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['remove_autocode'] = (in_array('remove_autocode', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['archiveZip'] = (in_array('archiveZip', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['archiveTgz'] = (in_array('archiveTgz', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['archiveBz2'] = (in_array('archiveBz2', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['create_indexhtml'] = (in_array('createIndexhtml', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['createMD5'] = (in_array('createMD5', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['createMD5Compressed'] = (in_array('createMD5Compressed', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['includeEcrProjectfile'] = (in_array('includeEcrProjectfile', $buildOpts)) ? 'ON' : 'OFF';
+        $this->buildOpts['removeAutocode'] = (in_array('removeAutocode', $buildOpts)) ? 'ON' : 'OFF';
 
         $ooo = new JRegistry($buildOpts);
 
@@ -423,6 +446,82 @@ abstract class EcrProjectBase
             $this->buildOpts['custom_name_'.$i] = $ooo->get('custom_name_'.$i);
         }
 
+        //-- Build actions
+        $actions = JRequest::getVar('actions', array(), 'default', 'array');
+        $actionFields = JRequest::getVar('fields', array(), 'default', 'array');
+
+        foreach($actions as $event => $fields)
+        {
+            foreach($fields as $i => $type)
+            {
+                $a = EcrProjectAction::getInstance($type, $event)
+                    ->setOptions($actionFields[$i]);
+
+                $this->actions[$i] = $a;
+            }
+        }
+        */
+
+        //-- Build presets
+        $defaultPreset = JRequest::getCmd('preset');
+
+        $actions = JRequest::getVar('actions', array(), 'default', 'array');
+        $actionFields = JRequest::getVar('fields', array(), 'default', 'array');
+
+        $ooo = new JRegistry($buildOpts);
+
+        $p = new EcrProjectModelBuildpreset;
+
+        $p->loadValues($buildOpts);
+
+        $p->buildFolder = $buildVars['zipPath'];
+
+        foreach(array(
+            'archiveZip', 'archiveTgz', 'archiveBz2',
+            'createIndexhtml', 'createMD5', 'createMD5Compressed',
+            'includeEcrProjectfile', 'removeAutocode',
+                ) as $var)
+        {
+            $p->$var = (in_array($var, $buildOpts)) ? 1 : 0;
+        }
+
+/*
+        $p->archiveZip = (in_array('archiveZip', $buildOpts)) ? 'ON' : 'OFF';
+        $p->archiveTgz = (in_array('archiveTgz', $buildOpts)) ? 'ON' : 'OFF';
+        $p->archiveBz2 = (in_array('archiveBz2', $buildOpts)) ? 'ON' : 'OFF';
+
+        $p->createIndexhtml = (in_array('createIndexhtml', $buildOpts)) ? 'ON' : 'OFF';
+        $p->createMD5 = (in_array('createMD5', $buildOpts)) ? 'ON' : 'OFF';
+        $p->createMD5Compressed = (in_array('createMD5Compressed', $buildOpts)) ? 'ON' : 'OFF';
+        $p->includeEcrProjectfile = (in_array('includeEcrProjectfile', $buildOpts)) ? 'ON' : 'OFF';
+        $p->removeAutocode = (in_array('removeAutocode', $buildOpts)) ? 'ON' : 'OFF';
+*/
+        for($i = 1; $i < 5; $i ++)
+        {
+            $p->{'custom_name_'.$i} = $ooo->get('custom_name_'.$i);
+        }
+
+        foreach($actions as $event => $fields)
+        {
+            foreach($fields as $i => $type)
+            {
+                $p->actions[] = EcrProjectAction::getInstance($type, $event)
+                    ->setOptions($actionFields[$i]);
+            }
+        }
+
+        $saveas = JRequest::getCmd('preset_saveas');
+
+        if($saveas)
+        {
+            $this->presets[$saveas] = $p;
+        }
+        else
+        {
+            $this->presets[$defaultPreset] = $p;
+        }
+
+        //-- Update servers
         $this->updateServers = array();
 
         $updateServers = JRequest::getVar('updateServers', array());
@@ -440,22 +539,9 @@ abstract class EcrProjectBase
             }
         }
 
-        $this->actions = array();
-
-        $actions = JRequest::getVar('actions', array(), 'default', 'array');
-        $actionFields = JRequest::getVar('fields', array(), 'default', 'array');
-
-        foreach($actions as $i => $type)
-        {
-            $a = EcrProjectAction::getInstance($type, $actionFields[$i]['trigger'])
-                ->setOptions($actionFields[$i]);
-
-            $this->actions[$i] = $a;
-        }
-
         $this->JCompat = JRequest::getString('jcompat');
 
-        if( ! $this->writeProjectXml())
+        if( ! $this->update())
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Can not update EasyCreator manifest'), 'error');
 
@@ -488,12 +574,7 @@ abstract class EcrProjectBase
         $this->deployOptions->set('github.user', JRequest::getVar('githubUser'));
         $this->deployOptions->set('github.pass', JRequest::getVar('githubPass'));
 
-        if( ! $this->writeDeployFile())
-        {
-            JFactory::getApplication()->enqueueMessage(jgettext('Can not update Admin menu'), 'error');
-
-            return false;
-        }
+        $this->writeDeployFile();
 
         return true;
     }
@@ -645,6 +726,7 @@ abstract class EcrProjectBase
         {
             JFactory::getApplication()->enqueueMessage(
                 jgettext('Unable to write file'), 'error');
+
             JFactory::getApplication()->enqueueMessage(JPATH_ROOT.DS.$installXML, 'error');
 
             return false;
@@ -671,7 +753,7 @@ abstract class EcrProjectBase
      * @throws DomainException
      * @return mixed [string xml string on success | boolean false on error]
      */
-    public function writeProjectXml($testMode = false)
+    private function writeProjectXml($testMode = false)
     {
         $xml = EcrProjectHelper::getXML('<easyproject'
                 .' type="'.$this->type.'"'
@@ -849,6 +931,45 @@ abstract class EcrProjectBase
             }
         }
 
+        //-- Build presets
+        $psElement = $xml->addChild('presets');
+
+        foreach($this->presets as $name => $values)
+        {
+            $pElement = $psElement->addChild('preset');
+            $pElement->addAttribute('name', $name);
+
+            $actions = array();
+
+            foreach($values as $k => $v)
+            {
+                if('actions' == (string)$k)
+                {
+                    $actions = $v;
+                }
+                else
+                {
+                    $pElement->addChild($k, $v);
+                }
+            }
+
+            $aElement = $pElement->addChild('actions');
+
+            foreach($actions as $action)
+            {
+                /* @var SimpleXMLElement $sElement */
+                $sElement = $aElement->addChild('action');
+
+                $sElement->addAttribute('type', $action->type);
+                $sElement->addAttribute('event', $action->event);
+
+                foreach($action->getProperties() as $k => $v)
+                {
+                    $sElement->addChild($k, $v);
+                }
+            }
+        }
+
         //-- Buildopts
         if(count($this->buildOpts))
         {
@@ -860,6 +981,28 @@ abstract class EcrProjectBase
             }
         }
 
+/*
+        //-- Actions
+        if(count($this->actions))
+        {
+            $element = $xml->addChild('actions');
+
+            /* @var EcrProjectAction $action /
+            foreach($this->actions as $action)
+            {
+                /* @var SimpleXMLElement $sElement /
+                $sElement = $element->addChild('action');
+
+                $sElement->addAttribute('type', $action->type);
+                $sElement->addAttribute('event', $action->event);
+
+                foreach($action->getProperties() as $k => $v)
+                {
+                    $sElement->addChild($k, $v);
+                }
+            }
+        }
+*/
         //-- Update servers
         if(count($this->updateServers))
         {
@@ -873,27 +1016,6 @@ abstract class EcrProjectBase
                 $sElement->addAttribute('name', $server->name);
                 $sElement->addAttribute('type', $server->type);
                 $sElement->addAttribute('priority', $server->priority);
-            }
-        }
-
-        //-- Actions
-        if(count($this->actions))
-        {
-            $element = $xml->addChild('actions');
-
-            /* @var EcrProjectAction $action */
-            foreach($this->actions as $action)
-            {
-                /* @var SimpleXMLElement $sElement */
-                $sElement = $element->addChild('action');
-
-                $sElement->addAttribute('type', $action->type);
-                $sElement->addAttribute('trigger', $action->trigger);
-
-                foreach($action->getProperties() as $k => $v)
-                {
-                    $sElement->addChild($k, $v);
-                }
             }
         }
 
@@ -1153,6 +1275,49 @@ abstract class EcrProjectBase
         }
 
         /*
+        * Build presets
+        */
+
+        //-- Init the defqult preset
+        $this->presets['default'] = new EcrProjectModelBuildpreset;
+
+        if(isset($manifest->presets->preset))
+        {
+            /* @var SimpleXMLElement $preset */
+            foreach($manifest->presets->preset as $preset)
+            {
+                $p = new EcrProjectModelBuildpreset;
+
+                foreach($preset as $k => $v)
+                {
+                    if('actions' == $k)
+                    {
+                        /* @var SimpleXMLElement $action */
+                        foreach($v as $action)
+                        {
+                            $p->actions[] = EcrProjectAction::getInstance(
+                                (string)$action->attributes()->type, (string)$action->attributes()->event)
+                                ->setOptions($action);
+                        }
+                    }
+                    else
+                    {
+                        if(is_bool($p->$k))
+                        {
+                            $p->{(string)$k} =('1' == (string)$v) ? true : false;
+                        }
+                        else
+                        {
+                            $p->{(string)$k} = (string)$v;
+                        }
+                    }
+                }
+
+                $this->presets[(string)$preset->attributes()->name] = $p;
+            }
+        }
+
+        /*
          * Update servers
          */
         if(isset($manifest->updateservers->server))
@@ -1172,18 +1337,19 @@ abstract class EcrProjectBase
         /*
          * Actions
          */
-        if(isset($manifest->actions->action))
+/*        if(isset($manifest->actions->action))
         {
-            /* @var SimpleXMLElement $action */
+            /* @var SimpleXMLElement $action /
             foreach($manifest->actions->action as $action)
             {
                 $a = EcrProjectAction::getInstance(
-                    (string)$action->attributes()->type, (string)$action->attributes()->trigger)
+                    (string)$action->attributes()->type, (string)$action->attributes()->event)
                 ->setOptions($action);
 
                 $this->actions[] = $a;
             }
         }
+*/
 
         return $this;
     }
@@ -1352,7 +1518,7 @@ abstract class EcrProjectBase
             $logger->logFileWrite($file, $basePathDest.DS.$fName, $fileContents);
         }
 
-        if( ! $this->writeProjectXml())
+        if( ! $this->update())
         {
             return false;
         }
@@ -1488,6 +1654,22 @@ abstract class EcrProjectBase
 
         //-- 3. Standard extension build dir
         return ECRPATH_BUILDS.'/'.$this->comName;
+    }
+
+    /**
+     * Get a preset by name.
+     *
+     * @param string $name
+     *
+     * @throws UnexpectedValueException
+     * @return EcrProjectModelBuildpreset
+     */
+    public function getPreset($name = 'default')
+    {
+        if(false == isset($this->presets[$name]))
+            throw new UnexpectedValueException(__METHOD__.' - Invalid preset: '.$name);
+
+        return $this->presets[$name];
     }
 
     /**

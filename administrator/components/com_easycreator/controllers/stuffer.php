@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -6,9 +6,6 @@
  * @author     Created on 23-Sep-2008
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
-
-//-- No direct access
-defined('_JEXEC') || die('=;)');
 
 jimport('joomla.application.component.controller');
 
@@ -26,6 +23,23 @@ class EasyCreatorControllerStuffer extends JController
     private $logger;
 
     /**
+     * @var EcrResponseJson
+     */
+    private $response;
+
+    /**
+     * Constructor.
+     *
+     * @param array $config
+     */
+    public function __construct($config = array())
+    {
+        $this->response = new EcrResponseJson;
+
+        parent::__construct($config);
+    }
+
+    /**
      * Standard display method.
      *
      * @param bool       $cachable  If true, the view output will be cached
@@ -40,7 +54,7 @@ class EasyCreatorControllerStuffer extends JController
         {
             $ecr_project = JRequest::getCmd('ecr_project');
 
-            if( ! $ecr_project)
+            if('' == $ecr_project)
             {
                 //-- NO PROJECT SELECTED - abort to mainscreen
                 JRequest::setVar('view', 'easycreator');
@@ -53,7 +67,7 @@ class EasyCreatorControllerStuffer extends JController
         JRequest::setVar('view', 'stuffer');
 
         parent::display($cachable, $urlparams);
-    }//function
+    }
 
     /**
      * Insert a new part from templates/parts folder.
@@ -83,7 +97,7 @@ class EasyCreatorControllerStuffer extends JController
             parent::display();
 
             return;
-        }//try
+        }
 
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('file', '');
@@ -142,7 +156,7 @@ class EasyCreatorControllerStuffer extends JController
         }
 
         parent::display();
-    }//function
+    }
 
     /**
      * Create a new relation for tables.
@@ -155,18 +169,20 @@ class EasyCreatorControllerStuffer extends JController
         //-- Get the project
         try
         {
-            if( ! $tableName = JRequest::getCmd('table_name'))
-            throw new Exception(jgettext('No table given'));
+            $tableName = JRequest::getCmd('table_name', '');
+
+            if('' == $tableName)
+                throw new Exception(jgettext('No table given'));
 
             $project = EcrProjectHelper::getProject();
 
-            if( ! array_key_exists($tableName, $project->tables))
-            throw new Exception(jgettext('Invalid Table'));
+            if(false == array_key_exists($tableName, $project->tables))
+                throw new Exception(jgettext('Invalid Table'));
 
             $relations = JRequest::getVar('relations');
 
-            if( ! isset($relations[$tableName]['foreign_table_field']))
-            throw new Exception(jgettext('Invalid options'));
+            if(false == isset($relations[$tableName]['foreign_table_field']))
+                throw new Exception(jgettext('Invalid options'));
 
             $relation = new EcrTableRelation;
 
@@ -184,18 +200,18 @@ class EasyCreatorControllerStuffer extends JController
 
             $project->tables[$tableName]->addRelation($relation);
 
-            $project->writeProjectXml();
+            $project->update();
         }
         catch(Exception $e)
         {
             EcrHtml::message($e);
-        }//try
+        }
 
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('task', 'tables');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Updates AutoCode.
@@ -213,7 +229,7 @@ class EasyCreatorControllerStuffer extends JController
         $scope = JRequest::getCmd('element_scope');
 
         $old_task = JRequest::getVar('old_task', null);
-        $task =($old_task) ? $old_task : 'stuffer';
+        $task = ($old_task) ? $old_task : 'stuffer';
 
         JRequest::setVar('task', $task);
         JRequest::setVar('view', 'stuffer');
@@ -222,17 +238,17 @@ class EasyCreatorControllerStuffer extends JController
 
         try
         {
-            if( ! $AutoCode = EcrProjectHelper::getAutoCode($key))
-            throw new Exception(jgettext('Unable to load Autocode').sprintf(' [group, part] [%s, %s]', $group, $part));
+            if(false == $AutoCode = EcrProjectHelper::getAutoCode($key))
+                throw new Exception(jgettext('Unable to load Autocode').sprintf(' [group, part] [%s, %s]', $group, $part));
 
-            if( ! method_exists($AutoCode, 'insert'))
-            throw new Exception(sprintf(jgettext('Insert method not found in Autocode %s'), $key));
+            if(false == method_exists($AutoCode, 'insert'))
+                throw new Exception(sprintf(jgettext('Insert method not found in Autocode %s'), $key));
 
             $project = EcrProjectHelper::getProject();
 
             if( ! $project->prepareAddPart($ecr_project))
-            throw new Exception(sprintf(jgettext('Unable to prepare project [project, group, part] [%s, %s, %s]')
-            , $ecr_project, $group, $part));
+                throw new Exception(sprintf(jgettext('Unable to prepare project [project, group, part] [%s, %s, %s]')
+                    , $ecr_project, $group, $part));
 
             //-- Setup logging
             $buildOpts = JRequest::getVar('buildopts', array());
@@ -257,7 +273,7 @@ class EasyCreatorControllerStuffer extends JController
             $logger->log($string);
 
             if( ! $AutoCode->insert($project, $options, $logger))
-            throw new Exception(jgettext('Unable to update AutoCode').' [group, part]', $group, $part);
+                throw new Exception(jgettext('Unable to update AutoCode').' [group, part]', $group, $part);
 
             EcrHtml::message(array(jgettext('AutoCode updated').' [group, part]', $group, $part));
         }
@@ -266,12 +282,12 @@ class EasyCreatorControllerStuffer extends JController
             EcrHtml::message($e);
 
             $logger->log($e->getMessage());
-        }//try
+        }
 
         $logger->writeLog();
 
         parent::display();
-    }//function
+    }
 
     /**
      * Delete a file.
@@ -285,7 +301,7 @@ class EasyCreatorControllerStuffer extends JController
 
         $path = JPATH_ROOT.DS.$file_path.$file_name;
 
-        if( ! JFile::exists($path))
+        if(false == JFile::exists($path))
         {
             EcrHtml::message(jgettext('invalid file'), 'error');
             echo $path;
@@ -308,12 +324,12 @@ class EasyCreatorControllerStuffer extends JController
         }
 
         $old_task = JRequest::getVar('old_task', NULL);
-        $task =($old_task) ? $old_task : 'stuffer';
+        $task = ($old_task) ? $old_task : 'stuffer';
         JRequest::setVar('task', $task);
         JRequest::setVar('view', 'stuffer');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Save the parameters from request.
@@ -333,29 +349,29 @@ class EasyCreatorControllerStuffer extends JController
          * TODO define elsewhere for php and js
          */
         $paramTypes = array(
-        'calendar'     => array('format')
-        , 'category'   => array('class', 'section', 'scope')
-        , 'editors'    => array()
-        , 'filelist'   => array('directory', 'filter', 'exclude', 'hide_none'
-        , 'hide_default', 'stripext')
+            'calendar' => array('format')
+        , 'category' => array('class', 'section', 'scope')
+        , 'editors' => array()
+        , 'filelist' => array('directory', 'filter', 'exclude', 'hide_none'
+            , 'hide_default', 'stripext')
         , 'folderlist' => array('directory', 'filter', 'exclude', 'hide_none', 'hide_default')
-        , 'helpsites'  => array()
-        , 'hidden'     => array('class')
-        , 'imagelist'  => array('directory', 'filter', 'exclude', 'hide_none'
-        , 'hide_default', 'stripext')
-        , 'languages'  => array('client')
-        , 'list'       => array()
-        , 'menu'       => array()
-        , 'menuitem'   => array('state')
-        , 'password'   => array('class', 'size')
-        , 'radio'      => array()
-        , 'section'    => array()
-        , 'spacer'     => array()
-        , 'sql'        => array('query', 'key_field', 'value_field')
-        , 'text'       => array('class', 'size')
-        , 'textarea'   => array('rows', 'cols', 'class')
-        , 'timezones'  => array()
-        , 'usergroup'  => array('class', 'multiple', 'size')
+        , 'helpsites' => array()
+        , 'hidden' => array('class')
+        , 'imagelist' => array('directory', 'filter', 'exclude', 'hide_none'
+            , 'hide_default', 'stripext')
+        , 'languages' => array('client')
+        , 'list' => array()
+        , 'menu' => array()
+        , 'menuitem' => array('state')
+        , 'password' => array('class', 'size')
+        , 'radio' => array()
+        , 'section' => array()
+        , 'spacer' => array()
+        , 'sql' => array('query', 'key_field', 'value_field')
+        , 'text' => array('class', 'size')
+        , 'textarea' => array('rows', 'cols', 'class')
+        , 'timezones' => array()
+        , 'usergroup' => array('class', 'multiple', 'size')
         );
 
         $defaultFields = array('name', 'label', 'default', 'description');
@@ -363,7 +379,7 @@ class EasyCreatorControllerStuffer extends JController
         $requestParams = JRequest::getVar('params', array());
         $selected_xml = JRequest::getVar('selected_xml', '');
 
-        if( ! count($requestParams))
+        if(0 == count($requestParams))
         {
             JFactory::getApplication()->enqueueMessage('No params ?', 'error');
             parent::display();
@@ -392,11 +408,11 @@ class EasyCreatorControllerStuffer extends JController
                 JFactory::getApplication()->enqueueMessage(
                     jgettext('But you can copy + paste the code below to your params section..'), 'error');
                 break;
-        }//switch
+        }
 
         $xml = new SimpleXMLElement('<'.$rootElementName.' />');
 
-        if( ! $xml instanceof SimpleXMLElement)
+        if(false == $xml instanceof SimpleXMLElement)
         {
             JFactory::getApplication()->enqueueMessage(100, jgettext('Could not create XML'), 'error');
 
@@ -409,7 +425,7 @@ class EasyCreatorControllerStuffer extends JController
                 $xml->addAttribute('type', $config['type']);
                 $xml->addAttribute('version', '1.5.0');
                 break;
-        }//switch
+        }
 
         foreach($requestParams as $groupName => $elements)
         {
@@ -440,7 +456,7 @@ class EasyCreatorControllerStuffer extends JController
                                 {
                                     $childElem = $paramElem->addChild('option', $childV);
                                 }
-                            }//foreach
+                            }
 
                             //-- Second step - add attributes
                             foreach($child as $childK => $childV)
@@ -449,14 +465,14 @@ class EasyCreatorControllerStuffer extends JController
                                 {
                                     $childElem->addAttribute($childK, $childV);
                                 }
-                            }//foreach
-                        }//foreach
+                            }
+                        }
                     }
                     else
                     {
                         if($k == 'type')
                         {
-                            if( ! array_key_exists($v, $paramTypes))
+                            if(false == array_key_exists($v, $paramTypes))
                             {
                                 JFactory::getApplication()->enqueueMessage(
                                     'EasyCreatorControllerStuffer::save_params undefined type: '.$v, 'error');
@@ -471,21 +487,22 @@ class EasyCreatorControllerStuffer extends JController
                         }
                         else
                         {
-                            if( ! $paramType)
+                            if('' == $paramType)
                             {
                                 //-- No type set so far (bad) we include the element anyway..
                                 $paramElem->addAttribute($k, $v);
                             }
                             else if(in_array($k, $paramTypes[$paramType])
-                            || in_array($k, $defaultFields))
+                                || in_array($k, $defaultFields)
+                            )
                             {
                                 $paramElem->addAttribute($k, $v);
                             }
                         }
                     }
-                }//foreach
-            }//foreach
-        }//foreach
+                }
+            }
+        }
 
         //-- Save the file
         if($config['type'] != 'unknown')
@@ -501,18 +518,17 @@ class EasyCreatorControllerStuffer extends JController
                 return false;
             }
         }
-
-        else if( ! ECR_DEBUG)
+        else if(false == ECR_DEBUG)
         {
             //-- Unknown type - unable to save
             echo '<pre class="ecr_debug">'.htmlentities($this->formatXML($xml)).'</pre>';
         }
 
         if(ECR_DEBUG)
-        echo '<pre class="ecr_debug">'.htmlentities($this->formatXML($xml)).'</pre>';
+            echo '<pre class="ecr_debug">'.htmlentities($this->formatXML($xml)).'</pre>';
 
         parent::display();
-    }//function
+    }
 
     /**
      * Save the configuration.
@@ -525,14 +541,14 @@ class EasyCreatorControllerStuffer extends JController
 
         try
         {
-            $project = EcrProjectHelper::getProject();
-
-            $project->updateProjectFromRequest();
+            EcrProjectHelper::getProject()
+                ->updateFromRequest();
 
             //-- Reload the project
-            $project = EcrProjectHelper::getProject('', true);
+            EcrProjectHelper::getProject('', true);
 
-            JFactory::getApplication()->enqueueMessage(jgettext('The Settings have been updated'));
+            JFactory::getApplication()
+                ->enqueueMessage(jgettext('The Settings have been updated'));
         }
         catch(Exception $e)
         {
@@ -541,13 +557,13 @@ class EasyCreatorControllerStuffer extends JController
             parent::display();
 
             return;
-        }//try
+        }
 
         JRequest::setVar('view', 'stuffer');
         JRequest::setVar('task', $old_task);
 
         parent::display();
-    }//function
+    }
 
     /**
      * Deletes a project manifest file and uninstalls the project.
@@ -557,7 +573,7 @@ class EasyCreatorControllerStuffer extends JController
     public function delete_project_full()
     {
         $this->delete_project(true);
-    }//function
+    }
 
     /**
      * Deletes a project using the Joomla! installer.
@@ -589,8 +605,8 @@ class EasyCreatorControllerStuffer extends JController
             parent::display();
 
             return;
-        }//try
-    }//function
+        }
+    }
 
     /**
      * Register a table with EasyCreator.
@@ -603,7 +619,7 @@ class EasyCreatorControllerStuffer extends JController
 
         $table_name = JRequest::getCmd('register_tbl');
 
-        if( ! $table_name)
+        if('' == $table_name)
         {
             echo 'EMPTY';
             parent::display();
@@ -623,11 +639,11 @@ class EasyCreatorControllerStuffer extends JController
             parent::display();
 
             return;
-        }//try
+        }
 
         $table = new EcrTable($table_name);
 
-        if( ! $project->addTable($table))
+        if(false == $project->addTable($table))
         {
             echo 'ERROR adding table';
             parent::display();
@@ -638,7 +654,7 @@ class EasyCreatorControllerStuffer extends JController
         $project->update();
 
         parent::display();
-    }//function
+    }
 
     /**
      * Create a table.
@@ -652,7 +668,7 @@ class EasyCreatorControllerStuffer extends JController
         JRequest::setVar('view', 'stuffer');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Format an XML document.
@@ -680,7 +696,7 @@ class EasyCreatorControllerStuffer extends JController
         $document->formatOutput = true;
 
         return $document->saveXML();
-    }//function
+    }
 
     /**
      * Creates install files.
@@ -720,10 +736,10 @@ class EasyCreatorControllerStuffer extends JController
 
             $this->logger->log('Start: '.$type1.' - '.$type2);
 
-            if( ! JFolder::exists($installPath))
+            if(false == JFolder::exists($installPath))
             {
-                if( ! JFolder::create($installPath))
-                throw new Exception('Unable to create install folder '.$installPath);
+                if(false == JFolder::create($installPath))
+                    throw new Exception('Unable to create install folder '.$installPath);
 
                 $this->logger->log('Folder created: '.$installPath);
             }
@@ -745,7 +761,7 @@ class EasyCreatorControllerStuffer extends JController
                         default :
                             throw new Exception('Unknown type: '.$type1.' - '.$type2);
                             break;
-                    }//switch
+                    }
 
                     break;
 
@@ -763,14 +779,14 @@ class EasyCreatorControllerStuffer extends JController
                         default :
                             throw new Exception('Unknown type: '.$type1.' - '.$type2);
                             break;
-                    }//switch
+                    }
 
                     break;
 
                 default :
                     EcrHtml::message('Unknown type: '.$type1, 'error');
                     break;
-            }//switch
+            }
         }
         catch(EcrLogException $e)
         {
@@ -779,13 +795,13 @@ class EasyCreatorControllerStuffer extends JController
             parent::display();
 
             return;
-        }//try
+        }
         catch(Exception $e)
         {
             EcrHtml::message($e);
 
             $this->logger->log($e->getMessage(), 'exception');
-        }//try
+        }
 
         $this->logger->log('Finished =;)');
 
@@ -794,13 +810,14 @@ class EasyCreatorControllerStuffer extends JController
         echo $this->logger->printLogBox();
 
         parent::display();
-    }//function
+    }
 
     /**
      * Process the SQL install file.
      *
      * @param EcrProjectBase $project The project.
-     * @param             $installPath
+     * @param                $installPath
+     *
      * @return void
      */
     private function processSQLInstall(EcrProjectBase $project, $installPath)
@@ -830,7 +847,7 @@ class EasyCreatorControllerStuffer extends JController
                 foreach($xml->database->table_structure as $tableStructure)
                 {
                     $sql[] = $formatter->formatCreate($tableStructure);
-                }//foreach
+                }
 
                 $string = implode("\n", $sql);
             }
@@ -839,11 +856,11 @@ class EasyCreatorControllerStuffer extends JController
 
             $fullPath = "$installPath/sql/$dbType/install.$encoding.$type";
 
-            $msg =(JFile::exists($fullPath))
-            ? sprintf(jgettext('%s Install sql file updated'), $dbType)
-            : sprintf(jgettext('%s Install sql file created'), $dbType);
+            $msg = (JFile::exists($fullPath))
+                ? sprintf(jgettext('%s Install sql file updated'), $dbType)
+                : sprintf(jgettext('%s Install sql file created'), $dbType);
 
-            if( ! JFile::write($fullPath, $string))
+            if(false == JFile::write($fullPath, $string))
             {
                 EcrHtml::message(sprintf(jgettext('Can not create file at %s'), $fullPath), 'error');
 
@@ -855,14 +872,15 @@ class EasyCreatorControllerStuffer extends JController
 
                 $this->logger->logFileWrite('DB', $fullPath, $string);
             }
-        }//foreach
-    }//function
+        }
+    }
 
     /**
      * Process the SQL uninstall file.
      *
-     * @param EcrProjectBase $project The project
-     * @param string      $installPath    Path to the project root.
+     * @param EcrProjectBase $project        The project
+     * @param string         $installPath    Path to the project root.
+     *
      * @return void
      */
     private function processSQLUnInstall(EcrProjectBase $project, $installPath)
@@ -892,7 +910,7 @@ class EasyCreatorControllerStuffer extends JController
                 foreach($xml->database->table_structure as $tableStructure)
                 {
                     $sql[] = $formatter->formatDropTable($tableStructure);
-                }//foreach
+                }
 
                 $string = implode(NL, $sql);
             }
@@ -901,11 +919,11 @@ class EasyCreatorControllerStuffer extends JController
 
             $fullPath = "$installPath/sql/$dbType/uninstall.$encoding.$type";
 
-            $msg =(JFile::exists($fullPath))
+            $msg = (JFile::exists($fullPath))
                 ? sprintf(jgettext('%s uninstall sql file updated'), $dbType)
                 : sprintf(jgettext('%s uninstall sql file created'), $dbType);
 
-            if( ! JFile::write($fullPath, $string))
+            if(false == JFile::write($fullPath, $string))
             {
                 EcrHtml::message(jgettext('Can not create file at '.$fullPath), 'error');
 
@@ -917,14 +935,14 @@ class EasyCreatorControllerStuffer extends JController
 
                 $this->logger->logFileWrite('DB', $fullPath, $string);
             }
-        }//foreach
-    }//function
+        }
+    }
 
     /**
      * Create the XML database export file.
      *
      * @param EcrProjectBase $project
-     * @param string $installPath
+     * @param string         $installPath
      *
      * @return string
      * @throws Exception
@@ -949,7 +967,7 @@ class EasyCreatorControllerStuffer extends JController
             }
 
             $tableList[] = $prefix.$table;
-        }//foreach
+        }
 
         if(empty($tableList))
             throw new Exception('The project contains no tables');
@@ -960,17 +978,17 @@ class EasyCreatorControllerStuffer extends JController
 
         $fullPath = $installPath.'/sql/tables.xml';
 
-        if( ! JFile::write($fullPath, $xmlString))
+        if(false == JFile::write($fullPath, $xmlString))
             throw new Exception(__METHOD__.' - Can not write the file: '.$fullPath);
 
         return $fullPath;
-    }//function
+    }
 
     /**
      * Process a SQL update file.
      *
-     * @param EcrProjectBase $project The project.
-     * @param string      $installPath    Path to the project root.
+     * @param EcrProjectBase $project        The project.
+     * @param string         $installPath    Path to the project root.
      *
      * @return mixed
      */
@@ -1025,5 +1043,73 @@ class EasyCreatorControllerStuffer extends JController
 
             $this->logger->logFileWrite('dbUpdate', $fullPath, $contents, 'Can not create the update sql file');
         }
-    }//function
-}//class
+    }
+
+    public function loadPreset()
+    {
+        try
+        {
+            $this->response->data = EcrProjectHelper::getProject()
+                ->getPreset(JRequest::getCmd('preset'))->toJson();
+        }
+        catch(Exception $e)
+        {
+            $this->response->message = $e->getMessage();
+            $this->response->debug = $e->getTraceAsString();
+            $this->response->status = 1;
+        }
+
+        echo $this->response;
+
+        jexit();
+    }
+
+    /**
+     * Get an action.
+     *
+     * @AJAX
+     *
+     * @return void
+     */
+    public function getAction()
+    {
+        try
+        {
+            $options = json_decode(JRequest::getVar('options', '', 'default'));
+            $options = $options ?: array();
+
+            $cnt = JRequest::getInt('cnt');
+
+            $this->response->message = EcrProjectAction::getInstance(JRequest::getCmd('type'))
+                ->setOptions($options)
+                ->getFields($cnt);
+        }
+        catch(Exception $e)
+        {
+            $this->response->debug = $e->getMessage();
+            $this->response->status = $e->getCode() ? : 1;
+        }
+
+        echo $this->response;
+
+        jexit();
+    }
+
+    /**
+     * Get EasyCreator paramaters.
+     *
+     * @AJAX
+     *
+     * @return void
+     */
+    public function getEcrParams()
+    {
+        $this->response->status = 0;
+
+        $this->response->message = json_encode(JComponentHelper::getParams('com_easycreator')->toArray());
+
+        echo $this->response;
+
+        jexit();
+    }
+}

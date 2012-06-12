@@ -34,9 +34,7 @@ define('ECR_DEV_MODE', 1);
 
 jimport('joomla.error.profiler');
 
-$profiler = JProfiler::getInstance('Application');
-
-JDEBUG ? $profiler->mark('com_easycreator starting') : null;
+JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator starting') : null;
 
 //-- Global constants
 require JPATH_COMPONENT.'/includes/defines.php';
@@ -53,11 +51,11 @@ if(ECR_DEV_MODE)
     if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug'))
     {
         //-- Set debugging ON
-        define('ECR_DEBUG', 1);
+        define('ECR_DEBUG', true);
     }
     else
     {
-        define('ECR_DEBUG', 0);
+        define('ECR_DEBUG', false);
     }
 
     if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug_lang', 0))
@@ -221,7 +219,7 @@ try
         //-- Display the footer
         EcrHtml::footer();
 
-        JDEBUG ? $profiler->mark('com_easycreator finished') : null;
+        JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator finished') : null;
     }
 
     //-- Restore error_reporting

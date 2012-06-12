@@ -83,6 +83,21 @@ function ecrScript()
     }
 }
 
+function ecrLoadMedia()
+{
+    $args = func_get_args();
+
+    $document = JFactory::getDocument();
+
+    foreach($args as $name)
+    {
+        $name = (ECR_DEBUG) ? $name : $name.'.min';
+
+        $document->addStylesheet(JUri::root(true).'/media/com_easycreator/admin/css/'.$name.'.css');
+        $document->addScript(JURI::root(true).'/media/com_easycreator/admin/js/'.$name.'.js');
+    }
+}
+
 if(version_compare(PHP_VERSION, '5.3', '<'))
 {
     //-- @todo php 5.2

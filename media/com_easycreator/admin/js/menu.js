@@ -38,7 +38,7 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
 
     newdiv.setAttribute('class', 'menu');
 
-    html = '';
+    var html = '';
 
     html += '<input type="hidden" name="submenu['+num+'][menuid]" value="'+menuid+'" />';
 
@@ -48,7 +48,8 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
                 + "][parent]\" value=\"" + parent + "\" />";
     }
 
-    html += "<span class=\"ecr_label2\">" + jgettext('Text')
+    html += '<i class="img icon16-move" style="cursor: move;"></i>'
+            + "<span class=\"ecr_label2\">" + jgettext('Text')
             + "</span><input type=\"text\" name=\"submenu[" + num
             + "][text]\" size=\"15\" value=\"" + text
             + "\" style=\"border: 2px solid blue; font-size: 1.3em;\" />";

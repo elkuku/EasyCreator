@@ -146,7 +146,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                 <h3><?php echo jgettext('Template variables'); ?></h3>
 
                 <h4><?php echo jgettext('Common variables')?></h4>
-                <ul>
+                <ul class="unstyled">
                     <?php foreach(EcrProjectTemplateHelper::getReplacementInfo() as $infoKey => $infoText) : ?>
                     <li>
                         <?php
@@ -158,6 +158,7 @@ $fileTree->setJs('folder', " onmousedown=\"setAction(event, '[folder]', '[file]'
                     </li>
                     <?php endforeach; ?>
                 </ul>
+                <hr />
                 <h4><?php echo jgettext('Custom variables')?></h4>
                 <?php echo jgettext('Custom variables may be defined in every template using the file options.php'); ?>
             </div>

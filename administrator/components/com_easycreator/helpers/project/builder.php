@@ -107,7 +107,7 @@ class EcrProjectBuilder extends JObject
         foreach(EcrEasycreator::$packFormats as $name => $ext)
         {
             if($comParams->get($name))
-                $this->project->buildOpts[$name] = 'ON';
+                $this->project->buildOpts[$name] = '1';
         }
 
         if(false == $this->customOptions('process'))
@@ -546,7 +546,7 @@ class EcrProjectBuilder extends JObject
             $this->project->name = ucfirst($this->project->scope).' - '.$this->project->name;
         }
 
-        $xmlContents = $this->project->writeProjectXml($this->testMode);
+        $xmlContents = $this->project->update($this->testMode);
 
         if(false == $xmlContents)
             throw new EcrBuilderException('Unable to create EasyCreator manifest');
@@ -784,7 +784,7 @@ class EcrProjectBuilder extends JObject
         {
             if($comParams->get($name))
             {
-                $project->buildOpts[$name] = 'ON';
+                $project->buildOpts[$name] = '1';
             }
         }
 
@@ -814,7 +814,7 @@ class EcrProjectBuilder extends JObject
         $this->logger->log('Registering: '.$project->type.' - '.$project->name.'<br />'
             .'aka "'.$project->comName.'"<br />scope: '.$project->scope);
 
-        $pXml = $project->writeProjectXml();
+        $pXml = $project->update();
 
         if(false == $pXml)
         {

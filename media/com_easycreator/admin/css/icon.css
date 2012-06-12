@@ -168,6 +168,10 @@
     background-image: url(../images/ico/icon-16-git.png);
 }
 
+.icon16-hand {
+    background-image: url(../images/ico/icon-16-hand.png);
+}
+
 .icon16-ecr-help {
     background-image: url(../images/ico/icon-16-help.png);
     cursor: help;
@@ -249,6 +253,10 @@
     background-image: url(../images/ico/icon-16-eye.png);
 }
 
+.icon16-eyeclosed {
+    background-image: url(../images/ico/icon-16-eyeclosed.png);
+}
+
 .icon16-edit {
     background-image: url(../images/ico/icon-16-edit.png);
 }
@@ -281,6 +289,10 @@
     background-image: url(../images/ico/icon-16-locale.png);
 }
 
+.icon16-move {
+    background-image: url(../images/ico/icon-16-move.png);
+}
+
 .icon16-ok {
     background-image: url(../images/ico/icon-16-ok.png);
 }
@@ -293,6 +305,10 @@
 
 .icon16-php {
     background-image: url(../images/ico/icon-16-php.png);
+}
+
+.icon16-reload {
+    background-image: url(../images/ico/icon-16-reload.png);
 }
 
 .icon16-rename {

@@ -1,8 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * User: elkuku
- * Date: 25.04.12
- * Time: 14:01
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 25-Apr-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 /**
@@ -15,6 +17,18 @@ class EcrResponseJson
     public $debug = '';
 
     public $message = '';
+
+    public $data = null;
+
+    /**
+     * Constructor.
+     *
+     * @param null|stdClass $data
+     */
+    public function __construct(stdClass $data = null)
+    {
+        $this->data = $data ?: new stdClass;
+    }
 
     /**
      * Convert to string.

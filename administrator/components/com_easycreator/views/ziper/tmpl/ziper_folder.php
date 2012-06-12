@@ -12,7 +12,10 @@ $buildPath = $this->project->getZipPath();
 
 <div class="infoHeader img icon16-installfolder"><?php echo jgettext('Build folder') ?></div>
 
-<div class="path"><?php echo JPath::clean($buildPath.DS.$this->project->version); ?></div>
+<div class="path">
+    <span id="buildFolder"><?php echo JPath::clean($buildPath); ?></span>
+    <?php echo DS.'&nbsp;'.$this->project->version; ?>
+</div>
 
 <?php echo EcrHelp::info(
     jgettext('The folder where your final package ends up. The folders extension_name and version will be added automatically.'

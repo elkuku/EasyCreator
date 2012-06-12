@@ -1,8 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * User: elkuku
- * Date: 22.05.12
- * Time: 19:26
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 22-May-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 /**
@@ -10,7 +12,9 @@
  *
  * @property-read string $type
  * @property-read string $name
- * @property-read string $trigger
+ * @property-read string $event
+ * @property-read string $fixedEvent
+ * @property-read array  $replacements
  */
 abstract class EcrProjectAction
 {
@@ -18,9 +22,13 @@ abstract class EcrProjectAction
 
     protected $name = '';
 
-    protected $trigger = '';
+    protected $event = '';
 
-    protected $internals = array('type', 'name', 'trigger');
+    protected $fixedEvent = '';
+
+    protected $internals = array('type', 'name', 'event', 'fixedEvent', 'replacements');
+
+    private $replacements = array();
 
     /**
      * Get the input fields
@@ -36,40 +44,60 @@ abstract class EcrProjectAction
      *
      * @param EcrProjectZiper $ziper
      *
-     * @return bool true if successful, false to interrupt the build process
+     * @return EcrProjectAction
      */
     abstract public function run(EcrProjectZiper $ziper);
 
     /**
      * @param string $type
-     * @param string $trigger
+     * @param string $event
      *
      * @throws RuntimeException
      * @throws UnexpectedValueException
      *
      * @return EcrProjectAction
      */
-    public static function getInstance($type, $trigger = 'precopy')
+    public static function getInstance($type, $event = 'precopy')
     {
-        if('' == $type)
+        if('' == (string)$type)
             throw new UnexpectedValueException(__METHOD__.' - Empty type is not allowed');
 
-        $className = 'EcrProjectAction'.ucfirst($type);
+        $aType = $type;
+
+        if(0 === strpos($aType, 'ecr_custom_'))
+        {
+            $aType = substr($aType, 11);
+
+            $fileName = $aType.'.php';
+
+            require_once ECRPATH_DATA.'/actions/'.$fileName;
+        }
+
+        $className = 'EcrProjectAction'.ucfirst($aType);
 
         if(false == class_exists($className))
             throw new RuntimeException(__METHOD__.' - Class not found: '.$className);
 
-        return new $className($trigger);
+        $class = new $className($type, $event);
+
+        if(false == ($class instanceof EcrProjectAction))
+            throw new UnexpectedValueException(
+                sprintf('The class %s must extend the class %s', $className, 'EcrProjectAction'));
+
+        return $class;
     }
 
     /**
      * Constructor.
      *
-     * @param $trigger
+     * @param $type
+     * @param $event
      */
-    public function __construct($trigger)
+    public function __construct($type, $event)
     {
-        $this->trigger = $trigger;
+        $this->type = $type;
+
+        $this->event = $event;
     }
 
     /**
@@ -127,6 +155,61 @@ abstract class EcrProjectAction
     }
 
     /**
+     * @param       $cnt
+     * @param       $name
+     * @param       $title
+     * @param array $options
+     *
+     * @return string
+     */
+    protected function getLabel($cnt, $name, $title, array $options = array())
+    {
+        $options = array_merge(array(
+                'class' => 'inline'
+            )
+            , $options);
+
+        $oString = '';
+
+        foreach($options as $o => $v)
+        {
+            $oString .= ' '.$o.'="'.$v.'"';
+        }
+
+        return '<label'.$oString.' for="fields_'.$cnt.'_'.$name.'">'.$title.'</label>';
+    }
+
+    /**
+     * @param       $cnt
+     * @param       $name
+     * @param       $value
+     * @param array $options
+     *
+     * @return string
+     */
+    protected function getInput($cnt, $name, $value, array $options = array())
+    {
+        $options = array_merge(array(
+                'class' => 'span4',
+                'type' => 'text'
+            )
+            , $options);
+
+        $oString = '';
+
+        foreach($options as $o => $v)
+        {
+            $oString .= ' '.$o.'="'.$v.'"';
+        }
+
+        return '<input'
+            .$oString
+            .' name="fields['.$cnt.']['.$name.']"'
+            .' id="fields_'.$cnt.'_'.$name.'"'
+            .' value="'.$value.'">';
+    }
+
+    /**
      * Replace variables in a string.
      *
      * @param string          $string
@@ -138,7 +221,67 @@ abstract class EcrProjectAction
     {
         $string = str_replace('${temp_dir}', $ziper->temp_dir, $string);
         $string = str_replace('${j_root}', JPATH_ROOT, $string);
+        $string = str_replace('${package_path}', $ziper->preset->buildFolder, $string);
+
+        foreach($ziper->getCreatedFiles() as $filePath)
+        {
+            /*
+            $path = $download;
+
+            if(0 === strpos($download, 'file://'))
+                $path = substr($download, 7);
+*/
+            $string = str_replace('${package_'.JFile::getExt($filePath).'}', $filePath, $string);
+        }
 
         return $string;
+    }
+
+    /**
+     * Convert to JSON string.
+     *
+     * @return string
+     */
+    public function toJson()
+    {
+        $o = new stdClass;
+
+        foreach($this as $k => $v)
+        {
+            if('internals' == $k)
+                continue;
+
+            $o->$k = $v;
+        }
+
+        return json_encode($o);
+    }
+
+    /**
+     * Abort the build process if set.
+     *
+     * @param string          $msg
+     * @param EcrProjectZiper $ziper
+     *
+     * @throws EcrZiperException
+     * @return EcrProjectAction
+     */
+    protected function abort($msg, EcrProjectZiper $ziper)
+    {
+
+        if($this->abort)
+        {
+//            $ziper->addFailure($msg);
+
+//            $ziper->setInvalid();
+
+            throw new EcrZiperException($msg, 1);
+        }
+        else
+        {
+            $ziper->logger->log($msg, 'Action', JLog::ERROR);
+        }
+
+        return $this;
     }
 }

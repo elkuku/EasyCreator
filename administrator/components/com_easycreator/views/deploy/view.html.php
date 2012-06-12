@@ -42,7 +42,7 @@ class EasyCreatorViewDeploy extends JView
             EcrHtml::formEnd();
 
             return;
-        }//try
+        }
 
         //-- Draw h1 header
         //EcrHtml::header(jgettext('Deploy'), $this->project, 'ecr_deploy');
@@ -51,6 +51,7 @@ class EasyCreatorViewDeploy extends JView
         {
             //-- Execute the task
             $this->$task();
+            $this->setLayout($task);
         }
 
         //-- Draw the submenu
@@ -59,11 +60,14 @@ class EasyCreatorViewDeploy extends JView
         parent::display($tpl);
 
         EcrHtml::formEnd();
-    }//function
+    }
 
-    protected function package()
+    private function package()
     {
-        $this->setLayout('package');
+    }
+
+    private function updateserver()
+    {
     }
 
     /**
@@ -75,17 +79,22 @@ class EasyCreatorViewDeploy extends JView
     {
         $subTasks = array(
             array('title' => jgettext('Files')
-            , 'description' => jgettext('Deploys the project files to your server.')
+            , 'description' => jgettext('Deploy the project files to your server.')
             , 'icon' => 'deploy'
             , 'task' => array('deploy', 'files')
             )
-            , array('title' => jgettext('Package')
-            , 'description' => jgettext('This deploys you package to a server.')
+        , array('title' => jgettext('Package')
+            , 'description' => jgettext('Deploy you package to a server.')
             , 'icon' => 'package'
             , 'task' => 'package'
+            )
+        , array('title' => jgettext('Update server')
+            , 'description' => jgettext('Manage your update server.')
+            , 'icon' => 'package'
+            , 'task' => 'updateserver'
             )
         );
 
         return EcrHtmlMenu::sub($subTasks);
-    }//function
-}//class
+    }
+}

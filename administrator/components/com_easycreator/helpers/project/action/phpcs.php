@@ -1,8 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * User: elkuku
- * Date: 22.05.12
- * Time: 19:28
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 22-May-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 /**
@@ -12,8 +14,6 @@
  */
 class EcrProjectActionPhpcs extends EcrProjectAction
 {
-    protected $type = 'phpcs';
-
     protected $name = 'PHP Code Sniffer';
 
     public $standard = '';
@@ -76,7 +76,7 @@ class EcrProjectActionPhpcs extends EcrProjectAction
      *
      * @param EcrProjectZiper $ziper
      *
-     * @return bool true if successful, false to interrupt the build process
+     * @return EcrProjectAction
      */
     public function run(EcrProjectZiper $ziper)
     {
@@ -114,9 +114,9 @@ class EcrProjectActionPhpcs extends EcrProjectAction
 
         if($matches && isset($matches[3]))
         {
-            $errors = $matches[1][0];
-            $warnings = $matches[2][0];
-            $filesProcessed = $matches[3][0];
+            $errors = (isset($matches[1][0])) ? $matches[1][0] : 'n/a';
+            $warnings = (isset($matches[2][0])) ? $matches[2][0] : 'n/a';
+            $filesProcessed = (isset($matches[3][0])) ? $matches[3][0] : 'n/a';
 
             $logger->log('PHP CodeSniffer results:');
 

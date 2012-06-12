@@ -309,9 +309,10 @@ class EcrHtmlMenu
 
             foreach($rightTasks as $rTask)
             {
-                $html[] = '<a class="btn'.ECR_TBAR_SIZE.'"';
+                $class =(isset($rTask['class'])) ? ' '.$rTask['class'] : '';
+                $html[] = '<a class="btn'.ECR_TBAR_SIZE.$class.'"';
                 $html[] = ' href="javascript:;"';
-                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\');">';
+                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\', this);">';
 
                 if(ECR_TBAR_ICONS)
                     $html[] = '<i class="img16a icon16-ecr_'.$rTask['icon'].'"></i><br />';

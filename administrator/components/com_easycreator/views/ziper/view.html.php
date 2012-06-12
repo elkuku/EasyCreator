@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,18 +7,27 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 jimport('joomla.application.component.view');
 
 /**
- * Enter description here ...@todo class comment.
+ * HTML View class for the EasyCreator Component.
  *
+ * @package    EasyCreator
+ * @subpackage Views
  */
 class EasyCreatorViewZiper extends JView
 {
     protected $zipResult = false;
+
+    /**
+     * @var EcrProjectBase
+     */
+    protected $project = null;
+
+    /**
+     * @var EcrProjectModelBuildpreset
+     */
+    protected $preset = null;
 
     /**
      * Standard display method.
@@ -33,14 +42,12 @@ class EasyCreatorViewZiper extends JView
 
         ecrStylesheet('ziper');
 
-        $this->ecr_project = JRequest::getCmd('ecr_project');
-
         $task = JRequest::getCmd('task');
 
-        //-- Get the project
         try
         {
             $this->project = EcrProjectHelper::getProject();
+            $this->preset = $this->project->presets['default'];
         }
         catch(Exception $e)
         {
@@ -49,16 +56,10 @@ class EasyCreatorViewZiper extends JView
             EcrHtml::formEnd();
 
             return;
-        }//try
-
-        //-- Draw h1 header
-        //EcrHtml::header(jgettext('Component ZIPer'), $this->project, 'ecr_package');
+        }
 
         if(in_array($task, get_class_methods($this)))
-        {
-            //-- Execute the task
             $this->$task();
-        }
 
         //-- Draw the submenu
         echo $this->displayBar();
@@ -66,7 +67,7 @@ class EasyCreatorViewZiper extends JView
         parent::display($tpl);
 
         EcrHtml::formEnd();
-    }//function
+    }
 
     /**
      * Zipper view.
@@ -75,8 +76,10 @@ class EasyCreatorViewZiper extends JView
      */
     private function ziper()
     {
+        ecrScript('stuffer');
+
         $this->setLayout('ziper');
-    }//function
+    }
 
     /**
      * Archive view.
@@ -86,7 +89,7 @@ class EasyCreatorViewZiper extends JView
     private function archive()
     {
         $this->setLayout('archive');
-    }//function
+    }
 
     /**
      * Deletes a zip file.
@@ -96,7 +99,7 @@ class EasyCreatorViewZiper extends JView
     private function delete()
     {
         $this->setLayout('ziper');
-    }//function
+    }
 
     /**
      * Displays the submenu.
@@ -119,5 +122,5 @@ class EasyCreatorViewZiper extends JView
         );
 
         return EcrHtmlMenu::sub($subTasks);
-    }//function
-}//class
+    }
+}

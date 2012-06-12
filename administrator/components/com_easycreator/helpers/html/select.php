@@ -160,6 +160,8 @@ abstract class EcrHtmlSelect
     public static function actions()
     {
         jimport('joomla.filesystem.file');
+
+        //-- aka autoload :P
         JHtml::_('select.option', 'foo');
 
         $options = array();
@@ -174,7 +176,28 @@ abstract class EcrHtmlSelect
 
             $type = JFile::stripExt($fileInfo->getFilename());
 
+            $action = EcrProjectAction::getInstance($type);
+
             $options[] = JHtmlSelect::option($type, EcrProjectAction::getInstance($type)->name);
+        }
+
+        if(JFolder::exists(ECRPATH_DATA.'/actions'))
+        {
+            $fileNames = JFolder::files(ECRPATH_DATA.'/actions', 'php');
+
+            if($fileNames)
+            {
+                foreach($fileNames as $fileName)
+                {
+                    require_once ECRPATH_DATA.'/actions/'.$fileName;
+
+                    $type = JFile::stripExt($fileName);
+
+                    $action = EcrProjectAction::getInstance($type);
+
+                    $options[] = JHtmlSelect::option('ecr_custom_'.$type, EcrProjectAction::getInstance($type)->name);
+                }
+            }
         }
 
         return JHtmlSelect::genericlist($options, 'sel_actions', array('list.attr' => array('class' => 'span2')));
@@ -190,18 +213,89 @@ abstract class EcrHtmlSelect
      */
     public static function yesno($name, $selected)
     {
+        //-- aka autoload :P
         JHtml::_('select.option', 'foo');
 
-        $options = array();
-
-//        $options[] = JHtmlSelect::option('', jgettext('Select...'));
-
-
-            $options[] = JHtmlSelect::option(0, jgettext('No'));
-            $options[] = JHtmlSelect::option(1, jgettext('Yes'));
+        $options = array(
+            JHtmlSelect::option(0, jgettext('No')),
+            JHtmlSelect::option(1, jgettext('Yes')),
+        );
 
         return JHtmlSelect::genericlist($options, $name
             , array('list.attr' => array('class' => 'span1'))
             , 'value', 'text', $selected);
+    }
+
+    /**
+     * @static
+     *
+     * @param EcrProjectBase $project
+     * @param array          $attribs
+     *
+     * @return string
+     */
+    public static function presets(EcrProjectBase $project, array $attribs = array())
+    {
+        //-- aka autoload :P
+        JHtml::_('select.option', 'foo');
+
+        $options = array();
+
+        $attribs = array_merge($attribs, array('class' => 'span2'));
+
+        foreach($project->presets as $k => $v)
+        {
+            $options[] = JHtmlSelect::option($k, ucfirst($k));
+        }
+
+        $selected = $project->defaultPreset;
+
+        return JHtmlSelect::genericlist($options, 'preset'
+            , array('list.attr' => $attribs)
+            , 'value', 'text', $selected);
+    }
+
+    /**
+     * A release state selector.
+     *
+     * @static
+     *
+     * @param array $attribs
+     *
+     * @internal param string $name
+     * @internal param string $selected
+     *
+     * @internal param string $releaseState
+     *
+     * @return string
+     */
+    //$name = 'releaseState', $id = 'releaseState', $selected = 'release')
+    public static function releaseStates(array $attribs = array())
+    {
+        //-- aka autoload :P
+        JHtml::_('select.option', 'foo');
+
+        $attribs = array_merge(array(
+                'name' => 'releaseState',
+                'id' => 'releaseState',
+                'selected' => 'release',
+                'class' => 'span2')
+            , $attribs
+        );
+
+        //$name = isset($attribs['name']) ? $attribs['name']
+
+        $options = array();
+
+        $states = array('release', 'development');
+
+        foreach($states as $state)
+        {
+            $options[] = JHtmlSelect::option($state, ucfirst($state));
+        }
+
+        return JHtmlSelect::genericlist($options, $attribs['name']
+            , $attribs
+            , 'value', 'text', $attribs['selected'], $attribs['id']);
     }
 }

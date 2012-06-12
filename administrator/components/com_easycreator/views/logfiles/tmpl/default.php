@@ -14,12 +14,12 @@ if( ! count($this->logFiles)):
 endif;
 
 //-- Add css
-ecrStylesheet('php_file_tree');
+ecrLoadMedia('php_file_tree');
 
 //-- Add javascript
-ecrScript('php_file_tree', 'log');
+ecrScript('log');
 
-$fileTree = new EcrFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id]');\"", '', array('log'), true);
+$fileTree = new EcrFileTree(ECRPATH_LOGS, '', " onclick=\"EcrLog.loadLog('[file]', '[id]');\"", '', array('log'), true);
 ?>
 
 <h1 style="display: inline;"><span class="img32c icon32-menus"></span><?php echo jgettext('Logfiles'); ?></h1>
@@ -29,7 +29,7 @@ $fileTree = new EcrFileTree(ECRPATH_LOGS, '', " onclick=\"loadLog('[file]', '[id
 </span>
 
 <div class="ecr_floatbox" style="width: 230px;">
-    <div class="btn block" onclick="submitbutton('clear_log');">
+    <div class="btn block" onclick="submitbutton('clearLogfiles');">
         <i class="img icon16-delete"></i>
         <?php echo jgettext('Clear log'); ?>
     </div>

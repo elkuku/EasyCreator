@@ -10,7 +10,7 @@
 $blackList = array('EMAIL@ADDRESS', 'Nikolai Plath', 'nik-it.de');
 $list = array();
 
-//-- they did not get caught by the machine...
+//-- They did not get caught by the machine...
 $list['fr-FR'] = array('crony, 2008');
 $list['pl-PL'] = array('keran, 2008');
 $list['zh-CN'] = array('baijianpeng, 2008');

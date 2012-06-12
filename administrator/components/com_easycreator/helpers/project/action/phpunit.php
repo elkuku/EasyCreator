@@ -1,8 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * User: elkuku
- * Date: 22.05.12
- * Time: 19:28
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 22-May-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 /**
@@ -10,8 +12,6 @@
  */
 class EcrProjectActionPhpunit extends EcrProjectAction
 {
-    protected $type = 'phpunit';
-
     protected $name = 'PHP Unit';
 
     public $filedir = '';
@@ -29,7 +29,6 @@ class EcrProjectActionPhpunit extends EcrProjectAction
      */
     public function getFields($cnt)
     {
-        // TODO: Implement getFields() method.
         $html = array();
 
         $html[] = '<label class="inline2" for="fields_'.$cnt.'_filedir">'.jgettext('File or directory').'</label>';
@@ -59,7 +58,7 @@ class EcrProjectActionPhpunit extends EcrProjectAction
      *
      * @param EcrProjectZiper $ziper
      *
-     * @return bool true if successful, false to interrupt the build process
+     * @return EcrProjectAction
      */
     public function run(EcrProjectZiper $ziper)
     {
@@ -67,10 +66,6 @@ class EcrProjectActionPhpunit extends EcrProjectAction
         $project = $ziper->project;
 
         $logger->log('Executing PHP Unit');
-
-        //$logger->log(print_r($project->copies, 1));
-
-        //$files = implode(' ', $project->copies);
 
         $parts = array(
             'phpunit'
@@ -87,9 +82,14 @@ class EcrProjectActionPhpunit extends EcrProjectAction
 
         $output = shell_exec($cmd.' 2>&1 | tee -a '.$ziper->logFile);
 
-        $log = JFile::read(ECRPATH_LOGS.'/phpunit.log');
+        if(false == JFile::exists(ECRPATH_LOGS.'/phpunit.log'))
+        {
+            $logger->log('PHP Unit Tests failed to run', 'Action', JLog::ERROR);
 
-        // not ok 1 - Failure: PHPHatesMeTest::testAuthor
+            return $this;
+        }
+
+        $log = JFile::read(ECRPATH_LOGS.'/phpunit.log');
 
         //$pattern = "/not ok (\d+) - ([a-Z]+):/";
         $pattern = "/not ok (\d+) - (\w+):/";

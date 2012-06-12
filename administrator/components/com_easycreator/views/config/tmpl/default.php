@@ -7,20 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-ecrStylesheet('config');
+ecrLoadMedia('config');
+
+echo $this->loadTemplate('buttons');
 
 ?>
-<div style="float: right;">
-    <a class="btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;" onclick="submitform('save_config');">
-        <?php if(ECR_TBAR_ICONS) : ?>
-        <i class="img icon16-ecr_save"></i>
-        <br/>
-        <?php endif; ?>
-        <?php echo jgettext('Save'); ?>
-    </a>
-</div>
-
-<div align="center">
+<div>
     <h1>
         <span class="img32c icon32-ecr_config"></span>
         <?php echo sprintf(jgettext('%s Configuration'), 'EasyCreator'); ?>

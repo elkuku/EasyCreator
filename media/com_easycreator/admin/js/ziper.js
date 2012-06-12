@@ -7,9 +7,10 @@
  */
 
 var EcrZiper = new Class({
-    url:'index.php?option=com_easycreator&tmpl=component&format=raw',
+    url:ecrAJAXLink,
 
-    createPackage:function () {
+    createPackage:function()
+    {
         document.id('zipResult').setStyle('display', 'block');
 
         var message = document.id('ajaxMessage');
@@ -22,45 +23,47 @@ var EcrZiper = new Class({
                 + '&' + document.id('adminForm').toQueryString()
                 + '&controller=ziper&task=createPackage',
 
-            'onRequest':function () {
+            'onRequest':function()
+            {
                 message.setStyle('color', 'black');
                 message.className = 'ajax_loading16';
                 message.innerHTML = jgettext('Creating your package...');
                 result.innerHTML = '';
             },
 
-            'onComplete':function (r) {
+            'onComplete':function(r)
+            {
                 var response = JSON.decode(r);
 
                 message.innerHTML = '';
                 message.className = '';
+                document.id('ecrProgressBar').getParent().removeClass('active');
 
-
-                if (response.status) {
+                if(response.status)
+                {
                     message.innerHTML = response.message;
-                    message.setStyle('color', 'red');
+                    //message.setStyle('color', 'red');
+                    result.innerHTML = response.debug;
+                    console.error()
                 }
-                else {
+                else
+                {
                     result.innerHTML = response.message;
                 }
 
                 stopPoll();
             }
         }).send();
-
     },
 
-    deleteZipFile:function (path, file) {
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
-        url += '&controller=ziper&task=delete';
-        url += '&file_path=' + path;
-        url += '&file_name=' + file;
-
+    deleteZipFile:function(path, file)
+    {
         var box = document.id('ajaxMessage');
         var debug = document.id('ajaxDebug');
 
         //-- @Joomla!-version-check
-        switch (ECR_JVERSION) {
+        switch(ECR_JVERSION)
+        {
             case '1.5':
                 var fx = box.effects({
                     duration:1000,
@@ -75,35 +78,45 @@ var EcrZiper = new Class({
             default:
                 alert(jgettext('Undefined Joomla! version: %s', ECR_JVERSION));
                 break;
-        }// switch
+        }
 
         new Request({
-            url:url,
-            onRequest:function () {
+            url:ecrAJAXLink
+                + '&controller=ziper&task=delete'
+                + '&file_path=' + path
+                + '&file_name=' + file,
+
+            onRequest:function()
+            {
                 box.innerHTML = jgettext('Deleting...');
             },
 
-            onComplete:function (response) {
+            onComplete:function(response)
+            {
                 resp = JSON.decode(response);
                 box.set('text', resp.message);
 
                 box.style.color = 'green';
 
-                if (resp.status) {
+                if(resp.status)
+                {
                     box.style.color = 'red';
                     debug = resp.debug;
 
                     return;
-                } else {
+                } else
+                {
                     $('row' + file).setStyle('display', 'none');
                 }
 
                 fx.start({}).chain(
-                    function () {
+                    function()
+                    {
                         this.start.delay(1000, this, {
                             'opacity':0
                         });
-                    }).chain(function () {
+                    }).chain(function()
+                    {
                         box.style.display = "none";
                         this.start.delay(100, this, {
                             'opacity':1
@@ -113,24 +126,177 @@ var EcrZiper = new Class({
         }).send();
     },
 
-    updateName:function (ecr_project) {
-        var url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=ajax';
-        url += '&ecr_project=' + ecr_project;
-        url += '&cst_format=' + document.id('cst_format').value;
-        new Request({
-            url:url + '&task=update_project_name',
-            'onRequest':function () {
-                document.id('ajMessage').className = 'ajax_loading16';
-                document.id('ajMessage').innerHTML = jgettext('Loading...');
-            },
-            'onComplete':function (request) {
-                document.id('ajName').innerHTML = request;
+    updateName:function()
+    {
+        var el = document.id('ajName');
+        var loadStat = document.id('loadStat_filename');
 
-                document.id('ajMessage').innerHTML = '';
-                document.id('ajMessage').className = '';
+        var cst_format = $$('input[name=opt_format]:checked')[0].get('value');
+
+        document.id('cst_format').value = cst_format;
+
+        new Request.JSON({
+            url:ecrAJAXLink
+                + '&controller=ziper&task=updateProjectName'
+                + '&ecr_project=' + document.id('ecr_project').value
+                + '&cst_format=' + cst_format,
+
+            onRequest:function()
+            {
+                loadStat.addClass('ajax_loading16');
+            },
+
+            onFailure:function()
+            {
+                loadStat.removeClass('ajax_loading16');
+            },
+
+            onComplete:function(request)
+            {
+                loadStat.removeClass('ajax_loading16');
+
+                el.innerHTML = request.message;
             }
         }).send();
+    },
+
+    loadPreset:function(el)
+    {
+        new Request.JSON({
+            url:ecrAJAXLink + '&' + document.id('adminForm').toQueryString()
+                + '&controller=stuffer&task=loadPreset',
+
+            'onRequest':function()
+            {
+                el.addClass('ajax_loading16');
+            },
+
+            'onFailure':function()
+            {
+                el.removeClass('ajax_loading16');
+
+                alert(jgettext('The request failed'));
+            },
+
+            'onComplete':function(response)
+            {
+                el.removeClass('ajax_loading16');
+
+                if(undefined == response)
+                    return;
+
+                if(response.status)
+                {
+                    //-- Error
+                    alert(response.message);
+
+                    return;
+                }
+
+                var data = JSON.decode(response.data);
+
+                for(var v in data)
+                {
+                    if('actions' == v)
+                    {
+                        EcrZiper.loadActions(data[v]);
+
+                        continue;
+                    }
+
+                    var elTest = document.id(v);
+
+                    switch(elTest.type)
+                    {
+                        /*
+                         case 'text' :
+                         elTest.value = data[v];
+                         break;
+                         */
+
+                        case 'checkbox' :
+                            elTest.checked = ('1' == data[v]) ? 'checked' : '';
+                            break;
+
+                        case 'radio' :
+                            elTest.value = data[v];
+
+                            var lbl = document.id('lbl_' + elTest.id);
+
+                            if(undefined != lbl)
+                                lbl.set('text', data[v]);
+                            break;
+
+                        case undefined : // a label ?
+                            elTest.innerHTML = data[v];
+                            break;
+
+                        default :
+                            console.warn('UNKNOWN: ' + elTest.type);
+                    }
+                }
+
+                EcrZiper.updateName();
+            }
+        }).send();
+    },
+
+    loadActions:function(actions)
+    {
+        var list = document.id('actionList');
+
+        list.empty();
+
+        var ev = '';
+
+        for(var i = 0; i < actions.length; i++)
+        {
+            var action = JSON.decode(actions[i]);
+
+            var li = new Element('li');
+
+            if('' == ev || ev != action.event)
+            {
+                ev = action.event;
+
+                new Element('li')
+                    .set('html', '<strong>' + ev + '</strong>')
+                    .inject(list);
+            }
+
+            new Element('input', {
+                'type':'checkbox',
+                'name':'actions[]',
+                'id':'action_' + i,
+                'value':i,
+                'checked':'checked'
+            }).inject(li);
+
+            new Element('label', {
+                'class':'inline',
+                'for':'action_' + i
+            }).set('html', action.type).inject(li);
+
+            if('script' == action.type)
+            {
+                /*
+                 $s = (strlen($action->script) > 30)
+                 ? '<span class="hasTip" title="'.$action->script.'">...'
+                 .substr($action->script, strlen($action->script) - 30)
+                 .'</span>'
+                 : $action->script;
+                 */
+                //html += '<code class="scriptName">'+action.script+'</code>';
+                new Element('code', {
+                    'class':'scriptName'
+                }).set('html', action.script).inject(li);
+
+            }
+
+            li.inject(list);
+        }
     }
+
 });
 
 var EcrZiper = new EcrZiper;

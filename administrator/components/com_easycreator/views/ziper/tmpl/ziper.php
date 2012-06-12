@@ -19,37 +19,42 @@ if('package' == $this->project->type
 }
 
 JFactory::getDocument()->addScriptDeclaration(
-    "window.addEvent('domready', function() { EcrZiper.updateName('{$this->ecr_project}'); });");
+    "window.addEvent('domready', function() { EcrZiper.updateName(); });");
 
 ?>
 <div class="ecr_floatbox" style="float: right;">
-    <a href="javascript:;" class="btn btn-success btn-large" onclick="EcrZiper.createPackage();"
-       style="margin: 1em; padding: 1em;">
-        <i class="img32 icon32-ecr_package"></i>
-        <br/>
-        <br/>
-        <?php echo sprintf(jgettext('Create %s'), $this->project->name); ?>
-    </a>
-
-    <div id="ajaxMessage"></div>
-
-    <div id="zipResultLinks"></div>
-
+    <?php echo $this->loadTemplate('button'); ?>
 </div>
-<div class="xclr"></div>
+
+<div class="ecr_floatbox">
+    <strong><?php echo jgettext('Preset'); ?></strong>
+    <?php echo EcrHtmlSelect::presets($this->project
+    , array('onchange' => 'EcrZiper.loadPreset(this);', 'style' => 'font-size: 1.5em;')); ?>
+</div>
+<div class="clr"></div>
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('actions'); ?>
+</div>
+
 
 <div id="zipResult" style="display: none;"></div>
 
 <div class="ecr_floatbox">
     <?php echo $this->loadTemplate('folder'); ?>
 </div>
-<div style="clear: both;"></div>
-<div class="ecr_floatbox">
-    <?php echo $this->loadTemplate('format'); ?>
-</div>
 
 <div class="ecr_floatbox" style="min-width: 300px;">
+    <?php echo $this->loadTemplate('filename'); ?>
+</div>
+
+<div style="xclear: both;"></div>
+
+<div class="ecr_floatbox">
     <?php echo $this->loadTemplate('options'); ?>
+</div>
+
+<div class="ecr_floatbox">
+    <?php echo $this->loadTemplate('easycreator'); ?>
 </div>
 
 <!--
@@ -58,8 +63,9 @@ JFactory::getDocument()->addScriptDeclaration(
 </div>
 -->
 
+
 <div class="ecr_floatbox">
-    <?php echo $this->loadTemplate('actions'); ?>
+    <?php echo $this->loadTemplate('logging'); ?>
 </div>
 
 <div class="clr" style="height: 75px;"></div>

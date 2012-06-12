@@ -8,48 +8,61 @@
 
 var lastId;
 
-/**
- * Loads a log file.
- *
- * @param string name
- * @param string id
- * @return void
- */
-function loadLog(name, id)
-{
-    if( lastId != undefined )
+var EcrLog = new Class({
+    /**
+     * Loads a log file.
+     *
+     * @param string name
+     * @param string id
+     *
+     * @return void
+     */
+    loadLog:function(name, id)
     {
-        $(lastId).setStyles({border: '0px'});
+        if(lastId != undefined)
+        {
+            document.id(lastId).setStyles({border:'0px'});
+        }
+
+        lastId = id;
+        var logView = document.id('ecr_logView');
+        var cl = logView.className;
+
+        new Request.JSON({
+            url:ecrAJAXLink + '&controller=logfiles'
+                + '&task=showLogfile'
+                + '&fileName=' + name,
+
+            'onRequest':function()
+            {
+                logView.addClass('ajax_loading16');
+                logView.innerHTML = jgettext('Loading...');
+                document.id(id).setStyles({ border:'1px solid #000' });
+            },
+            'onComplete':function(resp)
+            {
+                logView.removeClass('ajax_loading16');
+
+                if(resp.status)
+                {
+                    //-- Error
+                    logView.innerHTML = '<strong style="color: red;">' + resp.message + '</strong>'
+                    +'<br />'+resp.debug;
+                } else
+                {
+                    logView.innerHTML = '<pre>' + resp.message + '</pre>';
+                }
+
+                logView.className = cl;
+            },
+
+            onFailure:function()
+            {
+                logView.removeClass('ajax_loading16');
+            }
+        }).send();
     }
 
-    lastId = id;
-    var cl = $('ecr_logView').className;
+});
 
-    var uri = '';
-    uri += 'index.php?option=com_easycreator&controller=ajax&tmpl=component&format=raw';
-    uri += '&task=show_logfile';
-    uri += '&file_name=' + name;
-
-    var a = new Request({
-        url: uri ,
-        'onRequest': function()
-        {
-            $('ecr_logView').className = cl + ' ajax_loading16';
-            $('ecr_logView').innerHTML = jgettext('Loading...');
-            $(id).setStyles({ border: '1px solid #000' });
-        },
-        'onComplete': function(response)
-        {
-             var resp = JSON.decode(response);
-
-             if(resp.status) {
-                 $('ecr_logView').innerHTML = '<pre>' + resp.text + '</pre>';
-             } else {
-                 //-- Error
-                 $('ecr_logView').innerHTML = '<strong style="color: red;">' + resp.message+'</strong>';
-             }
-
-             $('ecr_logView').className = cl;
-        }
-    }).send();
-}//function
+var EcrLog = new EcrLog();

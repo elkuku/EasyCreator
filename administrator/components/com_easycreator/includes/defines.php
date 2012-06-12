@@ -10,37 +10,38 @@
 $params = JComponentHelper::getParams('com_easycreator');
 
 /**
- * The OS specific directory separator - @todo remove ?
+ * The OS specific directory separator -
+ * @todo remove ?
  */
 defined('DS') || define('DS', DIRECTORY_SEPARATOR);
 
 /**
- * A newline character for cleaner HTML styling
+ * A newline character for cleaner HTML styling.
  */
 defined('BR') || define('BR', '<br />');
 
 /**
- * A newline character for cleaner <pre> styling
+ * A newline character for cleaner <pre> styling.
  */
 defined('NL') || define('NL', "\n");
 
 /**
- * Path for extension templates
+ * Path for extension templates.
  */
 define('ECRPATH_EXTENSIONTEMPLATES', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/templates'));
 
 /**
- * Path for AutoCodes
+ * Path for AutoCodes.
  */
 define('ECRPATH_AUTOCODES', JPath::clean(ECRPATH_EXTENSIONTEMPLATES.'/autocodes'));
 
 /**
- * Path for Parts
+ * Path for Parts.
  */
 define('ECRPATH_PARTS', JPath::clean(ECRPATH_EXTENSIONTEMPLATES.'/parts'));
 
 /**
- * Path for Helpers
+ * Path for Helpers.
  */
 define('ECRPATH_HELPERS', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/helpers'));
 
@@ -48,45 +49,46 @@ $dataDir = $params->get('local_data_dir');
 
 if($dataDir)
 {
+    if(0 === strpos($dataDir, 'JROOT'))
+        $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
+
     /**
-     * Path for user data
+     * Path for user data.
      */
-    define('ECRPATH_DATA', JPath::clean(JPATH_ROOT.DIRECTORY_SEPARATOR.$dataDir));
+    define('ECRPATH_DATA', realpath($dataDir));
 }
 else
 {
     /**
-    * Path for user data
-    */
+     * Path for user data.
+     */
     define('ECRPATH_DATA', JPath::clean(JPATH_COMPONENT_ADMINISTRATOR.'/data'));
 }
 
 /**
-* Path for Logs
-*/
+ * Path for Logs.
+ */
 define('ECRPATH_LOGS', JPath::clean(ECRPATH_DATA.'/logs'));
 
 /**
-* Path for Scripts
-*/
+ * Path for Scripts.
+ */
 define('ECRPATH_SCRIPTS', JPath::clean(ECRPATH_DATA.'/projects'));
 
 /**
- * Path for Builds
+ * Path for Builds.
  */
 define('ECRPATH_BUILDS', JPath::clean(ECRPATH_DATA.'/builds'));
 
 /**
- * Path for Exports
+ * Path for Exports.
  */
 define('ECRPATH_EXPORTS', JPath::clean(ECRPATH_DATA.'/exports'));
 
 $parts = explode('.', JVERSION);
 
 if(3 != count($parts))
-{
     throw new Exception(__FILE__.' - Unfortunately we are not able to determine your Joomla! version :( :(');
-}
 
 /**
  * Joomla! version - only the important part..
@@ -103,6 +105,42 @@ define('ECR_DOCU_LINK', 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutze
  */
 define('ECR_HELP', $params->get('ecr_help'));
 
+/**
+ * Display toolbar icons.
+ */
 define('ECR_TBAR_ICONS', $params->get('toolbar_icons', 1));
 
+/**
+ * Toolbar button size.
+ */
 define('ECR_TBAR_SIZE', $params->get('toolbar_size', ' btn-mini'));
+
+$updateserverDir = $params->get('local_updateserver_dir');
+
+if($updateserverDir)
+{
+    if(0 === strpos($dataDir, 'JROOT'))
+        $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
+
+        /**
+         * Path for local update server.
+         */
+        define('ECRPATH_UPDATESERVER', JPath::clean($updateserverDir));
+
+    if(0)
+    {
+        /**
+         * Path for local update server.
+         */
+        define('ECRPATH_UPDATESERVER', JPath::clean(JPATH_ROOT.'/'.$updateserverDir));
+    }
+}
+else
+{
+    /**
+     * Path for local update server.
+     */
+    define('ECRPATH_UPDATESERVER', JPath::clean(ECRPATH_DATA.'/updateserver'));
+}
+
+define('ECRPATH_UPDATESERVER_URL', $params->get('updateserver_url'));

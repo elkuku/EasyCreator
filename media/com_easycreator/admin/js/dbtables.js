@@ -9,35 +9,6 @@
 /**
  *
  */
-//function registerTable(ecr_project, name, id)
-//{
-//    url = 'index.php?option=com_easycreator&tmpl=component&format=raw&controller=stuffer';
-//    url += '&table_name='+name;
-//    url += '&ecr_project='+ecr_project;
-//
-//    if(FBPresent) console.log('adding table'+name);
-//
-//    A = new Request({
-//url: url + '&task=registerTable',
-//    {
-//       'onRequest': function()
-//           {
-//               $(id).innerHTML = 'Registering...';
-//           },
-//       'onComplete': function(request)
-//       {
-//
-//           if(request == '*OK*')
-//           {
-//               alert('BLI');
-//           }
-//           else
-//           {
-//               $(id).innerHTML = request;
-//           }
-//       }
-//    }).send();
-//}//function
 
 function checkTableEditForm(theForm) {
     var atLeastOneField = 0;
@@ -81,7 +52,7 @@ function checkTableEditForm(theForm) {
     }
 
     return true;
-}//function
+}
 
 /**
  * @param elName
@@ -155,7 +126,7 @@ function newRow(elName) {
     obCount++;
 
     $(elName).setStyle('width', obCount * 100)
-}//function
+}
 
 /** @todo DUP ?? */
 function addField() {
@@ -171,7 +142,7 @@ function addField() {
     var div = new Element('div');
     div.innerHTML = add_field_name + s;
     document.id('addField').adopt(div);
-}//function
+}
 
 /**
  *
@@ -182,7 +153,7 @@ function addRelation(tableName) {
     document.id('table_name').value = tableName;
 
     submitform('new_relation');
-}//function
+}
 
 /**
  *
@@ -226,10 +197,10 @@ function dbGetSelectTypes(selected) {
 
     for (var i = 0; i < names.length; i++) {
         new Element('option', {'value':names[i]}).appendText(names[i]).injectInside(select);
-    }//for
+    }
 
     return div;
-}//function
+}
 
 function getTableFieldSelector(tableName, fieldName) {
     url = ecrAJAXLink + '&controller=ajax';
@@ -255,4 +226,4 @@ function getTableFieldSelector(tableName, fieldName) {
             $(fieldName + '_container').className = '';
         }
     }).send();
-}//function
+}

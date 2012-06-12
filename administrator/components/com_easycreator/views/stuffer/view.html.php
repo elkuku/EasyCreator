@@ -26,6 +26,11 @@ class EasyCreatorViewStuffer extends JView
     protected $project;
 
     /**
+     * @var EasyCreatorViewStuffer
+     */
+    protected $lists = array();
+
+    /**
      * @var string
      */
     protected $ecr_project;
@@ -171,6 +176,7 @@ class EasyCreatorViewStuffer extends JView
             $rightTasks[] = array('title' => jgettext('Save')
             , 'description' => jgettext('Save the configuration')
             , 'icon' => 'save'
+            //, 'class' => 'btn-primary'
             , 'task' => 'save_config');
         }
 
@@ -186,6 +192,10 @@ class EasyCreatorViewStuffer extends JView
     {
         $this->projectList = EcrProjectHelper::getProjectList();
         $this->installFiles = EcrProjectHelper::findInstallFiles($this->project);
+
+        $this->lists['presets'] = EcrHtmlSelect::presets(
+            $this->project, array('onchange' => 'Stuffer.loadPreset(this);')
+        );
 
         $this->setLayout('stuffer');
     }

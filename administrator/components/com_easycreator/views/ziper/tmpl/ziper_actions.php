@@ -12,22 +12,41 @@
     <?php echo jgettext('Build actions'); ?>
 </div>
 
-<?php if(count($this->project->actions)) : ?>
+<?php
+if(0 == count($this->preset->actions)) :
+    echo '<p>'.jgettext('No build actions defined').'</p>';
 
-<dl class="dl-horizontal">
-    <?php foreach($this->project->actions as $action): ?>
-    <dt><?php echo $action->trigger; ?></dt>
-    <dd>
-        <?php echo $action->type; ?>
-        <?php if('script' == $action->type) echo '<br />'.$action->script; ?>
-    </dd>
+    return;
+endif;
+
+$event = '';
+?>
+
+<ul class="unstyled buildActions" id="actionList">
+    <?php foreach($this->preset->actions as $i => $action): ?>
+    <?php
+        if('' == $event || $event != $action->event) :
+            $event = $action->event;
+            echo '<li><strong>'.ucfirst($event).'</strong></li>';
+        endif;
+    ?>
+    <li>
+        <input type="checkbox" name="actions[]" id="action_<?php echo $i; ?>"
+               value="<?php echo $i; ?>" checked="checked"/>
+        <label class="inline" for="action_<?php echo $i; ?>">
+            <?php echo $action->type; ?>
+        </label>
+        <?php
+        if('script' == $action->type) :
+            $s = (strlen($action->script) > 30)
+                ? '<span class="hasTip" title="'.$action->script.'">...'
+                    .substr($action->script, strlen($action->script) - 30)
+                    .'</span>'
+                : $action->script;
+
+            echo '<code class="scriptName">'.$s.'</code>';
+        endif;
+        ?>
+    </li>
     <?php endforeach; ?>
-</dl>
-
-<?php else : ?>
-
-<p>
-    <?php echo jgettext('No build actions defined'); ?>
-</p>
-
-<?php endif;
+</ul>

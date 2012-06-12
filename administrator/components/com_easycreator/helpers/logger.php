@@ -265,7 +265,7 @@ class EcrLogger
     {
         if(false == $this->logging
             || ! count($this->log)
-            || $this->hot
+           // || $this->hot
         )
             return true;
 

@@ -795,33 +795,26 @@ class EcrProjectHelper
         //-- Disable libxml errors and allow to fetch error information as needed
         libxml_use_internal_errors(true);
 
-        if($isFile)
-        {
+        $xml = ($isFile)
             //-- Try to load the xml file
-            $xml = simplexml_load_file($data, 'EcrXMLElement');
-        }
-        else
-        {
+            ? simplexml_load_file($data, 'EcrXMLElement')
             //-- Try to load the xml string
-            $xml = simplexml_load_string($data, 'EcrXMLElement');
-        }
+            : $xml = simplexml_load_string($data, 'EcrXMLElement');
 
-        if(empty($xml))
+        if(false === $xml)
         {
             //-- There was an error
             JFactory::getApplication()->enqueueMessage(jgettext('Could not load XML file'), 'error');
 
             if($isFile)
-            {
                 JFactory::getApplication()->enqueueMessage($data, 'error');
-            }
 
             foreach(libxml_get_errors() as $error)
             {
                 JFactory::getApplication()->enqueueMessage('XML: '.$error->message, 'error');
-            }//foreach
+            }
         }
 
         return $xml;
-    }//function
-}//class
+    }
+}

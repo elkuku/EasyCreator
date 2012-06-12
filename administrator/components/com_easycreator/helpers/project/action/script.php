@@ -1,8 +1,10 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
- * User: elkuku
- * Date: 22.05.12
- * Time: 19:28
+ * @package    EasyCreator
+ * @subpackage Helpers
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 22-May-2012
+ * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
 /**
@@ -10,8 +12,6 @@
  */
 class EcrProjectActionScript extends EcrProjectAction
 {
-    protected $type = 'script';
-
     protected $name = 'Script';
 
     public $script = '';
@@ -27,15 +27,13 @@ class EcrProjectActionScript extends EcrProjectAction
      */
     public function getFields($cnt)
     {
-        // TODO: Implement getFields() method.
         $html = array();
 
-        $html[] = '<label class="inline" for="fields_'.$cnt.'_script">'.jgettext('Path').'</label>'
-            .'<input class="span4" type="text" name="fields['.$cnt.'][script]" id="fields_'.$cnt.'_script"'
-            .' value="'.$this->script.'"><br />';
-
-        $html[] = '<label class="inline" for="">'.jgettext('Abort on failure').'</label> '
-            .EcrHtmlSelect::yesno('fields['.$cnt.'][abort]', $this->abort);
+        $html[] = $this->getLabel($cnt, 'script', jgettext('Path'));
+        $html[] = $this->getInput($cnt, 'script', $this->script);
+        $html[] = '<br />';
+        $html[] = $this->getLabel($cnt, '', jgettext('Abort on failure'));
+        $html[] = EcrHtmlSelect::yesno('fields['.$cnt.'][abort]', $this->abort);
 
         return implode("\n", $html);
     }
@@ -45,7 +43,7 @@ class EcrProjectActionScript extends EcrProjectAction
      *
      * @param EcrProjectZiper $ziper
      *
-     * @return bool true if successful, false to interrupt the build process
+     * @return \EcrProjectAction
      */
     public function run(EcrProjectZiper $ziper)
     {
@@ -64,10 +62,28 @@ class EcrProjectActionScript extends EcrProjectAction
 
         system($command.' >> '.$ziper->logFile.' 2>&1', $retVal);
 
-        $ziper->logger->log('Script terminated with exit status: '.$retVal);
+        //$this->abort('ERROR: Script terminated with exit status: '.$retVal, $ziper);
 
         if(0 != $retVal)
         {
+            $this->abort(
+                sprintf('%1$s: %2$s finished with exit status %3$d'
+                    , $this->name, $this->script, $retVal)
+                , $ziper);
+        }
+        else
+        {
+            $ziper->logger->log('Script terminated with exit status 0');
+        }
+
+        /*
+        if(0 == $retVal)
+        {
+        }
+        else
+        {
+            $ziper->logger->log('Script terminated with exit status: '.$retVal);
+
             if($this->abort)
             {
                 $ziper->addFailure(sprintf('%s: %s finished with exit status %d'
@@ -76,5 +92,8 @@ class EcrProjectActionScript extends EcrProjectAction
                 $ziper->setInvalid();
             }
         }
+        */
+
+        return $this;
     }
 }
