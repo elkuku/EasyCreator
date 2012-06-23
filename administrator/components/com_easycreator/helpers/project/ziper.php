@@ -210,7 +210,7 @@ class EcrProjectZiper extends JObject
         foreach($stdOpts as $opt)
         {
             $this->buildopts[$opt] =(array_key_exists($opt, $buildopts) && (true === $buildopts[$opt]))
-                    ? true : false;
+                ? true : false;
         }
 
         //-- Init profiler
@@ -306,7 +306,10 @@ class EcrProjectZiper extends JObject
              */
         }
 
-        if($this->preset->includeEcrProjectfile)
+        //-- If we are building a "package package", override the preset settings from the package
+        //-- with the setting from the request.
+        if($this->preset->includeEcrProjectfile
+            && true == $this->buildopts['include_ecr_projectfile'])
         {
             $src = ECRPATH_SCRIPTS.DS.$this->project->getEcrXmlFileName();
 
@@ -336,7 +339,7 @@ class EcrProjectZiper extends JObject
 
             if(false == JFile::copy($src, $dst))
                 throw new EcrZiperException(sprintf('%s - %s &rArr; %s Failed to copy EasyCreator project xml'
-                , __METHOD__, $src, $dst));
+                    , __METHOD__, $src, $dst));
 
             $this->logger->log('EasyCreator project xml copied');
         }
@@ -381,7 +384,7 @@ class EcrProjectZiper extends JObject
                 if('ini' != JFile::getExt($file) && 'html' != JFile::getExt($file))
                 {
                     if(false == JFile::delete($file))
-                     throw new EcrZiperException(__METHOD__.' - Can not delete language version file: '.$file);
+                        throw new EcrZiperException(__METHOD__.' - Can not delete language version file: '.$file);
 
                     $cnt ++;
                 }
@@ -961,7 +964,7 @@ class EcrProjectZiper extends JObject
 
             if(0 == count($files))
             {
-                $this->logger->log(sprintf('No packages files have been created for project %s', $element), 'ERROR');
+                $this->logger->log(sprintf('No packages files have been created for project %s', $element), 'ERROR', JLog::WARNING);
 
                 continue;
             }
@@ -1428,7 +1431,7 @@ class EcrProjectZiper extends JObject
             , 'text_entry_format' => '{DATETIME}	{PRIORITY}	{MESSAGE}'
             , 'text_file_no_php' => true
             )
-            , JLog::INFO | JLog::ERROR
+            , JLog::INFO | JLog::WARNING | JLog::ERROR
         );
 
         if('' != $entry)
