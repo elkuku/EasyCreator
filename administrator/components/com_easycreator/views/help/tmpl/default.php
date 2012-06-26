@@ -28,7 +28,7 @@
     </p>
 
     <h1>Credits</h1>
-    <ul>
+    <ul class="unstyled">
         <li>
             <strong>Extension templates</strong> see individual templates and most of all <a
             href="http://docs.joomla.org/" class="external">docs.joomla.org</a>

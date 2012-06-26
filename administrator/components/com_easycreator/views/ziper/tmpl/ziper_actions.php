@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="infoHeader">
+<div class="infoHeader img icon24-actions">
     <?php echo jgettext('Build actions'); ?>
 </div>
 
@@ -25,10 +25,10 @@ $event = '';
 <ul class="unstyled buildActions" id="actionList">
     <?php foreach($this->preset->actions as $i => $action): ?>
     <?php
-        if('' == $event || $event != $action->event) :
-            $event = $action->event;
-            echo '<li><strong>'.ucfirst($event).'</strong></li>';
-        endif;
+    if('' == $event || $event != $action->event) :
+        $event = $action->event;
+        echo '<li><strong>'.ucfirst($event).'</strong></li>';
+    endif;
     ?>
     <li>
         <input type="checkbox" name="actions[]" id="action_<?php echo $i; ?>"

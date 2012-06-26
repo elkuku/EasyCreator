@@ -34,10 +34,3 @@ echo "\n\n";
 
 echo htmlentities($f->printPretty());
 echo '</pre>';
-
-
-
-
-
-
-

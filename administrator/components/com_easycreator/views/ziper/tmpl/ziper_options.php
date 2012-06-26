@@ -56,7 +56,6 @@ $preset = $this->preset;
     <label class="inline" for="createIndexhtml"><?php echo jgettext('Create index.html files'); ?></label>
     <br/>
 
-    <?php if($this->project->type == 'component') : ?>
     <input type="checkbox" name="buildopts[]" id="createMD5"
         <?php echo ($preset->createMD5 == 'ON') ? ' checked="checked"' : ''; ?>
            value="createMD5"/>
@@ -70,5 +69,4 @@ $preset = $this->preset;
     </label>
 
     <?php echo EcrHelp::info(jgettext('This will do a small compression on your checksum file'), jgettext('Compress checksum file')); ?>
-    <?php endif; ?>
 </p>

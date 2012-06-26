@@ -83,6 +83,10 @@
     background-image: url(../images/ico/icon-32-delete.png);
 }
 
+.icon24-actions {
+    background-image: url(../images/ico/icon-24-action.png);
+}
+
 .icon24-database {
     background-image: url(../images/ico/icon-24-database.png);
 }
@@ -126,6 +130,10 @@
 
 .icon24-personal {
     background-image: url(../images/ico/icon-24-identity.png);
+}
+
+.icon24-preset {
+    background-image: url(../images/ico/icon-24-preset.png);
 }
 
 .icon24-update {
@@ -540,6 +548,16 @@
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+i.img24 {
+    background-repeat: no-repeat;
+    padding: 0;
+
+margin: 0;
+    display: inline-block;
+    height: 24px;
+width: 26px;
 }
 
 .ajax_loading {

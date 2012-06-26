@@ -49,29 +49,37 @@ class EcrProjectActionTest extends EcrProjectAction
      */
     public function run(EcrProjectZiper $ziper)
     {
-        $command = 'myCustomCommand';
+        $command = $this->foo;
 
         $command = $this->replaceVars($command, $ziper);
 
         $command = escapeshellcmd($command);
 
+        $command .= ' 2>&1';
+
         $ziper->logger->log('Executing: '.$command);
 
-        $output = shell_exec($command.' 2>&1');
+        //-- EXECute it !
+        exec($command, $output, $retVal);
 
-        $ziper->logger->log('Script output:'.$output);
-
-        $anErrorOccured = false;
-
-        if($anErrorOccured)
+        if($retVal)
         {
+            //-- Error code returned
+            $ziper->logger->log('Custom srcipt returned error code: '.$retVal, 'Custom script', JLog::ERROR);
+            $ziper->logger->log(implode("\n", $output), '', JLog::ERROR);
+
             $this->abort(
                 sprintf('%1$s says %2$s :('
                     , $this->name, $this->foo)
                 , $ziper);
         }
+        else
+        {
+            if($output)
+                $ziper->logger->log('Script output: '.implode("\n", $output));
 
-        $ziper->logger->log('Test script executed succesfully :)');
+            $ziper->logger->log('Test script executed succesfully :)');
+        }
 
         return $this;
     }

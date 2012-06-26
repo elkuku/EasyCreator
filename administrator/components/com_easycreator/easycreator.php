@@ -233,6 +233,9 @@ catch(Exception $e)
 {
     EcrHtml::message($e);
     JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+
+    if(ECR_DEBUG)
+        echo '<pre>'.$e->getTraceAsString().'</pre>';
 }
 
 //-- Restore error_reporting

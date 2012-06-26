@@ -22,12 +22,14 @@ JFactory::getDocument()->addScriptDeclaration(
     "window.addEvent('domready', function() { EcrZiper.updateName(); });");
 
 ?>
-<div class="ecr_floatbox" style="float: right;">
+<div class="ecr_floatbox buttonZip">
     <?php echo $this->loadTemplate('button'); ?>
 </div>
 
 <div class="ecr_floatbox">
-    <strong><?php echo jgettext('Preset'); ?></strong>
+    <div class="infoHeader img icon24-preset">
+        <?php echo jgettext('Preset'); ?>
+    </div>
     <?php echo EcrHtmlSelect::presets($this->project
     , array('onchange' => 'EcrZiper.loadPreset(this);', 'style' => 'font-size: 1.5em;')); ?>
 </div>

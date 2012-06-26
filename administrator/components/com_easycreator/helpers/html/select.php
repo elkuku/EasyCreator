@@ -155,9 +155,12 @@ abstract class EcrHtmlSelect
 
     /**
      * @static
+     *
+     * @param array $attribs
+     *
      * @return string
      */
-    public static function actions()
+    public static function actions(array $attribs = array())
     {
         jimport('joomla.filesystem.file');
 
@@ -200,18 +203,25 @@ abstract class EcrHtmlSelect
             }
         }
 
-        return JHtmlSelect::genericlist($options, 'sel_actions', array('list.attr' => array('class' => 'span2')));
+        $attribs = array_merge(array(
+                'class' => 'span2'
+            )
+            , $attribs);
+
+        return JHtmlSelect::genericlist($options, 'sel_actions', array('list.attr' => $attribs));
     }
 
     /**
      * @static
      *
-     * @param $name
-     * @param $selected
+     * @param       $name
+     * @param       $selected
+     *
+     * @param array $attribs
      *
      * @return string
      */
-    public static function yesno($name, $selected)
+    public static function yesno($name, $selected, array $attribs = array())
     {
         //-- aka autoload :P
         JHtml::_('select.option', 'foo');
@@ -221,8 +231,10 @@ abstract class EcrHtmlSelect
             JHtmlSelect::option(1, jgettext('Yes')),
         );
 
+        $attribs = array_merge(array('class' => 'span4'), $attribs);
+
         return JHtmlSelect::genericlist($options, $name
-            , array('list.attr' => array('class' => 'span1'))
+            , array('list.attr' => $attribs)
             , 'value', 'text', $selected);
     }
 
@@ -241,7 +253,7 @@ abstract class EcrHtmlSelect
 
         $options = array();
 
-        $attribs = array_merge($attribs, array('class' => 'span2'));
+      //  $attribs = array_merge($attribs, array('class' => 'span4'));
 
         foreach($project->presets as $k => $v)
         {
@@ -279,7 +291,7 @@ abstract class EcrHtmlSelect
                 'name' => 'releaseState',
                 'id' => 'releaseState',
                 'selected' => 'release',
-                'class' => 'span2')
+                )
             , $attribs
         );
 

@@ -16,6 +16,8 @@ class EcrProjectFeedItem
 
     public $summary = '';
 
+    public $description;
+
     public $content = '';
 
     public $updated = '';

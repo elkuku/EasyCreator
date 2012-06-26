@@ -190,7 +190,6 @@ abstract class EcrProjectAction
     protected function getInput($cnt, $name, $value, array $options = array())
     {
         $options = array_merge(array(
-                'class' => 'span4',
                 'type' => 'text'
             )
             , $options);
@@ -223,7 +222,8 @@ abstract class EcrProjectAction
         $string = str_replace('${j_root}', JPATH_ROOT, $string);
         $string = str_replace('${package_path}', $ziper->preset->buildFolder, $string);
 
-        foreach($ziper->getCreatedFiles() as $filePath)
+        /* @var EcrProjectZiperCreatedfile $file */
+        foreach($ziper->getCreatedFiles() as $file)
         {
             /*
             $path = $download;
@@ -231,7 +231,7 @@ abstract class EcrProjectAction
             if(0 === strpos($download, 'file://'))
                 $path = substr($download, 7);
 */
-            $string = str_replace('${package_'.JFile::getExt($filePath).'}', $filePath, $string);
+            $string = str_replace('${package_'.JFile::getExt($file->name).'}', $file->path, $string);
         }
 
         return $string;
@@ -268,19 +268,10 @@ abstract class EcrProjectAction
      */
     protected function abort($msg, EcrProjectZiper $ziper)
     {
-
         if($this->abort)
-        {
-//            $ziper->addFailure($msg);
-
-//            $ziper->setInvalid();
-
             throw new EcrZiperException($msg, 1);
-        }
-        else
-        {
-            $ziper->logger->log($msg, 'Action', JLog::ERROR);
-        }
+
+        $ziper->logger->log($msg, 'Action', JLog::ERROR);
 
         return $this;
     }

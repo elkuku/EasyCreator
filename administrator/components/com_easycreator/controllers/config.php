@@ -98,7 +98,6 @@ class EasyCreatorControllerConfig extends EcrBaseController
         echo $this->response;
 
         jexit();
-
     }
 
     public function cleanJoomlaTemp()

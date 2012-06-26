@@ -104,8 +104,13 @@ if($this->project->type == 'component'):
     endforeach;
 
     $js[] = '});';
+
     ?>
 <?php endif;
+
+$js[] = "window.addEvent('domready', function() {";
+$js[] = '   Stuffer.init();';
+$js[] = '});';
 
 JFactory::getDocument()->addScriptDeclaration(implode(NL, $js));
 
@@ -118,25 +123,86 @@ ecrScript('addelement', 'menu');
 <input type="hidden" value="0" id="totalPackageElementsModules" />
 <input type="hidden" value="0" id="totalPackageElementsPlugins" />
 
-<!-- Info & credits -->
-<?php
-echo $this->loadTemplate('info');
-echo $this->loadTemplate('credits');
-echo $this->loadTemplate('packing');
 
-if($this->project->type == 'component'):
-    echo $this->loadTemplate('menu');
-    echo $this->loadTemplate('install');
-    echo $this->loadTemplate('package');
-    echo $this->loadTemplate('autocode');
-    echo $this->loadTemplate('dbtypes');
-endif;
+<div class="row-fluid">
+    <div id="actionButtons" class="span3">
 
-echo $this->loadTemplate('language');
-echo $this->loadTemplate('packageelements');
-echo $this->loadTemplate('update');
-echo $this->loadTemplate('deploy');
-?>
+        <a class="btn btn-large" coords="info">
+            <i class="img24 icon24-info"></i>
+            Info
+        </a>
+        <div class="display" title="info">
+            <?php echo $this->loadTemplate('info'); ?>
+            <?php echo $this->loadTemplate('credits'); ?>
+        </div>
+
+        <a class="btn btn-large" coords="options">
+            <i class="img24 icon24-various"></i>
+            Options
+        </a>
+        <div class="display" title="options">
+            <?php
+            if($this->project->type == 'component'):
+                echo $this->loadTemplate('install');
+                echo $this->loadTemplate('package');
+                echo $this->loadTemplate('autocode');
+                echo $this->loadTemplate('dbtypes');
+            endif;
+
+            echo $this->loadTemplate('language');
+            ?>
+
+        </div>
+
+        <?php if($this->project->type == 'component'): ?>
+            <a class="btn btn-large" coords="menu">
+                <i class="img24 icon24-menu"></i>
+                Menu
+            </a>
+            <div class="display" title="menu">
+                <?php echo $this->loadTemplate('menu'); ?>
+            </div>
+        <?php endif; ?>
+
+        <a class="btn btn-large" coords="package">
+            <i class="img24 icon24-package_creation"></i>
+            Package
+        </a>
+        <div class="display" title="package">
+            <?php
+            echo $this->loadTemplate('packing');
+            echo $this->loadTemplate('packageelements');
+            echo $this->loadTemplate('actions');
+            ?>
+        </div>
+
+        <a class="btn btn-large" coords="update">
+            <i class="img24 icon24-update"></i>
+            Update
+        </a>
+        <div class="display" title="update">
+            <?php
+
+            echo $this->loadTemplate('update'); ?>
+        </div>
+
+        <a class="btn btn-large" coords="deploy">
+            <i class="img24 icon24-ecr_deploy"></i>
+            Deploy
+        </a>
+        <div class="display" title="deploy">
+            <?php echo $this->loadTemplate('deploy'); ?>
+        </div>
+
+    </div>
+
+    <div id="actionWindow" class="span9">
+    </div>
+</div>
+
+
+
+
 
 <div style="clear: both; height: 1em;"></div>
 

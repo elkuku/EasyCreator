@@ -1,6 +1,6 @@
 Documentation
 =============
-Documentation can be found on [joomla-nafu.de](http://wiki.joomla-nafu.de/joomla-dokumentation/Benutzer:Elkuku/Proyektz/EasyCreator)
+Documentation can be found on [joomla-wiki.de/elkuku/EasyCreator](http://joomla-wiki.de/joomla-dokumentation/Benutzer:Elkuku/Proyektz/EasyCreator)
 
 have Fun,
 `=;)`

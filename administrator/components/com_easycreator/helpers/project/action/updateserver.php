@@ -68,20 +68,23 @@ class EcrProjectActionUpdateserver extends EcrProjectAction
             return $this->abort('ERROR: No files to transfer', $ziper);
 
         $path = ECRPATH_UPDATESERVER.'/'.$project->comName.'/'.$this->releaseState;
-        $UrlPath = ECRPATH_UPDATESERVER_URL.'/'.$project->comName.'/'.$this->releaseState;
+        $urlPath = ECRPATH_UPDATESERVER_URL.'/'.$project->comName.'/'.$this->releaseState;
 
         $urls = array();
 
+        /* @ var EcrProjectZiperCreatedfile $f */
         foreach($fileList as $f)
         {
-            $dest = $path.'/'.JFile::getName($f);
+            $dest = $path.'/'.$f->name;
 
-            if(false == JFile::copy($f, $dest))
-                return $this->abort(sprintf('ERROR: Can not copy the file %s to %s', $f, $dest), $ziper);
+            if(false == JFile::copy($f->path, $dest))
+                return $this->abort(sprintf('ERROR: Can not copy the file %s to %s', $f->path, $dest), $ziper);
 
-            $ziper->logger->log(sprintf('The file<br />%s<br />has been copied to<br />%s', $f, $dest));
+            $ziper->logger->log(sprintf('The file<br />%s<br />has been copied to<br />%s', $f->path, $dest));
 
-            $urls[] = $UrlPath.'/'.JFile::getName($f);
+            $alternate = $f->alternateDownload;
+
+            $urls[] =($alternate) ? : $urlPath.'/'.$f->name;
         }
 
         $release = new EcrProjectUpdateserverRelease;

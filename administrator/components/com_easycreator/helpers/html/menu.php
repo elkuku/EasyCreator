@@ -255,6 +255,26 @@ class EcrHtmlMenu
 
         $html[] = '<div id="ecr_sub_toolbar" class="btn-group">';
 
+        if($rightTasks)
+        {
+            $html[] = '<div style="float: right;">';
+
+            foreach($rightTasks as $rTask)
+            {
+                $class =(isset($rTask['class'])) ? ' '.$rTask['class'] : '';
+                $html[] = '<a class="btn'.ECR_TBAR_SIZE.$class.'"';
+                $html[] = ' href="javascript:;"';
+                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\', this);">';
+
+                if(ECR_TBAR_ICONS)
+                    $html[] = '<i class="img16a icon16-ecr_'.$rTask['icon'].'"></i><br />';
+
+                $html[] = $rTask['title'].'</a>';
+            }
+
+            $html[] = '</div>';
+        }
+
         foreach($subTasks as $sTask)
         {
             $tasks = (array)$sTask['task'];
@@ -302,26 +322,6 @@ class EcrHtmlMenu
         }
 
         $html[] = '</div>';
-
-        if($rightTasks)
-        {
-            $html[] = '<div style="float: right;">';
-
-            foreach($rightTasks as $rTask)
-            {
-                $class =(isset($rTask['class'])) ? ' '.$rTask['class'] : '';
-                $html[] = '<a class="btn'.ECR_TBAR_SIZE.$class.'"';
-                $html[] = ' href="javascript:;"';
-                $html[] = ' onclick="submitStuffer(\''.$rTask['task'].'\', this);">';
-
-                if(ECR_TBAR_ICONS)
-                    $html[] = '<i class="img16a icon16-ecr_'.$rTask['icon'].'"></i><br />';
-
-                $html[] = $rTask['title'].'</a>';
-            }
-
-            $html[] = '</div>';
-        }
 
         return implode(NL, $html);
     }

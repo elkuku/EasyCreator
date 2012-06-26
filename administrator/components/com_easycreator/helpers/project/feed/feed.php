@@ -14,6 +14,8 @@ class EcrProjectFeed
 
     public $subtitle = '';
 
+    public $description;
+
     public $link = '';
 
     public $author = '';

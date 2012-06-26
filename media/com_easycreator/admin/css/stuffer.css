@@ -110,3 +110,54 @@ div.arrowSeparator span {
     display: table-cell;
     vertical-align: middle;
 }
+
+div#actionButtons a {
+    min-width: 200px;
+    text-align: left;
+}
+
+
+
+/*/#################*/
+
+dl.tabs {
+    float: left;
+    margin: 10px 0 -1px 0;
+    z-index: 50;
+}
+
+dl.tabs dt {
+    float: left;
+    padding: 4px 10px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    margin-left: 3px;
+    background: #f0f0f0;
+    color: #666;
+}
+
+dl.tabs dt.open {
+    background: #F9F9F9;
+    border-bottom: 1px solid #F9F9F9;
+    z-index: 100;
+    color: #000;
+}
+
+div.current {
+    clear: both;
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+}
+
+div.current dd
+{
+    padding: 0;
+    margin: 0;
+}
+
+div.updateServer {
+    border: 1px solid silver;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
