@@ -1,7 +1,7 @@
 <?php
 ##*HEADER*##
 /**
- * Bootstrap file for the Application.
+ * Bootstrap file for the ECR_COM_NAME application.
  */
 
 // Allow the application to run as long as is necessary.
@@ -48,7 +48,7 @@ require_once JPATH_PLATFORM.'/import.php';
 if(! class_exists('JLoader'))
     throw new Exception('Joomla Platform not loaded.', 1);
 
-// Setup the autoloader for the Joomla Pull Request Tester application classes.
+// Setup the autoloader for the ECR_COM_NAME application classes.
 JLoader::registerPrefix('ECR_CLASS_PREFIX', __DIR__);
 
 JLog::addLogger(
