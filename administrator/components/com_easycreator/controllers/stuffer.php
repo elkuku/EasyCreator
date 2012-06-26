@@ -1112,4 +1112,40 @@ class EasyCreatorControllerStuffer extends JController
 
         jexit();
     }
+
+    public function checkDropBox()
+    {
+        require JPATH_COMPONENT.'/helpers/Dropbox/bootstrap.php';
+
+        $input = JFactory::getApplication()->input;
+
+        $key = $input->get('key');
+        $secret = $input->get('seqret');
+
+        $protocol = ( ! empty($_SERVER['HTTPS'])) ? 'https' : 'http';
+        $callback = $protocol.'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        $encrypter = new \Dropbox\OAuth\Storage\Encrypter('12312323423435456654457545646542');
+        $storage = new \Dropbox\OAuth\Storage\Session($encrypter);
+        $OAuth = new \Dropbox\OAuth\Consumer\Curl($key, $secret, $storage, $callback);
+        $dropbox = new \Dropbox\API($OAuth);
+
+        $accountInfo = $dropbox->accountInfo();
+
+        if($accountInfo && '200' == $accountInfo['code'])
+        {
+            EcrHtml::message('Welcome to Dropbox.');
+
+            if(ECR_DEBUG) var_dump($accountInfo);
+        }
+        else
+        {
+            EcrHtml::message('Something went wrong...');
+
+            var_dump($accountInfo);
+        }
+
+        parent::display();
+    }
 }
