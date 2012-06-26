@@ -167,10 +167,13 @@ class EasyCreatorControllerLogfiles extends JController
                 switch($prio)
                 {
                     case 'INFO':
-                        //$prio = '&lt;span style=" color: #00BFFF;&gt;INFO&lt;/span&gt;';
+                        $prio = '<span style=" color: #00BFFF;">INFO</span>';
+                        break;
+                    case 'WARNING':
+                        $prio = '<span style=" color: orange;">WARNING</span>';
                         break;
                     case 'ERROR':
-                        $prio = '<ERROR>';//<span style=" color: #FF0000;>ERROR</span>';
+                        $prio = '<span style=" color: red;">ERROR</span>';
                         break;
                 }
 

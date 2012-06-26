@@ -33,3 +33,12 @@ div.customPath span {
     margin: 2px;
     font-weight: bold;
 }
+
+div.buttonZip {
+    float: right;
+    text-align: center;
+}
+
+div#ecr_logdisplay {
+    text-align: left;
+}

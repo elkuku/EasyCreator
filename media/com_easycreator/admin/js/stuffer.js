@@ -8,6 +8,20 @@
 
 var sortActions;
 
+window.addEvent('domready', function()
+{
+    var mySortables = new Sortables('#package-from, #package-to', {
+        constrain:false,
+        clone:true,
+        revert:true
+    });
+});
+
+/**
+ * @todo move to class
+ * @param type1
+ * @param type2
+ */
 function createFile(type1, type2)
 {
     document.id('type1').value = type1;
@@ -16,6 +30,11 @@ function createFile(type1, type2)
     submitbutton('create_install_file');
 }//function
 
+/**
+ * @todo move to class
+ * @param task
+ * @param el
+ */
 function submitStuffer(task, el)
 {
     el.addClass('ajax_loading16');
@@ -31,8 +50,7 @@ function submitStuffer(task, el)
 
     var inserts = new Array();
 
-    elements.each(function(el)
-    {
+    elements.each(function(el) {
         inserts.push(el.id);
     });
 
@@ -41,34 +59,70 @@ function submitStuffer(task, el)
     submitbutton(task);
 }
 
-window.addEvent('domready', function()
-{
-    var mySortables = new Sortables('#package-from, #package-to', {
-        constrain:false,
-        clone:true,
-        revert:true
-    });
-});
-
 var ecrStuffer = new Class({
     cnt_update:0,
     sortActions:null,
+
+    init:function()
+    {
+        var elements = document.id('actionButtons').getElements('div.display');
+
+        elements.each(function(el) {
+            el.setStyle('display', 'none');
+            el.inject(document.id('actionWindow'));
+        });
+
+        elements[0].setStyle('display', 'block');
+
+        elements = document.id('actionButtons').getElements('a');
+
+        elements.each(function(el) {
+            el.addEvent('mousedown', function(el) {
+                Stuffer.setActive(this.get('coords'));
+
+                document.id('actionButtons').getElements('a').each(function(el, index) {
+                    el.removeClass('active');
+                });
+
+                this.addClass('active');
+            });
+        });
+
+        elements[0].addClass('active');
+    },
+
+    setActive : function(name)
+    {
+        document.id('actionWindow').getElements('div.display').each(function(el){
+            var style =(name == el.get('title')) ? 'block' : 'none';
+            el.setStyle('display', style);
+        });
+    },
 
     addUpdateServer:function(name, url, type, priority)
     {
         var container = document.id('updateServers');
         var html = '';
 
-        html += jgettext('URL') + ': <input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
-        html += jgettext('Name') + ': <input type="text" name="updateServers[name][]" value="' + name + '" /><br />';
-        html += jgettext('Priority') + ': <input type="text" class="span1" name="updateServers[priority][]" value="' + priority + '" /> ';
-        html += jgettext('Type') + ': <input type="text" class="span1" name="updateServers[type][]" value="' + type + '" /><br />';
+ //       html += '<fieldset>';
+
+        html += '<label class="inline">'+jgettext('URL')+'</label>'
+            + '<input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
+        html += '<label class="inline">'+jgettext('Name')+'</label>'
+            + '<input type="text" name="updateServers[name][]" value="' + name + '" /><br />';
+        html += '<label class="inline">'+jgettext('Priority')+'</label>'
+            + '<input type="text" name="updateServers[priority][]" value="' + priority + '" /><br />';
+        html += '<label class="inline">'+jgettext('Type')+'</label>'
+            + '<input type="text" name="updateServers[type][]" value="' + type + '" /><br />';
 
         html += '<br /><span class="btn btn-mini" onclick="this.getParent().dispose();">';
         html += jgettext('Delete');
         html += '</span>';
 
-        new Element('div', {'style':'border: 1px solid silver; padding: 0.4em; margin: 0.2em;'})
+  //      html += '</fieldset>';
+
+
+        new Element('div', {'class':'updateServer'})
             .set('html', html)
             .inject(container);
     },
@@ -162,9 +216,9 @@ var ecrStuffer = new Class({
                     + '</span>'
                     + '</div>';
 
-                html += '<div id="tgl_action_' + cnt + '" style="display: none;">'
+                html += '<div id="tgl_action_' + cnt + '" style="display: none;"><fieldset>'
                     + r.message
-                    + '</div>';
+                    + '</fieldset></div>';
 
                 var li = new Element('li', {'style':'border: 1px solid silver; padding: 0.4em; margin: 0.2em;'})
                     .set('html', html)

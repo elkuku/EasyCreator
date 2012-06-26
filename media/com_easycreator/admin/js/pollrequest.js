@@ -29,7 +29,7 @@ var pollRequest = new Request.JSON({
         if(null != progress)
             progress.setStyle('width', response.progress + '%');
 
-        log.set('text', response.message);
+        log.set('html', response.message.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2'));
         log.scrollTop = log.scrollHeight;
     },
 

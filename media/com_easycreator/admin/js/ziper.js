@@ -42,9 +42,7 @@ var EcrZiper = new Class({
                 if(response.status)
                 {
                     message.innerHTML = response.message;
-                    //message.setStyle('color', 'red');
                     result.innerHTML = response.debug;
-                    console.error()
                 }
                 else
                 {
@@ -203,8 +201,11 @@ var EcrZiper = new Class({
 
                         continue;
                     }
-
+console.log(v);
                     var elTest = document.id(v);
+
+                    if(null == elTest)
+                        continue;
 
                     switch(elTest.type)
                     {

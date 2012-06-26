@@ -29,6 +29,11 @@ class EcrProjectZiper extends JObject
 
     private $downloadLinks = array();
 
+    private $alternateDownloadLinks = array();
+
+    /**
+     * @var array of EcrProjectZiperCreatedfile objects
+     */
     private $createdFiles = array();
 
     /**
@@ -964,12 +969,13 @@ class EcrProjectZiper extends JObject
 
             if(0 == count($files))
             {
-                $this->logger->log(sprintf('No packages files have been created for project %s', $element), 'ERROR', JLog::WARNING);
+                $this->logger->log(sprintf('No packages files have been created for project %s', $element)
+                    , 'ERROR', JLog::WARNING);
 
                 continue;
             }
 
-            $src = $files[0];
+            $src = $files[0]->name;
             $fName = JFile::getName($src);
 
             //-- Set the elemnent path for manifest class
@@ -1062,7 +1068,7 @@ class EcrProjectZiper extends JObject
 
                 if(file_exists($tmp_dest.DS.$srcFileName))
                 {
-                    $this->logger->log('File: '.$srcFileName, 'already exists');
+                    $this->logger->log('File: '.$srcFileName.' already exists');
                 }
                 else
                 {
@@ -1323,7 +1329,15 @@ class EcrProjectZiper extends JObject
 
             $this->logger->log('Packing routine for '.$ext.' finished');
             $this->downloadLinks[] = $hrefBase.'/'.$fileName.'.'.$ext;
+
+            /*
+            $f = new EcrProjectZiperCreatedfile($zipDir.DS.$fileName.'.'.$ext);
             $this->createdFiles[] = $zipDir.DS.$fileName.'.'.$ext;
+            $f = new EcrProjectZiperCreatedfile($zipDir.DS.$fileName.'.'.$ext);
+            */
+
+            $this->createdFiles[] = new EcrProjectZiperCreatedfile($zipDir.DS.$fileName.'.'.$ext
+                , $hrefBase.'/'.$fileName.'.'.$ext);
         }
 
         return $this;
@@ -1340,7 +1354,8 @@ class EcrProjectZiper extends JObject
     {
         if(ECR_DEBUG)
         {
-            $this->logger->log('The build folder<br />'.$this->temp_dir.'<br />will not be deleted in debug mode.');
+            $this->logger->log('The build folder will not be deleted in debug mode.<br />'
+                .$this->temp_dir, '', JLog::WARNING);
 
             return $this;
         }
@@ -1348,7 +1363,7 @@ class EcrProjectZiper extends JObject
         if(false == JFolder::delete($this->temp_dir))
             throw new EcrZiperException(__METHOD__.'Unable to delete<br />'.$this->temp_dir);
 
-        $this->logger->log('The build folder<br />'.$this->temp_dir.'<br />has been sucessfully deleted.');
+        $this->logger->log('The build folder has been sucessfully deleted.');
 
         return $this;
     }
@@ -1366,11 +1381,43 @@ class EcrProjectZiper extends JObject
     /**
      * Get a list of created files.
      *
-     * @return array
+     * @return array of EcrProjectZiperCreatedfile objects
      */
     public function getCreatedFiles()
     {
         return $this->createdFiles;
+    }
+
+    /**
+     * Modifies a download link.
+     *
+     * @param integer $index
+     *
+     * @param string  $link
+     *
+     * @throws UnexpectedValueException
+     * @return void
+     */
+    public function setAlternateDownloadLink($index, $link)
+    {
+        if(false == array_key_exists($index, $this->downloadLinks))
+            throw new UnexpectedValueException(sprintf('%s - The download index %s does not exist'
+            ,__METHOD__, $index));
+
+        $this->alternateDownloadLinks[$index] = $link;
+    }
+
+    /**
+     * Get an alternate download link.
+     *
+     * @param integer $index
+     *
+     * @return string
+     */
+    public function getAlternateDownloadLink($index)
+    {
+        return (array_key_exists($index, $this->alternateDownloadLinks))
+            ? $this->alternateDownloadLinks[$index] : '';
     }
 
     /**

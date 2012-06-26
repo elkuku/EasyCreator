@@ -35,7 +35,6 @@ var EcrLogconsole = new Class({
                 containers.status.className = '';
 
                 if(resp.status) {
-  //                  containers.status.style.color = 'red';
                     containers.status.innerHTML = resp.message;
                     containers.debug.innerHTML = resp.debug;
                 } else {

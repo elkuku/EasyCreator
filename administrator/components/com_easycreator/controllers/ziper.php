@@ -124,7 +124,7 @@ class EasyCreatorControllerZIPer extends JController
             $result->result = $ziper->create($project, $preset, $buildOpts);
             $result->errors = $ziper->getErrors();
 
-            $result->downloadLinks = $ziper->getDownloadLinks();
+            $result->downloadLinks = $ziper->getCreatedFiles();
             $result->log = $ziper->printLog();
 
             if($result->errors)
@@ -144,9 +144,14 @@ class EasyCreatorControllerZIPer extends JController
                     $m .= '<ul class="downloadLinks">';
                     $m .= '<li><strong>'.jgettext('Downloads').'</strong></li>';
 
+                    /* @var EcrProjectZiperCreatedfile $link */
                     foreach($result->downloadLinks as $link)
                     {
-                        $m .= '<li><a href="'.$link.'">'.JFile::getName(JPath::clean($link)).'</a></li>';
+                        $alt =($link->alternateDownload)
+                            ? ' (<a href="'.$link->alternateDownload.'">'.$link->alternateDownload.'</a>)'
+                            : '';
+
+                        $m .= '<li><a href="'.$link->downloadUrl.'">'.$link->name.'</a><'.$alt.'/li>';
                     }
 
                     $m .= '</ul>';

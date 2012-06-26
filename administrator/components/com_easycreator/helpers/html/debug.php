@@ -38,9 +38,9 @@ abstract class EcrHtmlDebug
 
         $html[] = '<div id="ecrDebugBoxConsole">';
         $html[] = '   <div id="pollStatusGrip">&uArr;&dArr;</div>';
-        $html[] = '   <div id="pollStatus"></div>';
+        $html[] = '   <div id="pollStatus">idle</div>';
         $html[] = '   <div class="debugTitle">'.jgettext('Log console').'</div>';
-        $html[] = '   <pre id="ecrDebugBox"></pre>';
+        $html[] = '   <div id="ecrDebugBox"></div>';
         $html[] = '</div>';
 
         return implode(NL, $html);

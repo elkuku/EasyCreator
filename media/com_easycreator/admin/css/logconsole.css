@@ -20,6 +20,8 @@ div#ecrDebugBoxConsole div.debugTitle {
 div#pollStatus {
     float: left;
     background-color: white;
+    min-width: 100px;
+    text-align: center;
 }
 div#pollStatusGrip {
     background-color: yellow;
@@ -29,12 +31,14 @@ div#pollStatusGrip {
     line-height: 1em;
 }
 
-pre#ecrDebugBox {
+div#ecrDebugBox {
     background-color: black;
     color: white;
     font-size: 12px;
     height: 100%;
     padding: 0.5em;
+    padding-bottom: 0;
     overflow: auto;
     margin: 0;
+    font-family: monospace;
 }
