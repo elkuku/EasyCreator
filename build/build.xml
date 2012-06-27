@@ -115,7 +115,7 @@
             <arg value="--report=checkstyle"/>
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml"/>
             <arg value="--standard=KuKu"/>
-            <arg value="--ignore=*/tests/*,*/krumo_*,*/pchart/*,*/pear/*,*/complements/*,*/templates/*,DifferenceEngine.php,*/Dropbox/*,*/editarea*,*/highcharts*"/>
+            <arg value="--ignore=*.min.js,*.min.css,*/tests/*,*/krumo_*,*/pchart/*,*/pear/*,*/complements/*,*/templates/*,DifferenceEngine.php,*/Dropbox/*,*/editarea*,*/highcharts*"/>
             <arg path="${basedir}"/>
         </exec>
     </target>
