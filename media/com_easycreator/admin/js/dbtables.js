@@ -238,6 +238,7 @@ function getTableFieldSelector(tableName, fieldName)
             {
                 //-- Error
             }
+
             $(fieldName + '_container').innerHTML = resp.text;
             $(fieldName + '_container').className = '';
         }

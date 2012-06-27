@@ -110,8 +110,6 @@ var ecrStuffer = new Class({
         var container = document.id('updateServers');
         var html = '';
 
-        //       html += '<fieldset>';
-
         html += '<label class="inline">' + jgettext('URL') + '</label>'
             + '<input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
         html += '<label class="inline">' + jgettext('Name') + '</label>'
@@ -124,9 +122,6 @@ var ecrStuffer = new Class({
         html += '<br /><span class="btn btn-mini" onclick="this.getParent().dispose();">';
         html += jgettext('Delete');
         html += '</span>';
-
-        //      html += '</fieldset>';
-
 
         new Element('div', {'class':'updateServer'})
             .set('html', html)
@@ -159,7 +154,6 @@ var ecrStuffer = new Class({
 
     addAction:function(type, event, options)
     {
-
         this.cnt_update += 1;
         event = (undefined == event) ? '' : event;
         options.event = event;
@@ -343,9 +337,6 @@ var ecrStuffer = new Class({
 
                 for(v in data)
                 {
-                    //console.log(v);
-                    //console.log(data[v]);
-
                     if('actions' == v)
                     {
                         console.log('actions...');
@@ -359,10 +350,7 @@ var ecrStuffer = new Class({
 
                         document.id('container_action').getChildren().each(function(el)
                         {
-                            //console.log(el);
-                            //console.log(el.getTitle());
                         });
-
 
                         for(var i = 0; i < data[v].length; i++)
                         {
@@ -370,15 +358,10 @@ var ecrStuffer = new Class({
                             console.info(action);
                             Stuffer.addAction(action.type, action.event, action);
                         }
-
                     }
                     else
                     {
                         var elTest = document.id(v);
-
-                        //console.log(elTest);
-
-                        //console.log(elTest.type);
 
                         switch(elTest.type)
                         {

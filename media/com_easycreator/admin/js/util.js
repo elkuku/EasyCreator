@@ -25,7 +25,6 @@ var yMousePos = 0; // ordinate
 // -- Capture the position, again depending on client's browser
 function captureMousePosition(e)
 {
-
     if(document.layers)
     {
         xMousePos = e.pageX;
@@ -39,4 +38,4 @@ function captureMousePosition(e)
         xMousePos = e.pageX;
         yMousePos = e.pageY;
     }
-}//function
+}

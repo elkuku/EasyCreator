@@ -10,6 +10,7 @@ function addNewElement(fields)
 {
     aFields = fields.split(',');
     valid = true;
+
     for(var i = 0; i < aFields.length; i++)
     {
         eName = aFields[i].replace(/^\s+/, '');
@@ -31,7 +32,7 @@ function addNewElement(fields)
                     });
             }
         }
-    }// for
+    }
 
     if(!valid)
     {
@@ -47,19 +48,20 @@ function addNewElement(fields)
                 duration:1500
             }).start(1);
         div_new_element.slideIn();
-        return;
+
+        return '';
     } else
     {
         submitform('new_element');
     }
-}//function
+}
 
 function removeElement(divNum, divName)
 {
     var d = document.getElementById(divName);
     var olddiv = document.getElementById(divNum);
     d.removeChild(olddiv);
-}//function
+}
 
 function getTableFields(tableName)
 {
@@ -75,7 +77,7 @@ function getTableFields(tableName)
             div_new_element.show();
         }
     }).send();
-}//function
+}
 
 function explode(delimiter, string, limit)
 {
@@ -160,7 +162,7 @@ function addPackageElement(type, client, name, title, position, ordering)
             alert('UNDEFINED ' + type);
             return;
             break;
-    }//switch
+    }
 
     var newdiv = document.createElement('div');
 
@@ -194,11 +196,13 @@ function addPackageElement(type, client, name, title, position, ordering)
     html += '</td>';
     html += "</tr><tr>";
     html += '<td>';
+
     if(type != 'plugin')
     {
         html += '<span class="ecr_label2">Position</span><input type="text" name="package_'
             + type + '[' + num + '][position]" value="' + position + '">';
     }
+
     html += '<span class="ecr_label2">ordering</span><input type="text" name="package_'
         + type + '[' + num + '][ordering]" value="' + ordering + '">';
     html += '</td>';
@@ -206,7 +210,7 @@ function addPackageElement(type, client, name, title, position, ordering)
 
     newdiv.innerHTML = html;
     ni.appendChild(newdiv);
-}//function
+}
 
 function projectSelector(type, num, selected)
 {
@@ -216,19 +220,23 @@ function projectSelector(type, num, selected)
         + '" onchange="updateProject(\'' + type + '\', \'' + num
         + '\');" style="font-size: 1.3em;">';
     html += "<option value=''>" + jgettext('Select...') + "</option>\n";
+
     for(var key in definedProjects[type + 's'])
     {
-        html += "<option value='" + key + "'"
+        html += "<option value='" + key + "'";
+
         if(key == selected)
         {
             html += " selected='selected'";
         }
+
         html += ">" + key + "</option>\n";
-    }// for
+    }
+
     html += "</select>\n";
 
     return html;
-}//function
+}
 
 function updateProject(type, num)
 {
@@ -238,4 +246,4 @@ function updateProject(type, num)
 
     $('package_' + type + '_' + num + '_name').value = name;
     $('package_' + type + '_' + num + '_client').value = client;
-}//function
+}

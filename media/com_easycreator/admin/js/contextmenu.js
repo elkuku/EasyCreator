@@ -22,7 +22,6 @@ var SimpleContextMenu = {
     // public method. Sets up whole context menu stuff..
     setup:function(conf)
     {
-
         if(document.all && document.getElementById && !window.opera)
         {
             SimpleContextMenu.IE = true;
@@ -58,7 +57,6 @@ var SimpleContextMenu = {
     // public method. Attaches context menus to specific class names
     attach:function(classNames, menuId)
     {
-
         if(typeof(classNames) == "string")
         {
             SimpleContextMenu._menus[classNames] = menuId;
@@ -71,13 +69,11 @@ var SimpleContextMenu = {
                 SimpleContextMenu._menus[classNames[x]] = menuId;
             }
         }
-
     },
 
     // private method. Get which context menu to show
     _getMenuElementId:function(e)
     {
-
         if(SimpleContextMenu.IE)
         {
             SimpleContextMenu._attachedElement = event.srcElement;
@@ -114,13 +110,11 @@ var SimpleContextMenu = {
         }
 
         return null;
-
     },
 
     // private method. Shows context menu
     _getReturnValue:function(e)
     {
-
         var returnValue = true;
         var evt = SimpleContextMenu.IE ? window.event : e;
 
@@ -185,18 +179,15 @@ var SimpleContextMenu = {
     // private method. Hides context menu
     _hide:function()
     {
-
         if(SimpleContextMenu._menuElement)
         {
             SimpleContextMenu._menuElement.style.display = 'none';
         }
-
     },
 
     // private method. Returns mouse position
     _getMousePosition:function(e)
     {
-
         e = e ? e : window.event;
         var position = {
             'x':e.clientX,
@@ -209,7 +200,6 @@ var SimpleContextMenu = {
     // private method. Get document scroll position
     _getScrollPosition:function()
     {
-
         var x = 0;
         var y = 0;
 
@@ -287,8 +277,7 @@ function setAction(event, folder, file, fieldName)
             ecr_act_field = fieldName;
         }
     }
-
-}//function
+}
 
 function processForm(bla)
 {

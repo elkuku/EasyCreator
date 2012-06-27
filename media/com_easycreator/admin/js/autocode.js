@@ -49,7 +49,7 @@ function loadAutoCode(ecr_project, action, group, element, scope, part)
     }).send();
 
     return false;
-}//function
+}
 
 function loadPart(ecr_project, action, type, element, scope)
 {
@@ -59,6 +59,7 @@ function loadPart(ecr_project, action, type, element, scope)
 
     url = ecrAJAXLink + '&controller=ajax';
     url += '&ecr_project=' + ecr_project;
+
     switch(action)
     {
         case 'new':
@@ -71,8 +72,8 @@ function loadPart(ecr_project, action, type, element, scope)
         default:
             alert('Undefined: ' + action);
             break;
-
     }
+
     dDiv = $('addPartShow');
 
     oDiv = $('addBox');
@@ -84,6 +85,7 @@ function loadPart(ecr_project, action, type, element, scope)
     dDiv.className = ' img ajax_loading16';
 
     dDiv.innerHTML = jgettext('Loading...');
+
     switch(type)
     {
         case 'tableclass':
@@ -131,9 +133,9 @@ function loadPart(ecr_project, action, type, element, scope)
     }).send();
 
     return false;
-}//function
+}
 
 function updateAutoCode()
 {
     submitform('autocode_update');
-}//function
+}

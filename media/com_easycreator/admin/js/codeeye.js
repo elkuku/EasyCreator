@@ -22,7 +22,7 @@ function setPath(folder, file)
     {
         $('dspl_sniff_file').innerHTML = (file) ? file : '';
     }
-}//function
+}
 
 /**
  * Run a PHPUnit test.
@@ -103,7 +103,7 @@ function doPHPUnit(folder, test, timeStamp, id)
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}
 
 /**
  * Run a Selenium test.
@@ -147,8 +147,7 @@ function doSelenium(folder, test, timeStamp, id)
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-
-}//function
+}
 
 /**
  *
@@ -181,13 +180,14 @@ function doPHPCPD(ecr_project)
             {
                 //-- Error
             }
+
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}
 
 /**
  *
@@ -245,13 +245,14 @@ function doPHPDoc(dirs, files)
             {
                 //-- Error
             }
+
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}
 
 /**
  *
@@ -268,7 +269,7 @@ function sniffFolder()
     }
 
     loadSniff(folder);
-}//function
+}
 
 /**
  *
@@ -309,7 +310,6 @@ function loadSniff(folder, file)
     {
         url += '&sniff_sniffs=' + sniffs;
     }
-
 
     //////////////
 
@@ -360,11 +360,12 @@ function loadSniff(folder, file)
             {
                 //-- Error
             }
+
             $('ecr_codeeye_output').innerHTML = resp.message;
             $('ecr_codeeye_console').innerHTML = resp.debug;
         }
     }).send();
-}//function
+}
 
 function create_skeleton(folder, file)
 {
@@ -396,7 +397,6 @@ function create_skeleton(folder, file)
             }
             else
             {
-
                 $('ecr_codeeye_output').innerHTML = resp.text;
                 $('ecr_codeeye_console').innerHTML = resp.console;
 
@@ -425,7 +425,7 @@ function create_skeleton(folder, file)
             }
         }//onComplete
     }).send();
-}//function
+}
 
 function draw_test_dir(testDir)
 {
@@ -447,13 +447,14 @@ function draw_test_dir(testDir)
             {
                 //-- Error
             }
+
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
             $('test_tree').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}
 
 /**
  *
@@ -479,13 +480,14 @@ function checkEnvironment()
             {
                 //-- Error
             }
+
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
             $('ecr_codeeye_output').innerHTML = resp.text;
             $('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}
 
 /**
  * Git stuff
@@ -515,7 +517,7 @@ function gitStatus()
             document.id('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}
 
 /**
  * Run a PHP CLI script
@@ -574,8 +576,9 @@ function phploc(dir)
             {
                 //-- Error
             }
+
             document.id('ecr_codeeye_output').innerHTML = resp.text;
             document.id('ecr_codeeye_console').innerHTML = resp.console;
         }
     }).send();
-}//function
+}

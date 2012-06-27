@@ -201,6 +201,7 @@ var EcrZiper = new Class({
 
                         continue;
                     }
+
                     console.log(v);
                     var elTest = document.id(v);
 
@@ -291,13 +292,11 @@ var EcrZiper = new Class({
                 new Element('code', {
                     'class':'scriptName'
                 }).set('html', action.script).inject(li);
-
             }
 
             li.inject(list);
         }
     }
-
 });
 
 var EcrZiper = new EcrZiper;

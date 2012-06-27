@@ -145,7 +145,6 @@ var EcrDeploy = new Class({
      */
     getSyncList:function(deployTarget)
     {
-
         var containers = {
             status:document.id('syncList'),
             debug:document.id('syncList'),
@@ -195,7 +194,6 @@ var EcrDeploy = new Class({
                 , php2js.sprintf(jgettext('Deleting files on: %s'), deployTarget)
                 , 'getPackageList', deployTarget
             );
-
         }
         catch(e)
         {
@@ -224,7 +222,6 @@ var EcrDeploy = new Class({
             this._send(containers, data
                 , php2js.sprintf(jgettext('Synchronizing files on: %s'), deployTarget)
             );
-
         }
         catch(e)
         {
@@ -265,7 +262,6 @@ var EcrDeploy = new Class({
         div.set('html', html);
 
         div.inject(container);
-
     },
 
     addUpdateFiles:function(target)
@@ -433,7 +429,6 @@ var EcrDeploy = new Class({
 
         return data;
     }
-
 });
 
 var EcrDeploy = new EcrDeploy;

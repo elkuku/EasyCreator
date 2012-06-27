@@ -47,7 +47,6 @@ function init_php_file_tree()
                 {
                     submenu[j].onclick = function()
                     {
-
                         var node = this.nextSibling;
 
                         while(1)
@@ -67,19 +66,20 @@ function init_php_file_tree()
                             {
                                 return false;
                             }
-                        }// while
+                        }
                         return false;
                     }
+
                     submenu[j].className = (mclass.indexOf('open') > -1) ? 'open' : 'closed';
                 }
 
                 if(submenu[j].tagName == 'UL')
                     submenu[j].style.display = (mclass.indexOf('open') > -1) ? 'block' : 'none';
-            }// for
+            }
         }
-    }// for
+    }
 
     return false;
-}//function
+}
 
 window.onload = init_php_file_tree;

@@ -62,7 +62,6 @@ var EcrLog = new Class({
             }
         }).send();
     }
-
 });
 
 var EcrLog = new EcrLog();

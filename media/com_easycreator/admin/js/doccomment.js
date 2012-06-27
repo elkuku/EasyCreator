@@ -13,7 +13,6 @@ window.addEvent('domready', function()
             className:'doccomment', // this is the prefix for the CSS class
             initialize:function()
             {
-
                 this.fx = new Fx.Tween(this.toolTip, $extend({property:'opacity'}),
                     {
                         duration:500,
@@ -22,12 +21,10 @@ window.addEvent('domready', function()
             },
             onShow:function(toolTip)
             {
-
                 this.fx.start(1);
             },
             onHide:function(toolTip)
             {
-
                 this.fx.start(0);
             }
         });

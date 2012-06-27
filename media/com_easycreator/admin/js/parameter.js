@@ -53,6 +53,7 @@ if(FBPresent) console.log(paramTypes);
 
 // --define the fields
 var defaultFields = new Array('label', 'default', 'description');
+
 var optionalFields = new Array(
     'class', 'client', 'cols', 'directory', 'exclude', 'filter', 'format'
     , 'hide_none', 'hide_default', 'key_field', 'multiple', 'query'
@@ -61,16 +62,13 @@ var optionalFields = new Array(
 var NL = "\n";
 var jscnt_spacers = 0;
 
-// var paramSliders = new Array();
-// var sliderCount = 0;
-
 function addGroup(name)
 {
     html = "<div id='div-group-" + name + "'><h1>" + name + "</h1></div>";
     $('divParameters').innerHTML += html;
 
     new Element('option', { text:name }).inject($('addParamGroup'));
-}//function
+}
 
 function newParameter()
 {
@@ -90,7 +88,7 @@ function newParameter()
         $('addParamName').focus();
         div_new_parameter.slideIn();
 
-        return;
+        return '';
     }
     else
     {
@@ -101,7 +99,7 @@ function newParameter()
         $('addParamName').value = '';
         div_new_parameter.slideOut();
     }
-}//function
+}
 
 function startParam(groupName, attribs, children)
 {
@@ -116,16 +114,13 @@ function startParam(groupName, attribs, children)
     }
 
     html = "";
-// html += NL+"<div class='ecr_toggle' id='"+tName+"-toggler'
-// onclick='paramSliders["+sliderCount+"].toggle();'>";
+
     html += NL + "<div class='ecr_toggle' id='" + tName + "-toggler' " + 'onclick="toggleDiv(\'' + tName + '-slider\');"' + '>';
     html += NL + "<span id='" + attribs.name + "-type' style='color: blue;'>" + attribs.type + "</span>&nbsp:&nbsp;";
     html += NL + "<span id='" + tName + "-name'>" + attribs.name + "</span>";
     html += NL + "</div>";
-    //html += NL+"</td></tr><tr><td>";
-//    html += '<div style="visibility: collapse;">'
+
     html += "<table id='" + tName + "-slider' style='display: none;'><tr><td>";
-    //html += "<div class='moofx-slider' id='"+tName+"-slider'>";
     html += "<table style='border: 1px dotted black;'>" + NL;
     html += "    <tr valign='top'>" + NL;
     html += "        <td>" + NL;
@@ -137,7 +132,6 @@ function startParam(groupName, attribs, children)
     html += drawTypeSelector(groupName, attribs.name, attribs.type);
 
     html += "                        Name";// TODO: <?php echo
-    // JText::_('Name'); ?>";
     html += NL + "<input type='text' name='params[" + groupName + "][" + attribs.name + "][name]' id='namefield_" + attribs.name + "' value='" + attribs.name + "' onkeyup=\"$('" + tName + "-name').innerHTML=$('namefield_" + attribs.name + "').value;\"/>";
     html += "                    </td>" + NL;
     html += "                </tr>" + NL;
@@ -152,7 +146,7 @@ function startParam(groupName, attribs, children)
         html += "<input type='text' name='params[" + groupName + "][" + attribs.name + "][" + defaultFields[i] + "]' value='" + tValue + "' />";
         html += "                </td>" + NL;
         html += "            </tr>" + NL;
-    }// for
+    }
 
     // --draw extra fields--(paramTypes)
     for(var i = 0, len = optionalFields.length; i < len; ++i)
@@ -164,7 +158,7 @@ function startParam(groupName, attribs, children)
         html += "<input type='text' name='params[" + groupName + "][" + attribs.name + "][" + optionalFields[i] + "]' value='" + tValue + "' />";
         html += "                </td>" + NL;
         html += "            </tr>" + NL;
-    }// for
+    }
 
     html += "            </table>" + NL;
     html += "        </td>" + NL;
@@ -194,49 +188,21 @@ function startParam(groupName, attribs, children)
         html += "                </td>" + NL;
         html += "            </tr>" + NL;
         i++;
-    }// for
+    }
 
     if(i > 0) i -= 1;
     html += "            </table>" + NL;
     html += "         </td>" + NL;
     html += "     </tr>" + NL;
     html += "</table>" + NL;
-    //html += "</div>";
     html += "</td></tr></table>";
-
-//    html += '</div>'
 
     // --add the whole thingy to the page.. TODO other option ???
     $("div-group-" + groupName).innerHTML += html;
-    // tName+"-slider
-// paramSliders[sliderCount] = new Fx.Slide(tName+'-slider');
-// paramSliders[sliderCount].hide();
-// sliderCount ++;
+
     // --show or hide panels
     switchType(attribs.name, attribs.type);
-
-
-// new Accordion(
-// $('div_'+attribs.name+'-toggler')
-// , $('div_'+attribs.name+'-slider')
-// , {
-// onActive: function(toggler, i)
-// {
-// toggler.addClass('moofx-toggler-down');
-// }
-// ,onBackground: function(toggler, i)
-// {
-// toggler.removeClass('moofx-toggler-down');
-// }
-// ,duration: 300
-// ,opacity: false
-// , alwaysHide:true
-// , show: 1
-// });
-
-
-// if(FBPresent) console.log(html);
-}//function
+}
 
 function addOption(groupName, ctrlName, value, data)
 {
@@ -245,6 +211,7 @@ function addOption(groupName, ctrlName, value, data)
     // --get index from hidden form field
     num = parseInt($(ctrlName + '-options').value);
     num += 1;
+
     // --write index to hidden form field
     $(ctrlName + '-options').value = num;
 
@@ -261,8 +228,7 @@ function addOption(groupName, ctrlName, value, data)
     html += "            </tr>" + NL;
 
     $(ctrlName + "-divOption").innerHTML += html;
-// console.log(html);
-}//function
+}
 
 function switchType(ctrlName, type)
 {
@@ -274,7 +240,6 @@ function switchType(ctrlName, type)
             fadeOut(ctrlName + '-divOption');
             $('namefield_' + ctrlName).value = "@spacer";
             $('namefield_' + ctrlName).disabled = "disabled";
-            // $(ctrlName+'-name').innerHTML = "@spacer";
             break;
 
         case 'calendar':
@@ -317,7 +282,7 @@ function switchType(ctrlName, type)
 
             return;
             break;
-    }// switch
+    }
 
     optionalFields.each(function(item)
     {
@@ -330,17 +295,15 @@ function switchType(ctrlName, type)
     });
 
     $(ctrlName + '-type').innerHTML = type;
-}//function
+}
 
 function fadeIn(ctrl)
 {
     if(FBPresent)console.log('fadeIn', ctrl);
     var div = $(ctrl).setStyles({
         display:'block'
-// opacity: 0
     });
-// new Fx.Style(div, 'opacity', {duration: 1000} ).start(1);
-}//function
+}
 
 function fadeOut(ctrl)
 {
@@ -348,16 +311,12 @@ function fadeOut(ctrl)
     /*
      * not working...gave up ;( - HELP !! :D
      */
-// ;(
     var div = $(ctrl);
 
     div.setStyles({
         display:'none'
-// opacity: 0
     });
-// new Fx.Style(div, 'opacity', {duration: 1000} ).start(1);
-
-}//function
+}
 
 function drawTypeSelector(groupName, ctrlName, selected)
 {
@@ -365,7 +324,6 @@ function drawTypeSelector(groupName, ctrlName, selected)
     js = " onchange='switchType(\"" + ctrlName + "\", this.value);'";
     html += NL + "<select name='params[" + groupName + "][" + ctrlName + "][type]'" + js + ">";
 
-// for(type in paramTypes)
     for(var xtype in paramTypes)
     {
         sSelected = '';
@@ -375,13 +333,12 @@ function drawTypeSelector(groupName, ctrlName, selected)
         }
 
         html += "<option" + sSelected + ">" + xtype + "</option>";
-    }// for
+    }
 
     html += "</select>";
 
-    // console.log(html);
     return html;
-}//function
+}
 
 function drawLine(div, ctrlName, option, field, value)
 {
@@ -392,6 +349,7 @@ function drawLine(div, ctrlName, option, field, value)
     var divIdName = "my" + num + "Div";
     var newdiv = document.createElement('tr');
     newdiv.setAttribute("id", divIdName);
+
     if(option == "")
     {
         name = "params[" + ctrlName + glueChar + field + "]";
@@ -405,28 +363,20 @@ function drawLine(div, ctrlName, option, field, value)
     insertText += "<td>" + field + "</td>";
     insertText += "<td><input type=\"text\" name=\"" + name + "\" value=\"" + value + "\" /></td>";
 
-// function drawLine($ctrlName, $option, $field, $value, $glueChar)
-
     newdiv.innerHTML = insertText;
-    // "<td><input type=\"text\" name=\"copys["+num+"][source]\" size=\"60\"
-    // value=\""+txtsource+"\" /></td><td><input type=\"text\"
-    // name=\"copys["+num+"][dest]\" size=\"30\" value=\""+txtdest+"\"
-    // /></td><td><a href=\"javascript:;\"
-    // onclick=\"removeElement(\'"+divIdName+"\',
-    // 'divCopys')\">Remove</a></td>";
     ni.appendChild(newdiv);
-}//function
+}
 
 function removeElement(row, table)
 {
     var d = document.getElementById(table);
     var toremove = document.getElementById(row);
     d.removeChild(toremove);
-}//function
+}
 
 function xxremoveElement(divNum, divName)
 {
     var d = document.getElementById(divName);
     var olddiv = document.getElementById(divNum);
     d.removeChild(olddiv);
-}//function
+}

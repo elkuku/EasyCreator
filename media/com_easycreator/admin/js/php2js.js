@@ -46,6 +46,7 @@ function str_replace(search, replace, subject, count)
         {
             continue;
         }
+
         for(j = 0, fl = f.length; j < fl; j++)
         {
             temp = s[i] + '';
@@ -57,6 +58,7 @@ function str_replace(search, replace, subject, count)
             }
         }
     }
+
     return sa ? s : s[0];
 }
 
@@ -148,6 +150,7 @@ var php2js = {
             {
                 chr = ' ';
             }
+
             var padding = (str.length >= len) ? '' : Array(
                 1 + len - str.length >>> 0).join(chr);
             return leftJustify ? str + padding : padding + str;
@@ -168,6 +171,7 @@ var php2js = {
                         + pad('', diff, '0', true) + value.slice(prefix.length);
                 }
             }
+
             return value;
         };
 
@@ -192,6 +196,7 @@ var php2js = {
             {
                 value = value.slice(0, precision);
             }
+
             return justify(value, '', leftJustify, minWidth, zeroPad, customPadChar);
         };
 

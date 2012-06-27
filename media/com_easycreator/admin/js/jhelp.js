@@ -89,7 +89,6 @@ function changeFrame(className, methodName, packageName)
             url:link,
             'onComplete':function(request)
             {
-
                 $('jsourceDisplay').innerHTML = request;
                 $('linkDisplay').className = '';
 

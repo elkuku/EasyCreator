@@ -30,7 +30,6 @@ var EcrEasyCreator = new Class({
         this.form.controller.value = action;
         submitbutton(action);
     }
-
 });
 
 window.addEvent('domready', function()
@@ -74,13 +73,13 @@ function switchProject()
     }
 
     submitform('stuffer');
-}//function
+}
 
 function easySubmit(task, controller)
 {
     document.adminForm.controller.value = controller;
     submitform(task);
-}//function
+}
 
 function registerProject(type, name, scope)
 {
@@ -90,7 +89,7 @@ function registerProject(type, name, scope)
     form.ecr_project_scope.value = scope;
     form.controller.value = 'starter';
     submitbutton('register_project');
-}//function
+}
 
 var lastId;
 
@@ -226,32 +225,35 @@ function ecr_loadFile(task, file_path, file_name, link_id)
             }).send();
             break;
     }// switch
-
-}//function
+}
 
 function toggleDiv(name)
 {
     document.id(name).style.display = (document.id(name).style.display == 'none') ? 'block' : 'none';
-}//function
+}
 
 function getElement(e, f)
 {
     if(document.layers)
     {
         f = (f) ? f : self;
+
         if(f.document.layers[e])
         {
             return f.document.layers[e];
         }
+
         for(W = 0; W < f.document.layers.length; W++)
         {
             return(getElement(e, f.document.layers[W]));
         }
     }
+
     if(document.all)
     {
         return document.all[e];
     }
+
     return document.getElementById(e);
 }
 
@@ -281,7 +283,7 @@ function emptyCheckTheField(theForm, theFieldName)
     }
 
     return isEmpty;
-} // end of the 'emptyCheckTheField()' function
+}
 
 function checkVersion()
 {
@@ -298,7 +300,6 @@ function checkVersion()
             $('ecr_versionCheck').innerHTML = response;
         }
     }).send();
-
 }
 
 function xcheckVersion()
@@ -322,7 +323,7 @@ function xcheckVersion()
             $('ecr_versionCheck').innerHTML = '<b style="color: red;">'
                 + jgettext('Server error') + '</b>' + url;
 
-            return;
+            return '';
         },
         'onComplete':function(response)
         {
@@ -355,9 +356,9 @@ function xcheckVersion()
                 default :
                     msg = jgettext('Unknown version - maybe SVN ?');
                     break;
-            }//switch
+            }
 
             $('ecr_versionCheck').innerHTML = '<span class="' + cssClass + '" title="' + alt + '" alt="' + alt + '">' + msg + '</span>';
         }
     }).send();
-}//function
+}

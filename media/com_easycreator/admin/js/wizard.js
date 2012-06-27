@@ -11,13 +11,13 @@ function goWizard(num)
     $('wizard-loader').removeClass('icon-32-wizard');
     $('wizard-loader').addClass('ajax-loading-32');
     submitbutton('wizard' + num);
-}//function
+}
 
 function setTemplate(type, name)
 {
     $('tpl_type').value = type;
     $('tpl_name').value = name;
-}//function
+}
 
 function getExtensionTemplateInfo(extType, folder, e)
 {
@@ -61,8 +61,7 @@ function getExtensionTemplateInfo(extType, folder, e)
             $('btn_' + htmlId).className = 'btn';
         }
     }).send();
-
-}//function
+}
 
 function changeJVersion(version)
 {
