@@ -8,7 +8,7 @@
 
 function submitbutton(task, comType, template)
 {
-    frm=document.adminForm;
+    frm = document.adminForm;
 
     if(comType == undefined)
     {

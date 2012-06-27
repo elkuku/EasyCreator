@@ -6,14 +6,14 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-if (document.layers)
+if(document.layers)
 {
     document.captureEvents(Event.MOUSEMOVE);
     document.onmousemove = captureMousePosition;
-} else if (document.all)
+} else if(document.all)
 {
     document.onmousemove = captureMousePosition;
-} else if (document.getElementById)
+} else if(document.getElementById)
 {
     document.onmousemove = captureMousePosition;
 }
@@ -26,15 +26,15 @@ var yMousePos = 0; // ordinate
 function captureMousePosition(e)
 {
 
-    if (document.layers)
+    if(document.layers)
     {
         xMousePos = e.pageX;
         yMousePos = e.pageY;
-    } else if (document.all)
+    } else if(document.all)
     {
         xMousePos = window.event.x + document.body.scrollLeft;
         yMousePos = window.event.y + document.body.scrollTop;
-    } else if (document.getElementById)
+    } else if(document.getElementById)
     {
         xMousePos = e.pageX;
         yMousePos = e.pageY;

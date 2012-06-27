@@ -7,8 +7,8 @@
  */
 
 var EcrLogconsole = new Class({
-    url : 'index.php?option=com_easycreator&tmpl=component&format=raw',
-    urlAdd : '',
+    url:'index.php?option=com_easycreator&tmpl=component&format=raw',
+    urlAdd:'',
 
     /**
      *
@@ -18,26 +18,31 @@ var EcrLogconsole = new Class({
      * @param additional Additional actions
      * @param deployTarget - hrm
      */
-    send : function(containers, data, message, additional, deployTarget) {
+    send:function(containers, data, message, additional, deployTarget)
+    {
         new Request({
-            url : this.url, // + this.urlAdd,
-            data : data,
+            url:this.url, // + this.urlAdd,
+            data:data,
 
-            onRequest : function() {
+            onRequest:function()
+            {
                 containers.status.style.color = 'black';
                 containers.status.innerHTML = message;
                 containers.status.className = 'ajax_loading16';
             },
 
-            onComplete : function(response) {
+            onComplete:function(response)
+            {
                 resp = JSON.decode(response);
 
                 containers.status.className = '';
 
-                if(resp.status) {
+                if(resp.status)
+                {
                     containers.status.innerHTML = resp.message;
                     containers.debug.innerHTML = resp.debug;
-                } else {
+                } else
+                {
                     containers.status.set('text', '');
                     containers.debug.set('text', '');
                     containers.display.set('html', resp.message);
@@ -45,8 +50,10 @@ var EcrLogconsole = new Class({
 
                 stopPoll();
 
-                if(additional) {
-                    switch(additional) {
+                if(additional)
+                {
+                    switch(additional)
+                    {
                         case 'getPackageList':
                             EcrDeploy.getPackageList(deployTarget, 'preserve');
                             break;
@@ -62,7 +69,8 @@ var EcrLogconsole = new Class({
                 }
             },
 
-            onFailure : function() {
+            onFailure:function()
+            {
                 containers.status.style.color = 'red';
                 containers.status.set('text', 'The request failed');
                 containers.status.className = '';

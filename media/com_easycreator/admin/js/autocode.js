@@ -8,10 +8,10 @@
 
 function loadAutoCode(ecr_project, action, group, element, scope, part)
 {
-    if(FBPresent) console.log(action+' - '+group+' - '+element+' - '+scope+' xpos'+xMousePos+' X '+yMousePos+' acElement: '+part);
+    if(FBPresent) console.log(action + ' - ' + group + ' - ' + element + ' - ' + scope + ' xpos' + xMousePos + ' X ' + yMousePos + ' acElement: ' + part);
 
-    url = ecrAJAXLink+'&controller=autocode';
-    url += '&ecr_project='+ecr_project;
+    url = ecrAJAXLink + '&controller=autocode';
+    url += '&ecr_project=' + ecr_project;
     switch(action)
     {
         case 'new':
@@ -22,27 +22,27 @@ function loadAutoCode(ecr_project, action, group, element, scope, part)
 
             break;
         default:
-            alert('Undefined: '+action);
+            alert('Undefined: ' + action);
             return false;
-        break;
+            break;
     }
 
     oDiv = $('addBox');
     oDiv.style.display = "inline";
     oDiv.style.position = "absolute";
-    oDiv.style.top = yMousePos+"px";
-    oDiv.style.left = xMousePos+"px";
+    oDiv.style.top = yMousePos + "px";
+    oDiv.style.left = xMousePos + "px";
 
     dDiv = $('addPartShow');
     dDiv.className = ' img ajax_loading16';
-    dDiv.innerHTML='Loading...';
+    dDiv.innerHTML = 'Loading...';
 
-    url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
+    url += '&group=' + group + '&part=' + part + '&element=' + element + '&scope=' + scope;
 
     new Request.HTML({
-        url: url,
-        update: 'addPartShow',
-        onComplete: function()
+        url:url,
+        update:'addPartShow',
+        onComplete:function()
         {
             dDiv.className = '';
         }
@@ -55,10 +55,10 @@ function loadPart(ecr_project, action, type, element, scope)
 {
     $link = 'index.php?option=com_easycreator&controller=ajax&tmpl=component&format=raw';
 
-    if(FBPresent) console.log(action+' - '+type+' - '+element+' - '+scope+' xpos'+xMousePos+' X '+yMousePos);
+    if(FBPresent) console.log(action + ' - ' + type + ' - ' + element + ' - ' + scope + ' xpos' + xMousePos + ' X ' + yMousePos);
 
-    url = ecrAJAXLink+'&controller=ajax';
-    url += '&ecr_project='+ecr_project;
+    url = ecrAJAXLink + '&controller=ajax';
+    url += '&ecr_project=' + ecr_project;
     switch(action)
     {
         case 'new':
@@ -69,8 +69,8 @@ function loadPart(ecr_project, action, type, element, scope)
 
             break;
         default:
-            alert('Undefined: '+action);
-        break;
+            alert('Undefined: ' + action);
+            break;
 
     }
     dDiv = $('addPartShow');
@@ -78,8 +78,8 @@ function loadPart(ecr_project, action, type, element, scope)
     oDiv = $('addBox');
     oDiv.style.display = "inline";
     oDiv.style.position = "absolute";
-    oDiv.style.top = yMousePos+"px";
-    oDiv.style.left = xMousePos+"px";
+    oDiv.style.top = yMousePos + "px";
+    oDiv.style.left = xMousePos + "px";
 
     dDiv.className = ' img ajax_loading16';
 
@@ -89,21 +89,21 @@ function loadPart(ecr_project, action, type, element, scope)
         case 'tableclass':
             group = 'tableclass';
             part = 'classvar';
-        break;
+            break;
 
         case 'controller':
             group = 'controllers';
             part = 'data';
-        break;
+            break;
 
         case 'modelForm':
             group = 'models';
             part = 'form';
-        break;
+            break;
         case 'modelList':
             group = 'models';
             part = 'list';
-        break;
+            break;
         case 'viewList':
             group = 'views';
             part = 'data_list';
@@ -114,17 +114,17 @@ function loadPart(ecr_project, action, type, element, scope)
             break;
 
         default:
-            alert('NOT defined - '+type);
-        return false;
-        break;
+            alert('NOT defined - ' + type);
+            return false;
+            break;
     }
 
-    url += '&group='+group+'&part='+part+'&element='+element+'&scope='+scope;
+    url += '&group=' + group + '&part=' + part + '&element=' + element + '&scope=' + scope;
 
     new Request({
-        url: url,
-        update: 'addPartShow',
-        onComplete: function()
+        url:url,
+        update:'addPartShow',
+        onComplete:function()
         {
             dDiv.className = '';
         }

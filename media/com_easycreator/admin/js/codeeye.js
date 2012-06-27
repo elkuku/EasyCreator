@@ -35,36 +35,36 @@ function setPath(folder, file)
  */
 function doPHPUnit(folder, test, timeStamp, id)
 {
-   //format my f*** date
-   var dx = new Date();
+    //format my f*** date
+    var dx = new Date();
 
-   if(ecr_act_field)
-   {
-       $(ecr_act_field).setStyle('color', 'black');
-   }
+    if(ecr_act_field)
+    {
+        $(ecr_act_field).setStyle('color', 'black');
+    }
 
-   $(id).setStyle('color', 'red');
-   ecr_act_field = id;
+    $(id).setStyle('color', 'red');
+    ecr_act_field = id;
 
 //   console.log(dx.toString());
-   //Ausgabe: Sun Oct 04 2009 14:00:09 GMT-0500 (ECT)
+    //Ausgabe: Sun Oct 04 2009 14:00:09 GMT-0500 (ECT)
 
     y = dx.getFullYear();
 
     m = dx.getMonth().toString();
-    m =(m.length == 1) ? '0' + m : m;
+    m = (m.length == 1) ? '0' + m : m;
 
     d = dx.getDay().toString();
-    d =(d.length == 1) ? '0' + d : d;
+    d = (d.length == 1) ? '0' + d : d;
 
     h = dx.getHours().toString();
-    h =(h.length == 1) ? '0' + h : h;
+    h = (h.length == 1) ? '0' + h : h;
 
     i = dx.getMinutes().toString();
-    i =(i.length == 1) ? '0' + i : i;
+    i = (i.length == 1) ? '0' + i : i;
 
     s = dx.getSeconds().toString();
-    s =(s.length == 1) ? '0' + s : s;
+    s = (s.length == 1) ? '0' + s : s;
 
     timeStamp = '' + y + m + d + '_' + h + i + s;
 
@@ -72,29 +72,30 @@ function doPHPUnit(folder, test, timeStamp, id)
     //Ausgabe: 200990_1409
     // getMonth() und getDay() liefern falsche Werte ...
     // ?
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=phpunit';
-    url += '&folder='+folder;
-    url += '&test='+test;
-    url += '&time_stamp='+timeStamp;
+    url += '&folder=' + folder;
+    url += '&test=' + test;
+    url += '&time_stamp=' + timeStamp;
     url += '&results_base=' + $('results_base').value;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking PHPUnit...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
 
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
 
@@ -115,29 +116,30 @@ function doPHPUnit(folder, test, timeStamp, id)
  */
 function doSelenium(folder, test, timeStamp, id)
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=selenium';
-    url += '&folder='+folder;
-    url += '&test='+test;
-    url += '&time_stamp='+timeStamp;
+    url += '&folder=' + folder;
+    url += '&test=' + test;
+    url += '&time_stamp=' + timeStamp;
     url += '&results_base=' + $('results_base').value;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking Selenium...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
 
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
 
@@ -155,27 +157,28 @@ function doSelenium(folder, test, timeStamp, id)
  */
 function doPHPCPD(ecr_project)
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=phpcpd';
     url += '&ecr_project=' + ecr_project;
-    url += '&path='+$('dspl_sniff_folder').innerHTML;
-    url += '&min-lines='+$('phpcpd_min_lines').value;
-    url += '&min-tokens='+$('phpcpd_min_tokens').value;
+    url += '&path=' + $('dspl_sniff_folder').innerHTML;
+    url += '&min-lines=' + $('phpcpd_min_lines').value;
+    url += '&min-tokens=' + $('phpcpd_min_tokens').value;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is looking PHPCPD...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
             $('ecr_codeeye_console').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             $('ecr_title_file').innerHTML = '';
@@ -194,47 +197,52 @@ function doPHPCPD(ecr_project)
  */
 function doPHPDoc(dirs, files)
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=phpdoc';
 
-    if($('phpdoc_quiet').checked == true) {
+    if($('phpdoc_quiet').checked == true)
+    {
         url += '&options[]=q';
     }
 
-    if($('phpdoc_undocumented').checked == true) {
+    if($('phpdoc_undocumented').checked == true)
+    {
         url += '&options[]=ue';
     }
 
-    if($('phpdoc_sourcecode').checked == true) {
+    if($('phpdoc_sourcecode').checked == true)
+    {
         url += '&options[]=s';
     }
 
-    if($('phpdoc_converter').value) {
-        url += '&converter='+$('phpdoc_converter').value;
+    if($('phpdoc_converter').value)
+    {
+        url += '&converter=' + $('phpdoc_converter').value;
     }
 
-    url += '&target_dir='+$('target_dir').value.replace('\\', '/');
+    url += '&target_dir=' + $('target_dir').value.replace('\\', '/');
 
     dirs = dirs.replace('\\', '/');
-    url += '&parse_dirs='+dirs;
+    url += '&parse_dirs=' + dirs;
 
     files = files.replace('\\', '/');
-    url += '&parse_files='+files;
+    url += '&parse_files=' + files;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'PhpDocumentor is generating documentation...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
             $('ecr_codeeye_console').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             $('ecr_title_file').innerHTML = '';
@@ -253,7 +261,8 @@ function sniffFolder()
 {
     folder = $('dspl_sniff_folder').innerHTML;
 
-    if( ! folder) {
+    if(!folder)
+    {
         alert('Please select a folder.');
         return false;
     }
@@ -270,12 +279,12 @@ function sniffFolder()
 function loadSniff(folder, file)
 {
     $('dspl_sniff_folder').innerHTML = folder;
-    $('dspl_sniff_file').innerHTML =(file) ? file : '';
+    $('dspl_sniff_file').innerHTML = (file) ? file : '';
 
     folder = (folder) ? folder : $('dspl_sniff_folder').innerHTML;
     file = (file) ? file : $('dspl_sniff_file').innerHTML;
 
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=phpcs';
     url += '&path=' + folder;
     url += '&file=' + file;
@@ -285,20 +294,21 @@ function loadSniff(folder, file)
 
     var sniffs = '';
 
-    if(document.adminForm.sniff_sniffs){
-        for(var i=0; i < document.adminForm.sniff_sniffs.length; i++)
+    if(document.adminForm.sniff_sniffs)
+    {
+        for(var i = 0; i < document.adminForm.sniff_sniffs.length; i++)
         {
-            if(document.adminForm.sniff_sniffs[i].checked) {
+            if(document.adminForm.sniff_sniffs[i].checked)
+            {
                 sniffs += document.adminForm.sniff_sniffs[i].value + ',';
             }
         }
     }
 
-    if(sniffs != '') {
+    if(sniffs != '')
+    {
         url += '&sniff_sniffs=' + sniffs;
     }
-
-
 
 
     //////////////
@@ -314,17 +324,17 @@ function loadSniff(folder, file)
     startPoll();
 
     /*
-    this._send(containers, data
-        , jgettext('CodeSniffer sniffing...')
-        , 'getPackageList', deployTarget
-    );
-*/
+     this._send(containers, data
+     , jgettext('CodeSniffer sniffing...')
+     , 'getPackageList', deployTarget
+     );
+     */
 
     //EcrLogconsole = new EcrLogconsole;
 
     EcrLogconsole.url = url;
 
- //   alert(EcrLogconsole.url);
+    //   alert(EcrLogconsole.url);
 
     EcrLogconsole.send(containers, data
         , jgettext('CodeSniffer sniffing...'));
@@ -332,21 +342,22 @@ function loadSniff(folder, file)
     return;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'CodeSniffer sniffing...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
             $('ecr_codeeye_console').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             $('ecr_codeeye_output').innerHTML = resp.message;
@@ -357,27 +368,28 @@ function loadSniff(folder, file)
 
 function create_skeleton(folder, file)
 {
-    var url = ecrAJAXLink+'&controller=codeeyeajax&task=create_skeleton';
+    var url = ecrAJAXLink + '&controller=codeeyeajax&task=create_skeleton';
     url += '&ecr_project=' + $('ecr_project').value;
-    url += '&folder='+folder;
-    url += '&file='+file;
+    url += '&folder=' + folder;
+    url += '&file=' + file;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is creating a skeleton...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             $('ecr_title_file').innerHTML = '';
             $('ecr_title_file').className = '';
 
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
                 $('test_tree').innerHTML = resp.text;
                 $('ecr_codeeye_console').innerHTML = resp.console;
@@ -385,23 +397,24 @@ function create_skeleton(folder, file)
             else
             {
 
-            $('ecr_codeeye_output').innerHTML = resp.text;
-            $('ecr_codeeye_console').innerHTML = resp.console;
+                $('ecr_codeeye_output').innerHTML = resp.text;
+                $('ecr_codeeye_console').innerHTML = resp.console;
 
-            var url = ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir';
-            url += '&ecr_project=' + $('ecr_project').value;
+                var url = ecrAJAXLink + '&controller=codeeyeajax&task=draw_test_dir';
+                url += '&ecr_project=' + $('ecr_project').value;
 
-            new Request({
-                url: url,
-                    'onRequest' : function()
+                new Request({
+                    url:url,
+                    'onRequest':function()
                     {
                         $('test_tree').innerHTML = 'Redraw tree...';
                     },
-                    'onComplete' : function(response)
+                    'onComplete':function(response)
                     {
                         var resp = JSON.decode(response);
 
-                        if( ! resp.status) {
+                        if(!resp.status)
+                        {
                             //-- Error
                             $('test_tree').innerHTML = resp.text;
                         }
@@ -417,20 +430,21 @@ function create_skeleton(folder, file)
 function draw_test_dir(testDir)
 {
     new Request({
-        url: ecrAJAXLink+'&controller=codeeyeajax&task=draw_test_dir',
+        url:ecrAJAXLink + '&controller=codeeyeajax&task=draw_test_dir',
 
-        'onRequest' : function()
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = 'CodeEye is checking your environment...';
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
 
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             $('ecr_title_file').innerHTML = '';
@@ -448,20 +462,21 @@ function draw_test_dir(testDir)
 function checkEnvironment()
 {
     new Request({
-        url: ecrAJAXLink+'&controller=codeeyeajax&task=check_environment',
+        url:ecrAJAXLink + '&controller=codeeyeajax&task=check_environment',
 
-        'onRequest' : function()
+        'onRequest':function()
         {
             $('ecr_title_file').innerHTML = jgettext('CodeEye is checking your environment...');
             $('ecr_title_file').className = 'ajax_loading16';
             $('ecr_codeeye_output').innerHTML = '';
         },
 
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response, true);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             $('ecr_title_file').innerHTML = '';
@@ -477,21 +492,22 @@ function checkEnvironment()
  */
 function gitStatus()
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=gitStatus';
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             document.id('ecr_codeeye_output').innerHTML = '';
             document.id('ecr_codeeye_console').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
 
@@ -513,17 +529,18 @@ function runCli(ecr_project)
         + '&args=' + document.id('cliargs').value;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             document.id('ecr_codeeye_output').innerHTML = '';
             document.id('ecr_codeeye_console').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
 
@@ -538,22 +555,23 @@ function runCli(ecr_project)
  */
 function phploc(dir)
 {
-    url = ecrAJAXLink+'&controller=codeeyeajax';
+    url = ecrAJAXLink + '&controller=codeeyeajax';
     url += '&task=phploc';
-    url += '&dir='+dir;
+    url += '&dir=' + dir;
 
     new Request({
-        url: url,
-        'onRequest' : function()
+        url:url,
+        'onRequest':function()
         {
             document.id('ecr_codeeye_output').innerHTML = '';
             document.id('ecr_codeeye_console').innerHTML = '';
         },
-        'onComplete' : function(response)
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if( ! resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             document.id('ecr_codeeye_output').innerHTML = resp.text;

@@ -11,12 +11,12 @@ var ecrTranslator = new Class({
     /**
      * Copy the original to the translated field
      */
-    copyTrans : function()
+    copyTrans:function()
     {
         var s = this.stripQuotes(php2js.trim($('default').innerHTML));
         $('translation').value = s;
         $('translation').focus();
-    },// function
+    }, // function
 
     /**
      * Delete a translation
@@ -24,54 +24,54 @@ var ecrTranslator = new Class({
      * @param string link AJAX link
      * @param integer fieldId Id of the parent.document element which will be deleted
      */
-    deleteTranslation : function (link, fieldId)
+    deleteTranslation:function(link, fieldId)
     {
         $('translation').value = jgettext('Deleting...');
 
         new Request({
-            url: link + '&task=delete_translation',
+            url:link + '&task=delete_translation',
 
-            onComplete: function(response)
+            onComplete:function(response)
             {
                 var resp = JSON.decode(response);
 
                 if(resp.status)
                 {
                     //-- Error
-                    $('ajResult').innerHTML = '<strong style="color: red;">'+resp.text+'</strong>';
+                    $('ajResult').innerHTML = '<strong style="color: red;">' + resp.text + '</strong>';
 
                     return false;
                 }
 
                 doc = window.parent.document;
 
-                doc.getElementById('trfield_' + fieldId).innerHTML='<strong style="color: red">' + jgettext('Empty') + '</strong>';
+                doc.getElementById('trfield_' + fieldId).innerHTML = '<strong style="color: red">' + jgettext('Empty') + '</strong>';
 
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
                     case '1.5':
                         doc.getElementById('sbox-window').close();
-                    break;
+                        break;
 
                     case '1.6':
                     case '1.7':
                     case '2.5':
                         parent.SqueezeBox.close();
-                    break;
+                        break;
 
                     default:
                         alert(jgettext('Undefined Joomla! version'));
-                    break;
+                        break;
                 }//switch
             }
         }).send();
-    },//function
+    }, //function
 
     /**
      *
      */
-    stripQuotes : function(s)
+    stripQuotes:function(s)
     {
         if(s.substr(0, 1) == '"')
         {
@@ -84,7 +84,7 @@ var ecrTranslator = new Class({
         }
 
         return s;
-    },// function
+    }, // function
 
     /**
      * Translate with the Google translation API
@@ -93,11 +93,11 @@ var ecrTranslator = new Class({
      *
      * @todo replace
      */
-    google_translate : function(lang)
+    google_translate:function(lang)
     {
         $('translation').value = jgettext('Translating...');
 
-        if( ! gbranding_displayed)
+        if(!gbranding_displayed)
         {
             google.language.getBranding('gtranslate_branding');
             gbranding_displayed = true;
@@ -107,27 +107,28 @@ var ecrTranslator = new Class({
 
         google.language.translate(text, 'en', lang, function(result)
         {
-            if( ! result.error)
+            if(!result.error)
             {
                 $('translation').value = result.translation;
             }
         });
-    },//function
+    }, //function
 
-    translate : function(link, fieldId, lang, retType, adIds)
+    translate:function(link, fieldId, lang, retType, adIds)
     {
         new Request({
-            url: link + '&task=translate' + '&translation=' + encodeURIComponent($('translation').value),
-        //    method : 'post',
+            url:link + '&task=translate' + '&translation=' + encodeURIComponent($('translation').value),
+            //    method : 'post',
 //            data : 'translation=' + encodeURIComponent($('translation').value),
 
-            onRequest : function() {
+            onRequest:function()
+            {
                 title = $('ajResult');
                 title.innerHTML = jgettext('Saving...');
                 title.addClass('ajax_loading16-red');
             },
 
-            onComplete : function(response)
+            onComplete:function(response)
             {
                 var resp = JSON.decode(response);
 
@@ -149,7 +150,7 @@ var ecrTranslator = new Class({
                 {
                     case 'ini':
                         doc.getElementById('trfield_' + fieldId).innerHTML = $('translation').value;
-                    break;
+                        break;
 
                     case 'phpxml':
                         doc.getElementById('trfield_' + fieldId).innerHTML = lang;
@@ -159,16 +160,16 @@ var ecrTranslator = new Class({
                         {
                             adIds = adIds.split(',');
 
-                            for (var i = 0; i < adIds.length; ++i)
+                            for(var i = 0; i < adIds.length; ++i)
                             {
-                                doc.getElementById('trfield_' + adIds[i]).style.display='inline';
+                                doc.getElementById('trfield_' + adIds[i]).style.display = 'inline';
                             }//for
                         }
-                    break;
+                        break;
 
                     default:
                         alert('Undefined ret type: ' + retType);
-                    break;
+                        break;
                 }//switch
 
                 //-- @Joomla!-version-check
@@ -176,17 +177,17 @@ var ecrTranslator = new Class({
                 {
                     case '1.5':
                         doc.getElementById('sbox-window').close();
-                    break;
+                        break;
 
                     case '1.6':
                     case '1.7':
                     case '2.5':
                         parent.SqueezeBox.close();
-                    break;
+                        break;
 
                     default:
                         alert('Unsupported JVersion: ' + ECR_JVERSION);
-                    break;
+                        break;
                 }//switch
             }//onComplete
         }).send();

@@ -5,7 +5,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-function str_replace(search, replace, subject, count) {
+function str_replace(search, replace, subject, count)
+{
     // http://kevin.vanzonneveld.net
     // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
     // +   improved by: Gabriel Paderni
@@ -29,25 +30,31 @@ function str_replace(search, replace, subject, count) {
     // *     returns 2: 'hemmo, mars'
 
     var i = 0, j = 0, temp = '', repl = '', sl = 0, fl = 0,
-            f = [].concat(search),
-            r = [].concat(replace),
-            s = subject,
-            ra = r instanceof Array, sa = s instanceof Array;
+        f = [].concat(search),
+        r = [].concat(replace),
+        s = subject,
+        ra = r instanceof Array, sa = s instanceof Array;
     s = [].concat(s);
-    if (count) {
+    if(count)
+    {
         this.window[count] = 0;
     }
 
-    for (i=0, sl=s.length; i < sl; i++) {
-        if (s[i] === '') {
+    for(i = 0, sl = s.length; i < sl; i++)
+    {
+        if(s[i] === '')
+        {
             continue;
         }
-        for (j=0, fl=f.length; j < fl; j++) {
-            temp = s[i]+'';
+        for(j = 0, fl = f.length; j < fl; j++)
+        {
+            temp = s[i] + '';
             repl = ra ? (r[j] !== undefined ? r[j] : '') : r[0];
             s[i] = (temp).split(f[j]).join(repl);
-            if (count && s[i] !== temp) {
-                this.window[count] += (temp.length-s[i].length)/f[j].length;}
+            if(count && s[i] !== temp)
+            {
+                this.window[count] += (temp.length - s[i].length) / f[j].length;
+            }
         }
     }
     return sa ? s : s[0];
@@ -55,7 +62,8 @@ function str_replace(search, replace, subject, count) {
 
 
 var php2js = {
-    trim:function (str, charlist) {
+    trim:function(str, charlist)
+    {
         // http://kevin.vanzonneveld.net
         // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
         // +   improved by: mdsjack (http://www.mdsjack.bo.it)
@@ -76,26 +84,32 @@ var php2js = {
         var whitespace, l = 0, i = 0;
         str += '';
 
-        if (!charlist) {
+        if(!charlist)
+        {
             // default list
             whitespace = " \n\r\t\f\x0b\xa0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000";
-        } else {
+        } else
+        {
             // preg_quote custom list
             charlist += '';
             whitespace = charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '$1');
         }
 
         l = str.length;
-        for (i = 0; i < l; i++) {
-            if (whitespace.indexOf(str.charAt(i)) === -1) {
+        for(i = 0; i < l; i++)
+        {
+            if(whitespace.indexOf(str.charAt(i)) === -1)
+            {
                 str = str.substring(i);
                 break;
             }
         }
 
         l = str.length;
-        for (i = l - 1; i >= 0; i--) {
-            if (whitespace.indexOf(str.charAt(i)) === -1) {
+        for(i = l - 1; i >= 0; i--)
+        {
+            if(whitespace.indexOf(str.charAt(i)) === -1)
+            {
                 str = str.substring(0, i + 1);
                 break;
             }
@@ -104,7 +118,8 @@ var php2js = {
         return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
     }, //function
 
-    sprintf:function () {
+    sprintf:function()
+    {
         // Return a formatted string
         //
         // version: 1008.1718
@@ -127,8 +142,10 @@ var php2js = {
         var a = arguments, i = 0, format = a[i++];
 
         // pad()
-        var pad = function (str, len, chr, leftJustify) {
-            if (!chr) {
+        var pad = function(str, len, chr, leftJustify)
+        {
+            if(!chr)
+            {
                 chr = ' ';
             }
             var padding = (str.length >= len) ? '' : Array(
@@ -137,12 +154,16 @@ var php2js = {
         };
 
         // justify()
-        var justify = function (value, prefix, leftJustify, minWidth, zeroPad, customPadChar) {
+        var justify = function(value, prefix, leftJustify, minWidth, zeroPad, customPadChar)
+        {
             var diff = minWidth - value.length;
-            if (diff > 0) {
-                if (leftJustify || !zeroPad) {
+            if(diff > 0)
+            {
+                if(leftJustify || !zeroPad)
+                {
                     value = pad(value, minWidth, customPadChar, leftJustify);
-                } else {
+                } else
+                {
                     value = value.slice(0, prefix.length)
                         + pad('', diff, '0', true) + value.slice(prefix.length);
                 }
@@ -151,7 +172,8 @@ var php2js = {
         };
 
         // formatBaseX()
-        var formatBaseX = function (value, base, prefix, leftJustify, minWidth, precision, zeroPad) {
+        var formatBaseX = function(value, base, prefix, leftJustify, minWidth, precision, zeroPad)
+        {
             // Note: casts negative numbers to positive ones
             var number = value >>> 0;
             prefix = prefix && number && {
@@ -164,30 +186,36 @@ var php2js = {
         };
 
         // formatString()
-        var formatString = function (value, leftJustify, minWidth, precision, zeroPad, customPadChar) {
-            if (precision != null) {
+        var formatString = function(value, leftJustify, minWidth, precision, zeroPad, customPadChar)
+        {
+            if(precision != null)
+            {
                 value = value.slice(0, precision);
             }
             return justify(value, '', leftJustify, minWidth, zeroPad, customPadChar);
         };
 
         // doFormat()
-        var doFormat = function (substring, valueIndex, flags, minWidth, _, precision, type) {
+        var doFormat = function(substring, valueIndex, flags, minWidth, _, precision, type)
+        {
             var number;
             var prefix;
             var method;
             var textTransform;
             var value;
 
-            if (substring == '%%') {
+            if(substring == '%%')
+            {
                 return '%';
             }
 
             // parse flags
             var leftJustify = false, positivePrefix = '', zeroPad = false, prefixBaseX = false, customPadChar = ' ';
             var flagsl = flags.length;
-            for (var j = 0; flags && j < flagsl; j++) {
-                switch (flags.charAt(j)) {
+            for(var j = 0; flags && j < flagsl; j++)
+            {
+                switch(flags.charAt(j))
+                {
                     case ' ':
                         positivePrefix = ' ';
                         break;
@@ -211,41 +239,52 @@ var php2js = {
 
             // parameters may be null, undefined, empty-string or real valued
             // we want to ignore null, undefined and empty-string values
-            if (!minWidth) {
+            if(!minWidth)
+            {
                 minWidth = 0;
-            } else if (minWidth == '*') {
+            } else if(minWidth == '*')
+            {
                 minWidth = +a[i++];
-            } else if (minWidth.charAt(0) == '*') {
+            } else if(minWidth.charAt(0) == '*')
+            {
                 minWidth = +a[minWidth.slice(1, -1)];
-            } else {
+            } else
+            {
                 minWidth = +minWidth;
             }
 
             // Note: undocumented perl feature:
-            if (minWidth < 0) {
+            if(minWidth < 0)
+            {
                 minWidth = -minWidth;
                 leftJustify = true;
             }
 
-            if (!isFinite(minWidth)) {
+            if(!isFinite(minWidth))
+            {
                 throw new Error('sprintf: (minimum-)width must be finite');
             }
 
-            if (!precision) {
+            if(!precision)
+            {
                 precision = 'fFeE'.indexOf(type) > -1 ? 6 : (type == 'd') ? 0
                     : undefined;
-            } else if (precision == '*') {
+            } else if(precision == '*')
+            {
                 precision = +a[i++];
-            } else if (precision.charAt(0) == '*') {
+            } else if(precision.charAt(0) == '*')
+            {
                 precision = +a[precision.slice(1, -1)];
-            } else {
+            } else
+            {
                 precision = +precision;
             }
 
             // grab value using valueIndex if required?
             value = valueIndex ? a[valueIndex.slice(0, -1)] : a[i++];
 
-            switch (type) {
+            switch(type)
+            {
                 case 's':
                     return formatString(String(value), leftJustify, minWidth,
                         precision, zeroPad, customPadChar);

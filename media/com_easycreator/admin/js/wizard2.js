@@ -9,7 +9,7 @@
 function submitbutton(command)
 {
     var form = document.adminForm;
-    if (command == 'wizard3')
+    if(command == 'wizard3')
     {
         //--do some field validation
         valid = true;
@@ -27,9 +27,9 @@ function submitbutton(command)
             $('version').focus();
             var div = $('req_version').setStyles({
                 display:'block',
-                opacity: 0
+                opacity:0
             });
-            new Fx.Tween($('req_version'), $extend({property: 'opacity'}), {duration: 1500} ).start(1);
+            new Fx.Tween($('req_version'), $extend({property:'opacity'}), {duration:1500}).start(1);
             valid = false;
         }
 
@@ -39,9 +39,9 @@ function submitbutton(command)
             $('com_name').focus();
             var div = $('req_name').setStyles({
                 display:'block',
-                opacity: 0
+                opacity:0
             });
-            new Fx.Tween($('req_name'), $extend({property: 'opacity'}), {duration: 1500} ).start(1);
+            new Fx.Tween($('req_name'), $extend({property:'opacity'}), {duration:1500}).start(1);
             valid = false;
         }
 
@@ -51,9 +51,9 @@ function submitbutton(command)
             $('list_postfix').focus();
             var div = $('req_list_postfix').setStyles({
                 display:'block',
-                opacity: 0
+                opacity:0
             });
-            new Fx.Tween($('req_list_postfix'), $extend({property: 'opacity'}), {duration: 1500} ).start(1);
+            new Fx.Tween($('req_list_postfix'), $extend({property:'opacity'}), {duration:1500}).start(1);
             valid = false;
         }
 

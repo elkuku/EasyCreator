@@ -9,9 +9,9 @@
 function jgettext(string)
 {
     return string;
-}//function
+}
 
 function jngettext(singular, plural, count)
 {
     return (1 == count) ? singular : plural;
-}//function
+}

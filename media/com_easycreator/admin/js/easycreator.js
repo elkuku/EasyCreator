@@ -7,23 +7,25 @@
  */
 
 var EcrEasyCreator = new Class({
-    Implements : [Options],
+    Implements:[Options],
 
-    options : {
-        url : ''
+    options:{
+        url:''
     },
 
-    form : '',
-    urlAdd : '',
-    box : '',
+    form:'',
+    urlAdd:'',
+    box:'',
 
-    initialize : function(options) {
+    initialize:function(options)
+    {
         this.setOptions(options);
 
         this.form = document.adminForm;
     },
 
-    project : function(name, action) {
+    project:function(name, action)
+    {
         this.form.ecr_project.value = name;
         this.form.controller.value = action;
         submitbutton(action);
@@ -31,28 +33,33 @@ var EcrEasyCreator = new Class({
 
 });
 
-window.addEvent('domready', function() {
+window.addEvent('domready', function()
+{
     EasyCreator = new EcrEasyCreator();
 });
 
-function switchProject() {
+function switchProject()
+{
     frm = document.adminForm;
     frm.controller.value = 'stuffer';
 
     $('ecr_stat_project').className = 'ajax_loading16';
 
-    if(frm.file_name != undefined) {
+    if(frm.file_name != undefined)
+    {
         frm.file_name.value = '';
     }
 
-    if(frm.ecr_project.value == 'ecr_new_project') {
+    if(frm.ecr_project.value == 'ecr_new_project')
+    {
         frm.controller.value = 'starter';
         $('ecr_stat_project').innerHTML = jgettext('New project...');
         submitform('starter');
         return;
     }
 
-    if(frm.ecr_project.value == 'ecr_register_project') {
+    if(frm.ecr_project.value == 'ecr_register_project')
+    {
         frm.controller.value = 'register';
         $('ecr_stat_project').innerHTML = jgettext('Register project...');
         submitform('register');
@@ -61,19 +68,22 @@ function switchProject() {
 
     var project = $('ecr_project').value;
 
-    if(project) {
+    if(project)
+    {
         document.id('ecr_stat_project').set('html', jgettext('Loading project...'));
     }
 
     submitform('stuffer');
 }//function
 
-function easySubmit(task, controller) {
+function easySubmit(task, controller)
+{
     document.adminForm.controller.value = controller;
     submitform(task);
 }//function
 
-function registerProject(type, name, scope) {
+function registerProject(type, name, scope)
+{
     form = document.adminForm;
     form.ecr_project_type.value = type;
     form.ecr_project_name.value = name;
@@ -84,7 +94,8 @@ function registerProject(type, name, scope) {
 
 var lastId;
 
-function ecr_loadFile(task, file_path, file_name, link_id) {
+function ecr_loadFile(task, file_path, file_name, link_id)
+{
     url = 'index.php?option=com_easycreator&format=raw&tmpl=component&controller=ajax';
     url += '&file_path=' + file_path + '&file_name=' + file_name;
 
@@ -95,47 +106,58 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
     found = false;
 
     // --Search for files
-    for(key in legal_exts) {
-        if(legal_exts[key] == ext) {
+    for(key in legal_exts)
+    {
+        if(legal_exts[key] == ext)
+        {
             found = 'file';
             break;
         }
     }// for
 
     // --Search for images
-    if(!found) {
-        for(key in legal_pics) {
-            if(legal_pics[key] == ext) {
+    if(!found)
+    {
+        for(key in legal_pics)
+        {
+            if(legal_pics[key] == ext)
+            {
                 found = 'pic';
                 break;
             }
         }// for
 
-        if(!found) {
+        if(!found)
+        {
             alert('Unsupported extension: ' + ext);
             return;
         }
     }
 
-    switch(found) {
+    switch(found)
+    {
         case 'file':
             cl = $('ecr_title_file').className;
 
             $('ecr_title_file').className = cl + ' ajax_loading16';
 
             new Request({
-                url : url + '&task=loadFile',
-                'onRequest' : function() {
+                url:url + '&task=loadFile',
+                'onRequest':function()
+                {
                     $('ecr_title_file').innerHTML = jgettext('Loading...');
                 },
-                'onComplete' : function(response) {
+                'onComplete':function(response)
+                {
                     var resp = JSON.decode(response, true);
 
-                    if(!resp.status) {
+                    if(!resp.status)
+                    {
                         //-- Error
                         $('ecr_title_file').innerHTML = resp.text;
                     }
-                    else {
+                    else
+                    {
                         editAreaLoader.setValue('ecr_code_area', '');
                         editAreaLoader.setValue('ecr_code_area', resp.text);
                         editAreaLoader.execCommand('ecr_code_area', 'change_syntax', ext);
@@ -144,10 +166,12 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
                         $('ecr_title_file').innerHTML = file_name;
                     }
 
-                    if(lastId != undefined) {
+                    if(lastId != undefined)
+                    {
                         $(lastId).setStyle('color', 'black');
                         $(link_id).setStyle('color', 'blue');
-                    } else {
+                    } else
+                    {
                         $(link_id).setStyle('color', 'blue');
                     }
 
@@ -166,12 +190,15 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
             break;
         case 'pic':
             new Request({
-                url : url + '&task=loadPic',
-                'onRequest' : function() {
+                url:url + '&task=loadPic',
+                'onRequest':function()
+                {
                     $('ecr_title_pic').innerHTML = jgettext('Loading...');
                 },
-                'onComplete' : function(response) {
-                    if(lastId != undefined) {
+                'onComplete':function(response)
+                {
+                    if(lastId != undefined)
+                    {
                         $(lastId).setStyle('color', 'black');
                     }
 
@@ -184,11 +211,13 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
 
                     var resp = JSON.decode(response);
 
-                    if(!resp.status) {
+                    if(!resp.status)
+                    {
                         //-- Error
                         $('ecr_title_file').innerHTML = resp.text;
                     }
-                    else {
+                    else
+                    {
                         $('ecr_title_pic').innerHTML = file_name;
                         $('container_pic').innerHTML = resp.text;
                         sld_picture.show();
@@ -200,21 +229,27 @@ function ecr_loadFile(task, file_path, file_name, link_id) {
 
 }//function
 
-function toggleDiv(name) {
+function toggleDiv(name)
+{
     document.id(name).style.display = (document.id(name).style.display == 'none') ? 'block' : 'none';
 }//function
 
-function getElement(e, f) {
-    if(document.layers) {
+function getElement(e, f)
+{
+    if(document.layers)
+    {
         f = (f) ? f : self;
-        if(f.document.layers[e]) {
+        if(f.document.layers[e])
+        {
             return f.document.layers[e];
         }
-        for(W = 0; W < f.document.layers.length; W++) {
+        for(W = 0; W < f.document.layers.length; W++)
+        {
             return(getElement(e, f.document.layers[W]));
         }
     }
-    if(document.all) {
+    if(document.all)
+    {
         return document.all[e];
     }
     return document.getElementById(e);
@@ -229,15 +264,18 @@ function getElement(e, f) {
  *
  * @return  boolean  whether the form field is empty or not
  */
-function emptyCheckTheField(theForm, theFieldName) {
+function emptyCheckTheField(theForm, theFieldName)
+{
     var isEmpty = 1;
     var theField = theForm.elements[theFieldName];
     // Whether the replace function (js1.2) is supported or not
     var isRegExp = (typeof(theField.value.replace) != 'undefined');
 
-    if(!isRegExp) {
+    if(!isRegExp)
+    {
         isEmpty = (theField.value == '') ? 1 : 0;
-    } else {
+    } else
+    {
         var space_re = new RegExp('\\s+');
         isEmpty = (theField.value.replace(space_re, '') == '') ? 1 : 0;
     }
@@ -245,22 +283,26 @@ function emptyCheckTheField(theForm, theFieldName) {
     return isEmpty;
 } // end of the 'emptyCheckTheField()' function
 
-function checkVersion() {
+function checkVersion()
+{
     var req = new Request.HTML({
-        method : 'post',
-        url : 'http://joomla.org',
-        data : { 'do' : '1' },
-        onRequest : function() {
+        method:'post',
+        url:'http://joomla.org',
+        data:{ 'do':'1' },
+        onRequest:function()
+        {
             $('ecr_versionCheck').innerHTML = jgettext('Checking...');
         },
-        onComplete : function(response) {
+        onComplete:function(response)
+        {
             $('ecr_versionCheck').innerHTML = response;
         }
     }).send();
 
 }
 
-function xcheckVersion() {
+function xcheckVersion()
+{
     var urlBase = 'http://inkubator.der-beta-server.de/releases';
     //var urlBase = 'http://helios.nik/jejo_web/releases';
 
@@ -270,20 +312,24 @@ function xcheckVersion() {
     url = 'http://joomla.org';
 
     new Request({
-        url : url,
-        'onRequest' : function() {
+        url:url,
+        'onRequest':function()
+        {
             $('ecr_versionCheck').innerHTML = jgettext('Checking...');
         },
-        'onFailure' : function(rr) {
+        'onFailure':function(rr)
+        {
             $('ecr_versionCheck').innerHTML = '<b style="color: red;">'
                 + jgettext('Server error') + '</b>' + url;
 
             return;
         },
-        'onComplete' : function(response) {
+        'onComplete':function(response)
+        {
             var resp = JSON.decode(response);
 
-            if('undefined' == resp.status) {
+            if('undefined' == resp.status)
+            {
                 //-- Error
                 msg = '? bad coder error..';
 
@@ -294,7 +340,8 @@ function xcheckVersion() {
             var msg = '';
             var alt = '';
 
-            switch(resp.status) {
+            switch(resp.status)
+            {
                 case -1 :
                     cssClass = 'img outdated';
                     msg = phpjs.sprintf(jgettext('The Latest EasyCreator version is: %s'), resp.version);

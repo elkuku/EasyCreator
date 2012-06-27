@@ -14,9 +14,9 @@ function showPart(group, part)
     document.id('addElementMessage').innerHTML = '';
 
     new Request({
-        url: ecrAJAXLink+'&controller=ajax'+'&group='+group+'&part='+part,
-        update: 'addPartShow',
-        onComplete: function()
+        url:ecrAJAXLink + '&controller=ajax' + '&group=' + group + '&part=' + part,
+        update:'addPartShow',
+        onComplete:function()
         {
             document.id('addPartShow').className = '';
             document.id('addElementMessage').innerHTML = '';

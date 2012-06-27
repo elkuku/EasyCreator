@@ -12,7 +12,7 @@ var EConfig = new Class({
 
         new Request.JSON({
             url:ecrAJAXLink
-                + '&controller=config&task='+action,
+                + '&controller=config&task=' + action,
 
             onRequest:function()
             {

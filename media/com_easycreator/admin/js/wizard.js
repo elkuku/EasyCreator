@@ -37,14 +37,12 @@ function getExtensionTemplateInfo(extType, folder, e)
     url += '&folder=' + folder;
 
     new Request({
-        url: url,
+        url:url,
 
-        'onRequest' : function()
+        'onRequest':function()
         {
             //$('ecr_title_pic').innerHTML = jgettext('Loading...');
-        }
-
-        , 'onComplete' : function(response)
+        }, 'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
@@ -68,8 +66,9 @@ function getExtensionTemplateInfo(extType, folder, e)
 
 function changeJVersion(version)
 {
-	$$('div.jcompat_'+version).each(function(e){
-		var style =(e.getStyle('display') == 'none') ? 'block' : 'none';
-		e.setStyle('display', style);
-		});
+    $$('div.jcompat_' + version).each(function(e)
+    {
+        var style = (e.getStyle('display') == 'none') ? 'block' : 'none';
+        e.setStyle('display', style);
+    });
 }

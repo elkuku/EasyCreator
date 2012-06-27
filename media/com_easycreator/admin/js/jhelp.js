@@ -16,8 +16,8 @@ function create_class_list()
     xref += 'components/com_easycreator/helpers/jmethodlister.php';
 
     new Request({
-        url: xref,
-        'onComplete' : function(response)
+        url:xref,
+        'onComplete':function(response)
         {
             if(response.indexOf('{') != 0)
             {
@@ -31,7 +31,7 @@ function create_class_list()
                 if(resp.status)
                 {
                     //-- Error happened
-                    $('jsonDebug').innerHTML = resp.status+'<br />'+resp.text+resp.debug;
+                    $('jsonDebug').innerHTML = resp.status + '<br />' + resp.text + resp.debug;
                 }
                 else
                 {
@@ -57,7 +57,7 @@ function changeFrame(className, methodName, packageName)
         className = $('className').value;
     }
 
-    if (methodName)
+    if(methodName)
     {
         $('methodName').value = methodName;
     }
@@ -83,21 +83,21 @@ function changeFrame(className, methodName, packageName)
         $('jsourceDisplay').setStyle('display', 'block');
 
         link = 'index.php?option=com_easycreator&controller=ajax&tmpl=component&format=raw&task=show_source';
-        link += '&class='+className+'&method='+methodName;
+        link += '&class=' + className + '&method=' + methodName;
 
         new Request({
-            url: link,
-            'onComplete' : function(request)
+            url:link,
+            'onComplete':function(request)
             {
 
                 $('jsourceDisplay').innerHTML = request;
                 $('linkDisplay').className = '';
 
                 JTooltips2 = new Tips($$('.hasTip'),
-                {
-                    maxTitleChars : 50,
-                    fixed : true
-                });
+                    {
+                        maxTitleChars:50,
+                        fixed:true
+                    });
             }
         }).send();
     }
@@ -113,7 +113,7 @@ function changeFrame(className, methodName, packageName)
         }
     }
 
-    if (ECR_DEBUG) console.log('Fetching: ' + iframeLink);
+    if(ECR_DEBUG) console.log('Fetching: ' + iframeLink);
 }//function
 
 function changeOutFormat(name, link)
@@ -141,7 +141,7 @@ function parseLink(string, className, methodName, packageName)
         }
     }
 
-    if (methodName == 'NULL')
+    if(methodName == 'NULL')
     {
         s = str_replace('[class]/', className, s);
         s = str_replace('[class]', className, s);
@@ -156,7 +156,7 @@ function parseLink(string, className, methodName, packageName)
     sRep = (packageName) ? '[package]' : '[package]/';
     s = str_replace(sRep, packageName, s);
 
-    if (s.lastIndexOf('/') == s.length - 1)
+    if(s.lastIndexOf('/') == s.length - 1)
     {
         s = s.substring(0, s.length - 1);
     }

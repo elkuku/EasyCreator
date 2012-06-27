@@ -9,26 +9,26 @@
 window.addEvent('domready', function()
 {
     var doccommentTip = new Tips($$('.doccommentTip'),
-    {
-        className : 'doccomment', // this is the prefix for the CSS class
-        initialize : function()
         {
-
-            this.fx = new Fx.Tween(this.toolTip, $extend({property: 'opacity'}),
+            className:'doccomment', // this is the prefix for the CSS class
+            initialize:function()
             {
-                duration : 500,
-                wait : false
-            }).set(0);
-        },
-        onShow : function(toolTip)
-        {
 
-            this.fx.start(1);
-        },
-        onHide : function(toolTip)
-        {
+                this.fx = new Fx.Tween(this.toolTip, $extend({property:'opacity'}),
+                    {
+                        duration:500,
+                        wait:false
+                    }).set(0);
+            },
+            onShow:function(toolTip)
+            {
 
-            this.fx.start(0);
-        }
-    });
+                this.fx.start(1);
+            },
+            onHide:function(toolTip)
+            {
+
+                this.fx.start(0);
+            }
+        });
 });

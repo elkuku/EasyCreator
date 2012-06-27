@@ -10,24 +10,28 @@
  *
  */
 
-function checkTableEditForm(theForm) {
+function checkTableEditForm(theForm)
+{
     var atLeastOneField = 0;
     var i, elm, elm2, elm3, val, id;
 
-    for (i = obCountOrig; i < obCount; i++) {
+    for(i = obCountOrig; i < obCount; i++)
+    {
         id = "fields[" + i + "][type]";
         elm = theForm.elements[id];
 
-        if (undefined == elm) continue;
+        if(undefined == elm) continue;
 
-        if (elm.value == 'VARCHAR' || elm.value == 'CHAR'
+        if(elm.value == 'VARCHAR' || elm.value == 'CHAR'
             || elm.value == 'BIT' || elm.value == 'VARBINARY'
-            || elm.value == 'BINARY') {
+            || elm.value == 'BINARY')
+        {
             elm2 = theForm.elements["fields[" + i + "][length]"];
             val = parseInt(elm2.value);
             elm3 = theForm.elements["fields[" + i + "][name]"];
 
-            if (isNaN(val) && elm3.value != "") {
+            if(isNaN(val) && elm3.value != "")
+            {
                 elm2.select();
                 alert(jgettext('This is not a number'));
                 elm2.focus();
@@ -36,16 +40,19 @@ function checkTableEditForm(theForm) {
             }
         }
 
-        if (atLeastOneField == 0) {
+        if(atLeastOneField == 0)
+        {
             id = "fields[" + i + "][name]";
 
-            if (!emptyCheckTheField(theForm, id)) {
+            if(!emptyCheckTheField(theForm, id))
+            {
                 atLeastOneField = 1;
             }
         }
     }
 
-    if (atLeastOneField == 0) {
+    if(atLeastOneField == 0)
+    {
         alert(jgettext('Please add at least one field'));
 
         return false;
@@ -58,7 +65,8 @@ function checkTableEditForm(theForm) {
  * @param elName
  * @return
  */
-function newRow(elName) {
+function newRow(elName)
+{
     var div = new Element('div', {'class':'ecr_dbRow active', 'id':'dbRow' + obCount});
 
     var size = '12';
@@ -129,7 +137,8 @@ function newRow(elName) {
 }
 
 /** @todo DUP ?? */
-function addField() {
+function addField()
+{
     add_field_name = 'Name <input type="text" name="new_field_name[]" />';
 
     s = '';
@@ -149,7 +158,8 @@ function addField() {
  * @param tableName
  * @return
  */
-function addRelation(tableName) {
+function addRelation(tableName)
+{
     document.id('table_name').value = tableName;
 
     submitform('new_relation');
@@ -160,7 +170,8 @@ function addRelation(tableName) {
  * @param selected
  * @return
  */
-function dbGetSelectTypes(selected) {
+function dbGetSelectTypes(selected)
+{
     var names = [
         'VARCHAR'
         , 'TINYINT'
@@ -195,14 +206,16 @@ function dbGetSelectTypes(selected) {
     var div = new Element('div', { 'class':'ecr_dbRowCell'});
     var select = new Element('select', { 'name':'fields[' + obCount + '][type]'}).injectInside(div);
 
-    for (var i = 0; i < names.length; i++) {
+    for(var i = 0; i < names.length; i++)
+    {
         new Element('option', {'value':names[i]}).appendText(names[i]).injectInside(select);
     }
 
     return div;
 }
 
-function getTableFieldSelector(tableName, fieldName) {
+function getTableFieldSelector(tableName, fieldName)
+{
     url = ecrAJAXLink + '&controller=ajax';
     url += '&task=get_table_field_selector';
     url += '&table=' + tableName;
@@ -211,15 +224,18 @@ function getTableFieldSelector(tableName, fieldName) {
     new Request({
         url:url,
 
-        'onRequest':function () {
+        'onRequest':function()
+        {
             $(fieldName + '_container').innerHTML = jgettext('Loading...');
             $(fieldName + '_container').className = 'ajax_loading16';
         },
 
-        'onComplete':function (response) {
+        'onComplete':function(response)
+        {
             var resp = JSON.decode(response);
 
-            if (!resp.status) {
+            if(!resp.status)
+            {
                 //-- Error
             }
             $(fieldName + '_container').innerHTML = resp.text;

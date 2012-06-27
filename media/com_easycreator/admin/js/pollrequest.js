@@ -7,13 +7,14 @@
  */
 
 var pollRequest = new Request.JSON({
-    method : 'post',
-    url : ecrAJAXLink + '&controller=logfiles&task=pollLog',
-    initialDelay : 100,
-    delay : 300,
-    limit : 15000,
+    method:'post',
+    url:ecrAJAXLink + '&controller=logfiles&task=pollLog',
+    initialDelay:100,
+    delay:300,
+    limit:15000,
 
-    onRequest : function() {
+    onRequest:function()
+    {
         document.id('pollStatus').set('text', 'running...');
 
         var progress = document.id('ecrProgressBar');
@@ -22,7 +23,8 @@ var pollRequest = new Request.JSON({
             progress.getParent().addClass('active');
     },
 
-    onSuccess : function(response) {
+    onSuccess:function(response)
+    {
         var log = document.id('ecrDebugBox');
         var progress = document.id('ecrProgressBar');
 
@@ -33,16 +35,19 @@ var pollRequest = new Request.JSON({
         log.scrollTop = log.scrollHeight;
     },
 
-    onFailure : function() {
+    onFailure:function()
+    {
         document.id('pollStatus').set('text', 'Sorry, your request failed :(');
     }
 });
 
-function startPoll() {
+function startPoll()
+{
     pollRequest.startTimer();
 }
 
-function stopPoll() {
+function stopPoll()
+{
     pollRequest.stopTimer();
 
     document.id('pollStatus').set('text', 'idle');

@@ -23,12 +23,12 @@ function addElement()
     else
     {
         var inp = new Element('input', {
-            'type' : 'hidden',
-            'name' : 'langfile[]',
-            'value' : '#' + elementText
-            });
+            'type':'hidden',
+            'name':'langfile[]',
+            'value':'#' + elementText
+        });
 
-        var sp = new Element('span', {'style' : 'color: orange;', 'text' : '#' + elementText});
+        var sp = new Element('span', {'style':'color: orange;', 'text':'#' + elementText});
 
         // Show a message if the element has been added;
         msg.style.display = 'block';
@@ -36,7 +36,7 @@ function addElement()
 
         // Clean input field
         $('newElement').value = '';
-        var li = new Element('li', {'class': 'handle'}).inject($('orderMe'));
+        var li = new Element('li', {'class':'handle'}).inject($('orderMe'));
 
         inp.inject(li);
         sp.inject(li);

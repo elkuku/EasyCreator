@@ -47,7 +47,7 @@ var EcrLog = new Class({
                 {
                     //-- Error
                     logView.innerHTML = '<strong style="color: red;">' + resp.message + '</strong>'
-                    +'<br />'+resp.debug;
+                        + '<br />' + resp.debug;
                 } else
                 {
                     logView.innerHTML = '<pre>' + resp.message + '</pre>';

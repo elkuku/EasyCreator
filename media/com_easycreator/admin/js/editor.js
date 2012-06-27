@@ -6,7 +6,8 @@
  * @license GNU/GPL, see JROOT/LICENSE.php
  */
 
-function save_file() {
+function save_file()
+{
     url = 'index.php?option=com_easycreator&tmpl=component&format=raw';
     url += '&controller=ajax&task=save';
 
@@ -24,9 +25,9 @@ function save_file() {
     switch(ECR_JVERSION)
     {
         case '1.5':
-            var fx = box.effects( {
-                duration : 1000,
-                transition : Fx.Transitions.Quart.easeOut
+            var fx = box.effects({
+                duration:1000,
+                transition:Fx.Transitions.Quart.easeOut
             });
             break;
         case '1.6':
@@ -40,16 +41,18 @@ function save_file() {
     }// switch
 
     new Request({
-        url: url,
+        url:url,
 
-        'onRequest' : function() {
+        'onRequest':function()
+        {
             oldTitle = $('ecr_title_file').innerHTML;
 
             title.innerHTML = jgettext('Saving...');
             title.addClass('ajax_loading16-red');
         },
 
-        'onComplete' : function(response) {
+        'onComplete':function(response)
+        {
             resp = JSON.decode(response);
 
             title.innerHTML = oldTitle;
@@ -58,10 +61,12 @@ function save_file() {
             box.innerHTML = resp.text;
             box.style.display = "inline";
 
-            if (resp.status) {
+            if(resp.status)
+            {
                 box.addClass('img icon16-cancel');
                 box.style.color = 'red';
-            } else {
+            } else
+            {
                 box.removeClass('img icon16-cancel')
                 box.addClass('img icon16-apply');
                 box.style.color = 'green';
@@ -69,19 +74,22 @@ function save_file() {
 
             $('ajaxDebug').innerHTML = resp.debug;
 
-            fx.start( {}).chain(function() {
+            fx.start({}).chain(function()
+            {
                 this.start.delay(1000, this, {
-                    'opacity' : 0
+                    'opacity':0
                 });
-            }).chain(function() {
-                box.style.display = "none";
-                this.start.delay(100, this, {
-                    'opacity' : 1
+            }).chain(function()
+                {
+                    box.style.display = "none";
+                    this.start.delay(100, this, {
+                        'opacity':1
+                    });
                 });
-            });
         },
 
-        'onFailure' : function(item) {
+        'onFailure':function(item)
+        {
             alert(item.responseText);
         }
     }).send(post);

@@ -8,8 +8,8 @@
 
 function g11nCreate(type, lang, scope)
 {
-	document.adminForm.langTag.value = lang;
-	document.adminForm.scope.value = scope;
+    document.adminForm.langTag.value = lang;
+    document.adminForm.scope.value = scope;
 
-	submitform(type);
+    submitform(type);
 }//function

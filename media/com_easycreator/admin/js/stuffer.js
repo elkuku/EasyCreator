@@ -50,7 +50,8 @@ function submitStuffer(task, el)
 
     var inserts = new Array();
 
-    elements.each(function(el) {
+    elements.each(function(el)
+    {
         inserts.push(el.id);
     });
 
@@ -67,7 +68,8 @@ var ecrStuffer = new Class({
     {
         var elements = document.id('actionButtons').getElements('div.display');
 
-        elements.each(function(el) {
+        elements.each(function(el)
+        {
             el.setStyle('display', 'none');
             el.inject(document.id('actionWindow'));
         });
@@ -76,11 +78,14 @@ var ecrStuffer = new Class({
 
         elements = document.id('actionButtons').getElements('a');
 
-        elements.each(function(el) {
-            el.addEvent('mousedown', function(el) {
+        elements.each(function(el)
+        {
+            el.addEvent('mousedown', function(el)
+            {
                 Stuffer.setActive(this.get('coords'));
 
-                document.id('actionButtons').getElements('a').each(function(el, index) {
+                document.id('actionButtons').getElements('a').each(function(el, index)
+                {
                     el.removeClass('active');
                 });
 
@@ -91,10 +96,11 @@ var ecrStuffer = new Class({
         elements[0].addClass('active');
     },
 
-    setActive : function(name)
+    setActive:function(name)
     {
-        document.id('actionWindow').getElements('div.display').each(function(el){
-            var style =(name == el.get('title')) ? 'block' : 'none';
+        document.id('actionWindow').getElements('div.display').each(function(el)
+        {
+            var style = (name == el.get('title')) ? 'block' : 'none';
             el.setStyle('display', style);
         });
     },
@@ -104,22 +110,22 @@ var ecrStuffer = new Class({
         var container = document.id('updateServers');
         var html = '';
 
- //       html += '<fieldset>';
+        //       html += '<fieldset>';
 
-        html += '<label class="inline">'+jgettext('URL')+'</label>'
+        html += '<label class="inline">' + jgettext('URL') + '</label>'
             + '<input type="text" name="updateServers[url][]" value="' + url + '" /><br />';
-        html += '<label class="inline">'+jgettext('Name')+'</label>'
+        html += '<label class="inline">' + jgettext('Name') + '</label>'
             + '<input type="text" name="updateServers[name][]" value="' + name + '" /><br />';
-        html += '<label class="inline">'+jgettext('Priority')+'</label>'
+        html += '<label class="inline">' + jgettext('Priority') + '</label>'
             + '<input type="text" name="updateServers[priority][]" value="' + priority + '" /><br />';
-        html += '<label class="inline">'+jgettext('Type')+'</label>'
+        html += '<label class="inline">' + jgettext('Type') + '</label>'
             + '<input type="text" name="updateServers[type][]" value="' + type + '" /><br />';
 
         html += '<br /><span class="btn btn-mini" onclick="this.getParent().dispose();">';
         html += jgettext('Delete');
         html += '</span>';
 
-  //      html += '</fieldset>';
+        //      html += '</fieldset>';
 
 
         new Element('div', {'class':'updateServer'})
@@ -207,8 +213,8 @@ var ecrStuffer = new Class({
                 }
 
                 html += '<div class="actionTitle">'
-                    + '<i class="img icon16-move" style="cursor: move;" title="'+jgettext('Move')+'"></i>'
-                    + '<i class="img icon16-eye" style="cursor: pointer;" title="'+jgettext('Show settings')+'"'
+                    + '<i class="img icon16-move" style="cursor: move;" title="' + jgettext('Move') + '"></i>'
+                    + '<i class="img icon16-eye" style="cursor: pointer;" title="' + jgettext('Show settings') + '"'
                     + ' onclick="Stuffer.toggleContainer(this, \'tgl_action_' + cnt + '\');"></i>'
                     + title + sAdd
                     + '<span style="float: right;" class="btn btn-mini" onclick="this.getParent().getParent().dispose();">'
@@ -263,7 +269,7 @@ var ecrStuffer = new Class({
         {
             el.removeClass(imgOff);
             el.addClass(imgOn);
-            el.title =  jgettext('Hide settings');
+            el.title = jgettext('Hide settings');
 
             document.id(id).setStyle('display', 'block');
         }
@@ -345,12 +351,14 @@ var ecrStuffer = new Class({
                         console.log('actions...');
                         console.log(data[v]);
 
-                        $$('#container_action ul').each(function(el){
+                        $$('#container_action ul').each(function(el)
+                        {
                             console.log(el);
                             el.empty();
                         });
 
-                        document.id('container_action').getChildren().each(function(el){
+                        document.id('container_action').getChildren().each(function(el)
+                        {
                             //console.log(el);
                             //console.log(el.getTitle());
                         });

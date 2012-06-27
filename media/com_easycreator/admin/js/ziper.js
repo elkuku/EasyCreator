@@ -201,7 +201,7 @@ var EcrZiper = new Class({
 
                         continue;
                     }
-console.log(v);
+                    console.log(v);
                     var elTest = document.id(v);
 
                     if(null == elTest)

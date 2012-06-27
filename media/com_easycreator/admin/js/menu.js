@@ -7,11 +7,11 @@
  */
 
 /* Standard Joomla! menu images - css class */
-    var stdMenuImgs = new Array('archive', 'article', 'category', 'checkin',
-        'component', 'config', 'content', 'cpanel', 'default', 'frontpage',
-        'help', 'info', 'install', 'language', 'logout', 'massmail', 'media',
-        'menu', 'menumgr', 'messages', 'module', 'plugin', 'stats', 'themes',
-        'trash', 'user ');
+var stdMenuImgs = new Array('archive', 'article', 'category', 'checkin',
+    'component', 'config', 'content', 'cpanel', 'default', 'frontpage',
+    'help', 'info', 'install', 'language', 'logout', 'massmail', 'media',
+    'menu', 'menumgr', 'messages', 'module', 'plugin', 'stats', 'themes',
+    'trash', 'user ');
 
 function newSubmenu(a, b, c, d, e, parent)
 {
@@ -32,7 +32,7 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
 
     numi.value = num;
 
-    var divIdName = 'submenu'+num+'Div';
+    var divIdName = 'submenu' + num + 'Div';
 
     var newdiv = document.createElement('li');
 
@@ -40,28 +40,28 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
 
     var html = '';
 
-    html += '<input type="hidden" name="submenu['+num+'][menuid]" value="'+menuid+'" />';
+    html += '<input type="hidden" name="submenu[' + num + '][menuid]" value="' + menuid + '" />';
 
-    if (parent)
+    if(parent)
     {
         html += "<input type=\"hidden\" name=\"submenu[" + num
-                + "][parent]\" value=\"" + parent + "\" />";
+            + "][parent]\" value=\"" + parent + "\" />";
     }
 
     html += '<i class="img icon16-move" style="cursor: move;"></i>'
-            + "<span class=\"ecr_label2\">" + jgettext('Text')
-            + "</span><input type=\"text\" name=\"submenu[" + num
-            + "][text]\" size=\"15\" value=\"" + text
-            + "\" style=\"border: 2px solid blue; font-size: 1.3em;\" />";
+        + "<span class=\"ecr_label2\">" + jgettext('Text')
+        + "</span><input type=\"text\" name=\"submenu[" + num
+        + "][text]\" size=\"15\" value=\"" + text
+        + "\" style=\"border: 2px solid blue; font-size: 1.3em;\" />";
     html += '<span class="ecr_label2">' + jgettext('Link') + '</span>';
     html += "<input type=\"text\" name=\"submenu[" + num
-            + "][link]\" size=\"25\" value=\"" + link + "\" />";
+        + "][link]\" size=\"25\" value=\"" + link + "\" />";
 
     //-- @Joomla!-compat 1.5
     if('1.5' == ECR_JVERSION)
     {
         html += '<span class="ecr_label2">' + jgettext('Ordering') + '</span>';
-        html += '<input type="text" name="submenu['+num+'][ordering]" size="2" value="'+ordering+'" />';
+        html += '<input type="text" name="submenu[' + num + '][ordering]" size="2" value="' + ordering + '" />';
     }
 
     html += '<br />';
@@ -70,7 +70,7 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += "<div id=\"menuPic-" + num + "\" style=\"display: inline;\"></div>";
     html += "<div id=\"prev-" + num + "\" style=\"display: inline;\"></div>";
     html += "<input type=\"text\" name=\"submenu[" + num
-            + "][img]\" size=\"30\" value=\"" + image + "\" id=\"img-" + num + "\" />";
+        + "][img]\" size=\"30\" value=\"" + image + "\" id=\"img-" + num + "\" />";
     html += "<div style=\"float: right\" class=\"btn\""
         + " onclick=\"this.getParent().dispose();\"><i class=\"img icon16-delete\"></i>" + jgettext('Delete') + "</div>";
 
@@ -85,14 +85,14 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
 
 function chgMenuPic(num)
 {
-    if (num == undefined)
+    if(num == undefined)
     {
         num = '';
     }
 
     selection = $('opt-' + num).value;
 
-    switch (selection)
+    switch(selection)
     {
         case '':
             $('img-' + num).value = '';
@@ -117,32 +117,32 @@ function drawPicChooser(num, selectedImage)
 {
     html = '';
     html += "<select name=\"opt-" + num + "\" id=\"opt-" + num
-            + "\" onchange=\"chgMenuPic(" + num + ");\">";
+        + "\" onchange=\"chgMenuPic(" + num + ");\">";
     html += '<option value=\"\">' + jgettext('Select...') + '</option>';
     found = false;
 
-    for ( var i = 0; i <= stdMenuImgs.length - 1; i++)
+    for(var i = 0; i <= stdMenuImgs.length - 1; i++)
     {
         selected = '';
 
-        if (selectedImage == stdMenuImgs[i])
+        if(selectedImage == stdMenuImgs[i])
         {
             selected = ' selected=\"selected\"';
             found = true;
         }
 
-        html += "<option" + selected + " class=\"img icon-16-"+ stdMenuImgs[i]+"\">" + stdMenuImgs[i] + "</option>";
+        html += "<option" + selected + " class=\"img icon-16-" + stdMenuImgs[i] + "\">" + stdMenuImgs[i] + "</option>";
     }
 
     selected = '';
 
-    if (selectedImage != '' && found == false)
+    if(selectedImage != '' && found == false)
     {
         selected = ' selected=\"selected\"';
     }
 
     html += '<option value=\"user_defined\"' + selected + '>'
-            + jgettext('User defined') + '</option>';
+        + jgettext('User defined') + '</option>';
     html += "</select>";
 
     $('menuPic-' + num).innerHTML = html;
