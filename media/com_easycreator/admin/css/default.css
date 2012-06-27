@@ -582,7 +582,7 @@ div.ecrFooter a {
     background-color: #eeeeff;
 }
 
-input:focus, textarea:focus  {
+input:focus, textarea:focus {
     outline: 2px solid orange ! important;
 }
 

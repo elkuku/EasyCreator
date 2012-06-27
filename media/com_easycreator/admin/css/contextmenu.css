@@ -5,41 +5,41 @@
  * @author     Created on 20-Mar-2009
  */
 ul.SimpleContextMenu {
-   display: none;
-   position: absolute;
-   margin: 0px;
-   padding: 0px;
-   font-family: verdana;
-   font-size: 11px;
-   list-style-type: none;
-   border-top: 1px solid #000000;
-   border-left: 1px solid #000000;
-   border-right: 1px solid #000000;
-   box-shadow:8px 8px 8px #666;
+    display: none;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    font-family: verdana;
+    font-size: 11px;
+    list-style-type: none;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    box-shadow: 8px 8px 8px #666;
 }
 
 ul.SimpleContextMenu li {
-   border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
 
 ul.SimpleContextMenu li.title {
-   background-color: #ffffff;
-   font-size: 1.1em;
-   font-weight: bold;
-   text-align: center;
+    background-color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
 }
 
 ul.SimpleContextMenu li a {
-   display: block;
-   width: 130px;
-   padding: 5px 10px 3px 10px;
-   text-decoration: none;
-   color: #003300; /*ff0000;*/
-   background: #eeeeee;
+    display: block;
+    width: 130px;
+    padding: 5px 10px 3px 10px;
+    text-decoration: none;
+    color: #003300; /*ff0000;*/
+    background: #eeeeee;
 }
 
 ul.SimpleContextMenu li a:hover {
-   text-decoration: none;
-   color: #fff;
-   background: #aaa;
+    text-decoration: none;
+    color: #fff;
+    background: #aaa;
 }

@@ -23,6 +23,7 @@ div#pollStatus {
     min-width: 100px;
     text-align: center;
 }
+
 div#pollStatusGrip {
     background-color: yellow;
     cursor: s-resize;

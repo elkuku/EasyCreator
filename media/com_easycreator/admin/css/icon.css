@@ -7,6 +7,7 @@
 .icon128-easycreator {
     background-image: url(../images/ico/icon-128-easycreator.png);
 }
+
 .icon32-chart {
     background-image: url(../images/ico/icon-32-chart.png);
 }
@@ -170,7 +171,7 @@
 
 .icon16-ecr_params {
     background-image: url(../images/ico/icon-16-article.png);
-    }
+}
 
 .icon16-git {
     background-image: url(../images/ico/icon-16-git.png);
@@ -304,9 +305,11 @@
 .icon16-ok {
     background-image: url(../images/ico/icon-16-ok.png);
 }
+
 .icon16-notok {
     background-image: url(../images/ico/icon-16-notok.png);
 }
+
 .icon16-package {
     background-image: url(../images/ico/icon-16-package.png);
 }
@@ -366,6 +369,7 @@
 .icon16-yellowled {
     background-image: url(../images/ico/icon-16-yellowled.png);
 }
+
 .icon16-redled {
     background-image: url(../images/ico/icon-16-redled.png);
 }
@@ -528,6 +532,7 @@
     background-position: 4px 3px ! important;
     padding: 6px 15px 7px 25px;
 }
+
 .img32d {
     background-repeat: no-repeat;
     background-position: 50% 0;
@@ -554,10 +559,10 @@ i.img24 {
     background-repeat: no-repeat;
     padding: 0;
 
-margin: 0;
+    margin: 0;
     display: inline-block;
     height: 24px;
-width: 26px;
+    width: 26px;
 }
 
 .ajax_loading {
@@ -597,18 +602,18 @@ dl.tabs dt {
     padding-bottom: 5px;
 }
 
-dl.tabs dt.component,dl.tabs dt#component {
+dl.tabs dt.component, dl.tabs dt#component {
     background-image: url(../images/ico/ext_com_mini.png) !important;
 }
 
-dl.tabs dt.module,dl.tabs dt#module {
+dl.tabs dt.module, dl.tabs dt#module {
     background-image: url(../images/ico/ext_mod_mini.png) !important;
 }
 
-dl.tabs dt.plugin,dl.tabs dt#plugin {
+dl.tabs dt.plugin, dl.tabs dt#plugin {
     background-image: url(../images/ico/ext_plugin_mini.png) !important;
 }
 
-dl.tabs dt.template,dl.tabs dt#template {
+dl.tabs dt.template, dl.tabs dt#template {
     background-image: url(../images/ico/ext_tem_mini.png) !important;
 }
