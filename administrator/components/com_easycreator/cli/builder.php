@@ -64,7 +64,7 @@ class EcrCliBuilder extends JApplicationCli
      * @throws Exception
      * @return void
      */
-    public function execute()
+    public function doExecute()
     {
         define('JPATH_BASE', THE_BUILD_PATH);
         define('JPATH_SITE', JPATH_BASE);
