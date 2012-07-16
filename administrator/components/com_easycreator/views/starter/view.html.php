@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewStarter extends JView
+class EasyCreatorViewStarter extends JViewLegacy
 {
     protected $infoLinks = array();
 

@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewTemplates extends JView
+class EasyCreatorViewTemplates extends JViewLegacy
 {
     protected $profiler = null;
 

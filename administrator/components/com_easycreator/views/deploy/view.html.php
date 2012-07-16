@@ -13,7 +13,7 @@ jimport('joomla.application.component.view');
  * EasyCreator HTML view.
  *
  */
-class EasyCreatorViewDeploy extends JView
+class EasyCreatorViewDeploy extends JViewLegacy
 {
     protected $project;
 

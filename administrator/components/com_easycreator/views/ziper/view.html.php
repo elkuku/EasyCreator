@@ -15,7 +15,7 @@ jimport('joomla.application.component.view');
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewZiper extends JView
+class EasyCreatorViewZiper extends JViewLegacy
 {
     protected $zipResult = false;
 

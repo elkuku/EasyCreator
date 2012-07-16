@@ -15,7 +15,7 @@ jimport('joomla.application.component.view');
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewHelp extends JView
+class EasyCreatorViewHelp extends JViewLegacy
 {
     /**
      * Standard display method.

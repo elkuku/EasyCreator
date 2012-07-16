@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewStuffer extends JView
+class EasyCreatorViewStuffer extends JViewLegacy
 {
     /**
      * @var EcrProjectBase

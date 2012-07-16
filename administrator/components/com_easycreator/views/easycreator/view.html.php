@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewEasyCreator extends JView
+class EasyCreatorViewEasyCreator extends JViewLegacy
 {
     /**
      * Execute and display a template script.

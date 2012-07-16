@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewConfig extends JView
+class EasyCreatorViewConfig extends JViewLegacy
 {
     /**
      * Standard display method.
@@ -45,6 +45,7 @@ class EasyCreatorViewConfig extends JView
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 try
                 {
                     $this->form = $this->get('Form');

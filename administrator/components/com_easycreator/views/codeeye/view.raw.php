@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewCodeEye extends JView
+class EasyCreatorViewCodeEye extends JViewLegacy
 {
     protected $project = null;
 

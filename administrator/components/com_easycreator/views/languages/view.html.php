@@ -15,7 +15,7 @@ jimport('joomla.application.component.view');
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewLanguages extends JView
+class EasyCreatorViewLanguages extends JViewLegacy
 {
     protected $versions = array();
 
