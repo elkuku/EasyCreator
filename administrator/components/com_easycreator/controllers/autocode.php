@@ -17,7 +17,7 @@ jimport('joomla.application.component.controller');
  *
  * @package    EasyCreator
  */
-class EasyCreatorControllerAutoCode extends JController
+class EasyCreatorControllerAutoCode extends JControllerLegacy
 {
     /**
      * Displays AutoCode.

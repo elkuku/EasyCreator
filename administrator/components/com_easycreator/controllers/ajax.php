@@ -19,7 +19,7 @@ jimport('joomla.application.component.controller');
  *
  * @package EasyCreator
  */
-class EasyCreatorControllerAjax extends JController
+class EasyCreatorControllerAjax extends JControllerLegacy
 {
     /**
      * Response array for json encoded output

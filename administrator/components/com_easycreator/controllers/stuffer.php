@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerStuffer extends JController
+class EasyCreatorControllerStuffer extends JControllerLegacy
 {
     /**
      * @var EcrLogger

@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerCodeEyeAjax extends JController
+class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
 {
     protected $testsBase;
 

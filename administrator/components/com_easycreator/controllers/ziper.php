@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerZIPer extends JController
+class EasyCreatorControllerZIPer extends JControllerLegacy
 {
     /**
      * @var EcrResponseJson

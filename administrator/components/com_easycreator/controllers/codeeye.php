@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerCodeEye extends JController
+class EasyCreatorControllerCodeEye extends JControllerLegacy
 {
     /**
      * Standard display method.

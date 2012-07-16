@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerDeploy extends JController
+class EasyCreatorControllerDeploy extends JControllerLegacy
 {
     private $response = array('status' => 0, 'message' => '', 'debug' => '');
 
