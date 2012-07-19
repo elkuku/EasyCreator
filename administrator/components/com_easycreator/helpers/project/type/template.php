@@ -142,6 +142,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 //-- @Joomla!-compat 1.5
                 $paths['admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/templates/'.$this->comName;
@@ -235,6 +236,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -312,6 +314,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -383,7 +386,10 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                     case '1.6':
                     case '1.7':
                     case '2.5':
-                        $projects = array('bluestork', 'hathor', 'system');
+		                $projects = array('bluestork', 'hathor', 'system');
+		                break;
+	                case '3.0':
+                        $projects = array('bluestork', 'hathor', 'strapped', 'system');
                         break;
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -403,7 +409,10 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         break;
                     case '1.7':
                     case '2.5':
-                        $projects = array('atomic', 'beez_20', 'beez5', 'system');
+		                $projects = array('atomic', 'beez_20', 'beez5', 'system');
+		                break;
+	                case '3.0':
+                        $projects = array('atomic', 'beez_20', 'beez5', 'strapped', 'system');
                         break;
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');

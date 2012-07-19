@@ -15,7 +15,7 @@ jimport('joomla.application.component.controller');
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerConfig extends EcrBaseControllerLegacy
+class EasyCreatorControllerConfig extends EcrBaseController
 {
     /**
      * Standard display method.
@@ -58,6 +58,7 @@ class EasyCreatorControllerConfig extends EcrBaseControllerLegacy
                 case '1.6':
                 case '1.7':
                 case '2.5':
+                case '3.0':
                     $component = JComponentHelper::getComponent('com_easycreator');
                     $table = JTable::getInstance('extension');
                     $table->load($component->id);

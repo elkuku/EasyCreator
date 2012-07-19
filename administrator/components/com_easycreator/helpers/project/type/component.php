@@ -143,6 +143,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 if($scope == 'menu')
                     $scope = 'sys';
 
@@ -244,6 +245,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 return $this->comName.'.xml';
                 break;
 
@@ -279,6 +281,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -338,6 +341,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -416,7 +420,17 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 );
                 break;
 
-            default:
+	        case '3.0':
+		        $projects = array(
+			        'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
+		        , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
+		        , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
+		        , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks', 'com_finder'
+		        , 'com_joomlaupdate'
+		        );
+		        break;
+
+	        default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
         }//switch
@@ -447,6 +461,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $db = JFactory::getDbo();
 
                 $query = $db->getQuery(true);
@@ -499,6 +514,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                     case '1.6':
                     case '1.7':
                     case '2.5':
+                    case '3.0':
                         $menu['level'] = 2;
                         $menu['parent'] = $mId;
                         break;
@@ -635,6 +651,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $query = $db->getQuery(true);
 
                 $query->from('#__menu AS m');
@@ -719,7 +736,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $query->where('`client_id` = 1');
         $query->where('`component_id` = '.(int)$id);
 
-        if('2.5' == ECR_JVERSION)
+        if('2.5' == ECR_JVERSION
+        || 0 === strpos('3', ECR_JVERSION))
         {
             //-- In J! 2.5.x... a bug has been fixed that does not remove child nodes.
             $query->where('`parent_id` = 1');
@@ -840,7 +858,42 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                 break;
 
-            default:
+	        case '3.0':
+		        /* @var JTableMenu $table */
+		        $table = JTable::getInstance('menu');
+
+		        $data = array();
+		        $data['menutype'] = 'main';
+		        $data['client_id'] = 1;
+		        $data['title'] = $item['text'];
+		        $data['alias'] = $item['text'];
+		        $data['type'] = 'component';
+		        $data['published'] = 0;
+		        $data['level'] = $item['level'];
+		        $data['parent_id'] = (int)$item['parent'];
+		        $data['component_id'] = (int)$this->dbId;
+		        $data['img'] = $item['img'];
+		        $data['link'] = $item['link'];
+		        $data['home'] = 0;
+		        $data['params'] = '';
+
+		        $table->setLocation($data['parent_id'], 'last-child');
+
+		        if( ! $table->bind($data)
+			        || ! $table->check()
+			        || ! $table->store())
+			        throw new Exception(__METHOD__.' - '.$table->getError());
+
+		        $parent_id = $table->id;
+
+		        //-- Rebuild the whole tree
+		        $table->rebuild();
+
+		        return $parent_id;
+
+		        break;
+
+	        default:
                 EcrHtml::message(__METHOD__.' - Unknown JVersion', 'error');
 
                 return false;

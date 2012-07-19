@@ -180,6 +180,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -226,6 +227,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
@@ -274,6 +276,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -327,6 +330,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
@@ -501,7 +505,51 @@ class EcrProjectTypePlugin extends EcrProjectBase
                 }//switch
                 break;
 
-            default:
+	        case '3.0':
+		        switch($scope)
+		        {
+			        case 'authentication':
+				        $projects = array('gmail', 'joomla', 'ldap');
+				        break;
+			        case 'captcha':
+				        $projects = array('recaptcha');
+				        break;
+			        case 'content':
+				        $projects = array('emailcloak', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
+				        , 'pagenavigation', 'vote', 'finder');
+				        break;
+			        case 'editors':
+				        $projects = array('none', 'tinymce', 'codemirror');
+				        break;
+			        case 'editors-xtd':
+				        $projects = array('article', 'image', 'pagebreak', 'readmore');
+				        break;
+			        case 'extension':
+				        $projects = array('joomla');
+				        break;
+			        case 'finder':
+				        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+				        break;
+			        case 'quickicon':
+				        $projects = array('extensionupdate', 'joomlaupdate');
+				        break;
+			        case 'search':
+				        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+				        break;
+			        case 'system':
+				        $projects = array('cache', 'debug', 'finder', 'highlight', 'languagefilter', 'languagecode'
+				        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
+				        break;
+			        case 'user':
+				        $projects = array('contactcreator', 'joomla', 'profile');
+				        break;
+			        default :
+				        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+				        break;
+		        }//switch
+		        break;
+
+	        default:
                 JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown J! version', 'error');
 
                 return array();

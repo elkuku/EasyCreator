@@ -77,6 +77,8 @@ else
 
 //-- 1) Check if g11n is installed as a PEAR package - see: http://elkuku.github.com/pear/
 
+//@include 'elkuku/g11n/language.php';
+
 //-- @todo: check for installed g11n PEAR package to remove the "shut-up"
 //-- @require_once 'elkuku/g11n/language.php';
 
@@ -134,9 +136,18 @@ define('ECR_VERSION', EcrProjectHelper::parseXMLInstallFile(
 switch(ECR_JVERSION)
 {
     case '3.0': //-- Get prepared
-        JFactory::getApplication()->enqueueMessage(sprintf(
-            jgettext('EasyCreator version %s is in testing stage with your Joomla! version %s')
-            , ECR_VERSION, ECR_JVERSION), 'warning');
+	    $application = JFactory::getApplication();
+
+	    $application->JComponentTitle = 'EasyCreator';
+
+	    /*
+	    $application->enqueueMessage(sprintf(
+            jgettext(
+	            'EasyCreator version %s is in testing stage with your Joomla! version %s'
+            )
+            , ECR_VERSION, ECR_JVERSION), 'warning'
+	    );
+	    */
         break;
 
     case '2.5':
@@ -149,7 +160,7 @@ switch(ECR_JVERSION)
     default:
         JFactory::getApplication()->enqueueMessage(sprintf(
             jgettext('EasyCreator version %s may not work well with your Joomla! version %s')
-            , ECR_VERSION, ECR_JVERSION), 'warning');
+            , ECR_VERSION, ECR_JVERSION), 'error');
         break;
 }
 

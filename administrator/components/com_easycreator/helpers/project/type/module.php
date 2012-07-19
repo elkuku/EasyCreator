@@ -132,13 +132,14 @@ class EcrProjectTypeModule extends EcrProjectBase
         switch($this->JCompat)
         {
             case '1.5':
-                $paths['admin'][] = JPATH_ADMINISTRATOR;
+	            //-- @Joomla!-compat 1.5
+	            $paths['admin'][] = JPATH_ADMINISTRATOR;
                 $paths['site'][] = JPATH_SITE;
                 break;
-            case '1.6':
-            case '1.7':
-            case '2.5':
-            //-- @Joomla!-compat 1.5
+	        case '1.6':
+	        case '1.7':
+	        case '2.5':
+	        case '3.0':
                 $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/modules/'.$this->comName;
 
@@ -229,6 +230,7 @@ class EcrProjectTypeModule extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -301,6 +303,7 @@ class EcrProjectTypeModule extends EcrProjectBase
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $query = $db->getQuery(true);
                 break;
 
@@ -377,7 +380,12 @@ class EcrProjectTypeModule extends EcrProjectBase
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
 
-                    default:
+	                case '3.0':
+		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+		                , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
+		                , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
+
+	                default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();
@@ -410,7 +418,15 @@ class EcrProjectTypeModule extends EcrProjectBase
                         , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
                         , 'mod_finder');
 
-                    default:
+	                case '3.0':
+		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+		                , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
+		                , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
+		                , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
+		                , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
+		                , 'mod_finder');
+
+	                default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();

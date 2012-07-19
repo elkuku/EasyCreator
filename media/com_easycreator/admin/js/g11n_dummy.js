@@ -6,6 +6,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+var g11n = {};
+g11n.debug = '';
 function jgettext(string)
 {
     return string;
