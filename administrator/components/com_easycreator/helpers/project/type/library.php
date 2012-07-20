@@ -265,11 +265,11 @@ class EcrProjectTypeLibrary extends EcrProjectBase
                 return array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
                 break;
 
-	        case '3.0':
-		        return array('cms', 'compat', 'joomla', 'legacy', 'phpmailer', 'phputf8', 'simplepie');
-		        break;
+            case '3.0':
+                return array('cms', 'compat', 'joomla', 'legacy', 'phpmailer', 'phputf8', 'simplepie');
+                break;
 
-	        default:
+            default:
                 EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
         }//switch

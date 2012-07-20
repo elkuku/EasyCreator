@@ -41,14 +41,6 @@ class PartVariousInstall_Script
     {
         $project = EcrProjectHelper::getProject();
 
-        //-- @Joomla!-compat 1.5
-        if('1.5' == $project->JCompat)
-        {
-            EcrHtml::message(jgettext('Install scripts are available for Joomla! 1.6 + projects only'), 'error');
-
-            return false;
-        }
-
         $ecr_project = JRequest::getCmd('ecr_project');
         $basePathDest = JPATH_ROOT.DS.'administrator'.DS.'components'.DS.$ecr_project;
 

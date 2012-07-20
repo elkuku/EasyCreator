@@ -272,26 +272,7 @@ class EasyCreatorViewStuffer extends JViewLegacy
 
         if(in_array($selected_xml, $xmlFiles))
         {
-            //-- @Joomla!-version-check
-            switch(ECR_JVERSION)
-            {
-                //-- Get the project params
-                case '1.5':
-                    $this->params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
-                    break;
-
-                case '1.6':
-                case '1.7':
-                case '2.5':
-                    $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
-                    break;
-
-                default:
-                    EcrHtml::message(__METHOD__.' - Undefined J! version', 'error');
-
-                    return false;
-                    break;
-            }
+            $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
         }
 
         $options = array();
@@ -309,13 +290,7 @@ class EasyCreatorViewStuffer extends JViewLegacy
 
         $this->assignRef('selected_xml', $selected_xml);
 
-        $layout = 'projectparams';
-
-        //-- @Joomla!-compat 1.5
-        if('1.5' == ECR_JVERSION)
-            $layout .= '_15';
-
-        $this->setLayout($layout);
+        $this->setLayout('projectparams');
     }
 
     /**

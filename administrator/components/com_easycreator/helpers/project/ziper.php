@@ -631,6 +631,10 @@ class EcrProjectZiper extends JObject
      */
     private function processInstall()
     {
+        //-- INACTIVE
+
+        return $this;
+
         //-- @Joomla!-compat 1.5
         if('1.5' != $this->project->JCompat)
             return $this;
@@ -752,6 +756,10 @@ class EcrProjectZiper extends JObject
      */
     private function copyPackageModules()
     {
+        //-- INACTIVE
+
+        return $this;
+
         if(0 == count($this->project->modules))
             return $this;
 

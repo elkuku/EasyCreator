@@ -131,15 +131,10 @@ class EcrProjectTypeModule extends EcrProjectBase
         //-- @Joomla!-version-check
         switch($this->JCompat)
         {
-            case '1.5':
-	            //-- @Joomla!-compat 1.5
-	            $paths['admin'][] = JPATH_ADMINISTRATOR;
-                $paths['site'][] = JPATH_SITE;
-                break;
-	        case '1.6':
-	        case '1.7':
-	        case '2.5':
-	        case '3.0':
+            case '1.6':
+            case '1.7':
+            case '2.5':
+            case '3.0':
                 $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/modules/'.$this->comName;
 
@@ -220,13 +215,6 @@ class EcrProjectTypeModule extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $dtd = array(
-                    'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD module 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/module-install.dtd');
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
@@ -293,24 +281,7 @@ class EcrProjectTypeModule extends EcrProjectBase
         $db = JFactory::getDBO();
         $clId = ($this->scope == 'admin') ? 1 : 0;
 
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
-        {
-            case '1.5':
-                $query = new JDatabaseQuery;
-                break;
-
-            case '1.6':
-            case '1.7':
-            case '2.5':
-            case '3.0':
-                $query = $db->getQuery(true);
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-                break;
-        }
+        $query = $db->getQuery(true);
 
         /* @var JDatabaseQuery $query */
 
@@ -380,12 +351,12 @@ class EcrProjectTypeModule extends EcrProjectBase
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
 
-	                case '3.0':
-		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-		                , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-		                , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
+                    case '3.0':
+                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
 
-	                default:
+                    default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();
@@ -395,13 +366,6 @@ class EcrProjectTypeModule extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
-                    case '1.5':
-                        return array('mod_archive', 'mod_banners', 'mod_breadcrumbs', 'mod_custom'
-                        , 'mod_feed', 'mod_footer', 'mod_latestnews', 'mod_login', 'mod_mainmenu'
-                        , 'mod_mostread', 'mod_newsflash', 'mod_poll', 'mod_random_image'
-                        , 'mod_related_items', 'mod_search', 'mod_sections', 'mod_stats'
-                        , 'mod_syndicate', 'mod_whosonline', 'mod_wrapper');
-
                     case '1.6':
                     case '1.7':
                         return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
@@ -418,15 +382,15 @@ class EcrProjectTypeModule extends EcrProjectBase
                         , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
                         , 'mod_finder');
 
-	                case '3.0':
-		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
-		                , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-		                , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
-		                , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-		                , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
-		                , 'mod_finder');
+                    case '3.0':
+                        return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
+                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
+                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
+                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
+                        , 'mod_finder');
 
-	                default:
+                    default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                         return array();

@@ -1,19 +1,13 @@
-<?php
+<?php  defined('_JEXEC') || die('=;)');
+/**
+ * @package    EasyCreator
+ * @subpackage Models
+ * @author     Nikolai Plath
+ * @author     Created on 03-Mar-11
+ * @license    GNU/GPL, see JROOT/LICENSE.php
+ */
 
-//-- @Joomla!-compat 1.5
-if('1.5' == ECR_JVERSION)
-{
-    /**
-     * Extending JModel.
-     */
-    class EasyCreatorModelConfig extends JModel
-    {
-    }//class
-
-    return;
-}
-
-jimport('joomla.application.component.modeladmin');
+//jimport('joomla.application.component.modeladmin');
 
 /**
  * Prototype admin model.
@@ -40,7 +34,7 @@ class EasyCreatorModelConfig extends JModelAdmin
         , array('control' => 'params', 'load_data' => $loadData));
 
         if(empty($form))
-        throw new Exception(jgettext('Unable to load the config form'));
+            throw new Exception(jgettext('Unable to load the config form'));
 
         $form->bind(JComponentHelper::getParams($option));
 

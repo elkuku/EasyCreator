@@ -54,8 +54,8 @@ if($dataDir)
 
     if(false == JFolder::exists($dataDir))
         throw new Exception(sprintf(
-            '%1$s - The data directory you specified does not exist - Please create it: %2$s'
-            , basename(__FILE__), $dataDir));
+        '%1$s - The data directory you specified does not exist - Please create it: %2$s'
+        , basename(__FILE__), $dataDir));
 
     /**
      * Path for user data.

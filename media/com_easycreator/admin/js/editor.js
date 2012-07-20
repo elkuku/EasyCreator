@@ -21,24 +21,7 @@ function save_file()
     var box = $('ecr_status_msg');
     var title = $('ecr_title_file');
 
-    //-- @Joomla!-version-check
-    switch(ECR_JVERSION)
-    {
-        case '1.5':
-            var fx = box.effects({
-                duration:1000,
-                transition:Fx.Transitions.Quart.easeOut
-            });
-            break;
-        case '1.6':
-        case '1.7':
-        case '2.5':
-            var fx = new Fx.Morph(box, {});
-            break;
-        default:
-            alert('Undefined JVersion '.ECR_JVERSION);
-            break;
-    }// switch
+    var fx = new Fx.Morph(box, {});
 
     new Request({
         url:url,

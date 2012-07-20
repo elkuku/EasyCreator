@@ -497,12 +497,7 @@ class EcrLanguage
         $pos = 1;
         $found = false;
 
-        //-- @Joomla!-compat 1.5
-        if(ECR_JVERSION != '1.5')
-        {
-            //-- For J > 1.5 we quote all translations
-            $translation = '"'.$translation.'"';
-        }
+        $translation = '"'.$translation.'"';
 
         foreach($origFile as $line)
         {
@@ -616,11 +611,9 @@ class EcrLanguage
     /**
      * Reads the strings from language files.
      *
-     * @param bool|string $core If it is a core file
-     *
      * @return void
      */
-    public function _readStrings($core = false)
+    public function _readStrings()
     {
         foreach($this->_languages as $lang)
         {
@@ -630,7 +623,7 @@ class EcrLanguage
             }
 
             //--Read the file
-            $file = $this->_getFile($lang, $core);
+            $file = $this->_getFile($lang);
 
             if( ! $file)
             {
@@ -643,13 +636,6 @@ class EcrLanguage
 
                 if(strpos($line, '#') === 0)
                 {
-                    //--Comment line
-                    if($core)
-                    {
-                        //--Don't care about core comments ;)
-                        continue;
-                    }
-
                     if(strpos($line, '@version'))
                     {
                         //--Version string found
@@ -677,24 +663,17 @@ class EcrLanguage
                     $key = trim(substr($line, 0, $eqpos));
                     $value = trim(substr($line, $eqpos + 1));
 
-                    if( ! array_key_exists($key, $this->_strings) && ! $core)
+                    if( ! array_key_exists($key, $this->_strings))
                     {
                         $this->_default_file[] = array('key' => array($key => $value));
                     }
 
-                    if($core)
-                    {
-                        $this->_coreStrings[$key][$lang] = $value;
-                    }
-                    else
-                    {
-                        $this->_strings[$key][$lang] = $value;
-                    }
+                    $this->_strings[$key][$lang] = $value;
 
                     continue;
                 }
 
-                if($lang == $this->_default_lang && ! $core)
+                if($lang == $this->_default_lang)
                 {
                     $this->_default_file[] = array('etc' => $line);
                 }
@@ -1116,29 +1095,17 @@ case 'etc':
             if(JFolder::exists($copyItem))
             {
                 //--Add all PHP and XML files from a given folder
-                //-- @Joomla!-version-check
-                switch($this->project->JCompat)
+                if(isset($this->project->buildOpts['lng_separate_javascript'])
+                && $this->project->buildOpts['lng_separate_javascript'])
                 {
-                    case '1.5' :
-                        $files = JFolder::files($copyItem, '\.php$|\.xml$', true, true);
-                        break;
+                    $filter =($type == 'js') ? '\.js$' : '\.php$|\.xml$';
+                }
+                else
+                {
+                    $filter = '\.php$|\.xml$|\.js$';
+                }
 
-                    case '1.6' :
-                    case '1.7' :
-                    case '2.5' :
-                        if(isset($this->project->buildOpts['lng_separate_javascript'])
-                        && $this->project->buildOpts['lng_separate_javascript'])
-                        {
-                            $filter =($type == 'js') ? '\.js$' : '\.php$|\.xml$';
-                        }
-                        else
-                        {
-                            $filter = '\.php$|\.xml$|\.js$';
-                        }
-
-                        $files = JFolder::files($copyItem, $filter, true, true);
-                        break;
-                }//switch
+                $files = JFolder::files($copyItem, $filter, true, true);
 
                 $this->_fileList = array_merge($this->_fileList, $files);
             }
@@ -1451,13 +1418,12 @@ case 'etc':
      * Read a language file.
      *
      * @param string $lang Single language eg. 'en-GB'
-     * @param boolean $core Set true if it is a core project
      *
      * @return mixed array of lines / false on error
      */
-    private function _getFile($lang, $core = false)
+    private function _getFile($lang)
     {
-        $fileName = $this->getFileName($lang, $this->_scope, $this->project, $core);
+        $fileName = $this->getFileName($lang, $this->_scope, $this->project);
 
         if(JFile::exists($fileName))
         {
@@ -1493,13 +1459,10 @@ case 'etc':
 
         $fileName = self::getFileName($lang, $scope, $project);
 
-        //-- @Joomla!-compat 1.5
-        $commentChar =($project->JCompat == '1.5') ? '#' : ';';
-
         $fileContents = '';
-        $fileContents .= $commentChar.' @version $Id'.'$'.NL;//Splitted to avoid property being setted
-        $fileContents .= $commentChar.' '.$project->comName.' '.$scope.' language file'.NL;
-        $fileContents .= $commentChar.' @created on '.date('d-M-Y').NL;
+        $fileContents .= '; @version $Id'.'$'.NL;//Splitted to avoid property being setted
+        $fileContents .= '; '.$project->comName.' '.$scope.' language file'.NL;
+        $fileContents .= '; @created on '.date('d-M-Y').NL;
 
         if(JFile::exists($fileName))
         throw new Exception(sprintf(jgettext('The file %s already exists'), $fileName));
@@ -1537,24 +1500,11 @@ case 'etc':
      * @param string $lang Language code eg. en-GB
      * @param string $scope Eg. admin
      * @param EcrProjectBase $project The EcrProject
-     * @param boolean $core True if it is a core project
      *
      * @return string full path to file
      */
-    public static function getFileName($lang, $scope, EcrProjectBase $project, $core = false)
+    public static function getFileName($lang, $scope, EcrProjectBase $project)
     {
-        if($core)
-        {
-            //-- Core language file
-            $fileName = '';
-            $fileName .=($scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
-            $fileName .= DS.'language'.DS.$lang;
-            $fileName .= DS.$lang.'.ini';
-
-            return $fileName;
-        }
-
-        //-- Extension language file
         $paths = $project->getLanguagePaths($scope);
 
         if( ! is_array($paths))

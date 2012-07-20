@@ -17,11 +17,7 @@ function newSubmenu(a, b, c, d, e, parent)
 {
     newLi = addSubmenu('', '', '', '', '', parent);
 
-    //-- @Joomla!-compat 1.5
-    if('1.5' != ECR_JVERSION)
-    {
-        sortSubMenu.addItems(newLi);
-    }
+    sortSubMenu.addItems(newLi);
 }
 
 function addSubmenu(text, link, image, ordering, menuid, parent)
@@ -56,13 +52,6 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     html += '<span class="ecr_label2">' + jgettext('Link') + '</span>';
     html += "<input type=\"text\" name=\"submenu[" + num
         + "][link]\" size=\"25\" value=\"" + link + "\" />";
-
-    //-- @Joomla!-compat 1.5
-    if('1.5' == ECR_JVERSION)
-    {
-        html += '<span class="ecr_label2">' + jgettext('Ordering') + '</span>';
-        html += '<input type="text" name="submenu[' + num + '][ordering]" size="2" value="' + ordering + '" />';
-    }
 
     html += '<br />';
     html += '<br />';

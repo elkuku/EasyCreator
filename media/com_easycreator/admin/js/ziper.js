@@ -59,24 +59,7 @@ var EcrZiper = new Class({
         var box = document.id('ajaxMessage');
         var debug = document.id('ajaxDebug');
 
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
-        {
-            case '1.5':
-                var fx = box.effects({
-                    duration:1000,
-                    transition:Fx.Transitions.Quart.easeOut
-                });
-                break;
-            case '1.6':
-            case '1.7':
-            case '2.5':
-                var fx = new Fx.Morph(box, {});
-                break;
-            default:
-                alert(jgettext('Undefined Joomla! version: %s', ECR_JVERSION));
-                break;
-        }
+        var fx = new Fx.Morph(box, {});
 
         new Request({
             url:ecrAJAXLink

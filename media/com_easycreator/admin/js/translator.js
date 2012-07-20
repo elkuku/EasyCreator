@@ -47,26 +47,10 @@ var ecrTranslator = new Class({
 
                 doc.getElementById('trfield_' + fieldId).innerHTML = '<strong style="color: red">' + jgettext('Empty') + '</strong>';
 
-                //-- @Joomla!-version-check
-                switch(ECR_JVERSION)
-                {
-                    case '1.5':
-                        doc.getElementById('sbox-window').close();
-                        break;
-
-                    case '1.6':
-                    case '1.7':
-                    case '2.5':
-                        parent.SqueezeBox.close();
-                        break;
-
-                    default:
-                        alert(jgettext('Undefined Joomla! version'));
-                        break;
-                }//switch
+                parent.SqueezeBox.close();
             }
         }).send();
-    }, //function
+    },
 
     /**
      *
@@ -172,23 +156,7 @@ var ecrTranslator = new Class({
                         break;
                 }//switch
 
-                //-- @Joomla!-version-check
-                switch(ECR_JVERSION)
-                {
-                    case '1.5':
-                        doc.getElementById('sbox-window').close();
-                        break;
-
-                    case '1.6':
-                    case '1.7':
-                    case '2.5':
-                        parent.SqueezeBox.close();
-                        break;
-
-                    default:
-                        alert('Unsupported JVersion: ' + ECR_JVERSION);
-                        break;
-                }//switch
+                parent.SqueezeBox.close();
             }//onComplete
         }).send();
     }//function

@@ -96,19 +96,6 @@ $jVersions = array('15', '25');
 
         $htmlId = $extType.'_'.$template->folder;
         $action = "onclick=\"setTemplate('$extType', '$template->folder'); goWizard(2);\"";
-
-        //-- @Joomla!-compat 1.5
-        if($template->jVersion != '1.5' && ECR_JVERSION == '1.5') :
-            $action = '';
-            $s = '<span class="img icon16-logout"></span>';
-            $m = '<strong style=\'color: red;\'>'
-                .jgettext('Joomla 1.6 extension templates can not be build on Joomla 1.5')
-                .'</strong>';
-
-            $template->description = $m.BR.$template->description;
-            $template->info = $template->info.BR.$m;
-            $template->name = $s.$template->name;
-        endif;
         ?>
 
         <div class="btn-group jcompat_<?php echo str_replace('.', '', $template->jVersion);?>">

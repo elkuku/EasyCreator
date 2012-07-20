@@ -82,13 +82,6 @@ class EcrLogger
 
         if($this->profile)
         {
-            //-- @Joomla!-compat 1.5
-            if(version_compare(JVERSION, '1.6', '<'))
-            {
-                //-- Load profiler for J! 1.5
-                ecrLoadHelper('profiler_15');
-            }
-
             $this->profiler = EcrProfiler::getInstance('EcrLogger');
         }
     }

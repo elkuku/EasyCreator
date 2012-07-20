@@ -22,12 +22,11 @@ abstract class EcrProjectBase
     /**
      * Joomla! compatibility mode
      *
-     * @Joomla!-compat 1.5
      * @var string
      */
-    public $JCompat = '1.5';
+    public $JCompat = '2.5';
 
-    public $phpVersion = '4';
+    public $phpVersion = '5';
 
     public $fromTpl = '';
 
@@ -1071,8 +1070,8 @@ abstract class EcrProjectBase
         $this->name = (string)$manifest->name;
         $this->comName = (string)$manifest->comname;
 
-        //-- @Joomla!-compat 1.5
-        $this->JCompat = ((string)$manifest->JCompat) ? (string)$manifest->JCompat : '1.5';
+        //-- @Joomla!-compat 2.5
+        $this->JCompat = ((string)$manifest->JCompat) ? (string)$manifest->JCompat : '2.5';
 
         $this->langFormat = (string)$manifest->langFormat;
         $this->zipPath = (string)$manifest->zipPath;

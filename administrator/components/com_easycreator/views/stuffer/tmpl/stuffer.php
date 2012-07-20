@@ -70,23 +70,19 @@ if($this->project->type == 'component'):
         endforeach;
     endif;
 
-    //-- @Joomla!-compat 1.5
-    if('1.5' != ECR_JVERSION)
-    {
-        $js[] = "sortSubMenu = new Sortables('#divSubmenu', {
-            constrain: true,
-            clone: true,
-            revert: true,
+    $js[] = "sortSubMenu = new Sortables('#divSubmenu', {
+        constrain: true,
+        clone: true,
+        revert: true,
 
-            onStart: function(el) {
-                el.setStyle('background','#add8e6');
-            },
-            onComplete: function(el) {
-                el.setStyle('background','#fff');
-            }
+        onStart: function(el) {
+            el.setStyle('background','#add8e6');
+        },
+        onComplete: function(el) {
+            el.setStyle('background','#fff');
+        }
 
-        });";
-    }
+    });";
 
     $js[] = '//--Package modules added by PHP';
 

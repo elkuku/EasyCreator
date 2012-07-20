@@ -118,13 +118,6 @@ class EcrProjectHelper
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                if('plugin' == $project->type)
-                {
-                    $xmlFiles = array($path.DS.$project->comName.'.xml');
-                }
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
@@ -404,13 +397,8 @@ class EcrProjectHelper
             'component' => ''
         , 'module' => 'admin,site'
         , 'plugin' => implode(',', JFolder::folders(JPATH_ROOT.DS.'plugins', '.', false, false, array('tmp', '.svn')))
-        , 'template' => 'admin,site');
-
-        //-- @Joomla!-compat 1.5
-        if('1.5' != ECR_JVERSION)
-        {
-            $scopes['library'] = '';
-        }
+        , 'template' => 'admin,site'
+        , 'library' => '');
 
         return $scopes;
     }//function

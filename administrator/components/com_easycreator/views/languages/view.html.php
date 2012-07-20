@@ -25,9 +25,6 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
     protected $hideLangs = array();
 
-    //-- @Joomla!-compat 1.5
-    protected $showCore = false;
-
     private $paths = array(
       'admin' => JPATH_ADMINISTRATOR
     , 'site' => JPATH_SITE);
@@ -56,9 +53,6 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
         $this->hideLangs = JRequest::getVar('hide_langs', array());
         $this->scope = JRequest::getCmd('scope');
-
-        //-- @Joomla!-compat 1.5
-        $this->showCore = JRequest::getCmd('showCore');
 
         try
         {
@@ -622,18 +616,6 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
         $this->checks->includeLineNumbers = $c;
 
-        //-- @Joomla!-compat 1.5
-        if('1.5' == $this->project->JCompat)
-        {
-            $c = '';
-            $checked =($this->buildOpts->get('includeCoreLanguage')) ? 'checked="checked"' : '';
-            $c .= '<input type="checkbox"'.$checked.' id="chkIncludeCoreLanguage"'
-            .' name="buildOpts[includeCoreLanguage]" onchange="submitform();" />';
-            $c .= '<label class="inline" for="chkIncludeCoreLanguage">Include Joomla! core language</label>';
-
-            $this->checks->includeCoreLanguage = $c;
-        }
-
         $c = '';
         $checked =($this->buildOpts->get('markFuzzy')) ? 'checked="checked"' : '';
         $c .= '<input type="checkbox"'.$checked.' id="chkMarkFuzzy"'
@@ -659,24 +641,13 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function prepareTranslation()
     {
-        //-- @Joomla!-compat 1.5
-        $this->showCore = JRequest::getCmd('showCore');
-
         $this->easyLanguage->_readStrings();
-
-        //-- @Joomla!-compat 1.5
-        if($this->showCore)
-        {
-            $this->easyLanguage->_readStrings(true);
-        }
 
         $this->languages = $this->easyLanguage->getLanguages();
         $this->hideLangs = $this->easyLanguage->getHideLangs();
         $this->definitions = $this->easyLanguage->getDefinitions();
         $this->strings = $this->easyLanguage->getStrings();
 
-        //-- @Joomla!-compat 1.5
-        $this->coreStrings = $this->easyLanguage->getCoreStrings();
     }//function
 
     /**
@@ -897,33 +868,6 @@ class EasyCreatorViewLanguages extends JViewLegacy
                     $html .= '</div>';
                 }
 
-                //-- @Joomla!-compat 1.5
-                if('1.5' == $this->project->JCompat && $task == 'searchfiles')
-                {
-                    $html .= '<div class="ecr_menu_box">';
-
-                    if($this->showCore)
-                    {
-                        $checked = ' checked="checked"';
-                        $style = ' style="color: red;"';
-                    }
-                    else
-                    {
-                        $checked = '';
-                        $style = ' style="color: blue;"';
-                    }
-
-                    $html .= '<input type="checkbox" name="showCore" id="showCore"'
-                    .' value="show_core" onclick="submitbutton(\'searchfiles\');" '.$checked.'>';
-
-                    $html .= '<label class="inline" for="showCore" '.$style.'>'.jgettext('Load core language').'</label>';
-
-                    $html .= JHtml::tooltip(
-                    jgettext('Also load the core language file to check for translations (displayed in orange)')
-                    , jgettext('Load core language'));
-
-                    $html .= '</div>';
-                }
                 break;
 
             case 'langcorrectorder':

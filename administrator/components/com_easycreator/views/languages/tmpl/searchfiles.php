@@ -37,24 +37,7 @@ if($this->scope != 'menu')
     //-- TODO improve sorting.. on filenames only
     sort($allFiles);
 
-    $searchTitle = jgettext('PHP XML file analysis');
-
-    //-- @Joomla!-version-check
-    switch(ECR_JVERSION)
-    {
-        case '1.5':
-            break;
-
-        case '1.6':
-        case '1.7':
-        case '2.5':
-            $searchTitle = jgettext('PHP, XML and JavaScript file analysis');
-            break;
-
-        default:
-            EcrHtml::message(__METHOD__.' - Unknown J! version');
-            break;
-    }
+    $searchTitle = jgettext('PHP, XML and JavaScript file analysis');
 
     echo '<h2>'.$searchTitle.' :: <span style="color: green;">'.ucfirst($this->scope).'</span></h2>';
 }
