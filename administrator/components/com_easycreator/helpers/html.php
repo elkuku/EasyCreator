@@ -371,7 +371,7 @@ EOF;
             $type = 'error';
         }
 
-        $type = ($type) ? ' alert'.$type : ' alert-info';
+        $type = ($type) ? ' alert-'.$type : ' alert-info';
 
         if(false == is_array($messages))
             $messages = array($messages);

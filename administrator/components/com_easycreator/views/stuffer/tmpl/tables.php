@@ -20,7 +20,7 @@ $db = JFactory::getDBO();
 
 $dbTables = $db->getTableList();
 $dbPrefix = $db->getPrefix();
-$dbName = JFactory::getConfig()->getValue('config.db');
+$dbName = JFactory::getConfig()->get('config.db');
 
 $scopes = array('admin' => jgettext('Admin'), 'site' => jgettext('Site'));
 

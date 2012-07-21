@@ -364,7 +364,7 @@ b2752b4 Add missing dependency to JUri to the cli builder script ( :( )
 26eba29 Bump version to 0.0.15.1
 70e6226 Add a CLI builder script
 49ede99 Add cli output to the logger
-5a9aac9 Add EcrZiperException
+5a9aac9 Add EcrExceptionZiper
 9b7a4cd Refactor the Ziper
 
 2012-02-03

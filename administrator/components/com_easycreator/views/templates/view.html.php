@@ -76,7 +76,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
 
         if($profiling)
         {
-            jimport('joomla.error.profiler');
+//            jimport('joomla.error.profiler');
             $this->profiler = JProfiler::getInstance('EasyCreator');
         }
 

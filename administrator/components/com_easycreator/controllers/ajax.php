@@ -519,6 +519,8 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         $response['text'] = $fileContents;
 
         echo json_encode($response);
+
+        jexit();
     }//function
 
     /**

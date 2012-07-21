@@ -7,7 +7,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//jimport('joomla.application.component.modeladmin');
+//-- @Joomla!-compat 2.5
+jimport('joomla.application.component.modeladmin');
 
 /**
  * Prototype admin model.

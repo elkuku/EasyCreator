@@ -65,9 +65,9 @@ class EcrProfiler extends JProfiler
             $mark = sprintf(
                 '<span style="background-color: yellow;">%.3f sec (+%.3f); %0.2f Mb (+%0.2f)</span> - ',
                 $current,
-                $current - $this->previous_time,
+                $current - $this->previousTime,
                 $current_mem,
-                $current_mem - $this->previous_mem
+                $current_mem - $this->previousMem
             );
         }
         else
@@ -75,12 +75,12 @@ class EcrProfiler extends JProfiler
             $mark = sprintf(
                 '<span style="background-color: yellow;">%.3f sec (+%.3f)</span> - ',
                 $current,
-                $current - $this->previous_time
+                $current - $this->previousTime
             );
         }
 
-        $this->previous_time = $current;
-        $this->previous_mem = $current_mem;
+        $this->previousTime = $current;
+        $this->previousMem = $current_mem;
         $this->buffer[] = $mark;
 
         return $mark;

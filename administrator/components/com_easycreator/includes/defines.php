@@ -11,6 +11,7 @@ $params = JComponentHelper::getParams('com_easycreator');
 
 /**
  * The OS specific directory separator -
+ *
  * @todo remove ?
  */
 defined('DS') || define('DS', DIRECTORY_SEPARATOR);
@@ -53,9 +54,33 @@ if($dataDir)
         $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
 
     if(false == JFolder::exists($dataDir))
-        throw new Exception(sprintf(
-        '%1$s - The data directory you specified does not exist - Please create it: %2$s'
-        , basename(__FILE__), $dataDir));
+    {
+        if(0 == strpos($dataDir, JPATH_ROOT))
+        {
+            //-- The data_dir is inside the J! root - try to create it.
+            if(JFolder::create($dataDir))
+            {
+                JFactory::getApplication()->enqueueMessage(sprintf(
+                    'The data directory has been created in %s'
+                    , $dataDir
+                ));
+            }
+            else
+            {
+                throw new DomainException(sprintf(
+                    'Unable to create the data directory in %s'
+                    , $dataDir
+                ));
+            }
+        }
+        else
+        {
+            throw new DomainException(sprintf(
+                '%1$s - The data directory you specified does not exist - Please create it: %2$s'
+                , basename(__FILE__), $dataDir
+            ));
+        }
+    }
 
     /**
      * Path for user data.
@@ -127,10 +152,10 @@ if($updateserverDir)
     if(0 === strpos($dataDir, 'JROOT'))
         $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
 
-        /**
-         * Path for local update server.
-         */
-        define('ECRPATH_UPDATESERVER', JPath::clean($updateserverDir));
+    /**
+     * Path for local update server.
+     */
+    define('ECRPATH_UPDATESERVER', JPath::clean($updateserverDir));
 
     if(0)
     {

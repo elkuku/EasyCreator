@@ -7,23 +7,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-/*
- This is our SQL INSERT query (for manual install)
-
-** J! 1.5
-INSERT INTO `#__components`
-(`name`, `link`, `menuid`, `parent`, `admin_menu_link`
-, `admin_menu_alt`, `option`, `ordering`
-, `admin_menu_img`, `iscore`, `params`, `enabled`)
-VALUES
-('EasyCreator', 'option=com_easycreator', 0, 0, 'option=com_easycreator'
-, 'EasyCreator', 'com_easycreator', 0
-, '../media/com_easycreator/admin/images/ico/icon-16-easycreator.png', 0, '', 1);
-
-** J! >= 1.6 +
-Use the new 'Discover' feature from the Joomla! installer - works great =;)
-*/
-
 //-- When changing Joomla! versions look for:
 //-- @Joomla!-version-check
 //-- @Joomla!-compat XXXX
@@ -32,7 +15,7 @@ Use the new 'Discover' feature from the Joomla! installer - works great =;)
 //-- @@DEBUG
 define('ECR_DEV_MODE', 1);
 
-jimport('joomla.error.profiler');
+//jimport('joomla.error.profiler');
 
 JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator starting') : null;
 
@@ -41,9 +24,6 @@ require JPATH_COMPONENT.'/includes/defines.php';
 
 //-- Global functions
 require JPATH_COMPONENT.'/includes/loader.php';
-
-//-- Global functions
-require JPATH_COMPONENT.'/includes/exceptions.php';
 
 if(ECR_DEV_MODE)
 {

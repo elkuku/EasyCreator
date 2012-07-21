@@ -31,6 +31,9 @@ if(false == JFolder::exists($buildPath.DS.$this->project->version)) :
     if(JFolder::create($buildPath.DS.$this->project->version)) :
         EcrHtml::message(jgettext('The folder has been created'));
     else :
-        EcrHtml::message(jgettext('Unable to create the build folder - please check !'), 'error');
+        EcrHtml::message(
+            array(jgettext('Unable to create the build folder - please check !'),
+            $buildPath.DS.$this->project->version)
+        ,'error');
     endif;
 endif;
