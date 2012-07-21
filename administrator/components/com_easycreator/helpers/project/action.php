@@ -263,13 +263,13 @@ abstract class EcrProjectAction
      * @param string          $msg
      * @param EcrProjectZiper $ziper
      *
-     * @throws EcrZiperException
+     * @throws EcrExceptionZiper
      * @return EcrProjectAction
      */
     protected function abort($msg, EcrProjectZiper $ziper)
     {
         if($this->abort)
-            throw new EcrZiperException($msg, 1);
+            throw new EcrExceptionZiper($msg, 1);
 
         $ziper->logger->log($msg, 'Action', JLog::ERROR);
 

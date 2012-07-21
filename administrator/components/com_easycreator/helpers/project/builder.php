@@ -133,7 +133,7 @@ class EcrProjectBuilder extends JObject
                 ->install()
                 ->createEasyCreatorManifest();
         }
-        catch(EcrBuilderException $e)
+        catch(EcrExceptionBuilder $e)
         {
             $this->logger->log('ERROR', $e->getMessage());
             $this->logger->writeLog();
@@ -152,22 +152,22 @@ class EcrProjectBuilder extends JObject
     /**
      * Setup the builder.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function setUp()
     {
         if(false == JFile::exists($this->buildBase.DS.'manifest.xml'))
-            throw new EcrBuilderException('Failed to open: '.$this->buildBase.DS.'manifest.xml');
+            throw new EcrExceptionBuilder('Failed to open: '.$this->buildBase.DS.'manifest.xml');
 
         if(false == JFolder::exists($this->buildBase.DS.'tmpl'))
-            throw new EcrBuilderException('Template must be in folder named tmpl - '
+            throw new EcrExceptionBuilder('Template must be in folder named tmpl - '
                 .$this->buildBase.DS.'tmpl');
 
         $folders = JFolder::folders($this->buildBase.DS.'tmpl');
 
         if(false == in_array('site', $folders) && ! in_array('admin', $folders))
-            throw new EcrBuilderException('Template must contain folders named admin or site');
+            throw new EcrExceptionBuilder('Template must contain folders named admin or site');
 
         $this->buildManifest = EcrProjectHelper::getXML($this->buildBase.DS.'manifest.xml');
 
@@ -179,7 +179,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Setup the project.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function setUpProject()
@@ -216,7 +216,7 @@ class EcrProjectBuilder extends JObject
                 $this->project->comName = strtolower($this->project->name);
 
                 if( ! $this->project->scope)
-                    throw new EcrBuilderException(__METHOD__.': Missing scope for library');
+                    throw new EcrExceptionBuilder(__METHOD__.': Missing scope for library');
                 break;
 
             case 'package':
@@ -230,7 +230,7 @@ class EcrProjectBuilder extends JObject
                 break;
 
             default:
-                throw new EcrBuilderException(__METHOD__.' - Undefined type : '.$this->project->type);
+                throw new EcrExceptionBuilder(__METHOD__.' - Undefined type : '.$this->project->type);
                 break;
         }
 
@@ -338,7 +338,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Create the build directory.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function createBuildDir()
@@ -350,7 +350,7 @@ class EcrProjectBuilder extends JObject
         $this->buildDir = JPath::clean($this->buildDir);
 
         if(false == JFolder::create($this->buildDir))
-            throw new EcrBuilderException('Failed to create build directory: '.$this->buildDir);
+            throw new EcrExceptionBuilder('Failed to create build directory: '.$this->buildDir);
 
         $this->logger->log('TempDir created at: '.$this->buildDir);
         $this->logger->log('Building: '.$this->project->name.'<br />'
@@ -393,7 +393,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Copy the files.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function copyFiles()
@@ -428,7 +428,7 @@ class EcrProjectBuilder extends JObject
                 $path = str_replace('_ecr_list_postfix', strtolower($this->project->listPostfix), $path);
 
                 if( ! JFile::write($path, $fContents))
-                    throw new EcrBuilderException(sprintf(jgettext('Can not write the file at %s'), $path));
+                    throw new EcrExceptionBuilder(sprintf(jgettext('Can not write the file at %s'), $path));
 
                 $this->logger->logFileWrite($fileName, $path, $fContents);
             }
@@ -440,7 +440,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Process additional options.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function processMoreOptions()
@@ -479,7 +479,7 @@ class EcrProjectBuilder extends JObject
         }
         else
         {
-            throw new EcrBuilderException('No suiteable path found for CHANGELOG in '.$this->buildDir);
+            throw new EcrExceptionBuilder('No suiteable path found for CHANGELOG in '.$this->buildDir);
         }
 
         if(JFile::write($path.DS.$fileName, $changelog))
@@ -488,7 +488,7 @@ class EcrProjectBuilder extends JObject
         }
         else
         {
-            throw new EcrBuilderException('Cannot create CHANGELOG');
+            throw new EcrExceptionBuilder('Cannot create CHANGELOG');
         }
 
         return $this;
@@ -497,7 +497,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Create the Joomla! manifest.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function createJoomlaManifest()
@@ -514,7 +514,7 @@ class EcrProjectBuilder extends JObject
         }
         else
         {
-            throw new EcrBuilderException('Error creating manifest file: '
+            throw new EcrExceptionBuilder('Error creating manifest file: '
                 .implode("\n", $manifest->getErrors()));
         }
 
@@ -524,7 +524,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Create the EasyCreator manifest.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return boolean true on success
      */
     private function createEasyCreatorManifest()
@@ -540,7 +540,7 @@ class EcrProjectBuilder extends JObject
         $xmlContents = $this->project->update($this->testMode);
 
         if(false == $xmlContents)
-            throw new EcrBuilderException('Unable to create EasyCreator manifest');
+            throw new EcrExceptionBuilder('Unable to create EasyCreator manifest');
 
         $this->logger->log('EasyCreator manifest created');
         $this->logger->logFileWrite('', 'ECR'.DS.'EasyCreatorManifest.xml', $xmlContents);
@@ -551,7 +551,7 @@ class EcrProjectBuilder extends JObject
     /**
      * Installs an extension with the standard Joomla! installer.
      *
-     * @throws EcrBuilderException
+     * @throws EcrExceptionBuilder
      * @return EcrProjectBuilder
      */
     private function install()
@@ -572,7 +572,7 @@ class EcrProjectBuilder extends JObject
             $dest = $this->project->getExtensionPath();
 
             if(false == JFolder::copy($src, $dest))
-                throw new EcrBuilderException(
+                throw new EcrExceptionBuilder(
                     sprintf('Failed to copy the JApplication from %s to %s', $src, $dest));
 
             $this->logger->log(
@@ -582,7 +582,7 @@ class EcrProjectBuilder extends JObject
             $dest = $this->project->getJoomlaManifestPath().DS.$this->project->getJoomlaManifestName();
 
             if(false == JFile::copy($src, $dest))
-                throw new EcrBuilderException(
+                throw new EcrExceptionBuilder(
                     sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
 
             return $this;
@@ -595,7 +595,7 @@ class EcrProjectBuilder extends JObject
             $dest = $this->project->getJoomlaManifestPath().DS.$this->project->getJoomlaManifestName();
 
             if(false == JFile::copy($src, $dest))
-                throw new EcrBuilderException(
+                throw new EcrExceptionBuilder(
                     sprintf('Failed to copy package manifest xml from %s to %s', $src, $dest));
 
             $this->logger->log(
@@ -613,7 +613,7 @@ class EcrProjectBuilder extends JObject
         $type = JInstallerHelper::detectType($this->buildDir);
 
         if(false == $type)
-            throw new EcrBuilderException(jgettext('Path does not have a valid package'));
+            throw new EcrExceptionBuilder(jgettext('Path does not have a valid package'));
 
         //-- Get an installer instance
         $installer = JInstaller::getInstance();
@@ -629,7 +629,7 @@ class EcrProjectBuilder extends JObject
 
         //-- There was an error installing the package
         if(false == $result)
-            throw new EcrBuilderException(sprintf(jgettext('An error happened while installing your %s'), jgettext($type)));
+            throw new EcrExceptionBuilder(sprintf(jgettext('An error happened while installing your %s'), jgettext($type)));
 
         return $this;
     }

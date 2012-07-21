@@ -788,7 +788,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
                     break;
             }
         }
-        catch(EcrLogException $e)
+        catch(EcrExceptionLog $e)
         {
             EcrHtml::message($e);
 
