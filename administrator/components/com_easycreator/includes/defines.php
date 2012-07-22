@@ -128,7 +128,7 @@ define('ECR_JVERSION', $parts[0].'.'.$parts[1]);
 /**
  * EasyCreator Documentation location - might change sometimes =;)
  */
-define('ECR_DOCU_LINK', 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutzer:Elkuku/Proyektz/EasyCreator');
+define('ECR_DOCU_LINK', 'http://joomla-wiki.de/dokumentation/Benutzer:Elkuku/Proyektz/EasyCreator');
 
 /**
  * EasyCreator HELP mode.
