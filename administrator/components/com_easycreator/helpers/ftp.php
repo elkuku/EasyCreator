@@ -12,7 +12,7 @@ jimport('joomla.client.ftp');
 /**
  * FTP class.
  */
-class EcrFtp extends JFTP
+class EcrFtp extends JClientFtp
 {
     /**
      * Returns the global FTP connector object, only creating it
@@ -38,7 +38,9 @@ class EcrFtp extends JFTP
     {
         //-- Avoid all this mess by declaring JFtp::getInstance() as "static" !!
 
-        $x = new JFTP;
+        $options = array();
+
+        $x = new JClientFtp($options);
 
         return $x->getInstance($host, $port, $options, $user, $pass);
     }
@@ -57,7 +59,7 @@ class EcrFtp extends JFTP
     {
         //-- Avoid all this mess by throwing appropriate exceptions !!
 
-        if( ! parent::store($local, $remote))
+        if(false === parent::store($local, $remote))
             throw new Exception(JError::getError());
     }
 }

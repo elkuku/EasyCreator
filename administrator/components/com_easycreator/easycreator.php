@@ -68,10 +68,7 @@ try
     {
         //-- 2) Check the libraries folder
 
-        //-- @todo remove JFolder::exists when dropping 1.5 support
-        if( ! JFolder::exists(JPATH_LIBRARIES.'/g11n')
-            || ! jimport('g11n.language')
-        )
+        if( ! jimport('g11n.language'))
         {
             //-- 3) Load a dummy language handler -> english only !
 
@@ -116,24 +113,21 @@ define('ECR_VERSION', EcrProjectHelper::parseXMLInstallFile(
 switch(ECR_JVERSION)
 {
     case '3.0': //-- Get prepared
-	    $application = JFactory::getApplication();
+        $application = JFactory::getApplication();
 
-	    $application->JComponentTitle = 'EasyCreator';
+        $application->JComponentTitle = 'EasyCreator';
 
-	    /*
-	    $application->enqueueMessage(sprintf(
+        /*
+        $application->enqueueMessage(sprintf(
             jgettext(
-	            'EasyCreator version %s is in testing stage with your Joomla! version %s'
+                'EasyCreator version %s is in testing stage with your Joomla! version %s'
             )
             , ECR_VERSION, ECR_JVERSION), 'warning'
-	    );
-	    */
+        );
+        */
         break;
 
     case '2.5':
-    case '1.7':
-    case '1.6':
-    case '1.5':
         //-- We're all OK
         break;
 
@@ -147,6 +141,9 @@ switch(ECR_JVERSION)
 //-- Add CSS
 ecrStylesheet('bootstrap', 'default', 'toolbar', 'icon');
 
+//-- @todo remove bootstrap when it is integrated in J! 3.0
+#ecrStylesheet('default', 'toolbar', 'icon');
+
 //-- Setup tooltips - used almost everywhere..
 JHTML::_('behavior.tooltip');
 
@@ -156,31 +153,7 @@ ecrScript('global_vars', 'easycreator');
 JFactory::getDocument()->addScriptDeclaration("var ECR_JVERSION = '".ECR_JVERSION."';".NL);
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
 
-if(version_compare(JVERSION, '1.6', '>'))
-{
-    //-- Joomla! 1.6+ compat
-    $prevErrorReporting = error_reporting(E_ALL);
-
-    //-- $prevErrorReporting = error_reporting(E_STRICT);//...when ¿
-    $prevErrorReporting = error_reporting(- 1);
-}
-else
-{
-    /*
-     * Joomla! 1.5 legacy stuff
-     */
-
-    $prevErrorReporting = error_reporting(E_ALL);
-
-    $MTVersion = JFactory::getApplication()->get('MooToolsVersion');
-
-    if( ! $MTVersion)
-        JFactory::getApplication()->enqueueMessage(
-            jgettext('Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager'), 'error');
-
-    //-- J! 1.6 stuff not present in J! 1.5
-    ecrLoadHelper('databasequery');
-}
+$prevErrorReporting = error_reporting(- 1);
 
 try
 {

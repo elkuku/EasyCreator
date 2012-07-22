@@ -14,7 +14,7 @@ jimport('joomla.application.component.view');
  * @package    EasyCreator
  * @subpackage Frontent
  */
-class EasyCreatorViewEasyCreator extends JView
+class EasyCreatorViewEasyCreator extends JViewLegacy
 {
     /**
      * Execute and display a template script.

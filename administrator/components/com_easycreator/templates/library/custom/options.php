@@ -26,14 +26,6 @@ class TemplateOptions extends EcrProjectTemplateOptions
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-                $this->reservedNames = array('joomla', 'bitfolge', 'phpmailer', 'phputf8', 'simplepie');
-                break;
-
-            case '1.7':
-                $this->reservedNames = array('joomla', 'phpmailer', 'phputf8', 'simplepie');
-                break;
-
             case '2.5':
                 $this->reservedNames = array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
                 break;

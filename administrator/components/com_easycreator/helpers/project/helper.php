@@ -118,8 +118,6 @@ class EcrProjectHelper
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 if('library' == $project->type
@@ -164,9 +162,7 @@ class EcrProjectHelper
             if( ! $xml)
             return false;
 
-            if($xml->getName() == 'install'//J! 1.5
-            || $xml->getName() == 'extension'//J! 1.6+
-            )
+            if($xml->getName() == 'extension')
             {
                 //-- Valid xml manifest found
                 return str_replace(JPATH_ROOT.DS, '', JPath::clean($fileName));
@@ -258,9 +254,7 @@ class EcrProjectHelper
         /*
          * Check for a valid XML root tag.
         */
-        if($manifest->getName() != 'install'//J! 1.5
-        && $manifest->getName() != 'extension'//J! 1.6
-        )
+        if($manifest->getName() != 'extension')
         {
             EcrHtml::message(sprintf('Invalid install manifest at %s', $path), 'error');
 
@@ -775,7 +769,8 @@ class EcrProjectHelper
      * @param boolean $isFile Set [true to load a file | false to load a string].
      *
      * @todo This may go in a separate class - error reporting may be improved.
-     * @todo Update: drop J1.5 support remove since it is now part of JFactory
+     * @todo Update: drop J1.5 support remove since it is now part of JFactory.
+     * @todo Update2: Leave it alone, since it is dropped in 3.0 :(...
      *
      * @return JXMLElement on success | false on error
      */

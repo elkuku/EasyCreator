@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<extension type="component" version="1.5" method="upgrade">
+<extension type="component" version="2.5" method="upgrade">
   <name>EasyCreator</name>
   <creationDate>24-Apr-2012</creationDate>
   <author>Nikolai Plath</author>
@@ -52,5 +52,4 @@
     <folder>admin</folder>
     <folder>site</folder>
   </media>
-  <params />
 </extension>

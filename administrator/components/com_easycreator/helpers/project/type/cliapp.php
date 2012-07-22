@@ -22,8 +22,8 @@ class EcrProjectTypeCliapp extends EcrProjectBase
      */
     public $prefix = 'cap_';
 
-    //-- @Joomla!-compat 1.6
-    public $JCompat = '1.6';
+    //-- @Joomla!-compat 2.5
+    public $JCompat = '2.5';
 
     /**
      * @var bool If the project is installable through the Joomla! installer.
@@ -141,8 +141,6 @@ class EcrProjectTypeCliapp extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 break;

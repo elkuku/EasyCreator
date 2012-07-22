@@ -46,10 +46,6 @@
             href="http://pear.php.net/package/Archive_Zip" class="external">Archive_Zip</a>.
         </li>
         <li>
-            <strong>Package install routine</strong> for J! 1.5 by Andrew Eddie - New Life in IT Pty Ltd <a
-            href="http://jxtended.com/" class="external">jxtended.com</a>
-        </li>
-        <li>
             <strong>EditArea</strong> The great code editor by Christophe Dolivet. <a
             href="http://www.cdolivet.com/index.php?page=editArea" class="external">www.cdolivet.net/editarea</a>
         </li>

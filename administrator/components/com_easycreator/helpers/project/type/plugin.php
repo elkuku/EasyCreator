@@ -162,15 +162,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $dtd = array(
-                'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD plugin 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/plugin-install.dtd');
-                break;
-
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 break;
@@ -212,8 +203,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
@@ -249,8 +238,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 $query = $db->getQuery(true);
@@ -289,8 +276,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
@@ -317,76 +302,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-                switch($scope)
-                {
-                    case 'authentication':
-                        $projects = array('example', 'gmail', 'joomla', 'ldap', 'openid');
-                        break;
-                    case 'content':
-                        $projects = array('emailcloak', 'example', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
-                        , 'pagenavigation', 'vote');
-                        break;
-                    case 'editors':
-                        $projects = array('none', 'tinymce', 'codemirror');
-                        break;
-                    case 'editors-xtd':
-                        $projects = array('article', 'image', 'pagebreak', 'readmore');
-                        break;
-                    case 'extension':
-                        $projects = array('example', 'joomla');
-                        break;
-                    case 'search':
-                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
-                        break;
-                    case 'system':
-                        $projects = array('cache', 'debug', 'languagefilter'
-                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
-                        break;
-                    case 'user':
-                        $projects = array('example', 'contactcreator', 'joomla', 'profile');
-                        break;
-                    default :
-                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
-
-                        return array();
-                }//switch
-                break;
-            case '1.7':
-                switch($scope)
-                {
-                    case 'authentication':
-                        $projects = array('gmail', 'joomla', 'ldap');
-                        break;
-                    case 'content':
-                        $projects = array('emailcloak', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
-                        , 'pagenavigation', 'vote');
-                        break;
-                    case 'editors':
-                        $projects = array('none', 'tinymce', 'codemirror');
-                        break;
-                    case 'editors-xtd':
-                        $projects = array('article', 'image', 'pagebreak', 'readmore');
-                        break;
-                    case 'extension':
-                        $projects = array('joomla');
-                        break;
-                    case 'search':
-                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
-                        break;
-                    case 'system':
-                        $projects = array('cache', 'debug', 'languagefilter'
-                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
-                        break;
-                    case 'user':
-                        $projects = array('contactcreator', 'joomla', 'profile');
-                        break;
-                    default :
-                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
-                        break;
-                }//switch
-                break;
-
             case '2.5':
                 switch($scope)
                 {

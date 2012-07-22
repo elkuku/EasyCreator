@@ -127,8 +127,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch($this->JCompat)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 if($scope == 'menu')
@@ -225,8 +223,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 return $this->comName.'.xml';
@@ -254,8 +250,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 break;
@@ -302,33 +296,14 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $db = JFactory::getDbo();
 
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
-        {
-            case '1.6':
-            case '1.7':
-            case '2.5':
-            case '3.0':
-                $query = $db->getQuery(true);
+        $query = $db->getQuery(true)
+            ->from('#__extensions AS e')
+            ->select('e.extension_id')
+            ->where('e.element = '.$db->quote($this->comName))
+            ->where('e.type = '.$db->quote('component'));
 
-                $query->from('#__extensions AS e');
-                $query->select('e.extension_id');
-                $query->where('e.element = '.$db->quote($this->comName));
-                $query->where('e.type = '.$db->quote('component'));
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-
-                return false;
-                break;
-        }//switch
-
-        $db->setQuery($query);
-
-        $id = $db->loadResult();
-
-        return $id;
+        return $db->setQuery($query)
+            ->loadResult();
     }//function
 
     /**
@@ -357,16 +332,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
-                $projects = array(
-                'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
-                , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks'
-                );
-                break;
-
             case '2.5':
                 $projects = array(
                     'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
@@ -412,8 +377,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
                 $db = JFactory::getDbo();
@@ -462,8 +425,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
-                    case '1.6':
-                    case '1.7':
                     case '2.5':
                     case '3.0':
                         $menu['level'] = 2;
@@ -655,8 +616,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
                 /* @var JTableMenu $table */
                 $table = JTable::getInstance('menu');
@@ -732,46 +691,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                 return false;
                 break;
-        }//switch
-
-        $db->setQuery($query);
-
-        if( ! $db->query())
-        {
-            EcrHtml::message($db->stderr(true));
-
-            return false;
         }
-
-        return true;
-    }//function
-
-    /**
-     * Remove an admin menu entry.
-     * For Joomla! 1.5 only !
-     *
-     * @param array $item Item to remove
-     * @return boolean
-     */
-    private function removeAdminMenu($item)
-    {
-        $query = new JDatabaseQuery;
-
-        $db = JFactory::getDBO();
-
-        $query->from('#__components');
-        $query->delete();
-        $query->where('id='.$item['menuid']);
-
-        $db->setQuery($query);
-
-        if( ! $db->query())
-        {
-            EcrHtml::message($db->getErrorMsg(), 'error');
-
-            return false;
-        }
-
-        return true;
-    }//function
-}//class
+    }
+}

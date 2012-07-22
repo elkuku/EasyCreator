@@ -136,6 +136,8 @@ class EasyCreatorControllerLogfiles extends JControllerLegacy
         }
 
         echo $this->response;
+
+        jexit();
     }
 
     /**

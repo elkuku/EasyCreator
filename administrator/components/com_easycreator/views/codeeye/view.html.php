@@ -21,7 +21,7 @@ jimport('joomla.application.component.view');
 class EasyCreatorViewCodeEye extends JViewLegacy
 {
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     protected $project = null;
 

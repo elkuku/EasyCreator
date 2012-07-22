@@ -119,6 +119,8 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -148,6 +150,8 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -179,6 +183,8 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
         sleep(1);
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -213,6 +219,8 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -332,6 +340,8 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -361,6 +371,8 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**

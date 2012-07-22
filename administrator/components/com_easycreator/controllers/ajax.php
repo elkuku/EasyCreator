@@ -437,6 +437,8 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }//function
 
     /**
@@ -481,6 +483,8 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }//function
 
     /**
@@ -553,6 +557,8 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         }
 
         echo json_encode($response);
+
+        jexit();
     }//function
 
     /**
@@ -587,6 +593,8 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         $this->response['debug'] = $buffer;
 
         echo json_encode($this->response);
+
+        jexit();
     }//function
 
     /**
@@ -1125,5 +1133,7 @@ body {
         }
 
         echo json_encode($response);
+
+        jexit();
     }
 }

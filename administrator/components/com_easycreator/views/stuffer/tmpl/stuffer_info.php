@@ -23,20 +23,21 @@
                 </i>
             </label>
 
-            <input class="inline" type="radio" id="jversion15" name="jcompat" value="1.5"
-                <?php echo ($this->project->JCompat == '1.5') ? ' checked="checked"' : ''; ?>
-                />
-            <label style="display: inline;" class="inline" for="jversion15">
-                <i class="img32b iconjoomla-compat-15"></i>
-            </label>
-
             <input type="radio" id="jversion16" name="jcompat" value="2.5"
-                <?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5')))
+                <?php echo ('2.5' == $this->project->JCompat)
                 ? ' checked="checked"' : ''; ?>
                 />
             <label style="display: inline;" class="inline" for="jversion16">
                 <i class="img32b iconjoomla-compat-25"></i>
             </label>
+
+            <input class="inline" type="radio" id="jversion35" name="jcompat" value="3.5"
+                <?php echo ('3.5' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
+                />
+            <label style="display: inline;" class="inline" for="jversion35">
+                <i class="img32b iconjoomla-compat-35"></i>
+            </label>
+
         </div>
 
 
