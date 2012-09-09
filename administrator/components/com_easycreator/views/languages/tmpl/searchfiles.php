@@ -88,11 +88,6 @@ if($this->scope != 'menu') :
                   title="<?php echo jgettext('Translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <span style="background-color: red; cursor: pointer;"
                   class="hasTip" title="<?php echo jgettext('Not translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <?php if($this->showCore) : ?>
-            <span style="background-color: orange; cursor: pointer;"
-                  class="hasTip"
-                  title="<?php echo jgettext('Translated in core'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <?php endif; ?>
         </th>
     </tr>
     </thead>
@@ -128,18 +123,6 @@ if($this->scope != 'menu') :
 
         <td>
             <?php
-            if($this->showCore)
-            {
-                foreach($languages as $lang)
-                {
-                    if(array_key_exists($def, $this->coreStrings))
-                    {
-                        echo '<span style="color: orange;">'.$lang.'</span>&nbsp;';
-                        $coreCount = true;
-                    }
-                }
-            }
-
             if(false == array_key_exists($def, $this->strings))
             {
                 if( ! $coreCount)

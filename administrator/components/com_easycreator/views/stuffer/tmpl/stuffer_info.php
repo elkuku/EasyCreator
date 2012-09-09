@@ -35,7 +35,7 @@
                 <?php echo ('3.5' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
                 />
             <label style="display: inline;" class="inline" for="jversion35">
-                <i class="img32b iconjoomla-compat-35"></i>
+                <i class="img32b iconjoomla-compat-30"></i>
             </label>
 
         </div>

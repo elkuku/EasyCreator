@@ -37,7 +37,7 @@ $preset = $this->preset;
     <input type="radio" id="jversion35" name="jcompat" value="3.5"
         <?php echo ('3.5' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
         />
-    <label for="jversion35" class="inline img32b iconjoomla-compat-35">&nbsp;</label>
+    <label for="jversion35" class="inline img32b iconjoomla-compat-30">&nbsp;</label>
 </p>
 
 <p>

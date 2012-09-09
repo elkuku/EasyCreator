@@ -36,8 +36,6 @@ class EcrLanguage
      */
     private $_definitions = array();
 
-    private $_showCore = '';
-
     private $_coreStrings = array();
 
     /*
@@ -58,16 +56,14 @@ class EcrLanguage
      * @param EcrProjectBase $project The project
      * @param string $scope Scope e.g. admin or site
      * @param array $hideLangs Do not show these languages
-     * @param boolean $showCore Set true to also show the core language
      */
-    public function __construct(EcrProjectBase $project, $scope, $hideLangs, $showCore = false)
+    public function __construct(EcrProjectBase $project, $scope, $hideLangs)
     {
         $this->_hideLangs = $hideLangs;
         $this->_languages = $this->setLangs($project->langs);
 
         $this->project = $project;
         $this->_scope = $scope;
-        $this->_showCore = $showCore;
 
         if($this->_scope == 'menu')
         {

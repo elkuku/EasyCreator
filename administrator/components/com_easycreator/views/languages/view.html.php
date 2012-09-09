@@ -93,8 +93,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
                 }
                 else
                 {
-                    $this->easyLanguage = new EcrLanguage(
-                        $this->project, $this->scope, $this->hideLangs, $this->showCore);
+                    $this->easyLanguage = new EcrLanguage($this->project, $this->scope, $this->hideLangs);
 
                     if(JRequest::getCmd('tmpl') != 'component')
                     {
@@ -647,7 +646,6 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->hideLangs = $this->easyLanguage->getHideLangs();
         $this->definitions = $this->easyLanguage->getDefinitions();
         $this->strings = $this->easyLanguage->getStrings();
-
     }//function
 
     /**

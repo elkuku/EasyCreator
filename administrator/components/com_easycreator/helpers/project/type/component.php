@@ -128,7 +128,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         switch($this->JCompat)
         {
             case '2.5':
-            case '3.0':
+            case '3.5':
                 if($scope == 'menu')
                     $scope = 'sys';
 

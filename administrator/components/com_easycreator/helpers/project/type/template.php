@@ -354,7 +354,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     case '3.0':
-                        $projects = array('bluestork', 'hathor', 'strapped', 'system');
+                        $projects = array('isis', 'hathor', 'system');
                         break;
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -370,7 +370,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;
                     case '3.0':
-                        $projects = array('atomic', 'beez_20', 'beez5', 'strapped', 'system');
+                        $projects = array('beez3', 'protostar', 'system');
                         break;
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
