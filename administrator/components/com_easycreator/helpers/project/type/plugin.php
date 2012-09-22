@@ -162,6 +162,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 break;
@@ -203,6 +205,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
@@ -238,6 +242,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 $query = $db->getQuery(true);
@@ -276,6 +282,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
@@ -302,6 +310,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
                 switch($scope)
                 {

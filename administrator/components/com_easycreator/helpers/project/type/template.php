@@ -135,6 +135,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         //-- @Joomla!-version-check
         switch($this->JCompat)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 $paths['admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
@@ -217,6 +219,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 break;
@@ -284,6 +288,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 $query = $db->getQuery(true);
@@ -350,6 +356,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
+                    case '1.6':
+                    case '1.7':
                     case '2.5':
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
@@ -366,6 +374,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
+                    case '1.6':
+                    case '1.7':
                     case '2.5':
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;

@@ -127,8 +127,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch($this->JCompat)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
-            case '3.5':
+            case '3.0':
                 if($scope == 'menu')
                     $scope = 'sys';
 
@@ -148,7 +150,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion', 'error');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion'.$this->JCompat, 'error');
 
                 return array();
                 break;
@@ -223,6 +225,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 return $this->comName.'.xml';
@@ -250,6 +254,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 break;
@@ -332,6 +338,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
                 $projects = array(
                     'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
@@ -377,6 +385,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 $db = JFactory::getDbo();
@@ -425,6 +435,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
+                    case '1.6':
+                    case '1.7':
                     case '2.5':
                     case '3.0':
                         $menu['level'] = 2;
@@ -616,6 +628,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
                 /* @var JTableMenu $table */
                 $table = JTable::getInstance('menu');

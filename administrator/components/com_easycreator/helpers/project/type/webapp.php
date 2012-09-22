@@ -141,6 +141,8 @@ class EcrProjectTypeWebapp extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
+            case '1.6':
+            case '1.7':
             case '2.5':
             case '3.0':
                 break;
