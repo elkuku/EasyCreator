@@ -7,8 +7,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
