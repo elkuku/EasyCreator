@@ -50,9 +50,6 @@ $dataDir = $params->get('local_data_dir');
 
 if($dataDir)
 {
-    //@todo remove..
-    jimport('joomla.filesystem.folder');
-
     if(0 === strpos($dataDir, 'JROOT'))
         $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
 

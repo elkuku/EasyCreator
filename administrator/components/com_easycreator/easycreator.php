@@ -15,9 +15,11 @@
 //-- @@DEBUG
 define('ECR_DEV_MODE', 1);
 
-//jimport('joomla.error.profiler');
-
 JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator starting') : null;
+
+//@todo legacy imports...
+jimport('joomla.filesystem.folder');
+jimport('joomla.filesystem.file');
 
 //-- Global constants
 require JPATH_COMPONENT.'/includes/defines.php';

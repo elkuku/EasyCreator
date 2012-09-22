@@ -7,6 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+//-- @Joomla!-compat 2.5
 jimport('joomla.client.ftp');
 
 /**

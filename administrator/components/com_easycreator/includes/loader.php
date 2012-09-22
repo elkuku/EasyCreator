@@ -9,8 +9,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.filesystem.file');
-
 /**
  * Loads EasyCreator Helpers.
  *

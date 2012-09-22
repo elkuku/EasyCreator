@@ -279,9 +279,6 @@ class EcrProjectHelper
 
         if( ! $projectList)
         {
-            //@todo remove..
-            jimport('joomla.filesystem.folder');
-
             $projectList = array();
 
             if( ! JFolder::exists(ECRPATH_SCRIPTS))
