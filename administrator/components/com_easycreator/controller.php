@@ -7,8 +7,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
@@ -17,3 +15,4 @@ jimport('joomla.application.component.controller');
 class EasyCreatorController extends JControllerLegacy
 {
 }//class
+
