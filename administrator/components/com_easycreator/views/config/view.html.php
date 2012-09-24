@@ -10,11 +10,16 @@
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Views
  */
 class EasyCreatorViewConfig extends JViewLegacy
 {
+    /**
+     * @var string
+     */
+    protected $legacyTemplate;
+
     /**
      * Standard display method.
      *
@@ -27,17 +32,17 @@ class EasyCreatorViewConfig extends JViewLegacy
         try
         {
             $this->form = $this->get('Form');
+
+            $this->legacyTemplate = (version_compare(ECR_JVERSION, '3.0') < 0)
+                ? '25'
+                : 'default';
+
+            parent::display($tpl);
         }
         catch(Exception $e)
         {
             EcrHtml::message($e);
-
-            EcrHtml::formEnd();
-
-            return;
         }
-
-        parent::display($tpl);
 
         EcrHtml::formEnd();
     }
