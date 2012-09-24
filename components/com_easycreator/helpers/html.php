@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Frontend helpers
@@ -6,12 +6,8 @@
  * @author     Created on 24-Sep-2008
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 /**
- * Enter description here ...@todo class doccomment.
- *
+ * Frontend HTML. ...
  */
 class easyHTML
 {
@@ -22,14 +18,10 @@ class easyHTML
      */
     public static function start()
     {
-        ?>
-<h1><img
-	src="<?php echo JURI::root(); ?>media/com_easycreator/admin/images/easylogo_t.png"
-	alt="easy-joomla logo" /> EasyCreator :: <small style="color: green;"><?php echo jgettext('Sandbox'); ?></small>
-</h1>
+        echo '<h1>EasyCreator :: <small style="color: green;">'.jgettext('Sandbox').'</small></h1>'.NL;
 
-<form name="adminForm" method="post"><?php
-    }//function
+        echo '<form name="adminForm" method="post">';
+    }
 
     /**
      * Displays the footer, closing the form.
@@ -38,9 +30,9 @@ class easyHTML
      */
     public static function end()
     {
-        ?> <input type="hidden" name="ebc_project" /></form>
-        <?php
-    }//function
+        echo '<input type="hidden" name="ecr_project"/>'.NL;
+        echo '</form>'.NL;
+    }
 
     /**
      * Draws a project selector.
@@ -54,7 +46,7 @@ class easyHTML
 
         //--Get existing projects
         $projects = EcrProjectHelper::getProjectList();
-        $selectedProject = JRequest::getVar('ebc_project');
+        $selectedProject = JFactory::getApplication()->input->get('ecr_project');
 
         if( ! isset($projects['component']))
         {
@@ -64,18 +56,17 @@ class easyHTML
         }
 
         echo jgettext('Registered projects');
-        ?>
-<ol style="list-style-type: none; text-align: left;">
-<?php
-foreach($projects['component'] as $project)
-{
-    $selected =($project->comName == $selectedProject) ? '_selected' : '';
-    echo '<li class="ecr_button'.$selected.'" onclick="drawProject(\''.$project->comName.'\');">'
-        .$project->name
-        .'</li>';
-}//foreach
-?>
-</ol>
-<?php
-}//function
-}//class
+
+        echo '<ol style="list-style-type: none; text-align: left;">';
+
+        foreach($projects['component'] as $project)
+        {
+            $selected = ($project->comName == $selectedProject) ? '_selected' : '';
+            echo '<li class="ecr_button'.$selected.'" onclick="drawProject(\''.$project->comName.'\');">'
+                .$project->name
+                .'</li>';
+        }
+
+        echo '</ol>';
+    }
+}

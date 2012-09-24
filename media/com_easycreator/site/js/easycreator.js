@@ -8,6 +8,6 @@
 function drawProject(project)
 {
     frm = document.adminForm;
-    frm.ebc_project.value = project;
+    frm.ecr_project.value = project;
     frm.submit();
 }

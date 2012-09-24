@@ -26,7 +26,7 @@ class EasyCreatorViewEasyCreator extends JViewLegacy
     public function display($tpl = null)
     {
         //--get vars from request
-        $selectedProject = JRequest::getVar('ebc_project', '');
+        $selectedProject = JFactory::getApplication()->input->get('ecr_project');
 
         if($selectedProject)
         {
@@ -50,7 +50,7 @@ class EasyCreatorViewEasyCreator extends JViewLegacy
             }
         }
 
-        $this->assignRef('selectedProject', $selectedProject);
+        $this->selectedProject = $selectedProject;
 
         parent::display($tpl);
     }

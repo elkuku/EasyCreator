@@ -12,7 +12,7 @@ $prName = substr($this->selectedProject, 4);
 $module = JModuleHelper::getModule($prName);
 $basePath = JPATH_ROOT.DS.'modules'.DS.$this->selectedProject;
 $xmlfile = $basePath.DS.$this->selectedProject.'.xml';
-$parameter = new JParameter($module->params, $xmlfile);
+//$parameter = new JParameter($module->params, $xmlfile);
 
 ?>
 <table style="width: 100%">
@@ -27,7 +27,7 @@ $parameter = new JParameter($module->params, $xmlfile);
             </div>
 
             <h2><?php echo jgettext('Parameters'); ?></h2>
-            <?php echo $parameter->render(); ?>
+            <?php //echo $parameter->render(); ?>
 
         </td>
     </tr>
