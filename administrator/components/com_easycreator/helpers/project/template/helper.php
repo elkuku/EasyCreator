@@ -255,7 +255,7 @@ class EcrProjectTemplateHelper
 
         //-- Build the appropriate paths
         $tmp_src = $userfile['tmp_name'];
-        $tmp_dest = JFactory::getConfig()->getValue('config.tmp_path').DS.$userfile['name'];
+        $tmp_dest = JFactory::getConfig()->get('tmp_path').DS.$userfile['name'];
 
         //-- Move uploaded file
         JFile::upload($tmp_src, $tmp_dest);
