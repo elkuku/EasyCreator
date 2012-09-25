@@ -117,7 +117,7 @@ class EcrProjectTemplateHelper
      */
     public static function exportTemplates($exports)
     {
-        $tempDir = JFactory::getConfig()->getValue('config.tmp_path').DS.uniqid('templateexport');
+        $tempDir = JFactory::getConfig()->get('tmp_path').DS.uniqid('templateexport');
 
         $files = array();
 
