@@ -44,7 +44,7 @@ $buildOpts = $this->project->buildOpts;
         </li>
     </ul>
 
-    <strong">
+    <strong>
     <?php echo jgettext('Language file format'); ?>
     </strong>
     <br/>

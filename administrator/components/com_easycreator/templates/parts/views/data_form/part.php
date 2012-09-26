@@ -65,7 +65,7 @@ class PartViewsData_form extends EcrProjectPart
     /**
      * Info about the thing.
      *
-     * @return EcrTemplateInfo
+     * @return EcrProjectTemplateInfo
      */
     public function info()
     {

@@ -22,23 +22,22 @@ class EasyCreatorModelConfig extends JModelAdmin
      * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
      *
      * @throws Exception
-     * @return bool|\JForm|mixed A JForm object on success, false on failure
+     *
+     * @return JForm
      */
     public function getForm($data = array(), $loadData = true)
     {
         JLoader::import('models.fields.formfield', JPATH_COMPONENT);
 
-        $option = JRequest::getCmd('option');
-
         //-- Get the form.
-        $form = $this->loadForm($option.'.config', 'config'
+        $form = $this->loadForm('com_easycreator.config', 'config'
         , array('control' => 'params', 'load_data' => $loadData));
 
         if(empty($form))
             throw new Exception(jgettext('Unable to load the config form'));
 
-        $form->bind(JComponentHelper::getParams($option));
+        $form->bind(JComponentHelper::getParams('com_easycreator'));
 
         return $form;
-    }//function
-}//class
+    }
+}

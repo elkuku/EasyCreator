@@ -14,5 +14,4 @@
  */
 class EasyCreatorController extends JControllerLegacy
 {
-}//class
-
+}

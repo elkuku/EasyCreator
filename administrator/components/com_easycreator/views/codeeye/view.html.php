@@ -68,7 +68,6 @@ class EasyCreatorViewCodeEye extends JViewLegacy
 
             return;
         }
-        //try
 
         if(in_array($this->task, get_class_methods($this)))
         {
@@ -87,9 +86,6 @@ class EasyCreatorViewCodeEye extends JViewLegacy
         {
             echo sprintf('UNDEFINED Task "%s" in %s', $this->task, __CLASS__).'<br />';
         }
-
-        //--Draw h1 header
-        //EcrHtml::header(jgettext('CodeEye'), $this->project, 'xeyes');
 
         //--Draw the submenu
         echo $this->displayBar();

@@ -64,9 +64,6 @@ class EasyCreatorViewLanguages extends JViewLegacy
                         , $this->project->langFormat));
             }
 
-            //--Draw h1 header
-            //EcrHtml::header(jgettext('Languages'), $this->project, 'ecr_languages');
-
             if('ini' != $this->project->langFormat)
             {
                 //-- Here goes g11n =;)

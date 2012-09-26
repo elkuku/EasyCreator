@@ -65,6 +65,6 @@ $javascript = "document.id('cst_format').value=this.value; EcrZiper.updateName()
 <label class="" for="cst_format">
     <?php echo jgettext('Customize'); ?>&nbsp;
 </label>
-<input type="text" class="span4" onkeyup="EcrZiper.updateName();"
+<input type="text" class="span12" onkeyup="EcrZiper.updateName();"
        name="cst_format" id="cst_format" value="<?php echo $buildOpts->get('custom_name_1'); ?>"
-       style="font-family: monospace; font-size: 1.2em;"/>
+       />
