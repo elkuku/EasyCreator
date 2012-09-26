@@ -54,10 +54,10 @@ endforeach;
 
 $js[] = '};';
 
-if($this->project->type == 'component'):
+if('component' == $this->project->type):
     //-- The picture chooser
     $js[] = "window.addEvent('domready', function() {";
-    $js[] = "drawPicChooser('', '".$this->project->menu['img']."');";
+    //$js[] = "drawPicChooser('', '".$this->project->menu['img']."');";
 
     $js[] = '//--Submenus added by PHP';
 
@@ -125,7 +125,7 @@ ecrScript('addelement', 'menu');
 
         <a class="btn btn-large" coords="info">
             <i class="img24 icon24-info"></i>
-            Info
+            <?php echo jgettext('Info') ?>
         </a>
         <div class="display" title="info">
             <?php echo $this->loadTemplate('info'); ?>
@@ -134,13 +134,11 @@ ecrScript('addelement', 'menu');
 
         <a class="btn btn-large" coords="options">
             <i class="img24 icon24-various"></i>
-            Options
+            <?php echo jgettext('Options') ?>
         </a>
         <div class="display" title="options">
             <?php
-            if($this->project->type == 'component'):
-                echo $this->loadTemplate('install');
-                echo $this->loadTemplate('package');
+            if('component' == $this->project->type):
                 echo $this->loadTemplate('autocode');
                 echo $this->loadTemplate('dbtypes');
             endif;
@@ -150,10 +148,10 @@ ecrScript('addelement', 'menu');
 
         </div>
 
-        <?php if($this->project->type == 'component'): ?>
+        <?php if('component' == $this->project->type): ?>
             <a class="btn btn-large" coords="menu">
                 <i class="img24 icon24-menu"></i>
-                Menu
+                <?php echo jgettext('Menu') ?>
             </a>
             <div class="display" title="menu">
                 <?php echo $this->loadTemplate('menu'); ?>
@@ -162,7 +160,7 @@ ecrScript('addelement', 'menu');
 
         <a class="btn btn-large" coords="package">
             <i class="img24 icon24-package_creation"></i>
-            Package
+            <?php echo jgettext('Package') ?>
         </a>
         <div class="display" title="package">
             <?php
@@ -174,17 +172,15 @@ ecrScript('addelement', 'menu');
 
         <a class="btn btn-large" coords="update">
             <i class="img24 icon24-update"></i>
-            Update
+            <?php echo jgettext('Update') ?>
         </a>
         <div class="display" title="update">
-            <?php
-
-            echo $this->loadTemplate('update'); ?>
+            <?php echo $this->loadTemplate('update'); ?>
         </div>
 
         <a class="btn btn-large" coords="deploy">
             <i class="img24 icon24-ecr_deploy"></i>
-            Deploy
+            <?php echo jgettext('Deploy') ?>
         </a>
         <div class="display" title="deploy">
             <?php echo $this->loadTemplate('deploy'); ?>
@@ -195,10 +191,6 @@ ecrScript('addelement', 'menu');
     <div id="actionWindow" class="span9">
     </div>
 </div>
-
-
-
-
 
 <div style="clear: both; height: 1em;"></div>
 
