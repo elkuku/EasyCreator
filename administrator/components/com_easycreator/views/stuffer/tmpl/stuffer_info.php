@@ -31,15 +31,14 @@
                 <i class="img32b iconjoomla-compat-25"></i>
             </label>
 
-            <input class="inline" type="radio" id="jversion35" name="jcompat" value="3.5"
-                <?php echo ('3.5' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
+            <input class="inline" type="radio" id="jversion30" name="jcompat" value="3.0"
+                <?php echo ('3.0' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
                 />
-            <label style="display: inline;" class="inline" for="jversion35">
+            <label style="display: inline;" class="inline" for="jversion30">
                 <i class="img32b iconjoomla-compat-30"></i>
             </label>
 
         </div>
-
 
         <div class="control-group">
             <label class="creditsLabel">
@@ -98,7 +97,6 @@
                 <?php echo jgettext('From template'); ?>
             </label>
             <?php echo ($this->project->fromTpl) ? $this->project->fromTpl : '?'; ?>
-            </li>
         </div>
     </fieldset>
 </div>
