@@ -571,22 +571,16 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $query->select('id');
         $query->where('`client_id` = 1');
         $query->where('`component_id` = '.(int)$id);
-
-        if('2.5' == ECR_JVERSION
-        || 0 === strpos('3', ECR_JVERSION))
-        {
-            //-- In J! 2.5.x... a bug has been fixed that does not remove child nodes.
-            $query->where('`parent_id` = 1');
-        }
+        $query->where('`parent_id` = 1');
 
         $db->setQuery($query);
 
-        $ids = $db->loadResultArray();
+        $menuId = $db->loadResult();
 
         //-- Check for errors
         $error = $db->getErrorMsg();
 
-        if($error || empty($ids))
+        if($error || empty($menuId))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('There was a problem updating the admin menu'), 'error');
 
@@ -599,12 +593,9 @@ class EcrProjectTypeComponent extends EcrProjectBase
         }
         else
         {
-            //-- Iterate the items to delete each one.
-            foreach($ids as $menuid)
-            {
-                if( ! $table->delete((int)$menuid))
+                //-- Delete only the parent node - children should be killed by JTable
+                if( ! $table->delete((int)$menuId))
                     throw new Exception(__METHOD__.' - '.$table->getError());
-            }//foreach
 
             //-- Rebuild the whole tree
             $table->rebuild();
