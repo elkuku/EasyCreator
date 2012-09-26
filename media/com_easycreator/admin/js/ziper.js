@@ -112,9 +112,10 @@ var EcrZiper = new Class({
         var el = document.id('ajName');
         var loadStat = document.id('loadStat_filename');
 
-        var cst_format = $$('input[name=opt_format]:checked')[0].get('value');
+        //var cst_format = $$('input[name=opt_format]:checked')[0].get('value');
+        var cst_format = document.id('cst_format').value;
 
-        document.id('cst_format').value = cst_format;
+        //document.id('cst_format').value = cst_format;
 
         new Request.JSON({
             url:ecrAJAXLink

@@ -378,6 +378,10 @@
     background-image: url(../images/ico/icon-16-warning.png);
 }
 
+.icon16-trash {
+    background-image: url(../images/ico/icon-16-trash.png);
+}
+
 .iconjoomla-compat-15 {
     background-image: url(../images/ico/Compat_icon_1_5.png);
 }
