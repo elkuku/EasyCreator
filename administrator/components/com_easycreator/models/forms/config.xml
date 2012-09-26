@@ -63,13 +63,13 @@
                default="8"/>
         <field name="local_api_copy" type="text" size="30" label="Local API copy"
                description="Your copy of the Joomla! API - get it from http://api.joomla.org"/>
-        <field name="warn_livesite" type="radio" default="1"
+        <field name="warn_livesite" type="radio" class="btn-group" default="1"
                label="Livesite warning"
                description="If a IP other then 127.0.0.1 is detected a warning message will be displayed for your own safety">
             <option value="0">No</option>
             <option value="1">Yes</option>
         </field>
-        <field name="save_versions" type="radio" default="1" label="Save versions"
+        <field name="save_versions" type="radio" class="btn-group" default="1" label="Save versions"
                description="When modifying your files, always save a backup version. These will be named *.rx">
             <option value="0">No</option>
             <option value="1">Yes</option>
@@ -85,12 +85,12 @@
             <option value="1">Yes</option>
         </field>
         -->
-        <field name="langfiles_chk_utf8" type="radio" default="0"
+        <field name="langfiles_chk_utf8" type="radio" class="btn-group" default="0"
                label="Check for UTF8" description="Should languages files be checked for UTF-8">
             <option value="0">No</option>
             <option value="1">Yes</option>
         </field>
-        <field name="langfiles_chk_bom" type="radio" default="1"
+        <field name="langfiles_chk_bom" type="radio" class="btn-group" default="1"
                label="Check for BOM" description="Should languages files be checked for a BOM">
             <option value="0">No</option>
             <option value="1">Yes</option>
@@ -120,7 +120,7 @@
 
         <field name="spacer4_4" type="spacer" default="User interface"/>
 
-        <field name="toolbar_icons" type="radio" default="1"
+        <field name="toolbar_icons" type="radio" class="btn-group" default="1"
                label="Show icons" description="Show icons on toolbar buttons">
             <option value="0">No</option>
             <option value="1">Yes</option>
@@ -136,17 +136,17 @@
     </fieldset>
 
     <fieldset name="logging" label="Logging">
-        <field name="logging" type="radio" default="1" label="Logger"
+        <field name="logging" type="radio" class="btn-group" default="1" label="Logger"
                description="Should we write some logfiles">
             <option value="0">Off</option>
             <option value="1">On</option>
         </field>
-        <field name="profile" type="radio" default="1" label="Profiler"
+        <field name="profile" type="radio" class="btn-group" default="1" label="Profiler"
                description="Profile time and memory">
             <option value="0">Off</option>
             <option value="1">On</option>
         </field>
-        <field name="files" type="radio" default="1" label="Log file contents"
+        <field name="files" type="radio" class="btn-group" default="1" label="Log file contents"
                description="Log the contents / the code of the files been written to disk">
             <option value="0">No</option>
             <option value="1">Yes</option>
@@ -157,12 +157,12 @@
 
         <field name="spacer5_1" type="spacer" default="EasyCreator only"/>
 
-        <field name="ecr_debug" type="radio" default="0" label="Debugger"
+        <field name="ecr_debug" type="radio" class="btn-group" default="0" label="Debugger"
                description="Shall we use the Debug mode ?">
             <option value="0">Off</option>
             <option value="1">On</option>
         </field>
-        <field name="ecr_debug_lang" type="radio" default="0"
+        <field name="ecr_debug_lang" type="radio" class="btn-group" default="0"
                label="Debug language" description="Shall we debug our special language files ?">
             <option value="0">Off</option>
             <option value="1">On</option>

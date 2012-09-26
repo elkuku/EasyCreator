@@ -42,7 +42,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         {
             EcrFile::saveFile();
 
-            EcrHtml::message(jgettext('The file has been saved'));
+            EcrHtml::message(jgettext('The file has been saved'), 'success');
         }
         catch(Exception $e)
         {
@@ -66,7 +66,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         {
             EcrFile::deleteFile();
 
-            JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'), 'success');
         }
         catch(Exception $e)
         {
@@ -74,7 +74,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         }//try
 
         JRequest::setVar('view', 'templates');
-        JRequest::setVar('task', 'export');
+        JRequest::setVar('task', 'tplarchive');
 
         parent::display();
     }//function
@@ -94,7 +94,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
 
             EcrProjectTemplateHelper::exportTemplates($exports);
 
-            EcrHtml::message(jgettext('Templates have been exported.'));
+            EcrHtml::message(jgettext('Templates have been exported.'), 'success');
         }
         catch(Exception $e)
         {
@@ -118,7 +118,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         {
             EcrProjectTemplateHelper::installTemplates();
 
-            EcrHtml::message(jgettext('Templates have been installed.'));
+            EcrHtml::message(jgettext('Templates have been installed.'), 'success');
 
             JRequest::setVar('task', 'templates');
         }

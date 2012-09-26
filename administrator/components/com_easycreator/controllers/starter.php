@@ -74,7 +74,7 @@ class EasyCreatorControllerStarter extends JControllerLegacy
 
         $uri = 'index.php?option=com_easycreator&controller=stuffer&ecr_project='.$ecr_project;
 
-        $this->setRedirect($uri, jgettext('Your project has been created'));
+        $this->setRedirect($uri, jgettext('Your project has been created'), 'success');
     }//function
 
     /**

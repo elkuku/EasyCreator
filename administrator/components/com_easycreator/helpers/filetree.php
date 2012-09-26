@@ -228,7 +228,7 @@ class EcrFileTree
         {
             // Use 2 instead of 0 to account for . and .. "directories"
             $php_file_tree .= $this->idtAdd();
-            $php_file_tree .= '<ul>';
+            $php_file_tree .= '<ul class="unstyled">';
             $this->indent ++;
 
             foreach($entries as $this_file)

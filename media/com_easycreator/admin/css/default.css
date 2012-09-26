@@ -4,15 +4,6 @@
  * @author     Nikolai Plath (elkuku)
  * @author     Created on 20-Dec-2007
  */
-#easy_header {
-    background-image: url(../images/easycreator-box.jpg);
-    background-repeat: no-repeat;
-    background-position: 4px 3px;
-    padding-left: 25px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: 100px;
-}
 
 h1 {
     text-shadow: #999 2px 2px 2px;
@@ -335,7 +326,7 @@ div.tree_link:hover {
     text-decoration: none;
 }
 
-div.tree_link selected {
+div.tree_link:selection {
     font-weight: bold;
     color: red;
 }
@@ -690,4 +681,18 @@ label.inline2 {
 /* reverts bootstrap style */
 ul {
     margin: 0;
+}
+
+/* @todo some bootstrap forgotten in J! */
+.btn-group > .btn {
+    float: left;
+}
+
+.btn-group:after {
+    clear: both;
+}
+
+.btn-group:before, .btn-group:after {
+    content: "";
+    display: table;
 }

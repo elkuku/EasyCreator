@@ -146,7 +146,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
         }
         else
         {
-            EcrHtml::message(array(jgettext('Part added').' [group, part]', $group, $part));
+            EcrHtml::message(array(jgettext('Part added').' [group, part]', $group, $part), 'success');
             $logger->writeLog();
 
             $cache = JFactory::getCache();
@@ -546,7 +546,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             EcrProjectHelper::getProject('', true);
 
             JFactory::getApplication()
-                ->enqueueMessage(jgettext('The Settings have been updated'));
+                ->enqueueMessage(jgettext('The Settings have been updated'), 'success');
         }
         catch(Exception $e)
         {
@@ -582,7 +582,6 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function delete_project($complete = false)
     {
-        //-- Get the project
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -590,12 +589,12 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             $project->remove($complete);
 
             $this->setRedirect('index.php?option=com_easycreator'
-                , sprintf(jgettext('The Project %s has been removed'), $project->name));
+                , sprintf(jgettext('The Project %s has been removed'), $project->name), 'success');
         }
         catch(Exception $e)
         {
             EcrHtml::message($e);
-            EcrHtml::message(sprintf(jgettext('The Project %s could not be removed'), $project->name), 'error');
+            EcrHtml::message(jgettext('The Project could not be removed'), 'error');
 
             JRequest::setVar('view', 'stuffer');
             JRequest::setVar('task', 'stuffer');
