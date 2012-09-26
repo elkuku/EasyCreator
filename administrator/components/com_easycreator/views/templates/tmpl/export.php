@@ -8,34 +8,38 @@
  */
 
 $templateList = EcrProjectTemplateHelper::getTemplateList();
+
+echo EcrHelp::help(jgettext('Select the templates to export'), EcrHelp::ALL, 'ecrBigInfo');
 ?>
 
-<div style="height: 1em;"></div>
-<div class="ecr_floatbox">
-<?php
+<h1><?php echo jgettext('Export templates') ?></h1>
 
-echo '<h3>'.jgettext('Export templates').'</h3>';
-echo '<div class="ecrBigInfo">'.jgettext('Select the templates to export').'</div>';
+<div class="btn btn-success btn-large" onclick="submitbutton('do_export');">
+    <i class="img icon16-ecr_save"></i>
+    <?php echo jgettext('Export') ?>
+</div>
+
+<div style="clear: both;"></div>
+
+<?php
 foreach($templateList as $group => $templates):
+    echo '<div class="ecr_floatbox">';
     echo '<h3 class="img12 icon12-'.$group.'">'.$group.'</h3>';
 
     foreach($templates as $template):
         echo '<input type="checkbox" id="'.$group.$template->folder.'"';
         echo ' name="exports['.$group.'][]" value="'.$template->folder.'" />';
-        echo '<label class="inline" for="'.$group.$template->folder.'">'.$template->name.' ('.$template->folder.')</label>'.BR;
+        echo '<label class="inline" for="'.$group.$template->folder.'">'
+            .$template->name.' ('.$template->folder.')'
+            .'</label>'.BR;
     endforeach;
 
+    echo '</div>';
 endforeach;
 
 echo BR;
-echo '<div class="btn block" onclick="submitbutton(\'do_export\');">'
-    .'<i class="img icon16-ecr_save"></i>'
-    .jgettext('Export').'</div>';
+
 
 ?>
-</div>
-<div class="ecr_floatbox">
-    <?php echo $this->loadTemplate('archive'); ?>
-</div>
 <div style="clear: both;"></div>
-<?php
+

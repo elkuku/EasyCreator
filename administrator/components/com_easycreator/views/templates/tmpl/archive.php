@@ -9,7 +9,7 @@
 
 $exportTypes = JFolder::exists(ECRPATH_EXPORTS) ? JFolder::folders(ECRPATH_EXPORTS) : array();
 
-echo '<h3>'.jgettext('Exports').'</h3>';
+echo '<h1>'.jgettext('Template Archive').'</h1>';
 
 foreach($exportTypes as $exportType) :
     echo '<h4>'.jgettext($exportType).'</h4>';
@@ -27,7 +27,8 @@ foreach($exportTypes as $exportType) :
 
     rsort($exportFiles);
     ?>
-<table class="adminlist" cellspacing="5">
+
+    <table class="table table-striped table-hover table-condensed">
     <tbody>
     <tr style="background-color: #eee;">
         <th><?php echo jgettext('File'); ?></th>
@@ -55,14 +56,19 @@ foreach($exportTypes as $exportType) :
             $js_delete .= ' onclick="'.$js_delete.'"';
 
             ?>
-        <tr id="row<?php echo $fileName; ?>" class="<?php echo 'row'.$k; ?>">
-            <td><a href="<?php echo $href; ?>"><?php echo $fileName; ?></a></td>
-            <td><?php echo $date->toFormat(); ?></td>
+        <tr id="row<?php echo $fileName; ?>"
+            class="<?php echo 'row'.$k; ?>">
+            <td>
+                <a href="<?php echo $href; ?>">
+                    <?php echo $fileName; ?>
+                </a>
+            </td>
+            <td><?php echo $date->format('Y-m-d H:i:s'); ?></td>
             <td><?php echo EcrHtml::byte_convert($fsize); ?></td>
             <td width="2%">
-                <a href="javascript:" style="padding-left: 20px; height: 14px;"
+                <a <?php echo $js_delete; ?> href="javascript:" style="padding-left: 20px; height: 14px;"
                    class="btn hasTip"
-                   title="<?php echo jgettext('Delete').'::'.$fileName; ?>" <?php echo $js_delete; ?>>
+                   title="<?php echo jgettext('Delete').'::'.$fileName; ?>">
                     <i class="img icon16-delete"></i>
                 </a>
             </td>

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package       EasyCreator
  * @subpackage    Views
@@ -7,27 +7,21 @@
  * @license       GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
 ecrScript('templates');
+
+echo EcrHelp::help(jgettext('Select a template package to import'), EcrHelp::ALL, 'ecrBigInfo');
 ?>
 
-<br/>
+<h1><?php echo jgettext('Install templates'); ?></h1>
+
 <div class="ecr_floatbox">
-    <h2><?php echo jgettext('Install templates'); ?></h2>
-
-    <div class="ecrBigInfo"><?php echo jgettext('Select a template package to import'); ?></div>
-
-    <br/>
-
     <form enctype="multipart/form-data" action="index.php" method="post" name="installForm">
         <div>
             <label class="inline" for="install_package"><?php echo jgettext('Package File'); ?></label>
 
             <input class="input_box" id="install_package" name="install_package" type="file" size="57"/>
 
-            <input class="btn" type="button" value="<?php echo jgettext('Upload and install package'); ?>"
+            <input class="btn btn-success btn-large" type="button" value="<?php echo jgettext('Upload and install package'); ?>"
                    onclick="submitInstallForm();"/>
 
             <input type="hidden" name="option" value="com_easycreator"/>
@@ -39,7 +33,7 @@ ecrScript('templates');
 
 <div style="clear: both;"></div>
 
-</div><!-- Div from outer -->
+</div><!-- Div from outer - do NOT remove !-->
 
 <input type="hidden" name="com_type" value=""/>
 <input type="hidden" name="template" value=""/>
