@@ -10,14 +10,6 @@
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
   <version>0.0.18</version>
   <description>EasyCreator helps creating Extensions for Joomla!</description>
-  <installfile>install/install.easycreator.php</installfile>
-  <uninstallfile />
-  <install>
-    <sql />
-  </install>
-  <uninstall>
-    <sql />
-  </uninstall>
   <scriptfile>install/script.php</scriptfile>
   <files folder="site">
     <folder>g11n</folder>
