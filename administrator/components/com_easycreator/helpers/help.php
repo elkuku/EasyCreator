@@ -19,7 +19,30 @@ class EcrHelp
     const ALL = 2;
 
     /**
-     * @static
+     * Display a help message.
+     *
+     * @param        $string
+     * @param        $level
+     * @param string $class
+     *
+     * @return string
+     */
+    public static function help($string, $level, $class = '')
+    {
+        if(ECR_HELP == EcrHelp::NOPE)
+            return '';
+
+        if(ECR_HELP != EcrHelp::ALL)
+        {
+            if(ECR_HELP != $level)
+                return '';
+        }
+
+        return ($class) ? '<div class="'.$class.'">'.$string.'</div>' : $string;
+    }
+
+    /**
+     * Display an Info tooltip
      *
      * @param string $text
      * @param string $title
