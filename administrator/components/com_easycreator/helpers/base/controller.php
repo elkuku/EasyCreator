@@ -8,7 +8,7 @@
 /**
  * EasyCreator base controller class.
  */
-class EcrBaseController extends JController
+class EcrBaseController extends JControllerLegacy
 {
     /**
      * @var EcrResponseJson

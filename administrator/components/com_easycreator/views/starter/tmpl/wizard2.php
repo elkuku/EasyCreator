@@ -51,7 +51,7 @@ ecrScript('wizard2');
         </div>
         <div class="ecr_table-cell">
             <label for="version"><?php echo jgettext('Version'); ?></label>
-            <input type="text" class="span1" size="5" name="version" id="version"
+            <input type="text" class="span9" size="5" name="version" id="version"
                    value="<?php echo $this->project->version; ?>"/>
             <br/>
             <?php $formFieldNames[] = 'version' ?>

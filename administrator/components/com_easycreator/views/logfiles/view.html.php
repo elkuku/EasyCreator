@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,18 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewLogfiles extends JView
+class EasyCreatorViewLogfiles extends JViewLegacy
 {
     /**
      * Standard display method.

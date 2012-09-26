@@ -20,7 +20,7 @@ class PartModelsList
     /**
      * Info about the thing.
      *
-     * @return EcrTemplateInfo
+     * @return EcrProjectTemplateInfo
      */
     public function info()
     {

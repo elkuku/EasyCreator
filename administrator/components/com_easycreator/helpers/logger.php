@@ -39,7 +39,7 @@ class EcrLogger
      *
      * @return EcrLogger
      *
-     * @throws EcrLogException
+     * @throws EcrExceptionLog
      */
     public static function getInstance($name, $options = array())
     {
@@ -55,10 +55,10 @@ class EcrLogger
         if(false == JFolder::exists(ECRPATH_LOGS)
             && ! JFolder::create(ECRPATH_LOGS)
         )
-            throw new EcrLogException('Can not create log path '.ECRPATH_LOGS);
+            throw new EcrExceptionLog('Can not create log path '.ECRPATH_LOGS);
 
         if(false == touch(ECRPATH_LOGS.DS.$fileName))
-            throw new EcrLogException('Can not create log file '.$fileName);
+            throw new EcrExceptionLog('Can not create log file '.$fileName);
 
         $instances[$name] = new EcrLogger($fileName, $options);
 
@@ -82,13 +82,6 @@ class EcrLogger
 
         if($this->profile)
         {
-            //-- @Joomla!-compat 1.5
-            if(version_compare(JVERSION, '1.6', '<'))
-            {
-                //-- Load profiler for J! 1.5
-                ecrLoadHelper('profiler_15');
-            }
-
             $this->profiler = EcrProfiler::getInstance('EcrLogger');
         }
     }

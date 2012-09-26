@@ -37,24 +37,7 @@ if($this->scope != 'menu')
     //-- TODO improve sorting.. on filenames only
     sort($allFiles);
 
-    $searchTitle = jgettext('PHP XML file analysis');
-
-    //-- @Joomla!-version-check
-    switch(ECR_JVERSION)
-    {
-        case '1.5':
-            break;
-
-        case '1.6':
-        case '1.7':
-        case '2.5':
-            $searchTitle = jgettext('PHP, XML and JavaScript file analysis');
-            break;
-
-        default:
-            EcrHtml::message(__METHOD__.' - Unknown J! version');
-            break;
-    }
+    $searchTitle = jgettext('PHP, XML and JavaScript file analysis');
 
     echo '<h2>'.$searchTitle.' :: <span style="color: green;">'.ucfirst($this->scope).'</span></h2>';
 }
@@ -105,11 +88,6 @@ if($this->scope != 'menu') :
                   title="<?php echo jgettext('Translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <span style="background-color: red; cursor: pointer;"
                   class="hasTip" title="<?php echo jgettext('Not translated'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <?php if($this->showCore) : ?>
-            <span style="background-color: orange; cursor: pointer;"
-                  class="hasTip"
-                  title="<?php echo jgettext('Translated in core'); ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <?php endif; ?>
         </th>
     </tr>
     </thead>
@@ -145,18 +123,6 @@ if($this->scope != 'menu') :
 
         <td>
             <?php
-            if($this->showCore)
-            {
-                foreach($languages as $lang)
-                {
-                    if(array_key_exists($def, $this->coreStrings))
-                    {
-                        echo '<span style="color: orange;">'.$lang.'</span>&nbsp;';
-                        $coreCount = true;
-                    }
-                }
-            }
-
             if(false == array_key_exists($def, $this->strings))
             {
                 if( ! $coreCount)

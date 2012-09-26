@@ -7,15 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewZiper extends JView
+class EasyCreatorViewZiper extends JViewLegacy
 {
     protected $zipResult = false;
 

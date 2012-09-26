@@ -130,16 +130,8 @@ class EcrProjectTypeEmpty extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $dtd = array(
-                'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD module 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/module-install.dtd');
-                break;
-
-            case '1.6':
-            case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -199,16 +191,13 @@ class EcrProjectTypeEmpty extends EcrProjectBase
         $db = JFactory::getDBO();
         $clId =($this->scope == 'admin') ? 1 : 0;
 
-        $query = new JDatabaseQuery;
+        $query = $db->getQuery(true)
+            ->from('#__extensions AS e')
+            ->select('e.extension_id')
+            ->where('e.type = '.$db->quote($this->type))
+            ->where('e.element = '.$db->quote($this->prefix.$this->comName));
 
-        $query->from('#__extensions AS e');
-        $query->select('e.extension_id');
-        $query->where('e.type = '.$db->quote($this->type));
-        $query->where('e.element = '.$db->quote($this->prefix.$this->comName));
-
-        $db->setQuery((string)$query);
-
-        return $db->loadResult();
+        return $db->setQuery($query)->loadResult();
     }//function
 
     /**

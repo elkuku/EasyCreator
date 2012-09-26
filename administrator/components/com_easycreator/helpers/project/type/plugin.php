@@ -75,14 +75,6 @@ class EcrProjectTypePlugin extends EcrProjectBase
         if(JFolder::exists($base))
             $this->copies[] = $base;
 
-        //-- @Joomla!-compat 1.5
-        if(JFile::exists($base.'.php'))
-            $this->copies[] = $base.'.php';
-
-        //-- @Joomla!-compat 1.5
-        if(JFile::exists($base.'.xml'))
-            $this->copies[] = $base.'.xml';
-
         return $this->copies;
     }//function
 
@@ -170,16 +162,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $dtd = array(
-                'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD plugin 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/plugin-install.dtd');
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -219,13 +205,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                return JPATH_SITE.DS.'plugins'.DS.$this->scope;
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
@@ -259,21 +242,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-
-                $query = new JDatabaseQuery;
-
-                $query->from('#__plugins AS p');
-                $query->select('p.id');
-                $query->where('p.folder = '.$db->quote($this->scope));
-                $query->where('p.element = '.$db->quote($this->comName));
-
-                $db->setQuery((string)$query);
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -310,23 +282,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $plugins = JFolder::files(JPATH_SITE.DS.'plugins'.DS.$scope, 'php');
-
-                foreach($plugins as $plugin)
-                {
-                    if(strpos($plugin, 'CHANGELOG') !== false)
-                    {
-                        continue;
-                    }
-
-                    $projects[] = JFile::stripExt($plugin);
-                }//foreach
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
@@ -351,86 +310,20 @@ class EcrProjectTypePlugin extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                switch($scope)
-                {
-                    case 'authentication':
-                        $projects = array('example', 'gmail', 'joomla', 'ldap', 'openid');
-                        break;
-                    case 'content':
-                        $projects = array('emailcloak', 'example', 'geshi', 'loadmodule', 'pagebreak'
-                        , 'pagenavigation', 'vote');
-                        break;
-                    case 'editors':
-                        $projects = array('none', 'tinymce', 'xstandard');
-                        break;
-                    case 'editors-xtd':
-                        $projects = array('image', 'pagebreak', 'readmore');
-                        break;
-                    case 'search':
-                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'sections', 'weblinks');
-                        break;
-                    case 'system':
-                        $projects = array('backlink', 'cache', 'debug', 'legacy', 'log', 'remember', 'sef');
-                        $projects[] = 'mtupgrade';
-                        break;
-                    case 'user':
-                        $projects = array('example', 'joomla');
-                        break;
-                    case 'xmlrpc':
-                        $projects = array('blogger', 'joomla');
-                        break;
-                    default :
-                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
-
-                        return array();
-                }//switch
-                break;
-
             case '1.6':
-                switch($scope)
-                {
-                    case 'authentication':
-                        $projects = array('example', 'gmail', 'joomla', 'ldap', 'openid');
-                        break;
-                    case 'content':
-                        $projects = array('emailcloak', 'example', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
-                        , 'pagenavigation', 'vote');
-                        break;
-                    case 'editors':
-                        $projects = array('none', 'tinymce', 'codemirror');
-                        break;
-                    case 'editors-xtd':
-                        $projects = array('article', 'image', 'pagebreak', 'readmore');
-                        break;
-                    case 'extension':
-                        $projects = array('example', 'joomla');
-                        break;
-                    case 'search':
-                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
-                        break;
-                    case 'system':
-                        $projects = array('cache', 'debug', 'languagefilter'
-                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
-                        break;
-                    case 'user':
-                        $projects = array('example', 'contactcreator', 'joomla', 'profile');
-                        break;
-                    default :
-                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
-
-                        return array();
-                }//switch
-                break;
             case '1.7':
+            case '2.5':
                 switch($scope)
                 {
                     case 'authentication':
                         $projects = array('gmail', 'joomla', 'ldap');
                         break;
+                    case 'captcha':
+                        $projects = array('recaptcha');
+                        break;
                     case 'content':
                         $projects = array('emailcloak', 'geshi', 'joomla', 'loadmodule', 'pagebreak'
-                        , 'pagenavigation', 'vote');
+                        , 'pagenavigation', 'vote', 'finder');
                         break;
                     case 'editors':
                         $projects = array('none', 'tinymce', 'codemirror');
@@ -441,11 +334,17 @@ class EcrProjectTypePlugin extends EcrProjectBase
                     case 'extension':
                         $projects = array('joomla');
                         break;
+                    case 'finder':
+                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+                        break;
+                    case 'quickicon':
+                        $projects = array('extensionupdate', 'joomlaupdate');
+                        break;
                     case 'search':
                         $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
                         break;
                     case 'system':
-                        $projects = array('cache', 'debug', 'languagefilter'
+                        $projects = array('cache', 'debug', 'finder', 'highlight', 'languagefilter', 'languagecode'
                         , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
                         break;
                     case 'user':
@@ -457,9 +356,9 @@ class EcrProjectTypePlugin extends EcrProjectBase
                 }//switch
                 break;
 
-            case '2.5':
+            case '3.0':
                 switch($scope)
-                {
+                   {
                     case 'authentication':
                         $projects = array('gmail', 'joomla', 'ldap');
                         break;

@@ -20,7 +20,7 @@ class PartControllersSimple
     /**
      * Info about the thing.
      *
-     * @return EcrTemplateInfo
+     * @return EcrProjectTemplateInfo
      */
     public function info()
     {

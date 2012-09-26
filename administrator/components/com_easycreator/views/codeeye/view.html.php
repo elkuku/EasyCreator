@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,21 +7,16 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewCodeEye extends JView
+class EasyCreatorViewCodeEye extends JViewLegacy
 {
     /**
-     * @var EcrProject
+     * @var EcrProjectBase
      */
     protected $project = null;
 
@@ -73,7 +68,6 @@ class EasyCreatorViewCodeEye extends JView
 
             return;
         }
-        //try
 
         if(in_array($this->task, get_class_methods($this)))
         {
@@ -92,9 +86,6 @@ class EasyCreatorViewCodeEye extends JView
         {
             echo sprintf('UNDEFINED Task "%s" in %s', $this->task, __CLASS__).'<br />';
         }
-
-        //--Draw h1 header
-        //EcrHtml::header(jgettext('CodeEye'), $this->project, 'xeyes');
 
         //--Draw the submenu
         echo $this->displayBar();

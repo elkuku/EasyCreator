@@ -6,14 +6,34 @@
  */
 
 ?>
-<div class="btn-group">
-    <a class="btn" href="javascript:;" onclick="EcrConfig.maintain('cleanJoomlaTemp', this);">
+<div style="height: 1em;"></div>
+<div class="btn-group" style="margin-top: 1em; margin-bottom: 1em;">
+    <a class="btn<?php echo ECR_TBAR_SIZE; ?> btn-success" href="javascript:;"
+       onclick="EcrConfig.submitForm('save_config', this);">
+        <?php if(ECR_TBAR_ICONS) : ?>
+        <i class="img icon16-ecr_save"></i>
+        <?php endif; ?>
+        <?php echo jgettext('Save'); ?>
+    </a>
+    <a class="btn<?php echo ECR_TBAR_SIZE; ?> btn-inverse" href="javascript:;"
+       onclick="EcrConfig.maintain('cleanJoomlaTemp', this);">
+        <?php if(ECR_TBAR_ICONS) : ?>
+        <i class="img icon16-trash"></i>
+        <?php endif; ?>
         Clean Joomla! Temp
     </a>
-    <a class="btn" href="javascript:;" onclick="EcrConfig.maintain('cleanJoomlaCache', this);">
+    <a class="btn<?php echo ECR_TBAR_SIZE; ?> btn-inverse" href="javascript:;"
+       onclick="EcrConfig.maintain('cleanJoomlaCache', this);">
+        <?php if(ECR_TBAR_ICONS) : ?>
+        <i class="img icon16-trash"></i>
+        <?php endif; ?>
         Clean Joomla! Cache
     </a>
-    <a class="btn" href="javascript:;" onclick="EcrConfig.maintain('cleanEcrLogs', this);">
+    <a class="btn<?php echo ECR_TBAR_SIZE; ?> btn-warning" href="javascript:;"
+       onclick="EcrConfig.maintain('cleanEcrLogs', this);">
+        <?php if(ECR_TBAR_ICONS) : ?>
+        <i class="img icon16-trash"></i>
+        <?php endif; ?>
         Clean EasyCreator log files
     </a>
 
@@ -21,13 +41,6 @@
 <div id="maintainResponse"></div>
 
 <div class="btn-group" style="float: right; margin-left: 50px;">
-    <a class="btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;" onclick="EcrConfig.submitForm('save_config', this);">
-        <?php if(ECR_TBAR_ICONS) : ?>
-        <i class="img icon16-ecr_save"></i>
-        <br/>
-        <?php endif; ?>
-        <?php echo jgettext('Save'); ?>
-    </a>
 
 </div>
 

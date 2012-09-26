@@ -29,15 +29,15 @@ $preset = $this->preset;
 
 <p>
     <!-- @Joomla!-version-check -->
-    <input type="radio" id="jversion15" name="jcompat" value="1.5"
-        <?php echo ($this->project->JCompat == '1.5') ? ' checked="checked"' : ''; ?>
+    <input type="radio" id="jversion25" name="jcompat" value="2.5"
+        <?php echo ('2.5' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
         />
-    <label for="jversion15" class="inline img32b iconjoomla-compat-15">&nbsp;</label>
+    <label for="jversion25" class="inline img32b iconjoomla-compat-25">&nbsp;</label>
 
-    <input type="radio" id="jversion16" name="jcompat" value="1.6"
-        <?php echo (in_array($this->project->JCompat, array('1.6', '1.7', '2.5'))) ? ' checked="checked"' : ''; ?>
+    <input type="radio" id="jversion30" name="jcompat" value="3.0"
+        <?php echo ('3.0' == $this->project->JCompat) ? ' checked="checked"' : ''; ?>
         />
-    <label for="jversion16" class="inline img32b iconjoomla-compat-25">&nbsp;</label>
+    <label for="jversion30" class="inline img32b iconjoomla-compat-30">&nbsp;</label>
 </p>
 
 <p>

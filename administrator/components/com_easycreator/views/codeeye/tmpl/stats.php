@@ -10,11 +10,10 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
-JHTML::_('behavior.mootools');
-
 //$highChartsVersion = '1.2.5';
 $highChartsVersion = '2.0.5';
 //$highChartsVersion = '2.1.4';
+//$highChartsVersion = '2.3.2';
 
 if(ECR_DEBUG)
 {

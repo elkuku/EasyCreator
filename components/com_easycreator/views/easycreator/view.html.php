@@ -14,7 +14,7 @@ jimport('joomla.application.component.view');
  * @package    EasyCreator
  * @subpackage Frontent
  */
-class EasyCreatorViewEasyCreator extends JView
+class EasyCreatorViewEasyCreator extends JViewLegacy
 {
     /**
      * Execute and display a template script.
@@ -26,7 +26,7 @@ class EasyCreatorViewEasyCreator extends JView
     public function display($tpl = null)
     {
         //--get vars from request
-        $selectedProject = JRequest::getVar('ebc_project', '');
+        $selectedProject = JFactory::getApplication()->input->get('ecr_project');
 
         if($selectedProject)
         {
@@ -50,7 +50,7 @@ class EasyCreatorViewEasyCreator extends JView
             }
         }
 
-        $this->assignRef('selectedProject', $selectedProject);
+        $this->selectedProject = $selectedProject;
 
         parent::display($tpl);
     }

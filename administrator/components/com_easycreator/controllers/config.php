@@ -7,8 +7,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
@@ -48,25 +46,9 @@ class EasyCreatorControllerConfig extends EcrBaseController
     {
         try
         {
-            //-- @Joomla!-version-check
-            switch(ECR_JVERSION)
-            {
-                case '1.5':
-                    $table = JTable::getInstance('component');
-                    $table->loadByOption('com_easycreator');
-                    break;
-                case '1.6':
-                case '1.7':
-                case '2.5':
-                    $component = JComponentHelper::getComponent('com_easycreator');
-                    $table = JTable::getInstance('extension');
-                    $table->load($component->id);
-                    break;
-
-                default:
-                    throw new Exception(__METHOD__.' - '.jgettext('Unsupported Joomla! version'));
-                    break;
-            }
+            $component = JComponentHelper::getComponent('com_easycreator');
+            $table = JTable::getInstance('extension');
+            $table->load($component->id);
 
             if( ! $table->bind(JRequest::get('post'))
                 || ! $table->check()
@@ -81,7 +63,7 @@ class EasyCreatorControllerConfig extends EcrBaseController
             if(strpos($ecr_project, 'ecr') !== 0)
                 $adds = ($ecr_project) ? '&view=stuffer&ecr_project='.$ecr_project : '';
 
-            $this->setRedirect('index.php?option=com_easycreator'.$adds, jgettext('Configuration has been saved'));
+            $this->setRedirect('index.php?option=com_easycreator'.$adds, jgettext('Configuration has been saved'), 'success');
         }
         catch(Exception $e)
         {

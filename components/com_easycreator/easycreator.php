@@ -6,7 +6,10 @@
  * @author     Created on 24-Sep-2008
  */
 
+//@todo legacy imports...
+jimport('joomla.filesystem.folder');
 jimport('joomla.filesystem.file');
+
 
 //--Global functions
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/loader.php';

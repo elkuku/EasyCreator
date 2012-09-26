@@ -162,8 +162,6 @@ abstract class EcrHtmlSelect
      */
     public static function actions(array $attribs = array())
     {
-        jimport('joomla.filesystem.file');
-
         //-- aka autoload :P
         JHtml::_('select.option', 'foo');
 

@@ -186,8 +186,7 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      * @since   1.0
      * @throws  InvalidArgumentException
      */
-    protected
-    function fetchModel()
+    protected function fetchModel()
     {
         $base = 'ECR_CLASS_PREFIXModel';
 
@@ -203,7 +202,7 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
         return new ECR_CLASS_PREFIXModelDefault(new JRegistry);
 
         // Nothing found. Panic.
-        throw new InvalidArgumentException('Model not found: '.$sub, 400);
+        //throw new InvalidArgumentException('Model not found: '.$sub, 400);
     }
 
     /**
@@ -211,14 +210,13 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      *
      * @return JViewHtml
      */
-    protected
-    function fetchView(JModelBase $model)
+    protected function fetchView(JModelBase $model)
     {
         $name = $this->input->get('view') ? : $this->do;
 
         $className = 'ECR_CLASS_PREFIXView'.ucfirst($name).'View';
 
-        if(! class_exists($className))
+        if( ! class_exists($className))
         {
             $className = 'ECR_CLASS_PREFIXViewDefaultView';
 
@@ -237,8 +235,7 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
     /**
      * @return object
      */
-    public
-    function getConfig()
+    public function getConfig()
     {
         return $this->config->toObject();
     }
@@ -250,8 +247,7 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
      *
      * @since 1.0
      */
-    protected
-    function loadDatabase()
+    protected function loadDatabase()
     {
         $database = ('sqlite' == $this->get('db_driver'))
             ? APP_PATH_DATA.'/'.$this->get('db_name')

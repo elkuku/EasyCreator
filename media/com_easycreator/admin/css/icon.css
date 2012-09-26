@@ -378,6 +378,10 @@
     background-image: url(../images/ico/icon-16-warning.png);
 }
 
+.icon16-trash {
+    background-image: url(../images/ico/icon-16-trash.png);
+}
+
 .iconjoomla-compat-15 {
     background-image: url(../images/ico/Compat_icon_1_5.png);
 }
@@ -392,6 +396,14 @@
 
 .iconjoomla-compat-25 {
     background-image: url(../images/ico/Compat_icon_2_5.png);
+}
+
+.iconjoomla-compat-30 {
+    background-image: url(../images/ico/Compat_icon_3_0.png);
+}
+
+.iconjoomla-compat-35 {
+    background-image: url(../images/ico/Compat_icon_3_5.png);
 }
 
 .iconjoomla-compat-11-1 {

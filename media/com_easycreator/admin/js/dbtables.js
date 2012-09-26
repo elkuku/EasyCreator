@@ -72,64 +72,64 @@ function newRow(elName)
     var size = '12';
 
     //-- Name / Field --- @todo change ?
-    var fieldName = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][name]', 'size':size})
-        .injectInside(fieldName);
+    var fieldName = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][name]', 'size':size, 'class':'span12'})
+        .inject(fieldName);
 
     //-- Label
-    var fieldDisplay = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][label]', 'size':size})
-        .injectInside(fieldDisplay);
-    //  fieldDisplay.injectInside(div);
+    var fieldDisplay = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][label]', 'size':size, 'class':'span12'})
+        .inject(fieldDisplay);
+    //  fieldDisplay.inject(div);
 
     //-- Type
-    dbGetSelectTypes().injectInside(div);
+    dbGetSelectTypes().inject(div);
 
     //-- Length / Set
-    var fieldLength = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][length]', 'size':size})
-        .injectInside(fieldLength);
+    var fieldLength = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][length]', 'size':size, 'class':'span12'})
+        .inject(fieldLength);
 
     //-- Attributes
-    var fieldAttribs = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    var fieldAttribsSelect = new Element('select', {'name':'fields[' + obCount + '][attributes]'})
-        .injectInside(fieldAttribs);
+    var fieldAttribs = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    var fieldAttribsSelect = new Element('select', {'name':'fields[' + obCount + '][attributes]', 'class':'span12'})
+        .inject(fieldAttribs);
 
-    new Element('option', {'value':''}).appendText('').injectInside(fieldAttribsSelect);
-    new Element('option', {'value':'UNSIGNED'}).appendText('UNSIGNED').injectInside(fieldAttribsSelect);
-    new Element('option', {'value':'UNSIGNED ZEROFILL'}).appendText('UNSIGNED ZEROFILL').injectInside(fieldAttribsSelect);
+    new Element('option', {'value':''}).appendText('').inject(fieldAttribsSelect);
+    new Element('option', {'value':'UNSIGNED'}).appendText('UNSIGNED').inject(fieldAttribsSelect);
+    new Element('option', {'value':'UNSIGNED ZEROFILL'}).appendText('UNSIGNED ZEROFILL').inject(fieldAttribsSelect);
 
     //-- Null
-    var fieldNull = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    var fieldNullSelect = new Element('select', {'name':'fields[' + obCount + '][null]'})
-        .injectInside(fieldNull);
+    var fieldNull = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    var fieldNullSelect = new Element('select', {'name':'fields[' + obCount + '][null]', 'class':'span12'})
+        .inject(fieldNull);
 
-    new Element('option', {'value':'NOT_NULL'}).appendText('NOT NULL').injectInside(fieldNullSelect);
-    new Element('option', {'value':'NULL'}).appendText('NULL').injectInside(fieldNullSelect);
+    new Element('option', {'value':'NOT_NULL'}).appendText('NOT NULL').inject(fieldNullSelect);
+    new Element('option', {'value':'NULL'}).appendText('NULL').inject(fieldNullSelect);
 
     //-- Default
-    var fieldDefault = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][default]', 'size':size})
-        .injectInside(fieldDefault);
+    var fieldDefault = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][default]', 'size':size, 'class':'span12'})
+        .inject(fieldDefault);
 
     //-- Extra
-    var fieldExtra = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    var fieldExtraSelect = new Element('select', {'name':'fields[' + obCount + '][extra]'})
-        .injectInside(fieldExtra);
+    var fieldExtra = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    var fieldExtraSelect = new Element('select', {'name':'fields[' + obCount + '][extra]', 'class':'span12'})
+        .inject(fieldExtra);
 
-    new Element('option', {'value':''}).appendText('').injectInside(fieldExtraSelect);
-    new Element('option', {'value':'AUTO_INCREMENT'}).appendText('AUTO INCREMENT').injectInside(fieldExtraSelect);
+    new Element('option', {'value':''}).appendText('').inject(fieldExtraSelect);
+    new Element('option', {'value':'AUTO_INCREMENT'}).appendText('AUTO INCREMENT').inject(fieldExtraSelect);
 
     //-- Comment
-    var fieldComment = new Element('div', {'class':'ecr_dbRowCell'}).injectInside(div);
-    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][comment]', 'size':size})
-        .injectInside(fieldComment);
+    var fieldComment = new Element('div', {'class':'ecr_dbRowCell'}).inject(div);
+    new Element('input', {'type':'text', 'name':'fields[' + obCount + '][comment]', 'size':size, 'class':'span12'})
+        .inject(fieldComment);
 
     var onclick = 'document.id(\'dbRow' + obCount + '\').dispose()';
     new Element('span', {'class':'btn btn-mini', 'onclick':onclick, 'text':jgettext('Delete')})
-        .injectInside(div);
+        .inject(div);
 
-    div.injectInside($(elName));
+    div.inject($(elName));
 
     obCount++;
 
@@ -204,11 +204,11 @@ function dbGetSelectTypes(selected)
     ];
 
     var div = new Element('div', { 'class':'ecr_dbRowCell'});
-    var select = new Element('select', { 'name':'fields[' + obCount + '][type]'}).injectInside(div);
+    var select = new Element('select', { 'name':'fields[' + obCount + '][type]', 'class':'span12'}).inject(div);
 
     for(var i = 0; i < names.length; i++)
     {
-        new Element('option', {'value':names[i]}).appendText(names[i]).injectInside(select);
+        new Element('option', {'value':names[i]}).appendText(names[i]).inject(select);
     }
 
     return div;

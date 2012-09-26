@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,18 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
  * @package EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewTemplates extends JView
+class EasyCreatorViewTemplates extends JViewLegacy
 {
     protected $profiler = null;
 
@@ -76,7 +71,7 @@ class EasyCreatorViewTemplates extends JView
 
         if($profiling)
         {
-            jimport('joomla.error.profiler');
+//            jimport('joomla.error.profiler');
             $this->profiler = JProfiler::getInstance('EasyCreator');
         }
 
@@ -120,6 +115,11 @@ class EasyCreatorViewTemplates extends JView
         $this->setLayout('install');
     }//function
 
+    private function tplarchive()
+    {
+        $this->setLayout('archive');
+    }
+
     /**
      * Export view.
      *
@@ -138,21 +138,26 @@ class EasyCreatorViewTemplates extends JView
     private function displayBar()
     {
         $subTasks = array(
-        array('title' => jgettext('Templates')
-        , 'description' => jgettext('Manage EasyCreator Extension Templates')
-        , 'icon' => 'directory'
-        , 'task' => 'templates'
-        )
-        , array('title' => jgettext('Install')
-        , 'description' => jgettext('Installs EasyCreator Extension Templates')
-        , 'icon' => 'import'
-        , 'task' => 'tplinstall'
-        )
-        , array('title' => jgettext('Export')
-        , 'description' => jgettext('Exports EasyCreator Extension Templates')
-        , 'icon' => 'export'
-        , 'task' => 'export'
-        )
+            array('title' => jgettext('Templates')
+            , 'description' => jgettext('Manage EasyCreator Extension Templates')
+            , 'icon' => 'directory'
+            , 'task' => 'templates'
+            )
+            , array('title' => jgettext('Install')
+            , 'description' => jgettext('Installs EasyCreator Extension Templates')
+            , 'icon' => 'import'
+            , 'task' => 'tplinstall'
+            )
+            , array('title' => jgettext('Export')
+            , 'description' => jgettext('Exports EasyCreator Extension Templates')
+            , 'icon' => 'export'
+            , 'task' => 'export'
+            )
+            , array('title' => jgettext('Archive')
+            , 'description' => jgettext('View archived versions of your extension.')
+            , 'icon' => 'ecr_archive'
+            , 'task' => 'tplarchive'
+            )
         );
 
         return EcrHtmlMenu::sub($subTasks);

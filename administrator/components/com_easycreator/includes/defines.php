@@ -11,6 +11,7 @@ $params = JComponentHelper::getParams('com_easycreator');
 
 /**
  * The OS specific directory separator -
+ *
  * @todo remove ?
  */
 defined('DS') || define('DS', DIRECTORY_SEPARATOR);
@@ -53,9 +54,33 @@ if($dataDir)
         $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
 
     if(false == JFolder::exists($dataDir))
-        throw new Exception(sprintf(
-            '%1$s - The data directory you specified does not exist - Please create it: %2$s'
-            , basename(__FILE__), $dataDir));
+    {
+        if(0 == strpos($dataDir, JPATH_ROOT))
+        {
+            //-- The data_dir is inside the J! root - try to create it.
+            if(JFolder::create($dataDir))
+            {
+                JFactory::getApplication()->enqueueMessage(sprintf(
+                    'The data directory has been created in %s'
+                    , $dataDir
+                ));
+            }
+            else
+            {
+                throw new DomainException(sprintf(
+                    'Unable to create the data directory in %s'
+                    , $dataDir
+                ));
+            }
+        }
+        else
+        {
+            throw new DomainException(sprintf(
+                '%1$s - The data directory you specified does not exist - Please create it: %2$s'
+                , basename(__FILE__), $dataDir
+            ));
+        }
+    }
 
     /**
      * Path for user data.
@@ -103,7 +128,7 @@ define('ECR_JVERSION', $parts[0].'.'.$parts[1]);
 /**
  * EasyCreator Documentation location - might change sometimes =;)
  */
-define('ECR_DOCU_LINK', 'http://wiki.joomla-nafu.de/joomla-dokumentation/Benutzer:Elkuku/Proyektz/EasyCreator');
+define('ECR_DOCU_LINK', 'http://joomla-wiki.de/dokumentation/Benutzer:Elkuku/Proyektz/EasyCreator');
 
 /**
  * EasyCreator HELP mode.
@@ -127,10 +152,10 @@ if($updateserverDir)
     if(0 === strpos($dataDir, 'JROOT'))
         $dataDir = str_replace('JROOT', JPATH_ROOT, $dataDir);
 
-        /**
-         * Path for local update server.
-         */
-        define('ECRPATH_UPDATESERVER', JPath::clean($updateserverDir));
+    /**
+     * Path for local update server.
+     */
+    define('ECRPATH_UPDATESERVER', JPath::clean($updateserverDir));
 
     if(0)
     {
@@ -149,3 +174,35 @@ else
 }
 
 define('ECRPATH_UPDATESERVER_URL', $params->get('updateserver_url'));
+
+/*
+ * Debug settings
+ */
+if(ECR_DEV_MODE)
+{
+    //-- Setup debugger
+    if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug'))
+    {
+        //-- Set debugging ON
+        define('ECR_DEBUG', true);
+    }
+    else
+    {
+        define('ECR_DEBUG', false);
+    }
+
+    if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug_lang', 0))
+    {
+        //-- Set debugging ON
+        define('ECR_DEBUG_LANG', 1);
+    }
+    else
+    {
+        define('ECR_DEBUG_LANG', 0);
+    }
+}
+else
+{
+    define('ECR_DEBUG', 0);
+    define('ECR_DEBUG_LANG', 0);
+}

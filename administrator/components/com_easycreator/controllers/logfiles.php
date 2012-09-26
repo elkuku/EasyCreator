@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -7,18 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerLogfiles extends JController
+class EasyCreatorControllerLogfiles extends JControllerLegacy
 {
     /**
      * @var EcrResponseJson
@@ -136,6 +131,8 @@ class EasyCreatorControllerLogfiles extends JController
         }
 
         echo $this->response;
+
+        jexit();
     }
 
     /**

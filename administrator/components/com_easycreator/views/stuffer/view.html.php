@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,18 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
  * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewStuffer extends JView
+class EasyCreatorViewStuffer extends JViewLegacy
 {
     /**
      * @var EcrProjectBase
@@ -272,26 +267,7 @@ class EasyCreatorViewStuffer extends JView
 
         if(in_array($selected_xml, $xmlFiles))
         {
-            //-- @Joomla!-version-check
-            switch(ECR_JVERSION)
-            {
-                //-- Get the project params
-                case '1.5':
-                    $this->params = new JParameter('', JPATH_ROOT.DS.$selected_xml);
-                    break;
-
-                case '1.6':
-                case '1.7':
-                case '2.5':
-                    $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
-                    break;
-
-                default:
-                    EcrHtml::message(__METHOD__.' - Undefined J! version', 'error');
-
-                    return false;
-                    break;
-            }
+            $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
         }
 
         $options = array();
@@ -309,13 +285,7 @@ class EasyCreatorViewStuffer extends JView
 
         $this->assignRef('selected_xml', $selected_xml);
 
-        $layout = 'projectparams';
-
-        //-- @Joomla!-compat 1.5
-        if('1.5' == ECR_JVERSION)
-            $layout .= '_15';
-
-        $this->setLayout($layout);
+        $this->setLayout('projectparams');
     }
 
     /**

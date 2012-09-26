@@ -248,6 +248,7 @@ class Com_EasyCreatorInstallerScript
      */
     private function readMd5File($path)
     {
+        //-- @todo remove
         jimport('joomla.filesystem.file');
 
         $path = JPath::clean($path);

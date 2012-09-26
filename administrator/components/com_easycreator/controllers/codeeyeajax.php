@@ -7,15 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerCodeEyeAjax extends JController
+class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
 {
     protected $testsBase;
 
@@ -90,6 +88,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = htmlentities($results);
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -150,6 +150,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = htmlentities($results);
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -269,6 +271,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         }
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -304,6 +308,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -337,6 +343,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = $results;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     public function runCli()
@@ -362,6 +370,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = $results;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     public function phploc()
@@ -393,6 +403,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response->console = $results;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -564,6 +576,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -604,6 +618,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -682,6 +698,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['text'] .= $add;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**
@@ -802,6 +820,8 @@ class EasyCreatorControllerCodeEyeAjax extends JController
         $response['status'] = 1;
 
         echo json_encode($response);
+
+        jexit();
     }
 
     /**

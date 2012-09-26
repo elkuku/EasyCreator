@@ -8,29 +8,30 @@
 
 function goWizard(num)
 {
-    $('wizard-loader').removeClass('icon-32-wizard');
-    $('wizard-loader').addClass('ajax-loading-32');
+    document.id('wizard-loader').removeClass('icon-32-wizard');
+    document.id('wizard-loader').addClass('ajax-loading-32');
     submitbutton('wizard' + num);
 }
 
 function setTemplate(type, name)
 {
-    $('tpl_type').value = type;
-    $('tpl_name').value = name;
+    document.id('tpl_type').value = type;
+    document.id('tpl_name').value = name;
 }
 
 function getExtensionTemplateInfo(extType, folder, e)
 {
+    var htmlId = extType + '_' + folder;
+
     if(e.open)
     {
         e.toggle();
-
+        document.id('btn_' + htmlId).className = 'btn btn-info';
         return;
     }
 
-    var htmlId = extType + '_' + folder;
-
-    $('btn_' + htmlId).className = 'btn ajax_loading16';
+    //document.id('btn_' + htmlId).addClass = 'ajax_loading16';
+    document.id('btn_' + htmlId).className = 'btn btn-warning';
 
     url = ecrAJAXLink + '&controller=starter&task=ajGetExtensionTemplateInfo';
     url += '&extType=' + extType;
@@ -42,23 +43,17 @@ function getExtensionTemplateInfo(extType, folder, e)
         'onRequest':function()
         {
             //$('ecr_title_pic').innerHTML = jgettext('Loading...');
-        }, 'onComplete':function(response)
+        },
+
+        'onComplete':function(response)
         {
             var resp = JSON.decode(response);
 
-            if(resp.status)
-            {
-            }
-            else
-            {
-                //-- Error
-            }
-
-            $(htmlId + '_files').innerHTML = resp.text;
+            document.id(htmlId + '_files').innerHTML = resp.text;
 
             e.toggle();
 
-            $('btn_' + htmlId).className = 'btn';
+            document.id('btn_' + htmlId).className = 'btn btn-success';
         }
     }).send();
 }

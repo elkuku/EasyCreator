@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -7,17 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
  * @package    EasyCreator
  */
-class EasyCreatorControllerAutoCode extends JController
+class EasyCreatorControllerAutoCode extends JControllerLegacy
 {
     /**
      * Displays AutoCode.

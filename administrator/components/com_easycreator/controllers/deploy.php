@@ -7,15 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerDeploy extends JController
+class EasyCreatorControllerDeploy extends JControllerLegacy
 {
     private $response = array('status' => 0, 'message' => '', 'debug' => '');
 
@@ -119,6 +117,8 @@ class EasyCreatorControllerDeploy extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -148,6 +148,8 @@ class EasyCreatorControllerDeploy extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -179,6 +181,8 @@ class EasyCreatorControllerDeploy extends JController
         sleep(1);
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -213,6 +217,8 @@ class EasyCreatorControllerDeploy extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -332,6 +338,8 @@ class EasyCreatorControllerDeploy extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**
@@ -361,6 +369,8 @@ class EasyCreatorControllerDeploy extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }
 
     /**

@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -7,18 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerTemplates extends JController
+class EasyCreatorControllerTemplates extends JControllerLegacy
 {
     /**
      * Standard display method.
@@ -47,7 +42,7 @@ class EasyCreatorControllerTemplates extends JController
         {
             EcrFile::saveFile();
 
-            EcrHtml::message(jgettext('The file has been saved'));
+            EcrHtml::message(jgettext('The file has been saved'), 'success');
         }
         catch(Exception $e)
         {
@@ -71,7 +66,7 @@ class EasyCreatorControllerTemplates extends JController
         {
             EcrFile::deleteFile();
 
-            JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'));
+            JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'), 'success');
         }
         catch(Exception $e)
         {
@@ -79,7 +74,7 @@ class EasyCreatorControllerTemplates extends JController
         }//try
 
         JRequest::setVar('view', 'templates');
-        JRequest::setVar('task', 'export');
+        JRequest::setVar('task', 'tplarchive');
 
         parent::display();
     }//function
@@ -99,7 +94,7 @@ class EasyCreatorControllerTemplates extends JController
 
             EcrProjectTemplateHelper::exportTemplates($exports);
 
-            EcrHtml::message(jgettext('Templates have been exported.'));
+            EcrHtml::message(jgettext('Templates have been exported.'), 'success');
         }
         catch(Exception $e)
         {
@@ -123,7 +118,7 @@ class EasyCreatorControllerTemplates extends JController
         {
             EcrProjectTemplateHelper::installTemplates();
 
-            EcrHtml::message(jgettext('Templates have been installed.'));
+            EcrHtml::message(jgettext('Templates have been installed.'), 'success');
 
             JRequest::setVar('task', 'templates');
         }

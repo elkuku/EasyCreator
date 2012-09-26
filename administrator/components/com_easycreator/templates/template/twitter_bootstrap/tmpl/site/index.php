@@ -4,7 +4,7 @@
 $application = JFactory::getApplication();
 $templateParams = $application->getTemplate(true)->params;
 $baseLink = $this->baseurl.'/templates/'.$this->template;
-$min = (JDEBUG) ? '.min' : '';
+$min = '';//(JDEBUG) ? '.min' : '';
 
 ?>
 <?php echo '<?xml version="1.0" encoding="utf-8"?'.'>'; ?>

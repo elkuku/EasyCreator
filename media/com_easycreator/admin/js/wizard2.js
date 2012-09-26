@@ -13,62 +13,62 @@ function submitbutton(command)
     {
         //--do some field validation
         valid = true;
-        $('req_version').innerHTML = '';
-        $('req_name').innerHTML = '';
+        document.id('req_version').innerHTML = '';
+        document.id('req_name').innerHTML = '';
 
-        if($('req_list_postfix') != null)
+        if(document.id('req_list_postfix') != null)
         {
-            $('req_list_postfix').innerHTML = '';
+            document.id('req_list_postfix').innerHTML = '';
         }
 
         if(form.version.value == '')
         {
-            $('req_version').innerHTML = '<div style="color: red;">' + jgettext('You must provide a version number') + '</div>';
-            $('version').focus();
-            var div = $('req_version').setStyles({
+            document.id('req_version').innerHTML = '<div style="color: red;">' + jgettext('You must provide a version number') + '</div>';
+            document.id('version').focus();
+            var div = document.id('req_version').setStyles({
                 display:'block',
                 opacity:0
             });
-            new Fx.Tween($('req_version'), $extend({property:'opacity'}), {duration:1500}).start(1);
+            new Fx.Tween(document.id('req_version'), Object.extend({property:'opacity'}), {duration:1500}).start(1);
             valid = false;
         }
 
         if(form.com_name.value == '')
         {
-            $('req_name').innerHTML = '<div style="color: red;">' + jgettext('You must provide a name') + '</div>';
-            $('com_name').focus();
-            var div = $('req_name').setStyles({
+            document.id('req_name').innerHTML = '<div style="color: red;">' + jgettext('You must provide a name') + '</div>';
+            document.id('com_name').focus();
+            var div = document.id('req_name').setStyles({
                 display:'block',
                 opacity:0
             });
-            new Fx.Tween($('req_name'), $extend({property:'opacity'}), {duration:1500}).start(1);
+            new Fx.Tween(document.id('req_name'), Object.extend({property:'opacity'}), {duration:1500}).start(1);
             valid = false;
         }
 
         if(form.list_postfix.value == '')
         {
-            $('req_list_postfix').innerHTML = '<div style="color: red;">' + jgettext('You must provide a list postfix') + '</div>';
-            $('list_postfix').focus();
-            var div = $('req_list_postfix').setStyles({
+            document.id('req_list_postfix').innerHTML = '<div style="color: red;">' + jgettext('You must provide a list postfix') + '</div>';
+            document.id('list_postfix').focus();
+            var div = document.id('req_list_postfix').setStyles({
                 display:'block',
                 opacity:0
             });
-            new Fx.Tween($('req_list_postfix'), $extend({property:'opacity'}), {duration:1500}).start(1);
+            new Fx.Tween(document.id('req_list_postfix'), Object.extend({property:'opacity'}), {duration:1500}).start(1);
             valid = false;
         }
 
         if(valid)
         {
-            $('wizard-loader').removeClass('icon-32-wizard');
-            $('wizard-loader').addClass('ajax-loading-32');
+            document.id('wizard-loader').removeClass('icon-32-wizard');
+            document.id('wizard-loader').addClass('ajax-loading-32');
             submitform(command);
         }
     }
     else
     {
         //--user selected 'back' or any other stuff
-        $('wizard-loader').removeClass('icon-32-wizard');
-        $('wizard-loader').addClass('ajax-loading-32');
+        document.id('wizard-loader').removeClass('icon-32-wizard');
+        document.id('wizard-loader').addClass('ajax-loading-32');
         submitform(command);
     }
 }//function

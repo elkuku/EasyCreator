@@ -12,7 +12,7 @@
 ecrStylesheet('php_file_tree');
 
 $comTypes = EcrProjectHelper::getProjectTypes();
-$jVersions = array('15', '25');
+$jVersions = array('15', '25', '30');
 
 ?>
 <div class="white_box">
@@ -43,19 +43,19 @@ $jVersions = array('15', '25');
 <div style="clear: both; height: 1em;"></div>
 
 <?php foreach(EcrProjectHelper::getProjectTypes() as $extType => $pType): ?>
-<div class="ecr_floatbox" style="width: 250px;">
+<div class="ecr_floatbox" style="width: 245px;">
     <div class="ecr_floatbox_title img icon12-<?php echo $extType; ?>">
         <?php echo $pType->translateType(); ?>
     </div>
     <?php if(isset($this->templateList[$extType])): ?>
     <?php if('' != $this->notes[$extType]) : ?>
-        <span class="btn<?php echo ECR_TBAR_SIZE; ?>"
+        <span class="btn-info btn<?php echo ECR_TBAR_SIZE; ?>"
               onclick="<?php echo $extType.'_notes'; ?>.toggle();">
             <?php echo jgettext('Notes'); ?>
         </span>
         <?php endif; ?>
     <?php if(count($this->infoLinks[$extType])) : ?>
-        <span class="btn<?php echo ECR_TBAR_SIZE; ?>"
+        <span class="btn-info btn<?php echo ECR_TBAR_SIZE; ?>"
               onclick="<?php echo $extType.'_links'; ?>.toggle();">
             <?php echo jgettext('See also...'); ?>
         </span>
@@ -96,19 +96,6 @@ $jVersions = array('15', '25');
 
         $htmlId = $extType.'_'.$template->folder;
         $action = "onclick=\"setTemplate('$extType', '$template->folder'); goWizard(2);\"";
-
-        //-- @Joomla!-compat 1.5
-        if($template->jVersion != '1.5' && ECR_JVERSION == '1.5') :
-            $action = '';
-            $s = '<span class="img icon16-logout"></span>';
-            $m = '<strong style=\'color: red;\'>'
-                .jgettext('Joomla 1.6 extension templates can not be build on Joomla 1.5')
-                .'</strong>';
-
-            $template->description = $m.BR.$template->description;
-            $template->info = $template->info.BR.$m;
-            $template->name = $s.$template->name;
-        endif;
         ?>
 
         <div class="btn-group jcompat_<?php echo str_replace('.', '', $template->jVersion);?>">
@@ -126,13 +113,8 @@ $jVersions = array('15', '25');
             </a>
 
             <a title="<?php echo jgettext('Info').'::'.jgettext('Click to view files'); ?>"
-               class="btn hasTip" href="javascript:;"
-
-               id="btn_<?php echo $htmlId; ?>"
+               class="btn-info btn hasTip" href="javascript:;" id="btn_<?php echo $htmlId; ?>"
                onclick="getExtensionTemplateInfo(<?php echo "'$extType', '$template->folder', $htmlId"; ?>)">
-                <?php if(ECR_TBAR_ICONS) : ?>
-                <i class="img icon16-add"></i>
-                <?php endif; ?>
                 <?php echo jgettext('Info') ?>
             </a>
         </div>

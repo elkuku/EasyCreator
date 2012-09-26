@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -7,18 +7,13 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerStarter extends JController
+class EasyCreatorControllerStarter extends JControllerLegacy
 {
     /**
      * Standard display method.
@@ -79,7 +74,7 @@ class EasyCreatorControllerStarter extends JController
 
         $uri = 'index.php?option=com_easycreator&controller=stuffer&ecr_project='.$ecr_project;
 
-        $this->setRedirect($uri, jgettext('Your project has been created'));
+        $this->setRedirect($uri, jgettext('Your project has been created'), 'success');
     }//function
 
     /**

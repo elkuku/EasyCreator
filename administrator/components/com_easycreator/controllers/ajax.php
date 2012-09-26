@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -7,11 +7,6 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.controller');
-
 /**
  * EasyCreator Controller.
  *
@@ -19,7 +14,7 @@ jimport('joomla.application.component.controller');
  *
  * @package EasyCreator
  */
-class EasyCreatorControllerAjax extends JController
+class EasyCreatorControllerAjax extends JControllerLegacy
 {
     /**
      * Response array for json encoded output
@@ -437,6 +432,8 @@ class EasyCreatorControllerAjax extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }//function
 
     /**
@@ -481,6 +478,8 @@ class EasyCreatorControllerAjax extends JController
         }
 
         echo json_encode($this->response);
+
+        jexit();
     }//function
 
     /**
@@ -519,6 +518,8 @@ class EasyCreatorControllerAjax extends JController
         $response['text'] = $fileContents;
 
         echo json_encode($response);
+
+        jexit();
     }//function
 
     /**
@@ -551,6 +552,8 @@ class EasyCreatorControllerAjax extends JController
         }
 
         echo json_encode($response);
+
+        jexit();
     }//function
 
     /**
@@ -585,6 +588,8 @@ class EasyCreatorControllerAjax extends JController
         $this->response['debug'] = $buffer;
 
         echo json_encode($this->response);
+
+        jexit();
     }//function
 
     /**
@@ -1123,5 +1128,7 @@ body {
         }
 
         echo json_encode($response);
+
+        jexit();
     }
 }

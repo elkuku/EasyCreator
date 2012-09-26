@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Helpers
@@ -7,10 +7,7 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.error.profiler');
+//jimport('joomla.error.profiler');
 
 /**
  * EcrProfiler.
@@ -46,7 +43,7 @@ class EcrProfiler extends JProfiler
         }
 
         return $instances[$prefix];
-    }//function
+    }
 
     /**
      * Output a time mark.
@@ -59,7 +56,7 @@ class EcrProfiler extends JProfiler
      */
     public function mark($label)
     {
-        $current = self::getmicrotime() - $this->_start;
+        $current = self::getmicrotime() - $this->start;
         $current_mem = 0;
 
         if(function_exists('memory_get_usage'))
@@ -68,9 +65,9 @@ class EcrProfiler extends JProfiler
             $mark = sprintf(
                 '<span style="background-color: yellow;">%.3f sec (+%.3f); %0.2f Mb (+%0.2f)</span> - ',
                 $current,
-                $current - $this->_previous_time,
+                $current - $this->previousTime,
                 $current_mem,
-                $current_mem - $this->_previous_mem
+                $current_mem - $this->previousMem
             );
         }
         else
@@ -78,14 +75,14 @@ class EcrProfiler extends JProfiler
             $mark = sprintf(
                 '<span style="background-color: yellow;">%.3f sec (+%.3f)</span> - ',
                 $current,
-                $current - $this->_previous_time
+                $current - $this->previousTime
             );
         }
 
-        $this->_previous_time = $current;
-        $this->_previous_mem = $current_mem;
-        $this->_buffer[] = $mark;
+        $this->previousTime = $current;
+        $this->previousMem = $current_mem;
+        $this->buffer[] = $mark;
 
         return $mark;
-    }//function
-}//class
+    }
+}

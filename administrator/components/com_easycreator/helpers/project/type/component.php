@@ -127,22 +127,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch($this->JCompat)
         {
-            case '1.5':
-                $paths['admin'] = JPATH_ADMINISTRATOR;
-                $paths['menu'] = JPATH_ADMINISTRATOR;
-                $paths['site'] = JPATH_SITE;
-
-                if(isset($this->buildOpts['lng_separate_javascript'])
-                && ($this->buildOpts['lng_separate_javascript']) == 'ON')
-                {
-                    $paths['js_admin'][] = JPATH_ADMINISTRATOR.'/components/'.$this->comName;
-                    $paths['js_site'][] = JPATH_SITE.'/components/'.$this->comName;
-                }
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 if($scope == 'menu')
                     $scope = 'sys';
 
@@ -162,7 +150,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion', 'error');
+                EcrHtml::message(__METHOD__.' - Unsupported JVersion'.$this->JCompat, 'error');
 
                 return array();
                 break;
@@ -237,13 +225,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                return 'manifest.xml';
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 return $this->comName.'.xml';
                 break;
 
@@ -269,16 +254,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $dtd = array(
-                'type' => 'install'
-                , 'public' => '-//Joomla! 1.5//DTD component 1.0//EN'
-                , 'uri' => 'http://joomla.org/xml/dtd/1.5/component-install.dtd');
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 break;
 
             default:
@@ -323,41 +302,14 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $db = JFactory::getDbo();
 
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
-        {
-            case '1.5':
-                $query = new JDatabaseQuery;
+        $query = $db->getQuery(true)
+            ->from('#__extensions AS e')
+            ->select('e.extension_id')
+            ->where('e.element = '.$db->quote($this->comName))
+            ->where('e.type = '.$db->quote('component'));
 
-                $query->from('#__components AS c');
-                $query->select('c.id');
-                $query->where('c.option = '.$db->quote($this->comName));
-                $query->where('c.parent = 0');
-                break;
-
-            case '1.6':
-            case '1.7':
-            case '2.5':
-                $query = $db->getQuery(true);
-
-                $query->from('#__extensions AS e');
-                $query->select('e.extension_id');
-                $query->where('e.element = '.$db->quote($this->comName));
-                $query->where('e.type = '.$db->quote('component'));
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-
-                return false;
-                break;
-        }//switch
-
-        $db->setQuery($query);
-
-        $id = $db->loadResult();
-
-        return $id;
+        return $db->setQuery($query)
+            ->loadResult();
     }//function
 
     /**
@@ -386,26 +338,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $projects = array(
-                'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                , 'com_contact', 'com_content', 'com_cpanel', 'com_frontpage', 'com_installer', 'com_languages'
-                , 'com_login' , 'com_massmail', 'com_media', 'com_menus', 'com_messages', 'com_modules'
-                , 'com_newsfeeds', 'com_plugins' , 'com_poll', 'com_search', 'com_sections', 'com_templates'
-                , 'com_trash', 'com_users', 'com_weblinks'
-                );
-                break;
-
             case '1.6':
             case '1.7':
-                $projects = array(
-                'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
-                , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks'
-                );
-                break;
-
             case '2.5':
                 $projects = array(
                     'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
@@ -415,6 +349,16 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 , 'com_joomlaupdate'
                 );
                 break;
+
+            case '3.0':
+                $projects = array(
+                    'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
+                , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
+                , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
+                , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks', 'com_finder'
+                , 'com_joomlaupdate'
+                );
+                   break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -441,12 +385,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
+            case '3.0':
                 $db = JFactory::getDbo();
 
                 $query = $db->getQuery(true);
@@ -493,12 +435,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
-                    case '1.5':
-                        break;
-
                     case '1.6':
                     case '1.7':
                     case '2.5':
+                    case '3.0':
                         $menu['level'] = 2;
                         $menu['parent'] = $mId;
                         break;
@@ -515,31 +455,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         }//foreach
 
         $this->readMenu();
-
-        //-- @Joomla!-compat 1.5
-        if('1.5' == ECR_JVERSION)
-        {
-            //-- Remove admin submenu items
-            foreach($this->submenu as $dbMenu)
-            {
-                $found = false;
-
-                foreach($submenu as $menu)
-                {
-                    if($dbMenu['menuid'] == $menu['menuid'])
-                    {
-                        $found = true;
-                        break;
-                    }
-                }//foreach
-
-                if( ! $found)
-                {
-                    if( ! $this->removeAdminMenu($dbMenu))
-                    return false;
-                }
-            }//foreach
-        }
 
         return true;
     }//function
@@ -581,113 +496,51 @@ class EcrProjectTypeComponent extends EcrProjectBase
     {
         $db = JFactory::getDBO();
 
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
+        $query = $db->getQuery(true);
+
+        $query->from('#__menu AS m');
+        $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
+        $query->select('m.title, m.link, m.img, m.id, e.extension_id');
+        $query->where('m.parent_id = 1');
+        $query->where("m.client_id = 1");
+        $query->where('e.element = '.$db->quote($this->comName));
+
+        $db->setQuery($query);
+
+        $dbRow = $db->loadObject();
+
+        if( ! $dbRow)
+        return;
+
+        $this->menu['text'] = $dbRow->title;
+        $this->menu['link'] = $dbRow->link;
+        $this->menu['img'] = $dbRow->img;
+        $this->menu['menuid'] = $dbRow->id;
+
+        //-- Get submenu entries
+        $query->clear('where');
+
+        $query->where('m.parent_id = '.$this->menu['menuid']);
+        $query->order('m.id');
+
+        $submenus = $db->loadObjectList();
+
+        if( ! $submenus)
+        return;
+
+        $i = 0;
+
+        foreach($submenus as $submenu)
         {
-            case '1.5':
-                $query = new JDatabaseQuery;
+            //-- Submenu entries
+            $this->submenu[$i]['text'] = $submenu->title;
+            $this->submenu[$i]['link'] = $submenu->link;
+            $this->submenu[$i]['img'] = $submenu->img;
+            $this->submenu[$i]['ordering'] = 0;
+            $this->submenu[$i]['menuid'] = $submenu->id;
 
-                $query->select('c.*');
-                $query->from('#__components AS c');
-                $query->where('c.admin_menu_link = '.$db->quote('option='.$this->comName));
-                $query->where('c.parent = 0');
-
-                $db->setQuery($query);
-
-                $dbRow = $db->loadObject();
-
-                if( ! $dbRow)
-                return;
-
-                $this->menu['text'] = $dbRow->name;
-                $this->menu['link'] = $dbRow->admin_menu_link;
-                $this->menu['img'] = $dbRow->admin_menu_img;
-                $this->menu['menuid'] = $dbRow->id;
-
-                //-- Get submenu entries
-                $query->clear('where');
-
-                $query->where('parent = '.$this->menu['menuid']);
-                $query->order('ordering');
-
-                $db->setQuery($query);
-
-                $subMenus = $db->loadObjectList();
-
-                if( ! $subMenus)
-                return;
-
-                $i = 0;
-
-                foreach($subMenus as $subMenu)
-                {
-                    $this->submenu[$i]['text'] = $subMenu->name;
-                    $this->submenu[$i]['link'] = $subMenu->admin_menu_link;
-                    $this->submenu[$i]['img'] = $subMenu->admin_menu_img;
-                    $this->submenu[$i]['ordering'] = $subMenu->ordering;
-                    $this->submenu[$i]['menuid'] = $subMenu->id;
-
-                    $i++;
-                }//foreach
-
-                break;
-
-            case '1.6':
-            case '1.7':
-            case '2.5':
-                $query = $db->getQuery(true);
-
-                $query->from('#__menu AS m');
-                $query->leftJoin('#__extensions AS e ON m.component_id = e.extension_id');
-                $query->select('m.title, m.link, m.img, m.id, e.extension_id');
-                $query->where('m.parent_id = 1');
-                $query->where("m.client_id = 1");
-                $query->where('e.element = '.$db->quote($this->comName));
-
-                $db->setQuery($query);
-
-                $dbRow = $db->loadObject();
-
-                if( ! $dbRow)
-                return;
-
-                $this->menu['text'] = $dbRow->title;
-                $this->menu['link'] = $dbRow->link;
-                $this->menu['img'] = $dbRow->img;
-                $this->menu['menuid'] = $dbRow->id;
-
-                //-- Get submenu entries
-                $query->clear('where');
-
-                $query->where('m.parent_id = '.$this->menu['menuid']);
-                $query->order('m.id');
-
-                $submenus = $db->loadObjectList();
-
-                if( ! $submenus)
-                return;
-
-                $i = 0;
-
-                foreach($submenus as $submenu)
-                {
-                    //-- Submenu entries
-                    $this->submenu[$i]['text'] = $submenu->title;
-                    $this->submenu[$i]['link'] = $submenu->link;
-                    $this->submenu[$i]['img'] = $submenu->img;
-                    $this->submenu[$i]['ordering'] = 0;
-                    $this->submenu[$i]['menuid'] = $submenu->id;
-
-                    $i ++;
-                }//foreach
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-
-                return;
-                break;
-        }//switch
+            $i ++;
+        }//foreach
 
         return;
     }//function
@@ -718,21 +571,16 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $query->select('id');
         $query->where('`client_id` = 1');
         $query->where('`component_id` = '.(int)$id);
-
-        if('2.5' == ECR_JVERSION)
-        {
-            //-- In J! 2.5.x... a bug has been fixed that does not remove child nodes.
-            $query->where('`parent_id` = 1');
-        }
+        $query->where('`parent_id` = 1');
 
         $db->setQuery($query);
 
-        $ids = $db->loadResultArray();
+        $menuId = $db->loadResult();
 
         //-- Check for errors
         $error = $db->getErrorMsg();
 
-        if($error || empty($ids))
+        if($error || empty($menuId))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('There was a problem updating the admin menu'), 'error');
 
@@ -745,12 +593,9 @@ class EcrProjectTypeComponent extends EcrProjectBase
         }
         else
         {
-            //-- Iterate the items to delete each one.
-            foreach($ids as $menuid)
-            {
-                if( ! $table->delete((int)$menuid))
+                //-- Delete only the parent node - children should be killed by JTable
+                if( ! $table->delete((int)$menuId))
                     throw new Exception(__METHOD__.' - '.$table->getError());
-            }//foreach
 
             //-- Rebuild the whole tree
             $table->rebuild();
@@ -774,36 +619,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.5':
-                $query = new JDatabaseQuery;
-
-                if( ! (int)$item['menuid'])
-                {
-                    //-- New item - submenus oly
-                    $query->insert('#__components');
-                    $query->set('name = '.$db->quote($item['text']));
-                    $query->set('admin_menu_alt = '.$db->quote($item['text']));
-                    $query->set('admin_menu_link = '.$db->quote($item['link']));
-                    $query->set('admin_menu_img = '.$db->quote($item['img']));
-
-                    if(isset($item['ordering']))
-                    $query->set('ordering = '.(int)$item['ordering']);
-
-                    $query->set('parent = '.(int)$item['parent']);
-                }
-                else
-                {
-                    //-- Update existing item
-                    $query->update('#__components');
-                    $query->set('name = '.$db->quote($item['text']));
-                    $query->set('admin_menu_alt = '.$db->quote($item['text']));
-                    $query->set('admin_menu_link = '.$db->quote($item['link']));
-                    $query->set('admin_menu_img = '.$db->quote($item['img']));
-                    $query->set('ordering = '.(int)$item['ordering']);
-                    $query->where('id = '.(int)$item['menuid']);
-                }
-                break;
-
             case '1.6':
             case '1.7':
             case '2.5':
@@ -825,10 +640,46 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 $data['home'] = 0;
                 $data['params'] = '';
 
-                if( ! $table->setLocation($data['parent_id'], 'last-child')
-                || ! $table->bind($data)
+                $table->setLocation($data['parent_id'], 'last-child');
+
+                if( ! $table->bind($data)
                 || ! $table->check()
                 || ! $table->store())
+                    throw new Exception(__METHOD__.' - '.$table->getError());
+
+                $parent_id = $table->id;
+
+                //-- Rebuild the whole tree
+                $table->rebuild();
+
+                return $parent_id;
+
+                break;
+
+            case '3.0':
+                /* @var JTableMenu $table */
+                $table = JTable::getInstance('menu');
+
+                $data = array();
+                $data['menutype'] = 'main';
+                $data['client_id'] = 1;
+                $data['title'] = $item['text'];
+                $data['alias'] = $item['text'];
+                $data['type'] = 'component';
+                $data['published'] = 0;
+                $data['level'] = $item['level'];
+                $data['parent_id'] = (int)$item['parent'];
+                $data['component_id'] = (int)$this->dbId;
+                $data['img'] = $item['img'];
+                $data['link'] = $item['link'];
+                $data['home'] = 0;
+                $data['params'] = '';
+
+                $table->setLocation($data['parent_id'], 'last-child');
+
+                if( ! $table->bind($data)
+                    || ! $table->check()
+                    || ! $table->store())
                     throw new Exception(__METHOD__.' - '.$table->getError());
 
                 $parent_id = $table->id;
@@ -845,46 +696,6 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                 return false;
                 break;
-        }//switch
-
-        $db->setQuery($query);
-
-        if( ! $db->query())
-        {
-            EcrHtml::message($db->stderr(true));
-
-            return false;
         }
-
-        return true;
-    }//function
-
-    /**
-     * Remove an admin menu entry.
-     * For Joomla! 1.5 only !
-     *
-     * @param array $item Item to remove
-     * @return boolean
-     */
-    private function removeAdminMenu($item)
-    {
-        $query = new JDatabaseQuery;
-
-        $db = JFactory::getDBO();
-
-        $query->from('#__components');
-        $query->delete();
-        $query->where('id='.$item['menuid']);
-
-        $db->setQuery($query);
-
-        if( ! $db->query())
-        {
-            EcrHtml::message($db->getErrorMsg(), 'error');
-
-            return false;
-        }
-
-        return true;
-    }//function
-}//class
+    }
+}

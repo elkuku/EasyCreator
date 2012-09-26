@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Views
@@ -7,19 +7,19 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- No direct access
-defined('_JEXEC') || die('=;)');
-
-jimport('joomla.application.component.view');
-
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package EasyCreator
+ * @package    EasyCreator
  * @subpackage Views
  */
-class EasyCreatorViewConfig extends JView
+class EasyCreatorViewConfig extends JViewLegacy
 {
+    /**
+     * @var string
+     */
+    protected $legacyTemplate;
+
     /**
      * Standard display method.
      *
@@ -29,47 +29,21 @@ class EasyCreatorViewConfig extends JView
      */
     public function display($tpl = null)
     {
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
+        try
         {
-            case '1.5':
-                $table = JTable::getInstance('component');
-                $table->loadByOption('com_easycreator');
+            $this->form = $this->get('Form');
 
-                JLoader::register('JElement', JPATH_COMPONENT.'/helpers/parameter/element.php');
+            $this->legacyTemplate = (version_compare(ECR_JVERSION, '3.0') < 0)
+                ? '25'
+                : 'default';
 
-                $this->parameters = new JParameter($table->params, JPATH_COMPONENT.'/models/forms/config_15.xml');
-
-                $this->setLayout('default_15');
-                break;
-            case '1.6':
-            case '1.7':
-            case '2.5':
-                try
-                {
-                    $this->form = $this->get('Form');
-                }
-                catch(Exception $e)
-                {
-                    EcrHtml::message($e);
-
-                    EcrHtml::formEnd();
-
-                    return;
-                }//try
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unknown J! version', 'error');
-
-                EcrHtml::formEnd();
-
-                return;
-                break;
-        }//switch
-
-        parent::display($tpl);
+            parent::display($tpl);
+        }
+        catch(Exception $e)
+        {
+            EcrHtml::message($e);
+        }
 
         EcrHtml::formEnd();
-    }//function
-}//class
+    }
+}
