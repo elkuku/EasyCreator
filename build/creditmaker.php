@@ -7,6 +7,8 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+define('NL', "\n");
+
 $blackList = array('EMAIL@ADDRESS', 'Nikolai Plath', 'nik-it.de');
 $list = array();
 
@@ -78,10 +80,8 @@ foreach($list as $langTag => $translators)
 {
     $clean = str_replace(array('<', '>'), array('&lt;', '&gt;'), $translators);
 
-    echo '<dt>'.$langTag.'</dt>';
-    echo '<dd>'.implode('<br />', $clean).'</dd>';
-
-    echo "\n";
+    echo '<dt>'.$langTag.'</dt>'.NL;
+    echo '    <dd>'.implode('</dd>'.NL.'    <dd>', $clean).'</dd>'.NL;
 }
 
-echo 'Finished'."\n";
+echo NL.'Finished'.NL.NL;
