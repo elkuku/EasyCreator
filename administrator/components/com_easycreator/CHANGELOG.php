@@ -50,7 +50,116 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2012-09-29
+05bb17c Update translation files
+0362d16 Add new templates for J! 3
+e21ecc5 Remove deprecated function calls
+9c663b1 Media changes
+5ff375d Move some old files
+
+2012-09-26
+ced3b4d Merge branch 'j3.0'
+d97815b J3.0 changes
+5db036c J1.5 changes
+fc06621 Add an icon
+f723004 Add the first hello world component template for J! 3.0
+6beafde Restructuration
+c956e4b Formatting
+ab48005 Bootstrap changes
+3b4e3b6 Change media
+5212db4 Update manifest
+cca0a9c Refactoring templates view
+7a586ec Fix untranslated strings
+47abccb Fix error on saving config/admin menu
+1a598f5 Add a global display help function
+
+2012-09-25
+85593ca Update extension template to bootstrap v2.1.1
+408098f Update extension template to bootstrap v2.1.1
+1d9ddb5 Fix "Fatal error: Call to undefined method JRegistry::getValue()" when exporting templates
+d3dcc4a Fix "Fatal error: Call to undefined method JRegistry::getValue()" when exporting templates
+9352802 Update Bootstrap to v2.1.1
+
+2012-09-24
+5759564 Fix buildhelper path
+d1b8819 Fix frontend sandbox
+9777d4e Change EasyCreator config for J! 3
+
+2012-09-21
+81a935a Remove more jimports
+e06b0fa Remove obsolete jimports from views
+1c27bd4 Remove obsolete jimports from controllers
+e068098 Re- introduces 1.6 and 1.7 in version checks for b/c
+
+2012-09-08
+382e1e3 More changes for J! 3.0
+
+2012-07-22
+a5db234 Fix doku link
+0d4a2e5 More J! 3 compat - removes 1.6 and 1.7 compat
+
+2012-07-21
+58beb4c Add symlinks
+f38536c Change: Ajax calls now need a jexit();
+8241ffa Rename exceptions for autoloading
+
+2012-07-20
+bf1a914 Add new symlinks file
+f0d8a37 Remove J! 1.5 compat - first round
+
+2012-07-19
+16a5ac6 More 3.0 changes
+
+2012-07-16
+37afbc2 Change: extending controllers from legacy base classes
+4ced186 Change: extension install manifest base tag to: extension
+59f3fd7 Change: extending controllers from legacy base classes
+7f20b28 Change: extending views from legacy base classes
+23a3ef2 Change: extending controllers from legacy base classes
+
+2012-07-13
+86c4fdc Fix "wrong" function name in cli builder
+
+2012-06-26
+9b515a1 Format CSS
+43d7e53 Ignore minified js and css in checkstyle check
+41b1fb0 Ignore minified js and css in checkstyle check
+1cd94bd Format js
+1b435c5 Format js
+47b10dc Add a demo test
+af11aa7 Add build.xml files
+3ae67af Add media files
+a8a8e1b Add a createdfile base class
+
+2012-06-25
+7ce97fc Add Dropbox Action
+4b8ed50 Add transfer to Dropbox feature
+a3bb336 Update webapp mvc_1
+91285bf Formatting and more adaptions to twitters bootstrap styles
+f051a07 Colorize the log file
+
+2012-06-23
+c4b0ccf Fix [#10]  easycreator.xml setup file accidently included in packages
+
+2012-06-14
+8c5b654 Add a check if the local data directory exists
+
+2012-06-12
+f487342 Add new files for deploy server manager
+528e55c Add deploy server manager
+
+2012-06-05
+7f3d48b Add a build preset model
+5d4e861 Add icons
+
+2012-06-01
+60fe1ac Format docblocks
+
+---------- 0.0.18 ----------
+
 2012-05-31
+3e381b3 Update version
+ebe4946 Update changelog
 3084c20 Fix g11nHelper js and xml language file creation
 3e61e46 Update language files
 602fd4b Update language template - site
