@@ -365,43 +365,14 @@ abstract class EcrProjectBase
      */
     public function updateFromRequest()
     {
-        $buildVars = JRequest::getVar('buildvars', array());
-        $buildOpts = JRequest::getVar('buildopts', array());
-        $this->dbTypes = JRequest::getVar('dbtypes', array());
-        $this->headerType = JRequest::getCmd('headerType');
+        $input = JFactory::getApplication()->input;
 
-        //-- Package modules
-        $this->modules = array();
-        $items = JRequest::getVar('package_module', array(), 'post');
+        $buildVars = $input->get('buildvars', array(), 'array');
+        $buildOpts = $input->get('buildopts', array(), 'array');
+        $this->dbTypes = $input->get('dbtypes', array(), 'array');
+        $this->headerType = $input->get('headerType');
 
-        foreach($items as $item)
-        {
-            $m = new stdClass;
-            $m->scope = $item['client'];
-            $m->name = $item['name'];
-            $m->title = $item['title'];
-            $m->position = $item['position'];
-            $m->ordering = $item['ordering'];
-
-            $this->modules[] = $m;
-        }
-
-        //-- Package plugins
-        $this->plugins = array();
-        $items = JRequest::getVar('package_plugin', array(), 'post');
-
-        foreach($items as $item)
-        {
-            $m = new stdClass;
-            $m->name = $item['name'];
-            $m->title = $item['title'];
-            $m->scope = $item['client'];
-            $m->ordering = $item['ordering'];
-
-            $this->plugins[] = $m;
-        }
-
-        $packageElements = (string)JRequest::getVar('package_elements');
+        $packageElements = $input->getString('package_elements');
         $packageElements = ($packageElements) ? explode(',', $packageElements) : array();
 
         if(count($packageElements))
@@ -446,8 +417,8 @@ abstract class EcrProjectBase
         }
 
         //-- Build actions
-        $actions = JRequest::getVar('actions', array(), 'default', 'array');
-        $actionFields = JRequest::getVar('fields', array(), 'default', 'array');
+        $actions = JxRequest::getVar('actions', array(), 'default', 'array');
+        $actionFields = JxRequest::getVar('fields', array(), 'default', 'array');
 
         foreach($actions as $event => $fields)
         {
@@ -462,10 +433,10 @@ abstract class EcrProjectBase
         */
 
         //-- Build presets
-        $defaultPreset = JRequest::getCmd('preset');
+        $defaultPreset = $input->get('preset');
 
-        $actions = JRequest::getVar('actions', array(), 'default', 'array');
-        $actionFields = JRequest::getVar('fields', array(), 'default', 'array');
+        $actions = $input->get('actions', array(), 'array');
+        $actionFields = $input->get('fields', array(), 'array');
 
         $ooo = new JRegistry($buildOpts);
 
@@ -509,7 +480,7 @@ abstract class EcrProjectBase
             }
         }
 
-        $saveas = JRequest::getCmd('preset_saveas');
+        $saveas = $input->get('preset_saveas');
 
         if($saveas)
         {
@@ -523,7 +494,7 @@ abstract class EcrProjectBase
         //-- Update servers
         $this->updateServers = array();
 
-        $updateServers = JRequest::getVar('updateServers', array());
+        $updateServers = $input->get('updateServers', array(), 'array');
 
         if($updateServers)
         {
@@ -538,7 +509,7 @@ abstract class EcrProjectBase
             }
         }
 
-        $this->JCompat = JRequest::getString('jcompat');
+        $this->JCompat = $input->getString('jcompat');
 
         if( ! $this->update())
         {
@@ -561,17 +532,17 @@ abstract class EcrProjectBase
             return false;
         }
 
-        $this->deployOptions->set('ftp.host', JRequest::getVar('ftpHost'));
-        $this->deployOptions->set('ftp.port', JRequest::getVar('ftpPort'));
-        $this->deployOptions->set('ftp.basedir', JRequest::getVar('ftpBasedir'));
-        $this->deployOptions->set('ftp.downloads', JRequest::getVar('ftpDownloads'));
-        $this->deployOptions->set('ftp.user', JRequest::getVar('ftpUser'));
-        $this->deployOptions->set('ftp.pass', JRequest::getVar('ftpPass'));
+        $this->deployOptions->set('ftp.host', $input->getString('ftpHost'));
+        $this->deployOptions->set('ftp.port', $input->getString('ftpPort'));
+        $this->deployOptions->set('ftp.basedir', $input->getString('ftpBasedir'));
+        $this->deployOptions->set('ftp.downloads', $input->getString('ftpDownloads'));
+        $this->deployOptions->set('ftp.user', $input->getString('ftpUser'));
+        $this->deployOptions->set('ftp.pass', $input->getString('ftpPass'));
 
-        $this->deployOptions->set('github.repoowner', JRequest::getVar('githubRepoOwner'));
-        $this->deployOptions->set('github.reponame', JRequest::getVar('githubRepoName'));
-        $this->deployOptions->set('github.user', JRequest::getVar('githubUser'));
-        $this->deployOptions->set('github.pass', JRequest::getVar('githubPass'));
+        $this->deployOptions->set('github.repoowner', $input->getString('githubRepoOwner'));
+        $this->deployOptions->set('github.reponame', $input->getString('githubRepoName'));
+        $this->deployOptions->set('github.user', $input->getString('githubUser'));
+        $this->deployOptions->set('github.pass', $input->getString('githubPass'));
 
         $this->writeDeployFile();
 
@@ -1430,13 +1401,13 @@ abstract class EcrProjectBase
      */
     public function insertPart($options, EcrLogger $logger, $overwrite = false)
     {
-        $element_scope = JRequest::getVar('element_scope');
-        $element_name = JRequest::getVar('element_name', null);
-        $element = JRequest::getVar('element', null);
+        $input = JFactory::getApplication()->input;
 
-        if(false == isset($options->pathSource)
-            || ! $options->pathSource
-        )
+        $element_scope = $input->getString('element_scope');
+        $element_name = $input->getString('element_name');
+        $element = $input->getString('element');
+
+        if(false == isset($options->pathSource) || ! $options->pathSource)
         {
             JFactory::getApplication()->enqueueMessage(jgettext('Invalid options'), 'error');
             $logger->log('Invalid options');

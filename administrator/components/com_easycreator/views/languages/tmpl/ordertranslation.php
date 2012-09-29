@@ -17,7 +17,7 @@ if( ! $this->sel_language)
     return;
 }
 
-$cutAfter = JRequest::getInt('cut_after', 30);
+$cutAfter = JFactory::getApplication()->input->getInt('cut_after', 30);
 ?>
 
 <table>

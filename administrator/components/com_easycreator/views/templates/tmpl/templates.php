@@ -26,7 +26,7 @@ JHTML::_('behavior.modal', 'a.ecr_modal');
 $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
 $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
-EcrHtml::initFileTree();
+ecrLoadMedia('php_file_tree');
 $fileTree = new EcrFileTree;
 
 $js = '';

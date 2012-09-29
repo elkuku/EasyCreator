@@ -21,6 +21,5 @@ class ECR_CLASS_PREFIXControllerDefault extends JControllerBase
      */
     public function execute()
     {
-        // TODO: Implement execute() method.
     }
 }

@@ -40,13 +40,15 @@ class EasyCreatorViewStuffer extends JViewLegacy
      */
     public function display($tpl = null)
     {
+        $input = JFactory::getApplication()->input;
+
         ecrScript('stuffer');
 
-        $this->ecr_project = JRequest::getCmd('ecr_project');
+        $this->ecr_project = $input->get('ecr_project');
 
-        //-- Get the project
         try
         {
+            //-- Get the project
             $this->project = EcrProjectHelper::getProject();
 
             if('package' == $this->project->type
@@ -66,11 +68,11 @@ class EasyCreatorViewStuffer extends JViewLegacy
             return;
         }
 
-        $task = JRequest::getCmd('task', 'stuffer');
-        $tmpl = JRequest::getCmd('tmpl');
+        $task = $input->get('task', 'stuffer');
+        $tmpl = $input->get('tmpl');
 
         //-- We are loosing the controller name when coming from other tasks - config :(
-        JRequest::setVar('controller', 'stuffer');
+        $input->set('controller', 'stuffer');
 
         if($task != 'display_snip'
             && $task != 'aj_reflection'
@@ -105,8 +107,8 @@ class EasyCreatorViewStuffer extends JViewLegacy
             $this->stuffer();
         }
 
-        $this->assignRef('task', $task);
-        $this->assignRef('tmpl', $tmpl);
+        $this->task = $task;
+        $this->tmpl = $tmpl;
 
         parent::display($tpl);
 
@@ -168,11 +170,29 @@ class EasyCreatorViewStuffer extends JViewLegacy
 
         if($task == 'stuffer')
         {
-            $rightTasks[] = array('title' => jgettext('Save')
-            , 'description' => jgettext('Save the configuration')
-            , 'icon' => 'save'
-            //, 'class' => 'btn-primary'
-            , 'task' => 'save_config');
+            if(version_compare(ECR_JVERSION, '3') >= 0)
+            {
+                ecrStylesheet('stuffer3');
+
+                $icon =(ECR_TBAR_ICONS) ? '<i class="img icon16-ecr_save"></i>' : '';
+
+                $btn = '<a class="btn'.ECR_TBAR_SIZE.' btn-success" href="javascript:;"'
+                    .' onclick="submitStuffer(\'save_config\', this);">'
+                    .$icon
+                    .jgettext('Save')
+                    .'</a>';
+
+                JToolbar::getInstance('toolbar')->appendButton('Custom', $btn);
+            }
+            else
+            {
+                //-- @Joomla!-compat 2.5
+                $rightTasks[] = array('title' => jgettext('Save')
+                , 'description' => jgettext('Save the configuration')
+                , 'icon' => 'save'
+                    //, 'class' => 'btn-primary'
+                , 'task' => 'save_config');
+            }
         }
 
         return EcrHtmlMenu::sub($subtasks, $rightTasks);
@@ -241,8 +261,10 @@ class EasyCreatorViewStuffer extends JViewLegacy
      */
     private function projectparams()
     {
-        $selected_xml = JRequest::getVar('selected_xml');
-        $params = array();
+        $input = JFactory::getApplication()->input;
+
+        $selected_xml = $input->getPath('selected_xml');
+
         $xmlFiles = array();
 
         foreach($this->project->copies as $path)
@@ -267,7 +289,7 @@ class EasyCreatorViewStuffer extends JViewLegacy
 
         if(in_array($selected_xml, $xmlFiles))
         {
-            $this->params = JFactory::getXML(JPATH_ROOT.DS.$selected_xml);
+            $this->params = simplexml_load_file(JPATH_ROOT.'/'.$selected_xml);
         }
 
         $options = array();
@@ -279,11 +301,11 @@ class EasyCreatorViewStuffer extends JViewLegacy
         }
 
         $xmlSelector = JHTML::_('select.genericlist', $options, 'selected_xml'
-            , 'style="font-size: 1.3em;" onchange="submitbutton(\''.JRequest::getCmd('task').'\');"'
+            , 'style="font-size: 1.3em;" onchange="submitbutton(\''.$input->get('task').'\');"'
             , 'value', 'text', $selected_xml);
-        $this->assignRef('xmlSelector', $xmlSelector);
+        $this->xmlSelector = $xmlSelector;
 
-        $this->assignRef('selected_xml', $selected_xml);
+        $this->selected_xml = $selected_xml;
 
         $this->setLayout('projectparams');
     }
@@ -327,9 +349,11 @@ class EasyCreatorViewStuffer extends JViewLegacy
      */
     private function display_snip()
     {
-        $path = JRequest::getVar('file_path');
-        $start = JRequest::getInt('start');
-        $end = JRequest::getInt('end');
+        $input = JFactory::getApplication()->input;
+
+        $path = $input->getPath('file_path');
+        $start = $input->getInt('start');
+        $end = $input->getInt('end');
 
         $fileContents = '';
 
@@ -350,10 +374,10 @@ class EasyCreatorViewStuffer extends JViewLegacy
         {
             $fileContents = explode("\n", $fileContents);
 
-            $this->assignRef('fileContents', $fileContents);
-            $this->assignRef('startAtLine', $start);
-            $this->assignRef('endAtLine', $end);
-            $this->assignRef('path', $path);
+            $this->fileContents = $fileContents;
+            $this->startAtLine = $start;
+            $this->endAtLine = $end;
+            $this->path = $path;
         }
 
         $this->setLayout('snippet');

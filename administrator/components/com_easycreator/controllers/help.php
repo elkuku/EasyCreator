@@ -26,7 +26,7 @@ class EasyCreatorControllerHelp extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'help');
+        JFactory::getApplication()->input->set('view', 'help');
 
         parent::display($cachable, $urlparams);
     }//function

@@ -31,7 +31,7 @@ class EasyCreatorControllerConfig extends EcrBaseController
             g11n::loadLanguage('com_easycreator.config');
         }
 
-        JRequest::setVar('view', 'config');
+        JFactory::getApplication()->input->set('view', 'config');
 
         parent::display($cachable, $urlparams);
     }
@@ -50,20 +50,24 @@ class EasyCreatorControllerConfig extends EcrBaseController
             $table = JTable::getInstance('extension');
             $table->load($component->id);
 
-            if( ! $table->bind(JRequest::get('post'))
+            $params = JFactory::getApplication()->input->get('params', array(), 'array');
+
+            if( ! $table->bind(array('params' => $params))
                 || ! $table->check()
                 || ! $table->store()
             )
                 throw new Exception($table->getError());
 
-            $ecr_project = JRequest::getCmd('ecr_project');
+            $ecr_project = JFactory::getApplication()->input->get('ecr_project');
 
             $adds = '';
 
             if(strpos($ecr_project, 'ecr') !== 0)
                 $adds = ($ecr_project) ? '&view=stuffer&ecr_project='.$ecr_project : '';
 
-            $this->setRedirect('index.php?option=com_easycreator'.$adds, jgettext('Configuration has been saved'), 'success');
+            $this->setRedirect('index.php?option=com_easycreator'.$adds,
+                jgettext('Configuration has been saved')
+                , 'success');
         }
         catch(Exception $e)
         {

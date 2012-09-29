@@ -227,7 +227,7 @@ editAreaLoader.load_syntax["php"] = {
 						[ 'patTemplate_Modifier_SEF' ], [ 'patTemplate_Modifier_Translate' ], [ 'JTemplate' ], [ 'JAuthentication' ],
 						[ 'JAuthenticationResponse' ], [ 'JAuthorization' ], [ 'JUserHelper' ], [ 'JUser' ], [ 'JArrayHelper' ], [ 'JBuffer' ],
 						[ 'JDate' ], [ 'JSimpleCrypt' ], [ 'JSimpleXML' ], [ 'JSimpleXMLElement' ], [ 'JString' ], [ 'JUtility' ], [ 'JObject' ],
-						[ 'JObservable' ], [ 'JObserver' ], [ 'JDocumentRenderer' ], [ 'JRequest' ], [ 'JEvent' ], [ 'JRegistry' ], [ 'JVersion' ] ],
+						[ 'JObservable' ], [ 'JObserver' ], [ 'JDocumentRenderer' ], [ 'JEvent' ], [ 'JRegistry' ], [ 'JVersion' ] ],
 
 				'JFactory' : [ [ 'getApplication()' ], [ 'getConfig()' ], [ 'getSession()' ], [ 'getLanguage()' ], [ 'getDocument()' ],
 						[ 'getUser()' ], [ 'getCache()' ], [ 'getACL()' ], [ 'getTemplate()' ], [ 'getDBO()' ], [ 'getMailer()' ],
@@ -503,8 +503,6 @@ editAreaLoader.load_syntax["php"] = {
 				'JObservable' : [ [ 'getState()' ], [ 'notify()' ], [ 'attach()' ], [ 'detach' ] ],
 				'JObserver' : [ [ 'update' ] ],
 				'JDocumentRenderer' : [ [ 'render()' ], [ 'getContentType' ] ],
-				'JRequest' : [ [ 'getURI()' ], [ 'getMethod()' ], [ 'getVar()' ], [ 'getInt()' ], [ 'getFloat()' ], [ 'getBool()' ], [ 'getWord()' ],
-						[ 'getCmd()' ], [ 'getString()' ], [ 'setVar()' ], [ 'get()' ], [ 'set()' ], [ 'checkToken()' ], [ 'clean' ] ],
 				'JEvent' : [ [ 'JEvent()' ], [ 'update' ] ],
 				'JRegistry' : [ [ 'getInstance()' ], [ 'makeNameSpace()' ], [ 'getNameSpaces()' ], [ 'getValue()' ], [ 'setValue()' ],
 						[ 'loadArray()' ], [ 'loadObject()' ], [ 'loadFile()' ], [ 'loadXML()' ], [ 'loadINI()' ], [ 'merge()' ], [ 'toString()' ],

@@ -6,7 +6,12 @@
  * @author     Created on 25-Sep-2012
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
+
+ecrStylesheet('config3');
+
+JToolbar::getInstance('toolbar')->appendButton('Custom', $this->loadTemplate('buttons'));
 ?>
+
 <?php foreach($this->form->getFieldSets() as $fieldSet) : ?>
 
 <?php if('Debug' == $fieldSet->name && ! ECR_DEV_MODE) continue; ?>

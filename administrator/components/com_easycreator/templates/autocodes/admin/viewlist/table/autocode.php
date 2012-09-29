@@ -189,8 +189,10 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-        $table_name = JRequest::getCmd('element');
-        $element_scope = JRequest::getCmd('element_scope');
+        $input = JFactory::getApplication()->input;
+
+        $table_name = $input->get('element');
+        //$element_scope = JxRequest::getCmd('element_scope');
 
         if( ! $table_name)
         {
@@ -203,7 +205,7 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
 
         $fields = EcrTableHelper::getTableColumns($table_name);
 
-        $reqFields = JRequest::getVar('field');
+        $reqFields = $input->get('field', array(), 'array');
 
         $headers = '';
         $cells = '';

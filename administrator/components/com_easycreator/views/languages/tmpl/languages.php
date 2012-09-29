@@ -12,6 +12,8 @@ defined('_JEXEC') || die('=;)');
 
 echo 'BUUU ?';
 
+$input = JFactory::getApplication()->input;
+
 if( ! $this->easyLanguage)
 {
     EcrHtml::message(jgettext('No languages defined'), 'error');
@@ -45,9 +47,9 @@ $tableHeader .= '</thead>'.NL;
 $sliderDrawed = false;
 $started = false;
 
-$lang_fileanalysis_fold = JRequest::getCmd('lang_fileanalysis_fold');
-$lang_fileanalysis_comment_num = JRequest::getInt('lang_fileanalysis_comment_num', 0);
-$lang_fileanalysis_active = JRequest::getInt('lang_fileanalysis_active', 0);
+$lang_fileanalysis_fold = $input->get('lang_fileanalysis_fold');
+$lang_fileanalysis_comment_num = $input->getInt('lang_fileanalysis_comment_num', 0);
+$lang_fileanalysis_active = $input->getInt('lang_fileanalysis_active', 0);
 
 $checked =($lang_fileanalysis_fold) ? ' checked="checked"' : '';
 
@@ -81,7 +83,7 @@ if($checked)
 $k = 0;
 $folder_num = -1;
 $fieldID = 0;
-$ecr_project = JRequest::getCmd('ecr_project');
+$ecr_project = $input->get('ecr_project');
 $baseLink = 'index.php?option=com_easycreator&amp;task=translate&amp;tmpl=component'
     .'&amp;view=languages&amp;controller=languages';
 $baseLink .= '&amp;ecr_project='.$ecr_project;

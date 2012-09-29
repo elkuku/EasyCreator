@@ -31,7 +31,7 @@
 
     <tbody>
 
-        <? foreach($this->data as $item) : ?>
+    <? foreach($this->data as $item) : ?>
 
     <tr>
         <td><?= $item->ECR_COM_TBL_NAME_id ?></td>
@@ -48,7 +48,7 @@
         </td>
     </tr>
 
-        <? endforeach; ?>
+    <? endforeach; ?>
 
     </tbody>
 </table>

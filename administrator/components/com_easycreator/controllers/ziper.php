@@ -43,7 +43,7 @@ class EasyCreatorControllerZIPer extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'ziper');
+        JFactory::getApplication()->input->set('view', 'ziper');
 
         parent::display($cachable, $urlparams);
     }
@@ -55,7 +55,7 @@ class EasyCreatorControllerZIPer extends JControllerLegacy
      */
     public function zipdir()
     {
-        JRequest::setVar('view', 'ziper');
+        JFactory::getApplication()->input->set('view', 'ziper');
 
         parent::display();
     }
@@ -97,14 +97,16 @@ class EasyCreatorControllerZIPer extends JControllerLegacy
 
     public function createPackage()
     {
+        $input = JFactory::getApplication()->input;
+
         ob_start();
 
         try
         {
             $result = new stdClass;
 
-            $buildopts = JRequest::getVar('buildopts', array());
-            $presetName = JRequest::getCmd('preset');
+            $buildopts = $input->get('buildopts', array(), 'array');
+            $presetName = $input->get('preset');
 
             $buildOpts = array();
 
@@ -208,7 +210,7 @@ class EasyCreatorControllerZIPer extends JControllerLegacy
         {
             $project = EcrProjectHelper::getProject();
             $this->response->message = EcrProjectHelper::formatFileName(
-                $project, JRequest::getVar('cst_format'));
+                $project, JFactory::getApplication()->input->getString('cst_format'));
         }
         catch(Exception $e)
         {

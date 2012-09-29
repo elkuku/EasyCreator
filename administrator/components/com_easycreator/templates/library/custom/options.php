@@ -94,7 +94,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
      */
     public function processOptions(EcrProjectBuilder $builder)
     {
-        $ecr_folder_name = JRequest::getCmd('ecr_folder_name');
+        $ecr_folder_name = JFactory::getApplication()->input->get('ecr_folder_name');
 
         if('' == $ecr_folder_name)
         {

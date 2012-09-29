@@ -43,14 +43,16 @@ class EasyCreatorViewLanguages extends JViewLegacy
      * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
      *
      * @throws Exception
-     * @return  mixed  A string if successful, otherwise a JError object.
+     * @return  void
      */
     public function display($tpl = null)
     {
-        $task = JRequest::getCmd('task');
+        $input = JFactory::getApplication()->input;
 
-        $this->hideLangs = JRequest::getVar('hide_langs', array());
-        $this->scope = JRequest::getCmd('scope');
+        $task = $input->get('task');
+
+        $this->hideLangs = $input->get('hide_langs', array(), 'array');
+        $this->scope = $input->get('scope');
 
         try
         {
@@ -90,7 +92,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
                 {
                     $this->easyLanguage = new EcrLanguage($this->project, $this->scope, $this->hideLangs);
 
-                    if(JRequest::getCmd('tmpl') != 'component')
+                    if($input->get('tmpl') != 'component')
                     {
                         //--draw selector
                         echo $this->displayBar($task);
@@ -289,9 +291,11 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function convert()
     {
-        $this->selected_file = JRequest::getVar('selected_file');
+        $input = JFactory::getApplication()->input;
 
-        $options = JRequest::getVar('options', array());
+        $this->selected_file = $input->getPath('selected_file');
+
+        $options = $input->get('options', array(), 'array');
 
         $this->options = JArrayHelper::toObject($options, 'JObject');
 
@@ -342,8 +346,8 @@ class EasyCreatorViewLanguages extends JViewLegacy
             }//foreach
         }//foreach
 
-        $this->assignRef('fileList', $fileList);
-        $this->assignRef('badDefinitions', $badDefinitions);
+        $this->fileList = $fileList;
+        $this->badDefinitions = $badDefinitions;
 
         $this->menuBoxes = array();
 
@@ -443,20 +447,22 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function jalhoo()
     {
-        $this->lang = JRequest::getCmd('language', 'en-GB');
+        $input = JFactory::getApplication()->input;
 
-        $this->fileFilter = JRequest::getCmd('filefilter');
-        $this->statusFilter = JRequest::getCmd('statusfilter');
-        $this->excludeDirs = JRequest::getVar('excludeDirs');
+        $this->lang = $input->get('language', 'en-GB');
 
-        $this->langFormatIn = JRequest::getCmd('langFormatIn');
-        $this->langFormatOut = JRequest::getCmd('langFormatOut');
+        $this->fileFilter = $input->get('filefilter');
+        $this->statusFilter = $input->get('statusfilter');
+        $this->excludeDirs = $input->getString('excludeDirs');
+
+        $this->langFormatIn = $input->get('langFormatIn');
+        $this->langFormatOut = $input->get('langFormatOut');
 
         jimport('jalhoo.language');
 
         try//
         {
-            $parser = g11n::getParser($this->langFormatOut);
+            $parser = '';//g11n::getParser($this->langFormatOut);
 
             $this->parser = $parser;
 
@@ -472,7 +478,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->checks = new JObject;
         $this->buildOpts = new JObject;
 
-        $buildOpts = JRequest::getVar('buildOpts', array());
+        $buildOpts = $input->get('buildOpts', array(), 'array');
 
         foreach($buildOpts as $opt => $v)
         {
@@ -650,7 +656,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function langcorrectorder()
     {
-        $sel_language = JRequest::getCmd('sel_language');
+        $sel_language = JFactory::getApplication()->input->get('sel_language');
 
         if($sel_language == 'en-GB')
         {
@@ -670,11 +676,11 @@ class EasyCreatorViewLanguages extends JViewLegacy
             $corrected_language = $this->easyLanguage->correctTranslation($default_language, $translated_language);
         }
 
-        $this->assignRef('default_language', $default_language);
-        $this->assignRef('translated_language', $translated_language);
-        $this->assignRef('corrected_language', $corrected_language);
+        $this->default_language = $default_language;
+        $this->translated_language = $translated_language;
+        $this->corrected_language = $corrected_language;
 
-        $this->assignRef('sel_language', $sel_language);
+        $this->sel_language = $sel_language;
 
         $this->setLayout('ordertranslation');
     }//function
@@ -686,13 +692,9 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function langcorrectdeforder()
     {
-        $fileName = JPATH_ROOT;
-
         $fileName = $this->easyLanguage->getFileName('en-GB', $this->scope, $this->project);
 
-        $default_language = $this->easyLanguage->parseFile($fileName);
-
-        $this->assignRef('default_language', $default_language);
+        $this->default_language = $this->easyLanguage->parseFile($fileName);
 
         $this->setLayout('orderdefault');
     }//function
@@ -704,8 +706,8 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function translate()
     {
-        $this->trans_lang = JRequest::getCmd('trans_lang');
-        $this->trans_key = JRequest::getString('trans_key');
+        $this->trans_lang = JFactory::getApplication()->input->get('trans_lang');
+        $this->trans_key = JFactory::getApplication()->input->getString('trans_key');
 
         if($this->trans_lang != 'en-GB')
         {
@@ -724,8 +726,8 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function show_versions()
     {
-        $this->sel_language = JRequest::getCmd('sel_language', '');
-        $this->selected_version = JRequest::getInt('selected_version', 0);
+        $this->sel_language = JFactory::getApplication()->input->get('sel_language');
+        $this->selected_version = JFactory::getApplication()->input->getInt('selected_version', 0);
 
         if($this->sel_language)
         {
@@ -761,7 +763,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function displayBar($task)
     {
-        $sel_language = JRequest::getCmd('sel_language');
+        $sel_language = JFactory::getApplication()->input->get('sel_language');
         $this->sel_language = $sel_language;
 
         $subTasks = array(
@@ -873,7 +875,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
                 {
                     $html .= '<div class="ecr_menu_box">';
                     $html .= jgettext('Cut');
-                    $cut_after = JRequest::getInt('cut_after', 30);
+                    $cut_after = JFactory::getApplication()->input->getInt('cut_after', 30);
                     $html .= '<select name="cut_after" onchange="submitbutton(\'langcorrectorder\');">';
 
                     for($i = 10; $i < 62; $i = $i + 2)
@@ -942,7 +944,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
      */
     private function displayBarG11n($task)
     {
-        $this->sel_language = JRequest::getCmd('sel_language');
+        $this->sel_language = JFactory::getApplication()->input->get('sel_language');
 
         $subTasks = array(
         array('title' => jgettext('Status')

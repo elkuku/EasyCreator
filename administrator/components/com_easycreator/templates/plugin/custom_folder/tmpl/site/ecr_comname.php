@@ -15,15 +15,15 @@ class plgECR_COM_SCOPEECR_COM_NAME extends JPlugin
     public function __construct(&$subject, $config)
     {
         parent::__construct($subject, $config);
-    }//function
+    }
 
     /**
      * This will trigger the event 'OnDoSomething'.
      *
      * @return string Demo: 'Did something'
      */
-    function onDoSomething()
+    public function onDoSomething()
     {
         return 'Did something';
-    }//function
-}//class
+    }
+}

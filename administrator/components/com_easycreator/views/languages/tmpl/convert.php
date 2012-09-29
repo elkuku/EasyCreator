@@ -15,7 +15,7 @@ ecrStylesheet('diff', 'languages');
 $fixForJVersion = '1.6';
 $languageTags = $this->converter->getKnownLanguageTags();
 
-$selected_file = JRequest::getVar('selected_file');
+$selected_file = JFactory::getApplication()->input->getPath('selected_file');
 
 $allPaths = $this->project->getLanguagePaths();
 $paths = (array)$allPaths[$this->scope];

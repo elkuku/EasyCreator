@@ -21,10 +21,12 @@ class EasyCreatorControllerAutoCode extends JControllerLegacy
      */
     public function show()
     {
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('scope');
+        $input = JFactory::getApplication()->input;
+
+        $group = $input->get('group');
+        $part = $input->get('part');
+        $element = $input->get('element');
+        $scope = $input->get('scope');
 
         $key = "$scope.$group.$part.$element";
 
@@ -83,9 +85,11 @@ class EasyCreatorControllerAutoCode extends JControllerLegacy
      */
     public function edit()
     {
-        //-- Get the project
+        $input = JFactory::getApplication()->input;
+
         try
         {
+            //-- Get the project
             $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
@@ -95,10 +99,10 @@ class EasyCreatorControllerAutoCode extends JControllerLegacy
             return;
         }//try
 
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('scope');
+        $group = $input->get('group');
+        $part = $input->get('part');
+        $element = $input->get('element');
+        $scope = $input->get('scope');
 
         $key = "$scope.$group.$part.$element";
 

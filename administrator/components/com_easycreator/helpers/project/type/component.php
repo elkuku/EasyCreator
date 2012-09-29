@@ -376,10 +376,9 @@ class EcrProjectTypeComponent extends EcrProjectBase
      */
     protected function updateAdminMenu()
     {
-        $menu = JRequest::getVar('menu', array());
+        $menu = JFactory::getApplication()->input->get('menu', array(), 'array');
 
-        if( ! isset($menu['text'])
-        || ! $menu['text'])
+        if( ! isset($menu['text']) || ! $menu['text'])
             throw new Exception(__METHOD__.' - Empty admin menu');
 
         //-- @Joomla!-version-check
@@ -425,7 +424,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $mId = $this->setDbMenuItem($menu);
 
         //-- Submenu
-        $submenu = JRequest::getVar('submenu', array());
+        $submenu = JFactory::getApplication()->input->get('submenu', array(), 'array');
 
         foreach($submenu as $menu)
         {

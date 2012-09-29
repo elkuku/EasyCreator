@@ -21,8 +21,6 @@ class ECR_CLASS_PREFIXControllerDelete extends JControllerBase
      */
     public function execute()
     {
-        // TODO: Implement execute() method.
-
         $model = new ECR_CLASS_PREFIXModelECR_UCF_COM_NAME;
 
         /* @var ECR_CLASS_PREFIXApplicationWeb $application */

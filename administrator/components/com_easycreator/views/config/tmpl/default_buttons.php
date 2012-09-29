@@ -6,8 +6,8 @@
  */
 
 ?>
-<div style="height: 1em;"></div>
-<div class="btn-group" style="margin-top: 1em; margin-bottom: 1em;">
+<div class="btn-group">
+
     <a class="btn<?php echo ECR_TBAR_SIZE; ?> btn-success" href="javascript:;"
        onclick="EcrConfig.submitForm('save_config', this);">
         <?php if(ECR_TBAR_ICONS) : ?>
@@ -39,9 +39,4 @@
 
 </div>
 <div id="maintainResponse"></div>
-
-<div class="btn-group" style="float: right; margin-left: 50px;">
-
-</div>
-
 

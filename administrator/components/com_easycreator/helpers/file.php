@@ -22,15 +22,18 @@ class EcrFile extends JFile
      */
     public static function saveFile()
     {
-        $file_path = JRequest::getVar('file_path', NULL);
-        $file_name = JRequest::getVar('file_name', NULL);
-        $insertstring = JRequest::getVar('c_insertstring', '', 'post', 'string', JREQUEST_ALLOWRAW);
+        $input = JFactory::getApplication()->input;
+
+        $file_path = $input->getPath('file_path', NULL);
+        $file_name = $input->getPath('file_name', NULL);
+        $insertstring = JFactory::getApplication()->input
+            ->getHtml('c_insertstring', '', 'string');
 
         if( ! $file_path || ! $file_name)
-        throw new Exception(jgettext('Empty values in save'));
+            throw new Exception(jgettext('Empty values in save'));
 
         if( ! $insertstring)
-        throw new Exception(jgettext('Empty content'));
+            throw new Exception(jgettext('Empty content'));
 
         $file_path = JPath::clean(JPATH_ROOT.DS.$file_path);
 
@@ -38,13 +41,13 @@ class EcrFile extends JFile
          * as for now.. the file must exist for save !
          */
         if( ! self::exists($file_path.DS.$file_name))
-        throw new Exception(jgettext('The file must exist for save'));
+            throw new Exception(jgettext('The file must exist for save'));
 
         if( ! self::write($file_path.DS.$file_name, $insertstring))
-        throw new Exception(sprintf(jgettext('The file %s could NOT be saved at PATH: %s'), $file_name, $file_path));
+            throw new Exception(sprintf(jgettext('The file %s could NOT be saved at PATH: %s'), $file_name, $file_path));
 
         return true;
-    }//function
+    }
 
     /**
      * Saves a backup of a file apending a postfix .rXX .
@@ -65,6 +68,7 @@ class EcrFile extends JFile
         $r = 1;
 
         $found = false;
+        $versionedFileName = $fileName;
 
         while( ! $found)
         {
@@ -76,19 +80,20 @@ class EcrFile extends JFile
             }
             else
             {
-                $r++;
+                $r ++;
             }
-        }//while
+        }
 
         if( ! self::copy($fileName, $versionedFileName))
         {
-            JFactory::getApplication()->enqueueMessage(sprintf(jgettext('Unable to copy file %s'), $fileName), 'error');
+            JFactory::getApplication()->enqueueMessage(
+                sprintf(jgettext('Unable to copy file %s'), $fileName), 'error');
 
             return false;
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Delete a file.
@@ -100,17 +105,19 @@ class EcrFile extends JFile
      */
     public static function deleteFile()
     {
-        $file_path = JRequest::getVar('file_path');
-        $file_name = JRequest::getVar('file_name');
+        $input = JFactory::getApplication()->input;
+
+        $file_path = $input->getPath('file_path');
+        $file_name = $input->getPath('file_name');
 
         $file_path = JPath::clean(JPATH_ROOT.DS.$file_path);
 
         if( ! self::exists($file_path.DS.$file_name))
-        throw new Exception(jgettext('The file does not exist'));
+            throw new Exception(jgettext('The file does not exist'));
 
         if( ! self::delete($file_path.DS.$file_name))
-        throw new Exception(sprintf(jgettext('The file %s could not be deleted at path: %s'), $file_name, $file_path));
+            throw new Exception(sprintf(jgettext('The file %s could not be deleted at path: %s'), $file_name, $file_path));
 
         return true;
-    }//function
-}//class
+    }
+}

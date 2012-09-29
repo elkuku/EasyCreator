@@ -20,8 +20,9 @@
         <field name="archiveZip" type="checkbox" label="zip" value="zip"
                description="ZIP format"/>
         <field name="archiveTgz" type="checkbox" label="tar.gz" value="tgz"
-               description="Ziped Tarball" default="on_"/>
-        <field name="archiveBz2" type="checkbox" label="bz2" value="bz2" description="BZ2 format" />
+               description="Ziped Tarball"/>
+        <field name="archiveBz2" type="checkbox" label="bz2" value="bz2"
+               description="BZ2 format" />
 
         <field name="spacer1_2" type="spacer" default="Custom file name"/>
 
@@ -43,7 +44,7 @@
             <option value="1">Yes</option>
         </field>
         -->
-        <field name="ecr_help" type="list" default="2" label="Help Type"
+        <field name="ecr_help" type="radio" class="btn-group" default="2" label="Help Type"
                description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
             <option value="2">All</option>
             <option value="1">Some</option>

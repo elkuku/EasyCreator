@@ -22,7 +22,7 @@ class EasyCreatorControllerRegister extends JControllerLegacy
      */
     public function register()
     {
-        JRequest::setVar('view', 'register');
+        JFactory::getApplication()->input->set('view', 'register');
 
         parent::display();
     }//function

@@ -23,7 +23,7 @@ abstract class EcrHtmlSelect
     {
         $projects = EcrProjectHelper::getProjectList();
         $projectTypes = EcrProjectHelper::getProjectTypes();
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $ecr_project = JFactory::getApplication()->input->get('ecr_project');
 
         $class = '';
 

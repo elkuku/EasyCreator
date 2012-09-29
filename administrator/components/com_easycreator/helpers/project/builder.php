@@ -50,7 +50,7 @@ class EcrProjectBuilder extends JObject
     {
         $this->replacements = new EcrProjectReplacement;
 
-        $this->testMode = (JRequest::getCmd('ecr_test_mode') == 'test') ? true : false;
+        $this->testMode = (JFactory::getApplication()->input->get('ecr_test_mode') == 'test') ? true : false;
     }
 
     /**
@@ -64,11 +64,13 @@ class EcrProjectBuilder extends JObject
      */
     public function build($type, $template, $name)
     {
+        $input = JFactory::getApplication()->input;
+
         //-- Get component parameters
         $comParams = JComponentHelper::getParams('com_easycreator');
 
         //-- Setup logging
-        $buildOpts = JRequest::getVar('buildopts', array());
+        $buildOpts = JFactory::getApplication()->input->get('buildopts', array(), 'array');
         $buildOpts['fileName'] = date('ymd_Hi').'_building.log';
 
         $this->logger = EcrLogger::getInstance('ecr', $buildOpts);
@@ -94,8 +96,8 @@ class EcrProjectBuilder extends JObject
         $this->project->type = $type;
         $this->project->fromTpl = $template;
 
-        $this->project->dbTypes = JRequest::getVar('dbtypes', array(), 'array');
-        $this->project->headerType = JRequest::getCmd('headerType');
+        $this->project->dbTypes = $input->get('dbtypes', array(), 'array');
+        $this->project->headerType = $input->get('headerType');
 
         //-- Set custom build names from component defaults
         for($i = 1; $i < 5; $i ++)
@@ -184,6 +186,8 @@ class EcrProjectBuilder extends JObject
      */
     private function setUpProject()
     {
+        $input = JFactory::getApplication()->input;
+
         switch($this->project->type)
         {
             case 'component':
@@ -236,14 +240,14 @@ class EcrProjectBuilder extends JObject
 
         $this->project->JCompat = (string)$this->buildManifest->jVersion;
 
-        $this->project->version = JRequest::getVar('version');
-        $this->project->description = JRequest::getVar('description');
-        $this->project->author = JRequest::getVar('author');
-        $this->project->authorEmail = JRequest::getVar('authorEmail');
-        $this->project->authorUrl = JRequest::getVar('authorUrl');
-        $this->project->copyright = JRequest::getVar('copyright');
-        $this->project->license = JRequest::getVar('license');
-        $this->project->listPostfix = JRequest::getVar('list_postfix');
+        $this->project->version = $input->getString('version');
+        $this->project->description = $input->getString('description');
+        $this->project->author = $input->getString('author');
+        $this->project->authorEmail = $input->getString('authorEmail');
+        $this->project->authorUrl = $input->getString('authorUrl');
+        $this->project->copyright = $input->getString('copyright');
+        $this->project->license = $input->getString('license');
+        $this->project->listPostfix = $input->getString('list_postfix');
 
         $this->replacements->ECR_COM_NAME = $this->project->name;
         $this->replacements->ECR_LOWER_COM_NAME = strtolower($this->project->name);
@@ -445,7 +449,9 @@ class EcrProjectBuilder extends JObject
      */
     private function processMoreOptions()
     {
-        if( ! JRequest::getVar('create_changelog'))
+        $input = JFactory::getApplication()->input;
+
+        if( ! $input->get('create_changelog'))
         {
             //-- No changelog requested
             return $this;
@@ -644,12 +650,14 @@ class EcrProjectBuilder extends JObject
      */
     public function customOptions($action = 'display', EcrProjectBase $project = null)
     {
+        $input = JFactory::getApplication()->input;
+
         static $templateOptions = null;
 
         if(null == $templateOptions)
         {
-            $tplType = JRequest::getVar('tpl_type');
-            $tplName = JRequest::getVar('tpl_name');
+            $tplType = $input->get('tpl_type');
+            $tplName = $input->get('tpl_name');
 
             $template_path = ECRPATH_EXTENSIONTEMPLATES.DS.$tplType.DS.$tplName;
 
@@ -835,7 +843,7 @@ class EcrProjectBuilder extends JObject
     {
         $types = array('', 'js', 'css');
 
-        $format = JRequest::getCmd('optHeader', 'git');
+        $format = JFactory::getApplication()->input->get('optHeader', 'git');
 
         foreach($types as $type)
         {

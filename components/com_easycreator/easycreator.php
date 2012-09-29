@@ -66,7 +66,7 @@ $controller = new EasyCreatorController;
 easyHTML::start();
 
 //-- Perform the Request task
-$controller->execute(JRequest::getVar('task'));
+$controller->execute(JFactory::getApplication()->input->get('task'));
 
 easyHTML::end();
 

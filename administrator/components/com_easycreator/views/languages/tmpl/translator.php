@@ -8,22 +8,24 @@
  */
 
 //-- Add CSS
-ecrStylesheet('icon', 'translator');
+ecrLoadMedia('translator');
+ecrStylesheet('icon');
+ecrScript('php2js');
 
-ecrScript('php2js', 'translator');
+$input = JFactory::getApplication()->input;
 
 $useGoogle = JComponentHelper::getParams('com_easycreator')->get('use_google_trans_api');
 
-$fieldID = JRequest::getInt('field_id');
-$adIds = JRequest::getVar('ad_ids');
+$fieldID = $input->getInt('field_id');
+$adIds = $input->getString('ad_ids');
 
 $baseLink = 'index.php?option=com_easycreator&tmpl=component&controller=ajax&format=raw';
-$baseLink .= '&ecr_project='.JRequest::getCmd('ecr_project');
+$baseLink .= '&ecr_project='.$input->get('ecr_project');
 $baseLink .= '&scope='.$this->scope;
 $baseLink .= '&trans_lang='.$this->trans_lang;
 $baseLink .= '&trans_key='.$this->trans_key;
 
-$ret_type = JRequest::getCmd('ret_type', 'ini');
+$ret_type = $input->get('ret_type', 'ini');
 
 $langTag = substr($this->trans_lang, 0, 2);
 

@@ -35,7 +35,9 @@ class EasyCreatorViewStarter extends JViewLegacy
      */
     public function display($tpl = null)
     {
-        $task = JRequest::getCmd('task');
+        $input = JFactory::getApplication()->input;
+
+        $task = $input->get('task');
 
         $this->builder = new EcrProjectBuilder;
 
@@ -45,8 +47,8 @@ class EasyCreatorViewStarter extends JViewLegacy
 
         $this->templateList = EcrProjectTemplateHelper::getTemplateList();
 
-        $tplType = JRequest::getCmd('tpl_type');
-        $tplFolder = JRequest::getCmd('tpl_name');
+        $tplType = $input->get('tpl_type');
+        $tplFolder = $input->get('tpl_name');
 
         $desc = isset($this->templateList[$tplType][$tplFolder])
             ? $this->templateList[$tplType][$tplFolder]->description
@@ -54,31 +56,31 @@ class EasyCreatorViewStarter extends JViewLegacy
 
         $project = EcrProjectHelper::newProject('empty');
 
-        $project->type = JRequest::getCmd('tpl_type', '', 'post');
-        $project->tplName = JRequest::getCmd('tpl_name', '', 'post');
-        $project->version = JRequest::getVar('version', '1.0', 'post');
-        $project->description = JRequest::getVar('description', $desc, 'post');
-        $project->listPostfix = JRequest::getCmd('list_postfix', 'List', 'post');
-        $project->JCompat = JRequest::getVar('jcompat', '', 'post');
+        $project->type = $input->get('tpl_type');
+        $project->tplName = $input->get('tpl_name');
+        $project->version = $input->getString('version', '1.0');
+        $project->description = $input->getString('description', $desc);
+        $project->listPostfix = $input->get('list_postfix', 'List');
+        $project->JCompat = $input->getString('jcompat');
 
         //-- Sanitize project name
-        $project->name = JRequest::getCmd('com_name', '', 'post');
+        $project->name = $input->get('com_name');
         $disallows = array('_');
         $project->name = str_replace($disallows, '', $project->name);
 
         //-- Credits
-        $s = JRequest::getVar('author', '', 'post');
+        $s = $input->getString('author');
         $project->author = ($s) ? $s : $params->get('cred_author');
-        $s = JRequest::getVar('authorEmail', '', 'post');
+        $s = $input->getString('authorEmail');
         $project->authorEmail = ($s) ? $s : $params->get('cred_author_email');
-        $s = JRequest::getVar('authorUrl', '', 'post');
+        $s = $input->getString('authorUrl');
         $project->authorUrl = ($s) ? $s : $params->get('cred_author_url');
-        $s = JRequest::getVar('license', '', 'post');
+        $s = $input->getString('license');
         $project->license = ($s) ? $s : $params->get('cred_license');
-        $s = JRequest::getVar('copyright', '', 'post');
+        $s = $input->getString('copyright');
         $project->copyright = ($s) ? $s : $params->get('cred_copyright');
 
-        $this->assignRef('project', $project);
+        $this->project = $project;
 
         if($task && method_exists($this, $task))
             $this->$task();

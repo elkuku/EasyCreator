@@ -63,16 +63,21 @@ switch(ECR_JVERSION)
     return;
         break;
 
-    case '3.0': //-- Get prepared
+    case '3.0':
+        JFactory::getApplication()->JComponentTitle = 'EasyCreator';
+        break;
+
+    case '3.1': //-- Get prepared
         $application = JFactory::getApplication();
 
         $application->JComponentTitle = 'EasyCreator';
 
         $application->enqueueMessage(sprintf(
-            jgettext(
-                'EasyCreator %1$s is in testing stage with Joomla! %2$s'
-            )
-            , ECR_VERSION, ECR_JVERSION), 'warning'
+                jgettext(
+                    'EasyCreator %1$s is in testing stage with Joomla! %2$s'
+                )
+                , ECR_VERSION, ECR_JVERSION)
+            , 'warning'
         );
 
         break;
@@ -104,10 +109,12 @@ try
 {
     $controller = EcrEasycreator::getController();
 
-    if('component' == JRequest::getCmd('tmpl'))
+    $input = JFactory::getApplication()->input;
+
+    if('component' == $input->get('tmpl'))
     {
         //-- Perform the Request task only - raw view
-        $controller->execute(JRequest::getCmd('task'));
+        $controller->execute($input->get('task'));
     }
     else
     {
@@ -115,7 +122,7 @@ try
         EcrHtmlMenu::main();
 
         //-- Perform the Request task
-        $controller->execute(JRequest::getCmd('task'));
+        $controller->execute($input->get('task'));
 
         if(ECR_DEV_MODE && ECR_DEBUG_LANG
             && class_exists('g11n')
@@ -134,8 +141,8 @@ try
     //-- Restore error_reporting
     error_reporting($prevErrorReporting);
 
-//-- Redirect if set by the controller
-//-- We don't do this very often =;)
+    //-- Redirect if set by the controller
+    //-- We don't do this very often =;)
     $controller->redirect();
 }
 catch(Exception $e)

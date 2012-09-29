@@ -446,7 +446,7 @@ class EcrLanguage
         $fileName = $this->getFileName($lang, $this->_scope, $this->project);
 
         //--Save a version ?
-        $saveVersion = JRequest::getInt('save_version', '1');
+        $saveVersion = JFactory::getApplication()->input->getInt('save_version', '1');
 
         if($saveVersion)
         {
@@ -586,7 +586,7 @@ class EcrLanguage
         }
 
         //-- Save a version ?
-        if(JRequest::getInt('save_version', '1'))
+        if(JFactory::getApplication()->input->getInt('save_version', '1'))
         {
             if( ! EcrFile::saveVersion($fileName))
             {
@@ -743,7 +743,9 @@ class EcrLanguage
      */
     private function drawTableLanguageFiles($path)
     {
-        $lang_first_line_comment = 3;
+        $input = JFactory::getApplication()->input;
+
+        //$lang_first_line_comment = 3;
         $lang_first_line_comment_cnt = 0;
         $tableHeader = '';
         $tableHeader .= NL.'<table class="adminlist">';
@@ -766,9 +768,9 @@ class EcrLanguage
         $sliderDrawed = false;
         $started = false;
 
-        $lang_fileanalysis_fold = JRequest::getVar('lang_fileanalysis_fold', '');
-        $lang_fileanalysis_comment_num = JRequest::getInt('lang_fileanalysis_comment_num', 0);
-        $lang_fileanalysis_active = JRequest::getInt('lang_fileanalysis_active', 0);
+        $lang_fileanalysis_fold = $input->getInt('lang_fileanalysis_fold');
+        $lang_fileanalysis_comment_num = $input->getInt('lang_fileanalysis_comment_num', 0);
+        $lang_fileanalysis_active = $input->getInt('lang_fileanalysis_active', 0);
 
         $checked =($lang_fileanalysis_fold) ? ' checked="checked"' : '';
 
@@ -805,7 +807,7 @@ class EcrLanguage
         $k = 0;
         $folder_num = -1;
         $fieldID = 0;
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $ecr_project = $input->get('ecr_project');
 
         foreach($this->_default_file as $line)
         {
@@ -1445,12 +1447,14 @@ case 'etc':
      */
     public static function createFileFromRequest()
     {
+        $input = JFactory::getApplication()->input;
+
         $project = EcrProjectHelper::getProject();
 
-        if( ! $scope = JRequest::getCmd('lng_scope'))
+        if( ! $scope = $input->get('lng_scope'))
         throw new Exception(jgettext('No scope given'));
 
-        if( ! $lang = JRequest::getVar('lngcreate_lang'))
+        if( ! $lang = $input->get('lngcreate_lang'))
         throw new Exception(jgettext('No language given'));
 
         $fileName = self::getFileName($lang, $scope, $project);

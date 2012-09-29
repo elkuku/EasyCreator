@@ -10,6 +10,8 @@
 //-- No direct access
 defined('_JEXEC') || die('=;)');
 
+$input = JFactory::getApplication()->input;
+
 $pathHelp = JPATH_COMPONENT.DS.'helpers'.DS.'jclasslists';
 $fName = 'jclasslist_'.str_replace('.', '_', JVERSION);
 
@@ -28,12 +30,12 @@ JLoader::import($fName, $pathHelp);
 
 JHTML::_('behavior.tooltip');
 
-$out_format = JRequest::getCmd('out_format', 'source');
+$out_format = $input->get('out_format', 'source');
 if($out_format == '') $out_format = 'source';
 
-$className = JRequest::getCmd('className');
-$methodName = JRequest::getCmd('methodName');
-$packageName = JRequest::getCmd('packageName');
+$className = $input->get('className');
+$methodName = $input->get('methodName');
+$packageName = $input->get('packageName');
 
 $formats = array(
     array('Source', 'source', 'source', 'local')
@@ -74,7 +76,7 @@ else
 $cList = getJoomlaClasses();
 $packages = getJoomlaPackages();
 
-EcrHtml::initFileTree();
+ecrLoadMedia('php_file_tree');
 
 $fileTree = new EcrFileTree('', '', " onclick=\"changeFrame('[folder]', '[file]');\"");
 $fileTree->setDir($pathHelp);

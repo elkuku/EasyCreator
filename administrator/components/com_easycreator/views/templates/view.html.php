@@ -26,9 +26,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
      */
     public function display($tpl = null)
     {
-        $task = JRequest::getCmd('task');
-
-        //EcrHtml::header(jgettext('Extension templates'), null, 'wizard');
+        $task = JFactory::getApplication()->input->get('task');
 
         echo $this->displayBar();
 
@@ -67,6 +65,8 @@ class EasyCreatorViewTemplates extends JViewLegacy
      */
     private function templates()
     {
+        $input = JFactory::getApplication()->input;
+
         $profiling = false;
 
         if($profiling)
@@ -75,16 +75,16 @@ class EasyCreatorViewTemplates extends JViewLegacy
             $this->profiler = JProfiler::getInstance('EasyCreator');
         }
 
-        $this->task = JRequest::getCmd('task');
-        $this->ecr_project = JRequest::getCmd('ecr_project');
+        $this->task = $input->get('task');
+        $this->ecr_project = $input->get('ecr_project');
 
         $this->path = ECRPATH_EXTENSIONTEMPLATES;
 
-        $this->file_path = JRequest::getVar('file_path');
-        $this->file_name = JRequest::getVar('file_name');
+        $this->file_path = $input->getPath('file_path');
+        $this->file_name = $input->getPath('file_name');
 
-        $this->com_type = JRequest::getVar('com_type');
-        $this->template = JRequest::getVar('template');
+        $this->com_type = $input->get('com_type');
+        $this->template = $input->get('template');
 
         $this->comTypes = EcrProjectHelper::getProjectTypes();
 
@@ -94,7 +94,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
         if($profiling)
         $this->profiler->mark('start get templates');
 
-        $this->templates  = EcrProjectTemplateHelper::getTemplateList();
+        $this->templates = EcrProjectTemplateHelper::getTemplateList();
 
         if($profiling)
         $this->profiler->mark('end get cached templates');

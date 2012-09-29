@@ -39,7 +39,7 @@ class PartVariousChangelog
      */
     public function getOptions()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $ecr_project = JFactory::getApplication()->input->get('ecr_project');
         $basePathDest = JPATH_ROOT.DS.'administrator'.DS.'components'.DS.$ecr_project;
 
         if(JFile::exists($basePathDest.DS.'CHANGELOG.php'))
@@ -65,7 +65,7 @@ class PartVariousChangelog
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-        JRequest::setVar('element_scope', 'admin');
+	    JFactory::getApplication()->input->set('element_scope', 'admin');
 
         return $project->insertPart($options, $logger);
     }//function

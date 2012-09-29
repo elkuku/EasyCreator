@@ -49,7 +49,7 @@ class EasyCreatorControllerDeploy extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'deploy');
+        JFactory::getApplication()->input->set('view', 'deploy');
 
         parent::display($cachable, $urlparams);
     }

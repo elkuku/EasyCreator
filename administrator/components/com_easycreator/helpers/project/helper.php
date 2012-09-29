@@ -47,7 +47,7 @@ class EcrProjectHelper
         static $defaultName = '';
 
         if( ! $defaultName)
-            $defaultName = JRequest::getCmd('ecr_project');
+            $defaultName = JFactory::getApplication()->input->get('ecr_project');
 
         if( ! $name)
             $name = $defaultName;
@@ -772,7 +772,7 @@ class EcrProjectHelper
      * @todo Update: drop J1.5 support remove since it is now part of JFactory.
      * @todo Update2: Leave it alone, since it is dropped in 3.0 :(...
      *
-     * @return JXMLElement on success | false on error
+     * @return EcrXMLElement on success | false on error
      */
     public static function getXML($data, $isFile = true)
     {

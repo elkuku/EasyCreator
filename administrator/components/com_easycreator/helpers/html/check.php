@@ -23,7 +23,7 @@ abstract class EcrHtmlCheck
     public static function versioned()
     {
         $params = JComponentHelper::getParams('com_easycreator');
-        $save_versioned = JRequest::getInt('save_versioned', $params->get('save_versioned'));
+        $save_versioned = JFactory::getApplication()->input->getInt('save_versioned', $params->get('save_versioned'));
         $checked = ($save_versioned) ? ' checked="checked"' : '';
         $html = '<input type="checkbox" name="save_versioned" id="save_versioned" value="1"'.$checked.'>'
             .'<label class="inline" for="save_versioned">'.jgettext('Save versioned').'</label>';

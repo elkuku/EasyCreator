@@ -6,6 +6,8 @@
  * @author     Created on 12-Oct-2009
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
+
+echo $this->loadTemplate('buttons')
 ?>
 
 <?php foreach($this->form->getFieldSets() as $fieldSet) : ?>

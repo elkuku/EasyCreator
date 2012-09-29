@@ -302,7 +302,7 @@ class Com_EasyCreatorInstallerScript
             return $previous;
         }
 
-        $decompressed = $previous; //-- Same as previous path - maximun compression :)
+        $decompressed = $previous; //-- Same as previous path - maximum compression :)
 
         if($path != '=') //-- Different path - too bad..
         {

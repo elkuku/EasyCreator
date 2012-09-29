@@ -18,8 +18,8 @@ JHTML::_('behavior.modal', 'a.ecr_modal');
 
 $allFiles = array();
 $languages = array_diff($this->languages, $this->hideLangs);
-$lang_filter_file = JRequest::getVar('lang_filter_file', '');
-$ecr_project = JRequest::getCmd('ecr_project');
+$lang_filter_file = JFactory::getApplication()->input->getString('lang_filter_file');
+$ecr_project = JFactory::getApplication()->input->get('ecr_project');
 
 if($this->scope != 'menu')
 {

@@ -15,7 +15,7 @@ if(false == $sniffer->checkEnv()):
     return;
 endif;
 
-$standard = JRequest::getCmd('sniff_standard');
+$standard = JFactory::getApplication()->input->get('sniff_standard');
 
 $standards = $sniffer->getStandards();
 
@@ -24,7 +24,7 @@ $easyStandards = array();
 
 $formats = array('full', 'xml', 'checkstyle', 'csv', 'emacs', 'source', 'summary');
 
-EcrHtml::initFileTree();
+ecrLoadMedia('php_file_tree');
 
 $fileTree = drawFileTree($this->project);
 ?>
@@ -132,14 +132,6 @@ echo EcrHtmlDebug::logConsole();
 function drawFileTree(EcrProjectBase $project)
 {
     $ret = '';
-
-    $file_path = JRequest::getString('file_path');
-    $file_name = JRequest::getString('file_name');
-
-    //-- Allowed extensions
-    //-- TODO set somewhere else...
-    $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
-    $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
     $javascript = '';
     $javascript .= " onclick=\"loadSniff('[link]', '[file]', '[id]');\"";

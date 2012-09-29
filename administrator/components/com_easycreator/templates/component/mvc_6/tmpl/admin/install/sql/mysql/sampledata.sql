@@ -1,1 +1,0 @@
-__ECR_SAMPLE_DATA__

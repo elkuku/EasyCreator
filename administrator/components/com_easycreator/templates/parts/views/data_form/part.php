@@ -85,10 +85,12 @@ class PartViewsData_form extends EcrProjectPart
      */
     public function getOptions()
     {
+	    $input = JFactory::getApplication()->input;
+
         /* Array with required fields */
         $requireds = array();
 
-        $tableName = JRequest::getCmd('element');
+        $tableName = $input->get('element');
 
         $db = JFactory::getDBO();
         $tables = $db->getTableList();
@@ -148,14 +150,16 @@ class PartViewsData_form extends EcrProjectPart
      */
     public function insert(EcrProjectBase $EasyProject, $options, EcrLogger $logger)
     {
+	    $input = JFactory::getApplication()->input;
+
         $this->_options = $options;
 
         $EasyProject->addSubstitute('ECR_SUBPACKAGE', 'Views');
 
-        $element_name = JRequest::getCmd('element_name');
-        $table_name = JRequest::getCmd('table_name');
-        $req_table_fields = JRequest::getVar('table_fields', array());
-        $req_table_fields_types = JRequest::getVar('table_fields_types', array());
+        $element_name = $input->get('element_name');
+        $table_name = $input->get('table_name');
+        $req_table_fields = $input->get('table_fields', array(), 'array');
+        $req_table_fields_types = $input->get('table_fields_types', array(), 'array');
 
         if( ! $table_name)
         {
@@ -267,18 +271,20 @@ $key = '##ECR_OPTIONS##';
      */
     public function edit($AutoCode)
     {
+	    $input = JFactory::getApplication()->input;
+
         EcrHtmlSelect::scope($this->_scope);
         echo '<input type="hidden" name="element" value="'.$this->_element.'" />';
 
         /* Draws an input box for a name field */
         EcrHtmlSelect::name($this->_element, jgettext('Table'));
 
-        $ecr_project = JRequest::getCmd('ecr_project');
-        $element_name = JRequest::getCmd('element');
-        $table_name = JRequest::getCmd('table_name');
-        $req_table_fields = JRequest::getVar('table_fields', array());
-        $req_table_fields_edits = JRequest::getVar('table_fields_edits', array());
-        $req_table_fields_types = JRequest::getVar('table_fields_types', array());
+        $ecr_project = $input->get('ecr_project');
+        $element_name = $input->get('element');
+        $table_name = $input->get('table_name');
+        //$req_table_fields = JxRequest::getVar('table_fields', array());
+        //$req_table_fields_edits = JxRequest::getVar('table_fields_edits', array());
+        //$req_table_fields_types = JxRequest::getVar('table_fields_types', array());
 
         if( ! $table_name)
         {

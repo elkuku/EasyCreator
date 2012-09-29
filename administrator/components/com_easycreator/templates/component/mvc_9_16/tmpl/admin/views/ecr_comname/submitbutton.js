@@ -1,4 +1,4 @@
-##*HEADERJS*##
+//##*HEADERJS*##
 
 Joomla.submitbutton = function (task) {
     if (task == '') {
@@ -32,4 +32,4 @@ Joomla.submitbutton = function (task) {
             return false;
         }
     }
-}
+};

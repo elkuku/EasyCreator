@@ -102,7 +102,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
      */
     public function processOptions(EcrProjectBuilder $builder)
     {
-        $fields = JRequest::getVar('fields');
+        $fields = JFactory::getApplication()->input->get('fields', array(), 'array');
 
         if(false == is_array($fields))
         {

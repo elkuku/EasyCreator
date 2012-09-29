@@ -11,7 +11,6 @@ ecrLoadMedia('config');
 
 JFactory::getApplication()->JComponentTitle = sprintf(jgettext('%s Configuration'), 'EasyCreator');
 
-
 ?>
 <?php if(false == class_exists('g11n')) : ?>
 <div class="g11nNotice">
@@ -23,5 +22,5 @@ JFactory::getApplication()->JComponentTitle = sprintf(jgettext('%s Configuration
 <?php endif; ?>
 
 <?php
-echo $this->loadTemplate('buttons');
+
 echo $this->loadTemplate($this->legacyTemplate);

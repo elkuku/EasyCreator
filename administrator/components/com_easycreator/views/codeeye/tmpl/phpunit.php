@@ -20,7 +20,7 @@ endif;
 
 $timeStamp = date('Ymd_his');
 
-EcrHtml::initFileTree();
+ecrLoadMedia('php_file_tree');
 
 $jsFile = '';
 $jsFile .= " onclick=\"doPHPUnit('[link]', '[file]', '$timeStamp', '[id]');\"";
@@ -85,14 +85,6 @@ $fileTree = new EcrFileTree(JPATH_ROOT.DS.$this->testsBase, '', $jsFile, $jsFold
 function drawFileTree(EcrProjectBase $project)
 {
     $ret = '';
-
-    $file_path = JRequest::getString('file_path');
-    $file_name = JRequest::getString('file_name');
-
-    //-- Allowed extensions
-    //-- TODO set somewhere else...
-    $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
-    $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
     $javascript = '';
     $javascript .= " onclick=\"create_skeleton('[link]', '[file]', '[id]');\"";

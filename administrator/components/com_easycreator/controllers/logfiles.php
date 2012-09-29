@@ -43,7 +43,7 @@ class EasyCreatorControllerLogfiles extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'logfiles');
+        JFactory::getApplication()->input->set('view', 'logfiles');
         parent::display($cachable, $urlparams);
     }
 
@@ -56,17 +56,19 @@ class EasyCreatorControllerLogfiles extends JControllerLegacy
     {
         $logfiles = JFolder::files(ECRPATH_LOGS, 'log', false, true);
 
+        $application = JFactory::getApplication();
+
         if(count($logfiles))
         {
             if(JFile::delete($logfiles))
             {
-                JFactory::getApplication()->enqueueMessage(jgettext('The logfiles have been deleted'));
-                JRequest::setVar('view', 'easycreator');
+                $application->enqueueMessage(jgettext('The logfiles have been deleted'));
+                $application->input->set('view', 'easycreator');
             }
             else
             {
-                JFactory::getApplication()->enqueueMessage(jgettext('The logfiles could not be deleted'), 'error');
-                JRequest::setVar('view', 'logfiles');
+                $application->enqueueMessage(jgettext('The logfiles could not be deleted'), 'error');
+                $application->input->set('view', 'logfiles');
             }
         }
 
@@ -82,7 +84,7 @@ class EasyCreatorControllerLogfiles extends JControllerLegacy
      */
     public function showLogfile()
     {
-        $fileName = JRequest::getCmd('fileName');
+        $fileName = JFactory::getApplication()->input->get('fileName');
 
         if(false == JFile::exists(ECRPATH_LOGS.DS.$fileName))
         {

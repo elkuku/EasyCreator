@@ -36,11 +36,9 @@ class EasyCreatorViewZiper extends JViewLegacy
      */
     public function display($tpl = null)
     {
-        ecrScript('ziper');
+        ecrLoadMedia('ziper');
 
-        ecrStylesheet('ziper');
-
-        $task = JRequest::getCmd('task');
+        $task = JFactory::getApplication()->input->get('task');
 
         try
         {

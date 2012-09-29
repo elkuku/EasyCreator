@@ -46,10 +46,12 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function show_part()
     {
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('scope');
+        $input = JFactory::getApplication()->input;
+
+        $group = $input->get('group');
+        $part = $input->get('part');
+        $element = $input->get('element');
+        $scope = $input->get('scope');
 
         $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope);
 
@@ -94,9 +96,11 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function edit_part()
     {
-        //-- Get the project
+        $input = JFactory::getApplication()->input;
+
         try
         {
+            //-- Get the project
             $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
@@ -108,10 +112,10 @@ class EasyCreatorControllerAjax extends JControllerLegacy
             return;
         }//try
 
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('scope');
+        $group = $input->get('group');
+        $part = $input->get('part');
+        $element = $input->get('element');
+        $scope = $input->get('scope');
 
         if( ! $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope, true))
         {
@@ -170,8 +174,10 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function show_source()
     {
-        $rClass = JRequest::getCmd('class');
-        $rMethod = JRequest::getCmd('method');
+        $input = JFactory::getApplication()->input;
+
+        $rClass = $input->get('class');
+        $rMethod = $input->get('method');
 
         $classlistPath = JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'jclasslists';
         $fName = 'jclasslist_'.str_replace('.', '_', JVERSION);
@@ -357,12 +363,14 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function part_task()
     {
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('scope');
+        $input = JFactory::getApplication()->input;
 
-        $partTask = JRequest::getCmd('part_task');
+        $group = $input->get('group');
+        $part = $input->get('part');
+        $element = $input->get('element');
+        $scope = $input->get('scope');
+
+        $partTask = $input->get('part_task');
 
         if( ! $ecrPart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
@@ -390,15 +398,17 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function translate()
     {
+        $input = JFactory::getApplication()->input;
+
         ob_start();
 
         try
         {
-            if( ! $scope = JRequest::getCmd('scope'))
+            if( ! $scope = $input->get('scope'))
             throw new Exception(jgettext('No scope given'));
 
-            if( ! $translation = JRequest::getVar('translation', '', 'get', 'string', JREQUEST_ALLOWRAW))
-            throw new Exception(jgettext('Empty translation'));
+            if( ! $translation = $input->getHtml('translation'))
+                throw new Exception(jgettext('Empty translation'));
 
             //-- Strip line breaks
             $translation = str_replace("\n", '<br />', $translation);
@@ -411,7 +421,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
             $easyLanguage = new EcrLanguage($project, $scope, array());
 
             $easyLanguage->saveTranslation(
-                JRequest::getCmd('trans_lang'), JRequest::getString('trans_key')
+                $input->get('trans_lang'), $input->getString('trans_key')
                 , $translation);
         }
         catch(Exception $e)
@@ -444,11 +454,13 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function delete_translation()
     {
+        $input = JFactory::getApplication()->input;
+
         ob_start();
 
         try
         {
-            if( ! $scope = JRequest::getCmd('scope'))
+            if( ! $scope = $input->get('scope'))
             throw new Exception(jgettext('No scope given'));
 
             $project = EcrProjectHelper::getProject();
@@ -458,8 +470,8 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
             $easyLanguage = new EcrLanguage($project, $scope, array());
 
-            $trans_lang = JRequest::getCmd('trans_lang');
-            $trans_key = JRequest::getString('trans_key');
+            $trans_lang = $input->get('trans_lang');
+            $trans_key = $input->getString('trans_key');
 
             $easyLanguage->deleteTranslation($trans_lang, $trans_key);
         }
@@ -489,12 +501,14 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function loadFile()
     {
+        $input = JFactory::getApplication()->input;
+
         $response = array();
         $response['status'] = 0;
         $response['text'] = '';
 
-        $filePath = JRequest::getVar('file_path');
-        $fileName = JRequest::getVar('file_name');
+        $filePath = $input->getPath('file_path');
+        $fileName = $input->getPath('file_name');
 
         $path = JPath::clean(JPATH_ROOT.DS.$filePath.DS.$fileName);
 
@@ -529,12 +543,14 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function loadPic()
     {
+        $input = JFactory::getApplication()->input;
+
         $response = array();
         $response['status'] = 0;
         $response['text'] = '';
 
-        $filePath = JRequest::getVar('file_path');
-        $fileName = JRequest::getVar('file_name');
+        $filePath = $input->getPath('file_path');
+        $fileName = $input->getPath('file_name');
 
         $test = JPath::clean(JPATH_ROOT.DS.$filePath.DS.$fileName);
 
@@ -563,11 +579,13 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function save()
     {
-        $old_task = JRequest::getVar('old_task', null);
+        $input = JFactory::getApplication()->input;
+
+        $old_task = $input->get('old_task', null);
         $task =($old_task) ? $old_task : 'stuffer';
 
-        JRequest::setVar('task', $task);
-        JRequest::setVar('view', 'stuffer');
+        $input->set('task', $task);
+        $input->set('view', 'stuffer');
 
         ob_start();
 
@@ -599,12 +617,14 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function new_folder()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $input = JFactory::getApplication()->input;
 
-        if(JRequest::getCmd('do_action') == 'new_folder')
+        $ecr_project = $input->get('ecr_project');
+
+        if($input->get('do_action') == 'new_folder')
         {
-            $act_path = JRequest::getVar('act_path');
-            $act_name = JRequest::getVar('act_name');
+            $act_path = $input->getPath('act_path');
+            $act_name = $input->getPath('act_name');
             $act_path = str_replace('/', DS, $act_path);
             $path = JPATH_ROOT.DS.$act_path;
 
@@ -652,12 +672,14 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function new_file()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $input = JFactory::getApplication()->input;
 
-        if(JRequest::getCmd('do_action') == 'new_file')
+        $ecr_project = $input->get('ecr_project');
+
+        if($input->get('do_action') == 'new_file')
         {
-            $reqPath = JRequest::getVar('act_path');
-            $reqName = JRequest::getVar('act_name');
+            $reqPath = $input->getPath('act_path');
+            $reqName = $input->getPath('act_name');
 
             $path = JPath::clean(JPATH_ROOT.DS.$reqPath.DS.$reqName);
 
@@ -704,11 +726,13 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function delete_folder()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $input = JFactory::getApplication()->input;
 
-        if(JRequest::getCmd('do_action') == 'delete_folder')
+        $ecr_project = $input->get('ecr_project');
+
+        if($input->get('do_action') == 'delete_folder')
         {
-            if( ! $act_path = JRequest::getVar('act_path'))
+            if( ! $act_path = $input->getPath('act_path'))
             {
                 EcrHtml::message(jgettext('Empty'), 'error');
 
@@ -750,12 +774,14 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function delete_file()
     {
-        $ecr_project = JRequest::getCmd('ecr_project', NULL);
+        $input = JFactory::getApplication()->input;
 
-        if(JRequest::getCmd('do_action') == 'delete_file')
+        $ecr_project = $input->get('ecr_project', NULL);
+
+        if($input->get('do_action') == 'delete_file')
         {
-            $act_path = JRequest::getVar('act_path');
-            $act_name = JRequest::getVar('act_name');
+            $act_path = $input->getPath('act_path');
+            $act_name = $input->getPath('act_name');
 
             if( ! $act_path
             || ! $act_name)
@@ -800,13 +826,15 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function rename_folder()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $input = JFactory::getApplication()->input;
 
-        if(JRequest::getCmd('do_action') == 'rename_folder')
+        $ecr_project = $input->get('ecr_project');
+
+        if($input->get('do_action') == 'rename_folder')
         {
-            $act_path = JRequest::getVar('act_path');
-            $old_name = JRequest::getVar('old_name');
-            $act_name = JRequest::getVar('act_name');
+            $act_path = $input->getPath('act_path');
+            $old_name = $input->getPath('old_name');
+            $act_name = $input->getPath('act_name');
             $path = JPATH_ROOT.DS.$act_path;
 
             if( ! JFolder::exists($path))
@@ -845,13 +873,15 @@ class EasyCreatorControllerAjax extends JControllerLegacy
      */
     public function rename_file()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $input = JFactory::getApplication()->input;
 
-        if(JRequest::getCmd('do_action') == 'rename_file')
+        $ecr_project = $input->get('ecr_project');
+
+        if($input->get('do_action') == 'rename_file')
         {
-            $act_path = JRequest::getString('act_path');
-            $old_name = JRequest::getVar('old_name');
-            $act_name = JRequest::getVar('act_name');
+            $act_path = $input->getPath('act_path');
+            $old_name = $input->getPath('old_name');
+            $act_name = $input->getPath('act_name');
             $path = JPATH_ROOT.DS.$act_path;
 
             if( ! JFile::exists($path.DS.$old_name))
@@ -936,12 +966,14 @@ body {
      */
     public function processForm($task, $ecr_project, $type, $action, $hasName = false, $isNew = false)
     {
+        $input = JFactory::getApplication()->input;
+
         $baseLink = 'index.php?option=com_easycreator';
 
         $hrefLink = $baseLink;
-        $hrefLink .= '&ecr_project='.JRequest::getCmd('ecr_project');
-        $hrefLink .= '&task='.JRequest::getCmd('old_task', 'stuffer');
-        $hrefLink .= '&controller='.JRequest::getCmd('old_controller', 'stuffer');
+        $hrefLink .= '&ecr_project='.$input->get('ecr_project');
+        $hrefLink .= '&task='.$input->get('old_task', 'stuffer');
+        $hrefLink .= '&controller='.$input->get('old_controller', 'stuffer');
 
         $ajaxLink = $baseLink.'&tmpl=component&controller=ajax&format=raw';
         $ajaxLink .= '&task='.$task.'&do_action='.$task;
@@ -1088,9 +1120,11 @@ body {
      */
     public function get_table_field_selector()
     {
+        $input = JFactory::getApplication()->input;
+
         $response = array();
-        $table = JRequest::getCmd('table');
-        $fieldName = JRequest::getCmd('field_name');
+        $table = $input->get('table');
+        $fieldName = $input->get('field_name');
 
         if( ! $table)
         {

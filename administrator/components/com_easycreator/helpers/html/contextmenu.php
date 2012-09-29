@@ -19,17 +19,16 @@ abstract class EcrHtmlContextmenu
      */
     public static function display()
     {
-        //--Add css
-        ecrStylesheet('contextmenu');
+        $input = JFactory::getApplication()->input;
 
-        //--Add javascript
-        ecrScript('contextmenu');
+        //--Add css and javascript
+        ecrLoadMedia('contextmenu');
 
         $ajaxLink = 'index.php?option=com_easycreator';
         $ajaxLink .= '&controller=ajax&tmpl=component';
-        $ajaxLink .= '&old_task='.JRequest::getCmd('task');
-        $ajaxLink .= '&old_controller='.JRequest::getCmd('controller');
-        $ajaxLink .= '&ecr_project='.JRequest::getCmd('ecr_project');
+        $ajaxLink .= '&old_task='.$input->get('task');
+        $ajaxLink .= '&old_controller='.$input->get('controller');
+        $ajaxLink .= '&ecr_project='.$input->get('ecr_project');
 
         ?>
     <script type="text/javascript">

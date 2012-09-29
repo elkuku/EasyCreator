@@ -26,7 +26,7 @@ class EasyCreatorControllerStarter extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'starter');
+        JFactory::getApplication()->input->set('view', 'starter');
 
         parent::display($cachable, $urlparams);
     }//function
@@ -38,11 +38,13 @@ class EasyCreatorControllerStarter extends JControllerLegacy
      */
     public function starterstart()
     {
+        $input = JFactory::getApplication()->input;
+
         $builder = new EcrProjectBuilder;
 
-        $type = JRequest::getCmd('tpl_type');
-        $name = JRequest::getCmd('tpl_name');
-        $comName = JRequest::getCmd('com_name');
+        $type = $input->get('tpl_type');
+        $name = $input->get('tpl_name');
+        $comName = $input->get('com_name');
 
         if( ! $newProject = $builder->build($type, $name, $comName))
         {
@@ -56,7 +58,7 @@ class EasyCreatorControllerStarter extends JControllerLegacy
             return false;
         }
 
-        if(JRequest::getCmd('ecr_test_mode') == 'test')
+        if('test' == $input->get('ecr_test_mode'))
         {
             //-- Exiting in test mode
             echo '<h2>Exiting in test mode...</h2>';
@@ -84,11 +86,13 @@ class EasyCreatorControllerStarter extends JControllerLegacy
      */
     public function register_project()
     {
+        $input = JFactory::getApplication()->input;
+
         $builder = new EcrProjectBuilder;
 
-        $type = JRequest::getCmd('ecr_project_type');
-        $name = JRequest::getCmd('ecr_project_name');
-        $scope = JRequest::getCmd('ecr_project_scope');
+        $type = $input->get('ecr_project_type');
+        $name = $input->get('ecr_project_name');
+        $scope = $input->get('ecr_project_scope');
 
         $project = $builder->registerProject($type, $name, $scope);
 
@@ -120,11 +124,13 @@ class EasyCreatorControllerStarter extends JControllerLegacy
      */
     public function ajGetExtensionTemplateInfo()
     {
+        $input = JFactory::getApplication()->input;
+
         $jsFile = '';
         $fileTree = new EcrFileTree('', '', $jsFile, '');
 
-        $extType = JRequest::getCmd('extType');
-        $folder = JRequest::getCmd('folder');
+        $extType = $input->get('extType');
+        $folder = $input->get('folder');
 
         $response = array();
         $response['status'] = 0;

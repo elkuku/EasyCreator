@@ -94,7 +94,7 @@ class PartTablesAdmin_map
      */
     public function show_tablefields()
     {
-        $table_name = JRequest::getCmd('table_name');
+        $table_name = JFactory::getApplication()->input->get('table_name');
 
         if( ! $table_name)
         {
@@ -104,7 +104,7 @@ class PartTablesAdmin_map
         $db = JFactory::getDBO();
 
         $table_name = $db->getPrefix().$table_name;
-        $fields = $db->getTableFields($table_name);
+        $fields = $db->getTableColumns($table_name);
 
         if( ! count($fields) || ! count($fields[$table_name]))
         {
@@ -178,11 +178,13 @@ class PartTablesAdmin_map
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-        $element_name = JRequest::getCmd('element_name');
-        $table_name = JRequest::getCmd('table_name');
-        $req_table_fields = JRequest::getVar('table_fields', array());
-        $req_table_fields_edits = JRequest::getVar('table_fields_edits', array());
-        $req_table_fields_types = JRequest::getVar('table_fields_types', array());
+        $input = JFactory::getApplication()->input;
+
+        $element_name = $input->get('element_name');
+        $table_name = $input->get('table_name');
+        $req_table_fields = $input->get('table_fields', array(), 'array');
+        $req_table_fields_edits = $input->get('table_fields_edits', array(), 'array');
+        $req_table_fields_types = $input->get('table_fields_types', array(), 'array');
 
         if( ! $table_name)
         {
@@ -240,7 +242,6 @@ class PartTablesAdmin_map
         /*
          * Add manual substitutes
          */
-        $subs = array();
         $substitutes['##ECR_VIEW1_TMPL1_THS##'] = '?>';
         $substitutes['##ECR_VIEW1_TMPL1_TDS##'] = '?>';
         $substitutes['##ECR_VIEW2_TMPL1_OPTION2##'] = '?>';
@@ -297,7 +298,7 @@ class PartTablesAdmin_map
 
         $project->addSubstitute('ECR_SUBPACKAGE', 'Tables');
 
-        JRequest::setVar('element_scope', 'admin');
+        $input->set('element_scope', 'admin');
 
         if( ! $project->insertPart($options, $logger))
         {
@@ -307,7 +308,7 @@ class PartTablesAdmin_map
         /*
          * Create menu link
          */
-        if(JRequest::getCmd('create_menu_link', false))
+        if($input->get('create_menu_link', false))
         {
             $link = 'option='.$options->ecr_project.'&view='.strtolower($element_name).$project->listPostfix
             .'&controller='.strtolower($element_name).$project->listPostfix;

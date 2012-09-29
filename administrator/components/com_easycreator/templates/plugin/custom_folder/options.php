@@ -25,9 +25,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
      */
     public function displayOptions(EcrProjectBase $project)
     {
-        $html = jgettext('Folder name').' : <input type="text" name="ecr_folder_name" id="ecr_folder_name" />';
-
-        return $html;
+        return jgettext('Folder name').' : <input type="text" name="ecr_folder_name" id="ecr_folder_name" />';
     }//function
 
     /**
@@ -37,9 +35,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
      */
     public function getRequireds()
     {
-        $requireds = array('ecr_folder_name');
-
-        return $requireds;
+        return array('ecr_folder_name');
     }//function
 
     /**
@@ -51,7 +47,9 @@ class TemplateOptions extends EcrProjectTemplateOptions
      */
     public function processOptions(EcrProjectBuilder $builder)
     {
-        if( ! $ecr_folder_name = JRequest::getCmd('ecr_folder_name'))
+        $ecr_folder_name = JFactory::getApplication()->input->get('ecr_folder_name');
+
+        if( ! $ecr_folder_name)
         {
             JFactory::getApplication()->enqueueMessage(jgettext('No folder given'), 'error');
 

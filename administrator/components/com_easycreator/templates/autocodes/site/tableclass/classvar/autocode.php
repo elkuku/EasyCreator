@@ -184,9 +184,11 @@ class AutoCodeSiteTableclassClassvar extends EcrProjectAutocode
      */
     public function insert(EcrProjectBase $project, $options, EcrLogger $logger)
     {
-        $table_name = JRequest::getCmd('element');
-        $var_scope = JRequest::getCmd('var_scope');
-        $element_scope = JRequest::getCmd('element_scope');
+        $input = JFactory::getApplication()->input;
+
+        $table_name = $input->get('element');
+        $var_scope = $input->get('var_scope');
+        $element_scope = $input->get('element_scope');
 
         if( ! $table_name)
         {
@@ -202,7 +204,7 @@ class AutoCodeSiteTableclassClassvar extends EcrProjectAutocode
         $table_vars = '';
         $autoCodeFields = array();
 
-        $reqFields = JRequest::getVar('field');
+        $reqFields = $input->get('field', array(), 'array');
 
         if(count($fields))
         {

@@ -21,6 +21,5 @@ class ECR_CLASS_PREFIXControllerECR_UCF_COM_NAME extends JControllerBase
      */
     public function execute()
     {
-        // TODO: Implement execute() method.
     }
 }

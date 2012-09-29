@@ -27,7 +27,7 @@ class EasyCreatorViewDeploy extends JViewLegacy
         ecrStylesheet('deploy');
         ecrScript('deploy', 'php2js', 'pollrequest');
 
-        $task = JRequest::getCmd('task');
+        $task = JFactory::getApplication()->input->get('task');
 
         try
         {

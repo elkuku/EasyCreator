@@ -110,7 +110,7 @@ class EcrProjectManifest extends JObject
      */
     private function setUp()
     {
-        $buildVars = JRequest::getVar('buildvars', array());
+        $buildVars = JFactory::getApplication()->input->get('buildvars', array(), 'array');
 
         $this->manifest->addAttribute('type', $this->project->type);
         $this->manifest->addAttribute('version', $this->project->JCompat);

@@ -25,7 +25,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'languages');
+        JFactory::getApplication()->input->set('view', 'languages');
 
         parent::display($cachable, $urlparams);
     }//function
@@ -37,9 +37,11 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
      */
     public function save_lang_corrected()
     {
-        //-- Get the project
+        $input = JFactory::getApplication()->input;
+
         try
         {
+            //-- Get the project
             $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
@@ -51,25 +53,25 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             return;
         }//try
 
-        $scope = JRequest::getVar('scope', 'admin');
+        $scope = $input->get('scope', 'admin');
 
         if( ! $scope)
         {
             $scope = 'admin';
         }
 
-        $hideLangs = JRequest::getVar('hide_langs', array());
+        $hideLangs = $input->get('hide_langs', array());
 
         if(count($project->langs))
         {
             $easyLanguage = new EcrLanguage($project, $scope, $hideLangs);
-            $sel_language = JRequest::getVar('sel_language', '');
-            $langfile = JRequest::getVar('langfile', array(), 'post', 'array', JREQUEST_ALLOWRAW);
+            $sel_language = $input->get('sel_language');
+            $langfile = $input->getHtml('langfile', array());
             $easyLanguage->saveFile($sel_language, $langfile);
         }
 
-        JRequest::setVar('task', 'languages');
-        JRequest::setVar('view', 'languages');
+        $input->set('task', 'languages');
+        $input->set('view', 'languages');
 
         parent::display();
     }//function
@@ -81,9 +83,11 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
      */
     public function save_deflang_corrected()
     {
-        //-- Get the project
+        $input = JFactory::getApplication()->input;
+
         try
         {
+            //-- Get the project
             $project = EcrProjectHelper::getProject();
         }
         catch(Exception $e)
@@ -95,28 +99,24 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             return;
         }//try
 
-        $scope = JRequest::getVar('scope', 'admin');
+        $scope = $input->get('scope', 'admin');
 
         if( ! $scope)
         {
             $scope = 'admin';
         }
 
-        $hideLangs = JRequest::getVar('hide_langs', array());
+        $hideLangs = $input->get('hide_langs', array());
 
-        if( ! count($project->langs))
-        {
-            $easyLanguage = false;
-        }
-        else
+        if(count($project->langs))
         {
             $easyLanguage = new EcrLanguage($project, $scope, $hideLangs);
-            $langfile = JRequest::getVar('langfile', array(), 'post', 'array', JREQUEST_ALLOWRAW);
+            $langfile = $input->get('langfile', array());
             $easyLanguage->saveFile('en-GB', $langfile);
         }
 
-        JRequest::setVar('task', 'languages');
-        JRequest::setVar('view', 'languages');
+        $input->set('task', 'languages');
+        $input->set('view', 'languages');
 
         parent::display();
     }//function
@@ -128,8 +128,10 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
      */
     public function create_langfile()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
-        $oldTask = JRequest::getCmd('old_task', 'languages');
+        $input = JFactory::getApplication()->input;
+
+        $ecr_project = $input->get('ecr_project');
+        $oldTask = $input->get('old_task', 'languages');
         $type = '';
 
         try
@@ -157,7 +159,9 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
      */
     public function remove_bom()
     {
-        $fileName = JRequest::getVar('file');
+        $input = JFactory::getApplication()->input;
+
+        $fileName = $input->get('file');
 
         if( ! $fileName)
         {
@@ -175,8 +179,8 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             }
         }
 
-        JRequest::setVar('view', 'languages');
-        JRequest::setVar('task', 'languages');
+        $input->set('view', 'languages');
+        $input->set('task', 'languages');
 
         parent::display();
     }//function
@@ -188,9 +192,11 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
      */
     public function do_convert()
     {
-        JRequest::setVar('task', 'convert');
+        $input = JFactory::getApplication()->input;
 
-        $options = JRequest::getVar('options', array());
+        $input->set('task', 'convert');
+
+        $options = $input->get('options', array());
 
         $options = JArrayHelper::toObject($options, 'JObject');
 
@@ -212,12 +218,12 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
 
         $converter = new EcrLanguageConverter($options, $project);
 
-        $selLanguage = JRequest::getCmd('sel_language');
-        $selectedFile = JRequest::getVar('selected_file');
-        $fileErrors = JRequest::getVar('file_errors', array());
-        $scope = JRequest::getCmd('scope');
+        $selLanguage = $input->get('sel_language');
+        $selectedFile = $input->get('selected_file');
+        $fileErrors = $input->get('file_errors', array());
+        $scope = $input->get('scope');
 
-        $selectedErrors = JRequest::getVar('selected_errors', array());
+        $selectedErrors = $input->get('selected_errors', array());
 
         /*
          * Clean language files
@@ -276,6 +282,8 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
 
     public function g11nUpdateLanguage()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -291,8 +299,8 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
                 break;
             }//switch
 
-            $scope = JRequest::getCmd('scope');
-            $lang = JRequest::getCmd('langTag');
+            $scope = $input->get('scope');
+            $lang = $input->get('langTag');
 
             $msg = Ecrg11nHelper::updateLanguage($comName, $scope, $lang);
 
@@ -303,18 +311,20 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
         }//try
 
-        JRequest::setVar('task', 'g11nUpdate');
+        $input->set('task', 'g11nUpdate');
 
         parent::display();
     }//function
 
     public function g11nCreateTemplate()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
             $project = EcrProjectHelper::getProject();
 
-            $scope = JRequest::getCmd('scope');
+            $scope = $input->get('scope');
 
             switch($project->type)
             {
@@ -342,7 +352,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
         }
 
-        JRequest::setVar('task', 'g11nUpdate');
+        $input->set('task', 'g11nUpdate');
 
         parent::display();
     }

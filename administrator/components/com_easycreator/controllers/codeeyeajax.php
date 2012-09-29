@@ -41,12 +41,14 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function phpunit()
     {
+        $input = JFactory::getApplication()->input;
+
         $response = new stdClass;
 
-        $folder = JRequest::getString('folder');
-        $test = JRequest::getString('test');
-        $time_stamp = JRequest::getCmd('time_stamp');
-        $resultsBase = JRequest::getVar('results_base');
+        $folder = $input->getString('folder');
+        $test = $input->getString('test');
+        $time_stamp = $input->get('time_stamp');
+        $resultsBase = $input->getPath('results_base');
 
         $arguments = array();
 
@@ -99,12 +101,14 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function selenium()
     {
+        $input = JFactory::getApplication()->input;
+
         $response = new stdClass;
 
-        $folder = JRequest::getString('folder');
-        $test = JRequest::getString('test');
-        $time_stamp = JRequest::getCmd('time_stamp');
-        $resultsBase = JRequest::getVar('results_base');
+        $folder = $input->getString('folder');
+        $test = $input->getString('test');
+        $time_stamp = $input->get('time_stamp');
+        $resultsBase = $input->getPath('results_base');
 
         $arguments = array();
 
@@ -161,9 +165,11 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function create_skeleton()
     {
-        $folder = JRequest::getString('folder');
-        $file = JRequest::getString('file');
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $input = JFactory::getApplication()->input;
+
+        $folder = $input->getString('folder');
+        $file = $input->getString('file');
+        $ecr_project = $input->get('ecr_project');
 
         $path = JPATH_ROOT.DS.$folder.DS.$file;
 
@@ -282,7 +288,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function draw_test_dir()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $ecr_project = JFactory::getApplication()->input->get('ecr_project');
         $this->testsBase = 'administrator'.DS.'components'.DS.$ecr_project.DS.'tests';
 
         $timeStamp = date('Ymd_his');
@@ -319,8 +325,10 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function gitStatus()
     {
-        $path = JRequest::getVar('path');
-        $file = JRequest::getVar('file');
+        $input = JFactory::getApplication()->input;
+
+        $path = $input->getPath('path');
+        $file = $input->getPath('file');
 
         $response = new stdClass;
 
@@ -353,7 +361,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
 
         $path = JPath::clean($project->getExtensionPath().'/'.$project->comName.'.php');
 
-        $args = (array)JRequest::getVar('args');
+        $args = JFactory::getApplication()->input->get('args', array(), 'array');
 
         $response = new stdClass;
 
@@ -376,7 +384,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
 
     public function phploc()
     {
-        $dir = JRequest::getString('dir');
+        $dir = JFactory::getApplication()->input->getPath('dir');
 
         $response = new stdClass;
 
@@ -414,8 +422,10 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function phpcs()
     {
-        $path = JRequest::getVar('path');
-        $file = JRequest::getVar('file');
+        $input = JFactory::getApplication()->input;
+
+        $path = $input->getPath('path');
+        $file = $input->getPath('file');
 
         if('' == $file)
         {
@@ -464,20 +474,20 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
 
         $sniffer = new EcrPearHelperCodesniffer;
 
-        $standard = JRequest::getVar('sniff_standard');
+        $standard = $input->get('sniff_standard');
 
         if($standard)
             $sniffer->setStandard($standard);
 
-        $format = JRequest::getVar('sniff_format');
+        $format = $input->get('sniff_format');
 
         if($format)
             $sniffer->setFormat($format);
 
-        $verbose = JRequest::getCmd('sniff_verbose');
+        $verbose = $input->get('sniff_verbose');
         $sniffer->verboseLevel = ($verbose == 'true') ? '-v' : '';
 
-        $sniffs = JRequest::getVar('sniff_sniffs');
+        $sniffs = $input->get('sniff_sniffs');
 
         if($sniffs)
         {
@@ -500,7 +510,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
             && 'xml' == $format
         )
         {
-            $xml = JFactory::getXML($results, false);
+            $xml = simplexml_load_string($results);
             $warnings = array();
             $errors = array();
 
@@ -587,11 +597,13 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function phpcpd()
     {
-        $path = JRequest::getVar('path');
+        $input = JFactory::getApplication()->input;
+
+        $path = $input->getPath('path');
 
         $arguments = array();
-        $arguments['min-lines'] = JRequest::getInt('min-lines', 5);
-        $arguments['min-tokens'] = JRequest::getInt('min-tokens', 70);
+        $arguments['min-lines'] = $input->getInt('min-lines', 5);
+        $arguments['min-tokens'] = $input->getInt('min-tokens', 70);
 
         $response = array();
 
@@ -629,13 +641,15 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function phpdoc()
     {
+        $input = JFactory::getApplication()->input;
+
         $response = array();
 
-        $parseDirs = JRequest::getVar('parse_dirs');
-        $parseFiles = JRequest::getVar('parse_files');
-        $targetDir = JRequest::getVar('target_dir');
-        $converter = JRequest::getVar('converter');
-        $options = JRequest::getVar('options');
+        $parseDirs = $input->get('parse_dirs');
+        $parseFiles = $input->get('parse_files');
+        $targetDir = $input->get('target_dir');
+        $converter = $input->get('converter');
+        $options = $input->get('options');
 
         $phpDoc = new EcrPearHelperPhpdoc;
 
@@ -831,8 +845,10 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function get_stats()
     {
-        JRequest::setVar('view', 'codeeye');
-        JRequest::setVar('layout', 'stats2_table');
+        $input = JFactory::getApplication()->input;
+
+        $input->set('view', 'codeeye');
+        $input->set('layout', 'stats2_table');
         parent::display();
 
         return;
@@ -845,17 +861,19 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
      */
     public function get_chart()
     {
+        $input = JFactory::getApplication()->input;
+
         error_reporting(E_ALL);
 
-        include JPATH_COMPONENT.DS.'helpers'.DS.'pchart'.DS.'pData.class.php';
-        include JPATH_COMPONENT.DS.'helpers'.DS.'pchart'.DS.'pChart.class.php';
+        include JPATH_COMPONENT.'/helpers/pchart/pData.class.php';
+        include JPATH_COMPONENT.'/helpers/pchart/pChart.class.php';
 
         JFactory::getDocument()->setMimeEncoding('image/jpg');
 
-        $data = JRequest::getVar('data', '');
-        $labels = JRequest::getVar('labels', '');
+        $data = $input->getVar('data', '');
+        $labels = $input->getVar('labels', '');
 
-        $colorChart = JRequest::getInt('color', 8);
+        $colorChart = $input->getInt('color', 8);
 
         $colorPath = JPATH_COMPONENT_ADMINISTRATOR.DS.'helpers'.DS.'pchart'.DS.'colours'.DS.'tones-'.$colorChart.'.txt';
 

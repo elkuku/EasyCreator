@@ -16,14 +16,16 @@ class EcrHtmlMenu
 {
     public static function main()
     {
+        $input = JFactory::getApplication()->input;
+
         /*   //                                                          //
          *  //--We start our form HERE ! this is for the whole app !    //
          * //                                                          //
          */
         EcrHtml::formStart();
 
-        $task = JRequest::getCmd('task', 'stuffer');
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $task = $input->get('task', 'stuffer');
+        $ecr_project = $input->get('ecr_project');
         $project = false;
 
         if($ecr_project)
@@ -247,7 +249,7 @@ class EcrHtmlMenu
      */
     public static function sub($subTasks, $rightTasks = array())
     {
-        $task = JRequest::getCmd('task', 'stuffer');
+        $task = JFactory::getApplication()->input->get('task', 'stuffer');
         $html = array();
         $htmlDescriptionDivs = '';
         $jsVars = '';

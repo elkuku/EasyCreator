@@ -2,7 +2,7 @@
 <!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
 "http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
 <easyproject type="component" version="0.0.12">
-	<name>Hello world</name>
+	<name>Hello world J3L</name>
 	<description>A simple hello world MVC component - LEGACY !</description>
 	<version>1.0</version>
 	<jVersion>3.0</jVersion>

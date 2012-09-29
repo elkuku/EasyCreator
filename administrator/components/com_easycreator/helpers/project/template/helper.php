@@ -183,7 +183,7 @@ class EcrProjectTemplateHelper
     {
         jimport('joomla.installer.helper');
 
-        $package = self::_getPackageFromUpload();
+        $package = self::getPackageFromUpload();
 
         if(false == $package)
             throw new Exception(jgettext('Unable to find install package'));
@@ -240,10 +240,10 @@ class EcrProjectTemplateHelper
      * @throws Exception
      * @return mixed array the package on success | boolean false on error
      */
-    private static function _getPackageFromUpload()
+    private static function getPackageFromUpload()
     {
         //-- Get the uploaded file information
-        $userfile = JRequest::getVar('install_package', null, 'files', 'array');
+        $userfile = JFactory::getApplication()->input->files->get('install_package', null, 'array');
 
         //-- If there is no uploaded file, we have a problem...
         if(false == is_array($userfile))

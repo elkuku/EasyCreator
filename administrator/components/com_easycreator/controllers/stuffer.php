@@ -48,21 +48,23 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        if(JRequest::getVar('tmpl') != 'component')
+        $input = JFactory::getApplication()->input;
+
+        if($input->get('tmpl') != 'component')
         {
-            $ecr_project = JRequest::getCmd('ecr_project');
+            $ecr_project = $input->get('ecr_project');
 
             if('' == $ecr_project)
             {
                 //-- NO PROJECT SELECTED - abort to mainscreen
-                JRequest::setVar('view', 'easycreator');
+                $input->set('view', 'easycreator');
                 parent::display($cachable, $urlparams);
 
                 return;
             }
         }
 
-        JRequest::setVar('view', 'stuffer');
+        $input->set('view', 'stuffer');
 
         parent::display($cachable, $urlparams);
     }
@@ -74,14 +76,16 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function new_element()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
+        $input = JFactory::getApplication()->input;
 
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('element_scope');
+        $ecr_project = $input->get('ecr_project');
+        $group = $input->get('group');
+        $part = $input->get('part');
 
-        $old_task = JRequest::getCmd('old_task', 'stuffer');
+        $element = $input->get('element');
+        $scope = $input->get('element_scope');
+
+        //$old_task = $input->get('old_task', 'stuffer');
 
         //-- Get the project
         try
@@ -97,8 +101,8 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             return;
         }
 
-        JRequest::setVar('view', 'stuffer');
-        JRequest::setVar('file', '');
+        $input->set('view', 'stuffer');
+        $input->set('file', '');
 
         if( ! $ePart = EcrProjectHelper::getPart($group, $part, $element, $scope))
         {
@@ -117,7 +121,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
         }
 
         //-- Setup logging
-        $buildOpts = JRequest::getVar('buildopts', array());
+        $buildOpts = $input->get('buildopts', array());
         $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
         $logger = EcrLogger::getInstance('ecr', $buildOpts);
@@ -164,10 +168,11 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function new_relation()
     {
-        //-- Get the project
+        $input = JFactory::getApplication()->input;
+
         try
         {
-            $tableName = JRequest::getCmd('table_name', '');
+            $tableName = $input->get('table_name', '');
 
             if('' == $tableName)
                 throw new Exception(jgettext('No table given'));
@@ -177,7 +182,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             if(false == array_key_exists($tableName, $project->tables))
                 throw new Exception(jgettext('Invalid Table'));
 
-            $relations = JRequest::getVar('relations');
+            $relations = $input->get('relations', array(), 'array');
 
             if(false == isset($relations[$tableName]['foreign_table_field']))
                 throw new Exception(jgettext('Invalid options'));
@@ -205,8 +210,8 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             EcrHtml::message($e);
         }
 
-        JRequest::setVar('view', 'stuffer');
-        JRequest::setVar('task', 'tables');
+        $input->set('view', 'stuffer');
+        $input->set('task', 'tables');
 
         parent::display();
     }
@@ -219,18 +224,20 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function autocode_update()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
-        $group = JRequest::getCmd('group');
-        $part = JRequest::getCmd('part');
+        $input = JFactory::getApplication()->input;
 
-        $element = JRequest::getCmd('element');
-        $scope = JRequest::getCmd('element_scope');
+        $ecr_project = $input->get('ecr_project');
+        $group = $input->get('group');
+        $part = $input->get('part');
 
-        $old_task = JRequest::getVar('old_task', null);
+        $element = $input->get('element');
+        $scope = $input->get('element_scope');
+
+        $old_task = $input->get('old_task');
         $task = ($old_task) ? $old_task : 'stuffer';
 
-        JRequest::setVar('task', $task);
-        JRequest::setVar('view', 'stuffer');
+        $input->set('task', $task);
+        $input->set('view', 'stuffer');
 
         $key = "$scope.$group.$part.$element";
 
@@ -249,7 +256,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
                     , $ecr_project, $group, $part));
 
             //-- Setup logging
-            $buildOpts = JRequest::getVar('buildopts', array());
+            $buildOpts = $input->get('buildopts', array(), 'array');
             $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
             $logger = EcrLogger::getInstance('ecr', $buildOpts);
@@ -294,8 +301,10 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function delete_file()
     {
-        $file_path = JRequest::getVar('file_path', NULL);
-        $file_name = JRequest::getVar('file_name', NULL);
+        $input = JFactory::getApplication()->input;
+
+        $file_path = $input->getPath('file_path');
+        $file_name = $input->getPath('file_name');
 
         $path = JPATH_ROOT.DS.$file_path.$file_name;
 
@@ -311,7 +320,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
                 EcrHtml::message(jgettext('File has been deleted'));
 
                 //-- Clean the cache
-                $ecr_project = JRequest::getVar('ecr_project', NULL);
+                $ecr_project = $input->get('ecr_project');
 
                 JFactory::getCache('EasyCreator_'.$ecr_project)->clean();
             }
@@ -321,10 +330,10 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             }
         }
 
-        $old_task = JRequest::getVar('old_task', NULL);
+        $old_task = $input->get('old_task');
         $task = ($old_task) ? $old_task : 'stuffer';
-        JRequest::setVar('task', $task);
-        JRequest::setVar('view', 'stuffer');
+        $input->set('task', $task);
+        $input->set('view', 'stuffer');
 
         parent::display();
     }
@@ -338,8 +347,10 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function save_params()
     {
-        JRequest::setVar('view', 'stuffer');
-        JRequest::setVar('task', 'projectparams');
+        $input = JFactory::getApplication()->input;
+
+        $input->set('view', 'stuffer');
+        $input->set('task', 'projectparams');
 
         /*
          * Parameter definition
@@ -374,8 +385,8 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
 
         $defaultFields = array('name', 'label', 'default', 'description');
 
-        $requestParams = JRequest::getVar('params', array());
-        $selected_xml = JRequest::getVar('selected_xml', '');
+        $requestParams = $input->get('params', array(), 'array');
+        $selected_xml = $input->getPath('selected_xml');
 
         if(0 == count($requestParams))
         {
@@ -535,7 +546,9 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function save_config()
     {
-        $old_task = JRequest::getCmd('old_task', 'stuffer');
+        $input = JFactory::getApplication()->input;
+
+        $old_task = $input->get('old_task', 'stuffer');
 
         try
         {
@@ -557,8 +570,8 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             return;
         }
 
-        JRequest::setVar('view', 'stuffer');
-        JRequest::setVar('task', $old_task);
+        $input->set('view', 'stuffer');
+        $input->set('task', $old_task);
 
         parent::display();
     }
@@ -582,6 +595,8 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function delete_project($complete = false)
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
             $project = EcrProjectHelper::getProject();
@@ -596,8 +611,8 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             EcrHtml::message($e);
             EcrHtml::message(jgettext('The Project could not be removed'), 'error');
 
-            JRequest::setVar('view', 'stuffer');
-            JRequest::setVar('task', 'stuffer');
+            $input->set('view', 'stuffer');
+            $input->set('task', 'stuffer');
 
             parent::display();
 
@@ -612,9 +627,11 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function register_table()
     {
-        JRequest::setVar('view', 'stuffer');
+        $input = JFactory::getApplication()->input;
 
-        $table_name = JRequest::getCmd('register_tbl');
+        $input->set('view', 'stuffer');
+
+        $table_name = $input->get('register_tbl');
 
         if('' == $table_name)
         {
@@ -662,7 +679,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
     {
         echo 'StufferController::createTable';
 
-        JRequest::setVar('view', 'stuffer');
+        JFactory::getApplication()->input->set('view', 'stuffer');
 
         parent::display();
     }
@@ -703,10 +720,12 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function create_install_file()
     {
-        $type1 = JRequest::getCmd('type1');
-        $type2 = JRequest::getCmd('type2');
+        $input = JFactory::getApplication()->input;
 
-        JRequest::setVar('task', 'install');
+        $type1 = $input->get('type1');
+        $type2 = $input->get('type2');
+
+        $input->set('task', 'install');
 
         if( ! $type1 || ! $type2)
         {
@@ -725,7 +744,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             $installPath = JPATH_ADMINISTRATOR.DS.'components'.DS.$project->comName.DS.'install';
 
             //-- Init buildopts
-            $buildopts = JRequest::getVar('buildopts', array());
+            $buildopts = $input->get('buildopts', array(), 'array');
 
             //-- Setup logging
             $buildopts['fileName'] = date('ymd_Hi').'_'.$type1.'_'.$type2.'.log';
@@ -1047,7 +1066,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
         try
         {
             $this->response->data = EcrProjectHelper::getProject()
-                ->getPreset(JRequest::getCmd('preset'))->toJson();
+                ->getPreset(JFactory::getApplication()->input->get('preset'))->toJson();
         }
         catch(Exception $e)
         {
@@ -1070,14 +1089,16 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
      */
     public function getAction()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
-            $options = json_decode(JRequest::getVar('options', '', 'default'));
+            $options = json_decode($input->getHtml('options'));
             $options = $options ?: array();
 
-            $cnt = JRequest::getInt('cnt');
+            $cnt = $input->getInt('cnt');
 
-            $this->response->message = EcrProjectAction::getInstance(JRequest::getCmd('type'))
+            $this->response->message = EcrProjectAction::getInstance($input->get('type'))
                 ->setOptions($options)
                 ->getFields($cnt);
         }

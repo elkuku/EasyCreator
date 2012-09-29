@@ -18,7 +18,7 @@ endif;
 
 JHTML::_('behavior.modal', 'a.ecr_modal');
 
-EcrHtml::initFileTree();
+ecrLoadMedia('php_file_tree');
 
 //-- Create a cache instance.
 $cache = JFactory::getCache('EasyCreator_'.$this->ecr_project);
@@ -168,7 +168,7 @@ function drawFileTree(EcrProjectBase $project)
 
     function drawAddElementTable()
     {
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $ecr_project = JFactory::getApplication()->input->get('ecr_project');
         $link = 'index.php?option=com_easycreator&controller=ajax&task=show_part&tmpl=component';
         $link .= '&ecr_project='.$ecr_project;
         ?>

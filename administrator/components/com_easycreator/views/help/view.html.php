@@ -24,9 +24,7 @@ class EasyCreatorViewHelp extends JViewLegacy
      */
     public function display($tpl = null)
     {
-        $task = JRequest::getCmd('task');
-
-        switch($task)
+        switch(JFactory::getApplication()->input->get('task'))
         {
             case 'jhelp':
                 $this->setLayout('jhelp');

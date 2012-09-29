@@ -74,9 +74,6 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
     {
         ob_start();
 
-        $message = '';
-        $debugOutput = '';
-
         try
         {
             // Load the database object if necessary.
@@ -196,13 +193,10 @@ class ECR_CLASS_PREFIXApplicationWeb extends JApplicationWeb
 
         // If the requested controller exists let's use it.
         if(class_exists($className))
-            return new $className; //($this->input, $this);
+            return new $className;
 
-        // Nothing found. Don't Panic.
+        // Nothing found. Return the default model.
         return new ECR_CLASS_PREFIXModelDefault(new JRegistry);
-
-        // Nothing found. Panic.
-        //throw new InvalidArgumentException('Model not found: '.$sub, 400);
     }
 
     /**

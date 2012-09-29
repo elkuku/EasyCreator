@@ -10,8 +10,10 @@
 $projectTypes = EcrProjectHelper::getProjectTypes();
 $projectScopes = EcrProjectHelper::getProjectScopes();
 
-$task = JRequest::getCmd('task');
-$showCore = (JRequest::getCmd('show_core') == 'show_core') ? true : false;
+$input = JFactory::getApplication()->input;
+
+$task = $input->get('task');
+$showCore = ($input->get('show_core') == 'show_core') ? true : false;
 $checked = ($showCore) ? ' checked="checked"' : '';
 
 ?>

@@ -14,7 +14,7 @@
     <complements>
         <complement>
             <folder>twitter-bootstrap</folder>
-            <version>2.0.3</version>
+            <version>2.1.1</version>
             <targetDir>site/www/template</targetDir>
         </complement>
     </complements>

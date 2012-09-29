@@ -26,7 +26,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
      */
     public function display($cachable = false, $urlparams = false)
     {
-        JRequest::setVar('view', 'templates');
+        JFactory::getApplication()->input->set('view', 'templates');
 
         parent::display($cachable, $urlparams);
     }//function
@@ -38,6 +38,8 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
      */
     public function save()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
             EcrFile::saveFile();
@@ -49,8 +51,8 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
             EcrHtml::message($e);
         }//try
 
-        JRequest::setVar('view', 'templates');
-        JRequest::setVar('task', 'templates');
+        $input->set('view', 'templates');
+        $input->set('task', 'templates');
 
         parent::display();
     }//function
@@ -62,6 +64,8 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
      */
     public function delete()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
             EcrFile::deleteFile();
@@ -73,8 +77,8 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
             EcrHtml::message($e);
         }//try
 
-        JRequest::setVar('view', 'templates');
-        JRequest::setVar('task', 'tplarchive');
+        $input->set('view', 'templates');
+        $input->set('task', 'tplarchive');
 
         parent::display();
     }//function
@@ -87,10 +91,12 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
      */
     public function do_export()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
-            if( ! $exports = (array)JRequest::getVar('exports'))
-            throw new Exception(jgettext('No templates selected'));
+            if( ! $exports = $input->get('exports', array(), 'array'))
+                throw new Exception(jgettext('No templates selected'));
 
             EcrProjectTemplateHelper::exportTemplates($exports);
 
@@ -101,8 +107,8 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
             EcrHtml::message($e);
         }//try
 
-        JRequest::setVar('view', 'templates');
-        JRequest::setVar('task', 'export');
+        $input->set('view', 'templates');
+        $input->set('task', 'export');
 
         parent::display();
     }//function
@@ -114,22 +120,24 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
      */
     public function do_install()
     {
+        $input = JFactory::getApplication()->input;
+
         try
         {
             EcrProjectTemplateHelper::installTemplates();
 
             EcrHtml::message(jgettext('Templates have been installed.'), 'success');
 
-            JRequest::setVar('task', 'templates');
+            $input->set('task', 'templates');
         }
         catch(Exception $e)
         {
             EcrHtml::message($e);
 
-            JRequest::setVar('task', 'tplinstall');
+            $input->set('task', 'tplinstall');
         }//try
 
-        JRequest::setVar('view', 'templates');
+        $input->set('view', 'templates');
 
         parent::display();
     }//function

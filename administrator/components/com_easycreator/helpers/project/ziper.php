@@ -247,7 +247,7 @@ class EcrProjectZiper extends JObject
 
         $cnt = 0;
 
-        $reqActions = JRequest::getVar('actions', array(), 'default', 'array');
+        $reqActions = JFactory::getApplication()->input->get('actions', array(), 'array');
 
         /* @var EcrProjectAction $action */
         foreach($this->preset->actions as $i => $action)
@@ -640,7 +640,7 @@ class EcrProjectZiper extends JObject
 
         foreach($this->project->elements as $element => $path)
         {
-            $this->ecr_project = JRequest::getCmd('ecr_project');
+            $this->ecr_project = JFactory::getApplication()->input->get('ecr_project');
 
             //-- Get the project
             try
@@ -951,7 +951,8 @@ class EcrProjectZiper extends JObject
             $hrefBase = 'file://'.$this->project->getZipPath().DIRECTORY_SEPARATOR.$this->project->version;
         }
 
-        $customFileName = EcrProjectHelper::formatFileName($this->project, JRequest::getVar('cst_format'));
+        $customFileName = EcrProjectHelper::formatFileName($this->project
+            , JFactory::getApplication()->input->getString('cst_format'));
 
         $fileName = $this->project->getFileName().$customFileName;
 

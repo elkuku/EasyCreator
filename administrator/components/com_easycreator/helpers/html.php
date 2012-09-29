@@ -113,15 +113,17 @@ abstract class EcrHtml
      */
     public static function formEnd($closeDiv = true)
     {
+        $input = JFactory::getApplication()->input;
+
         echo '<input type="hidden" name="task" value="" />'.NL;
         echo '<input type="hidden" name="controller" '
-            .'value="'.JRequest::getCmd('controller').'" />'.NL;
+            .'value="'.$input->get('controller').'" />'.NL;
         echo '<input type="hidden" name="view"     '
-            .'value="'.JRequest::getCmd('view').'" />'.NL;
+            .'value="'.$input->get('view').'" />'.NL;
         echo '<input type="hidden" name="file_name" id="file_name" '
-            .'value="'.JRequest::getVar('file_name').'" />'.NL;
+            .'value="'.$input->getPath('file_name').'" />'.NL;
         echo '<input type="hidden" name="file_path" id="file_path" '
-            .'value="'.JRequest::getVar('file_path').'" />'.NL;
+            .'value="'.$input->getPath('file_path').'" />'.NL;
         echo '</form>'.NL;
         echo ($closeDiv) ? '</div>'.NL : '';
         echo '<div style="clear: both"></div>'.NL;
@@ -176,20 +178,6 @@ EOF;
         $document->addScriptDeclaration($js);
 
         ecrScript('editor');
-    }
-
-    /**
-     * Loads the file tree and adds the required css and js.
-     *
-     * @return void
-     */
-    public static function initFileTree()
-    {
-        //-- Add css
-        ecrStylesheet('php_file_tree');
-
-        //-- Add javascript
-        ecrScript('php_file_tree');
     }
 
     /**

@@ -29,7 +29,7 @@ class EcrEasycreator
      */
     public static function getController()
     {
-        $controller = JRequest::getWord('controller');
+        $controller = JFactory::getApplication()->input->getWord('controller');
 
         if(strpos($controller, '.'))
         {

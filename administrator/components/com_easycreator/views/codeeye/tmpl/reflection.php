@@ -14,9 +14,10 @@ ecrScript('doccomment');
 
 jimport('joomla.html.pane');
 $pane = JPane::getInstance('sliders');
+$input = JFactory::getApplication()->input;
 
-$the_path = JRequest::getString('file_path');
-$the_file = JRequest::getString('file_name');
+$the_path = $input->getPath('file_path');
+$the_file = $input->getPath('file_name');
 ?>
 
 <script type="text/javascript">
@@ -408,16 +409,9 @@ function displayReflectedFiles($reflections, $type, EcrProjectBase $project)
  */
 function drawFileTree(EcrProjectBase $project)
 {
-    EcrHtml::initFileTree();
+    ecrLoadMedia('php_file_tree');
+
     $ret = '';
-
-    $file_path = JRequest::getString('file_path');
-    $file_name = JRequest::getString('file_name');
-
-    //--Allowed extensions
-    //TODO set somewhere else...
-    $allowed_exts = array('php', 'css', 'xml', 'js', 'ini', 'txt', 'html', 'sql');
-    $allowed_pics = array('png', 'gif', 'jpg', 'ico');
 
     $javascript = '';
     $javascript .= " onclick=\"reflectFile('[folder]', '[file]', '[id]');\"";
@@ -497,7 +491,7 @@ function reflect($path, $file)
 {
     $fileName = JPATH_ROOT.DS.$path.$file;
     $fullPathFileName = JPATH_ROOT.DS.$path.DS.$file;
-    $ecr_project = JRequest::getCmd('ecr_project');
+    $ecr_project = JFactory::getApplication()->input->get('ecr_project');
 
     $reflection = new EcrProjectReflection;
 

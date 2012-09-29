@@ -20,9 +20,7 @@ class EasyCreatorViewEasyCreator extends JViewLegacy
      *
      * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
      *
-     * @return  mixed  A string if successful, otherwise a JError object.
-     *
-     * @see     fetch()
+     * @return  void
      */
     public function display($tpl = null)
     {
@@ -63,5 +61,5 @@ class EasyCreatorViewEasyCreator extends JViewLegacy
         parent::display($tpl);
 
         EcrHtml::formEnd();
-    }//function
-}//class
+    }
+}

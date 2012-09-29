@@ -42,15 +42,17 @@ class EasyCreatorViewCodeEye extends JViewLegacy
      */
     public function display($tpl = null)
     {
+        $input = JFactory::getApplication()->input;
+
         //-- Add javascript
         ecrScript('codeeye', 'pollrequest', 'logconsole');
 
         //-- Add css
         ecrStylesheet('codeeye');
 
-        $this->ecr_project = JRequest::getCmd('ecr_project');
+        $this->ecr_project = $input->get('ecr_project');
 
-        $this->task = JRequest::getCmd('task');
+        $this->task = $input->get('task');
 
         //--Get the project
         try

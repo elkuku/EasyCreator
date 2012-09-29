@@ -68,10 +68,12 @@ class PartViewsData_list extends EcrProjectPart
      */
     public function getOptions()
     {
+	    $input = JFactory::getApplication()->input;
+
         /* Array with required fields */
         $requireds = array();
 
-        $tableName = JRequest::getCmd('element');
+        $tableName = $input->get('element');
 
         $db = JFactory::getDBO();
         $tables = $db->getTableList();
@@ -142,18 +144,18 @@ class PartViewsData_list extends EcrProjectPart
 //        JLoader::import('helpers.autocode', JPATH_COMPONENT);
 //        $AutoCode = new EcrProjectAutocode;
 
-        $ecr_project = JRequest::getCmd('ecr_project');
-        $element_name = JRequest::getCmd('element');
-        $table_name = JRequest::getCmd('table_name');
+        $ecr_project = $input->get('ecr_project');
+        $element_name = $input->get('element');
+        $table_name = $input->get('table_name');
 
         if( ! $table_name)
         {
             $table_name = $element_name;
         }
 
-        $req_table_fields = JRequest::getVar('table_fields', array());
-        $req_table_fields_edits = JRequest::getVar('table_fields_edits', array());
-        $req_table_fields_types = JRequest::getVar('table_fields_types', array());
+        //$req_table_fields = JxRequest::getVar('table_fields', array());
+        //$req_table_fields_edits = JxRequest::getVar('table_fields_edits', array());
+        //$req_table_fields_types = JxRequest::getVar('table_fields_types', array());
 
         if( ! $table_name)
         {
@@ -162,7 +164,7 @@ class PartViewsData_list extends EcrProjectPart
             return false;
         }
 
-        if( ! $scope = JRequest::getCmd('scope'))
+        if( ! $scope = $input->get('scope'))
         {
             JFactory::getApplication()->enqueueMessage(jgettext('No scope given'), 'error');
 
@@ -224,19 +226,21 @@ class PartViewsData_list extends EcrProjectPart
      */
     public function insert(EcrProjectBase $EcrProject, $options, EcrLogger $logger)
     {
-        $EcrProject->addSubstitute('ECR_SUBPACKAGE', 'Models');
+	    $input = JFactory::getApplication()->input;
 
-        $element_name = JRequest::getCmd('element');
-        $element_scope = JRequest::getCmd('element_scope');
+	    $EcrProject->addSubstitute('ECR_SUBPACKAGE', 'Models');
 
-        $table_name = JRequest::getCmd('table_name');
+        $element_name = $input->get('element');
+        $element_scope = $input->get('element_scope');
+
+        $table_name = $input->get('table_name');
 
         if( ! $table_name)
         {
             $table_name = $element_name;
         }
 
-        $req_table_fields = JRequest::getVar('table_fields', array());
+        $req_table_fields = $input->get('table_fields', array(), 'array');
 
         if( ! $table_name)
         {

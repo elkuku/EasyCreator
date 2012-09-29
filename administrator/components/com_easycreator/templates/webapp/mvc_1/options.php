@@ -49,7 +49,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
      */
     public function processOptions(EcrProjectBuilder $builder)
     {
-        $classPrefix = JRequest::getCmd('class_prefix');
+        $classPrefix = JFactory::getApplication()->input->get('class_prefix');
 
         if( ! $classPrefix)
         {

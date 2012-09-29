@@ -39,9 +39,9 @@ class PartVariousInstall_Script
      */
     public function getOptions()
     {
-        $project = EcrProjectHelper::getProject();
+       // $project = EcrProjectHelper::getProject();
 
-        $ecr_project = JRequest::getCmd('ecr_project');
+        $ecr_project = JFactory::getApplication()->input->get('ecr_project');
         $basePathDest = JPATH_ROOT.DS.'administrator'.DS.'components'.DS.$ecr_project;
 
         if(JFile::exists($basePathDest.DS.'install'.DS.'script.php'))
@@ -71,7 +71,7 @@ class PartVariousInstall_Script
     {
         $project->addSubstitute('ECR_SUBPACKAGE', 'Installer');
 
-        JRequest::setVar('element_scope', 'admin');
+        JFactory::getApplication()->input->set('element_scope', 'admin');
 
         return $project->insertPart($options, $logger);
     }//function
