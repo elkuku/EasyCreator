@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset name="component"
+              label="ECR_UPPER_COM_COM_NAME_FIELDSET_CONFIG_CLIENT_OPTIONS_LABEL"
+              description="ECR_UPPER_COM_COM_NAME_FIELDSET_CONFIG_CLIENT_OPTIONS_DESC">
+
+        <field
+                name="emotional_status"
+                type="radio"
+                class="btn-group"
+                default="0"
+                label="ECR_UPPER_COM_COM_NAME_FIELD_ONE_LABEL"
+                description="ECR_UPPER_COM_COM_NAME_FIELD_ONE_DESCRIPTION">
+            <option
+                    value="1">JNO
+            </option>
+            <option
+                    value="2">JYES
+            </option>
+        </field>
+
+        <field
+                name="my_custom_message"
+                type="text"
+                label="ECR_UPPER_COM_COM_NAME_FIELD_TWO_LABEL"
+                description="ECR_UPPER_COM_COM_NAME_FIELD_TWO_DESCRIPTION"/>
+
+    </fieldset>
+
+    <fieldset
+            name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            description="JCONFIG_PERMISSIONS_DESC"
+            >
+
+        <field
+                name="rules"
+                type="rules"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                class="inputbox"
+                filter="rules"
+                validate="rules"
+                component="ECR_COM_COM_NAME"
+                section="component"/>
+    </fieldset>
+</config>

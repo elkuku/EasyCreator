@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="plugin" scope="system" version="0.0.12">
+  <name>Example System J3L</name>
+  <description>Empty system plugin</description>
+  <version>2.0</version>
+  <jVersion>3.0</jVersion>
+  <phpVersion>5</phpVersion>
+  <author></author>
+  <authorUrl>http://docs.joomla.org/Reference:System_Events_for_Plugin_System</authorUrl>
+</easyproject>

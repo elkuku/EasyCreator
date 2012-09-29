@@ -1,0 +1,16 @@
+##*HEADERCSS*##
+
+.icon-48-ECR_LOWER_COM_NAME-categories.icon-48-categories {
+    background-image:
+        url(../../images/administrator/icon-48-ECR_COM_COM_NAME-categories.png);
+}
+
+.icon-48-ECR_LOWER_COM_NAME-category-edit.icon-48-category-edit {
+    background-image:
+        url(../../images/administrator/icon-48-ECR_COM_COM_NAME-category-edit.png);
+}
+
+.icon-48-ECR_LOWER_COM_NAME-category-add.icon-48-category-add {
+    background-image:
+        url(../../images/administrator/icon-48-ECR_COM_COM_NAME-category-add.png);
+}
