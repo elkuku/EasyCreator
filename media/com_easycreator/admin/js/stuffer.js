@@ -208,7 +208,7 @@ var ecrStuffer = new Class({
 
                 html += '<div class="actionTitle">'
                     + '<i class="img icon16-move" style="cursor: move;" title="' + jgettext('Move') + '"></i>'
-                    + '<i class="img icon16-eye" style="cursor: pointer;" title="' + jgettext('Show settings') + '"'
+                    + '<i class="img icon16-eye" style="cursor: help;" title="' + jgettext('Show settings') + '"'
                     + ' onclick="Stuffer.toggleContainer(this, \'tgl_action_' + cnt + '\');"></i>'
                     + title + sAdd
                     + '<span style="float: right;" class="btn btn-mini" onclick="this.getParent().getParent().dispose();">'
@@ -224,7 +224,10 @@ var ecrStuffer = new Class({
                     .set('html', html)
                     .inject(container);
 
-                sortActions.addItems(li);
+                if(sortActions)
+                {
+                    sortActions.addItems(li);
+                }
             }
         }).send();
     },

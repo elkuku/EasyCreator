@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+/**
+ * @package    EasyCreator
+ * @subpackage CSS
+ * @author     Nikolai Plath
+ * @author     Created on 29-Sep-2012
+ * @license    GNU/GPL
+ */
+
+.dl-horizontal dt {
+    width: 50px;
+    color: blue;
+}
+
+.dl-horizontal dd {
+    margin-left: 60px;
+}

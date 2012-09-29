@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+/**
+ * @package     EasyCreator
+ * @subpackage  CSS
+ * @author      Nikolai Plath (elkuku)
+ * @author      Created on 03-Aug-2011
+ */
+div.subhead-collapse {
+    display: block;
+}

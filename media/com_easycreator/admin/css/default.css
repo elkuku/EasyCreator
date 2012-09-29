@@ -262,13 +262,20 @@ div.ecr_error {
 }
 
 div#toolbar-box {
-    /* let's kill the standard Joomla! toolbar box ;)
+    /* let's kill the standard Joomla! toolbar box =;)
      * otherwise displays an ugly empty div with some J! images..
      * TODO: any cleaner method ?
      */
     display: none;
 }
 
+div.subhead-collapse {
+    /* let's kill the standard Joomla! toolbar box - in J! 3 =;)
+    * otherwise displays an ugly empty div with some J! images..
+    * TODO: any cleaner method ?
+    */
+    display: none;
+}
 /* copied from Joomla! installation.css */
 h3.moofx-toggler {
     margin: 0;
@@ -695,4 +702,8 @@ ul {
 .btn-group:before, .btn-group:after {
     content: "";
     display: table;
+}
+
+div#toolbar {
+    margin-bottom: 0;
 }

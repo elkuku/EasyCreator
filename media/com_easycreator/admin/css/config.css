@@ -14,3 +14,7 @@ div.g11nNotice {
     border: 1px solid orange;
     padding: 0.5em;
 }
+
+div#maintainResponse {
+    font-size: 13px;
+}
