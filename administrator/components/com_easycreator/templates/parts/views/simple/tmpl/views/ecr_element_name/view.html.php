@@ -9,7 +9,7 @@ jimport('joomla.application.component.view');
  * @package    ECR_COM_NAME
  * @subpackage Views
  */
-class ECR_COM_NAMEViewECR_ELEMENT_NAME extends JView
+class ECR_COM_NAMEViewECR_ELEMENT_NAME extends JViewLegacy
 {
     /**
      * ECR_COM_NAMEECR_LIST_POSTFIX view display method.
@@ -23,5 +23,5 @@ class ECR_COM_NAMEViewECR_ELEMENT_NAME extends JView
         $foo = 'Do something here..';
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}
