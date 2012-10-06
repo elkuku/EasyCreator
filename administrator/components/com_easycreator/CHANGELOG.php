@@ -50,7 +50,22 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.19 ----------
+
+2012-10-06
+f601002 Update manifest
+2905cbe Fix undefined constant on installation
+bbd34c3 Fix missing buildopts on packing
+9af6543 Add a phpcs file for debugging
+6b1ea0a Add new selenium tests
+01292d2 Add simple view template for J 2.5
+941de18 Add experimental cli script
+23b37d0 Adapted simple view template for J 3 legacy
+4c03136 Re-added accidently removed processInstall() function
+c7b8a91 Add missing install function - removed from the "old" install function
+
 2012-09-29
+4be087b Update changelog
 05bb17c Update translation files
 0362d16 Add new templates for J! 3
 e21ecc5 Remove deprecated function calls
