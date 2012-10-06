@@ -143,6 +143,7 @@ class EcrProjectZiper extends JObject
                 ->performActions('precopy')->logStep(2)
                 ->copyCopies()
                 ->copyLanguage()
+                ->processInstall()
                 ->copyMedia()->logStep(3)
                 ->copyPackageElements()->logStep(4)
                 ->cleanProject()->logStep(6)
@@ -206,8 +207,8 @@ class EcrProjectZiper extends JObject
     {
         $stdOpts = array('verbose', 'files'
         , 'archiveZip', 'archiveTgz', 'archiveBz2'
-        , 'create_indexhtml', 'remove_autocode', 'include_ecr_projectfile'
-        , 'create_md5', 'create_md5_compressed');
+        , 'createIndexhtml', 'removeAutocode', 'includeEcrProjectfile'
+        , 'createMD5', 'createMD5Compressed');
 
         foreach($stdOpts as $opt)
         {
@@ -621,9 +622,121 @@ class EcrProjectZiper extends JObject
     }
 
     /**
-     * Copy the elements of a package.
+     * Process install files.
      *
-     * For Joomla! 1.6 packages only.
+     * @throws EcrExceptionZiper
+     *
+     * @return EcrProjectZiper
+     */
+    private function processInstall()
+    {
+        $installFiles = EcrProjectHelper::findInstallFiles($this->project);
+
+        if(0 == count($installFiles['php']))
+            return $this;
+
+        $srcDir = $this->temp_dir.DS.'admin';
+        $destDir = $this->temp_dir.DS.'install';
+
+        //-- Create 'install' folder in temp dir
+        JFolder::create($destDir);
+
+        //-- Copy install files from 'admin' to 'temp'
+        foreach($installFiles['php'] as $file)
+        {
+            $srcPath = $srcDir;
+            $srcPath .= ($file->folder) ? DS.$file->folder : '';
+            $srcPath .= DS.$file->name;
+
+            $destPath = $destDir;
+
+            if($file->folder == 'install')
+            {
+                $folder = '';
+            }
+            else
+            {
+                $folder = str_replace('install'.DS, '', $file->folder);
+            }
+
+            if($folder)
+            {
+                $destPath .= DS.$folder;
+
+                //-- Create the folder
+                JFolder::create($destPath);
+            }
+
+            if(JFile::copy($srcPath, $destPath.DS.$file->name))
+            {
+                $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath.'<br />DST: '.$destPath.DS.$file->name);
+            }
+            else
+            {
+                $this->logger->log('COPY INSTALL FILE<br />SRC: '.$srcPath
+                    .'<br />DST: '.$destPath.DS.$file->name, 'ERROR copy file');
+
+                continue;
+            }
+
+            if(0 != strpos($file->name, 'install'))
+                continue;
+
+            if($this->buildopts['createMD5'])
+            {
+                $format = ('po' == $this->project->langFormat) ? '.po' : '';
+                $compressed = ($this->buildopts['createMD5Compressed']) ? '_compressed' : '';
+                $fileContents = JFile::read(
+                    ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check'.$compressed.$format.'.php');
+                $fileContents = str_replace('<?php', '', $fileContents);
+                $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', $fileContents);
+
+                $fileContents = JFile::read(ECRPATH_EXTENSIONTEMPLATES.DS.'std'.DS.'md5check_call'.$format.'.php');
+                $fileContents = str_replace('<?php', '', $fileContents);
+                $this->project->addSubstitute('##ECR_MD5CHECK##', $fileContents);
+
+                $this->project->addSubstitute('ECR_COM_COM_NAME', $this->project->comName);
+
+                $fileContents = JFile::read($destPath.DS.$file->name);
+                $fileContents = $this->project->substitute($fileContents);
+            }
+            else
+            {
+                $this->project->addSubstitute('##ECR_MD5CHECK_FNC##', '');
+                $this->project->addSubstitute('##ECR_MD5CHECK##', '');
+
+                $fileContents = JFile::read($destPath.DS.$file->name);
+                $fileContents = $this->project->substitute($fileContents);
+            }
+
+            if(JFile::write($destPath.DS.$file->name, $fileContents))
+            {
+                $this->logger->logFileWrite('', 'install/install.php', $fileContents);
+            }
+            else
+            {
+                $this->logger->log('Failed to add MD5 install check routine to install.php', 'error');
+            }
+        }
+
+        //-- Delete install files from 'admin'
+        foreach($installFiles['php'] as $file)
+        {
+            $srcPath = $srcDir;
+            $srcPath .= ($file->folder) ? DS.$file->folder : '';
+            $srcPath .= DS.$file->name;
+
+            if(false == JFile::delete($srcPath))
+                throw new EcrExceptionZiper(__METHOD__.' - Delete install file failed: '.$srcPath);
+
+            $this->logger->log('INSTALL FILE DELETED<br />SRC: '.$srcPath);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Copy the elements of a package.
      *
      * @throws EcrExceptionZiper
      * @return EcrProjectZiper
@@ -691,6 +804,8 @@ class EcrProjectZiper extends JObject
 
     /**
      * Copy language files.
+     *
+     * @deprecated
      *
      * @return EcrProjectZiper
      */
