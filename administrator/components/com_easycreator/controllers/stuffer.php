@@ -121,7 +121,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
         }
 
         //-- Setup logging
-        $buildOpts = $input->get('buildopts', array());
+        $buildOpts = $input->get('buildopts', array(), 'array');
         $buildOpts['fileName'] = date('ymd_Hi').'_add_part.log';
 
         $logger = EcrLogger::getInstance('ecr', $buildOpts);
