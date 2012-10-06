@@ -89,7 +89,7 @@ abstract class EcrHtml
             EcrDebugger::printSysVars('post');
         }
 
-        echo NL.'<!-- EasyCreator END -->'.NL;
+        echo "\n".'<!-- EasyCreator END -->'."\n";
     }
 
     /**
