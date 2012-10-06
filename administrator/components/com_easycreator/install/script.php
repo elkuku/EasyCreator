@@ -7,6 +7,9 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
+//@todo remove
+defined('DS') || define('DS', DIRECTORY_SEPARATOR);
+
 /**
  * Script file for EasyCreator component.
  */
@@ -31,7 +34,7 @@ class Com_EasyCreatorInstallerScript
         /* @var JInstaller $grandParent */
         $grandParent = $parent->getParent();
 
-        $PHPMinVersion = '5.2.4';
+        $PHPMinVersion = '5.3';
 
         if(version_compare(PHP_VERSION, $PHPMinVersion, '<'))
         {
@@ -96,13 +99,99 @@ class Com_EasyCreatorInstallerScript
      *
      * @param $parent
      *
-     * @return void
+     * @return boolean
      */
     public function install($parent)
     {
         // $parent is the class calling this method
         //    $parent->getParent()->setRedirectURL('index.php?option=ECR_COM_COM_NAME');
         //echo '<p>'.JText::_('ECR_UPPER_COM_COM_NAME_INSTALL_TEXT').'</p>';
+
+        $logo = JURI::root(true).'/media/com_easycreator/admin/images/ico/icon-128-easycreator.png';
+
+        try
+        {
+            if( ! jimport('g11n.language'))
+            {
+                //-- Get our special language file
+                JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR.'/components/com_easycreator');
+                ?>
+            <div style="padding: 0.3em; background-color: #ffc;">
+                <h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
+
+                <h3 style="color: red;">
+                    If you like EasyCreator in your language, just install the g11n language library :
+                </h3>
+
+                <h3 style="color: red;">
+                    <a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
+                        Download lib_g11n
+                    </a>
+                </h3>
+            </div>
+            <?php
+            }
+            else
+            {
+                g11n::loadLanguage('com_easycreator');
+            }
+
+            //$xml = simplexml_load_file(ECR_XML_LOCATION);
+            $xml = simplexml_load_file($parent->getParent()->getPath('manifest'));
+
+            if(false == $xml)
+            {
+                JFactory::getApplication()->enqueueMessage(jgettext('Install manifest not found'), 'error');
+
+                return false;
+            }
+        }
+        catch(Exception $e)
+        {
+            JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+
+            return false;
+        }
+
+        define('ECR_VERSION', $xml->version);
+
+        require_once JPATH_ADMINISTRATOR.'/components/com_easycreator/helpers/html.php';
+
+        JFactory::getDocument()->addStyleSheet(JURI::root().'media/com_easycreator/admin/css/default.css');
+        JFactory::getDocument()->addStyleSheet(JURI::root().'media/com_easycreator/admin/css/icon.css');
+        ?>
+
+    <div>
+
+        <div style="float: right">
+            <img
+                    src="<?php echo $logo; ?>"
+                    alt="EasyCreator Logo" title="EasyCreator Logo"/>
+        </div>
+
+        <h1>EasyCreator</h1>
+        <?php echo jgettext('EasyCreator is a developer tool.'); ?><br/>
+        <?php echo jgettext('It tries to speed up the developing process of custom Joomla! extensions.'); ?><br/>
+        <?php echo jgettext('You can create a "frame" for your extension and an installable zip package with just a few "clicks"'); ?>
+
+        <p>Happy coding,<br/>
+            <?php echo sprintf(jgettext('The %s Team.'), '<a href="https://github.com/elkuku/EasyCreator">EasyCreator</a>'); ?>
+        </p>
+
+    </div>
+
+    <h3 style="color: orange;">
+        <?php echo jgettext('Please use this extension only in local development environments.'); ?>
+    </h3>
+    <p>
+        <?php echo sprintf(jgettext('See: <a %s>docs.joomla.org/Setting up your workstation for Joomla! development</a>')
+        , 'href="http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development"'); ?>
+    </p>
+
+    <?php
+        ##ECR_MD5CHECK##
+
+        EcrHtml::footer();
     }
 
     /**
@@ -199,8 +288,10 @@ class Com_EasyCreatorInstallerScript
      */
     public function uninstall($parent)
     {
+        echo '<div class="alert alert-error">';
         echo '<h2>EasyCreator has been removed from your system</h2>';
         echo '<h3>you\'re on your own now... :(</h3>';
+        echo '</div>';
     }
 
     /**
@@ -275,7 +366,7 @@ class Com_EasyCreatorInstallerScript
             if($pos !== false)
             {
                 $compressed = substr($subPath, 0, $pos);
-                $path = $this->decompress($compressed).DS.substr($subPath, $pos + 1);
+                $path = $this->decompress($compressed).'/'.substr($subPath, $pos + 1);
             }
 
             $paths[$path] = $md5;
@@ -343,4 +434,6 @@ class Com_EasyCreatorInstallerScript
 
         return $decompressed;
     }
-}//class
+}
+
+##ECR_MD5CHECK_FNC##
