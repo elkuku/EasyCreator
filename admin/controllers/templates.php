@@ -44,7 +44,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         {
             EcrFile::saveFile();
 
-            EcrHtml::message(jgettext('The file has been saved'), 'success');
+            EcrHtml::message(jgettext('The file has been saved'));
         }
         catch(Exception $e)
         {
@@ -70,7 +70,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         {
             EcrFile::deleteFile();
 
-            JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'), 'success');
+            JFactory::getApplication()->enqueueMessage(jgettext('Template has been deleted.'));
         }
         catch(Exception $e)
         {
@@ -100,7 +100,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
 
             EcrProjectTemplateHelper::exportTemplates($exports);
 
-            EcrHtml::message(jgettext('Templates have been exported.'), 'success');
+            EcrHtml::message(jgettext('Templates have been exported.'));
         }
         catch(Exception $e)
         {
@@ -126,7 +126,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         {
             EcrProjectTemplateHelper::installTemplates();
 
-            EcrHtml::message(jgettext('Templates have been installed.'), 'success');
+            EcrHtml::message(jgettext('Templates have been installed.'));
 
             $input->set('task', 'templates');
         }

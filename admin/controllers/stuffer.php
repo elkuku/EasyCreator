@@ -150,7 +150,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
         }
         else
         {
-            EcrHtml::message(array(jgettext('Part added').' [group, part]', $group, $part), 'success');
+            EcrHtml::message(array(jgettext('Part added').' [group, part]', $group, $part));
             $logger->writeLog();
 
             $cache = JFactory::getCache();
@@ -559,7 +559,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             EcrProjectHelper::getProject('', true);
 
             JFactory::getApplication()
-                ->enqueueMessage(jgettext('The Settings have been updated'), 'success');
+                ->enqueueMessage(jgettext('The Settings have been updated'));
         }
         catch(Exception $e)
         {
@@ -604,7 +604,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             $project->remove($complete);
 
             $this->setRedirect('index.php?option=com_easycreator'
-                , sprintf(jgettext('The Project %s has been removed'), $project->name), 'success');
+                , sprintf(jgettext('The Project %s has been removed'), $project->name));
         }
         catch(Exception $e)
         {
