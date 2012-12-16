@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file will be replaced when building the template -->
+<xxx>
+	<positions>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-6</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>position-9</position>
+		<position>position-10</position>
+		<position>position-11</position>
+		<position>position-12</position>
+	</positions>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field name="sitetitle" type="text" default="" label="ECR_UPPER_COM_COM_NAME_SITETITLE_LABEL"
+					description="ECR_UPPER_COM_COM_NAME_SITETITLE_DESC" filter="string" />
+				<field name="sitedescription" type="text" default=""
+					label="ECR_UPPER_COM_COM_NAME_SITEDESCRIPTION_LABEL" description="ECR_UPPER_COM_COM_NAME_SITEDESCRIPTION_DESC" filter="string" />
+			</fieldset>
+		</fields>
+	</config>
+</xxx>

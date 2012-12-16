@@ -1,0 +1,429 @@
+# @version SVN: $Id$
+# com_easycreator.config - admin - The configuration language file.
+# Copyright (C) YEAR Nikolai Plath - elkuku.
+# 
+# Translators:
+#   <bvp@gmx.de>, 2011.
+# Nikolai Plath <der.el.kuku@gmail.com>, 2012.
+# Nikolai Plath <test@joomla.org>, 2010.
+#   <test1@nik-it.de>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"POT-Creation-Date: 2012-05-31 02:00 -500\n"
+"PO-Revision-Date: 2012-05-31 08:32+0000\n"
+"Last-Translator: Nikolai Plath <der.el.kuku@gmail.com>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/opentranslators/language/de_DE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: g11n\n"
+
+#: administrator/components/com_easycreator/easycreator.xmldescription
+msgid "EasyCreator helps creating Extensions for Joomla!"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Personal information"
+msgstr "Persönliche Informationen"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Author"
+msgstr "Autor"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Author e-mail"
+msgstr "Autor E-Mail"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Author URL"
+msgstr "Autor URL"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "License"
+msgstr "Lizenz"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Copyright"
+msgstr "Copyright"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Package creation"
+msgstr "Paketerstellung"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Build directory"
+msgstr "Build-Verzeichnis"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "zip"
+msgstr "ZIP"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "tar.gz"
+msgstr "Tar.gz"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "bz2"
+msgstr "bz2"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Custom name default"
+msgstr "Benutzerdefinierter Name (Standard)"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Custom name"
+msgstr "Benutzerdefinierter Name"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Various"
+msgstr "Verschiedenes"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Help Type"
+msgstr "Hilfe Typ"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Editor type"
+msgstr "Editor Typ"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Editor font size"
+msgstr "Grösse des Editorfonts"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Local API copy"
+msgstr "Lokale Kopie der API"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Livesite warning"
+msgstr "Livesite Warnung"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Save versions"
+msgstr "Backupversionen speichern"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Check for UTF8"
+msgstr "Auf UTF-8 überprüfen"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Check for BOM"
+msgstr "Auf BOM überprüfen"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+msgid "Local data directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+msgid "Show icons"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+msgid "Font size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Logging"
+msgstr "Logger"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Logger"
+msgstr "Protokoll"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Profiler"
+msgstr "Profiler"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Log file contents"
+msgstr "Inhalte der Logdatei"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Debug"
+msgstr "Debug"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Debugger"
+msgstr "Debugger"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Debug language"
+msgstr "Sprache debuggen"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Debugger Type"
+msgstr "Debugger-Typ"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"The folder where your final package ends up. The folders extension_name and "
+"version will be added automatically.&lt;br /&gt;If left blank the default "
+"folder will be used."
+msgstr "Das Verzeichnis, in den Sie Ihre erstelltes Paket geschrieben wird. Die Verzeichnisse extension_name und Version werden automatisch hinzugefügt. <br />Falls leer wird der Standard-Ordner verwendet."
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "ZIP format"
+msgstr "ZIP Format"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Ziped Tarball"
+msgstr "Ziped Tarball"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "BZ2 format"
+msgstr "BZ2 Format"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"Choose the type of help you need (from beginner to expert). Messages will be"
+" displayed all over the place in light green boxes - you may also switch "
+"them off here."
+msgstr "Wählen Sie die Art von Unterstützung die Sie benötigen (vom Anfänger bis zum Experten)"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"Which EditArea type shall we load (please see docu on developers site "
+"http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "Welchen EditArea Typ sollen wir laden (bitte lesen sie die Doku auf der Seite des Entwicklers http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "The default font size for the code editor in pixel"
+msgstr "Die Standardgrösse des Editorfonts in Pixeln"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
+msgstr "Ihre Kopie der Joomla! API - Sie bekommen sie auf http://api.joomla.org"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"If a IP other then 127.0.0.1 is detected a warning message will be displayed"
+" for your own safety"
+msgstr "Falls eine andere IP als 127.0.0.1 erkannt wird, wird zu Ihrer Sicherheit eine Warnung ausgegeben."
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"When modifying your files, always save a backup version. These will be named"
+" *.rx"
+msgstr "Wenn eine geänderte Version Ihrer Datei gespeichert wird immer eine Backupversion erstellen. Diese werden nach dem Muster *.rx benannt."
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should languages files be checked for UTF-8"
+msgstr "Sollen die Sprachdateien auf UTF-8 Kodierung überprüft werden ?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should languages files be checked for a BOM"
+msgstr "Sollen die Sprachdateien auf einen BOM überprüft werden ?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+msgid ""
+"A directory where all user data will be saved. If left blank, a sub "
+"directory in the component directory will be used"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+msgid "Show icons on toolbar buttons"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+msgid "The text font size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should we write some logfiles"
+msgstr "Sollten wir Log-Dateien schreiben ?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Profile time and memory"
+msgstr "Profilierung von Zeit und Speicher"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Log the contents / the code of the files been written to disk"
+msgstr "Protokollieren der Inhalte (Code) der Dateien die auf die Festplatte geschrieben wurden"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Shall we use the Debug mode ?"
+msgstr "Sollen wir den Debugmodus benutzen?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Shall we debug our special language files ?"
+msgstr "Sollen wir unsere speziellen Sprachdateien debuggen ?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Which debugger to use"
+msgstr "Welcher Debugger soll benutzt werden"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "All"
+msgstr "Alle"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Some"
+msgstr "Ein wenig"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "None"
+msgstr "Keine"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_full.js"
+msgstr "edit_area_full.js"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_compressor.php"
+msgstr "edit_area_compressor.php"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_compressor.php?plugins"
+msgstr "edit_area_compressor.php?plugins"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_full.gz"
+msgstr "edit_area_full.gz"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_loader.js"
+msgstr "edit_area_loader.js"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "No"
+msgstr "Nein"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Yes"
+msgstr "Ja"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Standard size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Mini size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Small size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Large size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Off"
+msgstr "Aus"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "On"
+msgstr "An"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "EasyDebug"
+msgstr "EasyDebug"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "JDump"
+msgstr "JDump"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "DebugTools"
+msgstr "DebugTools"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Krumo"
+msgstr "Krumo"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Personal"
+msgstr "Personal"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Package formats"
+msgstr "Paket-Formate"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Custom file name"
+msgstr "Benutzerdefinierter Dateiname"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Language"
+msgstr "Sprache"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "EasyCreator only"
+msgstr "Nur für der EasyCreator"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Use Google translation API"
+msgstr "Google Übersetzungs API"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should we use the Google Translation API for helping in translations ?"
+msgstr "Sollten wir die Google Translation API zur Unterstützung bei Übersetzungen benutzen ?"

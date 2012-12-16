@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+        "http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="webapp" version="0.0.14">
+    <name>Hello World</name>
+    <description>This is a web application example that outputs Hello WWW to the browser.</description>
+    <version>1.0</version>
+    <jVersion>2.5</jVersion>
+    <phpVersion>5</phpVersion>
+    <dbTables>None</dbTables>
+    <author>The Joomla! Platform Team</author>
+    <authorUrl>https://github.com/joomla/joomla-platform-examples/tree/master/web/101-hello-www</authorUrl>
+</easyproject>

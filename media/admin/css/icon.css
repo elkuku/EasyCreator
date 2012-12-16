@@ -1,0 +1,631 @@
+/**
+ * @package     EasyCreator
+ * @subpackage  CSS
+ * @author      Nikolai Plath (elkuku)
+ * @author      Created on 03-Okt-2009
+ */
+.icon128-easycreator {
+    background-image: url(../images/ico/icon-128-easycreator.png);
+}
+
+.icon32-chart {
+    background-image: url(../images/ico/icon-32-chart.png);
+}
+
+.icon24-ecr_deploy {
+    background-image: url(../images/ico/icon-24-deploy.png);
+}
+
+.icon32-ecr_deploy {
+    background-image: url(../images/ico/icon-32-deploy.png);
+}
+
+.icon32-ecr_languages {
+    background-image: url(../images/ico/icon-32-languages.png);
+}
+
+.icon32-ecr_archive {
+    background-image: url(../images/ico/icon-32-archive.png);
+}
+
+.icon32-ecr_config {
+    background-image: url(../images/ico/icon-32-config.png);
+}
+
+.icon32-ecr_help {
+    background-image: url(../images/ico/icon-32-help.png);
+}
+
+.icon32-ecr_package {
+    background-image: url(../images/ico/icon-32-package.png);
+}
+
+.icon32-sandbox {
+    background-image: url(../images/ico/icon-32-sandbox.png);
+}
+
+.icon32-ecr_settings {
+    background-image: url(../images/ico/icon-32-settings.png);
+}
+
+.icon32-ecr_save {
+    background-image: url(../images/ico/icon-32-save.png);
+}
+
+.icon32-text {
+    background-image: url(../images/ico/icon-32-txt.png);
+}
+
+.icon32-wizard {
+    background-image: url(../images/ico/icon-32-wizard.png);
+}
+
+.icon32-JHelp_btn {
+    background-image: url(../images/joomla-logo-32.png);
+}
+
+.icon32-xeyes {
+    background-image: url(../images/ico/icon-32-xeyes.png);
+}
+
+.icon32-nose {
+    background-image: url(../images/ico/icon-32-the-nose-r.png);
+}
+
+.icon24-easycreator {
+    background-image: url(../images/ico/icon-24-easycreator.png);
+}
+
+.icon32-ecr_save {
+    background-image: url(../images/ico/icon-32-save.png);
+}
+
+.icon32-ecr_delete {
+    background-image: url(../images/ico/icon-32-delete.png);
+}
+
+.icon24-actions {
+    background-image: url(../images/ico/icon-24-action.png);
+}
+
+.icon24-database {
+    background-image: url(../images/ico/icon-24-database.png);
+}
+
+.icon24-debug {
+    background-image: url(../images/ico/icon-24-bug.png);
+}
+
+.icon24-ftp {
+    background-image: url(../images/ico/icon-24-ftp.png);
+}
+
+.icon24-github {
+    background-image: url(../images/ico/icon-24-github.png);
+}
+
+.icon24-info {
+    background-image: url(../images/ico/icon-24-info.png);
+}
+
+.icon24-install {
+    background-image: url(../images/ico/icon-24-install.png);
+    padding-left: 26px;
+}
+
+.icon24-locale {
+    background-image: url(../images/ico/icon-24-locale.png);
+}
+
+.icon24-logging {
+    background-image: url(../images/ico/icon-24-logging.png);
+}
+
+.icon24-menu {
+    background-image: url(../images/ico/icon-24-menu.png);
+}
+
+.icon24-package_creation {
+    background-image: url(../images/ico/icon-24-package_creation.png);
+}
+
+.icon24-personal {
+    background-image: url(../images/ico/icon-24-identity.png);
+}
+
+.icon24-preset {
+    background-image: url(../images/ico/icon-24-preset.png);
+}
+
+.icon24-update {
+    background-image: url(../images/ico/icon-24-update.png);
+}
+
+.icon24-various {
+    background-image: url(../images/ico/icon-24-various.png);
+}
+
+.icon16-2leftarrow {
+    background-image: url(../images/ico/icon-16-2leftarrow.png);
+}
+
+.icon16-2rightarrow {
+    background-image: url(../images/ico/icon-16-2rightarrow.png);
+}
+
+.icon16-add {
+    background-image: url(../images/ico/edit_add.png);
+}
+
+.icon16-apply {
+    background-image: url(../images/ico/apply.png);
+}
+
+.icon16-ecr_archive {
+    background-image: url(../images/ico/icon-16-archive.png);
+}
+
+.icon16-bug {
+    background-image: url(../images/ico/icon-16-bug.png);
+}
+
+.icon16-ecr_params {
+    background-image: url(../images/ico/icon-16-article.png);
+}
+
+.icon16-git {
+    background-image: url(../images/ico/icon-16-git.png);
+}
+
+.icon16-hand {
+    background-image: url(../images/ico/icon-16-hand.png);
+}
+
+.icon16-ecr-help {
+    background-image: url(../images/ico/icon-16-help.png);
+    cursor: help;
+}
+
+.img.outdated {
+    background-image: url(../images/ico/cancel.png);
+}
+
+.img.actual {
+    background-image: url(../images/ico/apply.png);
+}
+
+.icon16-cancel {
+    background-image: url(../images/ico/cancel.png);
+}
+
+.icon16-chart {
+    background-image: url(../images/ico/icon-16-chart.png);
+}
+
+.icon16-check_fail {
+    background-image: url(../images/ico/cancel.png);
+}
+
+.icon16-check_ok {
+    background-image: url(../images/ico/apply.png);
+}
+
+.icon16-comment {
+    background-image: url(../images/ico/comment.png);
+}
+
+.icon16-ecr_config {
+    background-image: url(../images/ico/icon-16-config.png);
+}
+
+.icon16-copytrans {
+    background-image: url(../images/ico/icon-16-sig.png);
+}
+
+.icon16-deploy {
+    background-image: url(../images/ico/icon-16-deploy.png);
+}
+
+.icon16-ecr_db {
+    background-image: url(../images/ico/icon-16-db.png);
+}
+
+.icon16-delete {
+    background-image: url(../images/ico/editdelete.png);
+}
+
+.icon16-directory {
+    background-image: url(../images/ico/icon-16-directory.png);
+}
+
+.icon16-easycreator {
+    background-image: url(../images/ico/icon-16-easycreator.png);
+}
+
+.icon16-firefox {
+    background-image: url(../images/ico/icon-16-firefox.png);
+}
+
+.icon16-ecr_language {
+    background-image: url(../images/ico/icon-16-language.png);
+}
+
+.icon16-opensuse {
+    background-image: url(../images/ico/icon-16-opensuse.png);
+}
+
+.icon16-phpstorm {
+    background-image: url(../images/ico/icon-16-phpstorm.png);
+}
+
+.icon16-eye {
+    background-image: url(../images/ico/icon-16-eye.png);
+}
+
+.icon16-eyeclosed {
+    background-image: url(../images/ico/icon-16-eyeclosed.png);
+}
+
+.icon16-edit {
+    background-image: url(../images/ico/icon-16-edit.png);
+}
+
+.icon16-export {
+    background-image: url(../images/ico/icon-16-export.png);
+}
+
+.icon16-forum {
+    background-image: url(../images/ico/icon-16-forum.png);
+}
+
+.icon16-icon {
+    background-image: url(../images/ico/icon-16-icon.png);
+}
+
+.icon16-info {
+    background-image: url(../images/ico/icon-16-info.png);
+}
+
+.icon16-import {
+    background-image: url(../images/ico/icon-16-import.png);
+}
+
+.icon16-installfolder {
+    background-image: url(../images/ico/icon-16-install.png);
+}
+
+.icon16-locale {
+    background-image: url(../images/ico/icon-16-locale.png);
+}
+
+.icon16-move {
+    background-image: url(../images/ico/icon-16-move.png);
+}
+
+.icon16-ok {
+    background-image: url(../images/ico/icon-16-ok.png);
+}
+
+.icon16-notok {
+    background-image: url(../images/ico/icon-16-notok.png);
+}
+
+.icon16-package {
+    background-image: url(../images/ico/icon-16-package.png);
+}
+
+.icon16-php {
+    background-image: url(../images/ico/icon-16-php.png);
+}
+
+.icon16-reload {
+    background-image: url(../images/ico/icon-16-reload.png);
+}
+
+.icon16-rename {
+    background-image: url(../images/ico/reload_page.png);
+}
+
+.icon16-ecr_save {
+    background-image: url(../images/ico/icon-16-save.png);
+}
+
+.icon16-sig {
+    background-image: url(../images/ico/icon-16-sig.png);
+}
+
+.icon16-text {
+    background-image: url(../images/ico/icon-16-text.png);
+}
+
+.icon16-joomla {
+    background-image: url(../images/j_favicon.ico);
+}
+
+.icon16-server {
+    background-image: url(../images/ico/server.png);
+}
+
+.icon16-rss {
+    background-image: url(../images/ico/icon-16-rss.png);
+}
+
+.icon16-update {
+    background-image: url(../images/ico/reload_page.png);
+}
+
+.icon16-wizard {
+    background-image: url(../images/ico/icon-16-wizard.png);
+}
+
+.icon16-greenled {
+    background-image: url(../images/ico/icon-16-greenled.png);
+}
+
+.icon16-xeyes {
+    background-image: url(../images/ico/icon-16-xeyes.png);
+}
+
+.icon16-yellowled {
+    background-image: url(../images/ico/icon-16-yellowled.png);
+}
+
+.icon16-redled {
+    background-image: url(../images/ico/icon-16-redled.png);
+}
+
+.icon16-warning {
+    background-image: url(../images/ico/icon-16-warning.png);
+}
+
+.icon16-trash {
+    background-image: url(../images/ico/icon-16-trash.png);
+}
+
+.iconjoomla-compat-15 {
+    background-image: url(../images/ico/Compat_icon_1_5.png);
+}
+
+.iconjoomla-compat-16 {
+    background-image: url(../images/ico/Compat_icon_1_6.png);
+}
+
+.iconjoomla-compat-17 {
+    background-image: url(../images/ico/Compat_icon_1_7.png);
+}
+
+.iconjoomla-compat-25 {
+    background-image: url(../images/ico/Compat_icon_2_5.png);
+}
+
+.iconjoomla-compat-30 {
+    background-image: url(../images/ico/Compat_icon_3_0.png);
+}
+
+.iconjoomla-compat-35 {
+    background-image: url(../images/ico/Compat_icon_3_5.png);
+}
+
+.iconjoomla-compat-11-1 {
+    background-image: url(../images/ico/Compat_icon_11_1.png);
+}
+
+.icon12-component {
+    background-image: url(../images/ico/ext_com_mini.png);
+}
+
+.icon12-module {
+    background-image: url(../images/ico/ext_mod_mini.png);
+}
+
+.icon12-plugin {
+    background-image: url(../images/ico/ext_plugin_mini.png);
+}
+
+.icon12-template {
+    background-image: url(../images/ico/ext_tem_mini.png);
+}
+
+.icon12-library {
+    background-image: url(../images/ico/ext_lib_mini.png);
+}
+
+.icon12-package {
+    background-image: url(../images/ico/ext_esp_mini.png);
+}
+
+.icon12-cliapp {
+    background-image: url(../images/ico/ext_app_mini.gif);
+}
+
+.icon12-webapp {
+    background-image: url(../images/ico/ext_app_mini.gif);
+}
+
+.img {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 27px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.img16 {
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    padding-left: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.img16a {
+    background-repeat: no-repeat;
+    padding-left: 18px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+.img-btn {
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    padding-bottom: 5px;
+}
+
+.imgbar {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 28px;
+}
+
+.imgbarleft {
+    background-repeat: no-repeat;
+    background-position: 4px 50%;
+    height: 28px;
+    padding-left: 24px;
+}
+
+.img12 {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 20px;
+}
+
+.img2 {
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    padding-left: 17px;
+    padding-top: 7px;
+    padding-bottom: 0px;
+}
+
+.img3 {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 23px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+
+.img4 {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 43px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+
+.img32 {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 25px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.img32a {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 40px;
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.img32b {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 45px;
+    padding-bottom: 5px;
+}
+
+.img32c {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding: 6px 15px 7px 25px;
+}
+
+.img32d {
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    padding: 0px 10px 32px 22px;
+}
+
+.img128 {
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 135px;
+    padding-bottom: 130px;
+}
+
+.imgR {
+    background-repeat: no-repeat;
+    background-position: 90%;
+    padding-right: 27px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+i.img24 {
+    background-repeat: no-repeat;
+    padding: 0;
+
+    margin: 0;
+    display: inline-block;
+    height: 24px;
+    width: 26px;
+}
+
+.ajax_loading {
+    background-image: url(../images/ajax-loader2.gif);
+    background-repeat: no-repeat;
+    padding: 27px;
+}
+
+.ajax-loading-32 {
+    background-image: url(../images/ajax-loader2.gif);
+    background-repeat: no-repeat;
+}
+
+.ajax_loading16 {
+    background-image: url(../images/ajax-loader16.gif);
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 27px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.ajax_loading16-red {
+    background-image: url(../images/ajax-loader16-red.gif);
+    background-repeat: no-repeat;
+    background-position: 4px 3px ! important;
+    padding-left: 27px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+dl.tabs dt {
+    background-repeat: no-repeat !important;
+    background-position: 4px 3px ! important;
+    padding-left: 20px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+dl.tabs dt.component, dl.tabs dt#component {
+    background-image: url(../images/ico/ext_com_mini.png) !important;
+}
+
+dl.tabs dt.module, dl.tabs dt#module {
+    background-image: url(../images/ico/ext_mod_mini.png) !important;
+}
+
+dl.tabs dt.plugin, dl.tabs dt#plugin {
+    background-image: url(../images/ico/ext_plugin_mini.png) !important;
+}
+
+dl.tabs dt.template, dl.tabs dt#template {
+    background-image: url(../images/ico/ext_tem_mini.png) !important;
+}

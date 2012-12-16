@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="component" version="0.0.12">
+	<name>Hello world</name>
+	<description>A simple hello world MVC component</description>
+	<version>1.0</version>
+	<jVersion>2.5</jVersion>
+	<phpVersion>5</phpVersion>
+	<dbTables>None</dbTables>
+	<author></author>
+	<authorUrl></authorUrl>
+    <menu img="components/ECR_COM_COM_NAME/assets/images/ECR_COM_COM_NAME-16.png">ECR_COM_NAME</menu>
+</easyproject>

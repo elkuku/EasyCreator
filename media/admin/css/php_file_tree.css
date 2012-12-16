@@ -1,0 +1,322 @@
+/**
+ * @package    EasyCreator
+ * @subpackage CSS
+ * @author     Nikolai Plath (elkuku)
+ * @author     Created on 20-Dec-2007
+ * PHP File Tree Default Theme
+ * By Cory LaViska (http://abeautifulsite.net/)
+ * Featuring the Silk Icon Set from famfamfam (http://www.famfamfam.com/lab/icons/silk/)
+ */
+.php-file-tree {
+    font-size: 12px;
+    line-height: 1.3;
+    padding-left: 1em;
+}
+
+.php-file-tree ul {
+    padding-left: 12px;
+}
+
+.php-file-tree div {
+    color: #000000;
+    text-decoration: none;
+    border-radius: 0 10px 10px 0;
+}
+
+.php-file-tree div:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.php-file-tree li {
+    /*line-height: 1em;*/
+}
+
+.php-file-tree li.pft-file {
+    border-radius: 0 10px 10px 0;
+}
+
+.php-file-tree li.pft-file:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.php-file-tree .open {
+    font-style: italic;
+}
+
+.php-file-tree .closed {
+    font-style: normal;
+}
+
+.php-file-tree .pft-directory {
+    list-style-image: url(../images/php_file_tree/directory.png);
+}
+
+.php-file-tree .pft-directoryX {
+    list-style-image: url(../images/php_file_tree/directory.png);
+}
+
+/* Default file */
+.php-file-tree li.pft-file {
+    list-style-image: url(../images/php_file_tree/file.png);
+}
+
+/* Additional file types */
+.php-file-tree li.ext-3gp {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-afp {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-afpa {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-asp {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-aspx {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-avi {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-bat {
+    list-style-image: url(../images/php_file_tree/application.png);
+}
+
+.php-file-tree li.ext-bmp {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-c {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-cfm {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-cgi {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-com {
+    list-style-image: url(../images/php_file_tree/application.png);
+}
+
+.php-file-tree li.ext-cpp {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-css {
+    list-style-image: url(../images/php_file_tree/css.png);
+}
+
+.php-file-tree li.ext-doc {
+    list-style-image: url(../images/php_file_tree/doc.png);
+}
+
+.php-file-tree li.ext-exe {
+    list-style-image: url(../images/php_file_tree/application.png);
+}
+
+.php-file-tree li.ext-gif {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-fla {
+    list-style-image: url(../images/php_file_tree/flash.png);
+}
+
+.php-file-tree li.ext-h {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-htm {
+    list-style-image: url(../images/php_file_tree/html.png);
+}
+
+.php-file-tree li.ext-html {
+    list-style-image: url(../images/php_file_tree/html.png);
+}
+
+.php-file-tree li.ext-jar {
+    list-style-image: url(../images/php_file_tree/java.png);
+}
+
+.php-file-tree li.ext-jpg {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-jpeg {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-js {
+    list-style-image: url(../images/php_file_tree/script.png);
+}
+
+.php-file-tree li.ext-lasso {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-log {
+    list-style-image: url(../images/php_file_tree/txt.png);
+}
+
+.php-file-tree li.ext-m4p {
+    list-style-image: url(../images/php_file_tree/music.png);
+}
+
+.php-file-tree li.ext-mov {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-mp3 {
+    list-style-image: url(../images/php_file_tree/music.png);
+}
+
+.php-file-tree li.ext-mp4 {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-mpg {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-mpeg {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-ogg {
+    list-style-image: url(../images/php_file_tree/music.png);
+}
+
+.php-file-tree li.ext-pcx {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-pdf {
+    list-style-image: url(../images/php_file_tree/pdf.png);
+}
+
+.php-file-tree li.ext-php {
+    list-style-image: url(../images/php_file_tree/php.png);
+}
+
+.php-file-tree li.ext-png {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-ppt {
+    list-style-image: url(../images/php_file_tree/ppt.png);
+}
+
+.php-file-tree li.ext-psd {
+    list-style-image: url(../images/php_file_tree/psd.png);
+}
+
+.php-file-tree li.ext-pl {
+    list-style-image: url(../images/php_file_tree/script.png);
+}
+
+.php-file-tree li.ext-py {
+    list-style-image: url(../images/php_file_tree/script.png);
+}
+
+.php-file-tree li.ext-rb {
+    list-style-image: url(../images/php_file_tree/ruby.png);
+}
+
+.php-file-tree li.ext-rbx {
+    list-style-image: url(../images/php_file_tree/ruby.png);
+}
+
+.php-file-tree li.ext-rhtml {
+    list-style-image: url(../images/php_file_tree/ruby.png);
+}
+
+.php-file-tree li.ext-rpm {
+    list-style-image: url(../images/php_file_tree/linux.png);
+}
+
+.php-file-tree li.ext-ruby {
+    list-style-image: url(../images/php_file_tree/ruby.png);
+}
+
+.php-file-tree li.ext-sql {
+    list-style-image: url(../images/php_file_tree/db.png);
+}
+
+.php-file-tree li.ext-swf {
+    list-style-image: url(../images/php_file_tree/flash.png);
+}
+
+.php-file-tree li.ext-tif {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-ico {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-tiff {
+    list-style-image: url(../images/php_file_tree/picture.png);
+}
+
+.php-file-tree li.ext-txt {
+    list-style-image: url(../images/php_file_tree/txt.png);
+}
+
+.php-file-tree li.ext-vb {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-wav {
+    list-style-image: url(../images/php_file_tree/music.png);
+}
+
+.php-file-tree li.ext-wmv {
+    list-style-image: url(../images/php_file_tree/film.png);
+}
+
+.php-file-tree li.ext-xls {
+    list-style-image: url(../images/php_file_tree/xls.png);
+}
+
+.php-file-tree li.ext-xml {
+    list-style-image: url(../images/php_file_tree/code.png);
+}
+
+.php-file-tree li.ext-zip {
+    list-style-image: url(../images/php_file_tree/zip.png);
+}
+
+.php-file-tree li.ext-gz {
+    list-style-image: url(../images/php_file_tree/zip.png);
+}
+
+.php-file-tree li.ext-tgz {
+    list-style-image: url(../images/php_file_tree/zip.png);
+}
+
+.php-file-tree li.ext-joo {
+    list-style-image: url(../images/j_favicon.ico);
+}
+
+.php-file-tree li.ext-ini {
+    list-style-image: url(../images/php_file_tree/txt.png);
+}
+
+div.file_tree_path {
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-image: url(../images/ico/server.png);
+}

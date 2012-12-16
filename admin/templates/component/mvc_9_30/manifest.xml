@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="component" version="0.0.12">
+	<name>Categories J3L</name>
+	<description>A component using Joomla! categories - WIP !</description>
+	<version>1.2</version>
+	<jVersion>3.0</jVersion>
+	<phpVersion>5.3</phpVersion>
+	<dbTables>Custom table</dbTables>
+	<author></author>
+	<authorUrl></authorUrl>
+	<menu
+		img="../media/ECR_COM_COM_NAME/images/administrator/ECR_COM_COM_NAME-16.png">ECR_COM_NAME</menu>
+	<submenu>
+		<menu link="option=ECR_COM_COM_NAME&amp;view=ECR_COM_TBL_NAMEECR_LOWER_LIST_POSTFIX">ECR_COM_NAME</menu>
+		<menu link="option=com_categories&amp;extension=ECR_COM_COM_NAME">Categories</menu>
+	</submenu>
+</easyproject>

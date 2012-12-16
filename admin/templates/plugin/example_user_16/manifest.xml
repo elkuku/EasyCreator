@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE easyproject PUBLIC "-//EasyCreator 0.0.14//DTD project-setup 1.0//EN"
+"http://elkuku.github.com/dtd/easycreator/0.0.14/project-setup.dtd">
+<easyproject type="plugin" scope="user" version="0.0.12">
+  <name>Example User</name>
+  <description>The user example taken from the Joomla! core</description>
+  <version>1.0</version>
+  <jVersion>2.5</jVersion>
+  <phpVersion>5</phpVersion>
+  <author>Joomla! core</author>
+  <authorUrl></authorUrl>
+</easyproject>
