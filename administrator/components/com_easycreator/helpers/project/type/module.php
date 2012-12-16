@@ -27,7 +27,7 @@ class EcrProjectTypeModule extends EcrProjectBase
     public $prefix = 'mod_';
 
     /**
-     * Translate the type
+     * Translate the type.
      *
      * @return string
      */
@@ -285,9 +285,9 @@ class EcrProjectTypeModule extends EcrProjectBase
 
         /* @var JDatabaseQuery $query */
 
-        $query->from('#__modules AS m');
-        $query->select('m.id');
-        $query->where('m.module = '.$db->quote($this->comName));
+        $query->from('#__extensions AS m');
+        $query->select('m.extension_id');
+        $query->where('m.element = '.$db->quote($this->comName));
         $query->where('m.client_id = '.(int)$clId);
 
         $db->setQuery((string)$query);
