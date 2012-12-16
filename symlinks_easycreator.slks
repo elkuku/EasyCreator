@@ -3,6 +3,8 @@
 # EasyCreator
 basePath=
 
-administrator/components/com_easycreator
-components/com_easycreator
-media/com_easycreator
+admin administrator/components/com_easycreator
+site components/com_easycreator
+media media/com_easycreator
+
+easycreator.xml administrator/components/com_easycreator/easycreator.xml
