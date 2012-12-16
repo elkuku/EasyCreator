@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<extension type="component" version="2.5" method="upgrade">
+  <name>EasyCreator</name>
+  <creationDate>06-Oct-2012</creationDate>
+  <author>Nikolai Plath</author>
+  <authorEmail>der.el.kuku@gmail.com</authorEmail>
+  <authorUrl>https://github.com/elkuku</authorUrl>
+  <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>0.0.19</version>
+  <description>EasyCreator helps creating Extensions for Joomla!</description>
+  <scriptfile>install/script.php</scriptfile>
+  <files folder="site">
+    <folder>g11n</folder>
+    <folder>helpers</folder>
+    <folder>views</folder>
+    <filename>controller.php</filename>
+    <filename>easycreator.php</filename>
+  </files>
+  <administration>
+    <menu img="../media/com_easycreator/admin/images/ico/icon-16-easycreator.png" link="index.php?option=com_easycreator">EasyCreator</menu>
+    <files folder="admin">
+      <folder>cli</folder>
+      <folder>controllers</folder>
+      <folder>data</folder>
+      <folder>g11n</folder>
+      <folder>helpers</folder>
+      <folder>includes</folder>
+      <folder>install</folder>
+      <folder>models</folder>
+      <folder>templates</folder>
+      <folder>views</folder>
+      <filename>CHANGELOG.php</filename>
+      <filename>controller.php</filename>
+      <filename>easycreator.php</filename>
+      <filename>version.txt</filename>
+    </files>
+  </administration>
+  <media destination="com_easycreator" folder="media">
+    <folder>admin</folder>
+    <folder>site</folder>
+  </media>
+</extension>

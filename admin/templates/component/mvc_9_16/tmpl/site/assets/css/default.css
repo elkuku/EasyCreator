@@ -1,0 +1,20 @@
+##*HEADERCSS*##
+
+#ECR_COM_COM_NAME_content {
+    width: 50%;
+}
+
+#ECR_COM_COM_NAME_content .title {
+    float: left;
+    width: 50%;
+    text-align: right;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+#ECR_COM_COM_NAME_content .cell {
+    float: left;
+    width: 45%;
+    padding-left: 1em;
+    border-bottom: 1px solid gray;
+}

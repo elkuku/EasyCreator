@@ -10,7 +10,7 @@
 # @author     Created on 08-Mar-2012
 # @license    GNU/GPL, see JROOT/LICENSE.php
 
-projectDir=administrator/components/com_easycreator
+projectDir=admin
 
 git describe --long > $projectDir/version.txt
 

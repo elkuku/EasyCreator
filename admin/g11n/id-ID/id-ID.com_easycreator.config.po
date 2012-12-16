@@ -1,0 +1,426 @@
+# @version SVN: $Id$
+# com_easycreator.config - admin - The configuration language file.
+# Copyright (C) YEAR Nikolai Plath - elkuku.
+# 
+# Translators:
+#   <uringinteristi@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"POT-Creation-Date: 2012-05-31 02:00 -500\n"
+"PO-Revision-Date: 2012-05-31 08:32+0000\n"
+"Last-Translator: uring <uringinteristi@gmail.com>\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/opentranslators/language/id_ID/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id_ID\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: g11n\n"
+
+#: administrator/components/com_easycreator/easycreator.xmldescription
+msgid "EasyCreator helps creating Extensions for Joomla!"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Personal information"
+msgstr "Informasi pribadi"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Author"
+msgstr "Penulis"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Author e-mail"
+msgstr "E-mail penulis"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Author URL"
+msgstr "URL penulis"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "License"
+msgstr "Lisensi"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Copyright"
+msgstr "Copyright"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Package creation"
+msgstr "Pembuatan paket"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Build directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "zip"
+msgstr "zip"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "tar.gz"
+msgstr "tar.gz"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "bz2"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Custom name default"
+msgstr "Standar nama kustomisasi"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Custom name"
+msgstr "Nama kustomisasi"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Various"
+msgstr "Aneka"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Help Type"
+msgstr "Tipe Bantuan"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Editor type"
+msgstr "Tipe Editor"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Editor font size"
+msgstr "Ukuran huruf editor"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Local API copy"
+msgstr "Salin API lokal"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Livesite warning"
+msgstr "Peringatan Livesite"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Save versions"
+msgstr "Simpan versi"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Check for UTF8"
+msgstr "Centang untuk UTF8"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Check for BOM"
+msgstr "Centang untuk BOM"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+msgid "Local data directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+msgid "Show icons"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+msgid "Font size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Logging"
+msgstr "Logging"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Logger"
+msgstr "Logger"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Profiler"
+msgstr "Profiler"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Log file contents"
+msgstr "Log konten berkas"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Debug"
+msgstr "Debug"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Debugger"
+msgstr "Debugger"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Debug language"
+msgstr "Debug bahasa"
+
+#: administrator/components/com_easycreator/models/forms/config.xmllabel
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Debugger Type"
+msgstr "Tipe Debugger"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"The folder where your final package ends up. The folders extension_name and "
+"version will be added automatically.&lt;br /&gt;If left blank the default "
+"folder will be used."
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "ZIP format"
+msgstr "Format ZIP"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Ziped Tarball"
+msgstr "Ziped Tarball"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "BZ2 format"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"Choose the type of help you need (from beginner to expert). Messages will be"
+" displayed all over the place in light green boxes - you may also switch "
+"them off here."
+msgstr "Pilih tipe bantuan yang anda perlukan (dari pemula sampai mahir). Pesan akan ditampilkan pada semua tempat dalam kotak berwarna hijau - anda bisa juga mematikannya dari sini."
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"Which EditArea type shall we load (please see docu on developers site "
+"http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "Tipe EditArea manakah yang harus kita muat (harap lihat docu pada situs pembangun http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "The default font size for the code editor in pixel"
+msgstr "Ukuran huruf standar untuk editor kode dalam pixel"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
+msgstr "Salinan API Joomla! anda - dapatkan dari http://api.joomla.org"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"If a IP other then 127.0.0.1 is detected a warning message will be displayed"
+" for your own safety"
+msgstr "Bila IP selain 127.0.0.1 terdeteksi pesan peringatan akan ditampilkan untuk keselamatan anda sendiri"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid ""
+"When modifying your files, always save a backup version. These will be named"
+" *.rx"
+msgstr "Saat memodifikasi berkas-berkas anda, selalu simpan versi backup-nya. Ini akan dinamakan *.rx"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should languages files be checked for UTF-8"
+msgstr "Apakah kita harus memeriksa berkas-berkas bahasa yang menggunakan UTF8"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should languages files be checked for a BOM"
+msgstr "Apakah kita harus memeriksa berkas-berkas bahasa yang menggunakan BOM"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+msgid ""
+"A directory where all user data will be saved. If left blank, a sub "
+"directory in the component directory will be used"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+msgid "Show icons on toolbar buttons"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+msgid "The text font size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should we write some logfiles"
+msgstr "Apakah kita harus menulis beberapa logfiles"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Profile time and memory"
+msgstr "Memori dan waktu profil"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Log the contents / the code of the files been written to disk"
+msgstr "Log pada konten atau kode dari berkas-berkas yang dituliskan pada disket"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Shall we use the Debug mode ?"
+msgstr "Apakah kita harus menggunakan mode Debug ?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Shall we debug our special language files ?"
+msgstr "Apakah kita harus melakukakn debug pada berkas-berkas bahasa khusus ?"
+
+#: administrator/components/com_easycreator/models/forms/config.xmldescription
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Which debugger to use"
+msgstr "Debugger yang akan digunakan"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "All"
+msgstr "Semua"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Some"
+msgstr "Beberapa"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "None"
+msgstr "Tanpa"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_full.js"
+msgstr "edit_area_full.js"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_compressor.php"
+msgstr "edit_area_compressor.php"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_compressor.php?plugins"
+msgstr "edit_area_compressor.php?plugin"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_full.gz"
+msgstr "edit_area_full.gz"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "edit_area_loader.js"
+msgstr "edit_area_loader.js"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "No"
+msgstr "Tidak"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Yes"
+msgstr "Ya"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Standard size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Mini size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Small size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+msgid "Large size"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Off"
+msgstr "Padam"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "On"
+msgstr "Nyala"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "EasyDebug"
+msgstr "EasyDebug"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "JDump"
+msgstr "JDump"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "DebugTools"
+msgstr "DebugTools"
+
+#: administrator/components/com_easycreator/models/forms/config.xmlopt
+#: administrator/components/com_easycreator/models/forms/config_15.xmlopt
+msgid "Krumo"
+msgstr "Krumo"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
+msgid "Personal"
+msgstr "Pribadi"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Package formats"
+msgstr "Format paket"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Custom file name"
+msgstr "Nama file kustomisasi"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "Language"
+msgstr "Bahasa"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
+msgid "EasyCreator only"
+msgstr ""
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmllabel
+msgid "Use Google translation API"
+msgstr "Gunakan API penterjemah Google"
+
+#: administrator/components/com_easycreator/models/forms/config_15.xmldescription
+msgid "Should we use the Google Translation API for helping in translations ?"
+msgstr "Apakah kita harus menggunakan API Penterjemah Google untuk membantu penterjemahan ?"

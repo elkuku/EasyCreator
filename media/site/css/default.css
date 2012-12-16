@@ -1,0 +1,25 @@
+/**
+ * @package    EasyCreator
+ * @subpackage Frontend-CSS
+ * @author     Nikolai Plath
+ * @author     Created on 24-Sep-2008
+ */
+
+.ecr_button{
+    text-align: center;
+    padding: 3px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+}
+
+.ecr_button:hover{
+    background-color: #FFFFCC;
+}
+
+.ecr_button_selected{
+    text-align: right;
+    padding: 3px;
+    padding-right: 10px;
+    border: 1px solid #D9D9D9;
+    background-color: #FFFF99;
+}

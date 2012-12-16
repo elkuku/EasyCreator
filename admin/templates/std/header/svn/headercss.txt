@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+/**
+ * @version SVN: $@@Id@@$
+ * @package    ECR_COM_NAME
+ * @subpackage CSS
+ * @author     ECR_AUTHORNAME {@link ECR_AUTHORURL}
+ * @author     Created on ECR_ACT_DATE
+ * @license    GNU/GPL
+ */
