@@ -779,7 +779,7 @@ class EcrProjectZiper extends JObject
                 continue;
             }
 
-            $src = $files[0]->name;
+            $src = $files[0]->path;
             $fName = JFile::getName($src);
 
             //-- Set the elemnent path for manifest class
