@@ -135,9 +135,7 @@ class EcrHtmlMenu
         <div style="float: right;">
             <a class="btn<?php echo ECR_TBAR_SIZE.$helpActive; ?>" href="javascript:;"
                onclick="document.id('file_name').value=''; easySubmit('jhelp', 'help');">
-                <?php if(ECR_TBAR_ICONS) : ?>
-                <div class="img32d icon32-JHelp_btn"></div>
-                <?php endif; ?>
+                <?php echo (ECR_TBAR_ICONS) ? '<div class="img32d icon32-JHelp_btn"></div>' : ''; ?>
                 <?php echo jgettext('J! API'); ?>
             </a>
         </div>
@@ -171,9 +169,11 @@ class EcrHtmlMenu
                     {
                         echo '<a class="btn'.ECR_TBAR_SIZE.$actives[$k].'" href="javascript:;"'
                             .'onclick="$(\'file_name\').value=\'\'; easySubmit(\''.$k.'\', \''.$k.'\');">';
-                        if(ECR_TBAR_ICONS) :
-                            echo '<div class="img32d icon32-'.$v->image.'" title="'.$v->title.'"></div>';
-                        endif;
+
+                        echo (ECR_TBAR_ICONS)
+                            ? '<div class="img32d icon32-'.$v->image.'" title="'.$v->title.'"></div>'
+                            : '';
+
                         echo $v->title.NL;
                         echo '</a>';
                     }
@@ -192,9 +192,7 @@ class EcrHtmlMenu
             ?> <a class="hasTip btn<?php echo ECR_TBAR_SIZE; ?>" href="javascript:;"
                   title="<?php echo jgettext('More...').'::'.jgettext('Click for more options'); ?>"
                   onclick="this.setStyle('display', 'none'); ecr_options_box.toggle();">
-            <?php if(ECR_TBAR_ICONS) : ?>
-            <i class="img icon16-add"></i>
-            <?php endif; ?>
+            <?php echo (ECR_TBAR_ICONS) ? '<i class="img icon16-add"></i>' : ''; ?>
             <?php echo jgettext('More...'); ?> </a> <?php
         }
 
@@ -213,9 +211,11 @@ class EcrHtmlMenu
                 $rel = (isset($v->rel)) ? $v->rel : '';
                 $js = (isset($v->js)) ? $v->js : 'onclick="'.$stdJS.$cJS.'"';
                 echo '<a class="btn '.$class.ECR_TBAR_SIZE.$actives[$k].'" href="'.$href.'" '.$js.$rel.' >'.NL;
+
                 if(ECR_TBAR_ICONS) :
                     echo '<div class="img32d icon32-'.$v->image.'" title="'.$v->title.'"></div>'.NL;
                 endif;
+
                 echo $v->title.NL;
                 echo '</a>'.NL;
                 ?>

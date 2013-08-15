@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 /**
  * EasyCreator CLI builder.
@@ -32,13 +32,12 @@ version_compare(PHP_VERSION, '5.3', '>=') || die('This script requires PHP >= 5.
 
 define('_JEXEC', 1);
 
-define('ECR_DEBUG', 0);
+define('ECR_DEV_MODE', 1);
 
 ini_set('error_reporting', - 1);
 
 // Bootstrap the application.
 require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
-
 
 /*
  * Some ugly defines..
@@ -50,13 +49,11 @@ define('JPATH_BASE', dirname(__DIR__));
 //define('JPATH_COMPONENT', JPATH_ADMINISTRATOR.'/components/com_easycreator');
 define('JPATH_COMPONENT_ADMINISTRATOR', JPATH_BASE);
 
-define('JVERSION', '0.0.0');//:P
-
-
+define('JVERSION', '0.0.0'); //:P
 
 /**
-     * EasyCreator client builder.
-     */
+ * EasyCreator client builder.
+ */
 class EasyCreator extends JApplicationCli
 {
     /**
@@ -71,23 +68,48 @@ class EasyCreator extends JApplicationCli
         require JPATH_BASE.'/includes/defines.php';
 
         jimport('joomla.filesystem.folder');
+        jimport('joomla.filesystem.file');
 
-        $this->input->set('ecr_project', 'com_fuuuschubidu');
+        var_dump(getcwd());
+        var_dump($this->input->args);
+
+        $types = EcrProjectHelper::getProjectTypes();
+        $tags = EcrProjectHelper::getProjectTypesTags();
+
+        $actions = $this->getActions();
+
+        var_dump($actions);
+
+        var_dump($tags);
+
+        return;
+
+        $this->input->set('ecr_project', 'wap_fuuuschubidu');
 
         $builder = new EcrProjectBuilder;
 
-        $type = 'aaa';//getCmd('tpl_type');
-        $name = 'bbb';//getCmd('tpl_name');
-        $comName = 'ccc';//getCmd('com_name');
+        $type = 'webapp'; //getCmd('tpl_type');
+        $name = 'mvc_1'; //getCmd('tpl_name');
+        $comName = 'wap_gugugugu'; //getCmd('com_name');
 
-        if( ! $newProject = $builder->build($type, $name, $comName))
+        if(in_array($type, array('cliapp', 'webapp')))
+        {
+            define('JPATH_SITE', __DIR__);
+        }
+
+        $newProject = $builder->build($type, $name, $comName)
+
+        if( ! $newProject)
         {
             //-- Error
-            EcrHtml::message('An error happened while creating your project', 'error');
-            JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
-            $builder->printErrors();
+            $this->out('An error happened while creating your project');
+//            JFactory::getApplication()->enqueueMessage(jgettext('An error happened while creating your project'), 'error');
+            //          $builder->printErrors();
+            $errors = $builder->getErrors();
 
-            EcrHtml::formEnd();
+            var_dump($errors);
+
+            //EcrHtml::formEnd();
 
             return;
         }
@@ -108,14 +130,31 @@ class EasyCreator extends JApplicationCli
 
         $ecr_project = JFile::stripExt($newProject->getEcrXmlFileName());
 
-        $uri = 'index.php?option=com_easycreator&controller=stuffer&ecr_project='.$ecr_project;
+        //   $uri = 'index.php?option=com_easycreator&controller=stuffer&ecr_project='.$ecr_project;
 
-        $this->setRedirect($uri, jgettext('Your project has been created'));
+        $this->out('Your project has been created');
 
         echo ECRPATH_DATA;
         $project = EcrProjectHelper::getProject();
 
         var_dump($project);
+    }
+
+    protected function getActions()
+    {
+        static $actions = array();
+
+        if($actions)
+            return $actions;
+
+        $files = JFolder::files(__DIR__.'/actions');
+
+        foreach($files as $file)
+        {
+            $actions[] = JFile::stripExt($file);
+        }
+
+        return $actions;
     }
 }
 
@@ -194,4 +233,4 @@ catch(Exception $e)
     echo $e->getTraceAsString();
 
     exit($e->getCode());
-}//try
+}

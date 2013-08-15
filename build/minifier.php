@@ -10,7 +10,7 @@
 
 $yuiJar = '/home/elkuku/libs/yui/yuicompressor-2.4.7.jar';
 
-$baseDir = dirname(__DIR__).'/media/com_easycreator';
+$baseDir = dirname(__DIR__).'/media';
 
 $types = array('admin/css', 'admin/js', 'site/css', 'site/js');
 

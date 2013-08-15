@@ -139,6 +139,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 $paths['admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/templates/'.$this->comName;
 
@@ -223,6 +224,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 break;
 
             default:
@@ -292,6 +294,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -362,6 +365,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         $projects = array('bluestork', 'hathor', 'system');
                         break;
                     case '3.0':
+                    case '3.1':
                         $projects = array('isis', 'hathor', 'system');
                         break;
                     default:
@@ -380,6 +384,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                         $projects = array('atomic', 'beez_20', 'beez5', 'system');
                         break;
                     case '3.0':
+                    case '3.1':
                         $projects = array('beez3', 'protostar', 'system');
                         break;
                     default:

@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 // We are a valid Joomla entry point.
 // This is required to load the Joomla Platform import.php file.

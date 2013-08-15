@@ -149,14 +149,14 @@ class EcrLogger
         if($from)
         {
             $from = str_replace(JPATH_ROOT, 'JROOT', $from);
-            $fromFile = JFile::getName($from);
+            $fromFile = basename($from);
             $from = str_replace($fromFile, '', $from);
         }
 
         if($to)
         {
             $to = str_replace(JPATH_ROOT, 'JROOT', $to);
-            $toFile = JFile::getName($to);
+            $toFile = basename($to);
             $to = str_replace($toFile, '', $to);
         }
 

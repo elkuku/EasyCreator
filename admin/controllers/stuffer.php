@@ -396,7 +396,7 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
             return;
         }
 
-        $fileName = JFile::getName($selected_xml);
+        $fileName = basename($selected_xml);
         $rootElementName = 'root';
         $config = array();
         $config['type'] = 'unknown';

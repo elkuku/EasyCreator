@@ -145,6 +145,7 @@ class EcrProjectTypeCliapp extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 break;
 
             default:

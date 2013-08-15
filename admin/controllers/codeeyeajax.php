@@ -61,7 +61,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
         }
 
         //-- JUnit XML log file
-        $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.JFile::getName($test).'.xml';
+        $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.basename($test).'.xml';
         $arguments[] = '--log-junit '.$logName;
 
         //-- @todo: Test Name
@@ -123,7 +123,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
 
         /*
                 -- JUnit XML log file
-                        $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.JFile::getName($test).'.xml';
+                        $logName = JPATH_ROOT.DS.$resultsBase.DS.$time_stamp.'_'.basename($test).'.xml';
                         $arguments[] = '--log-junit '.$logName;
 
                 -- @todo: Test Name
@@ -171,7 +171,7 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
         $file = $input->getString('file');
         $ecr_project = $input->get('ecr_project');
 
-        $path = JPATH_ROOT.DS.$folder.DS.$file;
+        $path = JPATH_ROOT.'/'.$folder.'/'.$file;
 
         $response = new stdClass;
         $arguments = array();
@@ -207,10 +207,10 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
                 else
                 {
                     $class = array_pop($foundClasses);
-                    $resultPath = JPATH_ROOT.DS.$folder.DS.$class.'Test.php';
+                    $resultPath = JPATH_ROOT.'/'.$folder.'/'.$class.'Test.php';
 
                     //-- Joomla! bootstrap
-                    $arguments[] = '--bootstrap '.JPATH_ROOT.DS.'bootstrap.php';
+                    $arguments[] = '--bootstrap '.JPATH_ROOT.'/bootstrap.php';
                     $arguments[] = '--skeleton-test '.$class.' '.$path;
 
                     $phpUnit = new EcrPearHelperPhpunit;
@@ -226,30 +226,33 @@ class EasyCreatorControllerCodeEyeAjax extends JControllerLegacy
                     {
                         $scope = (strpos($resultPath, JPATH_ADMINISTRATOR) === false) ? 'site' : 'admin';
 
-                        $test = str_replace(DS.JFile::getName($resultPath), '', $resultPath);
+                        $test = str_replace(basename($resultPath), '', $resultPath);
+
+                        //-- Ensure forward slashes
+                        $test = str_replace(DIRECTORY_SEPARATOR, '/', $test);
 
                         if(strpos($test, JPATH_ADMINISTRATOR) === false)
                         {
-                            if($test != JPATH_SITE.DS.'components'.DS.$ecr_project)
+                            if($test != JPATH_SITE.'/components/'.$ecr_project)
                             {
                                 //-- Subfolder
                                 $subFolder = str_replace(
-                                    JPATH_SITE.DS.'components'.DS.$ecr_project.DS
+                                    JPATH_SITE.'/components/'.$ecr_project.'/'
                                     , '', $test);
                             }
                         }
                         else
                         {
-                            if($test != JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project)
+                            if($test != JPATH_ADMINISTRATOR.'/components/'.$ecr_project)
                             {
                                 //-- Subfolder
-                                $subFolder = str_replace(JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project.DS
+                                $subFolder = str_replace(JPATH_ADMINISTRATOR.'/components/'.$ecr_project.'/'
                                     , '', $test);
                             }
                         }
 
-                        $destFolder = JPATH_ADMINISTRATOR.DS.'components'.DS.$ecr_project.DS.'tests'.DS.$scope;
-                        $destFolder .= ($subFolder) ? DS.$subFolder : '';
+                        $destFolder = JPATH_ADMINISTRATOR.'/components/'.$ecr_project.'/tests/'.$scope;
+                        $destFolder .= ($subFolder) ? '/'.$subFolder : '';
 
                         $destFileName = $class.'Test.php';
 

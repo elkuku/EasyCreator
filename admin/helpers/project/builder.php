@@ -348,7 +348,7 @@ class EcrProjectBuilder extends JObject
     private function createBuildDir()
     {
         //-- Create build directory
-        $this->buildDir = JFactory::getConfig()->get('tmp_path').DS.uniqid($this->project->comName.'_');
+        $this->buildDir = (JFactory::getConfig()->get('tmp_path') ?: '/tmp').DS.uniqid($this->project->comName.'_');
 
         //-- Clean the path @since J 1.7
         $this->buildDir = JPath::clean($this->buildDir);

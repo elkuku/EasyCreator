@@ -63,11 +63,17 @@ switch(ECR_JVERSION)
     return;
         break;
 
+    case '2.5':
+        //-- @Joomla!-compat 2.5
+        ecrStylesheet('bootstrap');
+        break;
+
     case '3.0':
+    case '3.1':
         JFactory::getApplication()->JComponentTitle = 'EasyCreator';
         break;
 
-    case '3.1': //-- Get prepared
+    case '3.2': //-- Get prepared
         $application = JFactory::getApplication();
 
         $application->JComponentTitle = 'EasyCreator';
@@ -80,11 +86,6 @@ switch(ECR_JVERSION)
             , 'warning'
         );
 
-        break;
-
-    case '2.5':
-        //-- @Joomla!-compat 2.5
-        ecrStylesheet('bootstrap');
         break;
 
     default:

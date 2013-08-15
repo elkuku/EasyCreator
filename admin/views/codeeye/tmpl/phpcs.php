@@ -84,10 +84,12 @@ $fileTree = drawFileTree($this->project);
     echo '<br />';
     echo jgettext('Perform only');
     echo '<br />';
+
     foreach($easyStandards as $standard):
         echo '<h3>'.$standard.'</h3>';
 
         $cats = JFolder::folders(JPATH_COMPONENT.DS.'helpers'.DS.'CodeSniffer'.DS.$standard.DS.'Sniffs');
+
         foreach($cats as $cat):
             echo '<strong>'.$cat.'</strong>'.BR;
 
@@ -171,7 +173,7 @@ function drawFileTree(EcrProjectBase $project)
             }
 
             //-- This shows a single file not included in anterior directory list ;) - hi plugins...
-            $fileName = JFile::getName(JPath::clean($dir));
+            $fileName = basename(JPath::clean($dir));
             $dirName = substr($dir, 0, strlen($dir) - strlen($fileName));
             $oldDir = (isset($oldDir)) ? $oldDir : '';
 

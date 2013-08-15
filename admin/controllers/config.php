@@ -52,7 +52,7 @@ class EasyCreatorControllerConfig extends EcrBaseController
 
             $params = JFactory::getApplication()->input->get('params', array(), 'array');
 
-            if(! $table->bind(array('params' => $params))
+            if( ! $table->bind(array('params' => $params))
                 || ! $table->check()
                 || ! $table->store()
             )

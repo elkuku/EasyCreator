@@ -147,7 +147,7 @@ class EcrProjectActionTransferftp extends EcrProjectAction
 
             if($this->folder)
             {
-                $remote = $this->folder.'/'.JFile::getName($path);
+                $remote = $this->folder.'/'.basename($path);
             }
 
             if(false == $ftp->store($path, $remote))

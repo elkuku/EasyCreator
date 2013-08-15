@@ -150,6 +150,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 break;
 
             default:
@@ -266,6 +267,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
                 break;
 
             case '3.0':
+            case '3.1':
                 return array('cms', 'compat', 'joomla', 'legacy', 'phpmailer', 'phputf8', 'simplepie');
                 break;
 

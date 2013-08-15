@@ -131,6 +131,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 if($scope == 'menu')
                     $scope = 'sys';
 
@@ -229,13 +230,14 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 return $this->comName.'.xml';
                 break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
-                return array();
+                return '';
                 break;
         }//switch
     }//function
@@ -258,6 +260,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
+            case '3.1':
                 break;
 
             default:
@@ -351,6 +354,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             case '3.0':
+            case '3.1':
                 $projects = array(
                     'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
                 , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
@@ -388,7 +392,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '1.7':
             case '2.5':
             case '3.0':
-                $db = JFactory::getDbo();
+            case '3.1':
+            $db = JFactory::getDbo();
 
                 $query = $db->getQuery(true);
 
@@ -438,6 +443,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                     case '1.7':
                     case '2.5':
                     case '3.0':
+                    case '3.1':
                         $menu['level'] = 2;
                         $menu['parent'] = $mId;
                         break;
@@ -656,6 +662,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 break;
 
             case '3.0':
+            case '3.1':
                 /* @var JTableMenu $table */
                 $table = JTable::getInstance('menu');
 
