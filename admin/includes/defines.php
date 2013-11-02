@@ -117,7 +117,7 @@ define('ECRPATH_EXPORTS', JPath::clean(ECRPATH_DATA.'/exports'));
 
 $parts = explode('.', JVERSION);
 
-if(3 != count($parts))
+if(count($parts) < 2)
     throw new Exception(__FILE__.' - Unfortunately we are not able to determine your Joomla! version :( :(');
 
 /**
