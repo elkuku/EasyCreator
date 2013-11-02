@@ -1,18 +1,22 @@
-<?php defined('_JEXEC') || die('=;)');
+<?php
 /**
- * @package    EasyCreator
- * @subpackage Frontent
- * @author     Nikolai Plath (elkuku)
- * @author     Created on 24-Sep-2008
+ * @package     EasyCreator
+ * @subpackage  Frontent
+ * @author      Nikolai Plath (elkuku) <der.el.kuku@gmail.com>
+ * @created     24-Sep-2008
+ * @copyright   2008 - now()
+ * @license     GPL http://gnu.org
  */
+
+defined('_JEXEC') || die('=;)');
 
 jimport('joomla.application.component.view');
 
 /**
  * HTML View class for the EasyCreator Component.
  *
- * @package    EasyCreator
- * @subpackage Frontent
+ * @package     EasyCreator
+ * @subpackage  Frontent
  */
 class EasyCreatorViewEasyCreator extends JViewLegacy
 {
