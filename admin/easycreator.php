@@ -7,12 +7,12 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-//-- When changing Joomla! versions look for:
-//-- @Joomla!-version-check
-//-- @Joomla!-compat XXXX
+// When changing Joomla! versions look for:
+// @Joomla!-version-check
+// @Joomla!-compat XXXX
 
-//-- Dev mode - internal use =;)
-//-- @@DEBUG
+// Dev mode - internal use =;)
+// @@DEBUG
 define('ECR_DEV_MODE', 1);
 
 JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator starting') : null;
@@ -24,12 +24,12 @@ jimport('joomla.filesystem.file');
 JHtml::_('behavior.framework');
 JHTML::_('behavior.tooltip');
 
-//-- Global constants
+// Global constants
 require JPATH_COMPONENT.'/includes/defines.php';
 
 try
 {
-    //-- Global functions
+    // Global functions
     require JPATH_COMPONENT.'/includes/loader.php';
 }
 catch(Exception $e)
@@ -55,12 +55,12 @@ switch(ECR_JVERSION)
     case '1.5' :
     case '1.6' :
     case '1.7' :
-    JFactory::getApplication()->enqueueMessage(sprintf(
-            jgettext('EasyCreator %1$s is not compatible with Joomla! %2$s - Sorry.')
-            , ECR_VERSION, ECR_JVERSION)
-        , 'error');
+        JFactory::getApplication()->enqueueMessage(sprintf(
+                jgettext('EasyCreator %1$s is not compatible with Joomla! %2$s - Sorry.')
+                , ECR_VERSION, ECR_JVERSION)
+            , 'error');
 
-    return;
+        return;
         break;
 
     case '2.5':
@@ -70,10 +70,11 @@ switch(ECR_JVERSION)
 
     case '3.0':
     case '3.1':
+    case '3.2': // Get prepared
         JFactory::getApplication()->JComponentTitle = 'EasyCreator';
         break;
 
-    case '3.2': //-- Get prepared
+    case '3.3': // Get prepared
         $application = JFactory::getApplication();
 
         $application->JComponentTitle = 'EasyCreator';
@@ -95,10 +96,10 @@ switch(ECR_JVERSION)
         break;
 }
 
-//-- Add CSS
+// Add CSS
 ecrStylesheet('default', 'toolbar', 'icon');
 
-//-- Add JavaScript
+// Add JavaScript
 ecrScript('global_vars', 'easycreator');
 
 JFactory::getDocument()->addScriptDeclaration("var ECR_VERSION = '".ECR_VERSION."';".NL);
@@ -114,15 +115,15 @@ try
 
     if('component' == $input->get('tmpl'))
     {
-        //-- Perform the Request task only - raw view
+        // Perform the Request task only - raw view
         $controller->execute($input->get('task'));
     }
     else
     {
-        //-- Display the menu
+        // Display the menu
         EcrHtmlMenu::main();
 
-        //-- Perform the Request task
+        // Perform the Request task
         $controller->execute($input->get('task'));
 
         if(ECR_DEV_MODE && ECR_DEBUG_LANG
@@ -133,17 +134,17 @@ try
             g11n::debugPrintTranslateds();
         }
 
-        //-- Display the footer
+        // Display the footer
         EcrHtml::footer();
 
         JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator finished') : null;
     }
 
-    //-- Restore error_reporting
+    // Restore error_reporting
     error_reporting($prevErrorReporting);
 
-    //-- Redirect if set by the controller
-    //-- We don't do this very often =;)
+    // Redirect if set by the controller
+    // We don't do this very often =;)
     $controller->redirect();
 }
 catch(Exception $e)
@@ -152,8 +153,10 @@ catch(Exception $e)
     JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 
     if(ECR_DEBUG)
+    {
         echo '<pre>'.$e->getTraceAsString().'</pre>';
+    }
 }
 
-//-- Restore error_reporting
+// Restore error_reporting
 error_reporting($prevErrorReporting);

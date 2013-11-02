@@ -35,6 +35,11 @@ class TemplateOptions extends EcrProjectTemplateOptions
                 $this->reservedNames = array('cms', 'compat', 'joomla', 'legacy', 'phpmailer', 'phputf8', 'simplepie');
                 break;
 
+            case '3.2':
+                $this->reservedNames = array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy',
+                    'phpmailer', 'phputf8', 'simplepie');
+                break;
+
             default:
                 EcrHtml::message(__METHOD__.' - Unknown J! version');
                 break;

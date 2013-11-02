@@ -151,6 +151,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
             case '2.5':
             case '3.0':
             case '3.1':
+            case '3.2':
                 break;
 
             default:
@@ -231,18 +232,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
      */
     public function getAllProjects($scope)
     {
-        $folders = array();
-
-        /*
-        if(defined('JPATH_PLATFORM'))
-        {
-            $folders = JFolder::folders(JPATH_PLATFORM.'/libraries');
-        }
-        */
-
-        $folders = array_merge($folders, JFolder::folders(JPATH_LIBRARIES));
-
-        return $folders;
+        return JFolder::folders(JPATH_LIBRARIES);
     }//function
 
     /**
@@ -269,6 +259,11 @@ class EcrProjectTypeLibrary extends EcrProjectBase
             case '3.0':
             case '3.1':
                 return array('cms', 'compat', 'joomla', 'legacy', 'phpmailer', 'phputf8', 'simplepie');
+                break;
+
+            case '3.2':
+                return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpmailer',
+                    'phputf8', 'simplepie');
                 break;
 
             default:
