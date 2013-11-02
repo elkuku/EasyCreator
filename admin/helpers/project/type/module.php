@@ -131,8 +131,6 @@ class EcrProjectTypeModule extends EcrProjectBase
         //-- @Joomla!-version-check
         switch($this->JCompat)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
             case '3.1':
@@ -217,8 +215,6 @@ class EcrProjectTypeModule extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
             case '3.1':
@@ -339,8 +335,6 @@ class EcrProjectTypeModule extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
-                    case '1.6':
-                    case '1.7':
                     case '2.5':
                         return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
@@ -364,8 +358,6 @@ class EcrProjectTypeModule extends EcrProjectBase
                 //-- @Joomla!-version-check
                 switch(ECR_JVERSION)
                 {
-                    case '1.6':
-                    case '1.7':
                     case '2.5':
                         return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
                         , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'

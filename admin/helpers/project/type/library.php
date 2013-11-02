@@ -146,8 +146,6 @@ class EcrProjectTypeLibrary extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
             case '2.5':
             case '3.0':
             case '3.1':
@@ -247,11 +245,6 @@ class EcrProjectTypeLibrary extends EcrProjectBase
         //-- @Joomla!-version-check
         switch(ECR_JVERSION)
         {
-            case '1.6':
-            case '1.7':
-                return array('joomla', 'phpmailer', 'phputf8', 'simplepie');
-                break;
-
             case '2.5':
                 return array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
                 break;
