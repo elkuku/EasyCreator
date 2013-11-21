@@ -2,13 +2,13 @@
 
 <extension type="component" version="2.5" method="upgrade">
   <name>EasyCreator</name>
-  <creationDate>06-Oct-2012</creationDate>
+  <creationDate>21-Nov-2013</creationDate>
   <author>Nikolai Plath</author>
   <authorEmail>der.el.kuku@gmail.com</authorEmail>
   <authorUrl>https://github.com/elkuku</authorUrl>
   <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>0.0.19</version>
+  <version>0.0.20</version>
   <description>EasyCreator helps creating Extensions for Joomla!</description>
   <scriptfile>install/script.php</scriptfile>
   <files folder="site">

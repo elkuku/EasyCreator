@@ -50,6 +50,33 @@ Legend:
  ! -> Note
 ______________________________________________
 
+2013-11-01
+99be13e Remove refs to J! 1.6 and 1.7
+7b18d1e Fix checkstyle
+6743897 Modify version info for J! 3.2
+7b63eed Fix J!Version check in defines for 3.2rc
+
+2013-08-14
+472e6a1 Several fixes for J! 3.1 2b continued..
+6f8f6fc Merge remote-tracking branch 'origin/master'
+d619b1f Merge pull request #20 from deianmotov/patch-1
+
+2013-08-15
+ca165e2 deianmotov: Update ziper.php
+
+2012-12-16
+53af7d2 Fix symlink file
+e8efdeb Remove an obsolete symlink
+6eced2d Fix a notice due to unsuccessful success messages..
+765e766 Restructuring to allow install directly from repository.
+ca4eb59 Restructuring to allow install directly from repository.
+e701f17 Rename the symlinker file
+9d621b4 Add a "strip comments" example script
+6d14693 Fix registering modules not working.
+
+2012-10-06
+25f7221 Update changelog
+
 ---------- 0.0.19 ----------
 
 2012-10-06
