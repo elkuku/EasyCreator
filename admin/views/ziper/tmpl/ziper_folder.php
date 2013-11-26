@@ -23,9 +23,7 @@ $buildPath = $this->project->getZipPath();
         .'If left blank the default folder will be used.')
         , jgettext('Build folder')); ?>
 
-<?php
-if(false == JFolder::exists($buildPath.DS.$this->project->version)) :
-
+<?php if(false == JFolder::exists($buildPath.DS.$this->project->version)) :
     //-- The build folder does not exist - let's create it
 
     if(JFolder::create($buildPath.DS.$this->project->version)) :
