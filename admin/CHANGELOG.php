@@ -50,6 +50,18 @@ Legend:
  ! -> Note
 ______________________________________________
 
+---------- 0.0.21 ----------
+
+2013-11-26
+ab5a11b Fix checkstyle
+33090fb Fix broken file editor - Fix #16 - Thanks @diamin, @Andi-K, @Braus, @Heart1010 **BLUSH**
+c778b3c Fix Wrong component name in access.xml - Fix #21 - Thanks @Heart1010
+
+---------- 0.0.20 ----------
+
+2013-11-21
+7712f8d Update version files
+
 2013-11-01
 99be13e Remove refs to J! 1.6 and 1.7
 7b18d1e Fix checkstyle
@@ -422,7 +434,9 @@ b5c37d7 Fix js and config language file creation for non ini language files
 32676dc Update language templates
 
 2012-03-06
-9551b98 Language update Thanks to: ar-AR: ahmadalfy, AminosAmigos da-DK: Brian Rønnow de-DE: Michael es-ES: javier Fernández Llata fr-FR: Marcos Peebles hu-HU: Sándor Balikó id-ID: uring nl-NL: Steven Zeegers pl-PL: Begina Felicysym pt-BR: Manoel Silva sv-SE: Joel Hansen, linus.pettersson, Tess Neale
+9551b98 Language update Thanks to: ar-AR: ahmadalfy, AminosAmigos da-DK: Brian Rønnow de-DE: Michael
+es-ES: javier Fernández Llata fr-FR: Marcos Peebles hu-HU: Sándor Balikó id-ID: uring nl-NL: Steven Zeegers
+pl-PL: Begina Felicysym pt-BR: Manoel Silva sv-SE: Joel Hansen, linus.pettersson, Tess Neale
 4a2f56b Add a new icon for JApplications
 
 2012-03-05
@@ -469,7 +483,10 @@ a93b605 Language manager fix for J! 2.5
 28f51bd Merge pull request #3 from klauswilms/master
 
 2012-02-22
-fec37ea Klaus Wilms: I made some corrections in the php tags. you wrote <?=, but I think its asp? so i changed it to <?php. After the opening php tag I missed the echo command, and at the end before closing tag I missed the semicolon. I test it on a local installation, and it works fine for me.
+fec37ea Klaus Wilms: I made some corrections in the php tags. you wrote <?=, but I think its asp?
+    so i changed it to <?php. After the opening php tag I missed the echo command, and at the end before closing tag
+    I missed the semicolon.
+I test it on a local installation, and it works fine for me.
 
 2012-02-20
 2fdd21b Update changelog
@@ -479,7 +496,8 @@ fec37ea Klaus Wilms: I made some corrections in the php tags. you wrote <?=, but
 2012-02-20
 58e442e Bump version 0.0.15.3
 a961a91 Fix a fatal error when the g11n class is not available on project with non ini language files
-e878298 Fix completely fail in J! 1.5 due to clashing spl_autoloader and J's old __autioload() method - Thanks deck1187hw and suhreed
+e878298 Fix completely fail in J! 1.5 due to clashing spl_autoloader and J's old __autioload() method
+    Thanks deck1187hw and suhreed
 
 2012-02-14
 3fb892a Add magic properties to docblocks
@@ -536,7 +554,8 @@ d5c2e17 Formatting
 2012-02-02
 e95e95c Icon name changes and format
 6b1f2f7 Add mod_version to known J 2.5 core projects
-b842eea Fix a nasty bug that prevents the stuffer form from saving added menu items and update servers correctly, formatting
+b842eea Fix a nasty bug that prevents the stuffer form from saving added menu items and update servers correctly,
+    formatting
 
 2012-01-30
 aaf19a3 Code style
