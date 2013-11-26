@@ -26,8 +26,7 @@ class EcrFile extends JFile
 
         $file_path = $input->getPath('file_path', NULL);
         $file_name = $input->getPath('file_name', NULL);
-        $insertstring = JFactory::getApplication()->input
-            ->getHtml('c_insertstring', '', 'string');
+        $insertstring = $input->get('c_insertstring', '', 'raw');
 
         if( ! $file_path || ! $file_name)
             throw new Exception(jgettext('Empty values in save'));
