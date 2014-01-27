@@ -70,8 +70,11 @@ switch(ECR_JVERSION)
 
     case '3.0':
     case '3.1':
-    case '3.2': // Get prepared
-        JFactory::getApplication()->JComponentTitle = 'EasyCreator';
+    case '3.2': // Current
+		if (version_compare(JVERSION, '3.2.2-dev', '<'))
+		{
+	        JFactory::getApplication()->JComponentTitle = 'EasyCreator';
+		}
         break;
 
     case '3.3': // Get prepared
