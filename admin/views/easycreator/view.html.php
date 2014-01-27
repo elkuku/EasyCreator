@@ -44,15 +44,14 @@ class EasyCreatorViewEasyCreator extends JViewLegacy
         {
             $ip = getenv('REMOTE_ADDR');
 
-            if($ip && $ip != '127.0.0.1')
-            {
-                $link = 'http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development';
+	        if($ip && false == in_array($ip, array('127.0.0.1', '::1')))
+	        {
                 JFactory::getApplication()->enqueueMessage(
                     jgettext('Please use this extension only in local development environments.'), 'warning');
                 JFactory::getApplication()->enqueueMessage(
                     sprintf(
                     jgettext("See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! development</a>")
-                    , $link), 'warning');
+                    , 'http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development'), 'warning');
                 JFactory::getApplication()->enqueueMessage(
                     jgettext('You may suppress this message in the configuration settings if you\'re shure'), 'warning');
             }
