@@ -97,7 +97,7 @@ class EasyCreator extends JApplicationCli
             define('JPATH_SITE', __DIR__);
         }
 
-        $newProject = $builder->build($type, $name, $comName)
+        $newProject = $builder->build($type, $name, $comName);
 
         if( ! $newProject)
         {
