@@ -26,9 +26,9 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-'cli' == PHP_SAPI || die('This script must be executed from the command line.');
+'cli' == PHP_SAPI || die('This script must be executed from the command line.' . PHP_EOL);
 
-version_compare(PHP_VERSION, '5.3', '>=') || die('This script requires PHP >= 5.3');
+version_compare(PHP_VERSION, '5.3', '>=') || die('This script requires PHP >= 5.3' . PHP_EOL);
 
 define('_JEXEC', 1);
 
@@ -37,7 +37,20 @@ define('ECR_DEV_MODE', 1);
 ini_set('error_reporting', - 1);
 
 // Bootstrap the application.
-require getenv('JOOMLA_PLATFORM_PATH').'/libraries/import.php';
+/*
+ * NOTE: You may use:
+ * $ export JOOMLA_PLATFORM_PATH="/path/to/joomla-cms" && ./admin/cli/easycreator.php
+ * from a bash shell, or setting JOOMLA_PLATFORM_PATH from within your IDE.
+ */
+'' != getenv('JOOMLA_PLATFORM_PATH') || die('Please set up an environment variable "JOOMLA_PLATFORM_PATH" on your system that points to a Joomla! library' . PHP_EOL);
+
+$path = realpath(getenv('JOOMLA_PLATFORM_PATH') . '/libraries/import.php');
+
+'' != $path || die('The Joomla! library has not been found in ' . getenv('JOOMLA_PLATFORM_PATH') . PHP_EOL);
+
+$path = realpath(getenv('JOOMLA_PLATFORM_PATH') . '/libraries/import.php');
+
+require $path;
 
 /*
  * Some ugly defines..
@@ -73,14 +86,20 @@ class EasyCreator extends JApplicationCli
         var_dump(getcwd());
         var_dump($this->input->args);
 
+	    // Known project types
         $types = EcrProjectHelper::getProjectTypes();
+
+	    // Known project "Tags" - short forms
         $tags = EcrProjectHelper::getProjectTypesTags();
 
+	    // Predefined actions
         $actions = $this->getActions();
 
         var_dump($actions);
 
         var_dump($tags);
+
+	    // @todo What do you want to do today ? =;)
 
         return;
 
@@ -144,12 +163,14 @@ class EasyCreator extends JApplicationCli
     {
         static $actions = array();
 
-        if($actions)
-            return $actions;
+        if ($actions)
+        {
+	        return $actions;
+        }
 
-        $files = JFolder::files(__DIR__.'/actions');
+        $files = is_dir(__DIR__.'/actions') ? JFolder::files(__DIR__.'/actions') : array();
 
-        foreach($files as $file)
+        foreach ($files as $file)
         {
             $actions[] = JFile::stripExt($file);
         }
