@@ -166,7 +166,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-            break;
+	        case '3.3':
+	        break;
 
             default:
                 break;
@@ -209,7 +210,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-            return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
+	        case '3.3':
+	        return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
             default:
@@ -246,7 +248,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-            $query = $db->getQuery(true);
+	        case '3.3':
+	        $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
                 $query->select('e.extension_id');
@@ -286,7 +289,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-                $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
+	        case '3.3':
+		        $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -402,44 +406,92 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.2':
                 switch($scope)
                 {
-                    case 'authentication':
-                        $projects = array('gmail', 'joomla', 'ldap', 'cookie');
-                        break;
-                    case 'captcha':
-                        $projects = array('recaptcha');
-                        break;
-                    case 'content':
-                        $projects = array('emailcloak', 'finder', 'joomla', 'loadmodule', 'pagebreak',
-                            'pagenavigation', 'vote');
-                        break;
-                    case 'editors':
-                        $projects = array('none', 'tinymce', 'codemirror');
-                        break;
-                    case 'editors-xtd':
-                        $projects = array('article', 'image', 'pagebreak', 'readmore');
-                        break;
-                    case 'extension':
-                        $projects = array('joomla');
-                        break;
-                    case 'finder':
-                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks', 'tags');
-                        break;
-                    case 'quickicon':
-                        $projects = array('extensionupdate', 'joomlaupdate');
-                        break;
-                    case 'search':
-                        $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
-                        break;
-                    case 'system':
-                        $projects = array('cache', 'debug', 'highlight', 'languagefilter', 'languagecode'
-                        , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
-                        break;
-                    case 'user':
-                        $projects = array('contactcreator', 'joomla', 'profile');
-                        break;
-                    case 'twofactorauth':
-                        $projects = array('totp', 'yubikey');
-                        break;
+	                case 'authentication':
+		                $projects = array('gmail', 'joomla', 'ldap', 'cookie');
+		                break;
+	                case 'captcha':
+		                $projects = array('recaptcha');
+		                break;
+	                case 'content':
+		                $projects = array('emailcloak', 'finder', 'joomla', 'loadmodule', 'pagebreak',
+		                                  'pagenavigation', 'vote');
+		                break;
+	                case 'editors':
+		                $projects = array('none', 'tinymce', 'codemirror');
+		                break;
+	                case 'editors-xtd':
+		                $projects = array('article', 'image', 'pagebreak', 'readmore');
+		                break;
+	                case 'extension':
+		                $projects = array('joomla');
+		                break;
+	                case 'finder':
+		                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks', 'tags');
+		                break;
+	                case 'quickicon':
+		                $projects = array('extensionupdate', 'joomlaupdate');
+		                break;
+	                case 'search':
+		                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks');
+		                break;
+	                case 'system':
+		                $projects = array('cache', 'debug', 'highlight', 'languagefilter', 'languagecode'
+		                                  , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
+		                break;
+	                case 'user':
+		                $projects = array('contactcreator', 'joomla', 'profile');
+		                break;
+	                case 'twofactorauth':
+		                $projects = array('totp', 'yubikey');
+		                break;
+	                default :
+		                EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+		                break;
+                }
+		        break;
+
+                case '3.3':
+	                switch($scope)
+	                {
+		                case 'authentication':
+			                $projects = array('gmail', 'joomla', 'ldap', 'cookie');
+			                break;
+		                case 'captcha':
+			                $projects = array('recaptcha');
+			                break;
+		                case 'content':
+			                $projects = array('contact', 'emailcloak', 'finder', 'joomla', 'loadmodule', 'pagebreak',
+			                                  'pagenavigation', 'vote');
+			                break;
+		                case 'editors':
+			                $projects = array('none', 'tinymce', 'codemirror');
+			                break;
+		                case 'editors-xtd':
+			                $projects = array('article', 'image', 'pagebreak', 'readmore');
+			                break;
+		                case 'extension':
+			                $projects = array('joomla');
+			                break;
+		                case 'finder':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks', 'tags');
+			                break;
+		                case 'quickicon':
+			                $projects = array('extensionupdate', 'joomlaupdate');
+			                break;
+		                case 'search':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'tags', 'weblinks');
+			                break;
+		                case 'system':
+			                $projects = array('cache', 'debug', 'highlight', 'languagefilter', 'languagecode'
+			                                  , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
+			                break;
+		                case 'user':
+			                $projects = array('contactcreator', 'joomla', 'profile');
+			                break;
+		                case 'twofactorauth':
+			                $projects = array('totp', 'yubikey');
+			                break;
+
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;

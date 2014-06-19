@@ -210,7 +210,8 @@ class EcrTableHelper
             case '3.0' :
             case '3.1':
             case '3.2':
-                $fields = $db->getTableColumns($dbPrefix.$tableName, false);
+	        case '3.3':
+		        $fields = $db->getTableColumns($dbPrefix.$tableName, false);
 
                 return $fields[$dbPrefix.$tableName];
                 break;

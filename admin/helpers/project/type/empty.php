@@ -134,7 +134,8 @@ class EcrProjectTypeEmpty extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-            break;
+	        case '3.3':
+	        break;
 
             default:
                 break;

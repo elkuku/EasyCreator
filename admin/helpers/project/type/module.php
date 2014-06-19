@@ -135,7 +135,8 @@ class EcrProjectTypeModule extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-            $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
+	        case '3.3':
+	        $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/modules/'.$this->comName;
 
                 $s = ($this->scope == 'admin') ? JPATH_ADMINISTRATOR : JPATH_SITE;
@@ -219,7 +220,8 @@ class EcrProjectTypeModule extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-            break;
+	        case '3.3':
+	        break;
 
             default:
                 break;
@@ -343,7 +345,8 @@ class EcrProjectTypeModule extends EcrProjectBase
                     case '3.0':
                     case '3.1':
                     case '3.2':
-                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+	                case '3.3':
+		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version'
                         , 'mod_stats_admin');
@@ -369,14 +372,15 @@ class EcrProjectTypeModule extends EcrProjectBase
                     case '3.0':
                     case '3.1':
                     case '3.2':
-                       $extensions = array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+	                case '3.3':
+		                $extensions = array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
                         , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
                         , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
                         , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
                         , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
                         , 'mod_finder');
 
-                       if('3.2' == ECR_JVERSION)
+                       if(in_array(ECR_JVERSION, array('3.2', '3.3')))
                        {
                             $extensions = array_merge($extensions, array('mod_tags_popular', 'mod_tags_similar'));
                        }

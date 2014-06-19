@@ -150,7 +150,8 @@ class EcrProjectTypeLibrary extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-                break;
+	        case '3.3':
+	        break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unknown J! version');
@@ -255,11 +256,16 @@ class EcrProjectTypeLibrary extends EcrProjectBase
                 break;
 
             case '3.2':
-                return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpmailer',
+	        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpmailer',
                     'phputf8', 'simplepie');
                 break;
 
-            default:
+	        case '3.3':
+		        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
+		                     'phpmailer', 'phputf8', 'simplepie');
+		        break;
+
+	        default:
                 EcrHtml::message(__METHOD__.' - Unknown J! version');
             break;
         }//switch
