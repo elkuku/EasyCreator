@@ -53,19 +53,12 @@ abstract class EcrHtml
         $version = '<strong style="color: '.$color.';">'.$v.'</strong>';
         ?>
     <div class="ecrFooter">
-        <span class="img icon16-easycreator">EasyCreator</span> <?php echo $version; ?> runs best on
-        <a href="http://www.mozilla-europe.org/firefox/" title="FireFox" class="external">
-            <span class="img icon16-firefox">Firefox</span></a>
-        and <a href="http://opensuse.org" title="openSUSE" class="external">
-        <span class="img icon16-opensuse">openSUSE</span>
-    </a>
-        <br/>
-        Made and partially Copyright &copy; 2008 - 2012 by <a
-        href="https://github.com/elkuku"
-        class="external">El KuKu</a> using <a href="http://www.jetbrains.com/phpstorm/" title="PHPStorm"
-                                              class="external">
-        <span class="img icon16-phpstorm">PHPStorm</span>
-    </a>
+        <span class="img icon16-easycreator">EasyCreator</span> <?php echo $version; ?>
+	    is made and partially Copyright &copy; 2008 - 2015 by <a href="https://github.com/elkuku"
+        class="external">El KuKu</a> and <a href="https://github.com/elkuku/EasyCreator/graphs/contributors"
+	                                        class="external">
+		    Others
+	    </a>
         <br/>
         <small><em style="color: silver;"><span class="img icon16-joomla"></span>
             EasyCreator is not affiliated with or endorsed by the <a
