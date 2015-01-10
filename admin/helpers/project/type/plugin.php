@@ -492,6 +492,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
 			                $projects = array('totp', 'yubikey');
 			                break;
 
+		                case 'installer':
+			                $projects = array('webinstaller');
+			                break;
+
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
