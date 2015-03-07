@@ -70,8 +70,9 @@ switch(ECR_JVERSION)
 
     case '3.0':
     case '3.1':
-    case '3.2':
-    case '3.3': // Current
+    case '3.2': // @joomla blabla
+    case '3.3': // @todo huhu
+    case '3.4': // Current
 		if (version_compare(JVERSION, '3.2.2-dev', '<'))
 		{
 	        JFactory::getApplication()->JComponentTitle = 'EasyCreator';
