@@ -268,6 +268,7 @@ class EcrProjectTypeLibrary extends EcrProjectBase
                 break;
 
 	        case '3.4':
+	        case '3.5':
 		        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
 		                     'phpmailer', 'phputf8', 'simplepie', 'vendor');
 		        break;
