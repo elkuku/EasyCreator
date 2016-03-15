@@ -133,6 +133,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.2':
             case '3.3':
             case '3.4':
+	    case '3.5':
                 if($scope == 'menu')
                     $scope = 'sys';
 
