@@ -234,6 +234,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.2':
             case '3.3':
             case '3.4':
+	    case '3.5':
                 return $this->comName.'.xml';
                 break;
 
@@ -265,6 +266,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.2':
             case '3.3':
             case '3.4':
+	    case '3.5':
                 break;
 
             default:
@@ -369,6 +371,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
                 $projects = array(
                     'com_ajax', 'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
                     , 'com_contact', 'com_content', 'com_contenthistory', 'com_cpanel', 'com_finder', 'com_installer', 'com_joomlaupdate'
@@ -407,6 +410,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        $db = JFactory::getDbo();
 
                 $query = $db->getQuery(true);
@@ -459,6 +463,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
                     case '3.2':
 	                case '3.3':
 	                case '3.4':
+			case '3.5':
 	                $menu['level'] = 2;
                         $menu['parent'] = $mId;
                         break;
@@ -679,6 +684,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 		        /* @var JTableMenu $table */
                 $table = JTable::getInstance('menu');
 
