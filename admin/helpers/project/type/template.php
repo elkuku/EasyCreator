@@ -228,6 +228,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        break;
 
             default:
@@ -299,6 +300,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	            $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -371,6 +373,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                     case '3.2':
 	                case '3.3':
 	                case '3.4':
+			case '3.5':
 		                $projects = array('isis', 'hathor', 'system');
                         break;
                     default:
@@ -391,6 +394,7 @@ class EcrProjectTypeTemplate extends EcrProjectBase
                     case '3.2':
 	                case '3.3':
 	                case '3.4':
+	        	case '3.5':
 		                $projects = array('beez3', 'protostar', 'system');
 
                         if('3.2' == ECR_JVERSION)
