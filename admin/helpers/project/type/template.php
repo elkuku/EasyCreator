@@ -139,8 +139,9 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '3.0':
             case '3.1':
             case '3.2':
-	        case '3.3':
-	        case '3.4':
+	    case '3.3':
+	    case '3.4':
+	    case '3.5':
 	        $paths['admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/templates/'.$this->comName;
 
