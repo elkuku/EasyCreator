@@ -168,6 +168,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        break;
 
             default:
@@ -213,6 +214,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
@@ -252,6 +254,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -294,6 +297,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 		        $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
@@ -456,6 +460,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 
                 case '3.3':
                 case '3.4':
+	        case '3.5':
 	                switch($scope)
 	                {
 		                case 'authentication':

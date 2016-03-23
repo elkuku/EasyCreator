@@ -137,6 +137,7 @@ class EcrProjectTypeModule extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/modules/'.$this->comName;
 
@@ -223,6 +224,7 @@ class EcrProjectTypeModule extends EcrProjectBase
             case '3.2':
 	        case '3.3':
 	        case '3.4':
+	        case '3.5':
 	        break;
 
             default:
@@ -349,6 +351,7 @@ class EcrProjectTypeModule extends EcrProjectBase
                     case '3.2':
 	                case '3.3':
 	                case '3.4':
+	        	case '3.5':
 		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
                         , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
                         , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version'
@@ -386,6 +389,7 @@ class EcrProjectTypeModule extends EcrProjectBase
                     case '3.2':
 	                case '3.3':
 	                case '3.4':
+	        	case '3.5':
 		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
                         , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
                         , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
