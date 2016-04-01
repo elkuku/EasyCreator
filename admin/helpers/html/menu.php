@@ -127,14 +127,10 @@ class EcrHtmlMenu
             $actives[$k] = (in_array($task, $v->tasks)) ? ' active' : '';
             $rTasks = array_merge($rTasks, $v->tasks);
         }
-
-        $helpActive = ('jhelp' == $task) ? ' active' : '';
-
         ?>
     <div class="white_box">
         <div style="float: right;">
-            <a class="btn<?php echo ECR_TBAR_SIZE.$helpActive; ?>" href="javascript:;"
-               onclick="document.id('file_name').value=''; easySubmit('jhelp', 'help');">
+            <a class="external btn<?php echo ECR_TBAR_SIZE; ?>" href="https://api.joomla.org/">
                 <?php echo (ECR_TBAR_ICONS) ? '<div class="img32d icon32-JHelp_btn"></div>' : ''; ?>
                 <?php echo jgettext('J! API'); ?>
             </a>
