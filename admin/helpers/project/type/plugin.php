@@ -458,8 +458,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
                 }
 		        break;
 
-                case '3.3':
-                case '3.4':
+            case '3.3':
+            case '3.4':
 	        case '3.5':
 	                switch($scope)
 	                {
@@ -477,7 +477,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 			                $projects = array('none', 'tinymce', 'codemirror');
 			                break;
 		                case 'editors-xtd':
-			                $projects = array('article', 'image', 'pagebreak', 'readmore');
+			                $projects = array('article', 'image', 'pagebreak', 'readmore', 'module');
 			                break;
 		                case 'extension':
 			                $projects = array('joomla');
@@ -492,8 +492,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
 			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'tags', 'weblinks');
 			                break;
 		                case 'system':
-			                $projects = array('cache', 'debug', 'highlight', 'languagefilter', 'languagecode'
-			                                  , 'log', 'logout', 'p3p', 'redirect', 'remember', 'sef');
+			                $projects = array('cache', 'debug', 'highlight', 'languagefilter', 'languagecode',
+				                'log', 'logout', 'p3p', 'redirect', 'remember', 'sef', 'stats', 'updatenotification');
 			                break;
 		                case 'user':
 			                $projects = array('contactcreator', 'joomla', 'profile');
