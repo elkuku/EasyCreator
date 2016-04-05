@@ -8,7 +8,7 @@
   <authorUrl>https://github.com/elkuku</authorUrl>
   <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>0.0.24</version>
+  <version>0.0.24.1</version>
   <description>EasyCreator helps creating Extensions for Joomla!</description>
   <scriptfile>install/script.php</scriptfile>
   <files folder="site">
@@ -31,7 +31,6 @@
       <folder>models</folder>
       <folder>templates</folder>
       <folder>views</folder>
-      <filename>CHANGELOG.php</filename>
       <filename>controller.php</filename>
       <filename>easycreator.php</filename>
       <filename>version.txt</filename>
