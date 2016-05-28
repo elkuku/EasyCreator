@@ -169,6 +169,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.3':
 	        case '3.4':
 	        case '3.5':
+	        case '3.6':
 	        break;
 
             default:
@@ -215,6 +216,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.3':
 	        case '3.4':
 	        case '3.5':
+	        case '3.6':
 	        return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
@@ -255,6 +257,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.3':
 	        case '3.4':
 	        case '3.5':
+	        case '3.6':
 	        $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
@@ -298,6 +301,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.3':
 	        case '3.4':
 	        case '3.5':
+	        case '3.6':
 		        $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
@@ -471,7 +475,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 			                break;
 		                case 'content':
 			                $projects = array('contact', 'emailcloak', 'finder', 'joomla', 'loadmodule', 'pagebreak',
-			                                  'pagenavigation', 'vote');
+				                'pagenavigation', 'vote');
 			                break;
 		                case 'editors':
 			                $projects = array('none', 'tinymce', 'codemirror');
@@ -504,6 +508,53 @@ class EcrProjectTypePlugin extends EcrProjectBase
 
 		                case 'installer':
 			                $projects = array('webinstaller');
+			                break;
+	                }
+
+	        case '3.6':
+	                switch($scope)
+	                {
+		                case 'authentication':
+			                $projects = array('gmail', 'joomla', 'ldap', 'cookie');
+			                break;
+		                case 'captcha':
+			                $projects = array('recaptcha');
+			                break;
+		                case 'content':
+			                $projects = array('contact', 'emailcloak', 'finder', 'joomla', 'loadmodule', 'pagebreak',
+			                                  'pagenavigation', 'vote');
+			                break;
+		                case 'editors':
+			                $projects = array('none', 'tinymce', 'codemirror');
+			                break;
+		                case 'editors-xtd':
+			                $projects = array('article', 'image', 'pagebreak', 'readmore', 'module');
+			                break;
+		                case 'extension':
+			                $projects = array('joomla');
+			                break;
+		                case 'finder':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks', 'tags');
+			                break;
+		                case 'quickicon':
+			                $projects = array('extensionupdate', 'joomlaupdate');
+			                break;
+		                case 'search':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'tags', 'weblinks');
+			                break;
+		                case 'system':
+			                $projects = array('cache', 'debug', 'highlight', 'languagefilter', 'languagecode',
+				                'log', 'logout', 'p3p', 'redirect', 'remember', 'sef', 'stats', 'updatenotification');
+			                break;
+		                case 'user':
+			                $projects = array('contactcreator', 'joomla', 'profile');
+			                break;
+		                case 'twofactorauth':
+			                $projects = array('totp', 'yubikey');
+			                break;
+
+		                case 'installer':
+			                $projects = array('webinstaller', 'folderinstaller', 'packageinstaller', 'urlinstaller');
 			                break;
 
                     default :
