@@ -143,7 +143,7 @@ class EcrPearArchiveZip
     * @param    string  $p_zipname  The name of the zip archive to create
     * @access public
     */
-    function EcrPearArchiveZip($p_zipname)
+    public function __construct($p_zipname)
     {
 
         // ----- Check the zlib
@@ -161,8 +161,6 @@ class EcrPearArchiveZip
         // ----- Set the attributes
         $this->_zipname = $p_zipname;
         $this->_zip_fd = 0;
-
-        return;
     }
     // }}}
 

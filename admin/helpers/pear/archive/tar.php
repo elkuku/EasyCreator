@@ -109,7 +109,7 @@ class EcrPearArchiveTar extends PEAR
     *                   boolean value 'true' means 'gz'.
     * @access public
     */
-    function EcrPearArchiveTar($p_tarname, $p_compress = null)
+    public function __construct($p_tarname, $p_compress = null)
     {
         $this->PEAR();
         $this->_compress = false;
