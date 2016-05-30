@@ -409,13 +409,13 @@ echo json_encode($response);
 //######################################
 // @codingStandardsIgnoreStart
 
-function jimport() {}
-function utf8_ucfirst(){}
+function Xjimport() {}
+function XSutf8_ucfirst(){}
 
 /**
  * Enter description here ...
  */
-class JLoader
+class XJLoader
 {
     function register() {}
 
