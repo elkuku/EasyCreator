@@ -6,3 +6,4 @@ logs/*.log
 results/*.xml
 projects/*.xml
 sync/*.txt
+updateserver/com_*
