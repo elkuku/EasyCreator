@@ -141,6 +141,10 @@ class EcrProjectManifest extends JObject
                 {
                     $this->manifest->addAttribute('client', 'administrator');
                 }
+                else
+                {
+                	$this->manifest->addAttribute('client', 'site');
+                }
                 break;
             case 'plugin':
                 $this->manifest->addAttribute('group', $this->project->scope);
