@@ -170,6 +170,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
 	        break;
 
             default:
@@ -217,7 +219,9 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
-	        return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
+            case '3.7':
+            case '3.8':
+            return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
                 break;
 
             default:
@@ -258,7 +262,9 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
-	        $query = $db->getQuery(true);
+            case '3.7':
+            case '3.8':
+            $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
                 $query->select('e.extension_id');
@@ -302,7 +308,9 @@ class EcrProjectTypePlugin extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
-		        $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
+            case '3.7':
+            case '3.8':
+                $projects = JFolder::folders(JPATH_SITE.DS.'plugins'.DS.$scope);
                 break;
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -510,6 +518,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
 			                $projects = array('webinstaller');
 			                break;
 	                }
+	                break;
 
 	        case '3.6':
 	                switch($scope)
@@ -562,8 +571,123 @@ class EcrProjectTypePlugin extends EcrProjectBase
                         break;
                 }//switch
                 break;
+
+	        case '3.7':
+	                switch($scope)
+	                {
+		                case 'authentication':
+			                $projects = array('cookie', 'gmail', 'joomla', 'ldap');
+			                break;
+		                case 'captcha':
+			                $projects = array('recaptcha');
+			                break;
+		                case 'content':
+			                $projects = array('contact', 'emailcloak', 'fields', 'finder', 'joomla', 'loadmodule', 'pagebreak',
+			                                  'pagenavigation', 'vote');
+			                break;
+		                case 'editors':
+			                $projects = array('codemirror', 'none', 'tinymce');
+			                break;
+		                case 'editors-xtd':
+			                $projects = array('article', 'contact', 'fields', 'image', 'menu', 'module', 'pagebreak', 'readmore');
+			                break;
+		                case 'extension':
+			                $projects = array('joomla');
+			                break;
+		                case 'fields':
+			                $projects = array('calendar', 'checkboxes', 'color', 'editor', 'imagelist', 'integer', 'list', 'media', 'radio'
+                            , 'sql', 'text', 'textarea', 'url', 'user', 'usergroup', 'usergrouplist');
+			                break;
+		                case 'finder':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'weblinks', 'tags');
+			                break;
+		                case 'quickicon':
+			                $projects = array('extensionupdate', 'joomlaupdate', 'phpversioncheck');
+			                break;
+		                case 'search':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'tags', 'weblinks');
+			                break;
+		                case 'system':
+			                $projects = array('cache', 'debug', 'fields', 'highlight', 'languagefilter', 'languagecode',
+				                'log', 'logout', 'p3p', 'redirect', 'remember', 'sef', 'stats', 'updatenotification');
+			                break;
+		                case 'user':
+			                $projects = array('contactcreator', 'joomla', 'profile');
+			                break;
+		                case 'twofactorauth':
+			                $projects = array('totp', 'yubikey');
+			                break;
+
+		                case 'installer':
+			                $projects = array('webinstaller', 'folderinstaller', 'packageinstaller', 'urlinstaller');
+			                break;
+
+                    default :
+                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        break;
+                }//switch
+                break;
+
+	        case '3.8':
+	                switch($scope)
+	                {
+		                case 'authentication':
+			                $projects = array('cookie', 'gmail', 'joomla', 'ldap');
+			                break;
+		                case 'captcha':
+			                $projects = array('recaptcha');
+			                break;
+		                case 'content':
+			                $projects = array('contact', 'emailcloak', 'fields', 'finder', 'joomla', 'loadmodule', 'pagebreak',
+			                                  'pagenavigation', 'vote');
+			                break;
+		                case 'editors':
+			                $projects = array('codemirror', 'none', 'tinymce');
+			                break;
+		                case 'editors-xtd':
+			                $projects = array('article', 'contact', 'fields', 'image', 'menu', 'module', 'pagebreak', 'readmore');
+			                break;
+		                case 'extension':
+			                $projects = array('joomla');
+			                break;
+		                case 'fields':
+			                $projects = array('calendar', 'checkboxes', 'color', 'editor', 'imagelist', 'integer', 'list', 'media', 'radio'
+                            , 'sql', 'text', 'textarea', 'url', 'user', 'usergrouplist');
+			                break;
+		                case 'finder':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'tags');
+			                break;
+		                case 'installer':
+			                $projects = array('folderinstaller', 'packageinstaller', 'urlinstaller');
+			                break;
+		                case 'quickicon':
+			                $projects = array('extensionupdate', 'joomlaupdate', 'phpversioncheck');
+			                break;
+		                case 'sampledata':
+			                $projects = array('blog');
+			                break;
+		                case 'search':
+			                $projects = array('categories', 'contacts', 'content', 'newsfeeds', 'tags');
+			                break;
+		                case 'system':
+			                $projects = array('cache', 'debug', 'fields', 'highlight', 'languagecode', 'languagefilter',
+				                'log', 'logout', 'p3p', 'redirect', 'remember', 'sef', 'stats', 'updatenotification');
+			                break;
+                        case 'twofactorauth':
+                            $projects = array('totp', 'yubikey');
+                            break;
+
+                        case 'user':
+			                $projects = array('contactcreator', 'joomla', 'profile');
+			                break;
+
+                    default :
+                        EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
+                        break;
+                }//switch
+                break;
             default:
-                JFactory::getApplication()->enqueueMessage(__METHOD__.' - Unknown J! version', 'error');
+                EcrHtml::message(__METHOD__.' - Unknown JVersion', 'error');
 
                 return array();
         }//switch

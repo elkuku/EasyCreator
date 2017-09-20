@@ -143,6 +143,8 @@ class EcrProjectTypeTemplate extends EcrProjectBase
             case '3.4':
             case '3.5':
             case '3.6':
+            case '3.7':
+            case '3.8':
 	            $paths['admin'][] = JPATH_ADMINISTRATOR.'/templates/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/templates/'.$this->comName;
 
@@ -231,7 +233,9 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
-	        break;
+            case '3.7':
+            case '3.8':
+            break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -304,7 +308,9 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
-	            $query = $db->getQuery(true);
+            case '3.7':
+            case '3.8':
+            $query = $db->getQuery(true);
 
                 $query->from('#__extensions AS e');
                 $query->select('e.extension_id');
@@ -378,7 +384,9 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 	                case '3.4':
 			        case '3.5':
 			        case '3.6':
-		                $projects = array('isis', 'hathor', 'system');
+                    case '3.7':
+                    case '3.8':
+                        $projects = array('isis', 'hathor', 'system');
                         break;
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -400,7 +408,9 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 	                case '3.4':
 	        	    case '3.5':
 	        	    case '3.6':
-		                $projects = array('beez3', 'protostar', 'system');
+                    case '3.7':
+                    case '3.8':
+                        $projects = array('beez3', 'protostar', 'system');
 
                         if('3.2' == ECR_JVERSION)
                         {

@@ -44,7 +44,9 @@ class TemplateOptions extends EcrProjectTemplateOptions
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
-		        $this->reservedNames = array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy',
+            case '3.7':
+            case '3.8':
+                $this->reservedNames = array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy',
                     'phpmailer', 'phputf8', 'simplepie', 'vendor');
                 break;
 

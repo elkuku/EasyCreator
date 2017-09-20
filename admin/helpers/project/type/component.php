@@ -135,6 +135,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
                 if($scope == 'menu')
                     $scope = 'sys';
 
@@ -237,6 +239,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
                 return $this->comName.'.xml';
                 break;
 
@@ -270,6 +274,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
             case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
                 break;
 
             default:
@@ -383,6 +389,15 @@ class EcrProjectTypeComponent extends EcrProjectBase
                     , 'com_postinstall', 'com_redirect', 'com_search', 'com_tags', 'com_templates', 'com_users', 'com_weblinks'
                 );
             break;
+	        case '3.7':
+	        case '3.8':
+                $projects = array(
+                    'com_ajax', 'com_admin', 'com_associations', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
+                    , 'com_contact', 'com_content', 'com_contenthistory', 'com_cpanel', 'com_fields', 'com_finder', 'com_installer', 'com_joomlaupdate'
+                    , 'com_languages', 'com_login', 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
+                    , 'com_postinstall', 'com_redirect', 'com_search', 'com_tags', 'com_templates', 'com_users'
+                );
+            break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -416,6 +431,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
 	        $db = JFactory::getDbo();
 
                 $query = $db->getQuery(true);
@@ -469,6 +486,9 @@ class EcrProjectTypeComponent extends EcrProjectBase
 	                case '3.3':
 	                case '3.4':
 			        case '3.5':
+			        case '3.6':
+			        case '3.7':
+			        case '3.8':
                         $menu['level'] = 2;
                         $menu['parent'] = $mId;
                         break;
@@ -691,6 +711,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
 		        /* @var JTableMenu $table */
                 $table = JTable::getInstance('menu');
 

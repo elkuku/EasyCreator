@@ -126,6 +126,8 @@ class EcrProjectHelper
             case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
                 if('library' == $project->type
                 || 'package' == $project->type)
                 {

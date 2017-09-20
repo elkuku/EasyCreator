@@ -149,7 +149,9 @@ class EcrProjectTypeWebapp extends EcrProjectBase
             case '3.4':
             case '3.5':
             case '3.6':
-		        break;
+            case '3.7':
+            case '3.8':
+                break;
 
             default:
                 EcrHtml::message(__METHOD__.' - Unknown J! version');

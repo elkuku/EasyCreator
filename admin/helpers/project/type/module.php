@@ -139,6 +139,8 @@ class EcrProjectTypeModule extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
 	            $paths['admin'][] = JPATH_ADMINISTRATOR.'/modules/'.$this->comName;
                 $paths['site'][] = JPATH_SITE.'/modules/'.$this->comName;
 
@@ -227,6 +229,8 @@ class EcrProjectTypeModule extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
 	        break;
 
             default:
@@ -356,9 +360,21 @@ class EcrProjectTypeModule extends EcrProjectBase
 	        	    case '3.5':
 	        	    case '3.6':
 		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version'
+                        , 'mod_menu', 'mod_multilangstatus', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_version'
                         , 'mod_stats_admin');
+
+	        	    case '3.7':
+		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_multilangstatus', 'mod_popular', 'mod_quickicon', 'mod_stats_admin', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_version'
+                       );
+
+	        	    case '3.8':
+		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
+                        , 'mod_menu', 'mod_multilangstatus', 'mod_popular', 'mod_quickicon', 'mod_sampledata', 'mod_stats_admin', 'mod_status', 'mod_submenu'
+                        , 'mod_title', 'mod_toolbar', 'mod_version'
+                       );
 
                     default:
                         EcrHtml::message(__METHOD__.' - Unsupported JVersion');
@@ -396,10 +412,20 @@ class EcrProjectTypeModule extends EcrProjectBase
 	        	    case '3.6':
 		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
                         , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
+                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_finder', 'mod_footer', 'mod_languages'
                         , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
-                        , 'mod_finder', 'mod_tags_popular', 'mod_tags_similar');
+                        , 'mod_syndicate', 'mod_tags_popular', 'mod_tags_similar', 'mod_users_latest', 'mod_weblinks'
+                        , 'mod_whosonline', 'mod_wrapper');
+                    break;
+
+	        	    case '3.7':
+	        	    case '3.8':
+		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
+                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
+                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_finder', 'mod_footer', 'mod_languages'
+                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
+                        , 'mod_syndicate', 'mod_tags_popular', 'mod_tags_similar', 'mod_users_latest'
+                        , 'mod_whosonline', 'mod_wrapper');
                     break;
 
                     default:

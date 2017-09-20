@@ -154,6 +154,8 @@ class EcrProjectTypeLibrary extends EcrProjectBase
 	        case '3.4':
 	        case '3.5':
 	        case '3.6':
+	        case '3.7':
+	        case '3.8':
 	        break;
 
             default:
@@ -273,6 +275,16 @@ class EcrProjectTypeLibrary extends EcrProjectBase
 	        case '3.6':
 		        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
 		                     'phpmailer', 'phputf8', 'simplepie', 'vendor', 'php-encryption');
+		        break;
+
+	        case '3.7':
+		        return array('cms', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
+		                     'phpmailer', 'phputf8', 'vendor', 'php-encryption');
+		        break;
+
+            case '3.8':
+		        return array('cms', 'fof', 'idna_convert', 'joomla', 'legacy', 'php-encryption', 'phpass',
+		                     'phputf8', 'src', 'vendor');
 		        break;
 
 	        default:
