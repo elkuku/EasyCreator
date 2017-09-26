@@ -54,7 +54,7 @@ abstract class EcrHtml
         ?>
     <div class="ecrFooter">
         <span class="img icon16-easycreator">EasyCreator</span> <?php echo $version; ?>
-	    is made and partially Copyright &copy; 2008 - 2015 by <a href="https://github.com/elkuku"
+	    is made and partially Copyright &copy; 2008 - <?php echo date('Y') ?> by <a href="https://github.com/elkuku"
         class="external">El KuKu</a> and <a href="https://github.com/elkuku/EasyCreator/graphs/contributors"
 	                                        class="external">
 		    Others
@@ -263,42 +263,49 @@ EOF;
 
         $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.'CHANGELOG.php';
 
-        if(false == file_exists($file))
-        {
-            return false;
+        if(file_exists($file)) {
+            //--we do not use JFile here cause we only need one line which is
+            //--normally at the beginning..
+            $f = fopen($file, 'r');
+            $ret = false;
+
+            while ($line = fgets($f, 1000)) {
+                if (false == strpos($line, '@version'))
+                    continue;
+
+                $parts = explode('$', $line);
+
+                if (count($parts) < 2)
+                    continue;
+
+                $parts = explode(' ', $parts[1]);
+
+                if (count($parts) < 3)
+                    continue;
+
+                $svn_rev = $parts[2];
+                $svn_date = date('d-M-Y', strtotime($parts[3]));
+                $ret = $svn_rev;
+                $ret .= ($revOnly) ? '' : '  / ' . $svn_date;
+
+                break;
+            }
+
+            fclose($f);
+
+            return $ret;
         }
 
-        //--we do not use JFile here cause we only need one line which is
-        //--normally at the beginning..
-        $f = fopen($file, 'r');
-        $ret = false;
+        //-- Check the component manifest
 
-        while($line = fgets($f, 1000))
-        {
-            if(false == strpos($line, '@version'))
-                continue;
+        $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.str_replace('com_', '', $appName) . '.xml';
 
-            $parts = explode('$', $line);
-
-            if(count($parts) < 2)
-                continue;
-
-            $parts = explode(' ', $parts[1]);
-
-            if(count($parts) < 3)
-                continue;
-
-            $svn_rev = $parts[2];
-            $svn_date = date('d-M-Y', strtotime($parts[3]));
-            $ret = $svn_rev;
-            $ret .= ($revOnly) ? '' : '  / '.$svn_date;
-
-            break;
+        if(file_exists($file)) {
+            $xml = simplexml_load_file($file);
+            return $xml->version;
         }
 
-        fclose($f);
-
-        return $ret;
+        return false;
     }
 
     /**
