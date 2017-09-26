@@ -100,11 +100,6 @@ class EcrHtmlMenu
         $rightTasks['logfiles']->image = 'text';
         $rightTasks['logfiles']->tasks = array('logfiles');
 
-        $rightTasks['help'] = new stdClass;
-        $rightTasks['help']->title = jgettext('Help');
-        $rightTasks['help']->image = 'ecr_help';
-        $rightTasks['help']->tasks = array('help', 'quicky', 'credits');
-
         $rightTasks['sandbox'] = new stdClass;
         $rightTasks['sandbox']->title = jgettext('Sandbox');
         $rightTasks['sandbox']->image = 'sandbox';
