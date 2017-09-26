@@ -11,7 +11,7 @@
   <description>EasyCreator helps creating Extensions for Joomla!</description>
   <scriptfile>install/script.php</scriptfile>
   <updateservers>
-    <server name="EasyCreator update server" type="extension" priority="1">https://github.com/blablakuku</server>
+    <server name="EasyCreator update server" type="extension" priority="1">http://elkuku.github.io/EasyCreator/updates.xml</server>
   </updateservers>
   <files folder="site">
     <folder>g11n</folder>
@@ -21,7 +21,7 @@
     <filename>easycreator.php</filename>
   </files>
   <administration>
-    <menu img="../media/com_easycreator/admin/images/ico/icon-16-easycreator.png" link="index.php?option=com_easycreator">EasyCreator</menu>
+    <menu link="option=com_easycreator">EasyCreator</menu>
     <files folder="admin">
       <folder>cli</folder>
       <folder>controllers</folder>
