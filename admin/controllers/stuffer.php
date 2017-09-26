@@ -341,8 +341,6 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
     /**
      * Save the parameters from request.
      *
-     * @todo convert JSimpleXML to SimpleXML
-     *
      * @return void
      */
     public function save_params()
