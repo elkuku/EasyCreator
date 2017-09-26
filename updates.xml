@@ -37,4 +37,23 @@
         <targetplatform name="joomla" version="3.[012345678]" />
         <php_minimum>5.3.10</php_minimum>
     </update>
+    <update>
+        <name>EasyCreator 0.0.25.4</name>
+        <description>Joomla! extension creator</description>
+        <element>com_easycreator</element>
+        <type>component</type>
+        <version>0.0.25.4</version>
+        <infourl title="EasyCreator">https://github.com/elkuku/EasyCreator/releases/tag/0.0.25.3</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/elkuku/EasyCreator/archive/0.0.25.3.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>Nikolai Plath</maintainer>
+        <maintainerurl>https://github.com/elkuku</maintainerurl>
+        <section>WTF</section>
+        <targetplatform name="joomla" version="3.[012345678]" />
+        <php_minimum>5.3.10</php_minimum>
+    </update>
 </updates>
