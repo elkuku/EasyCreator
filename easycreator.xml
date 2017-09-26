@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<extension type="component" version="2.5" method="upgrade">
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
   <name>EasyCreator</name>
-  <creationDate>1-Apr-2016</creationDate>
+  <creationDate>26-Sep-2017</creationDate>
   <author>Nikolai Plath</author>
   <authorEmail>der.el.kuku@gmail.com</authorEmail>
   <authorUrl>https://github.com/elkuku</authorUrl>
   <copyright>Copyright (C) Nikolai Plath. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <version>0.0.24.1</version>
+  <version>0.0.25</version>
   <description>EasyCreator helps creating Extensions for Joomla!</description>
   <scriptfile>install/script.php</scriptfile>
+  <updateservers>
+    <server name="EasyCreator update server" type="extension" priority="1">https://github.com/blablakuku</server>
+  </updateservers>
   <files folder="site">
     <folder>g11n</folder>
     <folder>helpers</folder>
@@ -33,7 +35,6 @@
       <folder>views</folder>
       <filename>controller.php</filename>
       <filename>easycreator.php</filename>
-      <filename>version.txt</filename>
     </files>
   </administration>
   <media destination="com_easycreator" folder="media">
