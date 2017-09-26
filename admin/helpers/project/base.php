@@ -398,40 +398,6 @@ abstract class EcrProjectBase
         $this->method = (isset($buildVars['method'])) ? $buildVars['method'] : '';
         $this->buildOpts['lng_separate_javascript'] = (in_array('lng_separate_javascript', $buildOpts)) ? '1' : '0';
 
-        /*
-        //-- Build options
-        $this->buildOpts['archiveZip'] = (in_array('archiveZip', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['archiveTgz'] = (in_array('archiveTgz', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['archiveBz2'] = (in_array('archiveBz2', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['create_indexhtml'] = (in_array('createIndexhtml', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['createMD5'] = (in_array('createMD5', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['createMD5Compressed'] = (in_array('createMD5Compressed', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['includeEcrProjectfile'] = (in_array('includeEcrProjectfile', $buildOpts)) ? 'ON' : 'OFF';
-        $this->buildOpts['removeAutocode'] = (in_array('removeAutocode', $buildOpts)) ? 'ON' : 'OFF';
-
-        $ooo = new JRegistry($buildOpts);
-
-        for($i = 1; $i < 5; $i ++)
-        {
-            $this->buildOpts['custom_name_'.$i] = $ooo->get('custom_name_'.$i);
-        }
-
-        //-- Build actions
-        $actions = JxRequest::getVar('actions', array(), 'default', 'array');
-        $actionFields = JxRequest::getVar('fields', array(), 'default', 'array');
-
-        foreach($actions as $event => $fields)
-        {
-            foreach($fields as $i => $type)
-            {
-                $a = EcrProjectAction::getInstance($type, $event)
-                    ->setOptions($actionFields[$i]);
-
-                $this->actions[$i] = $a;
-            }
-        }
-        */
-
         //-- Build presets
         $defaultPreset = $input->get('preset');
 
@@ -455,17 +421,6 @@ abstract class EcrProjectBase
             $p->$var = (in_array($var, $buildOpts)) ? 1 : 0;
         }
 
-/*
-        $p->archiveZip = (in_array('archiveZip', $buildOpts)) ? 'ON' : 'OFF';
-        $p->archiveTgz = (in_array('archiveTgz', $buildOpts)) ? 'ON' : 'OFF';
-        $p->archiveBz2 = (in_array('archiveBz2', $buildOpts)) ? 'ON' : 'OFF';
-
-        $p->createIndexhtml = (in_array('createIndexhtml', $buildOpts)) ? 'ON' : 'OFF';
-        $p->createMD5 = (in_array('createMD5', $buildOpts)) ? 'ON' : 'OFF';
-        $p->createMD5Compressed = (in_array('createMD5Compressed', $buildOpts)) ? 'ON' : 'OFF';
-        $p->includeEcrProjectfile = (in_array('includeEcrProjectfile', $buildOpts)) ? 'ON' : 'OFF';
-        $p->removeAutocode = (in_array('removeAutocode', $buildOpts)) ? 'ON' : 'OFF';
-*/
         for($i = 1; $i < 5; $i ++)
         {
             $p->{'custom_name_'.$i} = $ooo->get('custom_name_'.$i);
