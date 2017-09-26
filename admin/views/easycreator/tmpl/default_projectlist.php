@@ -17,7 +17,6 @@ $toolImg = new stdClass;
 $toolImg->config = sprintf($toolImgBase, 'ecr_config');
 
 $toolImg->language = sprintf($toolImgBase, 'locale');
-$toolImg->codeeye = sprintf($toolImgBase, 'xeyes');
 $toolImg->ziper = sprintf($toolImgBase, 'package');
 $toolImg->deploy = sprintf($toolImgBase, 'deploy');
 ?>
@@ -47,11 +46,6 @@ foreach(EcrProjectHelper::getProjectTypes() as $pTag => $pType) :
                    title="<?php echo jgettext('Languages').$toolImg->language.'::'.$project->name; ?>"
                 onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'languages');">
                     <i class="img16 icon16-locale"></i>
-                </a>
-                <a class="btn btn-mini hasTip"
-                   title="<?php echo jgettext('CodeEye').$toolImg->codeeye.'::'.$project->name; ?>"
-                   onclick="EasyCreator.project('<?php echo $project->fileName; ?>', 'codeeye');">
-                    <i class="img16 icon16-xeyes"></i>
                 </a>
                 <a class="btn btn-mini hasTip"
                    title="<?php echo jgettext('Package').$toolImg->ziper.'::'.$project->name; ?>"

@@ -65,12 +65,6 @@ class EcrHtmlMenu
                 $tasks['languages']->tasks = array('languages', 'translations', 'searchfiles', 'langcorrectdeforder'
                 , 'langcorrectorder', 'show_version', 'show_versions', 'language_check', 'create_langfile', 'convert'
                 , 'g11nUpdate');
-
-                $tasks['codeeye'] = new stdClass;
-                $tasks['codeeye']->title = jgettext('CodeEye');
-                $tasks['codeeye']->image = 'xeyes';
-                $tasks['codeeye']->tasks = array('codeeye', 'phpcs', 'phpcpd', 'phpunit', 'selenium', 'phpdoc'
-                , 'phploc', 'stats', 'stats2', 'reflection', 'runcli', 'runwap');
             }
 
             $tasks['ziper'] = new stdClass;
