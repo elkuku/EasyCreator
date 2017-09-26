@@ -90,11 +90,7 @@ switch (ECR_JVERSION)
 		break;
 
 	case '4': // Get prepared
-		$application = JFactory::getApplication();
-
-		$application->JComponentTitle = 'EasyCreator';
-
-		$application->enqueueMessage(
+        JFactory::getApplication()->enqueueMessage(
 			sprintf(
 				jgettext('EasyCreator %1$s is in testing stage with Joomla! %2$s'),
 				ECR_VERSION,
