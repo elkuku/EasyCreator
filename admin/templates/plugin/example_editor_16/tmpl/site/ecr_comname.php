@@ -40,7 +40,7 @@ class plgEditorECR_COM_NAME extends JPlugin
 				</script>";
 
         return $txt;
-    }//function
+    }
 
     /**
      * Copy editor content to form field.
@@ -52,7 +52,7 @@ class plgEditorECR_COM_NAME extends JPlugin
     public function onSave()
     {
         return;
-    }//function
+    }
 
     /**
      * Get the editor content.
@@ -64,7 +64,7 @@ class plgEditorECR_COM_NAME extends JPlugin
     public function onGetContent($id)
     {
         return "document.getElementById('$id').value;\n";
-    }//function
+    }
 
     /**
      * Set the editor content.
@@ -77,7 +77,7 @@ class plgEditorECR_COM_NAME extends JPlugin
     public function onSetContent($id, $html)
     {
         return "document.getElementById('$id').value = $html;\n";
-    }//function
+    }
 
     /**
      * @param	string	$id
@@ -99,7 +99,7 @@ class plgEditorECR_COM_NAME extends JPlugin
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Display the editor area.
@@ -142,7 +142,7 @@ class plgEditorECR_COM_NAME extends JPlugin
         ." style=\"width: $width; height: $height;\">$content</textarea>".$buttons;
 
         return $editor;
-    }//function
+    }
 
     private function _displayButtons($name, $buttons, $asset, $author)
     {
@@ -161,7 +161,7 @@ class plgEditorECR_COM_NAME extends JPlugin
             {
                 $return .= $result;
             }
-        }//foreach
+        }
 
         if(is_array($buttons)
         || (is_bool($buttons) && $buttons))
@@ -185,11 +185,11 @@ class plgEditorECR_COM_NAME extends JPlugin
                     ."<a ".$modal." title=\"".$title."\" ".$href." ".$onclick." rel=\"".$button->get('options')."\">"
                     .$button->get('text')."</a></div></div>\n";
                 }
-            }//foreach
+            }
 
             $return .= "</div>\n";
         }
 
         return $return;
-    }//function
-}//class
+    }
+}

@@ -33,7 +33,7 @@ ecrStylesheet('g11n');
                 echo '<th>';
                 echo $lang['tag'];
                 echo '</th>';
-            }//foreach
+            }
             ?>
 		</tr>
 	</thead>

@@ -207,4 +207,4 @@ class EcrSqlFormatSQLite extends EcrSqlFormat
 
         return 'DROP TABLE '.$tableName.";\n";
     }
-}//class
+}

@@ -26,7 +26,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
     public function displayOptions(EcrProjectBase $project)
     {
         return jgettext('Folder name').' : <input type="text" name="ecr_folder_name" id="ecr_folder_name" />';
-    }//function
+    }
 
     /**
      * Get the required fields.
@@ -36,7 +36,7 @@ class TemplateOptions extends EcrProjectTemplateOptions
     public function getRequireds()
     {
         return array('ecr_folder_name');
-    }//function
+    }
 
     /**
      * Process custom options.
@@ -60,5 +60,5 @@ class TemplateOptions extends EcrProjectTemplateOptions
         $builder->replacements->ECR_COM_SCOPE = ucfirst($ecr_folder_name);
 
         return true;
-    }//function
-}//class
+    }
+}

@@ -23,7 +23,7 @@ class plgSearchECR_COM_NAME extends JPlugin
 
         //Loads the plugin language file:
         $this->loadLanguage();
-    }//function
+    }
 
     /**
      * Sets the checkbox(es) to be diplayed in the Search Only box:
@@ -36,7 +36,7 @@ class plgSearchECR_COM_NAME extends JPlugin
             );
 
         return $areas;
-    }//function
+    }
 
     /**
      * Example Search method
@@ -60,5 +60,5 @@ class plgSearchECR_COM_NAME extends JPlugin
     public function onContentSearch($text, $phrase = '', $ordering = '', $areas = null)
     {
         return array();
-    }//function
-}//class
+    }
+}

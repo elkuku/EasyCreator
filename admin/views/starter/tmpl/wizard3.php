@@ -31,7 +31,7 @@ $requireds = $this->builder->customOptions('requireds');
         $js .= "}\n";
 
         echo $js;
-    }//foreach
+    }
 
     ?>
         if(!valid) {
@@ -47,7 +47,7 @@ $requireds = $this->builder->customOptions('requireds');
         $('wizard-loader').removeClass('icon32-wizard');
         $('wizard-loader').addClass('ajax-loading-32');
         submitform(command);
-    }//function
+    }
 </script>
 
 <div class="ecr_floatbox left" style="width: 55%;">

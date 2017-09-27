@@ -30,7 +30,7 @@ class EcrTable
     {
         $this->name = (string)$name;
         $this->foreign = (string)$foreign;
-    }//function
+    }
 
     /**
      * Add a relation.
@@ -42,7 +42,7 @@ class EcrTable
     public function addRelation(EcrTableRelation $relation)
     {
         $this->relations[] = $relation;
-    }//function
+    }
 
     /**
      * Add a table field.
@@ -54,7 +54,7 @@ class EcrTable
     public function addField(EcrTableField $field)
     {
         $this->fields[] = $field;
-    }//function
+    }
 
     /**
      * Add a field from an indexed array.
@@ -77,13 +77,13 @@ class EcrTable
                 $k = 'name';
 
                 $ar[$k] = $field[$key];
-            }//foreach
+            }
 
             $f = new EcrTableField($ar);
 
             $this->addField($f);
-        }//foreach
-    }//function
+        }
+    }
 
     /**
      * Get the table name.
@@ -95,7 +95,7 @@ class EcrTable
     public function xgetName()
     {
         return $this->name;
-    }//function
+    }
 
     /**
      * Get the table fields.
@@ -105,7 +105,7 @@ class EcrTable
     public function getFields()
     {
         return $this->fields;
-    }//function
+    }
 
     /**
      * Get only the field names.
@@ -119,10 +119,10 @@ class EcrTable
         foreach($this->fields as $field)
         {
             $ret[] = $field->name;
-        }//foreach
+        }
 
         return $ret;
-    }//function
+    }
 
     /**
      * Get table relations.
@@ -132,7 +132,7 @@ class EcrTable
     public function getRelations()
     {
         return $this->relations;
-    }//function
+    }
 
     /**
      * ToString method.
@@ -142,5 +142,5 @@ class EcrTable
     public function __toString()
     {
         return $this->name;
-    }//function
-}//class
+    }
+}

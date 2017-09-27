@@ -24,7 +24,7 @@ function submitbutton(task, comType, template)
     frm.template.value = template;
 
     submitform(task);
-}//function
+}
 
 function submitInstallForm()
 {
@@ -36,4 +36,4 @@ function submitInstallForm()
     }
 
     document.installForm.submit();
-}//function
+}

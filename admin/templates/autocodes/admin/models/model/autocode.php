@@ -39,5 +39,5 @@ class AutoCodeAdminModelsModel extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
-}//class
+    }
+}

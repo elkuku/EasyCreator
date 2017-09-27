@@ -29,7 +29,7 @@ class EasyCreatorControllerStarter extends JControllerLegacy
         JFactory::getApplication()->input->set('view', 'starter');
 
         parent::display($cachable, $urlparams);
-    }//function
+    }
 
     /**
      * Build a new Joomla! extension from request.
@@ -77,7 +77,7 @@ class EasyCreatorControllerStarter extends JControllerLegacy
         $uri = 'index.php?option=com_easycreator&controller=stuffer&ecr_project='.$ecr_project;
 
         $this->setRedirect($uri, jgettext('Your project has been created'));
-    }//function
+    }
 
     /**
      * Register a Joomla! extension as an EasyCreator project.
@@ -113,7 +113,7 @@ class EasyCreatorControllerStarter extends JControllerLegacy
         $uri = 'index.php?option=com_easycreator&controller=stuffer&ecr_project='.$ecr_project;
 
         $this->setRedirect($uri, jgettext('Your project has been registered'));
-    }//function
+    }
 
     /**
      * Get extended Information for an extension temlate.
@@ -153,10 +153,10 @@ class EasyCreatorControllerStarter extends JControllerLegacy
         {
             $fileTree->setDir($folder);
             $response['text'] .= $fileTree->drawFullTree();
-        }//foreach
+        }
 
         $response['status'] = 1;
 
         echo json_encode($response);
-    }//function
-}//class
+    }
+}

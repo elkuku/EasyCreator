@@ -12,4 +12,4 @@ function g11nCreate(type, lang, scope)
     document.adminForm.scope.value = scope;
 
     submitform(type);
-}//function
+}

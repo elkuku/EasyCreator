@@ -323,4 +323,4 @@ class EcrLogger
 
         return $html;
     }
-}//class
+}

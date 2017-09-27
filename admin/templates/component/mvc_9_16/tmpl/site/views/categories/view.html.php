@@ -72,5 +72,5 @@ class ECR_COM_NAMEViewCategories extends JView
         $this->assignRef('categories', $categories);
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

@@ -52,5 +52,5 @@ class plgAuthenticationECR_COM_NAME extends JPlugin
         $response->error_message = 'Could not authenticate';
 
         return false;
-    }//function
-}//class
+    }
+}

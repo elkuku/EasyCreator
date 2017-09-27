@@ -16,4 +16,4 @@ class EcrTableRelationalias
     public $alias;
 
     public $aliasField;
-}//class
+}

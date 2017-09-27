@@ -40,7 +40,7 @@ class PartTablesSimple extends EcrProjectPart
         $this->_scope = $scope;
 
         parent::__construct($this->group, $this->name, $element, $scope);
-    }//function
+    }
 
     /**
      * Info about the thing.
@@ -56,7 +56,7 @@ class PartTablesSimple extends EcrProjectPart
         $info->description = jgettext('This will map an existing table to a table class');
 
         return $info;
-    }//function
+    }
 
     /**
      * Here you define custom options that will be displayed along with the input form.
@@ -85,7 +85,7 @@ class PartTablesSimple extends EcrProjectPart
             {
                 $v = str_replace($prefix, '', $table);
                 echo '<option value="'.$v.'">'.$v.'</option>';
-            }//foreach
+            }
 
             echo '</select>';
             echo '<br />';
@@ -105,7 +105,7 @@ class PartTablesSimple extends EcrProjectPart
             $checked =($vScope == 'var') ? ' checked="checked"' : '';
             echo '<input type="radio" name="var_scope" value="'.$vScope.'" id="vscope-'.$vScope.'"'
             .$checked.'> <label for="vscope-'.$vScope.'">'.$vScope.'</label><br />';
-        }//foreach
+        }
 
         /*
          * Add your custom options
@@ -117,7 +117,7 @@ class PartTablesSimple extends EcrProjectPart
 
         /* Draws the submit button */
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Open the part for edit.
@@ -146,11 +146,11 @@ class PartTablesSimple extends EcrProjectPart
             $checked =($vScope == $var_scope) ? ' checked="checked"' : '';
             echo '<input type="radio" name="var_scope" value="'.$vScope.'" id="vscope-'.$vScope.'"'
             .$checked.'> <label for="vscope-'.$vScope.'">'.$vScope.'</label><br />';
-        }//foreach
+        }
 
         /* Draws the submit button */
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -189,7 +189,7 @@ class PartTablesSimple extends EcrProjectPart
             {
                 $table_vars .= $this->formatTableVar($key, $value, array(), $var_scope);
                 $autoCodeFields[] = $key;
-            }//foreach
+            }
         }
 
         $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $element_scope);
@@ -217,11 +217,11 @@ class PartTablesSimple extends EcrProjectPart
         foreach($AutoCode->codes as $key => $code)
         {
             $project->addSubstitute($key, $code);
-        }//foreach
+        }
 
         /* Insert the part to your project and return the results */
         return $project->insertPart($options, $logger);
-    }//function
+    }
 
     /**
      * Format variables to be displayed as docComment in class header.
@@ -245,7 +245,7 @@ class PartTablesSimple extends EcrProjectPart
             default:
                 $def = 'null';
                 break;
-        }//switch
+        }
 
         $s = '';
         $s .= '	/**'.NL;
@@ -254,11 +254,11 @@ class PartTablesSimple extends EcrProjectPart
         foreach($adds as $a)
         {
             $s .= '	 * '.$a.NL;
-        }//foreach
+        }
 
         $s .= '	 */'.NL;
         $s .= '	'.$varScope.' $'.$var.' = '.$def.';'.NL.NL;
 
         return $s;
-    }//function
-}//class
+    }
+}

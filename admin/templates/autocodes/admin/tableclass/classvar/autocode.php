@@ -46,7 +46,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
+    }
 
     /**
      * Here you define custom options that will be displayed along with the input form.
@@ -74,7 +74,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
             {
                 $v = str_replace($prefix, '', $table);
                 echo '<option value="'.$v.'">'.$v.'</option>';
-            }//foreach
+            }
 
             echo '</select>';
             echo '<br />';
@@ -94,7 +94,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
             $checked =($vScope == 'var') ? ' checked="checked"' : '';
             echo '<input type="radio" name="var_scope" value="'.$vScope.'"'
             .' id="vscope-'.$vScope.'"'.$checked.'> <label for="vscope-'.$vScope.'">'.$vScope.'</label><br />';
-        }//foreach
+        }
 
         /*
          * Add your custom options
@@ -106,7 +106,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
 
         /* Draws the submit button */
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Open the part for edit.
@@ -136,7 +136,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
             $checked =($vScope == $var_scope) ? ' checked="checked"' : '';
             echo '<input type="radio" name="var_scope" value="'.$vScope.'"'
             .' id="vscope-'.$vScope.'"'.$checked.'> <label for="vscope-'.$vScope.'">'.$vScope.'</label><br />';
-        }//foreach
+        }
 
         $tableFields = EcrTableHelper::getTableColumns($this->element);
 
@@ -172,12 +172,12 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
             echo '</td>';
 
             echo '</tr>';
-        }//foreach
+        }
         echo '</table>';
 
         /* Draws the submit button */
         EcrHtmlButton::autoCode($requireds);
-    }//function
+    }
 
     /**
      * Inserts the AutoCode into the project.
@@ -236,7 +236,7 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
                 $adds = array($field->label);
 
                 $table_vars .= EcrTableHelper::formatTableVar($name, $type, $adds, $var_scope);
-            }//foreach
+            }
         }
 
         $AutoCode = new EcrProjectAutocode($this->group, $this->name, $table_name, $element_scope);
@@ -260,9 +260,9 @@ class AutoCodeAdminTableclassClassvar extends EcrProjectAutocode
         foreach($AutoCode->codes as $key => $code)
         {
             $project->addSubstitute($key, $code);
-        }//foreach
+        }
 
         /* Insert the part to your project and return the results */
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

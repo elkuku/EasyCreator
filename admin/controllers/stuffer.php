@@ -1164,4 +1164,9 @@ class EasyCreatorControllerStuffer extends JControllerLegacy
 
         parent::display();
     }
+
+    public function createJExtensionsList()
+    {
+        echo 'hey'.ECR_JVERSION;
+    }
 }

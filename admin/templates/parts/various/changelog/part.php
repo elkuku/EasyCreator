@@ -30,7 +30,7 @@ class PartVariousChangelog
         $info->description = jgettext('A standard, empty, Changelog');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -52,7 +52,7 @@ class PartVariousChangelog
         EcrHtmlOptions::logging();
 
         EcrHtmlButton::submitParts();
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -68,5 +68,5 @@ class PartVariousChangelog
 	    JFactory::getApplication()->input->set('element_scope', 'admin');
 
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

@@ -56,5 +56,5 @@ abstract class EcrFormField extends JFormField
         }
 
         return $label;
-    }//function
-}//class
+    }
+}

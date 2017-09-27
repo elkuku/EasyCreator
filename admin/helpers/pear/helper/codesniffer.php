@@ -71,7 +71,7 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
         $results = shell_exec($cmd);
 
         return $results;
-    }//function
+    }
 
     /**
      * Set the sniff standard.
@@ -85,7 +85,7 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
     public function setStandard($standard)
     {
         $this->standard = $standard;
-    }//function
+    }
 
     /**
      * Set the sniff format.
@@ -97,7 +97,7 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
     public function setFormat($format)
     {
         $this->format = $format;
-    }//function
+    }
 
     /**
      * Execute a sniff on a single file.
@@ -142,7 +142,7 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
          */
 
         return $results;
-    }//function
+    }
 
     /**
      * Get the PEAR installed coding standards.
@@ -165,5 +165,5 @@ class EcrPearHelperCodesniffer extends EcrPearHelperConsole
         $s = str_replace(' and ', ', ', $s);
 
         return explode(', ', $s);
-    }//function
-}//class
+    }
+}

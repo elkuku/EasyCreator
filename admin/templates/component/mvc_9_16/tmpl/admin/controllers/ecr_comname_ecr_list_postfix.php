@@ -18,5 +18,5 @@ class ECR_COM_NAMEControllerECR_COM_NAMEECR_LIST_POSTFIX extends JControllerAdmi
         $doSomething = 'here';
 
         return parent::getModel($name, $prefix, $config);
-    }//function
-}//class
+    }
+}

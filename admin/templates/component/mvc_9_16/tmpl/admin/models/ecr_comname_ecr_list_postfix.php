@@ -29,5 +29,5 @@ class ECR_COM_NAMEModelECR_COM_NAMEECR_LIST_POSTFIX extends JModelList
         /*admin.models.model.ECR_COM_TBL_NAME.buildquery16*/
 
         return $query;
-    }//function
-}//class
+    }
+}

@@ -44,7 +44,7 @@ class EcrProjectUpdater
 
             $this->hasUpdates = $this->prepareUpdate();
         }
-    }//function
+    }
 
     public function __get($what)
     {
@@ -54,7 +54,7 @@ class EcrProjectUpdater
         }
 
         EcrHtml::message(get_class($this).' - Undefined property: '.$what, 'error');
-    }//function
+    }
 
     private function log($message)
     {
@@ -62,7 +62,7 @@ class EcrProjectUpdater
         return;
 
         $this->logger->log($message);
-    }//function
+    }
 
     private function prepareUpdate()
     {
@@ -128,10 +128,10 @@ class EcrProjectUpdater
 
                 return false;
             }
-        }//foreach
+        }
 
         $this->tmpPath = $tmpPath;
 
         return true;
-    }//function
-}//class
+    }
+}

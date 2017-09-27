@@ -27,5 +27,5 @@ class EasyCreatorViewRegister extends JViewLegacy
         parent::display($tpl);
 
         EcrHtml::formEnd();
-    }//function
-}//class
+    }
+}

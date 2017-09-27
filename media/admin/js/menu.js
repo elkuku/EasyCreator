@@ -70,7 +70,7 @@ function addSubmenu(text, link, image, ordering, menuid, parent)
     drawPicChooser(num, image);
 
     return newdiv;
-}//function
+}
 
 function chgMenuPic(num)
 {
@@ -100,7 +100,7 @@ function chgMenuPic(num)
             $('prev-' + num).setAttribute('class', 'img icon-16-' + selection);
             break;
     }// switch
-}//function
+}
 
 function drawPicChooser(num, selectedImage)
 {
@@ -136,4 +136,4 @@ function drawPicChooser(num, selectedImage)
 
     $('menuPic-' + num).innerHTML = html;
     chgMenuPic(num);
-}//function
+}

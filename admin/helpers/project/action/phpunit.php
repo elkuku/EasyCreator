@@ -101,7 +101,7 @@ class EcrProjectActionPhpunit extends EcrProjectAction
 
         if($matches && isset($matches[2]))
         {
-            //foreach($matches[2])
+            ($matches[2])
             $type = $matches[2][0];
 
             switch($type)

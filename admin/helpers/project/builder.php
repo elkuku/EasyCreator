@@ -922,4 +922,4 @@ class EcrProjectBuilder extends JObject
     {
         return $this->logger->printLog();
     }
-}//class
+}

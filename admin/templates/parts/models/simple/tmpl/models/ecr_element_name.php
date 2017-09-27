@@ -20,5 +20,5 @@ class ECR_COM_NAMEModelECR_ELEMENT_NAME extends JModel
         $foo = 'Bar';
 
         parent::__construct();
-    }//function
-}//class
+    }
+}

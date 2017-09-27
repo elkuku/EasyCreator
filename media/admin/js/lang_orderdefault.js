@@ -43,4 +43,4 @@ function addElement()
 
         var sortList = new Sortables($('orderMe'));
     }
-}//function
+}

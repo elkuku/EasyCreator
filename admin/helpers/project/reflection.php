@@ -30,7 +30,7 @@ function fakeClasses($fName)
         class JCacheStorage{}
     }
     // @codingStandardsIgnoreEnd
-}//function
+}
 
 /**
  * Enter description here ...
@@ -48,7 +48,7 @@ class EcrProjectReflection
      */
     public function __construct()
     {
-    }//function
+    }
 
     /**
      * Reflect a project.
@@ -95,9 +95,9 @@ class EcrProjectReflection
                         foreach($files as $file)
                         {
                             $this->addReflectionFile($type, $scopePath.DS.$type.DS.$file);
-                        }//foreach
+                        }
                     }
-                }//foreach
+                }
                 if( ! isset($this->files['views']))
                 {
                     $this->files['views'] = array();
@@ -114,15 +114,15 @@ class EcrProjectReflection
                         foreach($files as $file)
                         {
                             $this->addReflectionFile('views', $scopePath.DS.'views'.DS.$view.DS.$file, $view);
-                        }//foreach
-                    }//foreach
+                        }
+                    }
                 }
                 break;
             default:
                 echo 'Sorry '.$project->type.' not supported yet..';
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Reflect a project with AJAX - aka second try.
@@ -179,9 +179,9 @@ class EcrProjectReflection
                         {
                             // $this->addReflectionFile($type, $scopePath.DS.$type.DS.$file);
                             $this->aj_addFile($type, $type.DS.$file);
-                        }//foreach
+                        }
                     }
-                }//foreach
+                }
                 if( ! isset($this->files['views']))
                 {
                     $this->files['views'] = array();
@@ -204,20 +204,20 @@ class EcrProjectReflection
             $('field_<?php echo $type; ?>').innerHTML += html;
             </script>
                             <?php
-                        }//foreach
+                        }
                         foreach($files as $file)
                         {
                             //$this->addReflectionFile('views', $scopePath.DS.'views'.DS.$view.DS.$file, $view);
                             $this->aj_addFile('views', 'views'.DS.$view.DS.$file);
-                        }//foreach
-                    }//foreach
+                        }
+                    }
                 }
                 break;
 
 default:
     echo 'Sorry '.$project->type.' not supported yet..';
     break;
-        }//switch
+        }
         ?>
 <script type="text/javascript">
 //        alert($('field_models').innerHtml);
@@ -227,7 +227,7 @@ default:
         </script>
 
         <?php
-    }//function
+    }
 
     /**
      * Add a file.
@@ -259,7 +259,7 @@ default:
             divCount ++;
         </script>
         <?php
-    }//function
+    }
 
     /**
      * Setup.
@@ -301,7 +301,7 @@ default:
 
 </table>
         <?php
-    }//function
+    }
 
     /**
      * Print out declared classes for debugging.
@@ -313,7 +313,7 @@ default:
         echo '<pre>';
         print_r($this->declared_classes);
         echo '<pre>';
-    }//function
+    }
 
     /**
      * Add a file for reflection.
@@ -437,7 +437,7 @@ default:
                         }
 
                         $paramString[] = $s;
-                    }//foreach
+                    }
                     $paramString = implode(', ', $paramString);
                     //#                    $titel .= '( '.$paramString.' )';
                     switch($type)
@@ -462,9 +462,9 @@ default:
                             echo '<br />No inspection for type '.$type.'<br />';
                             $method->jcommands = array();
                             break;
-                    }//switch
+                    }
                     $reflection->methods[] = $method;
-                }//foreach
+                }
                 if($subtype)
                 {
                     $this->files[$type][$subtype][$rName] = $reflection;
@@ -473,9 +473,9 @@ default:
                 {
                     $this->files[$type][$rName] = $reflection;
                 }
-            }//foreach
+            }
         }
-    }//function
+    }
 
     /**
      * Inspect a method.
@@ -542,7 +542,7 @@ default:
             }
         }//for
         //        #        echo '</pre>';
-    }//function
+    }
 
     /**
      * Inspect a template file for the use of $this vars.
@@ -593,10 +593,10 @@ default:
                     $jCommands[] = $jCommand;
                 }
             }
-        }//foreach
+        }
 
         return $jCommands;
-    }//function
+    }
 
     /**
      * Get the reflections.
@@ -606,7 +606,7 @@ default:
     public function getReflections()
     {
         return $this->files;
-    }//function
+    }
 
     /**
      * Test if a file exists and then inlude it.
@@ -630,5 +630,5 @@ default:
         }
 
         return false;
-    }//function
-}//class
+    }
+}

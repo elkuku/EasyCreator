@@ -432,4 +432,4 @@ class EcrProjectTypeTemplate extends EcrProjectBase
 
         return $projects;
     }
-}//class
+}

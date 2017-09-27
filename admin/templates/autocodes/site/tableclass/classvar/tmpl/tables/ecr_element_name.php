@@ -16,5 +16,5 @@ class TableECR_ELEMENT_NAME extends JTable
     public function __construct(& $db)
     {
         parent::__construct('#___ECR_TABLE_NAME_', 'id', $db);
-    }//function
-}//class
+    }
+}

@@ -70,12 +70,12 @@ class AutoCodeAdminViewformTableElementRow
             $a[] = $this->{'type'.$inputType}();
             $a[] = '    </td>';
             $a[] = '</tr>';
-        }//foreach
+        }
 
         $ret = $indent.implode(NL.$indent, $a).NL;
 
         return $ret;
-    }//function
+    }
 
     /**
      * Get a text field.
@@ -93,7 +93,7 @@ class AutoCodeAdminViewformTableElementRow
         .' />';
 
         return $s;
-    }//function
+    }
 
     /**
      * Get a hidden field.
@@ -109,7 +109,7 @@ class AutoCodeAdminViewformTableElementRow
         .' />';
 
         return $s;
-    }//function
+    }
 
     /**
      * Get a category field.
@@ -121,5 +121,5 @@ class AutoCodeAdminViewformTableElementRow
         $s = '        <?php echo $this->lists[\'catid\']; ?>';
 
         return $s;
-    }//function
-}//class
+    }
+}

@@ -50,7 +50,7 @@ class EcrPearHelperPhploc extends EcrPearHelperConsole
             foreach($arguments as $name => $value)
             {
                 $args[] = '--'.$name.' '.$value;
-            }//foreach
+            }
         }
 
         $args[] = $dir;
@@ -60,5 +60,5 @@ class EcrPearHelperPhploc extends EcrPearHelperConsole
         //-- @todo save to file
 
         return $results;
-    }//function
-}//class
+    }
+}

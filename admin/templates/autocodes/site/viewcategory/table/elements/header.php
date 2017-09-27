@@ -41,8 +41,8 @@ class AutoCodeSiteViewCategoryTableElementHeader
             $ret .= $indent.'    <?php echo JHTML::_(\'grid.sort\', \''.$field->label.'\', \''
             .$field->name.'\', $this->lists[\'order_Dir\'], $this->lists[\'order\']); ?>'.NL;
             $ret .= $indent.'</td>'.NL;
-        }//foreach
+        }
 
         return $ret;
-    }//function
-}//class
+    }
+}

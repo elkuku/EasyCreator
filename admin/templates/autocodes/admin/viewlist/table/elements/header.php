@@ -40,8 +40,8 @@ class AutoCodeAdminViewlistTableElementHeader
             $ret .= $indent.'<th'.$width.'>'.NL;
             $ret .= $indent.'    <?php echo JText::_(\''.$field->label.'\'); ?>'.NL;
             $ret .= $indent.'</th>'.NL;
-        }//foreach
+        }
 
         return $ret;
-    }//function
-}//class
+    }
+}

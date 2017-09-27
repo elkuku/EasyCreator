@@ -39,5 +39,5 @@ class AutoCodeAdminSqlInsert extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
-}//class
+    }
+}

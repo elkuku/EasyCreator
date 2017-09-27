@@ -39,7 +39,7 @@ class AutoCodeSiteViewItemDiv extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
+    }
 
     /**
      * Open the AutoCode for edit.
@@ -123,12 +123,12 @@ class AutoCodeSiteViewItemDiv extends EcrProjectAutocode
             echo '<input type="text" name="field['.$element.']['.$name.'][width]" value="'.$width.'" />';
             echo '</td>';
             echo '</tr>';
-        }//foreach
+        }
         echo '</table>';
 
         /* Draws the submit button */
         EcrHtmlButton::autoCode($requireds);
-    }//function
+    }
 
     /**
      * Inserts the AutoCode into the project.
@@ -193,7 +193,7 @@ class AutoCodeSiteViewItemDiv extends EcrProjectAutocode
             $autoCodeFieldsHeader[] = $fieldHeader;
 
             $headers .= $this->getCode($element, $fieldHeader, $indent);
-        }//foreach
+        }
 
         $key = $this->key.'.'.$element;
 
@@ -213,9 +213,9 @@ class AutoCodeSiteViewItemDiv extends EcrProjectAutocode
         foreach($this->codes as $key => $code)
         {
             $project->addSubstitute($tags[0].$key.$tags[1], $code);
-        }//foreach
+        }
 
         /* Insert the part to your project and return the results */
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

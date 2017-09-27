@@ -33,5 +33,5 @@ class EcrTableRelation
     public function addAlias(EcrTableRelationalias $alias)
     {
         $this->aliases[] = $alias;
-    }//function
-}//class
+    }
+}

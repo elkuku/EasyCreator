@@ -16,12 +16,12 @@ class ECR_COM_NAMEControllerECR_ELEMENT_NAME extends JController
         $foo = 'Do something here..';
 
         parent::__construct($config);
-    }//function
+    }
 
     public function display()
     {
         $foo = 'Do something here..';
 
         parent::display();
-    }//function
-}//class
+    }
+}

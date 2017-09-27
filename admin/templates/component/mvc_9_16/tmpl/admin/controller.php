@@ -24,5 +24,5 @@ class ECR_COM_NAMEController extends JController
         parent::display($cachable, $urlparams);
 
         ECR_COM_NAMEHelper::addSubmenu('ECR_COM_TBL_NAMEECR_LOWER_LIST_POSTFIX');
-    }//function
-}//class
+    }
+}

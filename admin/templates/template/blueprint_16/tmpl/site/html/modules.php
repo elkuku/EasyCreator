@@ -63,4 +63,4 @@ function modChrome_custom($module, $params, $attribs)
 
     // Ende umschließendes div
     echo '</div>';
-}//function
+}

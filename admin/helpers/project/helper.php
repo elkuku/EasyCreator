@@ -83,7 +83,7 @@ class EcrProjectHelper
         $projects[$name] = $project;
 
         return $projects[$name];
-    }//function
+    }
 
     /**
      * Creates an empty project.
@@ -97,7 +97,7 @@ class EcrProjectHelper
         $className = 'EcrProjectType'.ucfirst($type);
 
         return new $className;
-    }//function
+    }
 
     /**
      * Findes the Joomla! install xml file for a given extension.
@@ -175,13 +175,13 @@ class EcrProjectHelper
                 //-- Valid xml manifest found
                 return str_replace(JPATH_ROOT.DS, '', JPath::clean($fileName));
             }
-        }//foreach
+        }
 
         //-- None of the xml files found were valid install files
         EcrHtml::message(sprintf(jgettext('Manifest not found for type: %s - name: %s'), $project->type, $fileName), 'error');
 
         return false;
-    }//function
+    }
 
     /**
      * Find a config XML file for a specific project type.
@@ -203,7 +203,7 @@ class EcrProjectHelper
 
                 return false;
             break;
-        }//switch
+        }
 
         $xmlFiles = JFolder::files($path, '.xml$', true, true);
 
@@ -227,10 +227,10 @@ class EcrProjectHelper
                 //-- Valid config xml found
                 return $fileName;
             }
-        }//foreach
+        }
 
         return false;
-    }//function
+    }
 
     /**
      * Parse a Joomla! install xml file.
@@ -272,7 +272,7 @@ class EcrProjectHelper
         }
 
         return $manifest;
-    }//function
+    }
 
     /**
      * Get a list of registered projects.
@@ -319,7 +319,7 @@ class EcrProjectHelper
                 $p->fileName = JFile::stripExt(JFile::getName($fileName));
 
                 $projectList[$p->type][] = $p;
-            }//foreach
+            }
         }
 
         if($type)
@@ -328,7 +328,7 @@ class EcrProjectHelper
         }
 
         return $projectList;
-    }//function
+    }
 
     /**
      * Get a simple list of projects.
@@ -358,10 +358,10 @@ class EcrProjectHelper
             {
                 $list[$key][] = $project->comName;
             }
-        }//foreach
+        }
 
         return $list[$key];
-    }//function
+    }
 
     /**
      * Get a list of known project types.
@@ -403,7 +403,7 @@ class EcrProjectHelper
         , 'library' => '');
 
         return $scopes;
-    }//function
+    }
 
     /**
      * Format a filename for a package file.
@@ -428,7 +428,7 @@ class EcrProjectHelper
         $format = str_replace('*VERSION*', $project->version, $format);
 
         return $format;
-    }//function
+    }
 
     /**
      * Get a list of all unregistered projects.
@@ -455,7 +455,7 @@ class EcrProjectHelper
 
             return array();
             break;
-        }//switch
+        }
 
         /* @var EcrProjectBase $project */
         $project = self::newProject($type);
@@ -471,7 +471,7 @@ class EcrProjectHelper
         }
 
         return $result;
-    }//function
+    }
 
     /**
      * Get groups of template parts.
@@ -491,7 +491,7 @@ class EcrProjectHelper
         $folders = JFolder::folders(ECRPATH_PARTS, '.', false, false, $excludes);
 
         return $folders;
-    }//function
+    }
 
     /**
      * Get template parts of a specific group.
@@ -514,7 +514,7 @@ class EcrProjectHelper
         $folders[$group] = JFolder::folders($path, '.', false, false, $excludes);
 
         return $folders[$group];
-    }//function
+    }
 
     /**
      * Get a template part.
@@ -555,7 +555,7 @@ class EcrProjectHelper
         $part = new $className($element, $scope, $path);
 
         return $part;
-    }//function
+    }
 
     /**
      * Finds PHP and SQL install files.
@@ -613,7 +613,7 @@ class EcrProjectHelper
             $f->name = $file;
 
             $installFiles[JFile::getExt($file)][] = $f;
-        }//foreach
+        }
 
         //-- Look in 'install' folder
         if(JFolder::exists($base.'/install'))
@@ -637,7 +637,7 @@ class EcrProjectHelper
                     $ext = 'sql';
 
                 $installFiles[$ext][] = $f;
-            }//foreach
+            }
         }
 
         //-- Look for update folder - must be in specific location
@@ -654,11 +654,11 @@ class EcrProjectHelper
                 $f->name = $folder;
 
                 $installFiles['sql_updates'][] = $f;
-            }//foreach
+            }
         }
 
         return $installFiles;
-    }//function
+    }
 
     /**
      * Get a list of installed AutoCodes.
@@ -696,13 +696,13 @@ class EcrProjectHelper
                     foreach($files as $file)
                     {
                         $autocodes[$scope][$name][$type][] = str_replace($path.DS, '', $file);
-                    }//foreach
-                }//foreach
-            }//foreach
-        }//foreach
+                    }
+                }
+            }
+        }
 
         return $autocodes;
-    }//function
+    }
 
     /**
      * Gets an EcrProjectAutocode.
@@ -768,7 +768,7 @@ class EcrProjectHelper
         $AutoCodes[$key] = new $className($parts[0], $parts[1], $parts[2], $parts[3]);
 
         return $AutoCodes[$key];
-    }//function
+    }
 
     /**
      * Reads a XML file.

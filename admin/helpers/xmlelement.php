@@ -35,7 +35,7 @@ class EcrXMLElement extends SimpleXMLElement
         foreach($this->attributes() as $attr)
         {
             $out .= ' '.$attr->getName().'="'.htmlspecialchars((string)$attr, ENT_COMPAT, 'UTF-8').'"';
-        }//foreach
+        }
 
         //-- If there are no children and it contains no data, end it off with a />
         if( ! count($this->children())
@@ -58,7 +58,7 @@ class EcrXMLElement extends SimpleXMLElement
                 foreach($this->children() as $child)
                 {
                     $out .= $child->asFormattedXML($compressed, $indent, $level);
-                }//foreach
+                }
 
                 $level --;
 
@@ -76,7 +76,7 @@ class EcrXMLElement extends SimpleXMLElement
         }
 
         return $out;
-    }//function
+    }
 
     /**
      * Add one simplexml to another.
@@ -96,9 +96,9 @@ class EcrXMLElement extends SimpleXMLElement
             foreach($simplexml_child->attributes() as $attr_key => $attr_value)
             {
                 $simplexml_temp->addAttribute($attr_key, $attr_value);
-            }//foreach
+            }
 
             $this->append($simplexml_child);
-        }//foreach
-    }//function
-}//class
+        }
+    }
+}

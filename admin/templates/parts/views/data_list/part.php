@@ -44,7 +44,7 @@ class PartViewsData_list extends EcrProjectPart
         $this->_scope = $scope;
 
         parent::__construct($this->group, $this->name, $element, $scope);
-    }//function
+    }
     /**
     * Info about the thing.
     *
@@ -59,7 +59,7 @@ class PartViewsData_list extends EcrProjectPart
         $info->description = jgettext('Lists Data from a specific table.');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -100,7 +100,7 @@ class PartViewsData_list extends EcrProjectPart
             {
                 $v = str_replace($prefix, '', $table);
                 echo '<option value="'.$v.'">'.$v.'</option>';
-            }//foreach
+            }
             echo '</select>';
 
             echo '<div id="addPartTableFields"></div>';
@@ -122,7 +122,7 @@ class PartViewsData_list extends EcrProjectPart
         EcrHtmlOptions::logging();
 
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Edit the AutoCode.
@@ -196,8 +196,8 @@ class PartViewsData_list extends EcrProjectPart
                 foreach($file->autoCodes as $key => $content)
                 {
                     $fields[$key] = $AutoCode->getFields($this->patterns[$key], $content, array($this->keys[$key]));
-                }//foreach
-            }//foreach
+                }
+            }
         }
 
         $selecteds =(isset($fields['##ECR_VIEW1_TMPL1_THS##'])) ? $fields['##ECR_VIEW1_TMPL1_THS##'] : array(array());
@@ -213,7 +213,7 @@ class PartViewsData_list extends EcrProjectPart
         $this->show_tablefields($table_name, $selecteds);
 
         EcrHtmlButton::submitParts();
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -276,7 +276,7 @@ class PartViewsData_list extends EcrProjectPart
         foreach($this->patterns as $pKey => $pReplacement)
         {
             $substitutes[$pKey] = '';
-        }//foreach
+        }
 
         $i = 0;
 
@@ -290,10 +290,10 @@ class PartViewsData_list extends EcrProjectPart
             foreach($this->patterns as $pKey => $pReplacement)
             {
                 $substitutes[$pKey] .= str_replace('##ECR_KEY##', $key, $pReplacement);
-            }//foreach
+            }
 
             $i ++;
-        }//foreach
+        }
 
         $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 
@@ -306,12 +306,12 @@ class PartViewsData_list extends EcrProjectPart
             $AutoCode->fields[$key] = $req_table_fields;//array();//$autoCodeFields;
             $AutoCode->codes[$key] = $AutoCode->enclose($value, $key, true);
             $EcrProject->addSubstitute($key, $AutoCode->enclose($value, $key, true));
-        }//foreach
+        }
 
         $EcrProject->addAutoCode($AutoCode, $this->key);
 
         return $EcrProject->insertPart($options, $logger);
-    }//function
+    }
 
     /**
      * Shows the fields of a given table.
@@ -357,7 +357,7 @@ class PartViewsData_list extends EcrProjectPart
                 default:
                     $def = 'NULL';
                     break;
-            }//switch
+            }
             $checked =(in_array($key, $selecteds)) ? ' checked="checked"' : '';
             ?>
 <input type="checkbox" name="table_fields[]"
@@ -369,6 +369,6 @@ class PartViewsData_list extends EcrProjectPart
 </label>
 <br />
     <?php
-        }//foreach
-    }//function
-}//class
+        }
+    }
+}

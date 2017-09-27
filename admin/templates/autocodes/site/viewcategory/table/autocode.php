@@ -39,7 +39,7 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
+    }
 
     /**
      * Open the AutoCode for edit.
@@ -128,7 +128,7 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
             echo '<input type="text" name="field[header]['.$name.'][width]" value="'.$width.'" />';
             echo '</td>';
             echo '</tr>';
-        }//foreach
+        }
         echo '</table>';
 
         /*
@@ -172,12 +172,12 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
             echo '</th>';
 
             echo '</tr>';
-        }//foreach
+        }
         echo '</table>';
 
         /* Draws the submit button */
         EcrHtmlButton::autoCode($requireds);
-    }//function
+    }
 
     /**
      * Inserts the AutoCode into the project.
@@ -260,7 +260,7 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
             $headers .= $this->getCode('header', $fieldHeader, $indent);
 
             $cells .= $this->getCode('cell', $fieldCell, $indent);
-        }//foreach
+        }
 
         $this->fields[$this->key.'.header'] = $autoCodeFieldsHeader;
         $this->codes[$this->key.'.header'] = $this->enclose($headers, $this->key.'.header', true);
@@ -281,9 +281,9 @@ class AutoCodeSiteViewCategoryTable extends EcrProjectAutocode
         foreach($this->codes as $key => $code)
         {
             $project->addSubstitute($tags[0].$key.$tags[1], $code);
-        }//foreach
+        }
 
         /* Insert the part to your project and return the results */
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

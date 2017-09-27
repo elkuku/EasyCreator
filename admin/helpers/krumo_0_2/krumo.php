@@ -107,9 +107,9 @@ Class krumo {
                     $value = str_replace(JPATH_BASE.DS, '', $value);
                 }
                 $t[$key] = $value;
-            }//foreach;
+            };
             $traces[] = $t;
-        }//foreach
+        }
         return krumo::dump($traces);
     }
 
@@ -182,7 +182,7 @@ Class krumo {
         foreach($includeds as $file)
         {
             $is[] = str_replace(JPATH_BASE.DS, '', $file);
-        }//foreach
+        }
 
         sort($is);
 

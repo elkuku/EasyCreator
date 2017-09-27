@@ -234,4 +234,4 @@ class EcrProjectTypeCliapp extends EcrProjectBase
     {
         return array();
     }
-}//class
+}

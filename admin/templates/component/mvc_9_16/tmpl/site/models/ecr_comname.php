@@ -30,5 +30,5 @@ class ECR_COM_NAMEModelECR_COM_NAME extends JModel
         $data = $db->loadObject();
 
         return $data;
-    }//function
-}//class
+    }
+}

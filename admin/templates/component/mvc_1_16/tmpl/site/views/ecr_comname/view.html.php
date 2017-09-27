@@ -23,5 +23,5 @@ class ECR_COM_NAMEViewECR_COM_NAME extends JView
         $this->greeting = "Hello World!";
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

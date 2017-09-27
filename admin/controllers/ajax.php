@@ -272,7 +272,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
                 $hlCode = highlight_string('<?php'.NL.$code, true);
                 $hlCode = str_replace('&lt;?php', '', $hlCode);
                 echo '<div style="border: 1px dashed gray; background-color: #eee; padding: 0.5em;">'.$hlCode.'</div>';
-            }//foreach
+            }
         }
         else
         {
@@ -342,7 +342,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
                     }
 
                     $paramString[] = $s;
-                }//foreach
+                }
 
                 if($paramString)
                 {
@@ -352,9 +352,9 @@ class EasyCreatorControllerAjax extends JControllerLegacy
                 echo JHTML::tooltip(nl2br(htmlentities($method->getDocComment())), $method->getName());
                 echo $title.'('.$paramString.')';
                 echo BR;
-            }//foreach
+            }
         }
-    }//function
+    }
 
     /**
      * Executes a function inside a 'part' from templates/parts folder.
@@ -388,7 +388,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         //-- Execute the task
         return $ecrPart->$partTask($element);
-    }//function
+    }
 
     /**
      * Saves a translation.
@@ -444,7 +444,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         echo json_encode($this->response);
 
         jexit();
-    }//function
+    }
 
     /**
      * Deletes a translation.
@@ -492,7 +492,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         echo json_encode($this->response);
 
         jexit();
-    }//function
+    }
 
     /**
      * Load a file.
@@ -534,7 +534,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         echo json_encode($response);
 
         jexit();
-    }//function
+    }
 
     /**
      * Load a picture.
@@ -570,7 +570,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         echo json_encode($response);
 
         jexit();
-    }//function
+    }
 
     /**
      * Save a file.
@@ -608,7 +608,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         echo json_encode($this->response);
 
         jexit();
-    }//function
+    }
 
     /**
      * Create a new folder.
@@ -661,7 +661,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         $this->actForm(jgettext('New folder'), 'add', jgettext('Create'));
         $this->processForm('new_folder', $ecr_project, 'folder', 'new', true, true);
-    }//function
+    }
 
     /**
      * Create a new file.
@@ -717,7 +717,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         $this->actForm(jgettext('New file'), 'add', jgettext('Create'));
         $this->processForm('new_file', $ecr_project, 'file', 'new', true, true);
-    }//function
+    }
 
     /**
      * Delete a folder.
@@ -765,7 +765,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         $this->actForm(jgettext('Delete folder'), 'delete', jgettext('Delete'), false);
         $this->processForm('delete_folder', $ecr_project, 'folder', 'delete', true);
-    }//function
+    }
 
     /**
      * Delete a file.
@@ -817,7 +817,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         $this->actForm(jgettext('Delete file'), 'delete', jgettext('Delete'), false);
         $this->processForm('delete_file', $ecr_project, 'file', 'delete', true);
-    }//function
+    }
 
     /**
      * Rename a folder.
@@ -864,7 +864,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         $this->actForm(jgettext('Rename folder'), 'rename', jgettext('Rename'), true);
         $this->processForm('rename_folder', $ecr_project, 'folder', 'rename', true);
-    }//function
+    }
 
     /**
      * Rename a file.
@@ -910,7 +910,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
 
         $this->actForm(jgettext('Rename file'), 'rename', jgettext('Rename'), true);
         $this->processForm('rename_file', $ecr_project, 'file', 'rename', true);
-    }//function
+    }
 
     /**
      * Displays a form for right click menu actions (add/edit/delete..).
@@ -950,7 +950,7 @@ body {
 <input type="hidden" id="act_folder" />
 
 <?php
-    }//function
+    }
 
     /**
      * Handel right click actions.
@@ -1031,7 +1031,7 @@ body {
 
                         default:
                         break;
-                    }//switch
+                    }
                 break;
 
                 case 'file':
@@ -1048,12 +1048,12 @@ body {
 
                         default:
                         break;
-                    }//switch
+                    }
                 break;
 
                 default:
                 break;
-            }//switch
+            }
             ?>
             /*
             * Javascript again..
@@ -1107,11 +1107,11 @@ body {
                         }
                     }
                 }).send();
-            }//function
+            }
         </script>
 
         <?php
-    }//function
+    }
 
     /**
      * Dislays the fields of a given table in a <select> box.
@@ -1153,7 +1153,7 @@ body {
                 foreach(array_keys($fields) as $fieldName)
                 {
                     $out .= '<option>'.$fieldName.'</option>';
-                }//foreach
+                }
 
                 $out .= '</select>';
                 $response['text'] = $out;

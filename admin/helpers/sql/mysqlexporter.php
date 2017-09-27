@@ -366,4 +366,4 @@ class EcrSqlMysqlexporter
 
         return $this;
     }
-}//class
+}

@@ -27,5 +27,5 @@ abstract class ECR_COM_NAMEHelper
         , 'index.php?option=com_categories&extension=ECR_COM_COM_NAME'
         , $viewName == 'categories'
         );
-    }//function
-}//class
+    }
+}

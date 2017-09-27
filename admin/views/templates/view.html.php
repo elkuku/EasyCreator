@@ -56,7 +56,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
 
             EcrHtml::formEnd();
         }
-    }//function
+    }
 
     /**
      * Display the template list.
@@ -103,7 +103,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
         echo '<pre>'.print_r($this->profiler->getBuffer(), true).'</pre>';
 
         $this->setLayout('templates');
-    }//function
+    }
 
     /**
      * Install view.
@@ -113,7 +113,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
     private function tplinstall()
     {
         $this->setLayout('install');
-    }//function
+    }
 
     private function tplarchive()
     {
@@ -128,7 +128,7 @@ class EasyCreatorViewTemplates extends JViewLegacy
     private function export()
     {
         $this->setLayout('export');
-    }//function
+    }
 
     /**
      * Displays the submenu.
@@ -161,5 +161,5 @@ class EasyCreatorViewTemplates extends JViewLegacy
         );
 
         return EcrHtmlMenu::sub($subTasks);
-    }//function
-}//class
+    }
+}

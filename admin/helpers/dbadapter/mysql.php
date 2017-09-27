@@ -19,7 +19,7 @@ class EcrDbadapterMysql extends EcrDbadapterBase
     {
         $foo = '';
         parent::__construct();
-    }//function
+    }
 
     public function parseCreate()
     {
@@ -45,12 +45,12 @@ class EcrDbadapterMysql extends EcrDbadapterBase
             $d->constraints = $defs['constraints'];
 
             $result->fields[$name] = $d;
-        }//foreach
+        }
 
         $result->raw = $this->query->raw;
 
         return $result;
-    }//function
+    }
 
     public function getStatement($type, $name, $field = null)
     {
@@ -77,8 +77,8 @@ default :
 
                 return '';
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     public function getAlterTable($table, $alters)
     {
@@ -86,7 +86,7 @@ default :
         return '';
 
         return 'ALTER TABLE '.$this->quote($table->name).NL.implode(', ', $alters).NL;
-    }//function
+    }
 
     private function parseField($field)
     {
@@ -113,9 +113,9 @@ default :
                 default:
                     EcrHtml::message('Unknown field type '.$c['type'], 'error');
                     break;
-            }//switch
-        }//foreach
+            }
+        }
 
         return $parsed;
-    }//function
-}//class
+    }
+}

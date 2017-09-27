@@ -24,5 +24,5 @@ class ECR_COM_NAMEViewECR_COM_NAME extends JView
         $this->assignRef('data', $data);
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

@@ -11,7 +11,7 @@ function tableOrdering(order, dir, task)
     form.filter_order_Dir.value = dir;
 
     document.adminForm.submit(task);
-}//function
+}
 </script>
 
 <form action="<?php echo JFilterOutput::ampReplace($this->action); ?>" method="post" name="adminForm">

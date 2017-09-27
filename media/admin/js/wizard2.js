@@ -71,4 +71,4 @@ function submitbutton(command)
         document.id('wizard-loader').addClass('ajax-loading-32');
         submitform(command);
     }
-}//function
+}

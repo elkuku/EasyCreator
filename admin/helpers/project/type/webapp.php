@@ -234,4 +234,4 @@ class EcrProjectTypeWebapp extends EcrProjectBase
     {
         return array();
     }
-}//class
+}

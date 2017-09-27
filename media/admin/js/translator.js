@@ -96,7 +96,7 @@ var ecrTranslator = new Class({
                 $('translation').value = result.translation;
             }
         });
-    }, //function
+    }, 
 
     translate:function(link, fieldId, lang, retType, adIds)
     {
@@ -154,11 +154,11 @@ var ecrTranslator = new Class({
                     default:
                         alert('Undefined ret type: ' + retType);
                         break;
-                }//switch
+                }
 
                 parent.SqueezeBox.close();
             }//onComplete
         }).send();
-    }//function
+    }
 
 });

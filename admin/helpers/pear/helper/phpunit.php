@@ -107,7 +107,7 @@ class EcrPearHelperPhpunit extends EcrPearHelperConsole
         $results = $this->cliExec('phpunit', $arguments);
 
         return $results;
-    }//function
+    }
 
     /**
      * Create a unit test skeleton.
@@ -121,7 +121,7 @@ class EcrPearHelperPhpunit extends EcrPearHelperConsole
         $results = $this->cliExec('phpunit', $arguments);
 
         return $results;
-    }//function
+    }
 
     /**
      * Show the formatted log of a unit test.
@@ -165,12 +165,12 @@ class EcrPearHelperPhpunit extends EcrPearHelperConsole
                 foreach($ts as $t)
                 {
                     $ret .= $this->outputSingleTest($t);
-                }//foreach
+                }
             }
-        }//foreach
+        }
 
         return $ret;
-    }//function
+    }
 
     /**
      * Output a single unit test.
@@ -247,12 +247,12 @@ class EcrPearHelperPhpunit extends EcrPearHelperConsole
                   $ret .= '</td>';
                   $ret .= '</tr>';
               }
-          }//foreach
+          }
 
           $ret .= '</tbody>';
 
           $ret .= '</table>';
 
           return $ret;
-    }//function
-}//class
+    }
+}

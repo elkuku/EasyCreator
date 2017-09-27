@@ -41,7 +41,7 @@ class EcrTableHelper
         $s->title = jgettext('Site');
         $s->tag = 'site';
         $this->scopes['site'] = $s;
-    }//function
+    }
 
     /**
      * Auto discover tables.
@@ -88,7 +88,7 @@ class EcrTableHelper
                 foreach($file as $f)
                 {
                     $tableNames[] = (string)$f->name;
-                }//foreach
+                }
             }
             else
             {
@@ -178,17 +178,17 @@ class EcrTableHelper
                                     }
 
                                     break;
-                            }//switch
-                        }//foreach
-                    }//foreach
+                            }
+                        }
+                    }
 
                     $tables[$m] = $t;
                 }
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $tables;
-    }//function
+    }
 
     /**
      * Gets the table fields of a given table.
@@ -223,7 +223,7 @@ class EcrTableHelper
                 return $db->getTableColumns($dbPrefix.$tableName, false);
                 break;
         }
-    }//function
+    }
 
     /**
      * Get the CREATE string for a table.
@@ -276,7 +276,7 @@ class EcrTableHelper
             $started = true;
             $s .= EcrTableHelper::formatSqlField($field);
             $s .= NL;
-        }//foreach
+        }
 
         if($pri)
             $s .= ', PRIMARY KEY (`'.$pri.'`)';
@@ -284,7 +284,7 @@ class EcrTableHelper
         //-- #       $s .= ') ENGINE='.$engine.' DEFAULT CHARSET='.
 
         return $s;
-    }//function
+    }
 
     /**
      * Format variables with docComment To be displayed in class header.
@@ -312,7 +312,7 @@ class EcrTableHelper
                 $def = 'NULL';
                 break;
             //-- @todo some more options
-        }//switch
+        }
 
         $s = '';
         $s .= '   /**'.NL;
@@ -320,7 +320,7 @@ class EcrTableHelper
         foreach($adds as $a)
         {
             $s .= '    * '.$a.NL;
-        }//foreach
+        }
 
         $s .= '    * '.NL;
         $s .= '    * @var '.$type.NL;
@@ -328,7 +328,7 @@ class EcrTableHelper
         $s .= '    '.$varScope.' $'.$var.' = '.$def.';'.NL.NL;
 
         return $s;
-    }//function
+    }
 
     /**
      * Format a SQL field for the use in queries.
@@ -353,7 +353,7 @@ class EcrTableHelper
         $s .=($field->comment) ? " COMMENT '$field->comment'" : '';
 
         return $s;
-    }//function
+    }
 
     /**
      * Draws a row wit standard fields.
@@ -402,7 +402,7 @@ class EcrTableHelper
  //       $html .= '</div>';
 //$html .= '<div style="clear: both;"></div>';
         return $html;
-    }//function
+    }
 
     /**
      * @static
@@ -456,5 +456,5 @@ class EcrTableHelper
 ';
 
         return $ret;
-    }//function
-}//class
+    }
+}

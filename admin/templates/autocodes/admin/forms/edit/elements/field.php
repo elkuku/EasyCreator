@@ -73,12 +73,12 @@ class AutoCodeAdminFormsEditElementField
             }
 
             $a[] = '/>';
-        }//foreach
+        }
 
         $ret = $indent.implode(NL.$indent, $a).NL;
 
         return $ret;
-    }//function
+    }
 
     /**
      * Get a text field.
@@ -96,7 +96,7 @@ class AutoCodeAdminFormsEditElementField
         .' />';
 
         return $s;
-    }//function
+    }
 
     /**
      * Get a hidden field.
@@ -112,7 +112,7 @@ class AutoCodeAdminFormsEditElementField
         .' />';
 
         return $s;
-    }//function
+    }
 
     /**
      * Get a category field.
@@ -124,5 +124,5 @@ class AutoCodeAdminFormsEditElementField
         $s = '        <?php echo $this->lists[\'catid\']; ?>';
 
         return $s;
-    }//function
-}//class
+    }
+}

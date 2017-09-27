@@ -52,7 +52,7 @@ abstract class EcrHtmlContextmenu
         foreach($menuEntries as $menuEntry)
         {
             self::addEntry($ajaxLink, $menuEntry[0], $menuEntry[1], $menuEntry[2]);
-        }//foreach
+        }
         ?>
     </ul>
 
@@ -71,7 +71,7 @@ abstract class EcrHtmlContextmenu
         foreach($menuEntries as $menuEntry)
         {
             self::addEntry($ajaxLink, $menuEntry[0], $menuEntry[1], $menuEntry[2]);
-        }//foreach
+        }
         ?>
     </ul>
 

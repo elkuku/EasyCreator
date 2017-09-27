@@ -40,7 +40,7 @@ class AutoCodeAdminModelsModelElementBuildquery
             }
 
             $fields[] = 'a.'.$field->name;
-        }//foreach
+        }
 
         $fields = implode(', ', $fields);
 
@@ -56,11 +56,11 @@ class AutoCodeAdminModelsModelElementBuildquery
                     foreach($relation->aliases as $alias)
                     {
                         $aliases .= ', '.chr($charCode).'.'.$alias->aliasField.' AS '.$alias->alias;
-                    }//foreach
+                    }
                 }
 
                 $charCode ++;
-            }//foreach
+            }
 
             $relations .= NL;
         }
@@ -72,5 +72,5 @@ class AutoCodeAdminModelsModelElementBuildquery
         $ret .= NL;
 
         return $ret;
-    }//function
-}//class
+    }
+}

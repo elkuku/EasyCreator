@@ -30,7 +30,7 @@ class PartVariousInstall_Script
         $info->description = jgettext('Script containing functions to execute during install, update and uninstall');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -56,7 +56,7 @@ class PartVariousInstall_Script
         EcrHtmlButton::submitParts();
 
         return $this;
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -74,5 +74,5 @@ class PartVariousInstall_Script
         JFactory::getApplication()->input->set('element_scope', 'admin');
 
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

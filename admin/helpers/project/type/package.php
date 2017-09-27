@@ -220,4 +220,4 @@ class EcrProjectTypePackage extends EcrProjectBase
     {
         return array();
     }
-}//class
+}

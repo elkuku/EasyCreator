@@ -73,7 +73,7 @@ class EcrLanguage
         {
             $this->_fileList = $this->_buildFileList();
         }
-    }//function
+    }
 
     /**
      * Sets the languages.
@@ -107,10 +107,10 @@ class EcrLanguage
             {
                 $result[] = $key;
             }
-        }//foreach
+        }
 
         return $result;
-    }//function
+    }
 
     /**
      * Get a translation.
@@ -128,7 +128,7 @@ class EcrLanguage
         $translation =(isset($this->_strings[$key][$lang])) ? $this->_strings[$key][$lang] : '';
 
         return $translation;
-    }//function
+    }
 
     /**
      * Gets the saved versions.
@@ -177,7 +177,7 @@ class EcrLanguage
         }//while
 
         return $versions;
-    }//function
+    }
 
     /**
      * Get defined languages.
@@ -187,7 +187,7 @@ class EcrLanguage
     public function getLanguages()
     {
         return $this->_languages;
-    }//function
+    }
 
     /**
      * Get hidden languages.
@@ -197,7 +197,7 @@ class EcrLanguage
     public function getHideLangs()
     {
         return $this->_hideLangs;
-    }//function
+    }
 
     /**
      * Get defined translations.
@@ -207,7 +207,7 @@ class EcrLanguage
     public function getDefinitions()
     {
         return $this->_definitions;
-    }//function
+    }
 
     /**
      * Get defined strings.
@@ -217,7 +217,7 @@ class EcrLanguage
     public function getStrings()
     {
         return $this->_strings;
-    }//function
+    }
 
     /**
      * Get the defined core translations.
@@ -227,7 +227,7 @@ class EcrLanguage
     public function getCoreStrings()
     {
         return $this->_coreStrings;
-    }//function
+    }
 
     /**
      * Get the default file.
@@ -237,7 +237,7 @@ class EcrLanguage
     public function getDefaultFile()
     {
         return $this->_default_file;
-    }//function
+    }
 
     /**
      * Displays the actual file and a selected version side by side.
@@ -339,7 +339,7 @@ class EcrLanguage
         </table>
         -->
                 <?php
-    }//function
+    }
 
     /**
      * Converts bytes to higher units.
@@ -364,7 +364,7 @@ class EcrLanguage
         }
 
         return sprintf('%.2f '.$symbol[$exp], $converted_value);
-    }//function
+    }
 
     /**
      * Corrects the line positions of a translated language file according to the default language file.
@@ -393,7 +393,7 @@ class EcrLanguage
             {
                 break;
             }
-        }//foreach
+        }
 
         $isHeader = true;
 
@@ -422,16 +422,16 @@ class EcrLanguage
                         $trans = $tLine->value;
                         break;
                     }
-                }//foreach
+                }
 
                 $corrected->key = $line->key;
                 $corrected->value = $trans;
                 $correctedLanguage[] = $corrected;
             }
-        }//foreach
+        }
 
         return $correctedLanguage;
-    }//function
+    }
 
     /**
      * Save a language file.
@@ -468,7 +468,7 @@ class EcrLanguage
         JFactory::getApplication()->enqueueMessage(jgettext('The file has been saved'));
 
         return true;
-    }//function
+    }
 
     /**
      * Saves a single translation item to a file.
@@ -517,8 +517,8 @@ class EcrLanguage
                         $resultFile[] = $line->key.'='.$line->value;
                     }
                     break;
-            }//switch
-        }//foreach
+            }
+        }
 
         if( ! $found)
         {
@@ -535,7 +535,7 @@ class EcrLanguage
         throw new Exception(sprintf(jgettext('Unable to write the file %s'), $fileName));
 
         return true;
-    }//function
+    }
 
     /**
      * Delete a translation by key.
@@ -576,8 +576,8 @@ class EcrLanguage
                         $resultFile[] = $line->key.'='.$line->value;
                     }
                     break;
-            }//switch
-        }//foreach
+            }
+        }
 
         if( ! $found)
         {
@@ -602,7 +602,7 @@ class EcrLanguage
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Reads the strings from language files.
@@ -673,9 +673,9 @@ class EcrLanguage
                 {
                     $this->_default_file[] = array('etc' => $line);
                 }
-            }//foreach
-        }//foreach
-    }//function
+            }
+        }
+    }
 
     /**
      * Parse a language file.
@@ -727,10 +727,10 @@ class EcrLanguage
             $translation->value = $line;
 
             $parsed[] = $translation;
-        }//foreach
+        }
 
         return $parsed;
-    }//function
+    }
 
     /**
      * Draw the language file table.
@@ -761,7 +761,7 @@ class EcrLanguage
             }
 
             $tableHeader .= '<th width="'.(100 / (count($this->_languages) + 2)).'%">'.$lang.'</th>';
-        }//foreach
+        }
         $tableHeader .= '<th style="background-color: #FFFFB2;">'.jgettext('Used in File').'</th>';
         $tableHeader .= '</tr>';
         $tableHeader .= '</thead>'.NL;
@@ -907,7 +907,7 @@ class EcrLanguage
     ?> </a>
     <?php
     echo '</td>';
-                            }//foreach
+                            }
                             $used = false;
                             echo '<td>';
 
@@ -933,7 +933,7 @@ class EcrLanguage
                                         {
                                             $definition->coreTranslated[] = $lang;
                                         }
-                                    }//foreach
+                                    }
                                     foreach($definition->files as $fName => $fCount)
                                     {
                                         if($this->_scope == 'menu')
@@ -947,16 +947,16 @@ class EcrLanguage
                                             .'(<strong class="hasTip" style="color:blue;" title="'.$fName.'">'
                                             .'aaaXXW'.jgettext('PATH').'</strong>)</span><br />';
                                         }
-                                    }//foreach
+                                    }
                                     $used = true;
                                 }
-                            }//foreach
+                            }
 
                             if( ! $used)
                             {
                                 echo '<strong style="color: red;">'.jgettext('NOT USED').'</strong>';
                             }
-                        }//foreach
+                        }
                         echo '</td>';
                         echo '</tr>';
                         break;
@@ -965,10 +965,10 @@ case 'version':
 case 'etc':
 
     break;
-                }//switch
+                }
                 $k = 1 - $k;
-            }//foreach
-        }//foreach
+            }
+        }
         echo '</table>';
 
         if($sliderDrawed)
@@ -976,7 +976,7 @@ case 'etc':
             echo $pane2->endPanel();
             echo $pane2->endPane();
         }
-    }//function
+    }
 
     /**
      * Show language file in a path.
@@ -1022,12 +1022,12 @@ case 'etc':
         }
         ?></td>
         <?php
-    }//foreach
+    }
     ?>
     </tr>
 </table>
     <?php
-    }//function
+    }
 
     /**
      * Add menu entries as translatable items.
@@ -1049,9 +1049,9 @@ case 'etc':
             {
                 $text = $this->project->comName.'.'.$subMenu['text'];
                 $this->_addDefinition($text, 'submenu');
-            }//foreach
+            }
         }
-    }//function
+    }
 
     /**
      * Build a list of files to search for translation strings.
@@ -1115,7 +1115,7 @@ case 'etc':
                     $this->_fileList[] = $copyItem;
                 }
             }
-        }//foreach
+        }
 
         if($type != 'js')
         {
@@ -1139,9 +1139,9 @@ case 'etc':
             foreach($definitions as $definition => $fileName)
             {
                 $this->_addDefinition($definition, $fileName);
-            }//foreach
-        }//foreach
-    }//function
+            }
+        }
+    }
 
     /**
      * Get JText Keys from a given file.
@@ -1233,8 +1233,8 @@ case 'etc':
                         continue;
 
                         $definitions[$m] = $fileName;
-                    }//foreach
-                }//foreach
+                    }
+                }
                 break;
 
             case 'js':
@@ -1254,8 +1254,8 @@ case 'etc':
                         continue;
 
                         $definitions[$m] = $fileName;
-                    }//foreach
-                }//foreach
+                    }
+                }
                 break;
 
             case 'xml':
@@ -1303,19 +1303,19 @@ case 'etc':
 
                                 if($s)
                                 $definitions[$s] = $fileName;
-                            }//foreach
-                        }//foreach
-                    }//foreach
+                            }
+                        }
+                    }
                 }
                 break;
 
             default :
                 EcrHtml::message('Unknown file extension: '.JFile::getExt($fileName), 'error');
                 break;
-        }//switch
+        }
 
         return $definitions;
-    }//function
+    }
 
     /**
      * Add a definition.
@@ -1367,7 +1367,7 @@ case 'etc':
 
                     continue;
                 }
-            }//foreach
+            }
 
             if( ! $exists)
             {
@@ -1384,7 +1384,7 @@ case 'etc':
                 $this->_definitions[] = $def;
             }
         }
-    }//function
+    }
 
     /**
      * Raw display a language file.
@@ -1407,10 +1407,10 @@ case 'etc':
             }
 
             echo htmlentities($line).'<br />';
-        }//foreach
+        }
 
         echo '</div>';
-    }//function
+    }
 
     /**
      * Read a language file.
@@ -1437,7 +1437,7 @@ case 'etc':
 
             return false;
         }
-    }//function
+    }
 
     /**
      * Creates a new file from request parameters.
@@ -1471,7 +1471,7 @@ case 'etc':
         throw new Exception(sprintf(jgettext('Unable to write the file %s'), $fileName));
 
         return true;
-    }//function
+    }
 
     /**
      * Output raw file as array.
@@ -1489,10 +1489,10 @@ case 'etc':
         foreach($file as $line)
         {
             echo $line;
-        }//foreach
+        }
 
         echo '</pre>';
-    }//function
+    }
 
     /**
      * Generates a language file name.
@@ -1526,7 +1526,7 @@ case 'etc':
             {
                 return $path.DS.$addPath;
             }
-        }//foreach
+        }
 
         //-- No existing file found.
         //-- Return a valid new file name based on the scope
@@ -1543,5 +1543,5 @@ case 'etc':
 
         //-- Found nothing :(
         return '';
-    }//function
-}//class
+    }
+}

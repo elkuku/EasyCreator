@@ -76,7 +76,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             $this->copies[] = JPATH_SITE.'/components/'.$this->comName;
 
         return $this->copies;
-    }//function
+    }
 
     /**
      * Gets the language scopes for the extension type.
@@ -86,7 +86,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     public function getLanguageScopes()
     {
         return array('site', 'admin', 'menu', 'js_admin', 'js_site');
-    }//function
+    }
 
     /**
      * Gets the paths to language files.
@@ -160,7 +160,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                 return array();
                 break;
-        }//switch
+        }
 
         if($scope && ! array_key_exists($scope, $paths))
             throw new Exception(__METHOD__.' - Unknown scope: '.$scope);
@@ -169,7 +169,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
             return $paths[$scope];
 
         return $paths;
-    }//function
+    }
 
     /**
      * Get the name for language files.
@@ -198,8 +198,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
             default :
                 return $this->comName.'.'.$this->langFormat;
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Get the path for the Joomla! XML manifest file.
@@ -209,7 +209,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     public function getJoomlaManifestPath()
     {
         return JPATH_ADMINISTRATOR.DS.'components'.DS.$this->comName;
-    }//function
+    }
 
     /**
      * Get the extension base path.
@@ -219,7 +219,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     public function getExtensionPath()
     {
         return JPATH_ADMINISTRATOR.DS.'components'.DS.$this->comName;
-    }//function
+    }
 
     /**
      * Get a Joomla! manifest XML file name.
@@ -249,8 +249,8 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                 return '';
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Gets the DTD for the extension type.
@@ -282,10 +282,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
                 break;
-        }//switch
+        }
 
         return $dtd;
-    }//function
+    }
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -299,7 +299,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $type =($type) ? '.'.$type : '';
 
         return $this->getFileName().$type.'.xml';
-    }//function
+    }
 
     /**
      * Get a common file name.
@@ -309,7 +309,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     public function getFileName()
     {
         return $this->comName;
-    }//function
+    }
 
     /**
      * Get the project Id.
@@ -328,7 +328,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
         return $db->setQuery($query)
             ->loadResult();
-    }//function
+    }
 
     /**
      * Discover all projects.
@@ -340,7 +340,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
     public function getAllProjects($scope)
     {
         return JFolder::folders(JPATH_ADMINISTRATOR.DS.'components');
-    }//function
+    }
 
     /**
      * Get a list of known core projects.
@@ -402,10 +402,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
-        }//switch
+        }
 
         return $projects;
-    }//function
+    }
 
     /**
      * Updates the administration main menu.
@@ -463,7 +463,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                 return false;
                 break;
-        }//switch
+        }
 
         $menu['ordering'] = 0;
         $mId = $this->setDbMenuItem($menu);
@@ -498,16 +498,16 @@ class EcrProjectTypeComponent extends EcrProjectBase
 
                         return false;
                         break;
-                }//switch
+                }
 
                 $this->setDbMenuItem($menu);
             }
-        }//foreach
+        }
 
         $this->readMenu();
 
         return true;
-    }//function
+    }
 
     /**
      * Add a submenu entry.
@@ -535,7 +535,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         $item['component_id'] = $this->dbId;
 
         return $this->setDbMenuItem($item);
-    }//function
+    }
 
     /**
      * Read the J! main menu entries for a component from the core components table.
@@ -590,10 +590,10 @@ class EcrProjectTypeComponent extends EcrProjectBase
             $this->submenu[$i]['menuid'] = $submenu->id;
 
             $i ++;
-        }//foreach
+        }
 
         return;
-    }//function
+    }
 
     /**
      * Method to remove admin menu references to a component
@@ -652,7 +652,7 @@ class EcrProjectTypeComponent extends EcrProjectBase
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Updates a menu entry in database / Insert new one if not exists.

@@ -69,13 +69,13 @@ class JFormFieldRadio extends EcrFormField
             .$checked.$class.$onclick.$disabled.'/>';
 
             $html[] = '<label for="'.$this->id.$i.'"'.$class.'>'.jgettext($option->text).'</label>';
-        }//foreach
+        }
 
         //-- End the radio field output.
         $html[] = '</fieldset>';
 
         return implode("\n", $html);
-    }//function
+    }
 
     /**
      * Method to get the field options.
@@ -106,10 +106,10 @@ class JFormFieldRadio extends EcrFormField
 
             //-- Add the option object to the result set.
             $options[] = $tmp;
-        }//foreach
+        }
 
         reset($options);
 
         return $options;
-    }//function
-}//class
+    }
+}

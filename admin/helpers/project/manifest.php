@@ -981,4 +981,4 @@ class EcrProjectManifest extends JObject
 
         return $document->saveXML();
     }
-}//class
+}

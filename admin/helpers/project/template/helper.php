@@ -297,4 +297,4 @@ class EcrProjectTemplateHelper
 
         return $info;
     }
-}//class
+}

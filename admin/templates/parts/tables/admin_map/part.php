@@ -35,7 +35,7 @@ class PartTablesAdmin_map
         $info->description = jgettext('This will map an existing table and create an admin interface and menu link');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -65,7 +65,7 @@ class PartTablesAdmin_map
         {
             $v = str_replace($prefix, '', $table);
             echo '<option value="'.$v.'">'.$v.'</option>';
-        }//foreach
+        }
         echo '</select>';
 
         echo '<div id="addPartTableFields"></div>';
@@ -83,7 +83,7 @@ class PartTablesAdmin_map
 
         $requireds = array('element_name', 'table_name');
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Shows the fields of a given table.
@@ -131,7 +131,7 @@ class PartTablesAdmin_map
             default:
                 $def = 'NULL';
                 break;
-        }//switch
+        }
 
         $javascript1 = "$('tblfield_edit_".$key."').disabled=(this.checked)?false:true;";
         $javascript2 = "$('tblfield_type_".$key."').disabled=(this.checked && $('tblfield_edit_"
@@ -161,11 +161,11 @@ class PartTablesAdmin_map
         </select></td>
     </tr>
     <?php
-    }//foreach
+    }
     ?>
 </table>
     <?php
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -210,7 +210,7 @@ class PartTablesAdmin_map
                 continue;
 
                 $table_vars .= EcrTableHelper::formatTableVar($key, $value);
-            }//foreach
+            }
         }
 
         /*
@@ -237,7 +237,7 @@ class PartTablesAdmin_map
 
             $project->substitute($fileContents);
             $project->addSubstitute('##'.strtoupper(JFile::stripExt(JFile::getName($file))).'##', $fileContents);
-        }//foreach
+        }
 
         /*
          * Add manual substitutes
@@ -272,7 +272,7 @@ class PartTablesAdmin_map
             }
 
             $i ++;
-        }//foreach
+        }
         $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 
         $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php '.NL;
@@ -282,7 +282,7 @@ class PartTablesAdmin_map
         foreach($substitutes as $key => $value)
         {
             $project->addSubstitute($key, $value);
-        }//foreach
+        }
 
         /*
          * Remove options
@@ -322,5 +322,5 @@ class PartTablesAdmin_map
         }
 
         return true;
-    }//function
-}//class
+    }
+}

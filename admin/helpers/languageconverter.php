@@ -63,7 +63,7 @@ class EcrLanguageConverter
 
             $this->prefix = $prefix;
         }
-    }//function
+    }
 
     /**
      * Get tags of known languages.
@@ -89,10 +89,10 @@ class EcrLanguageConverter
             {
                 $result[] = $key;
             }
-        }//foreach
+        }
 
         return $result;
-    }//function
+    }
 
     /**
      * Checks is the key is adjusted to our settings.
@@ -105,7 +105,7 @@ class EcrLanguageConverter
     public function isKeyAdjusted($key, $value)
     {
         return $key == $this->adjustKey($key, $value);
-    }//function
+    }
 
     /**
      * Checks if the key is clean according to our settings.
@@ -117,7 +117,7 @@ class EcrLanguageConverter
     public function isCleanKey($key)
     {
         return $key == $this->cleanKey($key);
-    }//function
+    }
 
     /**
      * Adjust the key according to our settings.
@@ -141,7 +141,7 @@ class EcrLanguageConverter
 
         //-- Adjust the key to the value
         return $value;
-    }//function
+    }
 
     /**
      * Cleans a key according to our settings.
@@ -202,7 +202,7 @@ class EcrLanguageConverter
                 foreach($matches[0] as $match)
                 {
                     $key = str_replace($match, trim($match).'_', $key);
-                }//foreach
+                }
 
                 $rex = '%( '.implode(' | ', $this->forbiddenKeys).' )%i';
                 preg_match_all($rex, $key, $matches);
@@ -210,7 +210,7 @@ class EcrLanguageConverter
                 foreach($matches[0] as $match)
                 {
                     $key = str_replace($match, ' '.trim($match).'_', $key);
-                }//foreach
+                }
 
                 $rex = '%( '.implode('| ', $this->forbiddenKeys).')$%i';
                 preg_match_all($rex, $key, $matches);
@@ -218,12 +218,12 @@ class EcrLanguageConverter
                 foreach($matches[0] as $match)
                 {
                     $key = str_replace($match, '_'.trim($match), $key);
-                }//foreach
+                }
             }
         }
 
         return $key;
-    }//function
+    }
 
     /**
      * Cleans errors in a language file.
@@ -251,12 +251,12 @@ class EcrLanguageConverter
                         $parts[0] = $this->cleanKey($parts[0]);
                         $lines[$i] = $parts[0].'='.$parts[1];
                     }
-                }//foreach
+                }
             }
         }//for
 
         return $lines;
-    }//function
+    }
 
     /**
      * Clean a value.
@@ -268,7 +268,7 @@ class EcrLanguageConverter
     public function cleanValue($value)
     {
         return $value;
-    }//function
+    }
 
     /**
      * Find language key errors in PHP code.
@@ -297,7 +297,7 @@ class EcrLanguageConverter
                 continue;
 
                 $value = $m;
-            }//foreach
+            }
 
             if($value)
             {
@@ -306,10 +306,10 @@ class EcrLanguageConverter
                     $errors[$value] = $match[0];
                 }
             }
-        }//foreach
+        }
 
         return $errors;
-    }//function
+    }
 
     /**
      * Clean lines of a language file.
@@ -371,10 +371,10 @@ class EcrLanguageConverter
                     $newLines[] = $line;
                 }
             }
-        }//foreach
+        }
 
         return $newLines;
-    }//function
+    }
 
     /**
      * Split lines of an ini file by the "=" character.
@@ -390,7 +390,7 @@ class EcrLanguageConverter
         $lastPart = substr($line, $pos + 1);
 
         return array($firstPart, $lastPart);
-    }//function
+    }
 
     /**
      * Get a diff table.
@@ -429,5 +429,5 @@ class EcrLanguageConverter
         }
 
         return $dwFormatter->format($dwDiff);
-    }//function
-}//class
+    }
+}

@@ -121,7 +121,7 @@ class EcrPearHelperPhpdoc extends EcrPearHelperConsole
             foreach($options as $o)
             {
                 $args[] = '-'.$o.' on';
-            }//foreach
+            }
         }
 
         /*
@@ -147,5 +147,5 @@ class EcrPearHelperPhpdoc extends EcrPearHelperConsole
         $results = $this->cliExec('phpdoc', $args);
 
         return $results;
-    }//function
-}//class
+    }
+}

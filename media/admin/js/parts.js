@@ -25,4 +25,4 @@ function showPart(group, part)
     }).send();
 
     return false;
-}//function
+}

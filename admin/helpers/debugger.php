@@ -45,7 +45,7 @@ class EcrDebugger
             $html .= '</div>';
             echo $html;
         }
-    }//function
+    }
 
     /**
      * Debug echo.
@@ -57,7 +57,7 @@ class EcrDebugger
     public static function dEcho($string)
     {
         echo '<span style="background-color: yellow;">'.$string.'</span>';
-    }//function
+    }
 
     /**
      * Print out system variables.
@@ -106,7 +106,7 @@ class EcrDebugger
                             break;
 
                             // @codingStandardsIgnoreEnd
-                    }//switch
+                    }
                 }
 
             case 'easy':
@@ -158,7 +158,7 @@ class EcrDebugger
                                 Var_Dump::display($_SESSION);
                                 break;
                                 // @codingStandardsIgnoreEnd
-                        }//switch
+                        }
                         echo '</div>';
                 }
                 else
@@ -194,15 +194,15 @@ class EcrDebugger
                         krumo::post();
                         krumo::session();
                         break;
-                }//switch
+                }
 
                 break;
 
             default:
                 EcrHtml::message(jgettext('No debugger set'), 'error');
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Add a string to the internal log.
@@ -214,7 +214,7 @@ class EcrDebugger
     public static function addLog($string)
     {
         self::$log[] = $string;
-    }//function
+    }
 
     /**
      * Print out log events.
@@ -231,13 +231,13 @@ class EcrDebugger
         foreach(self::$log as $logentry)
         {
             $html .= '<li>'.$logentry.'</li>';
-        }//foreach
+        }
 
         $html .= '</ul>';
         $html .= '<hr />';
 
         echo $html;
-    }//function
+    }
 
     /**
      * Dumps a var with PEAR::Var_Dump.
@@ -292,5 +292,5 @@ class EcrDebugger
         {
             echo '<pre>'.print_r($var, true).'</pre>';
         }
-    }//function
-}//class
+    }
+}

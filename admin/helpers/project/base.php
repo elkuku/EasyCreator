@@ -1606,4 +1606,4 @@ abstract class EcrProjectBase
     {
         return $this->comName;
     }
-}//class
+}

@@ -31,7 +31,7 @@ class EcrArchive
         $tar->createModify($files, '', $removePath);
 
         return $tar;
-    }//function
+    }
 
     /**
      * Creates a ZIP package.
@@ -47,5 +47,5 @@ class EcrArchive
         $archive = new EcrPearArchiveZip($fileName);
 
         return $archive->create($files, array('remove_path' => $removePath));
-    }//function
-}//class
+    }
+}

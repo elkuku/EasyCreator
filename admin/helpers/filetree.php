@@ -66,7 +66,7 @@ class EcrFileTree
 
         $this->extensionsOnly = $extensionsOnly;
         $this->reverse = $reverse;
-    }//function
+    }
 
     /**
      * Draw the tree.
@@ -85,7 +85,7 @@ class EcrFileTree
         }
 
         return $this->scanDir($d);
-    }//function
+    }
 
     /**
      * Draw the full tree.
@@ -107,7 +107,7 @@ class EcrFileTree
         $r .= $this->endTree();
 
         return $r;
-    }//function
+    }
 
     /**
      * Set the directory.
@@ -121,7 +121,7 @@ class EcrFileTree
         $this->directory = $directory;
 
         return $this;
-    }//function
+    }
 
     /**
      * Set the JavaScript pattern.
@@ -142,8 +142,8 @@ class EcrFileTree
             case 'file':
                 $this->jsFile = $js;
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Draw only the start part of the tree.
@@ -159,7 +159,7 @@ class EcrFileTree
         $this->indent = 0;
 
         return $s;
-    }//function
+    }
 
     /**
      * Draw only the end part of the tree.
@@ -173,7 +173,7 @@ class EcrFileTree
         $s .= NL.'<!-- PHPFileTree End -->'.NL;
 
         return $s;
-    }//function
+    }
 
     /**
      * Recursive function to list directories/files.
@@ -203,7 +203,7 @@ class EcrFileTree
             {
                 $files[] = $this_file;
             }
-        }//foreach
+        }
 
         $entries = array_merge($dirs, $files);
 
@@ -219,7 +219,7 @@ class EcrFileTree
                     if( ! in_array($ext, $this->extensionsOnly))
                     unset($entries[$key]);
                 }
-            }//foreach
+            }
         }
 
         $php_file_tree = '';
@@ -278,14 +278,14 @@ class EcrFileTree
                         $php_file_tree .= $this->getLink($directory, $this_file);
                     }
                 }
-            }//foreach
+            }
 
             $php_file_tree .= $this->idtDel();
             $php_file_tree .= '</ul>';
         }
 
         return $php_file_tree;
-    }//function
+    }
 
     /**
      * Increase indent.
@@ -297,7 +297,7 @@ class EcrFileTree
         $this->indent ++;
 
         return NL.str_repeat('   ', $this->indent);
-    }//function
+    }
 
     /**
      * Decrease indent.
@@ -312,7 +312,7 @@ class EcrFileTree
         $this->indent = 0;
 
         return NL.str_repeat('   ', $this->indent);
-    }//function
+    }
 
     /**
      * Get indent.
@@ -322,7 +322,7 @@ class EcrFileTree
     private function idt()
     {
         return NL.str_repeat('   ', $this->indent);
-    }//function
+    }
 
     /**
      * Displays a link.
@@ -359,7 +359,7 @@ class EcrFileTree
         $this->linkId ++;
 
         return $s;
-    }//function
+    }
 
     /**
      * Parse a link.
@@ -387,5 +387,5 @@ class EcrFileTree
         $s = str_replace('[id]', 'tl_'.$this->linkId, $s);
 
         return $s;
-    }//function
-}//class
+    }
+}

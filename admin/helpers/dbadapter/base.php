@@ -23,7 +23,7 @@ class EcrDbadapterBase
 
     public function __construct()
     {
-    }//function
+    }
 
     public function __get($what)
     {
@@ -39,7 +39,7 @@ class EcrDbadapterBase
         }
 
         EcrHtml::message(get_class($this).' - Undefined property: '.$what, 'error');
-    }//function
+    }
 
     public function setQuery($query)
     {
@@ -57,10 +57,10 @@ class EcrDbadapterBase
         }
 
         $this->query = $q;
-    }//function
+    }
 
     public function quote($string)
     {
         return $this->nameQuote.$string.$this->nameQuote;
-    }//function
-}//class
+    }
+}

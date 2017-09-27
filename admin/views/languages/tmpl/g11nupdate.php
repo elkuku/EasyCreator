@@ -98,7 +98,7 @@ $item = $this->g11nInfo;
             </tr>
             <?php
             $k = 1 - $k;
-        }//foreach
+        }
         ?>
     </table>
 </div>

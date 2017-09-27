@@ -48,7 +48,7 @@ class PartViewsData_form extends EcrProjectPart
             $fContents = JFile::read($this->basePath.DS.'tmpl'.DS.'options'.DS.$fName);
             $key = JFile::stripExt($fName);
             $this->fieldsOptions[$key] = $fContents;
-        }//foreach
+        }
 
         $this->keys['##ECR_OPTIONS##'] = '__ECR_KEY__';
         /*
@@ -61,7 +61,7 @@ class PartViewsData_form extends EcrProjectPart
 //            .'        <php echo $row->##ECR_KEY##; ?>'.NL
 //            .'    </td>'.NL;
  * */
-    }//function
+    }
     /**
      * Info about the thing.
      *
@@ -76,7 +76,7 @@ class PartViewsData_form extends EcrProjectPart
         $info->description = jgettext('A simple, empty, model');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -117,7 +117,7 @@ class PartViewsData_form extends EcrProjectPart
             {
                 $v = str_replace($prefix, '', $table);
                 echo '<option value="'.$v.'">'.$v.'</option>';
-            }//foreach
+            }
             echo '</select>';
 
             echo '<div id="addPartTableFields"></div>';
@@ -137,7 +137,7 @@ class PartViewsData_form extends EcrProjectPart
         EcrHtmlOptions::logging();
 
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -202,7 +202,7 @@ class PartViewsData_form extends EcrProjectPart
 //        foreach($this->patterns as $pKey => $pReplacement)
 //        {
 //            $substitutes[$pKey] = '';
-//        }//foreach
+//        }
 
         $code = '';
         $acFields = array();
@@ -219,7 +219,7 @@ $acFields[] = $f;
 
 //            $acOptions[$field] = array();
 //            $acOptions[$field]['type'] = $req_table_fields_types[$field];
-        }//foreach
+        }
 
 //        foreach($tableFields as $key => $value)
 //        {
@@ -228,9 +228,9 @@ $acFields[] = $f;
 //            foreach($this->patterns as $pKey => $pReplacement)
 //            {
 //                $substitutes[$pKey] .= str_replace('##ECR_KEY##', $key, $pReplacement);
-//            }//foreach
+//            }
 //            $i ++;
-//        }//foreach
+//        }
 
  /*       $substitutes['##ECR_VIEW1_TMPL1_THS##'] .= '    <?php $coloumnCount += '.$i.'; ?>'.NL;
 */
@@ -260,7 +260,7 @@ $key = '##ECR_OPTIONS##';
         $EasyProject->addAutoCode($AutoCode, $this->key);
 
         return $EasyProject->insertPart($options, $logger);
-    }//function
+    }
 
     /**
      * Edit the AutoCode.
@@ -313,7 +313,7 @@ $key = '##ECR_OPTIONS##';
         $this->show_tablefields($table_name, $AutoCode->fields[$key]);
 
         EcrHtmlButton::submitParts();
-    }//function
+    }
 
     /**
      * Shows the fields of a given table.
@@ -344,7 +344,7 @@ $key = '##ECR_OPTIONS##';
         foreach($this->fieldsOptions as $key => $option)
         {
             $fieldTypes[] = JHTML::_('select.option', $key, $key);
-        }//foreach
+        }
 
         if( ! count($fields)
             || ! count($fields[$table_name]))
@@ -390,9 +390,9 @@ $key = '##ECR_OPTIONS##';
                 </td>
             </tr>
             <?php
-        }//foreach
+        }
         ?>
         </table>
         <?php
-    }//function
-}//class
+    }
+}

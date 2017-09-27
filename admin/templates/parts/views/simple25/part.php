@@ -33,7 +33,7 @@ class PartViewsSimple25
         $info->description = jgettext('A simple, empty, view');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -49,7 +49,7 @@ class PartViewsSimple25
 
         $requireds = array('element_name', 'element_scope');
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -65,5 +65,5 @@ class PartViewsSimple25
         $project->addSubstitute('ECR_SUBPACKAGE', 'Views');
 
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

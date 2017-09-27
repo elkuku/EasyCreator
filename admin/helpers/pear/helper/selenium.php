@@ -33,5 +33,5 @@ class EcrPearHelperSelenium extends EcrPearHelperConsole
         $results = $this->cliExec('phpunit', $arguments);
 
         return $results;
-    }//function
-}//class
+    }
+}

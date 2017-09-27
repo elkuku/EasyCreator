@@ -179,4 +179,4 @@ class EasyCreatorViewStarter extends JViewLegacy
         , 'webapp' => jgettext('JApplications created with EasyCreator will look for an environment variable called JOOMLA_PATFORM_PATH. Otherwise you have to adjust the path in the entry file by hand !')
         );
     }
-}//class
+}

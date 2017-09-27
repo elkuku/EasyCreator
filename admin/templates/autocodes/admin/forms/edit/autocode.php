@@ -39,7 +39,7 @@ class AutoCodeAdminFormsEdit extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
+    }
 
     /**
      * Open the AutoCode for edit.
@@ -121,13 +121,13 @@ class AutoCodeAdminFormsEdit extends EcrProjectAutocode
             echo '</td>';
 
             echo '</tr>';
-        }//foreach
+        }
 
         echo '</table>';
 
         /* Draws the submit button */
         EcrHtmlButton::autoCode($requireds);
-    }//function
+    }
 
     /**
      * Inserts the AutoCode into the project.
@@ -192,7 +192,7 @@ class AutoCodeAdminFormsEdit extends EcrProjectAutocode
             $autoCodeFieldsHeader[] = $fieldHeader;
 
             $table->addField($fieldHeader);
-        }//foreach
+        }
 
             $rows .= $this->getCode($element, $table, $indent);
 
@@ -212,9 +212,9 @@ class AutoCodeAdminFormsEdit extends EcrProjectAutocode
         foreach($this->codes as $key => $code)
         {
             $project->addSubstitute($tags[0].$key.$tags[1], $code);
-        }//foreach
+        }
 
         /* Insert the part to your project and return the results */
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

@@ -131,7 +131,7 @@ foreach($paths as $p)
     else :
     continue;
     endif;
-}//foreach
+}
 
 $lines = explode("\n", $fileContents);
 

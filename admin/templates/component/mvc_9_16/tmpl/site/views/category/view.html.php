@@ -154,5 +154,5 @@ class ECR_COM_NAMEViewCategory extends JView
         $this->assign('action',	$uri->toString());
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

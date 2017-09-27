@@ -22,7 +22,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentAfterDelete($context, $data)
     {
         return true;
-    }//function
+    }
 
     /**
      * Example after display content method
@@ -39,7 +39,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentAfterDisplay($context, &$article, &$params, $limitstart)
     {
         return '';
-    }//function
+    }
 
     /**
      * Example after save content method
@@ -55,7 +55,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentAfterSave($context, &$article, $isNew)
     {
         return true;
-    }//function
+    }
 
     /**
      * Example after display title method
@@ -72,7 +72,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentAfterTitle($context, &$article, &$params, $limitstart)
     {
         return '';
-    }//function
+    }
 
     /**
      * Example before delete method.
@@ -85,7 +85,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentBeforeDelete($context, $data)
     {
         return true;
-    }//function
+    }
 
     /**
      * Example before display content method
@@ -102,7 +102,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentBeforeDisplay($context, &$article, &$params, $limitstart)
     {
         return '';
-    }//function
+    }
 
     /**
      * Example before save content method
@@ -121,7 +121,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentBeforeSave($context, &$article, $isNew)
     {
         return true;
-    }//function
+    }
 
     /**
      * Example after delete method.
@@ -135,7 +135,7 @@ class plgContentECR_COM_NAME extends JPlugin
     public function onContentChangeState($context, $pks, $value)
     {
         return true;
-    }//function
+    }
 
     /**
      * Example prepare content method
@@ -149,5 +149,5 @@ class plgContentECR_COM_NAME extends JPlugin
      */
     public function onContentPrepare($context, &$article, &$params, $limitstart)
     {
-    }//function
-}//class
+    }
+}

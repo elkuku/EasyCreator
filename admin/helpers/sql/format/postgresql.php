@@ -138,7 +138,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
         //         foreach ($indices as $kName => $columns)
         //         {
         //             $s[] = 'INDEX '.$this->quote($kName).' (`'.implode('`,`', $columns).'`),';
-        //         }//foreach
+        //         }
 
         foreach($uniques as $kName => $columns)
         {
@@ -167,7 +167,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
         return implode("\n", $s);
     }
 
-    //function
+    
 
     /**
      * Format the insert statement
@@ -230,7 +230,7 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
         return implode("\n", $s);
     }
 
-    //function
+    
 
     /**
      * Format the truncate table statement.
@@ -259,4 +259,4 @@ class EcrSqlFormatPostgresql extends EcrSqlFormat
 
         return 'DROP TABLE '.$tableName.";\n";
     }
-}//class
+}

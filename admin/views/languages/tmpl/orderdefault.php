@@ -75,7 +75,7 @@ $dfString = '&nbsp;';
 </li>
     <?php
     }
-}//foreach
+}
 ?>
 </ul>
 

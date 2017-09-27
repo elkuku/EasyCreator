@@ -441,4 +441,4 @@ class EcrProjectTypeModule extends EcrProjectBase
                 return array();
         }
     }
-}//class
+}

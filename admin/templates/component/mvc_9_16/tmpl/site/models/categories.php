@@ -47,7 +47,7 @@ class ECR_COM_NAMEModelCategories extends JModel
         }
 
         return $this->_data;
-    }//function
+    }
 
     /**
      * Method to get the total number of ECR_COM_NAME items for the category.
@@ -65,7 +65,7 @@ class ECR_COM_NAMEModelCategories extends JModel
         }
 
         return $this->_total;
-    }//function
+    }
 
     /**
      * Build the SELECT query.
@@ -90,5 +90,5 @@ class ECR_COM_NAMEModelCategories extends JModel
             ->group('cc.id');
 
         return $query;
-    }//function
-}//class
+    }
+}

@@ -97,7 +97,7 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 //         foreach ($indices as $kName => $columns)
 //         {
 //             $s[] = 'INDEX '.$this->quote($kName).' (`'.implode('`,`', $columns).'`),';
-//         }//foreach
+//         }
 
         foreach($uniques as $kName => $columns)
         {
@@ -213,4 +213,4 @@ class EcrSqlFormatMySQL extends EcrSqlFormat
 
         return 'DROP TABLE '.$tableName.";\n";
     }
-}//class
+}

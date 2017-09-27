@@ -54,7 +54,7 @@ function checkMD5File($path, $extensionPaths)
         }
 
         echo (JDEBUG) ? 'OK<br />' : '';
-    }//foreach
+    }
 
     return $errors;
-}//function
+}

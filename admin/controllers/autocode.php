@@ -76,7 +76,7 @@ class EasyCreatorControllerAutoCode extends JControllerLegacy
         }
 
         return;
-    }//function
+    }
 
     /**
      * Edit AutoCode.
@@ -143,5 +143,5 @@ class EasyCreatorControllerAutoCode extends JControllerLegacy
         echo $AutoCode->edit($project->autoCodes[$AutoCode->getKey()]);
 
         return;
-    }//function
-}//class
+    }
+}

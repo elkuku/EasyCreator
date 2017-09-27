@@ -67,7 +67,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function findCopies()
     {
         return $this->copies;
-    }//function
+    }
 
     /**
      * Get the extension base path.
@@ -77,7 +77,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getExtensionPath()
     {
         return '';
-    }//function
+    }
 
     /**
      * Gets the language scopes for the extension type.
@@ -90,7 +90,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
         $scopes[] =($this->scope) == 'admin' ? 'admin' : 'site';
 
         return $scopes;
-    }//function
+    }
 
     /**
      * Gets the paths to language files.
@@ -102,7 +102,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getLanguagePaths($scope = '')
     {
         return array('site' => JPATH_SITE);
-    }//function
+    }
 
     /**
      * Get the name for language files.
@@ -114,7 +114,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getLanguageFileName($scope = '')
     {
         return $this->prefix.$this->comName.'.ini';
-    }//function
+    }
 
     /**
      * Gets the DTD for the extension type.
@@ -144,10 +144,10 @@ class EcrProjectTypeEmpty extends EcrProjectBase
 
             default:
                 break;
-        }//switch
+        }
 
         return $dtd;
-    }//function
+    }
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -157,7 +157,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getEcrXmlFileName()
     {
         return $this->getFileName().'.xml';
-    }//function
+    }
 
     /**
      * Get a common file name.
@@ -167,7 +167,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getFileName()
     {
         return $this->prefix.$this->comName;
-    }//function
+    }
 
     /**
      * Get the path for the Joomla! XML manifest file.
@@ -177,7 +177,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getJoomlaManifestPath()
     {
         return '';
-    }//function
+    }
 
     /**
      * Get a Joomla! manifest XML file name.
@@ -187,7 +187,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getJoomlaManifestName()
     {
         return $this->prefix.$this->comName.'.xml';
-    }//function
+    }
 
     /**
      * Get the project Id.
@@ -206,7 +206,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
             ->where('e.element = '.$db->quote($this->prefix.$this->comName));
 
         return $db->setQuery($query)->loadResult();
-    }//function
+    }
 
     /**
      * Discover all projects.
@@ -218,7 +218,7 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     public function getAllProjects($scope)
     {
         JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
-    }//function
+    }
 
     /**
      * Get a list of known core projects.
@@ -232,5 +232,5 @@ class EcrProjectTypeEmpty extends EcrProjectBase
         JFactory::getApplication()->enqueueMessage(__METHOD__.' unfinished', 'warning');
 
         return array();
-    }//function
-}//class
+    }
+}

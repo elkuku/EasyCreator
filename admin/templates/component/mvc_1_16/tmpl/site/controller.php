@@ -11,4 +11,4 @@ jimport('joomla.application.component.controller');
  */
 class ECR_COM_NAMEController extends JController
 {
-}//class
+}

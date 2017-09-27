@@ -408,4 +408,4 @@ class EasyCreatorViewStuffer extends JViewLegacy
 
         return $ret;
     }
-}//class
+}

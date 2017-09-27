@@ -49,7 +49,7 @@ class ECR_COM_NAMEViewECR_COM_NAME extends JView
         $this->setDocument();
     }
 
-    //function
+    
 
     /**
      * Setting the toolbar
@@ -79,7 +79,7 @@ class ECR_COM_NAMEViewECR_COM_NAME extends JView
         );
     }
 
-    //function
+    
 
     /**
      * Method to set up the document properties
@@ -103,5 +103,5 @@ class ECR_COM_NAMEViewECR_COM_NAME extends JView
 
         JText::script('ECR_UPPER_COM_COM_NAME_ECR_UPPER_COM_NAME_ERROR_UNACCEPTABLE');
     }
-    //function
-}//class
+    
+}

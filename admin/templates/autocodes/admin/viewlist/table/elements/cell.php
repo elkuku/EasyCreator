@@ -38,8 +38,8 @@ class AutoCodeAdminViewlistTableElementCell
             $ret .= $indent.'<td>'.NL;
             $ret .= $indent.'    <?php echo $row->'.$field->name.'; ?>'.NL;
             $ret .= $indent.'</td>'.NL;
-        }//foreach
+        }
 
         return $ret;
-    }//function
-}//class
+    }
+}

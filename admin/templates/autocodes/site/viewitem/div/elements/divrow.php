@@ -36,8 +36,8 @@ class AutoCodeSiteViewitemDivElementDivrow
 
             $ret .= $indent.'<div class="title">'.$field->label.'</div>'.NL;
             $ret .= $indent.'<div class="cell"><?php echo $row->'.$field->name.'; ?></div>'.NL;
-        }//foreach
+        }
 
         return $ret;
-    }//function
-}//class
+    }
+}

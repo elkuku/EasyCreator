@@ -78,7 +78,7 @@ class JFormFieldList extends EcrFormField
         }
 
         return implode("\n", $html);
-    }//function
+    }
 
     /**
      * Method to get the field options.
@@ -112,10 +112,10 @@ class JFormFieldList extends EcrFormField
 
             //-- Add the option object to the result set.
             $options[] = $tmp;
-        }//foreach
+        }
 
         reset($options);
 
         return $options;
-    }//function
-}//class
+    }
+}

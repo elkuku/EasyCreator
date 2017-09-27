@@ -23,7 +23,7 @@ class ECR_COM_NAMEModelECR_COM_NAME extends JModelAdmin
     public function getTable($type = 'ECR_COM_NAME', $prefix = 'ECR_COM_NAMETable', $config = array())
     {
         return JTable::getInstance($type, $prefix, $config);
-    }//function
+    }
 
     /**
      * Method to get the record form.
@@ -45,7 +45,7 @@ class ECR_COM_NAMEModelECR_COM_NAME extends JModelAdmin
         }
 
         return $form;
-    }//function
+    }
 
     /**
      * Method to get the data that should be injected in the form.
@@ -64,5 +64,5 @@ class ECR_COM_NAMEModelECR_COM_NAME extends JModelAdmin
         }
 
         return $data;
-    }//function
-}//class
+    }
+}

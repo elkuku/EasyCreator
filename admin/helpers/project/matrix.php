@@ -96,8 +96,8 @@ class EcrProjectMatrix extends JFolder
             default:
                 $this->generateChartCode();
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Get known project extensions.
@@ -107,7 +107,7 @@ class EcrProjectMatrix extends JFolder
     public function getProjectExtensions()
     {
         return $this->fileExtensions;
-    }//function
+    }
 
     /**
      * Get known code ratio types.
@@ -117,7 +117,7 @@ class EcrProjectMatrix extends JFolder
     public function getCodeRatioTypes()
     {
         return array_keys($this->codeRatioTypes);
-    }//function
+    }
 
     /**
      * Setup - Prevent notices.
@@ -135,13 +135,13 @@ class EcrProjectMatrix extends JFolder
             $this->projectData[$ext]['ratioCode'] = 0;
             $this->projectData[$ext]['ratioBlanks'] = 0;
             $this->projectData[$ext]['ratioComments'] = 0;
-        }//foreach
+        }
 
         $this->projectData['images']['files'] = 0;
         $this->projectData['images']['size'] = 0;
 
         return $this;
-    }//function
+    }
 
     /**
      * Scans the project.
@@ -159,7 +159,7 @@ class EcrProjectMatrix extends JFolder
                 {
                     $data = $this->getCodeLines($copy, $ext);
                     $this->addData($data, $ext);
-                }//foreach
+                }
 
                 //-- Process images
                 $files = JFolder::files($copy, $this->imgExtensions, true, true);
@@ -169,7 +169,7 @@ class EcrProjectMatrix extends JFolder
                 foreach($files as $file)
                 {
                     $this->projectData['images']['size'] += filesize($file);
-                }//foreach
+                }
 
                 $this->totalFiles += $this->projectData['images']['files'];
                 $this->totalSize += $this->projectData['images']['size'];
@@ -183,9 +183,9 @@ class EcrProjectMatrix extends JFolder
                 {
                     $data = $this->getCodeLines($copy, $ext);
                     $this->addData($data, $ext);
-                }//foreach
+                }
             }
-        }//foreach
+        }
 
         /*
          * Language files
@@ -204,11 +204,11 @@ class EcrProjectMatrix extends JFolder
                 $data = $this->getCodeLines($fileName, 'ini');
 
                 $this->addData($data, 'languages');
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $this;
-    }//function
+    }
 
     /**
      * Add data to the matrix.
@@ -231,7 +231,7 @@ class EcrProjectMatrix extends JFolder
         $this->totalFiles += $data['files'];
         $this->totalLines += $data['lines'];
         $this->totalSize += $data['size'];
-    }//function
+    }
 
     /**
      * Gets the number of code lines of all the files of a given path by extension.
@@ -284,7 +284,7 @@ class EcrProjectMatrix extends JFolder
             $cnt_size += filesize($fileName);
             $lines += count($buffer);
             $cnt_files ++;
-        }//foreach
+        }
 
         $project_data = array(
         'files' => $cnt_files
@@ -296,7 +296,7 @@ class EcrProjectMatrix extends JFolder
         );
 
         return $project_data;
-    }//function
+    }
 
     /**
      * Gets the comment to code ratio of a given file.
@@ -352,7 +352,7 @@ class EcrProjectMatrix extends JFolder
                     $mlStarted = false;
                     continue 2;
                 }
-            }//foreach
+            }
 
             if($mlStarted)
             {
@@ -369,14 +369,14 @@ class EcrProjectMatrix extends JFolder
                     $lines['comments'] ++;
                     continue 2;
                 }
-            }//foreach
+            }
 
             //-- It's code =;)
             $lines['code'] ++;
-        }//foreach
+        }
 
         return $lines;
-    }//function
+    }
 
     /**
      * Calculates percentages.
@@ -396,7 +396,7 @@ class EcrProjectMatrix extends JFolder
 
             $w = $this->totalSize - $this->projectData[$ext]['size'];
             $this->projectData[$ext]['perc_size'] = number_format(100 - ($w * 100) / $this->totalSize, 2);
-        }//foreach
+        }
 
         //-- Images
         $w = $this->totalFiles - $this->projectData['images']['files'];
@@ -435,18 +435,18 @@ class EcrProjectMatrix extends JFolder
             $this->series['ratio_'.$ext]['blanks'] = $this->projectData[$ext]['perc_ratio_blanks'];
 
             $charts['ratio_'.$ext] = sprintf(jgettext('Code analysis %s'), $ext);
-        }//foreach
+        }
 
         foreach($this->fileExtensions as $ext)
         {
             $this->series['filecount'][$ext] = $this->projectData[$ext]['perc_files'];
             $this->series['linecount'][$ext] = $this->projectData[$ext]['perc_lines'];
             $this->series['sizecount'][$ext] = $this->projectData[$ext]['perc_size'];
-        }//foreach
+        }
 
         $this->series['filecount']['images'] = $this->projectData['images']['perc_files'];
         $this->series['sizecount']['images'] = $this->projectData['images']['perc_size'];
-    }//function
+    }
 
     /**
      * Generate javscript code for highcharts.
@@ -469,7 +469,7 @@ class EcrProjectMatrix extends JFolder
         foreach($charts as $chart => $title)
         {
             $chartCode .= 'var '.$chart.';'.NL;
-        }//foreach
+        }
 
         $chartCode .= "window.addEvent('domready', function() {".NL;
 
@@ -484,7 +484,7 @@ class EcrProjectMatrix extends JFolder
             $options['legend'] = true;
 
             $chartCode .= $this->getPieChart($chart, $chart, $title, $this->series[$chart], $options);
-        }//foreach
+        }
 
         $charts = array();
 
@@ -502,7 +502,7 @@ class EcrProjectMatrix extends JFolder
             $series[jgettext('code')][] = $this->series['ratio_'.$ext]['code'];
             $series[jgettext('blanks')][] = $this->series['ratio_'.$ext]['blanks'];
             $series[jgettext('comments')][] = $this->series['ratio_'.$ext]['comments'];
-        }//foreach
+        }
 
         $chartCode .= 'var ratio;'.NL;
         $title = jgettext('Comment to Code ratio');
@@ -512,7 +512,7 @@ class EcrProjectMatrix extends JFolder
         $chartCode .= NL.'});'.NL.'</script>'.NL;
 
         $this->chartCode = $chartCode;
-    }//function
+    }
 
     /**
      * Generate javscript code for highcharts.
@@ -533,7 +533,7 @@ class EcrProjectMatrix extends JFolder
         foreach($charts as $chart => $title)
         {
             $chartCode .= 'var '.$chart.';'.NL;
-        }//foreach
+        }
 
         $chartCode .= "window.addEvent('domready', function() {".NL;
 
@@ -548,7 +548,7 @@ class EcrProjectMatrix extends JFolder
             $options['legend'] = true;
 
             $chartCode .= $this->getPieChart($chart, $chart, $title, $this->series[$chart], $options);
-        }//foreach
+        }
 
         $charts = array();
 
@@ -566,7 +566,7 @@ class EcrProjectMatrix extends JFolder
             $series[jgettext('code')][] = $this->series['ratio_'.$ext]['code'];
             $series[jgettext('blanks')][] = $this->series['ratio_'.$ext]['blanks'];
             $series[jgettext('comments')][] = $this->series['ratio_'.$ext]['comments'];
-        }//foreach
+        }
 
         $chartCode .= 'var ratio;'.NL;
         $title = jgettext('Comment to Code ratio');
@@ -576,7 +576,7 @@ class EcrProjectMatrix extends JFolder
         $chartCode .= NL.'});'.NL.'</script>'.NL;
 
         $this->chartCode = $chartCode;
-    }//function
+    }
 
     /**
      * Generate javscript code for highcharts.
@@ -608,7 +608,7 @@ class EcrProjectMatrix extends JFolder
             $started = true;
 
             $serie .= "['".jgettext($k)."', ".$v."]".NL;
-        }//foreach
+        }
 
         if(array_key_exists('legend', $options))
         {
@@ -687,7 +687,7 @@ class EcrProjectMatrix extends JFolder
 ";
 
         return $js;
-    }//function
+    }
 
     /**
      * Get a bar chart.
@@ -712,7 +712,7 @@ class EcrProjectMatrix extends JFolder
             $s .= "    name: '$name',".NL;
             $s .= '    data: ['.implode(', ', $values).']'.NL;
             $sEs[] = $s;
-        }//foreach
+        }
 
         $seriesString = '[{'.NL.implode(NL.'}, {'.NL, $sEs).NL.'}]';
 
@@ -763,5 +763,5 @@ class EcrProjectMatrix extends JFolder
     });";
 
         return $js;
-    }//function
-}//class
+    }
+}

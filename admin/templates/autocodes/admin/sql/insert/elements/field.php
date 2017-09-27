@@ -35,8 +35,8 @@ class AutoCodeAdminSqlInsertElementField
             $started = true;
             $ret .= EcrTableHelper::formatSqlField($field);
             $ret .= NL;
-        }//foreach
+        }
 
         return $ret;
-    }//function
-}//class
+    }
+}

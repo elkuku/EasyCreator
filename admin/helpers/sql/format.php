@@ -70,4 +70,4 @@ abstract class EcrSqlFormat
     {
         return $this->quoteString.$string.$this->quoteString;
     }
-}//class
+}

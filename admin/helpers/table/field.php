@@ -63,7 +63,7 @@ class EcrTableField
                 {
                     $this->$var = $field[$var];
                 }
-            }//foreach
+            }
         }
         else if(is_object($field))
         {
@@ -73,11 +73,11 @@ class EcrTableField
                 {
                     $this->$var = (string)$field->$var;
                 }
-            }//foreach
+            }
         }
         else if( ! is_null($field))
         {
             JFactory::getApplication()->enqueueMessage(__METHOD__.': Invalid option', 'error');
         }
-    }//function
-}//class
+    }
+}

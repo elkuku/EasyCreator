@@ -128,7 +128,7 @@ function drawFileTree(EcrProjectBase $project)
                 {
                     $show = false;
                 }
-            }//foreach
+            }
 
             if($show)
             {
@@ -161,10 +161,10 @@ function drawFileTree(EcrProjectBase $project)
                 $ret .= '<br />';
             }
         }
-    }//foreach
+    }
 
     return $ret;
-}//function
+}
 
     function drawAddElementTable()
     {
@@ -192,7 +192,7 @@ function drawFileTree(EcrProjectBase $project)
                 }).send();
 
                 return false;
-            }//function
+            }
         </script>
 <div id="addElementMessage"></div>
 <div id="addPartPartsList" style="float: left;"><?php
@@ -224,8 +224,8 @@ foreach(EcrProjectHelper::getPartsGroups() as $group)
             echo '<div class="btn block hasTip" title="'
             .$toolTip.'" onclick="showPart(\''.$group.'\', \''.$part.'\');">'.$title.'</div>';
         }
-    }//foreach
-}//foreach
+    }
+}
 
 ?></div>
 <div style="float: left; margin-left: 1em;">
@@ -238,4 +238,4 @@ foreach(EcrProjectHelper::getPartsGroups() as $group)
 
 <div style="clear: both;"></div>
 <?php
-}//function
+}

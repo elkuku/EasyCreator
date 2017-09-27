@@ -30,8 +30,8 @@ class AutoCodeAdminTableclassClassvarElementVar
         {
             $ret .= EcrTableHelper::formatTableVar($field->name, $field->type, array($field->label));
             $ret .= NL;
-        }//foreach
+        }
 
         return $ret;
-    }//function
-}//class
+    }
+}

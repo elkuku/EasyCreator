@@ -112,4 +112,4 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_ELEMENT_NAMEs extends JModel
 
         return $this->_pagination;
     }
-}//class
+}

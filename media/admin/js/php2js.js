@@ -118,7 +118,7 @@ var php2js = {
         }
 
         return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
-    }, //function
+    }, 
 
     sprintf:function()
     {

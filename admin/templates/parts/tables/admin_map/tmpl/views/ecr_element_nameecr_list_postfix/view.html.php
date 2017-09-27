@@ -37,5 +37,5 @@ class ECR_COM_NAMEECR_LIST_POSTFIXViewECR_ELEMENT_NAMEECR_LIST_POSTFIX extends J
         $this->assignRef('lists', $lists);
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

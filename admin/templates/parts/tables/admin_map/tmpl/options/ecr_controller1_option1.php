@@ -20,7 +20,7 @@ function _reOrder($direction)
 
     JFactory::getApplication()->redirect('index.php?option=ECR_COM_COM_NAME'
     .'&view=_ECR_LOWER_ELEMENT_NAME_ECR_LIST_POSTFIX');
-}//function
+}
 
 function saveorder()
 {
@@ -59,7 +59,7 @@ function saveorder()
 
     JFactory::getApplication()->redirect('index.php?option=com_ECR_COM_NAME'
     .'&view=_ECR_LOWER_ELEMENT_NAME_ECR_LIST_POSTFIX', $msg);
-}//function
+}
 
 function orderup()
 {
@@ -71,7 +71,7 @@ function orderup()
     {
         $this->_reOrder(-1);
     }
-}//function
+}
 
 function orderdown()
 {
@@ -83,4 +83,4 @@ function orderdown()
     {
         $this->_reOrder(1);
     }
-}//function
+}

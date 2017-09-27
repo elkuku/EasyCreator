@@ -28,7 +28,7 @@ function createFile(type1, type2)
     document.id('type2').value = type2;
 
     submitbutton('create_install_file');
-}//function
+}
 
 /**
  * @todo move to class

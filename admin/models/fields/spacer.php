@@ -18,7 +18,7 @@ class JFormFieldSpacer extends EcrFormField
     protected function getInput()
     {
         return '';
-    }//function
+    }
 
     protected function getLabel()
     {
@@ -27,9 +27,9 @@ class JFormFieldSpacer extends EcrFormField
         .' border-radius: 10px; margin-top: 0.4em;">'
         .jgettext($this->value)
         .'</div>';
-    }//function
+    }
     protected function getTitle()
     {
         return $this->getLabel();
-    }//function
-}//class
+    }
+}

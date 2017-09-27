@@ -30,7 +30,7 @@ class PartModelsSimple
         $info->description = jgettext('A simple, empty, model');
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -46,7 +46,7 @@ class PartModelsSimple
 
         $requireds = array('element_name', 'element_scope');
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -62,5 +62,5 @@ class PartModelsSimple
         $easyProject->addSubstitute('ECR_SUBPACKAGE', 'Models');
 
         return $easyProject->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

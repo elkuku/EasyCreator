@@ -27,7 +27,7 @@ class plgUserECR_COM_NAME extends JPlugin
         $app = JFactory::getApplication();
 
         // throw new Exception('Some error occurred. Please do not save me');
-    }//function
+    }
 
     /**
      * Method is called after user data is stored in the database.
@@ -64,7 +64,7 @@ class plgUserECR_COM_NAME extends JPlugin
             // Call a function in the external app to update the user
             // ThirdPartyApp::updateUser($user['id'], $args);
         }
-    }//function
+    }
 
     /**
      * Method is called before user data is deleted from the database
@@ -77,7 +77,7 @@ class plgUserECR_COM_NAME extends JPlugin
     public function onUserBeforeDelete($user)
     {
         $app = JFactory::getApplication();
-    }//function
+    }
 
     /**
      * Method is called after user data is deleted from the database.
@@ -97,7 +97,7 @@ class plgUserECR_COM_NAME extends JPlugin
 
         // Call a function in the external app to delete the user
         // ThirdPartyApp::deleteUser($user['id']);
-    }//function
+    }
 
     /**
      * This method should handle any login logic and report back to the subject.
@@ -125,7 +125,7 @@ class plgUserECR_COM_NAME extends JPlugin
         // ThirdPartyApp::loginUser($user['username'], $user['password']);
 
         return $success;
-    }//function
+    }
 
     /**
      * This method should handle any logout logic and report back to the subject.
@@ -148,5 +148,5 @@ class plgUserECR_COM_NAME extends JPlugin
         // ThirdPartyApp::loginUser($user['username'], $user['password']);
 
         return $success;
-    }//function
-}//class
+    }
+}

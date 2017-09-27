@@ -39,7 +39,7 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
         }
 
         return $element->getCode($table, $this->indent);
-    }//function
+    }
 
     /**
      * Open the AutoCode for edit.
@@ -127,7 +127,7 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
             echo '<input type="text" name="field[header]['.$name.'][width]" value="'.$width.'" />';
             echo '</td>';
             echo '</tr>';
-        }//foreach
+        }
         echo '</table>';
 
         /*
@@ -171,12 +171,12 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
             echo '</th>';
 
             echo '</tr>';
-        }//foreach
+        }
         echo '</table>';
 
         /* Draws the submit button */
         EcrHtmlButton::autoCode($requireds);
-    }//function
+    }
 
     /**
      * Inserts the AutoCode into the project.
@@ -257,7 +257,7 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
             $autoCodeFieldsCell[] = $fieldCell;
 
             $table->addField($fieldHeader);
-        }//foreach
+        }
             $headers .= $this->getCode('header', $table, $indent);
 
             $cells .= $this->getCode('cell', $table, $indent);
@@ -281,9 +281,9 @@ class AutoCodeAdminViewlistTable extends EcrProjectAutocode
         foreach($this->codes as $key => $code)
         {
             $project->addSubstitute($tags[0].$key.$tags[1], $code);
-        }//foreach
+        }
 
         /* Insert the part to your project and return the results */
         return $project->insertPart($options, $logger);
-    }//function
-}//class
+    }
+}

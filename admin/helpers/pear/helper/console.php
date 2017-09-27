@@ -50,7 +50,7 @@ class EcrPearHelperConsole extends EcrLogconsole
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Read the installed PEAR packages.
@@ -102,13 +102,13 @@ class EcrPearHelperConsole extends EcrLogconsole
                 {
                     $version = $a;
                 }
-            }//foreach
+            }
 
             $packages[$name] = $version;
-        }//foreach
+        }
 
         return $packages;
-    }//function
+    }
 
     /**
      * Get the version number of a specific package.
@@ -122,7 +122,7 @@ class EcrPearHelperConsole extends EcrLogconsole
         $v = $this->cliExec($package, array('--version'));
 
         return ($v) ? $v : false;
-    }//function
+    }
 
     /**
      * Test a package agains a specific version.
@@ -142,7 +142,7 @@ class EcrPearHelperConsole extends EcrLogconsole
         }
 
         return $v;
-    }//function
+    }
 
     /**
      * Executes a Shell command.
@@ -164,7 +164,7 @@ class EcrPearHelperConsole extends EcrLogconsole
         $results = shell_exec($cmd);
 
         return $results;
-    }//function
+    }
 
     /**
      * Executes a Shell command.
@@ -187,5 +187,5 @@ class EcrPearHelperConsole extends EcrLogconsole
         echo '</pre>';
 
         return $lastLine;
-    }//function
-}//class
+    }
+}

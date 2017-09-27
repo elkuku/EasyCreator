@@ -34,7 +34,7 @@ class EcrProjectTemplateInfo
             .$this->description.'</div>';
 
         return $ret;
-    }//function
+    }
 
     /**
      * @param        $format
@@ -59,7 +59,7 @@ class EcrProjectTemplateInfo
 
             default:
                 break;
-        }//switch
+        }
 
         $ret .= '</span>';
 
@@ -75,10 +75,10 @@ class EcrProjectTemplateInfo
             default:
                 return sprintf(jgettext('Undefined format: %s'), $format);
                 break;
-        }//switch
+        }
 
         return $ret;
-    }//function
+    }
 
     /**
      * @static
@@ -90,5 +90,5 @@ class EcrProjectTemplateInfo
         echo $message.' in '.get_parent_class($this);
 
         var_dump(debug_print_backtrace());
-    }//function
-}//class
+    }
+}

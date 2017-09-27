@@ -28,7 +28,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         JFactory::getApplication()->input->set('view', 'languages');
 
         parent::display($cachable, $urlparams);
-    }//function
+    }
 
     /**
      * Save the corrected language file.
@@ -74,7 +74,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         $input->set('view', 'languages');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Save the corrected default language.
@@ -119,7 +119,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         $input->set('view', 'languages');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Create a language file.
@@ -150,7 +150,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         .'&task='.$oldTask.'&ecr_project='.$ecr_project, $msg, $type);
 
         parent::display();
-    }//function
+    }
 
     /**
      * Remove a BOM from a language file.
@@ -183,7 +183,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         $input->set('task', 'languages');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Convert a language file.
@@ -250,8 +250,8 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
 
                 EcrFile::saveVersion($fileName);
                 JFile::write($fileName, $newFileContents);
-            }//foreach
-        }//foreach
+            }
+        }
 
         if($selectedFile && count($selectedErrors))
         {
@@ -268,7 +268,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             {
                 $newJText = str_replace($errorKey, $converter->cleanKey($errorKey), $errorJText);
                 $newCode = str_replace($errorJText, $newJText, $newCode);
-            }//foreach
+            }
 
             if($newCode != $origCode)
             {
@@ -278,7 +278,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         }
 
         parent::display();
-    }//function
+    }
 
     public function g11nUpdateLanguage()
     {
@@ -297,7 +297,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
                 default:
                     $comName = $project->comName;
                 break;
-            }//switch
+            }
 
             $scope = $input->get('scope');
             $lang = $input->get('langTag');
@@ -314,7 +314,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         $input->set('task', 'g11nUpdate');
 
         parent::display();
-    }//function
+    }
 
     public function g11nCreateTemplate()
     {
@@ -356,4 +356,4 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
 
         parent::display();
     }
-}//class
+}

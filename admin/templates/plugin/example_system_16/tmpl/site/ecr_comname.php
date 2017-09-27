@@ -22,7 +22,7 @@ class plgSystemECR_COM_NAME extends JPlugin
         $doSomething = 'here';
 
         parent::__construct($subject, $config);
-    }//function
+    }
 
     /**
      * Do something onAfterInitialise
@@ -33,7 +33,7 @@ class plgSystemECR_COM_NAME extends JPlugin
             'onAfterInitialise',
             'After framework load and application initialise.'
             );
-    }//function
+    }
 
     /**
      * Do something onAfterRoute
@@ -44,7 +44,7 @@ class plgSystemECR_COM_NAME extends JPlugin
             'onAfterRoute',
             'After the framework load, application initialised & route of client request.'
             );
-    }//function
+    }
 
     /**
      * Do something onAfterDispatch
@@ -55,7 +55,7 @@ class plgSystemECR_COM_NAME extends JPlugin
             'onAfterDispatch',
             'After the framework has dispatched the application.'
             );
-    }//function
+    }
 
     public function onBeforeCompileHead()
     {
@@ -74,7 +74,7 @@ class plgSystemECR_COM_NAME extends JPlugin
             'onBeforeRender',
             'Before the framework renders the application.'
             );
-    }//function
+    }
 
     /**
      * Do something onAfterRender
@@ -85,7 +85,7 @@ class plgSystemECR_COM_NAME extends JPlugin
             'onAfterRender',
             'After the framework has rendered the application.'
             );
-    }//function
+    }
 
     /**
      * Log events.
@@ -99,5 +99,5 @@ class plgSystemECR_COM_NAME extends JPlugin
 
         JLog::getInstance('plugin_system_example_log.php')
         ->addEntry(array('event' => $event, 'comment' => $comment));
-    }//function
-}//class
+    }
+}

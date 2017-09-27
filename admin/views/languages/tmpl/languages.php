@@ -39,7 +39,7 @@ foreach($this->languages as $lang)
     }
 
     $tableHeader .= '<th width="'.(100 / (count($this->languages) + 2)).'%">'.$lang.'</th>';
-}//foreach
+}
 
 $tableHeader .= '<th style="background-color: #FFFFB2;">'.jgettext('Used in File').'</th>';
 $tableHeader .= '</tr>';
@@ -188,7 +188,7 @@ foreach($this->default_file as $line)
 						</a>
 						<?php
                         echo '</td>';
-                    }//foreach
+                    }
                     $used = false;
                     echo '<td>';
 
@@ -212,7 +212,7 @@ foreach($this->default_file as $line)
                                 {
                                     $definition->coreTranslated[] = $lang;
                                 }
-                            }//foreach
+                            }
                             foreach($definition->files as $fName => $fCount)
                             {
                                 if($this->scope == 'menu')
@@ -226,16 +226,16 @@ foreach($this->default_file as $line)
                                     .' (<strong class="hasTip" style="color:blue;" title="'
                                     .$fName.'">xxWAQ'.jgettext('PATH').'</strong>)</span><br />';
                                 }
-                            }//foreach
+                            }
                             $used = true;
                         }
-                    }//foreach
+                    }
 
                     if( ! $used)
                     {
                         echo '<strong style="color: red;">'.jgettext('NOT USED').'</strong>';
                     }
-                }//foreach
+                }
                 echo '</td>';
                 echo '</tr>';
             break;
@@ -244,10 +244,10 @@ foreach($this->default_file as $line)
             case 'etc':
 
             break;
-        }//switch
+        }
         $k = 1 - $k;
-    }//foreach
-}//foreach
+    }
+}
 
 echo '</table>';
 
@@ -281,4 +281,4 @@ function displayField($lang, $key, $value)
     {
         echo EcrHtml::cleanHTML($value);
     }
-}//function
+}

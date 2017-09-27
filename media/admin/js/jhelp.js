@@ -42,7 +42,7 @@ function create_class_list()
             }
         }
     }).send();
-}//function
+}
 
 function changeFrame(className, methodName, packageName)
 {
@@ -113,7 +113,7 @@ function changeFrame(className, methodName, packageName)
     }
 
     if(ECR_DEBUG) console.log('Fetching: ' + iframeLink);
-}//function
+}
 
 function changeOutFormat(name, link)
 {
@@ -123,7 +123,7 @@ function changeOutFormat(name, link)
     $('out_format').value = name;
     $('out_link').value = link;
     changeFrame();
-}//function
+}
 
 function parseLink(string, className, methodName, packageName)
 {
@@ -161,4 +161,4 @@ function parseLink(string, className, methodName, packageName)
     }
 
     return s;
-}//function
+}

@@ -73,7 +73,7 @@ class ECR_COM_NAMEModelCategory extends JModel
 
         $id = JRequest::getVar('id', 0, '', 'int');
         $this->setId((int)$id);
-    }//function
+    }
 
     /**
      * Method to set the category id.
@@ -87,7 +87,7 @@ class ECR_COM_NAMEModelCategory extends JModel
         //-- Set category ID and wipe data
         $this->_id = $id;
         $this->_category = null;
-    }//function
+    }
 
     /**
      * Method to get ECR_COM_NAME item data for the category.
@@ -115,7 +115,7 @@ class ECR_COM_NAMEModelCategory extends JModel
         }
 
         return $this->_data;
-    }//function
+    }
 
     /**
      * Method to get the total number of ECR_COM_NAME items for the category.
@@ -133,7 +133,7 @@ class ECR_COM_NAMEModelCategory extends JModel
         }
 
         return $this->_total;
-    }//function
+    }
 
     /**
      * Method to get a pagination object of the ECR_COM_NAME items for the category.
@@ -153,7 +153,7 @@ class ECR_COM_NAMEModelCategory extends JModel
         }
 
         return $this->_pagination;
-    }//function
+    }
 
     /**
      * Method to get category data for the current category.
@@ -191,7 +191,7 @@ class ECR_COM_NAMEModelCategory extends JModel
         }
 
         return $this->_category;
-    }//function
+    }
 
     /**
      * Method to load category data if it doesn't exist.
@@ -214,7 +214,7 @@ class ECR_COM_NAMEModelCategory extends JModel
         }
 
         return true;
-    }//function
+    }
 
     /**
      * Build the SELECT query.
@@ -237,5 +237,5 @@ class ECR_COM_NAMEModelCategory extends JModel
             ->order($filter_order.' '.$filter_order_dir);
 
         return $query;
-    }//function
-}//class
+    }
+}

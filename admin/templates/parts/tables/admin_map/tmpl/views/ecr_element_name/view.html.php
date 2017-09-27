@@ -39,5 +39,5 @@ class ECR_COM_NAMEECR_LIST_POSTFIXViewECR_ELEMENT_NAME extends JView
 
         $this->assignRef('item', $item);
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

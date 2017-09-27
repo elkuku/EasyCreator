@@ -38,7 +38,7 @@ class EcrProjectPart extends JObject
     public function __construct($group, $name, $element, $scope)
     {
         $this->key = "$group.$name.$element.$scope";
-    }//function
+    }
 
     /**
      * Get the parts name.
@@ -48,5 +48,5 @@ class EcrProjectPart extends JObject
     private function getName()
     {
         return $this->group.'.'.$this->name.'.'.$this->_element.'.'.$this->_scope;
-    }//function
-}//class
+    }
+}

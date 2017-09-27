@@ -44,7 +44,7 @@ class ECR_COM_NAMEViewECR_COM_NAMEECR_LIST_POSTFIX extends JView
 
         // Set the document
         $this->setDocument();
-    }//function
+    }
 
     /**
      * Setting the toolbar
@@ -62,7 +62,7 @@ class ECR_COM_NAMEViewECR_COM_NAMEECR_LIST_POSTFIX extends JView
         JFactory::getDocument()->addStyleDeclaration(
        '.icon-48-ECR_LOWER_COM_NAME'
        .' {background-image: url(components/ECR_COM_COM_NAME/assets/images/ECR_COM_COM_NAME-48.png)}');
-    }//function
+    }
 
     /**
      * Method to set up the document properties
@@ -72,5 +72,5 @@ class ECR_COM_NAMEViewECR_COM_NAMEECR_LIST_POSTFIX extends JView
     protected function setDocument()
     {
         JFactory::getDocument()->setTitle(JText::_('ECR_UPPER_COM_COM_NAME_ECR_UPPER_COM_NAME_ADMINISTRATION'));
-    }//function
-}//class
+    }
+}

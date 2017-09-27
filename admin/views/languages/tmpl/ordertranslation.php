@@ -92,11 +92,11 @@ function drawTable($langFile, $title, $cutAfter, $displayFormField)
             }
 
             $k = 1 - $k;
-        }//foreach
+        }
         ?>
 	</table>
 	<?php
-}//function
+}
 
 /**
  * displays a span class="hasTip" which will be rendered as a moootools tooltip
@@ -115,4 +115,4 @@ function displayCuttedTT($string, $cutAfter)
     }
 
     return $ret;
-}//function
+}

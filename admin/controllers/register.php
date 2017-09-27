@@ -25,5 +25,5 @@ class EasyCreatorControllerRegister extends JControllerLegacy
         JFactory::getApplication()->input->set('view', 'register');
 
         parent::display();
-    }//function
-}//class
+    }
+}

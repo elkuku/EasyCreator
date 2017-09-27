@@ -115,4 +115,4 @@ class ECR_COM_NAMEECR_LIST_POSTFIXModelECR_ELEMENT_NAMEECR_LIST_POSTFIX extends 
 
         return $this->_pagination;
     }
-}//class
+}

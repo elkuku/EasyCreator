@@ -29,5 +29,5 @@ class EasyCreatorViewLogfiles extends JViewLegacy
         parent::display($tpl);
 
         EcrHtml::formEnd();
-    }//function
-}//class
+    }
+}

@@ -65,10 +65,10 @@ function checkMD5File($path, $extensionPaths)
         }
 
         echo (JDEBUG) ? 'OK<br />' : '';
-    }//foreach
+    }
 
     return $errors;
-}//function
+}
 
 /**
  * Decompress a KuKuKompress compressed path
@@ -128,4 +128,4 @@ function decompress($path)
     $previous = $decompressed;
 
     return $decompressed;
-}//function
+}

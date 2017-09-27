@@ -31,7 +31,7 @@ class PartControllersSimple30
         $info->description = jgettext('A simple, empty, controller').' - J! 3.0 Legacy';
 
         return $info;
-    }//function
+    }
 
     /**
      * Get insert options.
@@ -47,7 +47,7 @@ class PartControllersSimple30
 
         $requireds = array('element_name', 'element_scope');
         EcrHtmlButton::submitParts($requireds);
-    }//function
+    }
 
     /**
      * Inserts the part into the project.
@@ -63,5 +63,5 @@ class PartControllersSimple30
         $easyProject->addSubstitute('ECR_SUBPACKAGE', 'Controllers');
 
         return $easyProject->insertPart($options, $easyLogger);
-    }//function
-}//class
+    }
+}

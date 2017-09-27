@@ -45,11 +45,11 @@ class Ecrg11nHelper
             foreach($extensions as $extension)
             {
                 $cachedFiles[$extension][$scope] = JFolder::files($cachePath.'/'.$extension);
-            }//foreach
-        }//foreach
+            }
+        }
 
         return $cachedFiles;
-    }//function
+    }
 
     /**
      * Get a list of known languages.
@@ -74,7 +74,7 @@ class Ecrg11nHelper
         }
 
         return $languages;
-    }//function
+    }
 
     /**
      * Create or update a language file.
@@ -159,7 +159,7 @@ class Ecrg11nHelper
         }
 
         return $msg;
-    }//function
+    }
 
     /**
      * Create a language template file.
@@ -321,9 +321,9 @@ class Ecrg11nHelper
 
                         $t->info .= '#: '.$relPath.':'.$key.NL;
                         $outFile->strings[$string] = $t;
-                    }//foreach
-                }//foreach
-            }//foreach
+                    }
+                }
+            }
 
             $buffer = $potParser->generate($outFile, $options);
 
@@ -361,5 +361,5 @@ class Ecrg11nHelper
             throw new Exception(sprintf('Unable to write to path: %s', $templatePath));
 
         return true;
-    }//function
-}//class
+    }
+}

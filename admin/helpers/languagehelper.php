@@ -76,12 +76,12 @@ class EcrLanguageHelper
                     {
                         $languages[$pKey][$tag][] = $scope;
                     }
-                }//foreach
-            }//foreach
-        }//foreach
+                }
+            }
+        }
 
         return $languages[$pKey];
-    }//function
+    }
 
     /**
      * Check a language file for common problems.
@@ -124,7 +124,7 @@ class EcrLanguageHelper
         }
 
         self::displayResults($file);
-    }//function
+    }
 
     /**
      * Display the check results.
@@ -181,7 +181,7 @@ class EcrLanguageHelper
         {
             echo '<span class="img icon16-check_ok hasTip" title="'.jgettext('No BOM').'" />';
         }
-    }//function
+    }
 
     /**
      * Simple UTF-8-ness checker using a regular expression created by the W3C.
@@ -210,7 +210,7 @@ class EcrLanguageHelper
             | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
             |  \xF4[\x80-\x8F][\x80-\xBF]{2}     # plane 16
         )*$%xs', $test);
-    }//function
+    }
 
     /**
      * Searches for a UTF-8 BOM/Signature in a given file.
@@ -270,7 +270,7 @@ class EcrLanguageHelper
 
             return false;
         }
-    }//function
+    }
 
     /**
      * Searches for a UTF-8 BOM/Signature in a given file and removes it.
@@ -332,5 +332,5 @@ class EcrLanguageHelper
 
             return false;
         }
-    }//function
-}//class
+    }
+}

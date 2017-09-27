@@ -29,7 +29,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         JFactory::getApplication()->input->set('view', 'templates');
 
         parent::display($cachable, $urlparams);
-    }//function
+    }
 
     /**
      * Save a file.
@@ -55,7 +55,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         $input->set('task', 'templates');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Delete a file.
@@ -81,7 +81,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         $input->set('task', 'tplarchive');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Export EasyCreator extension templates.
@@ -111,7 +111,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         $input->set('task', 'export');
 
         parent::display();
-    }//function
+    }
 
     /**
      * Installs EasyCreator extension templates.
@@ -140,5 +140,5 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         $input->set('view', 'templates');
 
         parent::display();
-    }//function
-}//class
+    }
+}

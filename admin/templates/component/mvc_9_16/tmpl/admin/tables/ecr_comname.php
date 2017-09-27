@@ -17,5 +17,5 @@ class ECR_COM_NAMETableECR_COM_NAME extends JTable
     public function __construct(& $db)
     {
         parent::__construct('#__ECR_COM_TBL_NAME', 'id', $db);
-    }//function
-}//class
+    }
+}

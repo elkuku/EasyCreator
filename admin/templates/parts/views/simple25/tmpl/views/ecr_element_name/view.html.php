@@ -23,5 +23,5 @@ class ECR_COM_NAMEViewECR_ELEMENT_NAME extends JView
         $foo = 'Do something here..';
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

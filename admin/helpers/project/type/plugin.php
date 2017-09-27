@@ -76,7 +76,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
             $this->copies[] = $base;
 
         return $this->copies;
-    }//function
+    }
 
     /**
      * Gets the language scopes for the extension type.
@@ -89,7 +89,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
         $scopes[] = 'site';
 
         return $scopes;
-    }//function
+    }
 
     /**
      * Get the extension base path.
@@ -99,7 +99,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     public function getExtensionPath()
     {
         return JPATH_SITE.DS.'plugins'.DS.$this->scope.DS.$this->comName;
-    }//function
+    }
 
     /**
      * Gets the paths to language files.
@@ -118,7 +118,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
         $paths['sys'] = JPATH_ADMINISTRATOR;
 
         return $paths;
-    }//function
+    }
 
     /**
      * Get the name for language files.
@@ -176,10 +176,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
 
             default:
                 break;
-        }//switch
+        }
 
         return $dtd;
-    }//function
+    }
 
     /**
      * Get a file name for a EasyCreator setup XML file.
@@ -189,7 +189,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     public function getEcrXmlFileName()
     {
         return $this->getFileName().'.xml';
-    }//function
+    }
 
     /**
      * Get a common file name.
@@ -199,7 +199,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     public function getFileName()
     {
         return $this->prefix.$this->scope.'_'.$this->comName;
-    }//function
+    }
 
     /**
      * Get the path for the Joomla! XML manifest file.
@@ -229,8 +229,8 @@ class EcrProjectTypePlugin extends EcrProjectBase
 
                 return false;
                 break;
-        }//switch
-    }//function
+        }
+    }
 
     /**
      * Get a Joomla! manifest XML file name.
@@ -240,7 +240,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
     public function getJoomlaManifestName()
     {
         return $this->comName.'.xml';
-    }//function
+    }
 
     /**
      * Get the project Id.
@@ -279,12 +279,12 @@ class EcrProjectTypePlugin extends EcrProjectBase
 
                 return false;
                 break;
-        }//switch
+        }
 
         $id = $db->loadResult();
 
         return $id;
-    }//function
+    }
 
     /**
      * Discover all projects.
@@ -315,10 +315,10 @@ class EcrProjectTypePlugin extends EcrProjectBase
             default:
                 EcrHtml::message(__METHOD__.' - Unsupported JVersion');
                 break;
-        }//switch
+        }
 
         return $projects;
-    }//function
+    }
 
     /**
      * Get a list of known core projects.
@@ -375,7 +375,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
-                }//switch
+                }
                 break;
 
             case '3.0':
@@ -420,7 +420,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
-                }//switch
+                }
                 break;
 
             case '3.2':
@@ -569,7 +569,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
-                }//switch
+                }
                 break;
 
 	        case '3.7':
@@ -625,7 +625,7 @@ class EcrProjectTypePlugin extends EcrProjectBase
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
-                }//switch
+                }
                 break;
 
 	        case '3.8':
@@ -684,14 +684,14 @@ class EcrProjectTypePlugin extends EcrProjectBase
                     default :
                         EcrHtml::message(sprintf(jgettext('%s - Unknown scope: %s'), __METHOD__, $scope), 'error');
                         break;
-                }//switch
+                }
                 break;
             default:
                 EcrHtml::message(__METHOD__.' - Unknown JVersion', 'error');
 
                 return array();
-        }//switch
+        }
 
         return $projects;
-    }//function
-}//class
+    }
+}

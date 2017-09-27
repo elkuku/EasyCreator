@@ -129,7 +129,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         parent::display($tpl);
 
         EcrHtml::formEnd();
-    }//function
+    }
 
     /**
      * Languages View - Default.
@@ -144,7 +144,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
             $this->setLayout('g11n');
         }
-    }//function
+    }
 
     /**
      * @return \stdClass
@@ -179,7 +179,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
                 echo 'undefined type: '.$this->project->type;
             $comName = $this->project->comName;
             break;
-        }//switch
+        }
 
         $info->exists = g11nExtensionHelper::isExtension($comName, $info->scope);
 
@@ -276,13 +276,13 @@ class EasyCreatorViewLanguages extends JViewLegacy
                     {
                         $info->cacheStatus[$scope][$lang['tag']] = true;
                     }
-                }//foreach
-            }//foreach
-        }//foreach
+                }
+            }
+        }
     }
 
         return $info;
-    }//function
+    }
 
     /**
      * Convert language files View.
@@ -323,10 +323,10 @@ class EasyCreatorViewLanguages extends JViewLegacy
                     break;
                 default:
                     break;
-            }//switch
+            }
 
             $files = array_merge(JFolder::files($copy, '\.php$', true, true), $files);
-        }//foreach
+        }
 
         $fileList = array();
         $badDefinitions = array();
@@ -343,8 +343,8 @@ class EasyCreatorViewLanguages extends JViewLegacy
                     $fileList[$file] ++;
                     $badDefinitions[] = $definition;
                 }
-            }//foreach
-        }//foreach
+            }
+        }
 
         $this->fileList = $fileList;
         $this->badDefinitions = $badDefinitions;
@@ -365,7 +365,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
             $s = str_replace(JPATH_ROOT.DS, '', $file);
             $selected =($s == $this->selected_file) ? 'selected="selected"' : '';
             $html .= '<option '.$selected.' value="'.$s.'">'.$s.' ('.$errors.')</option>';
-        }//foreach
+        }
 
         $html .= '</select>';
         $html .= '</div>';
@@ -398,7 +398,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
                 $newJText = str_replace($errorKey, $this->converter->cleanKey($errorKey), $errorJText);
                 $newCode = str_replace($errorJText, $newJText, $newCode);
-            }//foreach
+            }
 
             $html .= '</div>';
             $this->diff = $this->converter->getDiffTable($origCode, $newCode, $this->options->get('php_show_all'));
@@ -407,7 +407,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->menuBoxes['file_errors'] = $html;
 
         $this->setLayout('convert');
-    }//function
+    }
 
     /*
      * Task methods
@@ -427,7 +427,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         }
 
         $this->setLayout('translations');
-    }//function
+    }
 
     /**
      * Search files View.
@@ -438,7 +438,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
     {
         $this->prepareTranslation();
         $this->setLayout('searchfiles');
-    }//function
+    }
 
     /**
      * JALHOO View.
@@ -483,7 +483,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         foreach($buildOpts as $opt => $v)
         {
             $this->buildOpts->$opt = true;
-        }//foreach
+        }
 
         $scopes = array('admin', 'site');
 
@@ -528,7 +528,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
         $this->buildLists();
         $this->setLayout('jalhoo');
-    }//function
+    }
 
     /**
      * Build the select lists.
@@ -572,7 +572,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         foreach($langs as $lang)
         {
             $options[] = JHtml::_('select.option', $lang['tag'], $lang['name']);
-        }//foreach
+        }
 
         $this->lists['language'] = JHtml::_('select.genericlist', $options, 'language'
         , 'onchange="submitform();"', 'value', 'text', $this->lang);
@@ -632,7 +632,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $c .= '<label class="inline" for="chkMarkKeyDiffers">Mark key difference(s)</label>';
 
         $this->checks->markKeyDiffers = $c;
-    }//function
+    }
 
     /**
      * Preparethe translation.
@@ -647,7 +647,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->hideLangs = $this->easyLanguage->getHideLangs();
         $this->definitions = $this->easyLanguage->getDefinitions();
         $this->strings = $this->easyLanguage->getStrings();
-    }//function
+    }
 
     /**
      * Correct language file order View.
@@ -683,7 +683,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->sel_language = $sel_language;
 
         $this->setLayout('ordertranslation');
-    }//function
+    }
 
     /**
      * Default language file order View.
@@ -697,7 +697,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->default_language = $this->easyLanguage->parseFile($fileName);
 
         $this->setLayout('orderdefault');
-    }//function
+    }
 
     /**
      * Translation View.
@@ -717,7 +717,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $this->translation = $this->easyLanguage->getTranslation($this->trans_lang, $this->trans_key);
 
         $this->setLayout('translator');
-    }//function
+    }
 
     /**
      * Show version View.
@@ -735,7 +735,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         }
 
         $this->setLayout('versions');
-    }//function
+    }
 
     /**
      * Check languages View.
@@ -750,7 +750,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         }
 
         $this->setLayout('check');
-    }//function
+    }
 
     /**
      * Display the bar View.
@@ -921,17 +921,17 @@ class EasyCreatorViewLanguages extends JViewLegacy
             default:
                 echo 'UNDEFINED: '.$task;
             break;
-        }//switch
+        }
 
         return $html;
-    }//function
+    }
 
     private function g11nUpdate()
     {
         $this->g11nInfo = $this->getG11nInfo();
 
         $this->setLayout('g11nupdate');
-    }//function
+    }
 
     /**
      * Display the bar View.
@@ -968,7 +968,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
         );
 
         return EcrHtmlMenu::sub($subTasks);
-    }//function
+    }
 
     /**
      * Draw a language selector.
@@ -1000,13 +1000,13 @@ class EasyCreatorViewLanguages extends JViewLegacy
 
                 $sSelected =($lang == $selected) ? ' selected="selected"' : '';
                 $html .= '<option value="'.$lang.'" '.$sSelected.'>'.$lang.'</option>';
-            }//foreach
+            }
 
             $html .= '</select>';
         }
 
         return $html;
-    }//function
+    }
 
     /**
      * Draw a menu box.
@@ -1028,5 +1028,5 @@ class EasyCreatorViewLanguages extends JViewLegacy
         $html .= '</div>';
 
         return $html;
-    }//function
-}//class
+    }
+}

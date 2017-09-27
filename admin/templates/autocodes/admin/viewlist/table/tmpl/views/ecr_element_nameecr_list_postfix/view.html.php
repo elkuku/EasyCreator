@@ -35,5 +35,5 @@ class ECR_COM_NAMEsViewECR_ELEMENT_NAMEs extends JView
         $this->assignRef('lists', $lists);
 
         parent::display($tpl);
-    }//function
-}//class
+    }
+}

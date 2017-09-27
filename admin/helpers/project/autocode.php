@@ -57,7 +57,7 @@ class EcrProjectAutocode
         $this->scope = $scope;
 
         $this->key = "$scope.$group.$name.$element";
-    }//function
+    }
 
     /**
      * Get the autocode key.
@@ -67,7 +67,7 @@ class EcrProjectAutocode
     public function getKey()
     {
         return $this->key;
-    }//function
+    }
 
     /**
      * To be overridden.
@@ -81,7 +81,7 @@ class EcrProjectAutocode
      */
     public function getCode($type, EcrTable $table)
     {
-    }//function
+    }
 
     /**
      * Encloses a string in AutoCode tags.
@@ -103,7 +103,7 @@ class EcrProjectAutocode
         $end = $pOpen.str_replace('TTTT', $tag, $this->_endTag).$pClose;
 
         return $start.NL.$text.$end;
-    }//function
+    }
 
     /**
      * Format a key.
@@ -115,7 +115,7 @@ class EcrProjectAutocode
     public function getFormattedKey($key)
     {
         return $this->tags['start'].$key.$this->tags['end'];
-    }//function
+    }
 
     /**
      * Replace AutoCode of a given key.
@@ -170,10 +170,10 @@ class EcrProjectAutocode
             {
                 $result[] = $s;
             }
-        }//foreach
+        }
 
         return implode(NL, $result);
-    }//function
+    }
 
     /**
      * Get the contents.
@@ -234,10 +234,10 @@ class EcrProjectAutocode
             {
                 $results[$actItem] .= $str.NL;
             }
-        }//foreach
+        }
 
         return $results;
-    }//function
+    }
 
     /**
      * Get the fields contained in code.
@@ -264,7 +264,7 @@ class EcrProjectAutocode
         array_shift($matches);
 
         return $matches;
-    }//function
+    }
 
     /**
      * Convert a string into a regular expression.
@@ -281,12 +281,12 @@ class EcrProjectAutocode
         foreach($escapes as $escape)
         {
             $string = str_replace($escape, "\\".$escape, $string);
-        }//foreach
+        }
 
         foreach($tags as $t)
         {
             $string = str_replace($t, "([\#_A-Za-z0-9]*)", $string);
-        }//foreach
+        }
 
         if(strpos($string, NL))
         {
@@ -297,7 +297,7 @@ class EcrProjectAutocode
             {
                 if($s)
                 $sa[] = trim($s);
-            }//foreach
+            }
 
             $string = implode('[\s]*+', $sa);
         }
@@ -305,7 +305,7 @@ class EcrProjectAutocode
         $string = str_replace(' ', '\s', $string);
 
         return $string;
-    }//function
+    }
 
     /**
      * Get an element.
@@ -349,5 +349,5 @@ class EcrProjectAutocode
         $elements[$name] = new $className;
 
         return $elements[$name];
-    }//function
-}//class
+    }
+}

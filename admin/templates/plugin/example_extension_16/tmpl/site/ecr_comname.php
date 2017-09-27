@@ -31,7 +31,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
         : ' with no extension ID detected or multiple extension IDs assigned';
 
         JError::raiseWarning(-1, __METHOD__.': '.$msg);
-    }//function
+    }
 
     /**
      * Allow to processing of extension data after it is saved.
@@ -41,7 +41,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
      */
     public function onExtensionAfterSave($data, $isNew)
     {
-    }//function
+    }
 
     /**
      * Handle extension uninstall
@@ -58,7 +58,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
         $msg .=($result) ? 'success' : 'failure';
 
         JError::raiseWarning(-1, __METHOD__.': '.$msg);
-    }//function
+    }
 
     /**
      * After update of an extension
@@ -80,7 +80,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
         : ' with no extension ID detected or multiple extension IDs assigned';
 
         JError::raiseWarning(-1, __METHOD__.': '.$msg);
-    }//function
+    }
 
     /**
      * @since	1.6
@@ -93,7 +93,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
         $msg .=($method == 'install') ? ' with manifest supplied' : ' using discovered extension ID '.$eid;
 
         JError::raiseWarning(-1, __METHOD__.': '.$msg);
-    }//function
+    }
 
     /**
      * Allow to processing of extension data before it is saved.
@@ -104,7 +104,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
      */
     public function onExtensionBeforeSave($data, $isNew)
     {
-    }//function
+    }
 
     /**
      * @param	int			extension id
@@ -113,7 +113,7 @@ class plgExtensionECR_COM_NAME extends JPlugin
     public function onExtensionBeforeUninstall($eid)
     {
         JError::raiseWarning(-1, __METHOD__.': Uninstalling '.$eid);
-    }//function
+    }
 
     /**
      * @since	1.6
@@ -121,5 +121,5 @@ class plgExtensionECR_COM_NAME extends JPlugin
     public function onExtensionBeforeUpdate($type, $manifest)
     {
         JError::raiseWarning(-1, __METHOD__.': Updating a '.$type);
-    }//function
-}//class
+    }
+}
