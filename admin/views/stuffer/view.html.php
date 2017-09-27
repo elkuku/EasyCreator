@@ -147,17 +147,6 @@ class EasyCreatorViewStuffer extends JViewLegacy
             , 'icon' => 'installfolder'
             , 'task' => 'install'
             );
-            $subtasks[] = array('title' => jgettext('Parameters')
-            , 'description' => jgettext('Modify your project parameters stored in XML files.')
-            , 'icon' => 'ecr_params'
-            , 'task' => 'projectparams'
-            );
-
-            $subtasks[] = array('title' => jgettext('DataDesigner')
-            , 'description' => jgettext('Automated source code and db creation for your project.')
-            , 'icon' => 'ecr_db'
-            , 'task' => 'tables'
-            );
         }
 
         $subtasks[] = array('title' => jgettext('Remove Project')
