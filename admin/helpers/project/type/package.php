@@ -197,6 +197,17 @@ class EcrProjectTypePackage extends EcrProjectBase
     }
 
     /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin');
+    }
+
+    /**
      * Get the name for language files.
      *
      * @param string $scope The scope - admin, site. etc.

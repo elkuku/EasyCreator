@@ -173,8 +173,6 @@ abstract class EcrProjectBase
         if(in_array($property, array('presets')))
             return $this->$property;
 
-        //return $property;
-
         EcrHtml::message(__METHOD__.' - Undefined property: '.$property, 'error');
     }
 
@@ -184,6 +182,14 @@ abstract class EcrProjectBase
      * @return array
      */
     abstract public function findCopies();
+
+    /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    abstract public function getInstallScopes();
 
     /**
      * Gets the language scopes for the extension type.
@@ -272,6 +278,32 @@ abstract class EcrProjectBase
      * @return array
      */
     abstract public function getCoreProjects($scope);
+
+    /**
+     * Load the core projects file.
+     *
+     * @param   string  $jVersion
+     *
+     * @since 0.0.25.6
+     *
+     * @return object
+     */
+    protected function loadCoreProjects()
+    {
+        static $coreProjects = array();
+
+        if ($coreProjects) {
+            return $coreProjects;
+        }
+
+        $fileName = JPATH_COMPONENT_ADMINISTRATOR . '/data/jextensions/jcore-' . ECR_JVERSION . '.json';
+
+        if (JFile::exists($fileName)) {
+            $coreProjects = json_decode(file_get_contents($fileName));
+        }
+
+        return $coreProjects;
+    }
 
     /**
      * Translate the type

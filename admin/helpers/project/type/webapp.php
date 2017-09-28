@@ -94,6 +94,17 @@ class EcrProjectTypeWebapp extends EcrProjectBase
     }
 
     /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin');
+    }
+
+    /**
      * Get the extension base path.
      *
      * @return string

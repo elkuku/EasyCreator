@@ -99,6 +99,17 @@ class EcrProjectTypeLibrary extends EcrProjectBase
     }
 
     /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin');
+    }
+
+    /**
      * Get the extension base path.
      *
      * @return string
@@ -248,49 +259,13 @@ class EcrProjectTypeLibrary extends EcrProjectBase
      */
     public function getCoreProjects($scope)
     {
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
-        {
-            case '2.5':
-                return array('cms', 'joomla', 'phpmailer', 'phputf8', 'simplepie');
-                break;
+        $projects = $this->loadCoreProjects();
 
-            case '3.0':
-            case '3.1':
-                return array('cms', 'compat', 'joomla', 'legacy', 'phpmailer', 'phputf8', 'simplepie');
-                break;
-
-            case '3.2':
-	        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpmailer',
-                    'phputf8', 'simplepie');
-                break;
-
-	        case '3.3':
-		        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
-		                     'phpmailer', 'phputf8', 'simplepie');
-                break;
-
-	        case '3.4':
-	        case '3.5':
-	        case '3.6':
-		        return array('cms', 'compat', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
-		                     'phpmailer', 'phputf8', 'simplepie', 'vendor', 'php-encryption');
-		        break;
-
-	        case '3.7':
-		        return array('cms', 'fof', 'framework', 'idna_convert', 'joomla', 'legacy', 'phpass',
-		                     'phpmailer', 'phputf8', 'vendor', 'php-encryption');
-		        break;
-
-            case '3.8':
-		        return array('cms', 'fof', 'idna_convert', 'joomla', 'legacy', 'php-encryption', 'phpass',
-		                     'phputf8', 'src', 'vendor');
-		        break;
-
-	        default:
-                EcrHtml::message(__METHOD__.' - Unknown J! version');
-            break;
+        if (isset($projects->library->admin)) {
+            return $projects->library->admin;
         }
+
+        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
 
         return array();
     }

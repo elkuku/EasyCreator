@@ -96,6 +96,17 @@ class EcrProjectTypeModule extends EcrProjectBase
     }
 
     /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin', 'site');
+    }
+
+    /**
      * Get the extension base path.
      *
      * @return string
@@ -341,104 +352,14 @@ class EcrProjectTypeModule extends EcrProjectBase
      */
     public function getCoreProjects($scope)
     {
-        switch($scope)
-        {
-            case 'admin':
-                //-- @Joomla!-version-check
-                switch(ECR_JVERSION)
-                {
-                    case '2.5':
-                        return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_multilangstatus', 'mod_version');
+        $projects = $this->loadCoreProjects();
 
-                    case '3.0':
-                    case '3.1':
-                    case '3.2':
-	                case '3.3':
-	                case '3.4':
-	        	    case '3.5':
-	        	    case '3.6':
-		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_multilangstatus', 'mod_online', 'mod_popular', 'mod_quickicon', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_unread', 'mod_version'
-                        , 'mod_stats_admin');
-
-	        	    case '3.7':
-		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_multilangstatus', 'mod_popular', 'mod_quickicon', 'mod_stats_admin', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_version'
-                       );
-
-	        	    case '3.8':
-		                return array('mod_custom', 'mod_feed', 'mod_latest', 'mod_logged', 'mod_login'
-                        , 'mod_menu', 'mod_multilangstatus', 'mod_popular', 'mod_quickicon', 'mod_sampledata', 'mod_stats_admin', 'mod_status', 'mod_submenu'
-                        , 'mod_title', 'mod_toolbar', 'mod_version'
-                       );
-
-                    default:
-                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-
-                        return array();
-                }
-
-            case 'site':
-                //-- @Joomla!-version-check
-                switch(ECR_JVERSION)
-                {
-                    case '2.5':
-                        return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
-                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
-                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                        , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
-                        , 'mod_finder');
-                        break;
-
-                    case '3.0':
-                    case '3.1':
-                        return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
-                    , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-                    , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_footer', 'mod_languages'
-                    , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                    , 'mod_syndicate', 'mod_users_latest', 'mod_weblinks', 'mod_whosonline', 'mod_wrapper'
-                    , 'mod_finder');
-                    break;
-
-                    case '3.2':
-	                case '3.3':
-	                case '3.4':
-	        	    case '3.5':
-	        	    case '3.6':
-		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
-                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_finder', 'mod_footer', 'mod_languages'
-                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                        , 'mod_syndicate', 'mod_tags_popular', 'mod_tags_similar', 'mod_users_latest', 'mod_weblinks'
-                        , 'mod_whosonline', 'mod_wrapper');
-                    break;
-
-	        	    case '3.7':
-	        	    case '3.8':
-		                return array('mod_articles_archive', 'mod_articles_categories', 'mod_articles_category'
-                        , 'mod_articles_latest', 'mod_articles_news', 'mod_articles_popular', 'mod_banners'
-                        , 'mod_breadcrumbs', 'mod_custom', 'mod_feed', 'mod_finder', 'mod_footer', 'mod_languages'
-                        , 'mod_login', 'mod_menu', 'mod_random_image', 'mod_related_items', 'mod_search', 'mod_stats'
-                        , 'mod_syndicate', 'mod_tags_popular', 'mod_tags_similar', 'mod_users_latest'
-                        , 'mod_whosonline', 'mod_wrapper');
-                    break;
-
-                    default:
-                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-
-                        return array();
-                }
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unknown scope');
-
-                return array();
+        if (isset($projects->module->$scope)) {
+            return $projects->module->$scope;
         }
+
+        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
+
+        return array();
     }
 }

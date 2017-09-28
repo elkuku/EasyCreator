@@ -234,4 +234,15 @@ class EcrProjectTypeCliapp extends EcrProjectBase
     {
         return array();
     }
+
+    /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array();
+    }
 }

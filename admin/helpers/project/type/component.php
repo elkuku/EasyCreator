@@ -351,60 +351,15 @@ class EcrProjectTypeComponent extends EcrProjectBase
      */
     public function getCoreProjects($scope)
     {
-        $projects = array();
+        $projects = $this->loadCoreProjects();
 
-        //-- @Joomla!-version-check
-        switch(ECR_JVERSION)
-        {
-            case '2.5':
-                $projects = array(
-                    'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
-                , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks', 'com_finder'
-                , 'com_joomlaupdate'
-                );
-                break;
-
-            case '3.0':
-            case '3.1':
-                $projects = array(
-                        'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                    , 'com_contact', 'com_content', 'com_cpanel', 'com_installer', 'com_languages', 'com_login'
-                    , 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                    , 'com_redirect', 'com_search', 'com_templates', 'com_users', 'com_weblinks', 'com_finder'
-                    , 'com_joomlaupdate'
-                );
-            break;
-
-            case '3.2':
-	        case '3.3':
-	        case '3.4':
-	        case '3.5':
-	        case '3.6':
-                $projects = array(
-                    'com_ajax', 'com_admin', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                    , 'com_contact', 'com_content', 'com_contenthistory', 'com_cpanel', 'com_finder', 'com_installer', 'com_joomlaupdate'
-                    , 'com_languages', 'com_login', 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                    , 'com_postinstall', 'com_redirect', 'com_search', 'com_tags', 'com_templates', 'com_users', 'com_weblinks'
-                );
-            break;
-	        case '3.7':
-	        case '3.8':
-                $projects = array(
-                    'com_ajax', 'com_admin', 'com_associations', 'com_banners', 'com_cache', 'com_categories', 'com_checkin', 'com_config'
-                    , 'com_contact', 'com_content', 'com_contenthistory', 'com_cpanel', 'com_fields', 'com_finder', 'com_installer', 'com_joomlaupdate'
-                    , 'com_languages', 'com_login', 'com_media', 'com_menus', 'com_messages', 'com_modules', 'com_newsfeeds', 'com_plugins'
-                    , 'com_postinstall', 'com_redirect', 'com_search', 'com_tags', 'com_templates', 'com_users'
-                );
-            break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-                break;
+        if (isset($projects->component->admin)) {
+            return $projects->component->admin;
         }
 
-        return $projects;
+        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
+
+        return array();
     }
 
     /**
@@ -753,5 +708,16 @@ class EcrProjectTypeComponent extends EcrProjectBase
                 return false;
                 break;
         }
+    }
+
+    /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin');
     }
 }

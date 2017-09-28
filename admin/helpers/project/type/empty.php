@@ -93,6 +93,17 @@ class EcrProjectTypeEmpty extends EcrProjectBase
     }
 
     /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin');
+    }
+
+    /**
      * Gets the paths to language files.
      *
      * @param string $scope

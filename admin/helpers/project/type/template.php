@@ -101,6 +101,17 @@ class EcrProjectTypeTemplate extends EcrProjectBase
     }
 
     /**
+     * Gets the scopes for the extension type.
+     *
+     * @since 0.0.25.6
+     * @return array
+     */
+    public function getInstallScopes()
+    {
+        return array('admin', 'site');
+    }
+
+    /**
      * Get the extension base path.
      *
      * @return string
@@ -366,70 +377,14 @@ class EcrProjectTypeTemplate extends EcrProjectBase
      */
     public function getCoreProjects($scope)
     {
-        $projects = array();
+        $projects = $this->loadCoreProjects();
 
-        switch($scope)
-        {
-            case 'admin':
-                //-- @Joomla!-version-check
-                switch(ECR_JVERSION)
-                {
-                    case '2.5':
-                        $projects = array('bluestork', 'hathor', 'system');
-                        break;
-                    case '3.0':
-                    case '3.1':
-                    case '3.2':
-	                case '3.3':
-	                case '3.4':
-			        case '3.5':
-			        case '3.6':
-                    case '3.7':
-                    case '3.8':
-                        $projects = array('isis', 'hathor', 'system');
-                        break;
-                    default:
-                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-                        break;
-                }
-                break;
-
-            case 'site':
-                //-- @Joomla!-version-check
-                switch(ECR_JVERSION)
-                {
-                    case '2.5':
-                        $projects = array('atomic', 'beez_20', 'beez5', 'system');
-                        break;
-                    case '3.0':
-                    case '3.1':
-                    case '3.2':
-	                case '3.3':
-	                case '3.4':
-	        	    case '3.5':
-	        	    case '3.6':
-                    case '3.7':
-                    case '3.8':
-                        $projects = array('beez3', 'protostar', 'system');
-
-                        if('3.2' == ECR_JVERSION)
-                        {
-                            $projects[] = 'booone';
-                        }
-                    break;
-                    default:
-                        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
-                        break;
-                }
-                break;
-
-            default:
-                EcrHtml::message(__METHOD__.' - Unknown scope: '.$scope);
-
-                return array();
-                break;
+        if (isset($projects->template->$scope)) {
+            return $projects->template->$scope;
         }
 
-        return $projects;
+        EcrHtml::message(__METHOD__.' - Unsupported JVersion');
+
+        return array();
     }
 }
