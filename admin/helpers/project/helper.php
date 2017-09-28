@@ -366,7 +366,7 @@ class EcrProjectHelper
     /**
      * Get a list of known project types.
      *
-     * @return array List of project types.
+     * @return EcrProjectBase[] List of project types.
      */
     public static function getProjectTypes()
     {
