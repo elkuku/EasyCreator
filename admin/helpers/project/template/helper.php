@@ -143,7 +143,7 @@ class EcrProjectTemplateHelper
             }
         }
 
-        $xml = new SimpleXMLElement('<install type="ecrextensiontemplate" version="'.ECR_VERSION.'"/>');
+        $xml = new SimpleXMLElement('<extension type="ecrextensiontemplate" version="'.ECR_VERSION.'"/>');
 
         $doc = new DOMDocument('1.0', 'utf-8');
         $doc->formatOutput = true;
@@ -159,12 +159,12 @@ class EcrProjectTemplateHelper
 
         $files[] = $tempDir.DS.'manifest.xml';
 
-        $fileName = 'ecr_extension_templates'.date('Ymd_His').'.tar.gz';
+        $fileName = 'ecr_extension_templates'.date('Ymd_His').'.zip';
 
         if( ! JFolder::create(ECRPATH_EXPORTS.DS.'templates'))
             throw new Exception(sprintf(jgettext('Unable to create the folder %s'), ECRPATH_EXPORTS.DS.'templates'));
 
-        $result = EcrArchive::createTgz(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, 'gz', $tempDir);
+        $result = EcrArchive::createZip(ECRPATH_EXPORTS.DS.'templates'.DS.$fileName, $files, $tempDir);
 
         //-- This means error
         if( ! $result->listContent())
@@ -243,7 +243,7 @@ class EcrProjectTemplateHelper
     private static function getPackageFromUpload()
     {
         //-- Get the uploaded file information
-        $userfile = JFactory::getApplication()->input->files->get('install_package', null, 'array');
+        $userfile = JFactory::getApplication()->input->files->get('install_package', null, 'raw');
 
         //-- If there is no uploaded file, we have a problem...
         if(false == is_array($userfile))
@@ -258,7 +258,7 @@ class EcrProjectTemplateHelper
         $tmp_dest = JFactory::getConfig()->get('tmp_path').DS.$userfile['name'];
 
         //-- Move uploaded file
-        JFile::upload($tmp_src, $tmp_dest);
+        JFile::upload($tmp_src, $tmp_dest, false, true);
 
         //-- Unpack the downloaded package file
         $package = JInstallerHelper::unpack($tmp_dest);

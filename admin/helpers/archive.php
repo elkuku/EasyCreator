@@ -46,6 +46,8 @@ class EcrArchive
     {
         $archive = new EcrPearArchiveZip($fileName);
 
-        return $archive->create($files, array('remove_path' => $removePath));
+        $archive->create($files, array('remove_path' => $removePath));
+
+        return $archive;
     }
 }
