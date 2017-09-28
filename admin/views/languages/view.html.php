@@ -124,7 +124,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
             EcrHtml::formEnd();
 
             return;
-        }//try
+        }
 
         parent::display($tpl);
 
@@ -232,7 +232,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
             {
                 $info->templateCommands[$scopeType] = $e->getMessage();
                 $info->templateLink = '';
-            }//try
+            }
 
             try
             {
@@ -242,7 +242,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
             {
                 $info->templateStatus[$scopeType] = $e->getMessage();
                 echo '';
-            }//try
+            }
 
             foreach($this->languages[$scopeType] as $lang)
             {
@@ -473,7 +473,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
             $m =(JDEBUG) ? nl2br($e) : $e->getMessage();
 
             JFactory::getApplication()->enqueueMessage($m, 'error');
-        }//try
+        }
 
         $this->checks = new JObject;
         $this->buildOpts = new JObject;
@@ -524,7 +524,7 @@ class EasyCreatorViewLanguages extends JViewLegacy
             $m =(JDEBUG) ? nl2br($e) : $e->getMessage();
 
             JFactory::getApplication()->enqueueMessage($m, 'error');
-        }//try
+        }
 
         $this->buildLists();
         $this->setLayout('jalhoo');

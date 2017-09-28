@@ -49,7 +49,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         catch(Exception $e)
         {
             EcrHtml::message($e);
-        }//try
+        }
 
         $input->set('view', 'templates');
         $input->set('task', 'templates');
@@ -75,7 +75,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         catch(Exception $e)
         {
             EcrHtml::message($e);
-        }//try
+        }
 
         $input->set('view', 'templates');
         $input->set('task', 'tplarchive');
@@ -105,7 +105,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         catch(Exception $e)
         {
             EcrHtml::message($e);
-        }//try
+        }
 
         $input->set('view', 'templates');
         $input->set('task', 'export');
@@ -135,7 +135,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
             EcrHtml::message($e);
 
             $input->set('task', 'tplinstall');
-        }//try
+        }
 
         $input->set('view', 'templates');
 

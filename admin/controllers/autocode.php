@@ -97,7 +97,7 @@ class EasyCreatorControllerAutoCode extends JControllerLegacy
             EcrHtml::message($e);
 
             return;
-        }//try
+        }
 
         $group = $input->get('group');
         $part = $input->get('part');

@@ -110,7 +110,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
             parent::display();
 
             return;
-        }//try
+        }
 
         $group = $input->get('group');
         $part = $input->get('part');
@@ -428,7 +428,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         {
             $this->response['status'] = 1;
             $this->response['text'] .= $e->getMessage();
-        }//try
+        }
 
         $buffer = ob_get_clean();
 
@@ -479,7 +479,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         {
             $this->response['status'] = 1;
             $this->response['text'] .= $e->getMessage();
-        }//try
+        }
 
         $buffer = ob_get_clean();
 
@@ -599,7 +599,7 @@ class EasyCreatorControllerAjax extends JControllerLegacy
         {
             $this->response['status'] = 1;
             $this->response['text'] = $e->getMessage();
-        }//try
+        }
 
         $buffer = ob_get_clean();
 

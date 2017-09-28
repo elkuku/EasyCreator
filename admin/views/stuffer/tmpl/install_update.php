@@ -19,7 +19,7 @@ catch(Exception $e)
     EcrHtml::message($e);
 
     return;
-}//try
+}
 
 $versions = $updater->versions;
 

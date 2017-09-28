@@ -51,7 +51,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             parent::display();
 
             return;
-        }//try
+        }
 
         $scope = $input->get('scope', 'admin');
 
@@ -97,7 +97,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             parent::display();
 
             return;
-        }//try
+        }
 
         $scope = $input->get('scope', 'admin');
 
@@ -144,7 +144,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         {
             $msg = $e->getMessage();
             $type = 'error';
-        }//try
+        }
 
         $this->setRedirect('index.php?option=com_easycreator&controller=languages'
         .'&task='.$oldTask.'&ecr_project='.$ecr_project, $msg, $type);
@@ -212,7 +212,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
             parent::display();
 
             return;
-        }//try
+        }
 
         $languages = JFactory::getLanguage()->getKnownLanguages();
 
@@ -309,7 +309,7 @@ class EasyCreatorControllerLanguages extends JControllerLegacy
         catch(Exception $e)
         {
             JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
-        }//try
+        }
 
         $input->set('task', 'g11nUpdate');
 
