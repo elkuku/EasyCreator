@@ -55,14 +55,7 @@ class EcrProjectActionScript extends EcrProjectAction
 
         $retVal = 0;
 
-//        $output = shell_exec($command.' 2>&1 | tee -a '.$ziper->logFile);
-        //passthru($command.' 2>&1 | tee -a '.$ziper->logFile, $retVal);
-        //system($command.' 2>&1 | tee -a '.$ziper->logFile, $retVal);
-        //exec($command.' 2>&1 | tee -a '.$ziper->logFile, $output, $retVal);
-
         system($command.' >> '.$ziper->logFile.' 2>&1', $retVal);
-
-        //$this->abort('ERROR: Script terminated with exit status: '.$retVal, $ziper);
 
         if(0 != $retVal)
         {
@@ -75,24 +68,6 @@ class EcrProjectActionScript extends EcrProjectAction
         {
             $ziper->logger->log('Script terminated with exit status 0');
         }
-
-        /*
-        if(0 == $retVal)
-        {
-        }
-        else
-        {
-            $ziper->logger->log('Script terminated with exit status: '.$retVal);
-
-            if($this->abort)
-            {
-                $ziper->addFailure(sprintf('%s: %s finished with exit status %d'
-                    , $this->name, $this->script, $retVal));
-
-                $ziper->setInvalid();
-            }
-        }
-        */
 
         return $this;
     }
