@@ -206,13 +206,14 @@ class EcrProjectTemplateHelper
      * Export templates to a tar.gz package.
      *
      * @param array $exports Index array of templates to export
+     * @param string $zipName
      *
+     * @return string The name of the archive created.
+     * @throws Exception
      * @since 0.0.1
      *
-     * @throws Exception
-     * @return boolean true on success
      */
-    public static function exportTemplates($exports)
+    public static function exportTemplates($exports, $zipName = '')
     {
         $tempDir = JFactory::getConfig()->get('tmp_path').DS.uniqid('templateexport');
 
@@ -256,7 +257,8 @@ class EcrProjectTemplateHelper
 
         $files[] = $tempDir.DS.'manifest.xml';
 
-        $fileName = 'ecr_extension_templates'.date('Ymd_His').'.zip';
+        $fileName = $zipName ? : 'ecr_extension_templates'.date('Ymd_His');
+        $fileName .= '.zip';
 
         if( ! JFolder::create(ECRPATH_EXPORTS.DS.'templates'))
             throw new Exception(sprintf(jgettext('Unable to create the folder %s'), ECRPATH_EXPORTS.DS.'templates'));
@@ -267,7 +269,7 @@ class EcrProjectTemplateHelper
         if( ! $result->listContent())
             throw new Exception(jgettext('Error creating archive'));
 
-        return true;
+        return $fileName;
     }
 
     /**

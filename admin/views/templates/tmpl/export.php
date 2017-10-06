@@ -8,11 +8,12 @@
  */
 
 $templateList = EcrProjectTemplateHelper::getTemplateList();
-
-echo EcrHelp::help(jgettext('Select the templates to export'), EcrHelp::ALL, 'ecrBigInfo');
 ?>
 
 <h1><?php echo jgettext('Export templates') ?></h1>
+
+<label class="inline" for="custom_name">Custom Name</label>
+<input class="input" id="custom_name" name="custom_name">
 
 <div class="btn btn-success btn-large" onclick="submitbutton('do_export');">
     <i class="img icon16-ecr_save"></i>
@@ -36,10 +37,6 @@ foreach($templateList as $group => $templates):
 
     echo '</div>';
 endforeach;
-
-echo BR;
-
-
 ?>
 <div style="clear: both;"></div>
 

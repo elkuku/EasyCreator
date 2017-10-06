@@ -89,6 +89,8 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
     /**
      * Export EasyCreator extension templates.
      *
+     * @since 0.0.1
+     *
      * @throws Exception
      * @return void
      */
@@ -99,11 +101,13 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         try
         {
             if( ! $exports = $input->get('exports', array(), 'array'))
+            {
                 throw new Exception(jgettext('No templates selected'));
+            }
 
-            EcrProjectTemplateHelper::exportTemplates($exports);
+            $zipName = EcrProjectTemplateHelper::exportTemplates($exports, $input->getCmd('custom_name'));
 
-            EcrHtml::message(jgettext('Templates have been exported.'));
+            EcrHtml::message(sprintf('Templates have been exported to <b>%s</b>.', $zipName));
         }
         catch(Exception $e)
         {
@@ -112,35 +116,6 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
 
         $input->set('view', 'templates');
         $input->set('task', 'export');
-
-        parent::display();
-    }
-
-    /**
-     * Installs EasyCreator extension templates.
-     *
-     * @return void
-     */
-    public function do_install()
-    {
-        $input = JFactory::getApplication()->input;
-
-        try
-        {
-            EcrProjectTemplateHelper::installPackageFromUpload();
-
-            EcrHtml::message(jgettext('Templates have been installed.'));
-
-            $input->set('task', 'templates');
-        }
-        catch(Exception $e)
-        {
-            EcrHtml::message($e);
-
-            $input->set('task', 'tplinstall');
-        }
-
-        $input->set('view', 'templates');
 
         parent::display();
     }
@@ -177,6 +152,35 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
             if ($result['installs']) {
                 EcrHtml::message($result['installs']);
             }
+
+            $input->set('task', 'templates');
+        }
+        catch(Exception $e)
+        {
+            EcrHtml::message($e);
+
+            $input->set('task', 'tplinstall');
+        }
+
+        $input->set('view', 'templates');
+
+        parent::display();
+    }
+
+    /**
+     * Installs EasyCreator extension templates.
+     *
+     * @return void
+     */
+    public function do_install()
+    {
+        $input = JFactory::getApplication()->input;
+
+        try
+        {
+            EcrProjectTemplateHelper::installPackageFromUpload();
+
+            EcrHtml::message(jgettext('Templates have been installed.'));
 
             $input->set('task', 'templates');
         }
