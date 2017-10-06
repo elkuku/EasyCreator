@@ -13,8 +13,25 @@
  * @package    EasyCreator
  * @subpackage Controllers
  */
-class EasyCreatorControllerConfig extends EcrBaseController
+class EasyCreatorControllerConfig extends JControllerLegacy
 {
+    /**
+     * @var EcrResponseJson
+     */
+    protected $response = null;
+
+    /**
+     * Constructor.
+     *
+     * @param   array  $config  Configuration object.
+     */
+    public function __construct($config = array())
+    {
+        $this->response = new EcrResponseJson;
+
+        parent::__construct($config);
+    }
+
     /**
      * Standard display method.
      *
