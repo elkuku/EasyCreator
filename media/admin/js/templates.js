@@ -23,17 +23,5 @@ function submitbutton(task, comType, template)
     frm.com_type.value = comType;
     frm.template.value = template;
 
-    submitform(task);
-}
-
-function submitInstallForm()
-{
-    if($('install_package').value == '')
-    {
-        alert(jgettext('Please select a package to upload'));
-
-        return;
-    }
-
-    document.installForm.submit();
+    Joomla.submitform(task);
 }

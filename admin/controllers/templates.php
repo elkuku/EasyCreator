@@ -1,4 +1,7 @@
-<?php defined('_JEXEC') || die('=;)');
+<?php
+use Joomla\Uri\Uri;
+
+defined('_JEXEC') || die('=;)');
 /**
  * @package    EasyCreator
  * @subpackage Controllers
@@ -124,7 +127,7 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
 
         try
         {
-            EcrProjectTemplateHelper::installTemplates();
+            EcrProjectTemplateHelper::installPackageFromUpload();
 
             EcrHtml::message(jgettext('Templates have been installed.'));
 
@@ -140,5 +143,73 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
         $input->set('view', 'templates');
 
         parent::display();
+    }
+
+    /**
+     * Installs EasyCreator extension templates.
+     *
+     * @since 0.0.25.6
+     *
+     * @return void
+     */
+    public function do_installweb()
+    {
+        $input = JFactory::getApplication()->input;
+        try
+        {
+            $packages = $input->get('packages', array(), 'array');
+
+            if (!$packages) {
+                throw new Exception('No packages selected');
+            }
+
+            $result = array();
+
+            foreach ($packages as $package) {
+                $result = array_merge($result, EcrProjectTemplateHelper::installPackageFromWeb($package));
+            }
+
+            if ($result['errors']) {
+                EcrHtml::message($result['errors'], 'warning');
+
+            }
+
+            if ($result['installs']) {
+                EcrHtml::message($result['installs']);
+            }
+
+            $input->set('task', 'templates');
+        }
+        catch(Exception $e)
+        {
+            EcrHtml::message($e);
+
+            $input->set('task', 'tplinstall');
+        }
+
+        $input->set('view', 'templates');
+
+        parent::display();
+    }
+
+    /**
+     * Fetch template packages from GitHub.
+     *
+     * @since 0.0.25.6
+     *
+     * @return void
+     */
+    public function fetchTemplates()
+    {
+        $options = new JRegistry();
+
+        // GitHub API calls require a user agent - this is agent kuku =;)
+        $options->set('userAgent', 'elkuku');
+
+        $github = new EcrGithubHelper($options);
+
+        $releases = $github->repositories->releases->getList('EasyCreator', 'templates');
+
+        jexit(json_encode($releases));
     }
 }

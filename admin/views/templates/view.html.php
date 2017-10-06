@@ -50,6 +50,13 @@ class EasyCreatorViewTemplates extends JViewLegacy
 
             parent::display($tpl);
         }
+        elseif($task == 'installweb')
+        {
+            //-- We end our form first, cause another one follows
+            EcrHtml::formEnd(false);
+
+            parent::display($tpl);
+        }
         else
         {
             parent::display($tpl);
@@ -71,7 +78,6 @@ class EasyCreatorViewTemplates extends JViewLegacy
 
         if($profiling)
         {
-//            jimport('joomla.error.profiler');
             $this->profiler = JProfiler::getInstance('EasyCreator');
         }
 
@@ -113,6 +119,17 @@ class EasyCreatorViewTemplates extends JViewLegacy
     private function tplinstall()
     {
         $this->setLayout('install');
+    }
+
+    /**
+     * Install web view.
+     *
+     * @since 0.0.25.6
+     * @return void
+     */
+    private function tplinstallweb()
+    {
+        $this->setLayout('installweb');
     }
 
     private function tplarchive()
