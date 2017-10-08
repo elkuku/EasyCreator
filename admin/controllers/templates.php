@@ -141,12 +141,11 @@ class EasyCreatorControllerTemplates extends JControllerLegacy
             $result = array();
 
             foreach ($packages as $package) {
-                $result = array_merge($result, EcrProjectTemplateHelper::installPackageFromWeb($package));
+                $result = array_merge_recursive($result, EcrProjectTemplateHelper::installPackageFromWeb($package));
             }
 
             if ($result['errors']) {
                 EcrHtml::message($result['errors'], 'warning');
-
             }
 
             if ($result['installs']) {
