@@ -58,6 +58,7 @@ foreach (new DirectoryIterator($repoPath) as $type)
 			}
 		}
 
-		echo "\n\nFINISHED =;)\n";
 	}
 }
+
+echo "\n\nFINISHED =;)\n";
