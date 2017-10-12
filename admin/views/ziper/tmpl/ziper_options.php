@@ -56,6 +56,12 @@ $preset = $this->preset;
     <label class="inline" for="createIndexhtml"><?php echo jgettext('Create index.html files'); ?></label>
     <br/>
 
+    <input type="checkbox" name="buildopts[]" id="createVersionSubdir"
+        <?php echo ($preset->createVersionSubdir == 'ON') ? ' checked="checked"' : ''; ?>
+           value="createVersionSubdir"/>
+    <label class="inline" for="createVersionSubdir"><?php echo jgettext('Create version sub diectory'); ?></label>
+    <br/>
+
     <input type="checkbox" name="buildopts[]" id="createMD5"
         <?php echo ($preset->createMD5 == 'ON') ? ' checked="checked"' : ''; ?>
            value="createMD5"/>

@@ -20,6 +20,8 @@ class EcrProjectModelBuildpreset
 
     public $archiveBz2 = false;
 
+    public $createVersionSubdir = false;
+
     public $createIndexhtml = false;
 
     public $createMD5 = false;

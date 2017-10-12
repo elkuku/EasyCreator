@@ -8,7 +8,6 @@
  */
 
 /* @var EcrProjectModelBuildpreset $preset */
-//$preset = $this->project->buildOpts;
 $preset = $this->project->presets['default'];
 $options = new JObject($this->project->buildOpts);
 
@@ -76,6 +75,14 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
            value="createIndexhtml"/>
     <label class="inline" for="createIndexhtml">
         <?php echo jgettext('Create index.html files'); ?>
+    </label>
+    <br/>
+
+    <input type="checkbox" name="buildopts[]" id="createVersionSubdir"
+        <?php echo ('ON' == $preset->createVersionSubdir) ? ' checked="checked"' : ''; ?>
+           value="createVersionSubdir"/>
+    <label class="inline" for="createVersionSubdir">
+        <?php echo jgettext('Create version sub directory'); ?>
     </label>
     <br/>
 
