@@ -58,7 +58,8 @@ $preset = $this->preset;
 
     <input type="checkbox" name="buildopts[]" id="createVersionSubdir"
         <?php echo ($preset->createVersionSubdir == 'ON') ? ' checked="checked"' : ''; ?>
-           value="createVersionSubdir"/>
+           value="createVersionSubdir"
+           onclick="$('versionSubDir').toggle();"/>
     <label class="inline" for="createVersionSubdir"><?php echo jgettext('Create version sub diectory'); ?></label>
     <br/>
 
