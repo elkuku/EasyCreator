@@ -12,7 +12,6 @@ $prName = substr($this->selectedProject, 4);
 $module = JModuleHelper::getModule($prName);
 $basePath = JPATH_ROOT.DS.'modules'.DS.$this->selectedProject;
 $xmlfile = $basePath.DS.$this->selectedProject.'.xml';
-//$parameter = new JParameter($module->params, $xmlfile);
 
 ?>
 <table style="width: 100%">
@@ -25,10 +24,6 @@ $xmlfile = $basePath.DS.$this->selectedProject.'.xml';
                 <?php
                 echo JModuleHelper::renderModule($module); ?>
             </div>
-
-            <h2><?php echo jgettext('Parameters'); ?></h2>
-            <?php //echo $parameter->render(); ?>
-
         </td>
     </tr>
 </table>

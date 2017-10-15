@@ -22,34 +22,6 @@ require_once JPATH_COMPONENT_ADMINISTRATOR.'/includes/defines.php';
 
 $debug = false;
 
-if( ! class_exists('g11n'))
-{
-    jimport('g11n.language');
-
-    if( ! class_exists('g11n'))
-    {
-        ecrLoadHelper('g11n_dummy');
-    }
-}
-
-try
-{
-    if(class_exists('g11n'))
-    {
-        // TEMP@@debug
-        // @   g11n::cleanStorage();//@@DEBUG
-
-        g11n::setDebug($debug);
-
-        // Get our special language file
-        g11n::loadLanguage();
-    }
-}
-catch(Exception $e)
-{
-    JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
-}
-
 $document = JFactory::getDocument();
 
 // Add css

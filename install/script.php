@@ -27,30 +27,11 @@ class Com_EasyCreatorInstallerScript
     {
         $logo = JURI::root(true) . '/media/com_easycreator/admin/images/ico/icon-128-easycreator.png';
 
-        try {
-            if (!jimport('g11n.language')) {
-                //-- Get our special language file
-                JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR . '/components/com_easycreator');
-                ?>
-                <div style="padding: 0.3em; background-color: #ffc;">
-                    <h3 style="color: red;">EasyCreator is in "English ONLY" mode !</h3>
+        try
+        {
+	        // Load a dummy language loader - @todo REMOVE
+            JLoader::import('helpers.g11n_dummy', JPATH_ADMINISTRATOR . '/components/com_easycreator');
 
-                    <h3 style="color: red;">
-                        If you like EasyCreator in your language, just install the g11n language library :
-                    </h3>
-
-                    <h3 style="color: red;">
-                        <a href="http://joomlacode.org/gf/project/elkuku/frs/?action=FrsReleaseBrowse&frs_package_id=5915">
-                            Download lib_g11n
-                        </a>
-                    </h3>
-                </div>
-                <?php
-            } else {
-                g11n::loadLanguage('com_easycreator');
-            }
-
-            //$xml = simplexml_load_file(ECR_XML_LOCATION);
             $xml = simplexml_load_file($parent->getParent()->getPath('manifest'));
 
             if (false == $xml) {

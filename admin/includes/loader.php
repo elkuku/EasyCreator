@@ -9,52 +9,10 @@
  * @license    GNU/GPL, see JROOT/LICENSE.php
  */
 
-if(version_compare(PHP_VERSION, '5.3', '<'))
-{
-    //-- @todo php 5.2
-    spl_autoload_register('easy_creator_loader', true);
-}
-else
-{
-    spl_autoload_register('easy_creator_loader', true, true);
-}
+spl_autoload_register('easy_creator_loader', true, true);
 
-//-- Load the special Language
-
-//-- 1) Check if g11n is installed as a PEAR package - see: http://elkuku.github.com/pear/
-
-//@include 'elkuku/g11n/language.php';
-
-//-- @todo: check for installed g11n PEAR package to remove the "shut-up"
-//-- @require_once 'elkuku/g11n/language.php';
-
-if( ! class_exists('g11n'))
-{
-    //-- 2) Check the libraries folder
-
-    if( ! jimport('g11n.language'))
-    {
-        //-- 3) Load a dummy language handler -> english only !
-
-        ecrLoadHelper('g11n_dummy');
-
-        ecrScript('g11n_dummy', 'php2js');
-    }
-}
-
-if(class_exists('g11n'))
-{
-    //-- TEMP@@debug
-    if(ECR_DEV_MODE && ECR_DEBUG_LANG)
-    {
-        //-- @@DEBUG
-        g11n::cleanStorage();
-        g11n::setDebug(ECR_DEBUG_LANG);
-    }
-
-    //-- Get our special language file
-    g11n::loadLanguage();
-}
+// Load a dummy language loader - @todo REMOVE
+ecrLoadHelper('g11n_dummy');
 
 /*
  * Functions

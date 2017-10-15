@@ -9,12 +9,6 @@ fieldset.adminform {
     border: 0;
 }
 
-div.g11nNotice {
-    background-color: #ffc;
-    border: 1px solid orange;
-    padding: 0.5em;
-}
-
 div#maintainResponse {
     font-size: 13px;
 }

@@ -143,13 +143,6 @@ try
 		// Perform the Request task
 		$controller->execute($input->get('task'));
 
-		if (ECR_DEV_MODE && ECR_DEBUG_LANG
-			&& class_exists('g11n'))
-		{
-			g11n::debugPrintTranslateds(true);
-			g11n::debugPrintTranslateds();
-		}
-
 		// Display the footer
 		EcrHtml::footer();
 

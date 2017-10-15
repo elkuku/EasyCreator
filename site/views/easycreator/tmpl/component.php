@@ -42,10 +42,6 @@ $params = 'id="comFrame" '
                     <p><?php echo jgettext('Sorry, your browser cannot display frames'); ?></p>
                 </iframe>
             </div>
-
-            <h2><?php echo jgettext('Parameters'); ?></h2>
-            <?php //echo $parameter->render(); ?>
-
         </td>
     </tr>
 </table>
