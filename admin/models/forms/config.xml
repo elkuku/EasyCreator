@@ -17,7 +17,7 @@
 
         <field name="spacer1_1" type="spacer" default="Package formats"/>
 
-        <field name="archiveZip" type="checkbox" label="zip" value="zip"
+        <field name="archiveZip" type="checkbox" label="zip" value="zip" default="1"
                description="ZIP format"/>
         <field name="archiveTgz" type="checkbox" label="tar.gz" value="tgz"
                description="Ziped Tarball"/>
@@ -37,13 +37,6 @@
     </fieldset>
 
     <fieldset name="various" label="Various">
-        <!--
-        <field name="versionCheck" type="radio" default="0"
-               label="Check EasyCreator version" description="Automatically check for the latest EasyCreator version.">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </field>
-        -->
         <field name="ecr_help" type="radio" class="btn-group" default="2" label="Help Type"
                description="Choose the type of help you need (from beginner to expert). Messages will be displayed all over the place in light green boxes - you may also switch them off here.">
             <option value="2">All</option>
@@ -78,14 +71,6 @@
 
         <field name="spacer4_1" type="spacer" default="Language"/>
 
-        <!-- @todo find another auto translation option
-        <field name="use_google_trans_api" type="radio" default="1"
-               label="Use Google translation API"
-               description="Should we use the Google Translation API for helping in translations ?">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </field>
-        -->
         <field name="langfiles_chk_utf8" type="radio" class="btn-group" default="0"
                label="Check for UTF8" description="Should languages files be checked for UTF-8">
             <option value="0">No</option>
