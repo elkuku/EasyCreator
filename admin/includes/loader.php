@@ -11,8 +11,9 @@
 
 spl_autoload_register('easy_creator_loader', true, true);
 
-// Load a dummy language loader - @todo REMOVE
-ecrLoadHelper('g11n_dummy');
+jimport('g11n.language', JPATH_COMPONENT_ADMINISTRATOR . '/helpers');
+
+g11n::loadLanguage();
 
 /*
  * Functions
