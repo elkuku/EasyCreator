@@ -1,0 +1,3600 @@
+# com_easycreator - admin - The main language file.
+# Copyright (C) YEAR Nikolai Plath - elkuku
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <uringinteristi@gmail.com>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyCreator\n"
+"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"POT-Creation-Date: 2012-05-31 01:26-0500\n"
+"PO-Revision-Date: 2012-05-31 08:21+0000\n"
+"Last-Translator: uring <uringinteristi@gmail.com>\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/opentranslators/language/id_ID/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id_ID\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:67
+msgid "Log file not found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ajax.php:252
+#: administrator/components/com_easycreator/helpers/html/button.php:63
+#, php-format
+msgid "The class file for your Joomla version %s has not been build yet."
+msgstr "Berkas class untuk Joomla versi %s anda belum dibuat."
+
+#: administrator/components/com_easycreator/controllers/ajax.php:277
+#: administrator/components/com_easycreator/controllers/ajax.php:566
+#: administrator/components/com_easycreator/controllers/ajax.php:596
+#: administrator/components/com_easycreator/controllers/ajax.php:946
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:173
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:441
+#: administrator/components/com_easycreator/helpers/file.php:60
+#: administrator/components/com_easycreator/helpers/language.php:326
+#: administrator/components/com_easycreator/helpers/language.php:335
+#: administrator/components/com_easycreator/helpers/language.php:1039
+#: administrator/components/com_easycreator/helpers/project/helper.php:548
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:510
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:358
+msgid "File not found"
+msgstr "Berkas tidak ditemukan"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:289
+#, php-format
+msgid "Class %s not found"
+msgstr "Class %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:440
+#: administrator/components/com_easycreator/controllers/stuffer.php:93
+msgid "Unable to load part"
+msgstr "Tidak dapat memuat bagian"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:447
+msgid "Function not found"
+msgstr "Fungsi tidak ditemukan"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:469
+#: administrator/components/com_easycreator/controllers/ajax.php:521
+#: administrator/components/com_easycreator/helpers/language.php:1489
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:167
+msgid "No scope given"
+msgstr "Tidak ada ruang lingkup yang diberikan"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:472
+msgid "Empty translation"
+msgstr "Terjemahan kosong"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:480
+#: administrator/components/com_easycreator/controllers/ajax.php:526
+msgid "No languages found"
+msgstr "Bahasa tidak ditemukan"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:571
+msgid "File loaded"
+msgstr "Berkas dimuat"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:604
+#, php-format
+msgid "The file %s is empty"
+msgstr "Berkas %s kosong"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:642
+msgid "Invalid file"
+msgstr "Berkas tak-valid"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:667
+#: administrator/components/com_easycreator/controllers/templates.php:50
+#: administrator/components/com_easycreator/helpers/language.php:472
+msgid "The file has been saved"
+msgstr "Berkas telah disimpan"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:700
+#: administrator/components/com_easycreator/controllers/ajax.php:901
+msgid "Wrong base folder"
+msgstr "Basis folder salah"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:709
+msgid "The folder already exists"
+msgstr "Folder sudah ada"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:716
+msgid "Unable to create folder"
+msgstr "Tidak bisa membuat folder"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:729
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:44
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:63
+msgid "New folder"
+msgstr "Folder baru"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:729
+#: administrator/components/com_easycreator/controllers/ajax.php:783
+msgid "Create"
+msgstr "Buat"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:753
+msgid "This is a folder"
+msgstr "Ini adalah folder"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:760
+msgid "The file already exists"
+msgstr "Berkas sudah ada"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:770
+msgid "Unable to create file"
+msgstr "Tidak bisa membuat berkas"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:783
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:45
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:64
+msgid "New file"
+msgstr "Berkas baru"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:800
+#: administrator/components/com_easycreator/controllers/ajax.php:850
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:269
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:261
+msgid "Empty"
+msgstr "Kosong"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:809
+msgid "Folder does not exist"
+msgstr "Folder tidak ada"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:816
+msgid "Unable to delete folder"
+msgstr "Tidak bisa menghaous folder"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:829
+msgid "Delete folder"
+msgstr "Hapus folder"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:829
+#: administrator/components/com_easycreator/controllers/ajax.php:879
+#: administrator/components/com_easycreator/controllers/deploy.php:95
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:47
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:66
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:134
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:22
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:30
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:31
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:32
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:65
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:75
+msgid "Delete"
+msgstr "Hapus"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:859
+msgid "File does not exist"
+msgstr "Berkas tidak ada"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:866
+msgid "Unable to delete file"
+msgstr "Tidak bisa menghapus berkas"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:879
+msgid "Delete file"
+msgstr "Hapus berkas"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:924
+msgid "Rename folder"
+msgstr "Ubah nama folder"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:924
+#: administrator/components/com_easycreator/controllers/ajax.php:968
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:46
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:65
+msgid "Rename"
+msgstr "Ubah nama"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:968
+msgid "Rename file"
+msgstr "Ubah nama berkas"
+
+#: administrator/components/com_easycreator/controllers/ajax.php:1229
+#: administrator/components/com_easycreator/helpers/html/select.php:167
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:336
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:40
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:211
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:225
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:241
+msgid "Select..."
+msgstr "Pilih..."
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:45
+msgid "The file bootstrap.php has been copied to your Joomla root"
+msgstr "Berkas bootsrap.php telah disalin pada root Joomla anda"
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:49
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:229
+#, php-format
+msgid "Can not copy file %s"
+msgstr "Tidak bisa menyalin berkas %s"
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:97
+msgid "No project selected"
+msgstr "Tidak ada proyek yang dipilih"
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:104
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:57
+msgid "Invalid project"
+msgstr "Proyek tak-valid"
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:111
+msgid "Unable to create tests directory"
+msgstr "Tidak bisa membuat direktori tests"
+
+#: administrator/components/com_easycreator/controllers/codeeye.php:116
+msgid "The tests directory has been created"
+msgstr "Direktori tests telah dibuat"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:180
+msgid "Only PHP files are allowed"
+msgstr "Hanya berkas PHP yang diijinkan"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:196
+#: administrator/components/com_easycreator/helpers/project/reflection.php:339
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:541
+msgid "No classes found"
+msgstr "Tidak ada class yang ditemukan"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:412
+msgid "Folder not found"
+msgstr "Folder tidak ditemukan"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:587
+msgid "No path set"
+msgstr "Tidak ada path yang diatur"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:669
+msgid "Something went wrong..."
+msgstr "Ada yang salah..."
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:677
+msgid "Documentation has been created"
+msgstr "Dokumentasi telah dibuat"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:679
+msgid "View Documentation"
+msgstr "Lihat Dokumentasi"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:681
+msgid "View Errors"
+msgstr "Lihat Kesalahan"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:700
+#: administrator/components/com_easycreator/helpers/languagehelper.php:145
+#: administrator/components/com_easycreator/helpers/pear/helper/console.php:141
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:76
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:115
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:45
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:37
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:39
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:58
+msgid "Not found"
+msgstr "Tidak ditemukan"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:704
+msgid "No PEAR packages found - Please check your Paths"
+msgstr "Paket PEAR tidak ditemukan - Harap memeriksa path anda"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:705
+#, php-format
+msgid "For more information see: %s"
+msgstr "Untuk mendapatkan informasi lebih jelas lihat: %s"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:719
+#: administrator/components/com_easycreator/helpers/html/menu.php:75
+#: administrator/components/com_easycreator/helpers/project/type/package.php:45
+#: administrator/components/com_easycreator/views/deploy/view.html.php:82
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:57
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:26
+#: administrator/components/com_easycreator/views/ziper/view.html.php:109
+msgid "Package"
+msgstr "Paket"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:720
+#: administrator/components/com_easycreator/helpers/html/wizard.php:45
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:43
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:144
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:53
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:81
+msgid "Version"
+msgstr "Versi"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:721
+msgid "Minimun"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:722
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:128
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:136
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:14
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:287
+msgid "Info"
+msgstr "Info"
+
+#: administrator/components/com_easycreator/controllers/codeeyeajax.php:778
+#, php-format
+msgid "See also: %s"
+msgstr "Juga lihat: %s"
+
+#: administrator/components/com_easycreator/controllers/config.php:67
+msgid "Unsupported Joomla! version"
+msgstr "Versi Joomla! tidak mendukung"
+
+#: administrator/components/com_easycreator/controllers/config.php:84
+msgid "Configuration has been saved"
+msgstr "Konfigurasi telah disimpan"
+
+#: administrator/components/com_easycreator/controllers/deploy.php:76
+msgid "No downloads found"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/deploy.php:135
+msgid "The package has been deleted."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/deploy.php:164
+msgid "The files have been deployed."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/deploy.php:197
+#, php-format
+msgid "The file has been deployed."
+msgid_plural "%d files have been deployed."
+msgstr[0] ""
+
+#: administrator/components/com_easycreator/controllers/deploy.php:317
+msgid "All files are synchronized"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/deploy.php:348
+msgid "The files have been synchronized."
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/languages.php:144
+msgid "The file has been created"
+msgstr "Berkas telah dibuat"
+
+#: administrator/components/com_easycreator/controllers/languages.php:175
+msgid "The BOM has been removed"
+msgstr "BOM telah disingkirkan"
+
+#: administrator/components/com_easycreator/controllers/languages.php:179
+msgid "Unable to remove the BOM"
+msgstr "Tidak bisa menyingkirkan BOM"
+
+#: administrator/components/com_easycreator/controllers/logfiles.php:51
+msgid "The logfiles have been deleted"
+msgstr "logfiles telah dihapus"
+
+#: administrator/components/com_easycreator/controllers/logfiles.php:56
+msgid "The logfiles could not be deleted"
+msgstr "logfiles tidak bisa dihapus"
+
+#: administrator/components/com_easycreator/controllers/starter.php:56
+msgid "An error happened while creating your project"
+msgstr "Kesalahan terjadi saat membuat proyek anda"
+
+#: administrator/components/com_easycreator/controllers/starter.php:82
+msgid "Your project has been created"
+msgstr "Proyek anda telah dibuat"
+
+#: administrator/components/com_easycreator/controllers/starter.php:116
+msgid "Your project has been registered"
+msgstr "Proyek anda telah didaftarkan"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:101
+msgid "Unable to prepare part"
+msgstr "Tidak bisa mempersiapkan bagian"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:132
+msgid "Unable to insert part"
+msgstr "Tidak bisa menyisipkan bagian"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:137
+msgid "Part added"
+msgstr "Bagian ditambahkan"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:159
+#: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:150
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:199
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:150
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:197
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:193
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:200
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:149
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:189
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:172
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:168
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:160
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:243
+msgid "No table given"
+msgstr "Tidak ada tabel yang diberikan"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:164
+msgid "Invalid Table"
+msgstr "Tabel tak-valid"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:169
+#: administrator/components/com_easycreator/helpers/project/base.php:1276
+msgid "Invalid options"
+msgstr "Opsi tak-valid"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:226
+msgid "Unable to load Autocode"
+msgstr "Tidak bisa memuat Autocode"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:229
+#, php-format
+msgid "Insert method not found in Autocode %s"
+msgstr "Penyisipan metode tidak ditemukan dalam Autocode %s"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:234
+#, php-format
+msgid "Unable to prepare project [project, group, part] [%s, %s, %s]"
+msgstr "Tidak bisa mempersiapkan proyek [proyek, grup, bagian] [%s, %s, %s]"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:260
+msgid "Unable to update AutoCode"
+msgstr "Autocode tidak bisa di-update"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:262
+msgid "AutoCode updated"
+msgstr "Autocode ter-update"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:290
+msgid "invalid file"
+msgstr "berkas tak-valid"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:297
+msgid "File has been deleted"
+msgstr "Berkas telah dihapus"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:306
+msgid "Unable to deleted the file"
+msgstr "Tidak bisa menghapus berkas"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:390
+#, php-format
+msgid "The type %s is not supported yet.. remember - this is a beta"
+msgstr "Belum mendukung tipe %s.. Ingat - ini masih beta"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:393
+msgid "But you can copy + paste the code below to your params section.."
+msgstr "Tapi anda bisa salin + tempel kode dibagian bawah params.."
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:401
+msgid "Could not create XML"
+msgstr "Tidak bisa membuat XML"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:495
+msgid "The XML file has been saved"
+msgstr "Berkas XML telah dibuat"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:499
+msgid "Could not save XML file"
+msgstr "Tidak bisa menyimpan berkas XML"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:535
+msgid "The Settings have been updated"
+msgstr "Pengaturan telah di-update"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:579
+#, php-format
+msgid "The Project %s has been removed"
+msgstr "Proyek %s telah disingkirkan"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:584
+#, php-format
+msgid "The Project %s could not be removed"
+msgstr "Proyek %s tidak bisa disingkarkan"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:843
+#, php-format
+msgid "%s Install sql file updated"
+msgstr "%s Berkas sql pemasangan diperbarui"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:844
+#, php-format
+msgid "%s Install sql file created"
+msgstr "%s Berkas sql pemasangan dibuat"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:848
+#, php-format
+msgid "Can not create file at %s"
+msgstr "Tidak bisa membuat berkas pada %s"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:905
+#, php-format
+msgid "%s uninstall sql file updated"
+msgstr "%s Berkas sql pencabutan diperbarui"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:906
+#, php-format
+msgid "%s uninstall sql file created"
+msgstr "%s Berkas sql pencabutan dibuat"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:910
+msgid "Can not create file at "
+msgstr "Tidak bisa membuat berkas pada "
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:989
+#: administrator/components/com_easycreator/controllers/stuffer.php:1018
+msgid "Update sql file has been written"
+msgstr "Berkas sql perbaruan telah ditulis"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:993
+#: administrator/components/com_easycreator/controllers/stuffer.php:1024
+msgid "Can not create the update sql file"
+msgstr "Tidak bisa membuat berkas sql pembaruan"
+
+#: administrator/components/com_easycreator/controllers/stuffer.php:1007
+msgid "Update sql already exists"
+msgstr "Sql pembaruan sudah ada"
+
+#: administrator/components/com_easycreator/controllers/templates.php:74
+msgid "Template has been deleted."
+msgstr "Template telah dihapus"
+
+#: administrator/components/com_easycreator/controllers/templates.php:98
+msgid "No templates selected"
+msgstr "Tidak ada template yang dipilih"
+
+#: administrator/components/com_easycreator/controllers/templates.php:102
+msgid "Templates have been exported."
+msgstr "Template teh di-ekspor"
+
+#: administrator/components/com_easycreator/controllers/templates.php:126
+msgid "Templates have been installed."
+msgstr "Template sudah dipasang"
+
+#: administrator/components/com_easycreator/controllers/ziper.php:78
+msgid "The file has been deleted"
+msgstr "Berkas telah dihapus"
+
+#: administrator/components/com_easycreator/controllers/ziper.php:127
+msgid "Your ZIPfile has NOT been created"
+msgstr "Berkas ZIP anda masih BELUM dibuat"
+
+#: administrator/components/com_easycreator/controllers/ziper.php:137
+msgid "Your ZIPfile has been created sucessfully"
+msgstr "Berkas ZIP anda telah berhasil dibuat"
+
+#: administrator/components/com_easycreator/controllers/ziper.php:140
+msgid "Downloads"
+msgstr ""
+
+#: administrator/components/com_easycreator/controllers/ziper.php:153
+msgid "No download available"
+msgstr "Unduhan tidak tersedia"
+
+#: administrator/components/com_easycreator/controllers/ziper.php:163
+#: administrator/components/com_easycreator/helpers/logger.php:325
+msgid "Log File"
+msgstr "Berkas Log"
+
+#: administrator/components/com_easycreator/easycreator.php:140
+#, php-format
+msgid ""
+"EasyCreator version %s is in testing stage with your Joomla! version %s"
+msgstr "EasyCreator versi %s berada dalam tahap percobaan pada Joomla! anda versi %s"
+
+#: administrator/components/com_easycreator/easycreator.php:153
+#, php-format
+msgid "EasyCreator version %s may not work well with your Joomla! version %s"
+msgstr "EasyCreator versi %s kemungkinan tidak bisa bekerja dengan baik pada Joomla! anda versi %s"
+
+#: administrator/components/com_easycreator/easycreator.php:190
+msgid ""
+"Please activate the MooTools Upgrade Plugin in Extensions->Plugin manager"
+msgstr "Silakan mengaktifkan Pengaya Upgrade Mootools dalam Estensions>Pengelola Pengaya"
+
+#: administrator/components/com_easycreator/helpers/debugger.php:80
+msgid "JDump not found"
+msgstr "JDump tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/debugger.php:175
+msgid "DebugTools not found"
+msgstr "DebugTools tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/debugger.php:202
+msgid "No debugger set"
+msgstr "Tidak ada debuger yang diatur"
+
+#: administrator/components/com_easycreator/helpers/deployer/deployer.php:181
+msgid "No synchronization list found - Please synchronize with your remote"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:20
+#: administrator/components/com_easycreator/helpers/deployer/type/github.php:24
+msgid "Obtaining download list ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:53
+#, php-format
+msgid "Upload directory: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:59
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:87
+#: administrator/components/com_easycreator/helpers/deployer/type/github.php:51
+#, php-format
+msgid "Uploading %s ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:62
+msgid "Download directory not found on server"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:106
+#, php-format
+msgid "Created directory: %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:123
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:166
+#, php-format
+msgid "Deleting %s ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:211
+#, php-format
+msgid "Scanning %s ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:258
+#: administrator/components/com_easycreator/helpers/deployer/type/github.php:106
+#, php-format
+msgid "Connecting to %s ..."
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/deployer/type/ftp.php:264
+msgid "Unable to connect to FTP server"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/easycreator.php:45
+#, php-format
+msgid "Controller %s not found"
+msgstr "Controller %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/easycreator.php:59
+#, php-format
+msgid "Controller class %s not found"
+msgstr "Class controller %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/file.php:30
+msgid "Empty values in save"
+msgstr "Nilai kosong dalam penyimpanan"
+
+#: administrator/components/com_easycreator/helpers/file.php:33
+msgid "Empty content"
+msgstr "Konten kosong"
+
+#: administrator/components/com_easycreator/helpers/file.php:41
+msgid "The file must exist for save"
+msgstr "Berkas harus ada untuk disimpan"
+
+#: administrator/components/com_easycreator/helpers/file.php:44
+#, php-format
+msgid "The file %s could NOT be saved at PATH: %s"
+msgstr "Berkas %s TIDAK BISA disimpan pada PATH: %s"
+
+#: administrator/components/com_easycreator/helpers/file.php:85
+#, php-format
+msgid "Unable to copy file %s"
+msgstr "Tidak bisa menyalin berkas %s"
+
+#: administrator/components/com_easycreator/helpers/file.php:109
+msgid "The file does not exist"
+msgstr "Berkas tidak ada"
+
+#: administrator/components/com_easycreator/helpers/file.php:112
+#, php-format
+msgid "The file %s could not be deleted at path: %s"
+msgstr "Berkas %s tidak bisa dihapus pada path: %s"
+
+#: administrator/components/com_easycreator/helpers/g11nhelper.php:136
+msgid "The language file has been created<br />"
+msgstr "Berkas bahasa telah dibuat<br />"
+
+#: administrator/components/com_easycreator/helpers/g11nhelper.php:142
+msgid "Updating language file..."
+msgstr "Memperbarui berkas bahasa..."
+
+#: administrator/components/com_easycreator/helpers/g11nhelper.php:195
+msgid "Can not create the language template folder"
+msgstr "Tidak bisa membuat folder templat bahasa"
+
+#: administrator/components/com_easycreator/helpers/g11nhelper.php:252
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:66
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:14
+msgid "No files found"
+msgstr "Tidak menenukan berkas"
+
+#: administrator/components/com_easycreator/helpers/html.php:218
+#: administrator/components/com_easycreator/helpers/html.php:232
+msgid "Select a file"
+msgstr "Pilih berkas"
+
+#: administrator/components/com_easycreator/helpers/html.php:230
+#: administrator/components/com_easycreator/helpers/html/button.php:79
+#: administrator/components/com_easycreator/helpers/html/button.php:94
+#: administrator/components/com_easycreator/views/config/tmpl/default.php:19
+#: administrator/components/com_easycreator/views/config/tmpl/default_15.php:21
+#: administrator/components/com_easycreator/views/config/tmpl/default_15.php:22
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_updatefiles.php:20
+#: administrator/components/com_easycreator/views/languages/view.html.php:953
+#: administrator/components/com_easycreator/views/languages/view.html.php:962
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:74
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:72
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:171
+msgid "Save"
+msgstr "Simpan"
+
+#: administrator/components/com_easycreator/helpers/html/button.php:30
+#: administrator/components/com_easycreator/helpers/language.php:1043
+msgid "Create language file"
+msgstr "Membuat berkas bahasa"
+
+#: administrator/components/com_easycreator/helpers/html/button.php:52
+msgid "Found a BOM in languagefile"
+msgstr "Ditemukan BOM pada berkas bahasa"
+
+#: administrator/components/com_easycreator/helpers/html/button.php:59
+msgid "Create class list file"
+msgstr "Membuat daftar berkas class"
+
+#: administrator/components/com_easycreator/helpers/html/check.php:29
+msgid "Save versioned"
+msgstr "Menyimpan versi"
+
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:51
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_archive.php:51
+#: administrator/components/com_easycreator/views/languages/view.html.php:364
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:33
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:51
+msgid "File"
+msgstr "Berkas"
+
+#: administrator/components/com_easycreator/helpers/html/contextmenu.php:70
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:26
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:19
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:28
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:47
+msgid "Folder"
+msgstr "Folder"
+
+#: administrator/components/com_easycreator/helpers/html/debug.php:42
+msgid "Log console"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:53
+#: administrator/components/com_easycreator/helpers/html/select.php:55
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:34
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:34
+msgid "Project"
+msgstr "Proyek"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:61
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:21
+msgid "Languages"
+msgstr "Bahasa"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:68
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:52
+msgid "CodeEye"
+msgstr "CodeEye"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:80
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:64
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_archive.php:50
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_ftp.php:25
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_github.php:25
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:62
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:16
+msgid "Deploy"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:93
+msgid "Configuration"
+msgstr "Konfigurasi"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:98
+#: administrator/components/com_easycreator/helpers/project/type/template.php:46
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:369
+#: administrator/components/com_easycreator/views/templates/view.html.php:141
+msgid "Templates"
+msgstr "Template"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:103
+#: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:25
+msgid "Logfiles"
+msgstr "Logfiles"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:108
+#: administrator/components/com_easycreator/views/help/tmpl/default.php:16
+msgid "Help"
+msgstr "Bantuan"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:113
+msgid "Sandbox"
+msgstr "Sandbox"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:139
+msgid "J! API"
+msgstr "J! API"
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:191
+#: administrator/components/com_easycreator/helpers/html/menu.php:196
+msgid "More..."
+msgstr "Lebih..."
+
+#: administrator/components/com_easycreator/helpers/html/menu.php:191
+msgid "Click for more options"
+msgstr "Klik untuk opsi lebih"
+
+#: administrator/components/com_easycreator/helpers/html/options.php:23
+msgid "Log file contents"
+msgstr "Konten berkas log"
+
+#: administrator/components/com_easycreator/helpers/html/options.php:24
+msgid "Profile"
+msgstr "Profil"
+
+#: administrator/components/com_easycreator/helpers/html/options.php:38
+msgid "Activate logging"
+msgstr "Aktifkan log"
+
+#: administrator/components/com_easycreator/helpers/html/options.php:144
+msgid "Please set a compression type"
+msgstr "Harap mengatur tipe kompresi"
+
+#: administrator/components/com_easycreator/helpers/html/options.php:146
+msgid "You can set a default compression type in configuration"
+msgstr "Anda bisa mengatur kompresi tipe standar dalam konfigurasi"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:59
+msgid "New Project"
+msgstr "Proyek Baru"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:63
+msgid "Register Project"
+msgstr "Daftarkan Proyek"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:106
+#: administrator/components/com_easycreator/helpers/html/select.php:112
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:21
+#: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:20
+#: administrator/components/com_easycreator/views/languages/view.html.php:852
+msgid "Scope"
+msgstr "Cakupan"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:115
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:83
+#: administrator/components/com_easycreator/views/languages/view.html.php:366
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:377
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:288
+msgid "Select"
+msgstr "Pilih"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:116
+#: administrator/components/com_easycreator/helpers/table/helper.php:35
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:25
+msgid "Admin"
+msgstr "Admin"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:117
+#: administrator/components/com_easycreator/helpers/table/helper.php:41
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:25
+msgid "Site"
+msgstr "Situs"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:136
+#: administrator/components/com_easycreator/helpers/html/wizard.php:44
+#: administrator/components/com_easycreator/helpers/table/helper.php:376
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:43
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:27
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:20
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:36
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:55
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:34
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:53
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:57
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:29
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:48
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:251
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:283
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:397
+msgid "Name"
+msgstr "Nama"
+
+#: administrator/components/com_easycreator/helpers/html/select.php:200
+msgid "No"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html/select.php:201
+msgid "Yes"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:28
+msgid "Your extension so far"
+msgstr "Ekstensi anda selama ini"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:31
+#: administrator/components/com_easycreator/helpers/table/helper.php:378
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:119
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:353
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:42
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:18
+msgid "Type"
+msgstr "Tipe"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:32
+#: administrator/components/com_easycreator/helpers/project/type/template.php:36
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:24
+#: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:23
+msgid "Template"
+msgstr "Template"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:33
+msgid "JVersion"
+msgstr "JVersion"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:46
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:58
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:94
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:63
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:89
+msgid "Description"
+msgstr "Deskripsi"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:50
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:143
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:20
+msgid "Author"
+msgstr "Penulis"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:51
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:93
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:25
+msgid "Author e-mail"
+msgstr "E-mail penulis"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:52
+msgid "Author URL"
+msgstr "URL penulis"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:53
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:107
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:35
+msgid "License"
+msgstr "isensi"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:54
+msgid "Copyright (C)"
+msgstr "Copyright (C)"
+
+#: administrator/components/com_easycreator/helpers/html/wizard.php:56
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:72
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_autocode.php:17
+msgid "List postfix"
+msgstr "Daftar postfix"
+
+#: administrator/components/com_easycreator/helpers/jmethodlister.php:536
+msgid "Path is not a folder"
+msgstr "Path bukan folder"
+
+#: administrator/components/com_easycreator/helpers/krumo_0_2/krumo.php:95
+msgid "Backtrace"
+msgstr "Backtrace"
+
+#: administrator/components/com_easycreator/helpers/language.php:152
+#, php-format
+msgid "The file %s could not be found"
+msgstr "Berkas %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/language.php:305
+#: administrator/components/com_easycreator/helpers/language.php:318
+#, php-format
+msgid "Version No. %s"
+msgstr "Versi No. %s"
+
+#: administrator/components/com_easycreator/helpers/language.php:306
+#: administrator/components/com_easycreator/helpers/language.php:317
+msgid "Actual file"
+msgstr "Berkas sebenarnya"
+
+#: administrator/components/com_easycreator/helpers/language.php:467
+#: administrator/components/com_easycreator/helpers/language.php:610
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:158
+#, php-format
+msgid "Unable to write file %s"
+msgstr "Tidak bisa write berkas %s"
+
+#: administrator/components/com_easycreator/helpers/language.php:494
+#, php-format
+msgid "Unable to parse file %s"
+msgstr "Tidak bisa memilah berkas %s"
+
+#: administrator/components/com_easycreator/helpers/language.php:539
+#, php-format
+msgid "Unable to save backup version for file %s"
+msgstr "Tidak bisa menyimpan versi backup pada berkas %s"
+
+#: administrator/components/com_easycreator/helpers/language.php:544
+#: administrator/components/com_easycreator/helpers/language.php:1508
+#, php-format
+msgid "Unable to write the file %s"
+msgstr "Tidak bisa write pada berkas %s"
+
+#: administrator/components/com_easycreator/helpers/language.php:594
+#, php-format
+msgid "Key not found: %s"
+msgstr "Kunci tidak ditemukan: %s"
+
+#: administrator/components/com_easycreator/helpers/language.php:602
+msgid "Can not save version"
+msgstr "Tidak bisa menyimpan versi"
+
+#: administrator/components/com_easycreator/helpers/language.php:716
+#: administrator/components/com_easycreator/helpers/project/reflection.php:629
+#, php-format
+msgid "File %s not found"
+msgstr "Berkas %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/language.php:777
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:30
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:99
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:28
+msgid "KEY"
+msgstr "KUNCI"
+
+#: administrator/components/com_easycreator/helpers/language.php:788
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:42
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:100
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:38
+msgid "Used in File"
+msgstr "Digunakan dalam berkas"
+
+#: administrator/components/com_easycreator/helpers/language.php:808
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:59
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:55
+msgid "Language files analysis"
+msgstr "Analisa berkas bahasa"
+
+#: administrator/components/com_easycreator/helpers/language.php:810
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:71
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:68
+#, php-format
+msgid "Treat the first %s lines as comment"
+msgstr "Perlakukan %s yang pertama sebagai komentar"
+
+#: administrator/components/com_easycreator/helpers/language.php:825
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:77
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:74
+msgid "Fold"
+msgstr "Fold"
+
+#: administrator/components/com_easycreator/helpers/language.php:924
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:175
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:188
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:208
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:174
+msgid "Click to translate"
+msgstr "Klik untuk menterjemahkan"
+
+#: administrator/components/com_easycreator/helpers/language.php:971
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:225
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:224
+msgid "PATH"
+msgstr "PATH"
+
+#: administrator/components/com_easycreator/helpers/language.php:980
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:234
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:233
+msgid "NOT USED"
+msgstr "TAK DIGUNAKAN"
+
+#: administrator/components/com_easycreator/helpers/language.php:1492
+msgid "No language given"
+msgstr "Tidak ada bahasa yang diberikan"
+
+#: administrator/components/com_easycreator/helpers/language.php:1505
+#, php-format
+msgid "The file %s already exists"
+msgstr "Berkas %s sudah ada"
+
+#: administrator/components/com_easycreator/helpers/languageconverter.php:52
+msgid "Invalid options for lanuage converter"
+msgstr "Opsi tak-valid untuk Pengkonversi bahasa"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:117
+#: administrator/components/com_easycreator/helpers/languagehelper.php:123
+msgid "Not checked"
+msgstr "Tidak dicentang"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:141
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:71
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:97
+msgid "Found"
+msgstr "Ketemu"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:156
+msgid "Not checked for UTF-8"
+msgstr "Tidak dicentang pada UTF-8"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:160
+msgid "UTF-8"
+msgstr "UTF-8"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:165
+msgid "File is not UTF-8 encoded"
+msgstr "Berkas bukan UTF-8"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:173
+msgid "Not checked for BOM"
+msgstr "Tidak dicentang pada BOM"
+
+#: administrator/components/com_easycreator/helpers/languagehelper.php:182
+msgid "No BOM"
+msgstr "Bukan BOM"
+
+#: administrator/components/com_easycreator/helpers/logger.php:181
+msgid "File Contents"
+msgstr "Konten Berkas"
+
+#: administrator/components/com_easycreator/helpers/logger.php:225
+#: administrator/components/com_easycreator/helpers/logger.php:241
+msgid "Error"
+msgstr "Kesalahan"
+
+#: administrator/components/com_easycreator/helpers/logger.php:230
+msgid "Query"
+msgstr "Permintaan"
+
+#: administrator/components/com_easycreator/helpers/logger.php:277
+#, php-format
+msgid "The file %s could not be written to path %s"
+msgstr "Berkas %s tidak bisa di-write pada path %s"
+
+#: administrator/components/com_easycreator/helpers/parameter/parameter_15.php:65
+msgid "No parameters for this item"
+msgstr "Tidak ada parameter pada item ini"
+
+#: administrator/components/com_easycreator/helpers/project/action/phpcs.php:42
+msgid "Coding Standard"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpcs.php:47
+msgid "Extensions"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpcs.php:52
+#: administrator/components/com_easycreator/helpers/project/action/phpunit.php:40
+msgid "Arguments"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpcs.php:57
+msgid "Ignore"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpcs.php:62
+msgid "Warning Threshold"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpcs.php:67
+#: administrator/components/com_easycreator/helpers/project/action/phpunit.php:50
+msgid "Error Threshold"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpunit.php:35
+msgid "File or directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/phpunit.php:45
+msgid "Failure Threshold"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/script.php:33
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:45
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:65
+msgid "Path"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/action/script.php:37
+msgid "Abort on failure"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/autocode.php:136
+#, php-format
+msgid "AutoCode %s not found"
+msgstr "Autocode %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/autocode.php:153
+#, php-format
+msgid "Match mismatch on %s"
+msgstr "Penyamaan pada %s"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:460
+msgid "Can not update EasyCreator manifest"
+msgstr "Tidak bisa meng-update menifestasi EasyCreator"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:467
+msgid "Can not update Joomla! manifest"
+msgstr "Tidak bisa update manifestasi Joomla!"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:474
+#: administrator/components/com_easycreator/helpers/project/base.php:493
+msgid "Can not update Admin menu"
+msgstr "Tidak bisa update menu Admin"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:600
+#, php-format
+msgid "Can not load xml file %s"
+msgstr "Tidak bisa memuat berkas xml %s"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:647
+#: administrator/components/com_easycreator/helpers/project/base.php:1347
+msgid "Unable to write file"
+msgstr "Tidak bisa write pada berkas"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:942
+msgid "Invalid project manifest"
+msgstr "Manifestasi Proyek tak-valid"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:1216
+msgid "Invalid Project"
+msgstr "Proyek Tak-valid"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:1233
+msgid "JInstaller: Unable to remove project"
+msgstr "JInstaller: Tidak bisa menyingkirkan proyek"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:1249
+#: administrator/components/com_easycreator/helpers/project/helper.php:248
+#, php-format
+msgid "File not found %s"
+msgstr "Berkas tidak ditemukan %s"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:1252
+#, php-format
+msgid "Unable to delete file at %s"
+msgstr "Tidak bisa menghapus berkas pada %s"
+
+#: administrator/components/com_easycreator/helpers/project/base.php:1325
+#, php-format
+msgid "Autocode key %s not found"
+msgstr "Autocode kunci %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:440
+#, php-format
+msgid "Can not write the file at %s"
+msgstr "Tidak bisa write pada berkas %s"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:625
+msgid "Path does not have a valid package"
+msgstr "Path tidak mempunyai paket yang valid"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:641
+#, php-format
+msgid "An error happened while installing your %s"
+msgstr "Kesalahan terjadi saat memasang %s anda"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:680
+#, php-format
+msgid "Required class %s not found"
+msgstr "Class %s yang diperlukan tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:696
+#: administrator/components/com_easycreator/helpers/project/builder.php:712
+#: administrator/components/com_easycreator/helpers/project/builder.php:722
+#, php-format
+msgid "Required method %s not found"
+msgstr "Metode %s yang diperlukan tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:702
+msgid "Custom options"
+msgstr "Opsi Sendiri"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:731
+#, php-format
+msgid "Action %s not defined"
+msgstr "Aksi %s belum ditentukan"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:772
+#: administrator/components/com_easycreator/helpers/project/builder.php:773
+#, php-format
+msgid "The project type %s is not defined yet"
+msgstr "Proyek tipe %s belum ditentukan"
+
+#: administrator/components/com_easycreator/helpers/project/builder.php:803
+#: administrator/components/com_easycreator/helpers/project/builder.php:805
+msgid "No manifest file found"
+msgstr "Berkas manifestasi tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:56
+msgid "Empty project name"
+msgstr "Nama proyek kosong"
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:80
+#: administrator/components/com_easycreator/helpers/project/helper.php:610
+#, php-format
+msgid "Project %s not found"
+msgstr "Proyek %s tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:183
+#, php-format
+msgid "Manifest not found for type: %s - name: %s"
+msgstr "Manifestasi tidak ditemukan untuk tipe: %s - nama: %s"
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:258
+#, php-format
+msgid "Invalid manifest file %s"
+msgstr "Berkas manifestasi %s tak-valid"
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:559
+msgid "Class not found"
+msgstr "Class tidak ditemukan"
+
+#: administrator/components/com_easycreator/helpers/project/helper.php:812
+msgid "Could not load XML file"
+msgstr "Tidak bisa memuat berkas XML"
+
+#: administrator/components/com_easycreator/helpers/project/manifest.php:957
+#: administrator/components/com_easycreator/helpers/project/manifest.php:1061
+#, php-format
+msgid "Unable to load the xml file %s"
+msgstr "Tidak bisa memuat berkas xml %s"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:412
+#: administrator/components/com_easycreator/helpers/project/matrix.php:459
+#: administrator/components/com_easycreator/helpers/project/matrix.php:526
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:43
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:112
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:19
+#: administrator/components/com_easycreator/views/deploy/view.html.php:77
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:162
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:132
+msgid "Files"
+msgstr "berkas-berkas"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:413
+#: administrator/components/com_easycreator/helpers/project/matrix.php:460
+#: administrator/components/com_easycreator/helpers/project/matrix.php:527
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:122
+msgid "Code lines"
+msgstr "Baris-baris kode"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:414
+#: administrator/components/com_easycreator/helpers/project/matrix.php:461
+#: administrator/components/com_easycreator/helpers/project/matrix.php:528
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:44
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:117
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:20
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_archive.php:53
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:44
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:35
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:53
+msgid "Size"
+msgstr "Ukuran"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:437
+#, php-format
+msgid "Code analysis %s"
+msgstr "Analisa kode %s"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:502
+#: administrator/components/com_easycreator/helpers/project/matrix.php:566
+msgid "code"
+msgstr "kode"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:503
+#: administrator/components/com_easycreator/helpers/project/matrix.php:567
+msgid "blanks"
+msgstr "Kosong"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:504
+#: administrator/components/com_easycreator/helpers/project/matrix.php:568
+msgid "comments"
+msgstr "Komentar"
+
+#: administrator/components/com_easycreator/helpers/project/matrix.php:508
+#: administrator/components/com_easycreator/helpers/project/matrix.php:572
+msgid "Comment to Code ratio"
+msgstr "Komentar untuk rasio Kode"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:138
+#, php-format
+msgid "Unable to copy the file %s to %s"
+msgstr "Tidak bisa menyalin berkas %s ke %s"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:165
+#, php-format
+msgid "Unable to create the folder %s"
+msgstr ""
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:171
+msgid "Error creating archive"
+msgstr "Kesalahan pembuatan arsip"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:189
+msgid "Unable to find install package"
+msgstr "Tidak bisa memasang paket"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:192
+msgid "This is not an EasyCreator Extension Template"
+msgstr "Ini bukan Template Ekstensi EasyCreator"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:205
+#, php-format
+msgid "The template %s is already installed"
+msgstr "Template %s sudah dipasang"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:218
+#, php-format
+msgid "Can not create folder %s"
+msgstr "Tidak bisa membuat folder %s"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:250
+msgid "No file selected"
+msgstr "Tidak ada berkas yang dipilih"
+
+#: administrator/components/com_easycreator/helpers/project/template/helper.php:254
+msgid "Invalid package"
+msgstr "Paket tak-valid"
+
+#: administrator/components/com_easycreator/helpers/project/template/info.php:53
+msgid "Edit"
+msgstr "Ubah"
+
+#: administrator/components/com_easycreator/helpers/project/template/info.php:57
+msgid "New"
+msgstr "Baru"
+
+#: administrator/components/com_easycreator/helpers/project/template/info.php:76
+#, php-format
+msgid "Undefined format: %s"
+msgstr "Format belum ditentukan: %s"
+
+#: administrator/components/com_easycreator/helpers/project/type/cliapp.php:39
+msgid "CLI Application"
+msgstr "Aplikasi CLI"
+
+#: administrator/components/com_easycreator/helpers/project/type/cliapp.php:48
+msgid "CLI Applications"
+msgstr "Aplikasi CLI"
+
+#: administrator/components/com_easycreator/helpers/project/type/cliapp.php:60
+#, php-format
+msgid "%d CLI Application"
+msgid_plural "%d CLI Applications"
+msgstr[0] "%d Aplikasi CLI"
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:38
+msgid "Component"
+msgstr "Komponen"
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:47
+msgid "Components"
+msgstr "Komponen-komponen"
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:59
+#, php-format
+msgid "%d Component"
+msgid_plural "%d Components"
+msgstr[0] "%d Komponen"
+
+#: administrator/components/com_easycreator/helpers/project/type/component.php:737
+msgid "There was a problem updating the admin menu"
+msgstr "Terjadi masalah memperbarui menu admin"
+
+#: administrator/components/com_easycreator/helpers/project/type/library.php:41
+msgid "Library"
+msgstr "Pustaka"
+
+#: administrator/components/com_easycreator/helpers/project/type/library.php:50
+msgid "Libraries"
+msgstr "Pustaka"
+
+#: administrator/components/com_easycreator/helpers/project/type/library.php:62
+#, php-format
+msgid "%d Library"
+msgid_plural "%d Libraries"
+msgstr[0] "%d Pustaka"
+
+#: administrator/components/com_easycreator/helpers/project/type/module.php:36
+msgid "Module"
+msgstr "Modul"
+
+#: administrator/components/com_easycreator/helpers/project/type/module.php:46
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:31
+msgid "Modules"
+msgstr "Modul-modul"
+
+#: administrator/components/com_easycreator/helpers/project/type/module.php:58
+#, php-format
+msgid "%d Module"
+msgid_plural "%d Modules"
+msgstr[0] "%d Modul"
+
+#: administrator/components/com_easycreator/helpers/project/type/package.php:54
+msgid "Packages"
+msgstr "Paket"
+
+#: administrator/components/com_easycreator/helpers/project/type/package.php:66
+#, php-format
+msgid "%d Package"
+msgid_plural "%d Packages"
+msgstr[0] "%d Paket"
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:38
+msgid "Plugin"
+msgstr "Pengaya"
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:54
+msgid "Plugins"
+msgstr "Pengaya-pengaya"
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:59
+#, php-format
+msgid "%d Plugin"
+msgid_plural "%d Plugins"
+msgstr[0] "%d Pengaya"
+
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:384
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:420
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:455
+#: administrator/components/com_easycreator/helpers/project/type/plugin.php:499
+#, php-format
+msgid "%s - Unknown scope: %s"
+msgstr "%s - Cakupan tidak diketahui: %s"
+
+#: administrator/components/com_easycreator/helpers/project/type/template.php:58
+#, php-format
+msgid "%d Template"
+msgid_plural "%d Templates"
+msgstr[0] "%d Template"
+
+#: administrator/components/com_easycreator/helpers/project/type/webapp.php:39
+msgid "Web Application"
+msgstr "Aplikasi web"
+
+#: administrator/components/com_easycreator/helpers/project/type/webapp.php:48
+msgid "Web Applications"
+msgstr "Aplikasi web"
+
+#: administrator/components/com_easycreator/helpers/project/type/webapp.php:60
+#, php-format
+msgid "%d Web Application"
+msgid_plural "%d Web Applications"
+msgstr[0] "%d Aplikasi web"
+
+#: administrator/components/com_easycreator/helpers/project/ziper.php:1023
+#: administrator/components/com_easycreator/templates/std/md5check.po.php:40
+#, php-format
+msgid "File not found: %s"
+msgstr "Berkas tidak ditemukan: %s"
+
+#: administrator/components/com_easycreator/helpers/project/ziper.php:1058
+#, php-format
+msgid "Failed to copy file %s to %s"
+msgstr "Gagal menyalin berkas %s ke %s"
+
+#: administrator/components/com_easycreator/helpers/project/ziper.php:1273
+msgid "The extension \"bz2\" couldn't be found."
+msgstr "Ekstensi \"bz2\" tidak bisa ditemukan."
+
+#: administrator/components/com_easycreator/helpers/project/ziper.php:1275
+msgid "Please make sure your version of PHP was built with bz2 support."
+msgstr "Harap memastikan bahwa versi PHP anda dibangun dengan dukungan bz2."
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:372
+msgid "Add row"
+msgstr "Tambah baris"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:377
+#: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:82
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:148
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:82
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:88
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:142
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:89
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:84
+msgid "Label"
+msgstr "Label"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:379
+msgid "Length/Set"
+msgstr "Panjang/Atur"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:380
+msgid "Attributes"
+msgstr "Atribut"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:381
+msgid "Null"
+msgstr "Nol"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:382
+msgid "Default"
+msgstr "Standar"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:383
+msgid "Extra"
+msgstr "Ekstra"
+
+#: administrator/components/com_easycreator/helpers/table/helper.php:384
+msgid "Comment"
+msgstr "Komentar"
+
+#: administrator/components/com_easycreator/includes/loader.php:34
+#, php-format
+msgid "Helper file not found : %s"
+msgstr "Berkas Helper tidak ditemukan: %s"
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:74
+msgid "Install manifest not found"
+msgstr "Manifestasi pemasangan tidak ditemukan"
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:103
+msgid "EasyCreator is a developer tool."
+msgstr "EasyCreator adalah peralatan pengembangan."
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:104
+msgid ""
+"It tries to speed up the developing process of custom Joomla! extensions."
+msgstr "Yang mencoba untuk mempercepat proses mengembangkan sendiri ekstensi Joomla!."
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:105
+msgid ""
+"You can create a \"frame\" for your extension and an installable zip package"
+" with just a few \"clicks\""
+msgstr "Anda bisa membuat \"frame\" untuk ekstensi anda dan paket zip untuk pemasangan hanya dengan beberapa \"klik\" saja."
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:108
+#, php-format
+msgid "The %s Team."
+msgstr "Tim %s."
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:114
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:58
+msgid "Please use this extension only in local development environments."
+msgstr "Harap menggunakan ekstensi ini hanya pada lingkungan pengembangan lokal."
+
+#: administrator/components/com_easycreator/install/install.easycreator.php:117
+#, php-format
+msgid ""
+"See: <a %s>docs.joomla.org/Setting up your workstation for Joomla! "
+"development</a>"
+msgstr "Lihat: <a %s>docs.joomla.org/Setting up your workstation for Joomla! development</a>"
+
+#: administrator/components/com_easycreator/models/config.php:43
+msgid "Unable to load the config form"
+msgstr "Tidak bisa memuat formulir konfigurasi"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:61
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:69
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:88
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:130
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:61
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:61
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:63
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:82
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:124
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:62
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:61
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:58
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:78
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:99
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:140
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:108
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:274
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:91
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:141
+msgid "Table"
+msgstr "Tabel"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:81
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:147
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:81
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:87
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:150
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:141
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:88
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:151
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:83
+msgid "Field"
+msgstr "Ruang"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:83
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewform/table/autocode.php:83
+msgid "Input type"
+msgstr "Tipe masukan"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:71
+#: administrator/components/com_easycreator/templates/autocodes/site/tableclass/classvar/autocode.php:65
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:60
+#: administrator/components/com_easycreator/views/languages/view.html.php:1052
+msgid "Choose"
+msgstr "Pilih"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:89
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:90
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:85
+msgid "Display"
+msgstr "Tampilan"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:90
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:91
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:86
+msgid "Width"
+msgstr "Lebar"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:121
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:122
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:117
+msgid "On"
+msgstr "Nyala"
+
+#: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:123
+#: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:124
+#: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:119
+msgid "Off"
+msgstr "Padam"
+
+#: administrator/components/com_easycreator/templates/component/mvc_5/options.php:38
+#: administrator/components/com_easycreator/templates/component/mvc_9/options.php:40
+#: administrator/components/com_easycreator/templates/component/mvc_9_16/options.php:67
+msgid "User defined table fields"
+msgstr "Ruang tabel didefinisikan pengguna"
+
+#: administrator/components/com_easycreator/templates/component/mvc_5/options.php:41
+#: administrator/components/com_easycreator/templates/component/mvc_9/options.php:42
+#: administrator/components/com_easycreator/templates/component/mvc_9_16/options.php:69
+#, php-format
+msgid ""
+"Please define the fields for the table %s that will be created for your "
+"component."
+msgstr "Harap mendefinisikan ruang untuk table %s yang akan dibuat pada komponen anda."
+
+#: administrator/components/com_easycreator/templates/component/mvc_9_16/options.php:64
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_dbtypes.php:12
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_database.php:9
+msgid "Database support"
+msgstr "Dukungan basisdata"
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:73
+#, php-format
+msgid "Existing libraries: %s"
+msgstr "Pustaka yang ada: %s"
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:75
+#: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:28
+msgid "Folder name"
+msgstr "Nama folder"
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:105
+#: administrator/components/com_easycreator/templates/plugin/custom_folder/options.php:56
+msgid "No folder given"
+msgstr "Tidak ada folder yang diberikan"
+
+#: administrator/components/com_easycreator/templates/library/custom/options.php:113
+#, php-format
+msgid "%s is a reserved name"
+msgstr "%s nama dicadangkan"
+
+#: administrator/components/com_easycreator/templates/parts/controllers/data/part.php:35
+msgid "Provides methods to modify data with a specific model"
+msgstr "Sediakan metode untuk modifikasi data dengan model tertentu"
+
+#: administrator/components/com_easycreator/templates/parts/controllers/simple/part.php:31
+msgid "A simple, empty, controller"
+msgstr "Simple, kosong, pengendali"
+
+#: administrator/components/com_easycreator/templates/parts/models/form/part.php:31
+#: administrator/components/com_easycreator/templates/parts/models/list/part.php:31
+#: administrator/components/com_easycreator/templates/parts/models/simple/part.php:30
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:76
+msgid "A simple, empty, model"
+msgstr "Simple, kosong, model"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:34
+msgid "This will create a new table with admin interface"
+msgstr "Ini akan membuat tabel baru dengan tampilan admin"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:47
+msgid "Include Fields"
+msgstr "Masukkan Bidang"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:50
+msgid "Id"
+msgstr "Id"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:54
+msgid "Title"
+msgstr "Judul"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:62
+msgid "Published"
+msgstr "Diterbitkan"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:66
+msgid "Ordering"
+msgstr "Mengurut"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:35
+msgid ""
+"This will map an existing table and create an admin interface and menu link"
+msgstr "Ini akan memetakan tabel yang ada dan membuat tampilan admin dan tautan menu"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:75
+msgid "Menu link"
+msgstr "Tautan menu"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:79
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:117
+msgid "Create a menu link"
+msgstr "Buat tautan menu"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:111
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:346
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:336
+msgid "No table fields found"
+msgstr "Tidak ada ruang tabel yang ditemukan"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:117
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:352
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:340
+msgid "Include"
+msgstr "Termasuk"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:118
+msgid "Editable"
+msgstr "Bisa diubah"
+
+#: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:317
+msgid "Unable to create menu link"
+msgstr "Tidak bisa membuat tautan menu"
+
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:56
+msgid "This will map an existing table to a table class"
+msgstr "Ini akan memetakan tabel yang ada pada class tabel"
+
+#: administrator/components/com_easycreator/templates/parts/tables/simple/part.php:80
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:110
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:93
+msgid "Choose..."
+msgstr "Pilih..."
+
+#: administrator/components/com_easycreator/templates/parts/various/changelog/part.php:30
+msgid "A standard, empty, Changelog"
+msgstr "Standar, kosong, Changelog"
+
+#: administrator/components/com_easycreator/templates/parts/various/changelog/part.php:47
+msgid "This project already has a changelog"
+msgstr "Proyek ini sudah mempunyai changelog"
+
+#: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:29
+msgid "Common install Script"
+msgstr "Skrip pemasangan umum"
+
+#: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:30
+msgid ""
+"Script containing functions to execute during install, update and uninstall"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:47
+msgid "Install scripts are available for Joomla! 1.6 + projects only"
+msgstr ""
+
+#: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:57
+#: administrator/components/com_easycreator/templates/parts/various/package_installer/part.php:51
+msgid "This project already has an install file - consider removing it"
+msgstr "Proyek ini sudah mempunyai berkas pemasangan - pertimbangkan untuk menyingkirkannya"
+
+#: administrator/components/com_easycreator/templates/parts/various/package_installer/part.php:30
+msgid "Install and Uninstall routine for packages"
+msgstr "Pasang dan Cabut rutinitas paket"
+
+#: administrator/components/com_easycreator/templates/parts/views/data_form/part.php:300
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:177
+msgid "View not found"
+msgstr "View tidak ditemukan"
+
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:59
+msgid "Lists Data from a specific table."
+msgstr "Daftar Data dari table tertentu."
+
+#: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:113
+msgid "Menu link:"
+msgstr "Tautan menu:"
+
+#: administrator/components/com_easycreator/templates/parts/views/simple/part.php:33
+msgid "A simple, empty, view"
+msgstr "Sederhana, kosong, tampilan"
+
+#: administrator/components/com_easycreator/templates/std/md5check.po.php:49
+#: administrator/components/com_easycreator/templates/std/md5check_compressed.po.php:61
+#, php-format
+msgid "MD5 check failed on file: %s"
+msgstr "Pemeriksaan MD5 gagal pada berkas: %s"
+
+#: administrator/components/com_easycreator/templates/std/md5check_call.po.php:18
+msgid "Checking MD5 sums..."
+msgstr "Memeriksa sum MD5..."
+
+#: administrator/components/com_easycreator/templates/std/md5check_call.po.php:22
+#, php-format
+msgid "%d files checked..."
+msgstr "%d berkas diperiksa..."
+
+#: administrator/components/com_easycreator/templates/std/md5check_call.po.php:28
+msgid "There have been errors"
+msgstr "Disana terdapat kesalahan"
+
+#: administrator/components/com_easycreator/templates/std/md5check_call.po.php:37
+msgid "OK"
+msgstr "OK"
+
+#: administrator/components/com_easycreator/templates/webapp/mvc_1/options.php:27
+msgid "Class prefix"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:20
+msgid "First Things First"
+msgstr "Utamakan yang pertama"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:25
+msgid "Check your environment"
+msgstr "Periksa lingkungan anda"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/default.php:29
+#: administrator/components/com_easycreator/views/codeeye/tmpl/git.php:20
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:51
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:117
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:83
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phploc.php:34
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:74
+#: administrator/components/com_easycreator/views/codeeye/tmpl/runcli.php:32
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:74
+msgid "Console"
+msgstr "Konsol"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/git.php:16
+msgid "git status"
+msgstr "status git"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/git.php:19
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcpd.php:50
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:116
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:82
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phploc.php:30
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:73
+#: administrator/components/com_easycreator/views/codeeye/tmpl/runcli.php:31
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:73
+msgid "Output"
+msgstr "Keluaran"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:36
+msgid "Sniff folder"
+msgstr "Folder sniff"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpcs.php:85
+msgid "Perform only"
+msgstr "Hanya melakukan"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:59
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:53
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:53
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:47
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:14
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:39
+msgid "Options"
+msgstr "Opsi"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:75
+msgid "Generate documentation"
+msgstr "Hasilkan dokumentasi"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:36
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:36
+msgid "Click a file to create a skeleton class."
+msgstr "Klik berkas untuk membuat tulang class"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:42
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:42
+msgid "Tests"
+msgstr "Pengetesan"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:44
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:44
+msgid "Click a to execute a UnitTest."
+msgstr "Klik untuk mengeksekusi UnitTest"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:56
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:56
+msgid "Show results"
+msgstr "Lihat hasil"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/phpunit.php:60
+#: administrator/components/com_easycreator/views/codeeye/tmpl/selenium.php:60
+msgid "Show console output"
+msgstr "Lihat keluaran konsol"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:79
+msgid "Please click to"
+msgstr "Harap klik pada"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:80
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:93
+#, php-format
+msgid "Reflect the %s project"
+msgstr "Reflek proyek %s"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:81
+msgid "Or click on an individual file on the left side"
+msgstr "Atau klik pada berkas tersendiri pada sisi kiri"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:253
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:326
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:736
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:45
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:21
+msgid "Lines"
+msgstr "Barisan"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:255
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:329
+msgid "View Source"
+msgstr "Lihat Sumber"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:560
+msgid "Properties"
+msgstr "Properti-properti"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:622
+msgid "Methods"
+msgstr "Metode"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:742
+msgid "Source code"
+msgstr "Kode sumber"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/runcli.php:15
+msgid "Run a CLI application"
+msgstr "Jalankan aplikasi CLI"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/runcli.php:26
+msgid "Execute"
+msgstr "Eksekusi"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/runwap.php:11
+msgid "Run a Web application"
+msgstr "Jalankan aplikasi Web"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:46
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:22
+msgid "Code"
+msgstr "Kode"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:47
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:23
+msgid "Comments"
+msgstr "Komentar"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:48
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:24
+msgid "Blanks"
+msgstr "Kosong"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:102
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:78
+msgid "Images"
+msgstr "Gambar"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:120
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:96
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:71
+msgid "Color scheme"
+msgstr "Skema warna"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:97
+msgid "Generate statistics"
+msgstr "Menghasilkan statistik"
+
+#: administrator/components/com_easycreator/views/codeeye/tmpl/stats2.php:105
+#, php-format
+msgid "Extension %s Code statistics"
+msgstr "Statistik Kode Ekstensi %s"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:260
+msgid "Copy bootstrap.php to Joomla root"
+msgstr "Salin bootstrap.php ke root Joomla"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:262
+msgid "Bootstrap file not found"
+msgstr "Berkas bootstrap tidak ditemukan"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:273
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:318
+msgid "Create Test directory"
+msgstr "Buat Direktori Test"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:275
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:320
+msgid "No tests defined yet"
+msgstr "Belum ada tes yang ditentukan"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:285
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:330
+#, php-format
+msgid "Unit tests for %s not available yet"
+msgstr "Tes unit %s belum tersedia"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:343
+msgid "CodeSniffer"
+msgstr "CodeSniffer"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:344
+msgid "Use CodeSniffer to assure coding standards."
+msgstr "Gunakan CodeSniffer memastikan standar pengkodean."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:348
+msgid "Duplicated Code"
+msgstr "Kode Salinan"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:349
+msgid "Searches your code for duplicates."
+msgstr "Mencari kode anda untuk duplikasi/penyalinan."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:353
+msgid "PHPUnit Tests"
+msgstr "Pengetesan PHPUnit"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:354
+msgid "Generates and executes PHPUnit Tests."
+msgstr "Hasilkan dan melaksanakan pengetesan PHPUnit."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:358
+msgid "Selenium Tests"
+msgstr "Pengetesan Selenium"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:359
+msgid "Generates and executes Selenium Tests."
+msgstr "Hasilkan dan melaksanakan Pengetesan Selenium."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:363
+msgid "PHPDocumentor"
+msgstr "PHPDocumentor"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:364
+msgid "Create automatic documentation for your project with PHPDocumentor."
+msgstr "Buat dokumentasi otomatis untuk proyek anda dengan PHPDocumentor."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:368
+msgid "PHPLOC"
+msgstr "PHPLOC"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:369
+msgid "Count the lines of code you have written."
+msgstr "Hitung barisan kode yang telah anda tulis."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:373
+msgid "Statistics"
+msgstr "Statistik"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:374
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:379
+msgid "Shows some statistics about your project."
+msgstr "Menampilkan beberapa statistik mengenai proyek anda."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:378
+msgid "Statistics2"
+msgstr "Statistik2"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:383
+msgid "Reflection"
+msgstr "Refleksi"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:384
+msgid "Displays information about your project (experimental)."
+msgstr "Menampilkan informasi mengenai proyek anda (eksperimen)."
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:399
+msgid "CLI Runner"
+msgstr "Pesuruh CLI"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:400
+msgid "Runs a CLI Application"
+msgstr "Jalankan aplikasi CLI"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:408
+msgid "Web Runner"
+msgstr "Pesuruh Web"
+
+#: administrator/components/com_easycreator/views/codeeye/view.html.php:409
+msgid "Runs a Web Application"
+msgstr "Jalannkan Aplikasi Web"
+
+#: administrator/components/com_easycreator/views/config/tmpl/default.php:26
+#: administrator/components/com_easycreator/views/config/tmpl/default_15.php:31
+#, php-format
+msgid "%s Configuration"
+msgstr "%s Konfigurasi"
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:14
+#: administrator/components/com_easycreator/views/languages/view.html.php:1011
+msgid "Status"
+msgstr "Status"
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:20
+msgid "Check all"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:25
+msgid "Check all new"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:30
+msgid "Check all modified"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:35
+msgid "Check all deleted"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:40
+msgid "Uncheck all"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:56
+msgid "Synchronize remote"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default.php:60
+msgid "Reload local"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftp.php:12
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_ftp.php:12
+msgid "FTP"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:17
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:16
+msgid "Credentials"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:19
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:27
+msgid "Server"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:22
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:31
+msgid "Port"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:25
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:35
+msgid "Base Directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:28
+msgid "Downloads Directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:31
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:26
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:43
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:65
+msgid "User"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:34
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:29
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:47
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:69
+msgid "Password"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:18
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:57
+msgid "Repository Owner"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:22
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:61
+msgid "Repository"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package.php:13
+msgid "Source files"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package.php:17
+msgid "Files to deploy"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package.php:24
+msgid "Destination"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package.php:35
+msgid "Joomla! update"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_archive.php:19
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:19
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:19
+msgid "Archive is empty"
+msgstr "Arsip kosong"
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_archive.php:40
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:41
+msgid "No ZIP files found"
+msgstr "Tidak ditemukan berkas-berkas ZIP"
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_archive.php:52
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:34
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:52
+msgid "Modified"
+msgstr "Dimodifokasi"
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_ftp.php:29
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_github.php:29
+msgid "Manage"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_ftp.php:39
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_github.php:39
+msgid "Get List"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_github.php:12
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:55
+msgid "GitHub"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_updatefiles.php:12
+msgid "Update files"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/tmpl/package_updatefiles.php:19
+msgid "Add file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/view.html.php:78
+msgid "Deploys the project files to your server."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/deploy/view.html.php:83
+msgid "This deploys you package to a server."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:15
+msgid "Configuration settings"
+msgstr "Pengaturan konfigurasi"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:17
+#, php-format
+msgid "Please set your personal information in %s"
+msgstr "Harap mengatur informasi pribadi anda dalam %s"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default.php:25
+msgid "EasyCreator Information"
+msgstr "Informasi EasyCreator"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:34
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:16
+msgid "Credits"
+msgstr "Penghargaan"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:39
+msgid "Documentation"
+msgstr "Dokumentasi"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:44
+msgid "Forum"
+msgstr "Forum"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:50
+msgid "Bugtracker"
+msgstr "Bugtacker"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:56
+msgid "Feature requests"
+msgstr "Permintaan fitur"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:64
+msgid "Version check"
+msgstr "Periksa versi"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:70
+msgid "Git repository"
+msgstr "Gudang Git"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:75
+msgid "Recent commits"
+msgstr "Komit terbaru"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:80
+msgid "Help translating"
+msgstr "Bantu menterjemahkan"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:89
+msgid "Support EasyCreator by adding it to your stack at Ohloh"
+msgstr "Dukung EasyCreator dengan menambahkannya ke tumpukan anda pada Ohloh"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:24
+msgid "Registered Projects"
+msgstr "Proyek Terdaftar"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:42
+msgid "Configure"
+msgstr "Mengatur"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:79
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:55
+msgid "None found"
+msgstr "Tidak menemukan apa-apa"
+
+#: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:84
+msgid "Create your first project"
+msgstr "Buat proyek pertama anda"
+
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:46
+msgid "This extension is not compatible with MS internet explorer R"
+msgstr "Ekstensi ini tidak bisa digunakan dengan MS internet explorer R"
+
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:61
+#, php-format
+msgid ""
+"See: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! "
+"development</a>"
+msgstr "Lihat: <a href=\"%s\">docs.joomla.org/Setting up your workstation for Joomla! development</a>"
+
+#: administrator/components/com_easycreator/views/easycreator/view.html.php:64
+msgid ""
+"You may suppress this message in the configuration settings if you're shure"
+msgstr "Anda bisa menghilangkan pesan ini dalam pengaturan konfigurasi bila anda yakin"
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:70
+msgid "No local API copy specified. you may do this in configuration."
+msgstr "Tidak ada API lokal yang spesifik. Anda mungkin bisa melakukannya dalam konfigurasi"
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:100
+msgid "By Package"
+msgstr "Per Paket"
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:146
+msgid "By Name"
+msgstr "Per Nama"
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:191
+msgid "So many empty pages on the wiki ?"
+msgstr "Terlalu banyak halaman kosong pada wiki?"
+
+#: administrator/components/com_easycreator/views/help/tmpl/jhelp.php:218
+msgid "Joomla! constants"
+msgstr "Konstan Joomla!"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:30
+msgid "Show all PHP code"
+msgstr "Tampilkan semua kode PHP"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:31
+msgid "Convert quotes"
+msgstr "Konversi kutipan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:35
+msgid "Convert forbidden keys"
+msgstr "Konversi kunci terlarang"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:36
+msgid "Remove bad charcters"
+msgstr "Singkirkan karakter buruk"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:37
+msgid "Convert white space"
+msgstr "Sesuaikan dengan spasi"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:38
+msgid "Add prefix"
+msgstr "Tambah awalan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:39
+msgid "Convert to all caps"
+msgstr "Konversi semua ke huruf besar"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:42
+msgid "Convert to language file keys to the case of your code"
+msgstr "Konversi kunci berkas bahasa sesuai dengan kode anda."
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:61
+msgid "Convert code and language file"
+msgstr "Konversi kode dan berkas bahasa"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:67
+msgid "Convert language file"
+msgstr "Konversi berkas bahasa"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:81
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:158
+msgid "Original"
+msgstr "Asli"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:83
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:161
+#, php-format
+msgid "Fixed for %s"
+msgstr "Diperbaiki pada %s"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:153
+#, php-format
+msgid "Language file: %s"
+msgstr "Berkas bahasa: %s"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/convert.php:229
+msgid "No language files found in selected scope"
+msgstr "Tidak ada berkas yang ditemukan pada cskupan yang dipilih"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:103
+msgid "Cached"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:107
+msgid "Not cached"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:62
+#: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:84
+msgid "Update file"
+msgstr "Memperbarui berkas"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:65
+#: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:87
+msgid "Create file"
+msgstr "Membuat berkas"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:17
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:12
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:15
+msgid "No languages defined"
+msgstr "Tidak ada bahasa yang ditentukan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/languages.php:276
+#: administrator/components/com_easycreator/views/languages/tmpl/translations.php:268
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:126
+msgid "Translate"
+msgstr "Terjemahan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/orderdefault.php:85
+msgid "Add Comment"
+msgstr "Tambah komentar"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:15
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:18
+msgid "Please choose a language"
+msgstr "Silahkan pilih bahasa"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:26
+msgid "Default language"
+msgstr "Bahasa standar"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:29
+msgid "Translated language"
+msgstr "Terjemahan bahasa"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:32
+msgid "Corrected language"
+msgstr "Koreksi bahasa"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:46
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:94
+msgid "Key"
+msgstr "Kunci"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:47
+msgid "Value"
+msgstr "Nilai"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:40
+msgid "PHP XML file analysis"
+msgstr "Analisa berkas PHP XML"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:51
+msgid "PHP, XML and JavaScript file analysis"
+msgstr "Analisa berkas PHP, XML dan JavaScript"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:63
+msgid "Menu analysis"
+msgstr "Analisa menu"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:79
+msgid "Filter"
+msgstr "Penyaring"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:103
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:105
+msgid "Translated"
+msgstr "Diterjemahkan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:107
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:184
+msgid "Not translated"
+msgstr "Tak diterjemahkan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:111
+msgid "Translated in core"
+msgstr "Diterjemahkan dalam core"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:33
+msgid "Unable to translate without default translation"
+msgstr "Tidak dapat menterjemahkan tanpa terjemahan standarnya"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:34
+#, php-format
+msgid "Please translate %s first"
+msgstr "Silahkan menterjemahkan %s terlebih dahulu"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:122
+msgid "Translate [s]"
+msgstr "Terjemahan [s]"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:145
+msgid "Copy"
+msgstr "Salin"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/translator.php:151
+msgid "Google translate"
+msgstr "Google terjemahan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:14
+#: administrator/components/com_easycreator/views/languages/view.html.php:830
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:42
+msgid "Versions"
+msgstr "Versi"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:25
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:60
+msgid "No versions found"
+msgstr "Versi tidak ditemukan"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:45
+msgid "Date"
+msgstr "al"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:46
+msgid "Actions"
+msgstr "Aksi"
+
+#: administrator/components/com_easycreator/views/languages/tmpl/versions.php:58
+msgid "Show"
+msgstr "Penampilan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:393
+msgid "Errors"
+msgstr "Kesalahan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:394
+msgid "Please select the errors you wish to correct"
+msgstr "Silahkan memilih kesalahan yang ingin anda benarkan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:804
+msgid "Setup"
+msgstr "Setup"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:805
+msgid "Setup your language files"
+msgstr "Setup berkas-berkas bahasa anda"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:809
+msgid "Files and menus"
+msgstr "Berkas dan Menu"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:810
+msgid "Searches inside the source files and menus for translatable strings"
+msgstr "Mencari didalam berkas-berkas sumber dan menu-menu untuk strin-string yang bisa diterjemahkan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:814
+msgid "Translations"
+msgstr "Terjemahan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:816
+msgid ""
+"Manage translations in ini files and inspect your php / xml files for JText "
+"strings to translate."
+msgstr "Mengatur terjemahan dalam berkas-berkas ini dan periksa berkas-berkas php/xml untuk string-string JText agar diterjemahkan."
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:820
+msgid "Default file order"
+msgstr "Standar urutan berkas"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:821
+msgid ""
+"Change the order of your default language file and add comments to create a "
+"structure."
+msgstr "Ganti urutan standar bahasa anda dan tambahkan komentar untuk membuat struktur."
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:825
+msgid "Translation order"
+msgstr "Urutan terjemahan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:826
+msgid ""
+"Change the order of your translated language files according to your default"
+" file."
+msgstr "Ganti urutan berkas-berkas bahasa yang diterjemahkan pada standar berkas anda."
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:831
+msgid "Compare saved versions of your language files."
+msgstr "Bandingkan versi tersimpan pada berkas-nerkas bahasa anda"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:835
+msgid "Convert"
+msgstr "Konversi"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:836
+msgid "Convert your language files and your code simultaneously."
+msgstr "Konversi berkas bahasa dan kode anda secara bersamaan."
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:874
+msgid "Do NOT show"
+msgstr "Jangan ditampilkan"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:919
+#: administrator/components/com_easycreator/views/languages/view.html.php:923
+msgid "Load core language"
+msgstr "Muat core bahasa"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:922
+msgid ""
+"Also load the core language file to check for translations (displayed in "
+"orange)"
+msgstr "Juga muat berkas core bahasa untuk memeriksa terjemahan (ditampilkan dengan warna orange)"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:938
+msgid "Cut"
+msgstr "Potong"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:964
+msgid "Drag and drop elements to rearrange. Add new comments."
+msgstr "geser dan letakkan elemen untuk mengatur ulang. Tambah komentar baru."
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:1012
+msgid "Displays the status of your language files including cache."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:1023
+msgid "g11n"
+msgstr "g11n"
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:1025
+msgid "Utility to create and update your language files."
+msgstr "Peralatalan untuk membuat dan memperbarui berkas-berkas bahasa anda."
+
+#: administrator/components/com_easycreator/views/languages/view.html.php:1050
+msgid "Language"
+msgstr "Bahasa"
+
+#: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:11
+msgid "No logfiles found"
+msgstr "Tidak ada berkas log yang ditemukan"
+
+#: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:34
+msgid "Clear log"
+msgstr "Bersihkan log"
+
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:24
+msgid "Show Joomla core projects"
+msgstr "Tampilkan proyek core Joomla"
+
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:27
+msgid "Unregistered Projects"
+msgstr "Proyek Tak-terdaftar"
+
+#: administrator/components/com_easycreator/views/register/tmpl/default_unregistered.php:68
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:310
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:389
+msgid "Register"
+msgstr "Mendaftar"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:21
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:45
+msgid "Extension type"
+msgstr "Tipe Ekstensi"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:24
+msgid "Choose a component type from a predefined template"
+msgstr "Pilih tipe komponen dari template sebelum ditentukan"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:29
+msgid "Hide templates for Joomla! versions"
+msgstr "Sembunyikan templat-templat untuk Joomla! versi"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:54
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:81
+msgid "Notes"
+msgstr "Catatan"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:60
+msgid "See also..."
+msgstr "Juga lihat..."
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:63
+msgid "External infos"
+msgstr "Info eksternal"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:105
+msgid "Joomla 1.6 extension templates can not be build on Joomla 1.5"
+msgstr "Template Joomla 1.6 tidak bisa dibangun pada Joomla 1.5"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:128
+msgid "Click to view files"
+msgstr "Klik untuk melihat berkas-berkas"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:142
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:19
+msgid "Link"
+msgstr "Tautan"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:146
+msgid "PHP version"
+msgstr "Versi PHP"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/default.php:150
+msgid "Complements"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:22
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:24
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:56
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:60
+msgid "Back"
+msgstr "Kembali"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:27
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:29
+msgid "Next"
+msgstr "Lanjutkan"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:34
+msgid "Name for your baby"
+msgstr "Nama untuk bayi anda"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:38
+msgid ""
+"Please choose a name following the standard naming conventions. Use UPPER "
+"and lower case"
+msgstr "Silahkan memilih nama berdasarkan konvensi penamaan standar. Gunakan HURUF BESAR atau huruf kecil"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:49
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:58
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:75
+msgid "Required"
+msgstr "Diperlukan"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:81
+msgid "Your Credits"
+msgstr "Pengahargaan Anda"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:85
+msgid "Author name"
+msgstr "Nama penulis"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:100
+msgid "Author url"
+msgstr "Url penulis"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:115
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:40
+msgid "Copyright"
+msgstr "Copyright"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:66
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install.php:23
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:96
+msgid "Build options"
+msgstr "Opsi pembuatan"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:74
+msgid "Youre done"
+msgstr "Anda sudah selesai"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:75
+msgid "Just click on create it below to finish your component"
+msgstr "Hanya klik pada buat dibawah untuk menyelesaikan komponen anda"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:82
+msgid "Create CHANGELOG.php"
+msgstr "Buat CHANGELOG.php"
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:84
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_autocode.php:19
+msgid "File header template"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:105
+msgid "Create it"
+msgstr "Buat"
+
+#: administrator/components/com_easycreator/views/starter/view.html.php:187
+msgid "Packages are containers to group other extension types"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/starter/view.html.php:188
+#: administrator/components/com_easycreator/views/starter/view.html.php:189
+msgid ""
+"JApplications created with EasyCreator will look for an environment variable"
+" called JOOMLA_PATFORM_PATH. Otherwise you have to adjust the path in the "
+"entry file by hand !"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:15
+msgid "Attention"
+msgstr "Perhatian"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:18
+#, php-format
+msgid "The project %s will be deleted"
+msgstr "Proyek %s akan dihapus"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:24
+#, php-format
+msgid "Delete %s project file"
+msgstr "Hapus %s berkas proyek"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:34
+#, php-format
+msgid "Delete the whole %s project including files and database"
+msgstr "Hapus seluruh proyek %s termasuk berkas-berkas dan database"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:41
+msgid "Add element"
+msgstr "ambah elemen"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:45
+msgid "File tree"
+msgstr "Pohon berkas"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:50
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:45
+msgid "Left click files to edit."
+msgstr "Klik kiri berkas untuk merubah"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:51
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:45
+msgid "Right click files and folders for options."
+msgstr "Klik kanan berkas dan folder untuk opsi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/files.php:234
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:80
+msgid "Select an element"
+msgstr "Piplih elemen"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:21
+msgid "Install and Uninstall PHP"
+msgstr "Pasang dan Cabut PHP"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:52
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:46
+msgid "Create install file"
+msgstr "Buat berkas pemasang"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_php.php:58
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:59
+msgid "Create uninstall file"
+msgstr "Buat berkas pencabut"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:15
+msgid "Install and Uninstall SQL"
+msgstr "Pasang dan Cabut SQL"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:52
+msgid "Update install file"
+msgstr "Memperbarui berkas pemasangan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_sql.php:64
+msgid "Update uninstall file"
+msgstr "Memperbarui berkas pencabutan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:40
+msgid "Update SQL"
+msgstr "Memperbarui SQL"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:44
+msgid "Package path"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:54
+#, php-format
+msgid "Current version: %s"
+msgstr "Versi saat ini: %s"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:64
+msgid "Found sql update files"
+msgstr "Ditemukan berkas-berkas sql pembaruan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:76
+msgid "Init database updates"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:85
+msgid "Update database update files"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:31
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:29
+msgid "New group"
+msgstr "Kelompok baru"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:42
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:40
+msgid "Add group"
+msgstr "ambah kelompok"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:50
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:48
+msgid "New parameter"
+msgstr "Parameter baru"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:59
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:57
+msgid "paramGroup"
+msgstr "paramGroup"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:65
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:63
+msgid "Add parameter"
+msgstr "Tambah parameter"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:87
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:85
+msgid "Please select a XML file"
+msgstr "Silahkan pilih berkas XML"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:95
+#: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:93
+msgid "No parameters defined"
+msgstr "Tidak ada parameter yang ditentukan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:30
+msgid "Autor-URL"
+msgstr "URL-Penulis"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:20
+msgid ""
+"Credentials are stored to disk.<br />You may leave some blank and enter them"
+" on usage."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:25
+msgid "Ftp"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:39
+msgid "Downloads directory"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:22
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:22
+msgid "Joomla! version"
+msgstr "Versi Joomla!"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:66
+msgid "Extension name"
+msgstr "Nama ekstensi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:73
+msgid "Component scope"
+msgstr "Cakupan komponen"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:97
+msgid "From template"
+msgstr "Dari template"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:20
+msgid "Install and Uninstall"
+msgstr "Pasang dan Cabut"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:24
+msgid "PHP"
+msgstr "PHP"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:43
+msgid "SQL"
+msgstr "SQL"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:26
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:27
+msgid "Extension prefix"
+msgstr "Awalan ekstensi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:26
+msgid "A custom prefix for your extension."
+msgstr "Awalan kustom untuk pada ekstensi anda."
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:35
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:36
+msgid "Separate JavaScript"
+msgstr "Pisah JavaScript"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:35
+msgid "Separate JavaScript from PHP translations"
+msgstr "Pisahkan JavaScript dari terjemahan PHP"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:48
+msgid "Language file format"
+msgstr "Format berkas bahasa"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:72
+#, php-format
+msgid ""
+"* Note that those language file formats\n"
+" needs a special language handler called \"g11n\" - What ?\n"
+"Please refer to <a href=\"%s\">Wiki.Joomla-Nafu.de</a> for more information."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:12
+msgid "Menu"
+msgstr "Menu"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:15
+msgid "Text"
+msgstr "Teks"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:25
+msgid "Image"
+msgstr "Gambar"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:33
+msgid "Submenu"
+msgstr "Submenu"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:38
+msgid "Add Submenu"
+msgstr "Tambah Submenu"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:20
+msgid "Add extensions"
+msgstr "Tambah ekstensi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:34
+msgid "No module projects found"
+msgstr "Tidak proyek -proyek module yang ditemukan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:46
+msgid "Add Module"
+msgstr "Tambah Module"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:57
+msgid "No plugin projects found"
+msgstr "Tidak ada proyek pengaya yang ditemukan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:69
+msgid "Add Plugin"
+msgstr "Tambah Pengaya"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:93
+msgid "Package installer ?"
+msgstr "Pemasang paket?"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:95
+#, php-format
+msgid ""
+"Packages require a special install script which should be named "
+"<strong>%s</strong>"
+msgstr "Paket memerlukan script pemasang yang harus diberi nama <strong>%s</strong>"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:97
+msgid ""
+"EasyCreator can do this if you go to Files -> Add element -> Various -> "
+"Package installer"
+msgstr "EasyCreator bisa melakukan ini bila anda ke Berkas -> Tambah elemen -> Beragam -> Pemasang paket"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:22
+msgid "Package elements"
+msgstr "Elemen Paket"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:26
+msgid "Your package"
+msgstr "Paket anda"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packageelements.php:54
+msgid "Available projects"
+msgstr "Proyek tersedia"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:29
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:33
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:13
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:21
+msgid "Build folder"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:31
+msgid ""
+"The folder where your final package ends up. The folders extension_name and "
+"version will be added automatically."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:32
+#, php-format
+msgid "<br />If left blank the folder <strong>%s</strong> wil be used"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:39
+#, php-format
+msgid "The folder %s does not exist"
+msgstr "Folder %s tidak ada"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:43
+msgid "Compression"
+msgstr "Kompresi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:53
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:52
+msgid "Create index.html files"
+msgstr "Buat berkas-berkas index.html"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:60
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:60
+msgid "Create MD5 checksum file"
+msgstr "Buat berkas MD5 checksum"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:66
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:68
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:66
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:67
+msgid "Compress checksum file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:67
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:67
+msgid "This will do a small compression on your checksum file"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:70
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:73
+msgid "EasyCreator Options"
+msgstr "Opsi EasyCreator"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:78
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:82
+msgid "Include EasyCreator Project file"
+msgstr "Masukkan berkas Proyek EasyCreator"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:85
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:91
+msgid "Remove EasyCreator AutoCode"
+msgstr "Singkirkan AutoCode EasyCreator"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:89
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:16
+msgid "File name"
+msgstr "Nama berkas"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:92
+msgid "Default name"
+msgstr "Nama standar"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:100
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:108
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:117
+msgid "Custom name"
+msgstr "Nama kebiasaan"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:124
+msgid "Reset to default"
+msgstr "Reset ke standar"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:126
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:28
+msgid "Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
+msgstr "Gunakan:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:126
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:26
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:28
+msgid "Custom name format"
+msgstr "Format nama kustom"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:130
+msgid "Build Actions"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:133
+msgid "New action"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:137
+msgid "Add Action"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:139
+msgid "Available replacements"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:24
+msgid "Update"
+msgstr "Update"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:25
+msgid "Method"
+msgstr "Metode"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:30
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:45
+msgid "This will perform an upgrade on installing your extension"
+msgstr "Hal ini akan melakukan upgrade dan memasang ekstensi anda"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:31
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:44
+msgid "Upgrade"
+msgstr "Upgrade"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:36
+msgid "Update server"
+msgstr "Memperbarui server"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:41
+msgid "Add Server"
+msgstr "Tambah Server"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:174
+msgid "Relations"
+msgstr "Relasi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:203
+msgid "Add relation"
+msgstr "Tambah relasi"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:208
+msgid "New relation"
+msgstr "Relasi baru"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:218
+msgid "Foreign table"
+msgstr "Tabel asing"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:249
+msgid "Aliases"
+msgstr "Alias"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:278
+msgid "No tables to design"
+msgstr "Tidak ada tabel untuk dirancang"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:284
+msgid "Is registered"
+msgstr "Apakah Terdaftar"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:285
+msgid "In DB"
+msgstr "Dalam DB"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:286
+msgid "Has install"
+msgstr "Telah Dipasang"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:375
+msgid "Register Table"
+msgstr "Tabel Terdaftar"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:391
+msgid "New Table"
+msgstr "Tabel Baru"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:401
+msgid "Fields"
+msgstr "Bidang"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:405
+msgid "Add Field"
+msgstr "Tambah Bidang"
+
+#: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:414
+msgid "CREATE Table"
+msgstr "BUAT Tabel"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:126
+msgid "Building"
+msgstr "Mengembangkan"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:128
+msgid ""
+"Shows options for building your project like credits, files and folders to "
+"copy, languages and admin menu."
+msgstr "Menampilkan opsi-opsi untuk mengembangkan proyek anda seperti penghargaan, berkas dan folder untuk disalin, bahasa dan menu admin."
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:133
+msgid "Shows all the files belonging to your project"
+msgstr "Tampilkan semua berkas-berkas yang menjadi proyek milik anda"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:143
+msgid "Installing"
+msgstr "Memasang"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:144
+msgid "Create and modify install and uninstall files for your project."
+msgstr "Buat dan modifikasi berkas pemasang dan pencabut pada proyek anda."
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:148
+msgid "Parameters"
+msgstr "Parameter"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:149
+msgid "Modify your project parameters stored in XML files."
+msgstr "Modifikasi parameter-parameter proyek anda yang tersimpan dalam berkas-berkas XML"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:154
+msgid "DataDesigner"
+msgstr "DataDesigner"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:155
+msgid "Automated source code and db creation for your project."
+msgstr "Otomatisasi kode sumber dan pembuatan db pada proyek anda."
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:161
+msgid "Remove Project"
+msgstr "Singkirkan Proyek"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:162
+msgid "This will your delete your project."
+msgstr "Hal ini akan menghapus proyek anda."
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:172
+msgid "Save the configuration"
+msgstr "Simpan konfigurasi"
+
+#: administrator/components/com_easycreator/views/stuffer/view.html.php:404
+msgid "Infos on parameters (external)"
+msgstr "Info pada parameter (eksternal)"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:17
+msgid "Export templates"
+msgstr "Ekspor template"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:18
+msgid "Select the templates to export"
+msgstr "Pilih template untuk diekspor"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export.php:33
+#: administrator/components/com_easycreator/views/templates/view.html.php:151
+msgid "Export"
+msgstr "Ekspor"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:12
+msgid "Exports"
+msgstr "Eksports"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:36
+#: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:55
+msgid "Action"
+msgstr "Aksi"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:18
+msgid "Install templates"
+msgstr "Pasang template"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:20
+msgid "Select a template package to import"
+msgstr "Pilih paket template untuk di import"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:26
+msgid "Package File"
+msgstr "Berkas Paket"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/install.php:30
+msgid "Upload and install package"
+msgstr "Unggah dan pasang paket"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:50
+msgid "Extension templates"
+msgstr "Template ekstensi"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:91
+msgid "Extension templates parts"
+msgstr "Bagian template ekstensi"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:135
+msgid "Standard files"
+msgstr "Berkas-berkas standar"
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:146
+msgid "Template variables"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:148
+msgid "Common variables"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:161
+msgid "Custom variables"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/tmpl/templates.php:162
+msgid ""
+"Custom variables may be defined in every template using the file options.php"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:142
+msgid "Manage EasyCreator Extension Templates"
+msgstr "Kelola Template Ekstensi EasyCreator"
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:146
+msgid "Install"
+msgstr "Pasang"
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:147
+msgid "Installs EasyCreator Extension Templates"
+msgstr "Pasang Template Ekstensi EasyCreator"
+
+#: administrator/components/com_easycreator/views/templates/view.html.php:152
+msgid "Exports EasyCreator Extension Templates"
+msgstr "Ekspor Template Ekstensi EasyCreator"
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:16
+msgid "Please add some extensions to your package before creating it"
+msgstr "Silakan menambahkan beberapa ekstensi-ekstensi pada paket sebelum membuatnya"
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper.php:31
+#, php-format
+msgid "Create %s"
+msgstr "Buat %s"
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_actions.php:12
+msgid "Build actions"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_actions.php:30
+msgid "No build actions defined"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:18
+msgid ""
+"The folder where your final package ends up. The folders extension_name and "
+"version will be added automatically.<br />If left blank the default folder "
+"will be used."
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:29
+msgid "The folder has been created"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:31
+msgid "Unable to create the build folder - please check !"
+msgstr ""
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:17
+msgid "Packing format options"
+msgstr "Opsi format pemaketan"
+
+#: administrator/components/com_easycreator/views/ziper/tmpl/ziper_options.php:54
+msgid "Customize"
+msgstr "Kustomisasi"
+
+#: administrator/components/com_easycreator/views/ziper/view.html.php:110
+msgid "Automatically create a package of your extension."
+msgstr "Otomatis membuat paket untuk ekstensi anda."
+
+#: administrator/components/com_easycreator/views/ziper/view.html.php:114
+msgid "Archive"
+msgstr "Arsip"
+
+#: administrator/components/com_easycreator/views/ziper/view.html.php:115
+msgid "View archived versions of your extension."
+msgstr "Tampilkan versi yang telah tersimpan pada ekstensi anda."

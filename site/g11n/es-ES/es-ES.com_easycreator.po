@@ -1,0 +1,41 @@
+# Language es-ES translations for EasyCreator package.
+# Copyright (C) 2010 NiK(C)
+# This file is distributed under the same license as the EasyCreator package.
+# root <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com_easycreator - site 123.456\n"
+"Report-Msgid-Bugs-To: info@nik.it.de\n"
+"POT-Creation-Date: 2010-12-13 12:44-0500\n"
+"PO-Revision-Date: 2010-12-13 12:45-0500\n"
+"Last-Translator: root <EMAIL@ADDRESS>\n"
+"Language-Team: Language es-ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: components/com_easycreator/helpers/html.php:29
+msgid "Sandbox"
+msgstr "Arenero"
+
+#: components/com_easycreator/helpers/html.php:62
+msgid "No projects found"
+msgstr "No hay proyectos"
+
+#: components/com_easycreator/helpers/html.php:67
+msgid "Registered projects"
+msgstr "Proyectos registrados"
+
+#: components/com_easycreator/views/easycreator/tmpl/component.php:46
+msgid "Sorry, your browser cannot display frames"
+msgstr "Lo sentimos, su navegador no puede mostrar frames !"
+
+#: components/com_easycreator/views/easycreator/tmpl/component.php:50
+#: components/com_easycreator/views/easycreator/tmpl/module.php:33
+msgid "Parameters"
+msgstr "Parámetros"
+
+#: components/com_easycreator/views/easycreator/tmpl/default.php:21
+msgid "Please select a project"
+msgstr "Por favor, seleccione un proyecto"

@@ -1,0 +1,43 @@
+# com_easycreator - site - The main language file.
+# Copyright (C) YEAR Nikolai Plath - elkuku
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: com_easycreator 0.0.18\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
+"POT-Creation-Date: 2012-05-31 01:26-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: components/com_easycreator/helpers/html.php:28
+msgid "Sandbox"
+msgstr ""
+
+#: components/com_easycreator/helpers/html.php:61
+msgid "No projects found"
+msgstr ""
+
+#: components/com_easycreator/helpers/html.php:66
+msgid "Registered projects"
+msgstr ""
+
+#: components/com_easycreator/views/easycreator/tmpl/component.php:42
+msgid "Sorry, your browser cannot display frames"
+msgstr ""
+
+#: components/com_easycreator/views/easycreator/tmpl/component.php:46
+#: components/com_easycreator/views/easycreator/tmpl/module.php:29
+msgid "Parameters"
+msgstr ""
+
+#: components/com_easycreator/views/easycreator/tmpl/default.php:17
+msgid "Please select a project"
+msgstr ""
