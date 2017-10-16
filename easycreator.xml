@@ -14,6 +14,7 @@
     <server name="EasyCreator update server" type="extension" priority="1">http://elkuku.github.io/EasyCreator/updates.xml</server>
   </updateservers>
   <files folder="site">
+    <folder>g11n</folder>
     <folder>helpers</folder>
     <folder>views</folder>
     <filename>controller.php</filename>
@@ -25,6 +26,7 @@
       <folder>cli</folder>
       <folder>controllers</folder>
       <folder>data</folder>
+      <folder>g11n</folder>
       <folder>helpers</folder>
       <folder>includes</folder>
       <folder>install</folder>
