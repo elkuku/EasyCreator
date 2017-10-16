@@ -90,10 +90,8 @@ $requireds = $this->builder->customOptions('requireds');
         </div>
     </div>
 
-    <?php if(ECR_DEV_MODE) : ?>
-        <input type="checkbox" name="ecr_test_mode" id="ecr_test_mode" value="test"/>
-        <label class="inline" for="ecr_test_mode">TEST only</label>
-    <?php endif; ?>
+    <input type="checkbox" name="ecr_test_mode" id="ecr_test_mode" value="test"/>
+    <label class="inline" for="ecr_test_mode">TEST only</label>
 
     <div class="btn" style="clear: both; display: block; margin-top: 1em; text-align: center;"
          onclick="submitbutton('starterstart');">

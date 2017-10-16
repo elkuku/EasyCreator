@@ -13,6 +13,13 @@ spl_autoload_register('easy_creator_loader', true, true);
 
 jimport('g11n.language', JPATH_COMPONENT_ADMINISTRATOR . '/helpers');
 
+if (ECR_DEBUG_LANG)
+{
+	// @@DEBUG
+	g11n::cleanStorage();
+	g11n::setDebug(ECR_DEBUG_LANG);
+}
+
 g11n::loadLanguage();
 
 /*

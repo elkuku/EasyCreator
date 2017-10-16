@@ -32,8 +32,6 @@ version_compare(PHP_VERSION, '5.3', '>=') || die('This script requires PHP >= 5.
 
 define('_JEXEC', 1);
 
-define('ECR_DEV_MODE', 1);
-
 ini_set('error_reporting', - 1);
 
 // Bootstrap the application.

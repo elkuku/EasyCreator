@@ -14,10 +14,7 @@ JToolbar::getInstance('toolbar')->appendButton('Custom', $this->loadTemplate('bu
 
 <?php foreach($this->form->getFieldSets() as $fieldSet) : ?>
 
-<?php if('Debug' == $fieldSet->name && ! ECR_DEV_MODE) continue; ?>
-
 <div class="ecr_floatbox">
-
     <div class="infoHeader imgbarleft icon24-<?php echo $fieldSet->name; ?>">
         <?php echo jgettext($fieldSet->label); ?>
     </div>

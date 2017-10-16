@@ -14,10 +14,6 @@ When changing Joomla! versions look for:
 @Joomla!-compat XXXX
 */
 
-// Dev mode - internal use =;)
-// @@DEBUG
-define('ECR_DEV_MODE', 1);
-
 JDEBUG ? JProfiler::getInstance('Application')->mark('com_easycreator starting') : null;
 
 // @todo legacy imports...
@@ -142,6 +138,12 @@ try
 
 		// Perform the Request task
 		$controller->execute($input->get('task'));
+
+		if (ECR_DEBUG_LANG)
+		{
+			g11n::debugPrintTranslateds(true);
+			g11n::debugPrintTranslateds();
+		}
 
 		// Display the footer
 		EcrHtml::footer();

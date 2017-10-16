@@ -178,31 +178,23 @@ define('ECRPATH_UPDATESERVER_URL', $params->get('updateserver_url'));
 /*
  * Debug settings
  */
-if(ECR_DEV_MODE)
+//-- Setup debugger
+if (JComponentHelper::getParams('com_easycreator')->get('ecr_debug'))
 {
-    //-- Setup debugger
-    if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug'))
-    {
-        //-- Set debugging ON
-        define('ECR_DEBUG', true);
-    }
-    else
-    {
-        define('ECR_DEBUG', false);
-    }
-
-    if(JComponentHelper::getParams('com_easycreator')->get('ecr_debug_lang', 0))
-    {
-        //-- Set debugging ON
-        define('ECR_DEBUG_LANG', 1);
-    }
-    else
-    {
-        define('ECR_DEBUG_LANG', 0);
-    }
+    //-- Set debugging ON
+    define('ECR_DEBUG', true);
 }
 else
 {
-    define('ECR_DEBUG', 0);
+    define('ECR_DEBUG', false);
+}
+
+if (JComponentHelper::getParams('com_easycreator')->get('ecr_debug_lang', 0))
+{
+    //-- Set debugging ON
+    define('ECR_DEBUG_LANG', 1);
+}
+else
+{
     define('ECR_DEBUG_LANG', 0);
 }
