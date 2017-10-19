@@ -1,14 +1,14 @@
 # com_easycreator.js - admin - The javascript language file.
 # Copyright (C) YEAR Nikolai Plath - elkuku
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the com_easycreator.js package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: com_easycreator.js 0.0.18\n"
+"Project-Id-Version: com_easycreator.js 1.0\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
-"POT-Creation-Date: 2012-05-31 01:57-0500\n"
+"POT-Creation-Date: 2017-10-19 09:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,149 +17,144 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: media/com_easycreator/admin/js/addelement.js:38
+#: media/com_easycreator/admin/js/addelement.js:39
 msgid "Please review your input"
 msgstr ""
 
-#: media/com_easycreator/admin/js/addelement.js:66
-#: media/com_easycreator/admin/js/autocode.js:86
-#: media/com_easycreator/admin/js/dbtables.js:244
-#: media/com_easycreator/admin/js/easycreator.js:129
-#: media/com_easycreator/admin/js/easycreator.js:171
-#: media/com_easycreator/admin/js/log.js:38
+#: media/com_easycreator/admin/js/addelement.js:68
+#: media/com_easycreator/admin/js/autocode.js:87
+#: media/com_easycreator/admin/js/dbtables.js:229
+#: media/com_easycreator/admin/js/easycreator.js:147
+#: media/com_easycreator/admin/js/easycreator.js:195
+#: media/com_easycreator/admin/js/log.js:39
 #: media/com_easycreator/admin/js/parts.js:13
-#: media/com_easycreator/admin/js/wizard.js:44
-#: media/com_easycreator/admin/js/ziper.js:124
+#: media/com_easycreator/admin/js/wizard.js:45
 msgid "Loading..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/addelement.js:180
-#: media/com_easycreator/admin/js/dbtables.js:150
-#: media/com_easycreator/admin/js/deploy.js:231
-#: media/com_easycreator/admin/js/menu.js:74
-#: media/com_easycreator/admin/js/stuffer.js:57
-#: media/com_easycreator/admin/js/stuffer.js:124
+#: media/com_easycreator/admin/js/addelement.js:182
+#: media/com_easycreator/admin/js/dbtables.js:129
+#: media/com_easycreator/admin/js/deploy.js:252
+#: media/com_easycreator/admin/js/menu.js:64
+#: media/com_easycreator/admin/js/stuffer.js:123
+#: media/com_easycreator/admin/js/stuffer.js:215
 msgid "Delete"
 msgstr ""
 
-#: media/com_easycreator/admin/js/addelement.js:218
-#: media/com_easycreator/admin/js/menu.js:120
+#: media/com_easycreator/admin/js/addelement.js:222
+#: media/com_easycreator/admin/js/menu.js:110
 msgid "Select..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/codeeye.js:318
-#: media/com_easycreator/admin/js/codeeye.js:330
-msgid "CodeSniffer sniffing..."
-msgstr ""
-
-#: media/com_easycreator/admin/js/codeeye.js:455
-msgid "CodeEye is checking your environment..."
-msgstr ""
-
-#: media/com_easycreator/admin/js/dbtables.js:61
+#: media/com_easycreator/admin/js/dbtables.js:36
 msgid "This is not a number"
 msgstr ""
 
-#: media/com_easycreator/admin/js/dbtables.js:78
+#: media/com_easycreator/admin/js/dbtables.js:56
 msgid "Please add at least one field"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:44
-#: media/com_easycreator/admin/js/deploy.js:88
-#: media/com_easycreator/admin/js/deploy.js:259
+#: media/com_easycreator/admin/js/deploy.js:49
+#: media/com_easycreator/admin/js/deploy.js:99
+#: media/com_easycreator/admin/js/deploy.js:283
 msgid "Please choose one or more files to deploy"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:62
-#: media/com_easycreator/admin/js/deploy.js:106
+#: media/com_easycreator/admin/js/deploy.js:67
+#: media/com_easycreator/admin/js/deploy.js:117
 #, python-format
 msgid "Deploying to %s"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:128
+#: media/com_easycreator/admin/js/deploy.js:140
 #, python-format
 msgid "Obtaining downloads from: %s"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:144
+#: media/com_easycreator/admin/js/deploy.js:156
 msgid "Generating synchronization list..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:179
+#: media/com_easycreator/admin/js/deploy.js:194
 #, python-format
 msgid "Deleting files on: %s"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:205
+#: media/com_easycreator/admin/js/deploy.js:223
 #, python-format
 msgid "Synchronizing files on: %s"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:223
-#: media/com_easycreator/admin/js/deploy.js:268
-#: media/com_easycreator/admin/js/stuffer.js:51
+#: media/com_easycreator/admin/js/deploy.js:244
+#: media/com_easycreator/admin/js/deploy.js:293
+#: media/com_easycreator/admin/js/stuffer.js:113
 msgid "URL"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:224
-#: media/com_easycreator/admin/js/deploy.js:269
-#: media/com_easycreator/admin/js/stuffer.js:52
+#: media/com_easycreator/admin/js/deploy.js:245
+#: media/com_easycreator/admin/js/deploy.js:294
+#: media/com_easycreator/admin/js/stuffer.js:115
 msgid "Name"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:225
-#: media/com_easycreator/admin/js/deploy.js:270
-#: media/com_easycreator/admin/js/stuffer.js:53
+#: media/com_easycreator/admin/js/deploy.js:246
+#: media/com_easycreator/admin/js/deploy.js:295
+#: media/com_easycreator/admin/js/stuffer.js:117
 msgid "Priority"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:226
-#: media/com_easycreator/admin/js/deploy.js:271
-#: media/com_easycreator/admin/js/stuffer.js:54
+#: media/com_easycreator/admin/js/deploy.js:247
+#: media/com_easycreator/admin/js/deploy.js:296
+#: media/com_easycreator/admin/js/stuffer.js:119
 msgid "Type"
 msgstr ""
 
-#: media/com_easycreator/admin/js/deploy.js:235
+#: media/com_easycreator/admin/js/deploy.js:256
 msgid "Add files"
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:50
+#: media/com_easycreator/admin/js/easycreator.js:55
 msgid "New project..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:57
+#: media/com_easycreator/admin/js/easycreator.js:63
 msgid "Register project..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:65
+#: media/com_easycreator/admin/js/easycreator.js:72
 msgid "Loading project..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:254
-#: media/com_easycreator/admin/js/easycreator.js:275
+#: media/com_easycreator/admin/js/easycreator.js:296
+#: media/com_easycreator/admin/js/easycreator.js:319
 msgid "Checking..."
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:279
+#: media/com_easycreator/admin/js/easycreator.js:324
 msgid "Server error"
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:300
+#: media/com_easycreator/admin/js/easycreator.js:348
 #, python-format
 msgid "The Latest EasyCreator version is: %s"
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:305
+#: media/com_easycreator/admin/js/easycreator.js:353
 msgid "Your version is up-to-date"
 msgstr ""
 
-#: media/com_easycreator/admin/js/easycreator.js:309
+#: media/com_easycreator/admin/js/easycreator.js:357
 msgid "Unknown version - maybe SVN ?"
 msgstr ""
 
-#: media/com_easycreator/admin/js/editor.js:48
-#: media/com_easycreator/admin/js/translator.js:126
+#: media/com_easycreator/admin/js/editor.js:33
+#: media/com_easycreator/admin/js/translator.js:111
 msgid "Saving..."
+msgstr ""
+
+#: media/com_easycreator/admin/js/install.js:28
+#: media/com_easycreator/admin/js/install.js:39
+msgid "Please select a package to upload"
 msgstr ""
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:19
@@ -170,45 +165,52 @@ msgstr ""
 msgid "The element has been added"
 msgstr ""
 
-#: media/com_easycreator/admin/js/menu.js:51
+#: media/com_easycreator/admin/js/menu.js:48
 msgid "Text"
 msgstr ""
 
-#: media/com_easycreator/admin/js/menu.js:55
+#: media/com_easycreator/admin/js/menu.js:52
 msgid "Link"
 msgstr ""
 
-#: media/com_easycreator/admin/js/menu.js:62
-msgid "Ordering"
-msgstr ""
-
-#: media/com_easycreator/admin/js/menu.js:68
+#: media/com_easycreator/admin/js/menu.js:58
 msgid "Image"
 msgstr ""
 
-#: media/com_easycreator/admin/js/menu.js:144
+#: media/com_easycreator/admin/js/menu.js:134
 msgid "User defined"
 msgstr ""
 
-#: media/com_easycreator/admin/js/parameter.js:82
+#: media/com_easycreator/admin/js/parameter.js:80
 #: media/com_easycreator/admin/js/wizard2.js:38
 msgid "You must provide a name"
 msgstr ""
 
-#: media/com_easycreator/admin/js/stuffer.js:71
-msgid "Please select a type"
+#: media/com_easycreator/admin/js/stuffer.js:210
+msgid "Move"
 msgstr ""
 
-#: media/com_easycreator/admin/js/stuffer.js:96
-msgid "Trigger"
+#: media/com_easycreator/admin/js/stuffer.js:211
+#: media/com_easycreator/admin/js/stuffer.js:261
+msgid "Show settings"
 msgstr ""
 
-#: media/com_easycreator/admin/js/templates.js:33
-msgid "Please select a package to upload"
+#: media/com_easycreator/admin/js/stuffer.js:269
+msgid "Hide settings"
+msgstr ""
+
+#: media/com_easycreator/admin/js/stuffer.js:319
+#: media/com_easycreator/admin/js/ziper.js:160
+msgid "The request failed"
+msgstr ""
+
+#: media/com_easycreator/admin/js/stuffer.js:414
+#: media/com_easycreator/admin/js/ziper.js:30
+msgid "Creating your package..."
 msgstr ""
 
 #: media/com_easycreator/admin/js/translator.js:29
-#: media/com_easycreator/admin/js/ziper.js:83
+#: media/com_easycreator/admin/js/ziper.js:72
 msgid "Deleting..."
 msgstr ""
 
@@ -216,11 +218,7 @@ msgstr ""
 msgid "Empty"
 msgstr ""
 
-#: media/com_easycreator/admin/js/translator.js:64
-msgid "Undefined Joomla! version"
-msgstr ""
-
-#: media/com_easycreator/admin/js/translator.js:98
+#: media/com_easycreator/admin/js/translator.js:82
 msgid "Translating..."
 msgstr ""
 
@@ -230,13 +228,4 @@ msgstr ""
 
 #: media/com_easycreator/admin/js/wizard2.js:50
 msgid "You must provide a list postfix"
-msgstr ""
-
-#: media/com_easycreator/admin/js/ziper.js:28
-msgid "Creating your package..."
-msgstr ""
-
-#: media/com_easycreator/admin/js/ziper.js:76
-#, python-format
-msgid "Undefined Joomla! version: %s"
 msgstr ""
