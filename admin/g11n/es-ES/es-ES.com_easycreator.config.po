@@ -3,15 +3,16 @@
 # Copyright (C) YEAR Nikolai Plath - elkuku.
 # 
 # Translators:
-# Nikolai Plath <info@nik-it.de>, 2010.
+# Gonzalo2683 <gonzarock@yahoo.com>, 2014
+# Nikolai Plath <info@nik-it.de>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 02:00 -500\n"
-"PO-Revision-Date: 2012-05-31 08:32+0000\n"
-"Last-Translator: Nikolai Plath <der.el.kuku@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/opentranslators/language/es_ES/)\n"
+"PO-Revision-Date: 2017-09-19 10:29+0000\n"
+"Last-Translator: Gonzalo2683 <gonzarock@yahoo.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/opentranslators/easycreator/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,37 +22,37 @@ msgstr ""
 
 #: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla!"
-msgstr ""
+msgstr "EasyCreator ayuda a crear Extensiones para Joomla!"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Personal information"
-msgstr ""
+msgstr "Información personal"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author e-mail"
-msgstr ""
+msgstr "Autor e-mail"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author URL"
-msgstr ""
+msgstr "Autor URL"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "License"
-msgstr ""
+msgstr "Licencia"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Copyright"
-msgstr ""
+msgstr "Derechos de autor"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
@@ -61,12 +62,12 @@ msgstr "Creación de Paquetes"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Build directory"
-msgstr ""
+msgstr "Crear Directorio"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "zip"
-msgstr ""
+msgstr "zip"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -76,7 +77,7 @@ msgstr "tar.gz"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "bz2"
-msgstr ""
+msgstr "bz2"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -106,7 +107,7 @@ msgstr "Editor Tipo"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Editor font size"
-msgstr ""
+msgstr "Editor de tamaño de fuente"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -121,7 +122,7 @@ msgstr "LiveSite alerta"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Save versions"
-msgstr ""
+msgstr "Guardar versiones"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -139,16 +140,16 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Show icons"
-msgstr ""
+msgstr "Mostrar iconos"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Font size"
-msgstr ""
+msgstr "Tamaño de fuente"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Logging"
-msgstr ""
+msgstr "Logger"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -163,12 +164,12 @@ msgstr "Profiler"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Log file contents"
-msgstr ""
+msgstr "Guardar contenido de los archivos"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Debug"
-msgstr ""
+msgstr "Depurar"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -178,7 +179,7 @@ msgstr "Depurador"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Debug language"
-msgstr ""
+msgstr "Depurar lenguaje"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -196,7 +197,7 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "ZIP format"
-msgstr ""
+msgstr "Formato ZIP "
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -206,7 +207,7 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "BZ2 format"
-msgstr ""
+msgstr "Formato BZ2"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -353,7 +354,7 @@ msgstr "Sí"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Standard size"
-msgstr ""
+msgstr "Tamaño Standard"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Mini size"
@@ -361,26 +362,26 @@ msgstr ""
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Small size"
-msgstr ""
+msgstr "Tamaño pequeño"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Large size"
-msgstr ""
+msgstr "Tamaño Grande"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "Off"
-msgstr ""
+msgstr "Apagado"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "On"
-msgstr ""
+msgstr "Encendido"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "EasyDebug"
-msgstr ""
+msgstr "EasyDebug"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
@@ -407,15 +408,15 @@ msgstr "Formatos de compresión"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Custom file name"
-msgstr ""
+msgstr "Nombre de archivo personalizado"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "EasyCreator only"
-msgstr ""
+msgstr "Solo EasyCreator"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Use Google translation API"

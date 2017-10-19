@@ -3,16 +3,17 @@
 # Copyright (C) YEAR Nikolai Plath - elkuku.
 # 
 # Translators:
-# Lucas Vieceli <vieceli46@hotmail.com>, 2012.
-# Manoel iikozen <iikozen@yahoo.com>, 2011.
+# Lucas Vieceli <vieceli46@hotmail.com>, 2012
+# Manoel Silva <iikozen@yahoo.com>, 2011
+# Roberto Villela <beto@goodpixel.com.br>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 02:00 -500\n"
-"PO-Revision-Date: 2012-05-31 08:32+0000\n"
-"Last-Translator: Lucas Vieceli <vieceli46@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/opentranslators/language/pt_BR/)\n"
+"PO-Revision-Date: 2017-09-23 18:04+0000\n"
+"Last-Translator: Airton Torres <airton.torres@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/opentranslators/easycreator/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,15 +137,15 @@ msgstr "Checar por BOM"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Local data directory"
-msgstr ""
+msgstr "Diretório para dados locais"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Show icons"
-msgstr ""
+msgstr "Exibir icones"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Font size"
-msgstr ""
+msgstr "Tamanho da fonte"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
@@ -262,15 +263,15 @@ msgstr "Devem os arquivos de idiomas serem checados por BOM"
 msgid ""
 "A directory where all user data will be saved. If left blank, a sub "
 "directory in the component directory will be used"
-msgstr ""
+msgstr "Diretório onde os dados do usuário serão salvos. Se deixado em branco, uma sub-pasta será utilizada na pasta do componente."
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid "Show icons on toolbar buttons"
-msgstr ""
+msgstr "Exibir icones nos botões da barra de ferramentas"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid "The text font size"
-msgstr ""
+msgstr "Tamho do texto"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -354,19 +355,19 @@ msgstr "Sim"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Standard size"
-msgstr ""
+msgstr "Tamanho padrão"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Mini size"
-msgstr ""
+msgstr "Tamanho mini"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Small size"
-msgstr ""
+msgstr "Tamanho pequeno"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Large size"
-msgstr ""
+msgstr "Tamanho grande"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt

@@ -1,17 +1,18 @@
 # com_easycreator - admin - The main language file.
-# Copyright (C) YEAR Nikolai Plath - elkuku
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) Nikolai Plath - elkuku
+# This file is distributed under the same license as the EasyCreator package.
 # 
 # Translators:
-#   <uringinteristi@gmail.com>, 2011, 2012.
+# indah kusumastuti <kindah733@gmail.com>, 2014
+# uring <uringinteristi@gmail.com>, 2011, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:26-0500\n"
-"PO-Revision-Date: 2012-05-31 08:21+0000\n"
-"Last-Translator: uring <uringinteristi@gmail.com>\n"
-"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/opentranslators/language/id_ID/)\n"
+"PO-Revision-Date: 2017-09-19 10:29+0000\n"
+"Last-Translator: indah kusumastuti <kindah733@gmail.com>\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/opentranslators/easycreator/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -569,7 +570,7 @@ msgstr "Berkas ZIP anda telah berhasil dibuat"
 
 #: administrator/components/com_easycreator/controllers/ziper.php:140
 msgid "Downloads"
-msgstr ""
+msgstr "Unduh"
 
 #: administrator/components/com_easycreator/controllers/ziper.php:153
 msgid "No download available"
@@ -918,11 +919,11 @@ msgstr "Nama"
 
 #: administrator/components/com_easycreator/helpers/html/select.php:200
 msgid "No"
-msgstr ""
+msgstr "Tidak"
 
 #: administrator/components/com_easycreator/helpers/html/select.php:201
 msgid "Yes"
-msgstr ""
+msgstr "Ya"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:28
 msgid "Your extension so far"
@@ -1207,7 +1208,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:45
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:65
 msgid "Path"
-msgstr ""
+msgstr "Alur"
 
 #: administrator/components/com_easycreator/helpers/project/action/script.php:37
 msgid "Abort on failure"
@@ -1890,7 +1891,7 @@ msgstr "Skrip pemasangan umum"
 #: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:30
 msgid ""
 "Script containing functions to execute during install, update and uninstall"
-msgstr ""
+msgstr "Skrip mengandung fungsi-fungsi untuk menjalankan selama instalasi, memperbaharui dan  membatalkan instalasi"
 
 #: administrator/components/com_easycreator/templates/parts/various/install_script/part.php:47
 msgid "Install scripts are available for Joomla! 1.6 + projects only"
@@ -2275,12 +2276,12 @@ msgstr ""
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:17
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:16
 msgid "Credentials"
-msgstr ""
+msgstr "Mandat"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:19
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:27
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:22
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:31
@@ -2301,7 +2302,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:43
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:65
 msgid "User"
-msgstr ""
+msgstr "Pengguna"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:34
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:29
@@ -2553,11 +2554,11 @@ msgstr "Tidak ada berkas yang ditemukan pada cskupan yang dipilih"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:103
 msgid "Cached"
-msgstr ""
+msgstr "Tersimpan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:107
 msgid "Not cached"
-msgstr ""
+msgstr "Tak tersimpan"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:62
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:84
@@ -2776,7 +2777,7 @@ msgstr "geser dan letakkan elemen untuk mengatur ulang. Tambah komentar baru."
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:1012
 msgid "Displays the status of your language files including cache."
-msgstr ""
+msgstr "Tampilkan status file bahasa anda termasuk yang tersimpan"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:1023
 msgid "g11n"
@@ -2925,7 +2926,7 @@ msgstr "Buat CHANGELOG.php"
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:84
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_autocode.php:19
 msgid "File header template"
-msgstr ""
+msgstr "File tampilan bagian atas"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:105
 msgid "Create it"
@@ -3018,7 +3019,7 @@ msgstr "Memperbarui SQL"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:44
 msgid "Package path"
-msgstr ""
+msgstr "Alur paket"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:54
 #, php-format
@@ -3031,11 +3032,11 @@ msgstr "Ditemukan berkas-berkas sql pembaruan"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:76
 msgid "Init database updates"
-msgstr ""
+msgstr "kenali perubahan terbaru database"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:85
 msgid "Update database update files"
-msgstr ""
+msgstr "File-file database terbaru"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams.php:31
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:29
@@ -3147,7 +3148,7 @@ msgid ""
 "* Note that those language file formats\n"
 " needs a special language handler called \"g11n\" - What ?\n"
 "Please refer to <a href=\"%s\">Wiki.Joomla-Nafu.de</a> for more information."
-msgstr ""
+msgstr "Catat format bahasa tersebut\ndibutuhkan sebuah penanganan bahasa khusus yang disebut \"g11n\" - Maksudnya?\nSilahkan dibaca <a href=\"%s\">Wiki Joomla-Nafu.de</a> untuk informasi jelasnya"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:12
 msgid "Menu"
@@ -3223,18 +3224,18 @@ msgstr "Proyek tersedia"
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:13
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_folder.php:21
 msgid "Build folder"
-msgstr ""
+msgstr "Bentuk sebuah folder"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:31
 msgid ""
 "The folder where your final package ends up. The folders extension_name and "
 "version will be added automatically."
-msgstr ""
+msgstr "Folder dimana berisi paket anda telah berakhir. Format folder dengan exension_name dan versinya akan ditambahkan secara otomatis."
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:32
 #, php-format
 msgid "<br />If left blank the folder <strong>%s</strong> wil be used"
-msgstr ""
+msgstr "<br />jika dikosongkan folder <strong>%s</strong> yang akan dipakai"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:39
 #, php-format
@@ -3260,7 +3261,7 @@ msgstr "Buat berkas MD5 checksum"
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:66
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:67
 msgid "Compress checksum file"
-msgstr ""
+msgstr "Kompres file checksum"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:67
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:67

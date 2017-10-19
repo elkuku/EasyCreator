@@ -3,25 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Begina Felicysym <begina.felicysym@wp.eu>, 2012-2013
-# root <EMAIL@ADDRESS>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:57-0500\n"
-"PO-Revision-Date: 2017-09-19 10:29+0000\n"
-"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/opentranslators/easycreator/language/pl_PL/)\n"
+"PO-Revision-Date: 2011-07-20 16:52+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian (Italy) (http://www.transifex.com/opentranslators/easycreator/language/it_IT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl_PL\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: media/com_easycreator/admin/js/addelement.js:38
 msgid "Please review your input"
-msgstr "Prosimy o sprawdzenie danych wejściowych"
+msgstr ""
 
 #: media/com_easycreator/admin/js/addelement.js:66
 #: media/com_easycreator/admin/js/autocode.js:86
@@ -33,7 +31,7 @@ msgstr "Prosimy o sprawdzenie danych wejściowych"
 #: media/com_easycreator/admin/js/wizard.js:44
 #: media/com_easycreator/admin/js/ziper.js:124
 msgid "Loading..."
-msgstr "Wczytywanie..."
+msgstr "In caricamento..."
 
 #: media/com_easycreator/admin/js/addelement.js:180
 #: media/com_easycreator/admin/js/dbtables.js:150
@@ -42,12 +40,12 @@ msgstr "Wczytywanie..."
 #: media/com_easycreator/admin/js/stuffer.js:57
 #: media/com_easycreator/admin/js/stuffer.js:124
 msgid "Delete"
-msgstr "Usuń"
+msgstr "Cancella"
 
 #: media/com_easycreator/admin/js/addelement.js:218
 #: media/com_easycreator/admin/js/menu.js:120
 msgid "Select..."
-msgstr "Wybierz..."
+msgstr "Seleziona..."
 
 #: media/com_easycreator/admin/js/codeeye.js:318
 #: media/com_easycreator/admin/js/codeeye.js:330
@@ -56,46 +54,46 @@ msgstr ""
 
 #: media/com_easycreator/admin/js/codeeye.js:455
 msgid "CodeEye is checking your environment..."
-msgstr "CodeEye sprawdza środowisko..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/dbtables.js:61
 msgid "This is not a number"
-msgstr "To nie jest liczba"
+msgstr ""
 
 #: media/com_easycreator/admin/js/dbtables.js:78
 msgid "Please add at least one field"
-msgstr "Dodaj co najmniej jedno pole"
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:44
 #: media/com_easycreator/admin/js/deploy.js:88
 #: media/com_easycreator/admin/js/deploy.js:259
 msgid "Please choose one or more files to deploy"
-msgstr "Wybierz jeden lub więcej plików do zainstalowania"
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:62
 #: media/com_easycreator/admin/js/deploy.js:106
 #, python-format
 msgid "Deploying to %s"
-msgstr "Instalacja w %s"
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:128
 #, python-format
 msgid "Obtaining downloads from: %s"
-msgstr "Uzyskanie plików do pobrania z: %s"
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:144
 msgid "Generating synchronization list..."
-msgstr "Generacja listy synchronizacji..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:179
 #, python-format
 msgid "Deleting files on: %s"
-msgstr "Usuwanie plików z: %s"
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:205
 #, python-format
 msgid "Synchronizing files on: %s"
-msgstr "Synchronizacja plików w: %s"
+msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:223
 #: media/com_easycreator/admin/js/deploy.js:268
@@ -107,138 +105,138 @@ msgstr "URL"
 #: media/com_easycreator/admin/js/deploy.js:269
 #: media/com_easycreator/admin/js/stuffer.js:52
 msgid "Name"
-msgstr "Nazwa"
+msgstr "Nome"
 
 #: media/com_easycreator/admin/js/deploy.js:225
 #: media/com_easycreator/admin/js/deploy.js:270
 #: media/com_easycreator/admin/js/stuffer.js:53
 msgid "Priority"
-msgstr "Priorytet"
+msgstr "Priorità"
 
 #: media/com_easycreator/admin/js/deploy.js:226
 #: media/com_easycreator/admin/js/deploy.js:271
 #: media/com_easycreator/admin/js/stuffer.js:54
 msgid "Type"
-msgstr "Typ"
+msgstr "Tipo"
 
 #: media/com_easycreator/admin/js/deploy.js:235
 msgid "Add files"
-msgstr "Dodaj pliki"
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:50
 msgid "New project..."
-msgstr "Nowy projekt..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:57
 msgid "Register project..."
-msgstr "Zarejestruj projekt..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:65
 msgid "Loading project..."
-msgstr "Wczytywanie projektu..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:254
 #: media/com_easycreator/admin/js/easycreator.js:275
 msgid "Checking..."
-msgstr "Sprawdzanie..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:279
 msgid "Server error"
-msgstr "Błąd serwera"
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:300
 #, python-format
 msgid "The Latest EasyCreator version is: %s"
-msgstr "Najnowsza wersja EasyCreator to: %s"
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:305
 msgid "Your version is up-to-date"
-msgstr "Posiadasz aktualną wersję"
+msgstr ""
 
 #: media/com_easycreator/admin/js/easycreator.js:309
 msgid "Unknown version - maybe SVN ?"
-msgstr "Nieznana wersja - być może SVN?"
+msgstr ""
 
 #: media/com_easycreator/admin/js/editor.js:48
 #: media/com_easycreator/admin/js/translator.js:126
 msgid "Saving..."
-msgstr "Zapis..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:19
 msgid "Please enter a description for the element"
-msgstr "Dodaj opis elementu"
+msgstr ""
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:35
 msgid "The element has been added"
-msgstr "Dodano element"
+msgstr ""
 
 #: media/com_easycreator/admin/js/menu.js:51
 msgid "Text"
-msgstr "Tekst"
+msgstr "Text"
 
 #: media/com_easycreator/admin/js/menu.js:55
 msgid "Link"
-msgstr "Łącze"
+msgstr "Link"
 
 #: media/com_easycreator/admin/js/menu.js:62
 msgid "Ordering"
-msgstr "Porządkowanie"
+msgstr "Ordinanamento"
 
 #: media/com_easycreator/admin/js/menu.js:68
 msgid "Image"
-msgstr "Obraz"
+msgstr "Immagine"
 
 #: media/com_easycreator/admin/js/menu.js:144
 msgid "User defined"
-msgstr "Zdefiniowane przez użytkownika"
+msgstr ""
 
 #: media/com_easycreator/admin/js/parameter.js:82
 #: media/com_easycreator/admin/js/wizard2.js:38
 msgid "You must provide a name"
-msgstr "Konieczne jest podanie nazwy"
+msgstr ""
 
 #: media/com_easycreator/admin/js/stuffer.js:71
 msgid "Please select a type"
-msgstr "Należy wybrać typ"
+msgstr ""
 
 #: media/com_easycreator/admin/js/stuffer.js:96
 msgid "Trigger"
-msgstr "Wyzwalacz"
+msgstr ""
 
 #: media/com_easycreator/admin/js/templates.js:33
 msgid "Please select a package to upload"
-msgstr "Wybierz pakiet do wysłania"
+msgstr ""
 
 #: media/com_easycreator/admin/js/translator.js:29
 #: media/com_easycreator/admin/js/ziper.js:83
 msgid "Deleting..."
-msgstr "Usuwanie..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/translator.js:48
 msgid "Empty"
-msgstr "Pusty"
+msgstr "Vuoto"
 
 #: media/com_easycreator/admin/js/translator.js:64
 msgid "Undefined Joomla! version"
-msgstr "Nieokreślona wersja Joomla!"
+msgstr ""
 
 #: media/com_easycreator/admin/js/translator.js:98
 msgid "Translating..."
-msgstr "Tłumaczenie..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/wizard2.js:26
 msgid "You must provide a version number"
-msgstr "Konieczne jest podanie numeru wersji"
+msgstr ""
 
 #: media/com_easycreator/admin/js/wizard2.js:50
 msgid "You must provide a list postfix"
-msgstr "Konieczne jest podanie przyrostka listy"
+msgstr ""
 
 #: media/com_easycreator/admin/js/ziper.js:28
 msgid "Creating your package..."
-msgstr "Tworzenie pakietu..."
+msgstr ""
 
 #: media/com_easycreator/admin/js/ziper.js:76
 #, python-format
 msgid "Undefined Joomla! version: %s"
-msgstr "Nieokreślona wersja Joomla!: %s"
+msgstr ""

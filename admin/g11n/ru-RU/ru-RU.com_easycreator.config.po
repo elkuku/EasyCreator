@@ -3,65 +3,65 @@
 # Copyright (C) YEAR Nikolai Plath - elkuku.
 # 
 # Translators:
-# uring <uringinteristi@gmail.com>, 2011
+# Ilya Vikharev <ilya.vikharev@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
 "Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 02:00 -500\n"
-"PO-Revision-Date: 2017-09-19 10:29+0000\n"
-"Last-Translator: uring <uringinteristi@gmail.com>\n"
-"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/opentranslators/easycreator/language/id_ID/)\n"
+"PO-Revision-Date: 2017-09-19 10:32+0000\n"
+"Last-Translator: Ilya Vikharev <ilya.vikharev@gmail.com>\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/opentranslators/easycreator/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id_ID\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: g11n\n"
 
 #: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla!"
-msgstr ""
+msgstr "EasyCreator помогает создавать расширения для Joomla!"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Personal information"
-msgstr "Informasi pribadi"
+msgstr "Личная информация"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author"
-msgstr "Penulis"
+msgstr "Автор"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author e-mail"
-msgstr "E-mail penulis"
+msgstr "Адрес электронной почты автора"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author URL"
-msgstr "URL penulis"
+msgstr "Адрес сайта автора"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "License"
-msgstr "Lisensi"
+msgstr "Лицензия"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Copyright"
-msgstr "Copyright"
+msgstr "Авторские права"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Package creation"
-msgstr "Pembuatan paket"
+msgstr "Создание пакета"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Build directory"
-msgstr ""
+msgstr "Каталог сборки"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -76,114 +76,114 @@ msgstr "tar.gz"
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "bz2"
-msgstr ""
+msgstr "bz2"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Custom name default"
-msgstr "Standar nama kustomisasi"
+msgstr "Специальное имя по умолчанию"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Custom name"
-msgstr "Nama kustomisasi"
+msgstr "Специальное имя"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Various"
-msgstr "Aneka"
+msgstr "Разное"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Help Type"
-msgstr "Tipe Bantuan"
+msgstr "Тип помощи"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Editor type"
-msgstr "Tipe Editor"
+msgstr "Тип редактора"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Editor font size"
-msgstr "Ukuran huruf editor"
+msgstr "Размер шрифта редактора"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Local API copy"
-msgstr "Salin API lokal"
+msgstr "Локальная копия API"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Livesite warning"
-msgstr "Peringatan Livesite"
+msgstr "Предупреждение о действующем сайте"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Save versions"
-msgstr "Simpan versi"
+msgstr "Сохранить версии"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Check for UTF8"
-msgstr "Centang untuk UTF8"
+msgstr "Проверка на UTF8"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Check for BOM"
-msgstr "Centang untuk BOM"
+msgstr "Проверка на BOM"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Local data directory"
-msgstr ""
+msgstr "Локальный каталог данных"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Show icons"
-msgstr ""
+msgstr "Показать значки"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Font size"
-msgstr ""
+msgstr "Размер шрифта"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Logging"
-msgstr "Logging"
+msgstr "Запись журнала"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Logger"
-msgstr "Logger"
+msgstr "Запись журналов"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Profiler"
-msgstr "Profiler"
+msgstr "Профайлер"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Log file contents"
-msgstr "Log konten berkas"
+msgstr "Содержимое файла журнала"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Debug"
-msgstr "Debug"
+msgstr "Отладка"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Debugger"
-msgstr "Debugger"
+msgstr "Отладчик"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Debug language"
-msgstr "Debug bahasa"
+msgstr "Отладка языка"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Debugger Type"
-msgstr "Tipe Debugger"
+msgstr "Тип отладчика"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -191,12 +191,12 @@ msgid ""
 "The folder where your final package ends up. The folders extension_name and "
 "version will be added automatically.&lt;br /&gt;If left blank the default "
 "folder will be used."
-msgstr ""
+msgstr "Папка, в которой сохраняется готовый пакет. Папки, соответствующие имени расширения и номеру версии, будут добавлены автоматически.&lt;br /&gt;Если оставить незаполненным, будет использоваться папка по умолчанию."
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "ZIP format"
-msgstr "Format ZIP"
+msgstr "Формат ZIP"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -206,7 +206,7 @@ msgstr "Ziped Tarball"
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "BZ2 format"
-msgstr ""
+msgstr "Формат BZ2"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -214,107 +214,107 @@ msgid ""
 "Choose the type of help you need (from beginner to expert). Messages will be"
 " displayed all over the place in light green boxes - you may also switch "
 "them off here."
-msgstr "Pilih tipe bantuan yang anda perlukan (dari pemula sampai mahir). Pesan akan ditampilkan pada semua tempat dalam kotak berwarna hijau - anda bisa juga mematikannya dari sini."
+msgstr "Выберите тип справки, которая вам требуется (от начинающего до эксперта). Сообщения будут отображаться в различных частях экрана в светло-зеленых блоках — их также можно выключить здесь."
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid ""
 "Which EditArea type shall we load (please see docu on developers site "
 "http://www.cdolivet.net/editarea/editarea/docs/include.html)"
-msgstr "Tipe EditArea manakah yang harus kita muat (harap lihat docu pada situs pembangun http://www.cdolivet.net/editarea/editarea/docs/include.html)"
+msgstr "Какой тип EditArea требуется загрузить (см. документацию на сайте разработчика http://www.cdolivet.net/editarea/editarea/docs/include.html)"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "The default font size for the code editor in pixel"
-msgstr "Ukuran huruf standar untuk editor kode dalam pixel"
+msgstr "Размер шрифта в пикселах по умолчанию для редактора кода"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Your copy of the Joomla! API - get it from http://api.joomla.org"
-msgstr "Salinan API Joomla! anda - dapatkan dari http://api.joomla.org"
+msgstr "Копия API Joomla! Копию можно получить на сайте http://api.joomla.org"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid ""
 "If a IP other then 127.0.0.1 is detected a warning message will be displayed"
 " for your own safety"
-msgstr "Bila IP selain 127.0.0.1 terdeteksi pesan peringatan akan ditampilkan untuk keselamatan anda sendiri"
+msgstr "Для вашей безопасности, при выявлении IP-адреса, отличного от 127.0.0.1, будет отображаться предупреждение"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid ""
 "When modifying your files, always save a backup version. These will be named"
 " *.rx"
-msgstr "Saat memodifikasi berkas-berkas anda, selalu simpan versi backup-nya. Ini akan dinamakan *.rx"
+msgstr "При изменении файлов всегда сохраняйте резервную копию. Резервные копии сохраняются с именами *.rx"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Should languages files be checked for UTF-8"
-msgstr "Apakah kita harus memeriksa berkas-berkas bahasa yang menggunakan UTF8"
+msgstr "Нужно ли проверять языковые файлы на UTF-8"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Should languages files be checked for a BOM"
-msgstr "Apakah kita harus memeriksa berkas-berkas bahasa yang menggunakan BOM"
+msgstr "Нужно ли проверять языковые файлы на метки BOM"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid ""
 "A directory where all user data will be saved. If left blank, a sub "
 "directory in the component directory will be used"
-msgstr ""
+msgstr "Каталог для сохранения пользовательских данных. Если не указан, будет использоваться подкаталог каталога компонента"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid "Show icons on toolbar buttons"
-msgstr ""
+msgstr "Показывать значки на кнопках панели инструментов"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid "The text font size"
-msgstr ""
+msgstr "Размер шрифта текста"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Should we write some logfiles"
-msgstr "Apakah kita harus menulis beberapa logfiles"
+msgstr "Нужно ли записывать файлы журналов"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Profile time and memory"
-msgstr "Memori dan waktu profil"
+msgstr "Профилирование времени и памяти"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Log the contents / the code of the files been written to disk"
-msgstr "Log pada konten atau kode dari berkas-berkas yang dituliskan pada disket"
+msgstr "Запись журнала содержимого / кода файлов, сохраняемых на диск"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Shall we use the Debug mode ?"
-msgstr "Apakah kita harus menggunakan mode Debug ?"
+msgstr "Использовать режим отладки?"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Shall we debug our special language files ?"
-msgstr "Apakah kita harus melakukakn debug pada berkas-berkas bahasa khusus ?"
+msgstr "Отлаживать специальные языковые файлы?"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Which debugger to use"
-msgstr "Debugger yang akan digunakan"
+msgstr "Какой отладчик использовать"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "All"
-msgstr "Semua"
+msgstr "Все"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "Some"
-msgstr "Beberapa"
+msgstr "Выборочно"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "None"
-msgstr "Tanpa"
+msgstr "Ничего"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
@@ -329,7 +329,7 @@ msgstr "edit_area_compressor.php"
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "edit_area_compressor.php?plugins"
-msgstr "edit_area_compressor.php?plugin"
+msgstr "edit_area_compressor.php?plugins"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
@@ -344,38 +344,38 @@ msgstr "edit_area_loader.js"
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "No"
-msgstr "Tidak"
+msgstr "Нет"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "Yes"
-msgstr "Ya"
+msgstr "Да"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Standard size"
-msgstr ""
+msgstr "Стандартный размер"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Mini size"
-msgstr ""
+msgstr "Минимальный размер"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Small size"
-msgstr ""
+msgstr "Уменьшенный размер"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Large size"
-msgstr ""
+msgstr "Увеличенный размер"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "Off"
-msgstr "Padam"
+msgstr "Выкл."
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "On"
-msgstr "Nyala"
+msgstr "Вкл."
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
@@ -399,28 +399,28 @@ msgstr "Krumo"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Personal"
-msgstr "Pribadi"
+msgstr "Личное"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Package formats"
-msgstr "Format paket"
+msgstr "Форматы пакетов"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Custom file name"
-msgstr "Nama file kustomisasi"
+msgstr "Специальное имя файла"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "Language"
-msgstr "Bahasa"
+msgstr "Язык"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
 msgid "EasyCreator only"
-msgstr ""
+msgstr "Только EasyCreator"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Use Google translation API"
-msgstr "Gunakan API penterjemah Google"
+msgstr "Использовать API перевода Google"
 
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "Should we use the Google Translation API for helping in translations ?"
-msgstr "Apakah kita harus menggunakan API Penterjemah Google untuk membantu penterjemahan ?"
+msgstr "Использовать API перевода Google для получения подсказок по переводу?"

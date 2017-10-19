@@ -3,23 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ilya Vikharev <ilya.vikharev@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:57-0500\n"
-"PO-Revision-Date: 2011-07-20 16:52+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Arabic (http://www.transifex.com/projects/p/opentranslators/language/ar/)\n"
+"PO-Revision-Date: 2017-09-19 10:32+0000\n"
+"Last-Translator: Ilya Vikharev <ilya.vikharev@gmail.com>\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/opentranslators/easycreator/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: media/com_easycreator/admin/js/addelement.js:38
 msgid "Please review your input"
-msgstr ""
+msgstr "Проверьте введенные данные"
 
 #: media/com_easycreator/admin/js/addelement.js:66
 #: media/com_easycreator/admin/js/autocode.js:86
@@ -31,7 +32,7 @@ msgstr ""
 #: media/com_easycreator/admin/js/wizard.js:44
 #: media/com_easycreator/admin/js/ziper.js:124
 msgid "Loading..."
-msgstr ""
+msgstr "Загрузка..."
 
 #: media/com_easycreator/admin/js/addelement.js:180
 #: media/com_easycreator/admin/js/dbtables.js:150
@@ -40,203 +41,203 @@ msgstr ""
 #: media/com_easycreator/admin/js/stuffer.js:57
 #: media/com_easycreator/admin/js/stuffer.js:124
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: media/com_easycreator/admin/js/addelement.js:218
 #: media/com_easycreator/admin/js/menu.js:120
 msgid "Select..."
-msgstr ""
+msgstr "Выбрать..."
 
 #: media/com_easycreator/admin/js/codeeye.js:318
 #: media/com_easycreator/admin/js/codeeye.js:330
 msgid "CodeSniffer sniffing..."
-msgstr ""
+msgstr "CodeSniffer выполняет отслеживание..."
 
 #: media/com_easycreator/admin/js/codeeye.js:455
 msgid "CodeEye is checking your environment..."
-msgstr ""
+msgstr "CodeEye проверяет среду выполнения..."
 
 #: media/com_easycreator/admin/js/dbtables.js:61
 msgid "This is not a number"
-msgstr ""
+msgstr "Это не число"
 
 #: media/com_easycreator/admin/js/dbtables.js:78
 msgid "Please add at least one field"
-msgstr ""
+msgstr "Добавьте хотя бы одно поле"
 
 #: media/com_easycreator/admin/js/deploy.js:44
 #: media/com_easycreator/admin/js/deploy.js:88
 #: media/com_easycreator/admin/js/deploy.js:259
 msgid "Please choose one or more files to deploy"
-msgstr ""
+msgstr "Выберите один или несколько файлов для размещения"
 
 #: media/com_easycreator/admin/js/deploy.js:62
 #: media/com_easycreator/admin/js/deploy.js:106
 #, python-format
 msgid "Deploying to %s"
-msgstr ""
+msgstr "Размещение на %s"
 
 #: media/com_easycreator/admin/js/deploy.js:128
 #, python-format
 msgid "Obtaining downloads from: %s"
-msgstr ""
+msgstr "Получение загрузок от %s"
 
 #: media/com_easycreator/admin/js/deploy.js:144
 msgid "Generating synchronization list..."
-msgstr ""
+msgstr "Формирование списка синхронизации..."
 
 #: media/com_easycreator/admin/js/deploy.js:179
 #, python-format
 msgid "Deleting files on: %s"
-msgstr ""
+msgstr "Удаление файлов с %s"
 
 #: media/com_easycreator/admin/js/deploy.js:205
 #, python-format
 msgid "Synchronizing files on: %s"
-msgstr ""
+msgstr "Синхронизация файлов на %s"
 
 #: media/com_easycreator/admin/js/deploy.js:223
 #: media/com_easycreator/admin/js/deploy.js:268
 #: media/com_easycreator/admin/js/stuffer.js:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: media/com_easycreator/admin/js/deploy.js:224
 #: media/com_easycreator/admin/js/deploy.js:269
 #: media/com_easycreator/admin/js/stuffer.js:52
 msgid "Name"
-msgstr ""
+msgstr "По названию"
 
 #: media/com_easycreator/admin/js/deploy.js:225
 #: media/com_easycreator/admin/js/deploy.js:270
 #: media/com_easycreator/admin/js/stuffer.js:53
 msgid "Priority"
-msgstr ""
+msgstr "Приоритет"
 
 #: media/com_easycreator/admin/js/deploy.js:226
 #: media/com_easycreator/admin/js/deploy.js:271
 #: media/com_easycreator/admin/js/stuffer.js:54
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: media/com_easycreator/admin/js/deploy.js:235
 msgid "Add files"
-msgstr ""
+msgstr "Добавить файлы"
 
 #: media/com_easycreator/admin/js/easycreator.js:50
 msgid "New project..."
-msgstr ""
+msgstr "Новый проект..."
 
 #: media/com_easycreator/admin/js/easycreator.js:57
 msgid "Register project..."
-msgstr ""
+msgstr "Зарегистрировать проект..."
 
 #: media/com_easycreator/admin/js/easycreator.js:65
 msgid "Loading project..."
-msgstr ""
+msgstr "Загрузка проекта..."
 
 #: media/com_easycreator/admin/js/easycreator.js:254
 #: media/com_easycreator/admin/js/easycreator.js:275
 msgid "Checking..."
-msgstr ""
+msgstr "Проверка..."
 
 #: media/com_easycreator/admin/js/easycreator.js:279
 msgid "Server error"
-msgstr ""
+msgstr "Ошибка сервера"
 
 #: media/com_easycreator/admin/js/easycreator.js:300
 #, python-format
 msgid "The Latest EasyCreator version is: %s"
-msgstr ""
+msgstr "Последняя версия EasyCreator: %s"
 
 #: media/com_easycreator/admin/js/easycreator.js:305
 msgid "Your version is up-to-date"
-msgstr ""
+msgstr "У вас актуальная версия"
 
 #: media/com_easycreator/admin/js/easycreator.js:309
 msgid "Unknown version - maybe SVN ?"
-msgstr ""
+msgstr "Неизвестная версия. Возможно, SVN?"
 
 #: media/com_easycreator/admin/js/editor.js:48
 #: media/com_easycreator/admin/js/translator.js:126
 msgid "Saving..."
-msgstr ""
+msgstr "Сохранение..."
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:19
 msgid "Please enter a description for the element"
-msgstr ""
+msgstr "Введите описание элемента"
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:35
 msgid "The element has been added"
-msgstr ""
+msgstr "Элемент добавлен"
 
 #: media/com_easycreator/admin/js/menu.js:51
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: media/com_easycreator/admin/js/menu.js:55
 msgid "Link"
-msgstr ""
+msgstr "Ссылка"
 
 #: media/com_easycreator/admin/js/menu.js:62
 msgid "Ordering"
-msgstr ""
+msgstr "Заявка"
 
 #: media/com_easycreator/admin/js/menu.js:68
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 #: media/com_easycreator/admin/js/menu.js:144
 msgid "User defined"
-msgstr ""
+msgstr "Задано пользователем"
 
 #: media/com_easycreator/admin/js/parameter.js:82
 #: media/com_easycreator/admin/js/wizard2.js:38
 msgid "You must provide a name"
-msgstr ""
+msgstr "Необходимо указать имя"
 
 #: media/com_easycreator/admin/js/stuffer.js:71
 msgid "Please select a type"
-msgstr ""
+msgstr "Выберите тип"
 
 #: media/com_easycreator/admin/js/stuffer.js:96
 msgid "Trigger"
-msgstr ""
+msgstr "Триггер"
 
 #: media/com_easycreator/admin/js/templates.js:33
 msgid "Please select a package to upload"
-msgstr ""
+msgstr "Выберите пакет для выгрузки."
 
 #: media/com_easycreator/admin/js/translator.js:29
 #: media/com_easycreator/admin/js/ziper.js:83
 msgid "Deleting..."
-msgstr ""
+msgstr "Удаление..."
 
 #: media/com_easycreator/admin/js/translator.js:48
 msgid "Empty"
-msgstr ""
+msgstr "Пустой"
 
 #: media/com_easycreator/admin/js/translator.js:64
 msgid "Undefined Joomla! version"
-msgstr ""
+msgstr "Неопределенная версия Joomla!"
 
 #: media/com_easycreator/admin/js/translator.js:98
 msgid "Translating..."
-msgstr ""
+msgstr "Перевод..."
 
 #: media/com_easycreator/admin/js/wizard2.js:26
 msgid "You must provide a version number"
-msgstr ""
+msgstr "Необходимо указать номер версии"
 
 #: media/com_easycreator/admin/js/wizard2.js:50
 msgid "You must provide a list postfix"
-msgstr ""
+msgstr "Необходимо указать суффикс списка"
 
 #: media/com_easycreator/admin/js/ziper.js:28
 msgid "Creating your package..."
-msgstr ""
+msgstr "Создание пакета..."
 
 #: media/com_easycreator/admin/js/ziper.js:76
 #, python-format
 msgid "Undefined Joomla! version: %s"
-msgstr ""
+msgstr "Неопределенная версия Joomla!: %s"

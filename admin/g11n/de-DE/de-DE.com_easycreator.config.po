@@ -3,18 +3,19 @@
 # Copyright (C) YEAR Nikolai Plath - elkuku.
 # 
 # Translators:
-#   <bvp@gmx.de>, 2011.
-# Nikolai Plath <der.el.kuku@gmail.com>, 2012.
-# Nikolai Plath <test@joomla.org>, 2010.
-#   <test1@nik-it.de>, 2011.
+# Nobs, 2011
+# Florian <florian.winter@linder-seevetal.de>, 2013
+# Nikolai Plath <der.el.kuku@gmail.com>, 2012
+# Nikolai Plath <test@joomla.org>, 2010
+# Nikolai Plath <der.el.kuku@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 02:00 -500\n"
-"PO-Revision-Date: 2012-05-31 08:32+0000\n"
-"Last-Translator: Nikolai Plath <der.el.kuku@gmail.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/opentranslators/language/de_DE/)\n"
+"PO-Revision-Date: 2017-09-19 10:29+0000\n"
+"Last-Translator: Florian <florian.winter@linder-seevetal.de>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/opentranslators/easycreator/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +25,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/easycreator.xmldescription
 msgid "EasyCreator helps creating Extensions for Joomla!"
-msgstr ""
+msgstr "EasyCreator hilft beim Erstellen von Erweiterungen für Joomla!"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlparam-default
@@ -138,15 +139,15 @@ msgstr "Auf BOM überprüfen"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Local data directory"
-msgstr ""
+msgstr "Arbeitsverzeichniss"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Show icons"
-msgstr ""
+msgstr "Icons anzeigen"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 msgid "Font size"
-msgstr ""
+msgstr "Schriftgröße"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
@@ -194,7 +195,7 @@ msgid ""
 "The folder where your final package ends up. The folders extension_name and "
 "version will be added automatically.&lt;br /&gt;If left blank the default "
 "folder will be used."
-msgstr "Das Verzeichnis, in den Sie Ihre erstelltes Paket geschrieben wird. Die Verzeichnisse extension_name und Version werden automatisch hinzugefügt. <br />Falls leer wird der Standard-Ordner verwendet."
+msgstr "Das Verzeichnis, in dem ihre Paket erstellt wird. Die Verzeichnisse extension_name und Version werden automatisch hinzugefügt. <br />Falls leer wird der Standard-Ordner verwendet."
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -229,7 +230,7 @@ msgstr "Welchen EditArea Typ sollen wir laden (bitte lesen sie die Doku auf der 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
 msgid "The default font size for the code editor in pixel"
-msgstr "Die Standardgrösse des Editorfonts in Pixeln"
+msgstr "Die Standardschriftgröße im Editor in Pixeln"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -264,15 +265,15 @@ msgstr "Sollen die Sprachdateien auf einen BOM überprüft werden ?"
 msgid ""
 "A directory where all user data will be saved. If left blank, a sub "
 "directory in the component directory will be used"
-msgstr ""
+msgstr "In diesem Verzeichniss werden alle Benutzerdatein gespeichert. Wenn kein Verzeichniss angeben ist, wird in das Komponenten-Verzeichniss (EasyCreator) verwendet."
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid "Show icons on toolbar buttons"
-msgstr ""
+msgstr "Icons werden in der Toolbar angezeigt. Text + Symbol"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 msgid "The text font size"
-msgstr ""
+msgstr "Editor Schriftgröße"
 
 #: administrator/components/com_easycreator/models/forms/config.xmldescription
 #: administrator/components/com_easycreator/models/forms/config_15.xmldescription
@@ -356,19 +357,19 @@ msgstr "Ja"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Standard size"
-msgstr ""
+msgstr "Normal"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Mini size"
-msgstr ""
+msgstr "Sehr klein"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Small size"
-msgstr ""
+msgstr "Klein"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Large size"
-msgstr ""
+msgstr "Groß"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt

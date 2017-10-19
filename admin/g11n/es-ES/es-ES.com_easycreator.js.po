@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# root <EMAIL@ADDRESS>, 2010.
+# Nacho Gaitán <nachogaitan@gmail.com>, 2016
+# root <EMAIL@ADDRESS>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:57-0500\n"
-"PO-Revision-Date: 2012-05-31 08:35+0000\n"
-"Last-Translator: Nikolai Plath <der.el.kuku@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/opentranslators/language/es_ES/)\n"
+"PO-Revision-Date: 2017-09-19 10:29+0000\n"
+"Last-Translator: Nacho Gaitán <nachogaitan@gmail.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/opentranslators/easycreator/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +33,7 @@ msgstr ""
 #: media/com_easycreator/admin/js/wizard.js:44
 #: media/com_easycreator/admin/js/ziper.js:124
 msgid "Loading..."
-msgstr ""
+msgstr "Cargando..."
 
 #: media/com_easycreator/admin/js/addelement.js:180
 #: media/com_easycreator/admin/js/dbtables.js:150
@@ -41,35 +42,35 @@ msgstr ""
 #: media/com_easycreator/admin/js/stuffer.js:57
 #: media/com_easycreator/admin/js/stuffer.js:124
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: media/com_easycreator/admin/js/addelement.js:218
 #: media/com_easycreator/admin/js/menu.js:120
 msgid "Select..."
-msgstr ""
+msgstr "Elegir..."
 
 #: media/com_easycreator/admin/js/codeeye.js:318
 #: media/com_easycreator/admin/js/codeeye.js:330
 msgid "CodeSniffer sniffing..."
-msgstr ""
+msgstr "CodeSniffer rastreando..."
 
 #: media/com_easycreator/admin/js/codeeye.js:455
 msgid "CodeEye is checking your environment..."
-msgstr ""
+msgstr "CodeEye está comprobando las variables de su entorno..."
 
 #: media/com_easycreator/admin/js/dbtables.js:61
 msgid "This is not a number"
-msgstr ""
+msgstr "Esto no es un número"
 
 #: media/com_easycreator/admin/js/dbtables.js:78
 msgid "Please add at least one field"
-msgstr ""
+msgstr "Por favor, añada al menos un campo"
 
 #: media/com_easycreator/admin/js/deploy.js:44
 #: media/com_easycreator/admin/js/deploy.js:88
 #: media/com_easycreator/admin/js/deploy.js:259
 msgid "Please choose one or more files to deploy"
-msgstr ""
+msgstr "Por favor, elija uno o más archivos para implementar"
 
 #: media/com_easycreator/admin/js/deploy.js:62
 #: media/com_easycreator/admin/js/deploy.js:106
@@ -84,88 +85,88 @@ msgstr ""
 
 #: media/com_easycreator/admin/js/deploy.js:144
 msgid "Generating synchronization list..."
-msgstr ""
+msgstr "Generando lista de sincronización..."
 
 #: media/com_easycreator/admin/js/deploy.js:179
 #, python-format
 msgid "Deleting files on: %s"
-msgstr ""
+msgstr "Eliminando archivos en: %s"
 
 #: media/com_easycreator/admin/js/deploy.js:205
 #, python-format
 msgid "Synchronizing files on: %s"
-msgstr ""
+msgstr "Sincronizando archivos en: %s"
 
 #: media/com_easycreator/admin/js/deploy.js:223
 #: media/com_easycreator/admin/js/deploy.js:268
 #: media/com_easycreator/admin/js/stuffer.js:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: media/com_easycreator/admin/js/deploy.js:224
 #: media/com_easycreator/admin/js/deploy.js:269
 #: media/com_easycreator/admin/js/stuffer.js:52
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: media/com_easycreator/admin/js/deploy.js:225
 #: media/com_easycreator/admin/js/deploy.js:270
 #: media/com_easycreator/admin/js/stuffer.js:53
 msgid "Priority"
-msgstr ""
+msgstr "Prioridad"
 
 #: media/com_easycreator/admin/js/deploy.js:226
 #: media/com_easycreator/admin/js/deploy.js:271
 #: media/com_easycreator/admin/js/stuffer.js:54
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: media/com_easycreator/admin/js/deploy.js:235
 msgid "Add files"
-msgstr ""
+msgstr "Añadir archivos"
 
 #: media/com_easycreator/admin/js/easycreator.js:50
 msgid "New project..."
-msgstr ""
+msgstr "Nuevo proyecto..."
 
 #: media/com_easycreator/admin/js/easycreator.js:57
 msgid "Register project..."
-msgstr ""
+msgstr "Registrar proyecto..."
 
 #: media/com_easycreator/admin/js/easycreator.js:65
 msgid "Loading project..."
-msgstr ""
+msgstr "Cargando proyecto..."
 
 #: media/com_easycreator/admin/js/easycreator.js:254
 #: media/com_easycreator/admin/js/easycreator.js:275
 msgid "Checking..."
-msgstr ""
+msgstr "Comprobando..."
 
 #: media/com_easycreator/admin/js/easycreator.js:279
 msgid "Server error"
-msgstr ""
+msgstr "Error de servidor"
 
 #: media/com_easycreator/admin/js/easycreator.js:300
 #, python-format
 msgid "The Latest EasyCreator version is: %s"
-msgstr ""
+msgstr "La última versión de EasyCreator es: %s"
 
 #: media/com_easycreator/admin/js/easycreator.js:305
 msgid "Your version is up-to-date"
-msgstr ""
+msgstr "Su versión está al día"
 
 #: media/com_easycreator/admin/js/easycreator.js:309
 msgid "Unknown version - maybe SVN ?"
-msgstr ""
+msgstr "Versión desconocida, ¿quizá SVN?"
 
 #: media/com_easycreator/admin/js/editor.js:48
 #: media/com_easycreator/admin/js/translator.js:126
 msgid "Saving..."
-msgstr ""
+msgstr "Guardando..."
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:19
 msgid "Please enter a description for the element"
-msgstr ""
+msgstr "Por favor, introduzca una descripción para el elemento"
 
 #: media/com_easycreator/admin/js/lang_orderdefault.js:35
 msgid "The element has been added"
@@ -173,32 +174,32 @@ msgstr "El elemento ha sido añadido"
 
 #: media/com_easycreator/admin/js/menu.js:51
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: media/com_easycreator/admin/js/menu.js:55
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: media/com_easycreator/admin/js/menu.js:62
 msgid "Ordering"
-msgstr ""
+msgstr "Ordenar"
 
 #: media/com_easycreator/admin/js/menu.js:68
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: media/com_easycreator/admin/js/menu.js:144
 msgid "User defined"
-msgstr ""
+msgstr "Usuario definido"
 
 #: media/com_easycreator/admin/js/parameter.js:82
 #: media/com_easycreator/admin/js/wizard2.js:38
 msgid "You must provide a name"
-msgstr ""
+msgstr "Debe proveer un nombre"
 
 #: media/com_easycreator/admin/js/stuffer.js:71
 msgid "Please select a type"
-msgstr ""
+msgstr "Por favor, seleccione un tipo"
 
 #: media/com_easycreator/admin/js/stuffer.js:96
 msgid "Trigger"
@@ -215,7 +216,7 @@ msgstr ""
 
 #: media/com_easycreator/admin/js/translator.js:48
 msgid "Empty"
-msgstr ""
+msgstr "Vacio"
 
 #: media/com_easycreator/admin/js/translator.js:64
 msgid "Undefined Joomla! version"

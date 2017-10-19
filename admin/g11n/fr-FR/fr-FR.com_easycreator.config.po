@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 02:00 -500\n"
 "PO-Revision-Date: 2011-07-20 16:51+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/opentranslators/language/fr_FR/)\n"
+"Language-Team: French (France) (http://www.transifex.com/opentranslators/easycreator/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,12 +30,12 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Author e-mail"
-msgstr ""
+msgstr "E-mail de l'auteur"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -45,12 +45,12 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
 msgid "Copyright"
-msgstr ""
+msgstr "Droits d'auteur"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
@@ -167,7 +167,7 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmlgroup
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #: administrator/components/com_easycreator/models/forms/config.xmllabel
 #: administrator/components/com_easycreator/models/forms/config_15.xmllabel
@@ -303,7 +303,7 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "All"
-msgstr ""
+msgstr "Tous"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
@@ -313,7 +313,7 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "None"
-msgstr ""
+msgstr "Aucune"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
@@ -343,12 +343,12 @@ msgstr ""
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 #: administrator/components/com_easycreator/models/forms/config_15.xmlopt
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: administrator/components/com_easycreator/models/forms/config.xmlopt
 msgid "Standard size"

@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nikolai Plath <der.el.kuku@gmail.com>, 2012.
-# Nikolai Plath <test@joomla.org>, 2010.
+# Florian <florian.winter@linder-seevetal.de>, 2013
+# Nikolai Plath <der.el.kuku@gmail.com>, 2012
+# Nikolai Plath <test@joomla.org>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:57-0500\n"
-"PO-Revision-Date: 2012-05-31 08:35+0000\n"
-"Last-Translator: Nikolai Plath <der.el.kuku@gmail.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/opentranslators/language/de_DE/)\n"
+"PO-Revision-Date: 2017-09-19 10:29+0000\n"
+"Last-Translator: Florian <florian.winter@linder-seevetal.de>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/opentranslators/easycreator/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +53,7 @@ msgstr "Wählen..."
 #: media/com_easycreator/admin/js/codeeye.js:318
 #: media/com_easycreator/admin/js/codeeye.js:330
 msgid "CodeSniffer sniffing..."
-msgstr ""
+msgstr "CodeSniffer schnüffelt..."
 
 #: media/com_easycreator/admin/js/codeeye.js:455
 msgid "CodeEye is checking your environment..."
@@ -70,32 +71,32 @@ msgstr "Bitte legen Sie mindestens ein Feld an"
 #: media/com_easycreator/admin/js/deploy.js:88
 #: media/com_easycreator/admin/js/deploy.js:259
 msgid "Please choose one or more files to deploy"
-msgstr ""
+msgstr "Bitte wählen Sie eine oder mehere Datein zum verteilen aus."
 
 #: media/com_easycreator/admin/js/deploy.js:62
 #: media/com_easycreator/admin/js/deploy.js:106
 #, python-format
 msgid "Deploying to %s"
-msgstr ""
+msgstr "Bereitstellen auf %s"
 
 #: media/com_easycreator/admin/js/deploy.js:128
 #, python-format
 msgid "Obtaining downloads from: %s"
-msgstr ""
+msgstr "Beziehe Donwload aus: %s"
 
 #: media/com_easycreator/admin/js/deploy.js:144
 msgid "Generating synchronization list..."
-msgstr ""
+msgstr "Erstelle Synchronisationsliste..."
 
 #: media/com_easycreator/admin/js/deploy.js:179
 #, python-format
 msgid "Deleting files on: %s"
-msgstr ""
+msgstr "Lösche Datein auf: %s"
 
 #: media/com_easycreator/admin/js/deploy.js:205
 #, python-format
 msgid "Synchronizing files on: %s"
-msgstr ""
+msgstr "Synchronisieren von Dateien auf: %s"
 
 #: media/com_easycreator/admin/js/deploy.js:223
 #: media/com_easycreator/admin/js/deploy.js:268
@@ -123,7 +124,7 @@ msgstr "Typ"
 
 #: media/com_easycreator/admin/js/deploy.js:235
 msgid "Add files"
-msgstr ""
+msgstr "Datein hinzufügen"
 
 #: media/com_easycreator/admin/js/easycreator.js:50
 msgid "New project..."
@@ -199,11 +200,11 @@ msgstr "Sie müssen einen Namen angeben"
 
 #: media/com_easycreator/admin/js/stuffer.js:71
 msgid "Please select a type"
-msgstr ""
+msgstr "Bitte wähle ein Type."
 
 #: media/com_easycreator/admin/js/stuffer.js:96
 msgid "Trigger"
-msgstr ""
+msgstr "Auslöser"
 
 #: media/com_easycreator/admin/js/templates.js:33
 msgid "Please select a package to upload"
@@ -236,7 +237,7 @@ msgstr "Sie müssen einen Listenpostfix angeben"
 
 #: media/com_easycreator/admin/js/ziper.js:28
 msgid "Creating your package..."
-msgstr ""
+msgstr "Erstelle Packet..."
 
 #: media/com_easycreator/admin/js/ziper.js:76
 #, python-format

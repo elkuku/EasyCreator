@@ -1,19 +1,19 @@
 # com_easycreator - admin - The main language file.
-# Copyright (C) YEAR Nikolai Plath - elkuku
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) Nikolai Plath - elkuku
+# This file is distributed under the same license as the EasyCreator package.
 # 
 # Translators:
-# Joel Hansen <johaswe@gmail.com>, 2011.
-#   <linus.pettersson@gmail.com>, 2011.
-# Tess Neale <tess@prothemer.com>, 2011.
+# Joel Hansen <johaswe@gmail.com>, 2011
+# Linuus <inactive+Linuus@transifex.com>, 2011
+# Tess Neale, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:26-0500\n"
-"PO-Revision-Date: 2012-05-31 08:20+0000\n"
+"PO-Revision-Date: 2017-09-19 10:29+0000\n"
 "Last-Translator: Joel Hansen <johaswe@gmail.com>\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/opentranslators/language/sv_SE/)\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/opentranslators/easycreator/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -319,7 +319,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:14
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:287
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: administrator/components/com_easycreator/controllers/codeeyeajax.php:778
 #, php-format
@@ -739,7 +739,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/projectparams_15.php:72
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:171
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: administrator/components/com_easycreator/helpers/html/button.php:30
 #: administrator/components/com_easycreator/helpers/language.php:1043
@@ -772,7 +772,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:28
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:47
 msgid "Folder"
-msgstr ""
+msgstr "Folder"
 
 #: administrator/components/com_easycreator/helpers/html/debug.php:42
 msgid "Log console"
@@ -789,7 +789,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:47
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_language.php:21
 msgid "Languages"
-msgstr ""
+msgstr "Språk"
 
 #: administrator/components/com_easycreator/helpers/html/menu.php:68
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_projectlist.php:52
@@ -808,14 +808,14 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html/menu.php:93
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 #: administrator/components/com_easycreator/helpers/html/menu.php:98
 #: administrator/components/com_easycreator/helpers/project/type/template.php:46
 #: administrator/components/com_easycreator/views/codeeye/tmpl/reflection.php:369
 #: administrator/components/com_easycreator/views/templates/view.html.php:141
 msgid "Templates"
-msgstr ""
+msgstr "Mallar"
 
 #: administrator/components/com_easycreator/helpers/html/menu.php:103
 #: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:25
@@ -825,7 +825,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html/menu.php:108
 #: administrator/components/com_easycreator/views/help/tmpl/default.php:16
 msgid "Help"
-msgstr ""
+msgstr "Hjälp"
 
 #: administrator/components/com_easycreator/helpers/html/menu.php:113
 msgid "Sandbox"
@@ -838,7 +838,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/html/menu.php:191
 #: administrator/components/com_easycreator/helpers/html/menu.php:196
 msgid "More..."
-msgstr ""
+msgstr "Mer ..."
 
 #: administrator/components/com_easycreator/helpers/html/menu.php:191
 msgid "Click for more options"
@@ -846,11 +846,11 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/html/options.php:23
 msgid "Log file contents"
-msgstr ""
+msgstr "Logga filinnehållet"
 
 #: administrator/components/com_easycreator/helpers/html/options.php:24
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: administrator/components/com_easycreator/helpers/html/options.php:38
 msgid "Activate logging"
@@ -886,7 +886,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:377
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:288
 msgid "Select"
-msgstr ""
+msgstr "Välj"
 
 #: administrator/components/com_easycreator/helpers/html/select.php:116
 #: administrator/components/com_easycreator/helpers/table/helper.php:35
@@ -898,7 +898,7 @@ msgstr ""
 #: administrator/components/com_easycreator/helpers/table/helper.php:41
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:25
 msgid "Site"
-msgstr ""
+msgstr "Webbplats"
 
 #: administrator/components/com_easycreator/helpers/html/select.php:136
 #: administrator/components/com_easycreator/helpers/html/wizard.php:44
@@ -917,15 +917,15 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:283
 #: administrator/components/com_easycreator/views/stuffer/tmpl/tables.php:397
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: administrator/components/com_easycreator/helpers/html/select.php:200
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: administrator/components/com_easycreator/helpers/html/select.php:201
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:28
 msgid "Your extension so far"
@@ -938,14 +938,14 @@ msgstr ""
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:42
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:18
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:32
 #: administrator/components/com_easycreator/helpers/project/type/template.php:36
 #: administrator/components/com_easycreator/views/languages/tmpl/g11n.php:24
 #: administrator/components/com_easycreator/views/languages/tmpl/g11nupdate.php:23
 msgid "Template"
-msgstr ""
+msgstr "Mall"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:33
 msgid "JVersion"
@@ -957,29 +957,29 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:63
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_info.php:89
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:50
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:143
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:20
 msgid "Author"
-msgstr ""
+msgstr "Skapare"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:51
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:93
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:25
 msgid "Author e-mail"
-msgstr ""
+msgstr "Upphovsman e-post"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:52
 msgid "Author URL"
-msgstr ""
+msgstr "Upphovsman URL"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:53
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:107
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:35
 msgid "License"
-msgstr ""
+msgstr "Licens"
 
 #: administrator/components/com_easycreator/helpers/html/wizard.php:54
 msgid "Copyright (C)"
@@ -1178,7 +1178,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/project/action/phpcs.php:47
 msgid "Extensions"
-msgstr ""
+msgstr "Tillägg"
 
 #: administrator/components/com_easycreator/helpers/project/action/phpcs.php:52
 #: administrator/components/com_easycreator/helpers/project/action/phpunit.php:40
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/project/action/phpcs.php:57
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorera"
 
 #: administrator/components/com_easycreator/helpers/project/action/phpcs.php:62
 msgid "Warning Threshold"
@@ -1210,7 +1210,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:45
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:65
 msgid "Path"
-msgstr ""
+msgstr "Sökväg"
 
 #: administrator/components/com_easycreator/helpers/project/action/script.php:37
 msgid "Abort on failure"
@@ -1367,7 +1367,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:162
 #: administrator/components/com_easycreator/views/stuffer/view.html.php:132
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: administrator/components/com_easycreator/helpers/project/matrix.php:413
 #: administrator/components/com_easycreator/helpers/project/matrix.php:460
@@ -1387,7 +1387,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/templates/tmpl/export_archive.php:35
 #: administrator/components/com_easycreator/views/ziper/tmpl/archive.php:53
 msgid "Size"
-msgstr ""
+msgstr "Storlek"
 
 #: administrator/components/com_easycreator/helpers/project/matrix.php:437
 #, php-format
@@ -1456,11 +1456,11 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/project/template/info.php:53
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #: administrator/components/com_easycreator/helpers/project/template/info.php:57
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: administrator/components/com_easycreator/helpers/project/template/info.php:76
 #, php-format
@@ -1484,11 +1484,11 @@ msgstr[1] ""
 
 #: administrator/components/com_easycreator/helpers/project/type/component.php:38
 msgid "Component"
-msgstr ""
+msgstr "Komponent"
 
 #: administrator/components/com_easycreator/helpers/project/type/component.php:47
 msgid "Components"
-msgstr ""
+msgstr "Komponenter"
 
 #: administrator/components/com_easycreator/helpers/project/type/component.php:59
 #, php-format
@@ -1518,12 +1518,12 @@ msgstr[1] ""
 
 #: administrator/components/com_easycreator/helpers/project/type/module.php:36
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 #: administrator/components/com_easycreator/helpers/project/type/module.php:46
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:31
 msgid "Modules"
-msgstr ""
+msgstr "Modul"
 
 #: administrator/components/com_easycreator/helpers/project/type/module.php:58
 #, php-format
@@ -1545,12 +1545,12 @@ msgstr[1] ""
 
 #: administrator/components/com_easycreator/helpers/project/type/plugin.php:38
 msgid "Plugin"
-msgstr ""
+msgstr "Instick"
 
 #: administrator/components/com_easycreator/helpers/project/type/plugin.php:47
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_package.php:54
 msgid "Plugins"
-msgstr ""
+msgstr "Instick"
 
 #: administrator/components/com_easycreator/helpers/project/type/plugin.php:59
 #, php-format
@@ -1610,7 +1610,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:372
 msgid "Add row"
-msgstr ""
+msgstr "Lägg till rad"
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:377
 #: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:82
@@ -1621,7 +1621,7 @@ msgstr ""
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:89
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:84
 msgid "Label"
-msgstr ""
+msgstr "Titel"
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:379
 msgid "Length/Set"
@@ -1637,7 +1637,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:382
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:383
 msgid "Extra"
@@ -1645,7 +1645,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/helpers/table/helper.php:384
 msgid "Comment"
-msgstr ""
+msgstr "Kommentera"
 
 #: administrator/components/com_easycreator/includes/loader.php:34
 #, php-format
@@ -1712,7 +1712,7 @@ msgstr ""
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:91
 #: administrator/components/com_easycreator/templates/parts/views/data_list/part.php:141
 msgid "Table"
-msgstr ""
+msgstr "Tabell"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/forms/edit/autocode.php:81
 #: administrator/components/com_easycreator/templates/autocodes/admin/tableclass/classvar/autocode.php:147
@@ -1748,19 +1748,19 @@ msgstr ""
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:91
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:86
 msgid "Width"
-msgstr ""
+msgstr "Bredd"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:121
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:122
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:117
 msgid "On"
-msgstr ""
+msgstr "På"
 
 #: administrator/components/com_easycreator/templates/autocodes/admin/viewlist/table/autocode.php:123
 #: administrator/components/com_easycreator/templates/autocodes/site/viewcategory/table/autocode.php:124
 #: administrator/components/com_easycreator/templates/autocodes/site/viewitem/div/autocode.php:119
 msgid "Off"
-msgstr ""
+msgstr "Av"
 
 #: administrator/components/com_easycreator/templates/component/mvc_5/options.php:38
 #: administrator/components/com_easycreator/templates/component/mvc_9/options.php:40
@@ -1828,19 +1828,19 @@ msgstr ""
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:50
 msgid "Id"
-msgstr ""
+msgstr "ID"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:54
 msgid "Title"
-msgstr ""
+msgstr "Rubrik"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:62
 msgid "Published"
-msgstr ""
+msgstr "Publicerad"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_create/part.php:66
 msgid "Ordering"
-msgstr ""
+msgstr "Ordning"
 
 #: administrator/components/com_easycreator/templates/parts/tables/admin_map/part.php:35
 msgid ""
@@ -2010,7 +2010,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:14
 #: administrator/components/com_easycreator/views/ziper/tmpl/ziper_format.php:39
 msgid "Options"
-msgstr ""
+msgstr "Alternativ"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/phpdoc.php:75
 msgid "Generate documentation"
@@ -2110,7 +2110,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:102
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:78
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats.php:120
 #: administrator/components/com_easycreator/views/codeeye/tmpl/stats2_table.php:96
@@ -2204,7 +2204,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:373
 msgid "Statistics"
-msgstr ""
+msgstr "Statistik"
 
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:374
 #: administrator/components/com_easycreator/views/codeeye/view.html.php:379
@@ -2248,7 +2248,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/deploy/tmpl/default.php:14
 #: administrator/components/com_easycreator/views/languages/view.html.php:1011
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/default.php:20
 msgid "Check all"
@@ -2312,14 +2312,14 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:43
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:65
 msgid "User"
-msgstr ""
+msgstr "Användare"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_ftpcredentials.php:34
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:29
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:47
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:69
 msgid "Password"
-msgstr ""
+msgstr "Lösenord"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/default_githubcredentials.php:18
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_deploy.php:57
@@ -2367,7 +2367,7 @@ msgstr "Ändrad"
 #: administrator/components/com_easycreator/views/deploy/tmpl/package_ftp.php:29
 #: administrator/components/com_easycreator/views/deploy/tmpl/package_github.php:29
 msgid "Manage"
-msgstr ""
+msgstr "Hantera"
 
 #: administrator/components/com_easycreator/views/deploy/tmpl/package_ftp.php:39
 #: administrator/components/com_easycreator/views/deploy/tmpl/package_github.php:39
@@ -2411,11 +2411,11 @@ msgstr ""
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:34
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:16
 msgid "Credits"
-msgstr ""
+msgstr "Erkännaden"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:39
 msgid "Documentation"
-msgstr ""
+msgstr "DOK"
 
 #: administrator/components/com_easycreator/views/easycreator/tmpl/default_ecrbox.php:44
 msgid "Forum"
@@ -2590,7 +2590,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/languages/tmpl/translations.php:268
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:126
 msgid "Translate"
-msgstr ""
+msgstr "Översätt"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/orderdefault.php:85
 msgid "Add Comment"
@@ -2620,7 +2620,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/tmpl/ordertranslation.php:47
 msgid "Value"
-msgstr ""
+msgstr "Värde"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:40
 msgid "PHP XML file analysis"
@@ -2636,7 +2636,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:79
 msgid "Filter"
-msgstr ""
+msgstr "Filtrera"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:103
 #: administrator/components/com_easycreator/views/languages/tmpl/searchfiles.php:105
@@ -2667,17 +2667,17 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:145
 msgid "Copy"
-msgstr ""
+msgstr "Kopiera"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/translator.php:151
 msgid "Google translate"
-msgstr ""
+msgstr "Google-översättning"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:14
 #: administrator/components/com_easycreator/views/languages/view.html.php:830
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:42
 msgid "Versions"
-msgstr ""
+msgstr "Versioner"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:25
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install_update.php:60
@@ -2686,15 +2686,15 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:45
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:46
 msgid "Actions"
-msgstr ""
+msgstr "Aktiviteter"
 
 #: administrator/components/com_easycreator/views/languages/tmpl/versions.php:58
 msgid "Show"
-msgstr ""
+msgstr "Visa"
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:393
 msgid "Errors"
@@ -2799,7 +2799,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/languages/view.html.php:1050
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 #: administrator/components/com_easycreator/views/logfiles/tmpl/default.php:11
 msgid "No logfiles found"
@@ -2839,7 +2839,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:54
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:81
 msgid "Notes"
-msgstr ""
+msgstr "Notering"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:60
 msgid "See also..."
@@ -2860,7 +2860,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:142
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:19
 msgid "Link"
-msgstr ""
+msgstr "Länk"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/default.php:146
 msgid "PHP version"
@@ -2875,12 +2875,12 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:56
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:60
 msgid "Back"
-msgstr ""
+msgstr "Tillbaka"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:27
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:29
 msgid "Next"
-msgstr ""
+msgstr "Nästa"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:34
 msgid "Name for your baby"
@@ -2896,7 +2896,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:58
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:75
 msgid "Required"
-msgstr ""
+msgstr "Obligatorisk"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:81
 msgid "Your Credits"
@@ -2904,7 +2904,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:85
 msgid "Author name"
-msgstr ""
+msgstr "Författarnamn"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:100
 msgid "Author url"
@@ -2913,7 +2913,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard2.php:115
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_credits.php:40
 msgid "Copyright"
-msgstr ""
+msgstr "Upphovsrätt"
 
 #: administrator/components/com_easycreator/views/starter/tmpl/wizard3.php:66
 #: administrator/components/com_easycreator/views/stuffer/tmpl/install.php:23
@@ -2956,7 +2956,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:15
 msgid "Attention"
-msgstr ""
+msgstr "Observera"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/deleteconfirm.php:18
 #, php-format
@@ -3124,7 +3124,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:24
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_install.php:43
 msgid "SQL"
@@ -3162,15 +3162,15 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:12
 msgid "Menu"
-msgstr ""
+msgstr "Meny"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:15
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:25
 msgid "Image"
-msgstr ""
+msgstr "Bild"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_menu.php:33
 msgid "Submenu"
@@ -3306,7 +3306,7 @@ msgstr ""
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:108
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:117
 msgid "Custom name"
-msgstr ""
+msgstr "Anpassat namn"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_packing.php:124
 msgid "Reset to default"
@@ -3341,7 +3341,7 @@ msgstr ""
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:24
 msgid "Update"
-msgstr ""
+msgstr "Uppdatera"
 
 #: administrator/components/com_easycreator/views/stuffer/tmpl/stuffer_update.php:25
 msgid "Method"

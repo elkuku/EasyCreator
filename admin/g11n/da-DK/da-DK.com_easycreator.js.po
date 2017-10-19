@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyCreator\n"
-"Report-Msgid-Bugs-To: https://github.com/elkuku/EasyCreator/issues\n"
+"Report-Msgid-Bugs-To: der.el.kuku@gmail.com\n"
 "POT-Creation-Date: 2012-05-31 01:57-0500\n"
 "PO-Revision-Date: 2011-07-20 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/opentranslators/language/da_DK/)\n"
+"Language-Team: Danish (Denmark) (http://www.transifex.com/opentranslators/easycreator/language/da_DK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +31,7 @@ msgstr ""
 #: media/com_easycreator/admin/js/wizard.js:44
 #: media/com_easycreator/admin/js/ziper.js:124
 msgid "Loading..."
-msgstr ""
+msgstr "Henter..."
 
 #: media/com_easycreator/admin/js/addelement.js:180
 #: media/com_easycreator/admin/js/dbtables.js:150
@@ -40,12 +40,12 @@ msgstr ""
 #: media/com_easycreator/admin/js/stuffer.js:57
 #: media/com_easycreator/admin/js/stuffer.js:124
 msgid "Delete"
-msgstr ""
+msgstr "Slet"
 
 #: media/com_easycreator/admin/js/addelement.js:218
 #: media/com_easycreator/admin/js/menu.js:120
 msgid "Select..."
-msgstr ""
+msgstr "Vælg..."
 
 #: media/com_easycreator/admin/js/codeeye.js:318
 #: media/com_easycreator/admin/js/codeeye.js:330
@@ -99,25 +99,25 @@ msgstr ""
 #: media/com_easycreator/admin/js/deploy.js:268
 #: media/com_easycreator/admin/js/stuffer.js:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: media/com_easycreator/admin/js/deploy.js:224
 #: media/com_easycreator/admin/js/deploy.js:269
 #: media/com_easycreator/admin/js/stuffer.js:52
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: media/com_easycreator/admin/js/deploy.js:225
 #: media/com_easycreator/admin/js/deploy.js:270
 #: media/com_easycreator/admin/js/stuffer.js:53
 msgid "Priority"
-msgstr ""
+msgstr "Prioritet"
 
 #: media/com_easycreator/admin/js/deploy.js:226
 #: media/com_easycreator/admin/js/deploy.js:271
 #: media/com_easycreator/admin/js/stuffer.js:54
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: media/com_easycreator/admin/js/deploy.js:235
 msgid "Add files"
@@ -172,19 +172,19 @@ msgstr ""
 
 #: media/com_easycreator/admin/js/menu.js:51
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: media/com_easycreator/admin/js/menu.js:55
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: media/com_easycreator/admin/js/menu.js:62
 msgid "Ordering"
-msgstr ""
+msgstr "Orden"
 
 #: media/com_easycreator/admin/js/menu.js:68
 msgid "Image"
-msgstr ""
+msgstr "Billede"
 
 #: media/com_easycreator/admin/js/menu.js:144
 msgid "User defined"
@@ -214,7 +214,7 @@ msgstr ""
 
 #: media/com_easycreator/admin/js/translator.js:48
 msgid "Empty"
-msgstr ""
+msgstr "Tom"
 
 #: media/com_easycreator/admin/js/translator.js:64
 msgid "Undefined Joomla! version"
