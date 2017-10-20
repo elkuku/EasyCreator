@@ -11,7 +11,7 @@
   <description>EasyCreator helps creating Extensions for Joomla!</description>
   <scriptfile>install/script.php</scriptfile>
   <updateservers>
-    <server name="EasyCreator update server" type="extension" priority="1">http://elkuku.github.io/EasyCreator/updates.xml</server>
+    <server name="EasyCreator update server" type="extension" priority="1">https://easycreator.github.io/updates.xml</server>
   </updateservers>
   <files folder="site">
     <folder>g11n</folder>
