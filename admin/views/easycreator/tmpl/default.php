@@ -17,9 +17,9 @@ $link->latestVersion = 'https://github.com/elkuku/EasyCreator/commits/master.ato
 
 if( ! JComponentHelper::getParams('com_easycreator')->get('cred_author')) :
     //-- Parameters have not been set
-    $link = '<a href="index.php?option=com_easycreator&controller=config">'.jgettext('Configuration settings').'</a>';
+    $href = '<a href="index.php?option=com_easycreator&controller=config">'.jgettext('Configuration settings').'</a>';
     JFactory::getApplication()->enqueueMessage(
-        sprintf(jgettext('Please set your personal information in %s'), $link), 'warning');
+        sprintf(jgettext('Please set your personal information in %s'), $href), 'warning');
 endif;
 ?>
 <div class="ecrInfoBoxContainer">
