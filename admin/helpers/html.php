@@ -261,7 +261,7 @@ EOF;
         //-- Check for a SVN id in changelog
         // TODO change to getVersionFromFile
 
-        $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.'CHANGELOG.php';
+        $file = JPATH_ADMINISTRATOR.'/components/'.$appName.'/CHANGELOG.php';
 
         if(file_exists($file)) {
             //--we do not use JFile here cause we only need one line which is
@@ -298,7 +298,7 @@ EOF;
 
         //-- Check the component manifest
 
-        $file = JPATH_ADMINISTRATOR.DS.'components'.DS.$appName.DS.str_replace('com_', '', $appName) . '.xml';
+        $file = JPATH_ADMINISTRATOR.'/components/'.$appName.'/'.str_replace('com_', '', $appName) . '.xml';
 
         if(file_exists($file)) {
             $xml = simplexml_load_file($file);
@@ -344,7 +344,7 @@ EOF;
         {
             $trace = debug_backtrace();
 
-            $callFile = str_replace(JPATH_COMPONENT.DS, '', $trace[0]['file']);
+            $callFile = str_replace(JPATH_COMPONENT.'/', '', $trace[0]['file']);
             $callFile .= ' ('.$trace[0]['line'].')';
         }
 
