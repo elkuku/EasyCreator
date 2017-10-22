@@ -130,7 +130,11 @@ class EcrProjectTemplateHelper
             throw new Exception(jgettext('This is not an EasyCreator Extension Template'));
         }
 
-        $result = array();
+        $result = array(
+	        'installs' => array(),
+	        'errors' => array(),
+        );
+
         $types = (JFolder::folders($package['extractdir']));
 
         foreach($types as $type)
@@ -176,7 +180,8 @@ class EcrProjectTemplateHelper
 
                 foreach($folders as $folder)
                 {
-                    $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $folder);
+	                $f = str_replace('/', DIRECTORY_SEPARATOR, $folder);
+                    $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $f);
 
                     if(false == JFolder::create(ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
                     {
@@ -189,11 +194,12 @@ class EcrProjectTemplateHelper
 
                 foreach($files as $file)
                 {
-                    $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $file);
+	                $f = str_replace('/', DIRECTORY_SEPARATOR, $file);
+                    $s = str_replace($package['extractdir'].DS.$type.DS.$template.DS, '', $f);
 
                     if(false == JFile::copy($file, ECRPATH_EXTENSIONTEMPLATES.DS.$type.DS.$template.DS.$s))
                     {
-                        throw new Exception(jgettext('Can not copy file %s', $s));
+                        throw new Exception(sprintf(jgettext('Can not copy file %s'), $s));
                     }
                 }
             }
