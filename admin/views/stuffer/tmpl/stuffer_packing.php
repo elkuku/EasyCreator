@@ -170,7 +170,7 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
         </span>
     </div>
 
-    <?php echo EcrHelp::info(jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*'), jgettext('Custom name format')); ?>
+    <?php echo EcrHelp::info('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*', jgettext('Custom name format')); ?>
 
 </div>
 

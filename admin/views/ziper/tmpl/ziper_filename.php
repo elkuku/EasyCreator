@@ -25,7 +25,7 @@ $javascript = "document.id('cst_format').value=this.value; EcrZiper.updateName()
 
 <strong><?php echo jgettext('Custom name format'); ?></strong>
 
-<?php echo EcrHelp::info(jgettext('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*'), jgettext('Custom name format')); ?>
+<?php echo EcrHelp::info('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*', jgettext('Custom name format')); ?>
 
 <br/>
 <input type="radio" name="opt_format" id="custom_name_1" class="custom_opt" checked="checked"
