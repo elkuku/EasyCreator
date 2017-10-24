@@ -25,7 +25,7 @@ $javascript = "document.id('cst_format').value=this.value; EcrZiper.updateName()
 
 <strong><?php echo jgettext('Custom name format'); ?></strong>
 
-<?php echo EcrHelp::info('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*', jgettext('Custom name format')); ?>
+<?php echo EcrHelp::info('Use:<br />*VERSION*<br />*DATETIMExxxx*', jgettext('Custom name format')); ?>
 
 <br/>
 <input type="radio" name="opt_format" id="custom_name_1" class="custom_opt" checked="checked"
@@ -50,14 +50,6 @@ $javascript = "document.id('cst_format').value=this.value; EcrZiper.updateName()
     />
 <label class="inline" id="lbl_custom_name_3" for="custom_name_3">
     <?php echo $buildOpts->get('custom_name_3'); ?>
-</label>
-<br/>
-<input type="radio" name="opt_format" id="custom_name_4" class="custom_opt"
-       value="<?php echo $buildOpts->get('custom_name_4'); ?>"
-       onclick="<?php echo $javascript; ?>"
-    />
-<label class="inline" id="lbl_custom_name_4" for="custom_name_4">
-    <?php echo $buildOpts->get('custom_name_4'); ?>
 </label>
 
 <hr />

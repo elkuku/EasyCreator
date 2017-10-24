@@ -296,7 +296,6 @@ var ecrStuffer = new Class({
                 document.id('custom_name_1').set('value', params.custom_name_1);
                 document.id('custom_name_2').set('value', params.custom_name_2);
                 document.id('custom_name_3').set('value', params.custom_name_3);
-                document.id('custom_name_4').set('value', params.custom_name_4);
             }
         }).send();
     },

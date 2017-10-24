@@ -152,16 +152,6 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
                    value="<?php echo $options->get('custom_name_3'); ?>"/>
         </div>
     </div>
-    <div class="control-group">
-        <label class="control-label" for="custom_name_4">
-            <?php echo jgettext('Custom name'); ?>
-        </label>
-
-        <div class="controls">
-            <input type="text" size="30" name="buildopts[custom_name_4]" id="custom_name_4"
-                   value="<?php echo $options->get('custom_name_4'); ?>"/>
-        </div>
-    </div>
 
     <div class="btn-toolbar">
         <span class="btn" onclick="Stuffer.loadFilenameDefaults(this);">
@@ -170,7 +160,7 @@ JFactory::getDocument()->addScriptDeclaration("window.addEvent('domready', funct
         </span>
     </div>
 
-    <?php echo EcrHelp::info('Use:<br />*VERSION*<br />*VCSREV*<br />*DATETIMExxxx*', jgettext('Custom name format')); ?>
+    <?php echo EcrHelp::info('Use:<br />*VERSION*<br />*DATETIMExxxx*', jgettext('Custom name format')); ?>
 
 </div>
 

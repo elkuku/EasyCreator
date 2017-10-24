@@ -453,7 +453,7 @@ abstract class EcrProjectBase
             $p->$var = (in_array($var, $buildOpts)) ? 1 : 0;
         }
 
-        for($i = 1; $i < 5; $i ++)
+        for($i = 1; $i < 4; $i ++)
         {
             $p->{'custom_name_'.$i} = $ooo->get('custom_name_'.$i);
         }

@@ -26,14 +26,12 @@
 
         <field name="spacer1_2" type="spacer" default="Custom file name"/>
 
-        <field name="custom_name_1" type="text" size="40"
-               label="Custom name default" default="_*VERSION*_*VCSREV*_*DATETIMEYmd_Hi*"/>
+        <field name="custom_name_1" type="text" size="40" label="Custom name default"
+               default="_*DATETIMEYmd_Hi*"/>
         <field name="custom_name_2" type="text" size="40" label="Custom name"
-               default="_*VERSION*_*DATETIMEYmd_Hi*"/>
-        <field name="custom_name_3" type="text" size="40" label="Custom name"
                default="_*VERSION*"/>
-        <field name="custom_name_4" type="text" size="40" label="Custom name"
-               default="_*VCSREV*"/>
+        <field name="custom_name_3" type="text" size="40" label="Custom name"
+               default="_*VERSION*_*DATETIMEYmd_Hi*"/>
     </fieldset>
 
     <fieldset name="various" label="Various">
