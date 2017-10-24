@@ -632,9 +632,26 @@ class EcrProjectZiper extends JObject
 		$installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
 		if(0 == count($installFiles['php']))
+		{
 			return $this;
+		}
 
-		$srcDir = $this->temp_dir.DS.'admin';
+		if (JFolder::exists($this->temp_dir.DS.'admin'))
+		{
+			$srcDir = $this->temp_dir.DS.'admin';
+
+		}
+		elseif (JFolder::exists($this->temp_dir.DS.'site'))
+		{
+			$srcDir = $this->temp_dir.DS.'site';
+		}
+		else
+		{
+			$this->logger->log('Wrong temp dir');
+
+			return $this;
+		}
+
 		$destDir = $this->temp_dir.DS.'install';
 
 		//-- Create 'install' folder in temp dir

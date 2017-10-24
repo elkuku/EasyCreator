@@ -208,13 +208,6 @@ class EcrProjectManifest extends JObject
      */
     private function processInstall()
     {
-        if($this->project->type != 'component')
-        {
-            //-- Only components have install files
-            //-- @todo change for 1.6 + ?
-            return $this;
-        }
-
         $installFiles = EcrProjectHelper::findInstallFiles($this->project);
 
         //-- PHP install scripts

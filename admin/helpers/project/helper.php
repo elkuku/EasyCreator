@@ -571,93 +571,92 @@ class EcrProjectHelper
         $installFiles['sql'] = array();
         $installFiles['sql_updates'] = array();
 
-        if($project->type != 'component')
-        {
-            //-- Only components can have install files..
-            //-- @todo change in 1.6
-            return $installFiles;
-        }
+	    $searchFolders = array();
 
         if($project->buildPath)
         {
             //-- If $project->buildPath is set we are building a NEW project)
             if(JFolder::exists($project->buildPath.'/install'))
             {
-                $base = $project->buildPath.DS.'install';
+                $searchFolders[] = $project->buildPath.DS.'install';
             }
             else
             {
-                $base = $project->buildPath.DS.'admin';
+	            $searchFolders[] = $project->buildPath.DS.'admin';
             }
         }
         else
         {
-            //-- Look in J!s component directory
-            $base = JPath::clean(JPATH_ADMINISTRATOR.'/components/'.$project->comName);
+            //-- Look in J!s extension directories
+	        $searchFolders = $project->findCopies();
         }
 
-        if( ! JFolder::exists($base))
-        {
-            EcrHtml::message(array(sprintf(jgettext('Project %s not found'), $project->comName)), 'error');
+	    foreach ($searchFolders as $searchFolder)
+	    {
 
-            return $installFiles;
-        }
+		    if( ! JFolder::exists($searchFolder))
+		    {
+			    EcrHtml::message(array(sprintf(jgettext('Project %s not found'), $project->comName)), 'error');
 
-        //-- Look in components 'root'
-        $files = JFolder::files($base, '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$|xml$)');
+			    return $installFiles;
+		    }
 
-        foreach($files as $file)
-        {
-            $f = new stdClass;
-            $f->folder = '';
-            $f->name = $file;
+		    //-- Look in components 'root'
+	        $files = JFolder::files($searchFolder, '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$|xml$)');
 
-            $installFiles[JFile::getExt($file)][] = $f;
-        }
+	        foreach($files as $file)
+	        {
+	            $f = new stdClass;
+	            $f->folder = '';
+	            $f->name = $file;
 
-        //-- Look in 'install' folder
-        if(JFolder::exists($base.'/install'))
-        {
-            $files = JFolder::files($base.DS.'install'
-            , '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$|xml$)', true, true);
+	            $installFiles[JFile::getExt($file)][] = $f;
+	        }
 
-            foreach($files as $file)
-            {
-                $file = str_replace('/', DS, $file);
-                $folder = str_replace($base.DS, '', $file);
-                $folder = str_replace(DS.JFile::getName($file), '', $folder);
+	        //-- Look in 'install' folder
+	        if(JFolder::exists($searchFolder.'/install'))
+	        {
+	            $files = JFolder::files($searchFolder.DS.'install'
+	            , '(^install|^uninstall|^update|^script)([\.a-z0-9])+(sql$|php$|xml$)', true, true);
 
-                $f = new stdClass;
-                $f->folder = $folder;
-                $f->name = JFile::getName($file);
+	            foreach($files as $file)
+	            {
+	                $file = str_replace('/', DS, $file);
+	                $folder = str_replace($searchFolder.DS, '', $file);
+	                $folder = str_replace(DS.JFile::getName($file), '', $folder);
 
-                $ext = JFile::getExt($file);
+	                $f = new stdClass;
+	                $f->folder = $folder;
+	                $f->name = JFile::getName($file);
 
-                if('xml' == $ext)
-                    $ext = 'sql';
+	                $ext = JFile::getExt($file);
 
-                $installFiles[$ext][] = $f;
-            }
-        }
+	                if('xml' == $ext)
+	                    $ext = 'sql';
 
-        //-- Look for update folder - must be in specific location
-        $locTest = '/install/sql/updates';
+	                $installFiles[$ext][] = $f;
+	            }
+	        }
 
-        if(JFolder::exists($base.$locTest))
-        {
-            $folders = JFolder::folders($base.$locTest);
+	        //-- Look for update folder - must be in specific location
+	        $locTest = '/install/sql/updates';
 
-            foreach($folders as $folder)
-            {
-                $f = new stdClass;
-                $f->folder = $locTest;
-                $f->name = $folder;
+	        if(JFolder::exists($searchFolder.$locTest))
+	        {
+	            $folders = JFolder::folders($searchFolder.$locTest);
 
-                $installFiles['sql_updates'][] = $f;
-            }
-        }
+	            foreach($folders as $folder)
+	            {
+	                $f = new stdClass;
+	                $f->folder = $locTest;
+	                $f->name = $folder;
 
-        return $installFiles;
+	                $installFiles['sql_updates'][] = $f;
+	            }
+	        }
+	    }
+
+	    return $installFiles;
     }
 
     /**
