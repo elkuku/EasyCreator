@@ -577,7 +577,32 @@ class EcrProjectManifest extends JObject
 
             $fileElement = $filesElement->addChild('file', $path);
             $fileElement->addAttribute('type', $project->type);
-            $fileElement->addAttribute('id', $element);
+            $fileElement->addAttribute('id', $project->comName);
+
+	        switch($project->type) {
+		        case 'component':
+		        case 'cliapp':
+		        case 'webapp':
+			        break;
+		        case 'module':
+		        case 'template':
+			        $fileElement->addAttribute('client', ($project->scope == 'admin'?'administrator':'site'));
+			        break;
+		        case 'plugin':
+			        $fileElement->addAttribute('group', $project->scope);
+			        break;
+		        case 'library' :
+			        //not sure about this but probably not
+			        //$fileElement->addChild('libraryname', $project->comName);
+			        break;
+		        case 'package':
+			        //todo: can we put a package in a package???
+			        //$fileElement->addChild('packagename', strtolower($project->name));
+			        break;
+		        default :
+			        throw new Exception(__METHOD__.' - unknown project type: '.$project->type);
+			        break;
+	        }
         }
 
         return $this;
