@@ -652,32 +652,20 @@ class EcrProjectZiper extends JObject
 			return $this;
 		}
 
-		$destDir = $this->temp_dir.DS.'install';
+		$destDir = $this->temp_dir;
 
-		//-- Create 'install' folder in temp dir
-		JFolder::create($destDir);
-
-		//-- Copy install files from 'admin' to 'temp'
+		//-- Copy install files from 'source' to 'temp'
 		foreach($installFiles['php'] as $file)
 		{
 			$srcPath = $srcDir;
 			$srcPath .= ($file->folder) ? DS.$file->folder : '';
 			$srcPath .= DS.$file->name;
 
-			$destPath = $destDir;
+			$destPath = $this->temp_dir;
 
-			if($file->folder == 'install')
+			if($file->folder)
 			{
-				$folder = '';
-			}
-			else
-			{
-				$folder = str_replace('install'.DS, '', $file->folder);
-			}
-
-			if($folder)
-			{
-				$destPath .= DS.$folder;
+				$destPath .= DS.$file->folder;
 
 				//-- Create the folder
 				JFolder::create($destPath);
@@ -727,7 +715,7 @@ class EcrProjectZiper extends JObject
 
 			if(JFile::write($destPath.DS.$file->name, $fileContents))
 			{
-				$this->logger->logFileWrite('', 'install/install.php', $fileContents);
+				$this->logger->logFileWrite('', $destPath.DS.$file->name, $fileContents);
 			}
 			else
 			{

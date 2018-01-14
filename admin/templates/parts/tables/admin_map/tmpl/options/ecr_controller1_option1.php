@@ -6,7 +6,7 @@ function _reOrder($direction)
 
     // Initialize variables
     $db	= & JFactory::getDBO();
-    $cid = JRequest::getVar('cid', array(), 'post', 'array');
+    $cid = JFactory::getApplication()->input->get('cid', array(), 'array');
 
     if(isset($cid[0]))
     {
@@ -25,14 +25,14 @@ function _reOrder($direction)
 function saveorder()
 {
     // Check for request forgeries
-    JRequest::checkToken() || jexit('Invalid Token');
+    JSession::checkToken() || jexit('Invalid Token');
 
     // Initialize variables
-    $db =& JFactory::getDBO();
-    $cid = JRequest::getVar('cid', array(), 'post', 'array');
+    $db = JFactory::getDBO();
+    $cid = JFactory::getApplication()->input->get('cid', array(), 'array');
 
     $total = count($cid);
-    $order = JRequest::getVar('order', array(0), 'post', 'array');
+    $order = JFactory::getApplication()->input->get('order', array(0), 'array');
     JArrayHelper::toInteger($order, array(0));
 
     $row =& JTable::getInstance('ECR_ELEMENT_NAME', 'Table');

@@ -131,7 +131,7 @@ abstract class g11n//-- Joomla!'s Alternative Language Handler oO
     , $inputType = 'po', $storageType = 'file_php')
     {
         if( ! $extension
-        && ! $extension = JRequest::getCmd('option'))
+        && ! $extension = JFactory::getApplication()->input->getCmd('option'))
         throw new g11nException('Invalid extension');
 
         if(empty($scope))
@@ -271,7 +271,7 @@ abstract class g11n//-- Joomla!'s Alternative Language Handler oO
         self::detectLanguage();
 
         if( ! $extension
-        && !  $extension = JRequest::getCmd('option'))
+        && !  $extension = JFactory::getApplication()->input->getCmd('option'))
         throw new g11nException('Invalid extension');
 
         if($JAdmin == '')
@@ -504,7 +504,7 @@ abstract class g11n//-- Joomla!'s Alternative Language Handler oO
      */
     private static function detectLanguage()
     {
-        $reqLang = JRequest::getCmd('lang');
+        $reqLang = JFactory::getApplication()->input->getCmd('lang');
 
         if($reqLang != '')
         {
