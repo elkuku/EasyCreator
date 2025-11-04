@@ -1,3 +1,5 @@
+## Discontinued ;(
+
 ## EasyCreator
 
 EasyCreator is a developer tool for the Joomla! CMS.
